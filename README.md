@@ -55,7 +55,7 @@ All traffic is routed through **Tor (Orbot)**.
 ### 3. Anti-Forensics 💀
 * **Integrity Check:** The app self-terminates if it detects a rooted environment or a debugger attached.
 * **Auto-Lock:** Immediate session termination when the app moves to background.
-* **Duress PIN:** (Coming Soon) Entering a specific fake PIN wipes the database or loads a dummy UI.
+* **Duress PIN:** Entering a specific fake PIN wipes the database or loads a dummy UI.
 
 ## 🚀 Setup
 
