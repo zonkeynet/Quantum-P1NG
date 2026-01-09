@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b0f14" />
+  <meta name="description" content="Quantum P1NG — ghost signals for a nomadic network. Privacy-first messaging over Tor, anti-forensics, zero-log relay." />
+  <title>Quantum P1NG — Ghost Signals</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <a class="brand" href="#top" aria-label="Quantum P1NG home">
+        <span class="brand__mark">Q</span>
+        <span class="brand__name">Quantum P1NG</span>
+      </a>
+
+      <nav class="nav">
+        <a href="#mission">Mission</a>
+        <a href="#stack">Tech Stack</a>
+        <a href="#security">Security</a>
+        <a href="#setup">Setup</a>
+        <a href="#roadmap">Roadmap</a>
+        <a class="nav__cta" href="https://github.com/zonkeynet/Quantum-P1NG" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+
+      <button class="burger" aria-label="Apri menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="mobilemenu" aria-hidden="true">
+      <a href="#mission">Mission</a>
+      <a href="#stack">Tech Stack</a>
+      <a href="#security">Security</a>
+      <a href="#setup">Setup</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="https://github.com/zonkeynet/Quantum-P1NG" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero__grid">
+        <div class="hero__left">
+          <div class="kicker">ghost signals for a nomadic network</div>
+          <h1 class="title">Quantum P1NG</h1>
+          <p class="subtitle">
+            Uno strumento di comunicazione <strong>privacy-first</strong> pensato per ambienti ostili:
+            routing su <strong>Tor</strong>, <strong>anti-forensics</strong>, relay <strong>zero-log</strong>.
+          </p>
+
+          <div class="badges">
+            <span class="badge">Tor-only</span>
+            <span class="badge">Zero-log relay</span>
+            <span class="badge">Anti-forensics</span>
+            <span class="badge">Android (Kotlin/Compose)</span>
+          </div>
+
+          <div class="hero__cta">
+            <a class="btn" href="https://github.com/zonkeynet/Quantum-P1NG" target="_blank" rel="noopener">Apri su GitHub</a>
+            <a class="btn btn--ghost" href="#setup">Setup</a>
+          </div>
+
+          <p class="quote">
+            <span>“We do not store what we cannot see. We do not see what is encrypted.”</span>
+          </p>
+        </div>
+
+        <div class="hero__right">
+          <div class="logoCard">
+            <img
+              src="https://github.com/zonkeynet/Quantum-P1NG/blob/main/logo_quantum.png?raw=true"
+              alt="Quantum P1NG logo"
+              loading="eager"
+            />
+            <div class="logoCard__meta">
+              <div class="logoCard__line"><span class="mono">Here.</span> <span class="mono">Then gone.</span></div>
+              <div class="logoCard__sub mono">P1NG → E2E → relay → ∅ logs</div>
+            </div>
+          </div>
+
+          <div class="terminal">
+            <div class="terminal__bar">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="terminal__title mono">session.log (simulazione)</span>
+            </div>
+            <pre class="mono terminal__body">$ quantum-p1ng --route tor
+[ok] orbot detected
+[ok] proxy socks5://127.0.0.1:9050
+[ok] keys generated (keystore)
+[ok] relay reachable
+[info] sending ping...
+[done] delivered
+[decay] local traces: minimal
+            </pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="scanlines" aria-hidden="true"></div>
+      <div class="glow" aria-hidden="true"></div>
+    </section>
+
+    <section id="mission" class="section">
+      <div class="wrap">
+        <h2>📡 Mission</h2>
+        <p class="lead">
+          <strong>Quantum P1NG</strong> non è solo una chat: è un tool di sopravvivenza per comunicazioni in ambienti ostili.
+          Assume che il dispositivo possa essere compromesso e progetta difese per l’operatore, non solo per i dati.
+        </p>
+
+        <div class="cards">
+          <article class="card">
+            <h3>Tor-only</h3>
+            <p>Routing esclusivo su Tor (Orbot). Il relay non vede IP reali e riduce l’esposizione del metadata.</p>
+          </article>
+          <article class="card">
+            <h3>Ephemeral by default</h3>
+            <p>Messaggi come eventi: consegna, decadenza, minimizzazione delle tracce. L’archivio non è la forma naturale.</p>
+          </article>
+          <article class="card">
+            <h3>Operator-first</h3>
+            <p>Burn-on-Read, Duress Mode, Integrity Checks. L’obiettivo è sopravvivere a pressioni fisiche e tecniche.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="stack" class="section section--alt">
+      <div class="wrap">
+        <h2>🛠 Tech Stack</h2>
+
+        <div class="split">
+          <div class="panel">
+            <h3>Client (Android)</h3>
+            <ul>
+              <li><strong>Kotlin</strong> + <strong>Jetpack Compose (Material3)</strong></li>
+              <li><strong>OkHttp</strong> / Retrofit con proxy Tor via <strong>Orbot</strong></li>
+              <li><strong>Room (SQLite)</strong> + <strong>SQLCipher</strong> (AES-256)</li>
+              <li>Crypto: <strong>RSA-2048</strong> + <strong>AES-GCM</strong> (E2E)</li>
+              <li>Hardening: root/emulator/debug detection, FLAG_SECURE</li>
+            </ul>
+          </div>
+
+          <div class="panel">
+            <h3>Server (Relay)</h3>
+            <ul>
+              <li><strong>Python (Flask)</strong> come “blind relay”</li>
+              <li><strong>Zero-Log Policy</strong>: messaggi eliminati dopo delivery</li>
+              <li>Distribuibile e replicabile (nodi multipli)</li>
+              <li>Progettato per non conoscere contenuti (solo “noise” cifrata)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="note">
+          <div class="note__title mono">Nota</div>
+          <div class="note__body">
+            Questa pagina descrive la visione e la struttura. I dettagli implementativi vanno sempre verificati nel codice e nelle issue.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="security" class="section">
+      <div class="wrap">
+        <h2>🛡 Security</h2>
+
+        <div class="cards">
+          <article class="card">
+            <h3>🧅 Onion Layer</h3>
+            <p>Traffico instradato su Tor. Riduzione del rischio di IP leaks e maggiore resilienza geografica.</p>
+          </article>
+
+          <article class="card">
+            <h3>🔐 End-to-End Encryption</h3>
+            <p>Handshake asimmetrico + cifratura del payload prima della trasmissione. Il relay vede solo dati incomprensibili.</p>
+          </article>
+
+          <article class="card">
+            <h3>💀 Anti-Forensics</h3>
+            <p>Integrity checks, auto-lock in background, duress PIN / UI decoy. Minimizzazione delle tracce locali.</p>
+          </article>
+        </div>
+
+        <div class="callout">
+          <div class="callout__left">
+            <div class="mono callout__title">Threat model</div>
+            <p>
+              Quantum P1NG presume avversari capaci: raccolta metadata, sequestro dispositivo, coercizione.
+              L’obiettivo è ridurre superficie e persistenza.
+            </p>
+          </div>
+          <div class="callout__right">
+            <div class="mono tiny">Copy/paste (placeholder)</div>
+            <div class="copybox">
+              <code id="onionUrl" class="mono">http://YOUR-RELAY.onion</code>
+              <button class="copybtn" data-copy="onionUrl" aria-label="Copia URL onion">Copy</button>
+            </div>
+            <div class="tiny hint">Sostituisci con il tuo relay .onion quando pronto.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="setup" class="section section--alt">
+      <div class="wrap">
+        <h2>🚀 Setup</h2>
+
+        <div class="split">
+          <div class="panel">
+            <h3>Prerequisiti</h3>
+            <ol>
+              <li>Android Studio (Koala o successivo)</li>
+              <li><strong>Orbot</strong> installato su device (consigliato fisico)</li>
+              <li>SDK/NDK configurati secondo Gradle</li>
+            </ol>
+          </div>
+
+          <div class="panel">
+            <h3>Installazione</h3>
+            <pre class="mono code">$ git clone https://github.com/zonkeynet/Quantum-P1NG.git
+$ cd Quantum-P1NG
+# Apri in Android Studio e sync Gradle
+            </pre>
+            <div class="tiny">
+              Suggerimento: usa un device reale con Orbot attivo per testare correttamente il routing.
+            </div>
+          </div>
+        </div>
+
+        <div class="note">
+          <div class="note__title mono">Build</div>
+          <div class="note__body">
+            Quando il progetto avrà task Gradle definitivi, questa sezione può includere comandi come
+            <span class="mono">./gradlew assembleDebug</span>.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="roadmap" class="section">
+      <div class="wrap">
+        <h2>🧭 Roadmap</h2>
+
+        <div class="roadmap">
+          <div class="rm">
+            <div class="rm__tag mono">Phase 0</div>
+            <div class="rm__body">
+              <h3>Protocol skeleton</h3>
+              <p>Struttura base: key mgmt, pings, relay interface, routing Tor, UI minimale.</p>
+            </div>
+          </div>
+
+          <div class="rm">
+            <div class="rm__tag mono">Phase 1</div>
+            <div class="rm__body">
+              <h3>Duress & decay</h3>
+              <p>Duress PIN, decoy UI, burn-on-read, background lock, policy di decadenza.</p>
+            </div>
+          </div>
+
+          <div class="rm">
+            <div class="rm__tag mono">Phase 2</div>
+            <div class="rm__body">
+              <h3>Resilience</h3>
+              <p>Relay multipli, failover, store-and-forward temporaneo, hardening operativo.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="footerline">
+          <a class="btn btn--ghost" href="https://github.com/zonkeynet/Quantum-P1NG/issues" target="_blank" rel="noopener">
+            Apri issue / idee
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="wrap footer__inner">
+        <div class="mono tiny">
+          Quantum P1NG • ghost signals • zero-log intent • built to move
+        </div>
+        <div class="tiny">
+          <a href="https://github.com/zonkeynet/Quantum-P1NG" target="_blank" rel="noopener">GitHub</a>
+          <span class="sep">·</span>
+          <a href="#top">Top</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>
