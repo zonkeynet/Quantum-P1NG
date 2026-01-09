@@ -214,34 +214,47 @@ $ ./gradlew assembleDebug</pre>
       </div>
     </section>
 
-    <section id="roadmap" class="section">
+<section id="roadmap" class="section">
       <div class="wrap">
         <h2>🧭 Roadmap</h2>
 
-        <div class="roadmap">
-          <div class="rm">
-            <div class="rm__tag mono">Phase 0</div>
-            <div class="rm__body">
+        <div class="roadmap-container">
+          <div class="rm rm--done">
+            <div class="rm__status mono">[EXECUTED]</div>
+            <div class="rm__content">
+              <div class="rm__tag mono">Phase 0</div>
               <h3>Protocol Skeleton</h3>
               <p>Base structure: key mgmt, pings, blind relay interface, Tor routing, minimal UI.</p>
             </div>
           </div>
 
-          <div class="rm">
-            <div class="rm__tag mono">Phase 1</div>
-            <div class="rm__body">
+          <div class="rm rm--done">
+            <div class="rm__status mono">[EXECUTED]</div>
+            <div class="rm__content">
+              <div class="rm__tag mono">Phase 1</div>
               <h3>Duress & Decay</h3>
               <p>Duress PIN, decoy UI, burn-on-read, background lock, data decay policies.</p>
             </div>
           </div>
 
-          <div class="rm">
-            <div class="rm__tag mono">Phase 2</div>
-            <div class="rm__body">
+          <div class="rm rm--active">
+            <div class="rm__status mono blink-text">>>> COMPLETED_</div>
+            <div class="rm__content">
+              <div class="rm__tag mono">Phase 2</div>
               <h3>Resilience</h3>
               <p>Multi-relay support, failover, temporary store-and-forward, operational hardening.</p>
             </div>
           </div>
+          
+          <div class="rm rm--future">
+             <div class="rm__status mono">[PENDING]</div>
+             <div class="rm__content">
+               <div class="rm__tag mono">Phase 3</div>
+               <h3>Quantum Mesh</h3>
+               <p>Direct device-to-device (P2P) fallback via Bluetooth/WiFi aware for local grid comms.</p>
+             </div>
+          </div>
+
         </div>
 
         <div class="footerline">
