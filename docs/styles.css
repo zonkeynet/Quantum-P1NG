@@ -242,11 +242,95 @@ a:hover{color:var(--acc)}
 .code{background:#000; padding:15px; border-radius:8px; border:1px solid #333; color:var(--muted); font-size:13px}
 
 /* Mobile */
-@media(max-width:800px){
-  .hero__grid, .cards, .split{grid-template-columns: 1fr}
-  .title{font-size:40px}
-  .nav{display:none}
-  .burger{display:block; background:none; border:none; color:white; cursor:pointer}
-  .burger span{display:block; width:25px; height:2px; background:white; margin:5px 0}
-  .mobilemenu{display:none; padding:20px; background:var(--bg2)}
+/* --- MOBILE OPTIMIZATIONS --- */
+@media (max-width: 800px) {
+  /* 1. Layout Generale */
+  .wrap { padding: 0 20px; }
+  .section { padding: 50px 0; } /* Meno spazio tra le sezioni */
+  
+  /* 2. Hero Section Compatta */
+  .hero { 
+    padding: 80px 0 40px; /* Riduciamo il padding superiore */
+    text-align: center; /* Centriamo tutto su mobile per impatto visivo */
+  }
+  
+  .hero__grid { 
+    gap: 30px; /* Spazio tra testo e immagine */
+  }
+  
+  /* 3. Tipografia Mobile */
+  .kicker { font-size: 11px; margin-bottom: 12px; }
+  
+  .title { 
+    font-size: 42px; /* Molto più piccolo di 64px, evita a capo brutti */
+    margin-bottom: 16px;
+  }
+  
+  .subtitle { 
+    font-size: 16px; 
+    margin: 0 auto 24px; /* Centrato */
+    line-height: 1.5;
+  }
+  
+  /* 4. Badges e Bottoni Centrati */
+  .badges { 
+    justify-content: center; 
+    margin-bottom: 24px; 
+  }
+  
+  .hero__cta { 
+    justify-content: center; 
+    flex-direction: column; /* Bottoni uno sopra l'altro su schermi stretti */
+    width: 100%;
+  }
+  
+  .btn { width: 100%; } /* Bottoni a larghezza piena per tocco facile */
+
+  /* 5. Terminale e Card */
+  .logoCard { 
+    margin-top: 10px; 
+    padding: 16px; 
+  }
+  
+  .terminal {
+    margin-top: 16px;
+    font-size: 11px; /* Testo terminale leggermente più piccolo */
+  }
+  .terminal__body {
+    height: 160px; /* Meno alto su mobile */
+  }
+
+  /* 6. Navigazione */
+  .nav { display: none; } /* Nascondi menu desktop */
+  
+  .burger { 
+    display: block; 
+    z-index: 102; /* Sopra a tutto */
+    position: relative;
+  }
+  
+  .mobilemenu {
+    position: fixed;
+    top: 70px; left: 0; right: 0;
+    background: rgba(5, 7, 10, 0.95); /* Sfondo quasi solido leggibile */
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--line);
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    z-index: 101;
+  }
+  
+  .mobilemenu a {
+    font-size: 18px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    text-align: center;
+    color: var(--text);
+  }
+  
+  /* Griglie interne diventano singola colonna */
+  .cards, .split, .callout, .rm { grid-template-columns: 1fr; }
+  
+  /* Footer */
+  .footer__inner { flex-direction: column; gap: 16px; }
 }
