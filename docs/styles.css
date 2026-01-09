@@ -507,3 +507,86 @@ a:hover { color: var(--acc); }
   0%, 100% { filter: drop-shadow(0 0 0px rgba(10, 255, 132, 0)); }
   50% { filter: drop-shadow(0 0 15px var(--acc-dim)); }
 }
+/* --- ROADMAP TIMELINE & ANIMATION --- */
+
+.roadmap-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 30px;
+  padding-left: 20px; /* Spazio per la linea laterale */
+  border-left: 2px solid var(--line); /* La linea temporale */
+}
+
+.rm {
+  position: relative;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px;
+  /* Setup per animazione scroll */
+  opacity: 0; 
+  transform: translateX(-20px);
+  transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Decorazione: Pallino sulla linea temporale */
+.rm::before {
+  content: '';
+  position: absolute;
+  left: -27px; /* Posizionato sulla linea del container */
+  top: 25px;
+  width: 12px; height: 12px;
+  background: var(--bg);
+  border: 2px solid var(--muted);
+  border-radius: 50%;
+  z-index: 2;
+  transition: all 0.3s;
+}
+
+/* --- STATO: DONE (Fasi passate) --- */
+.rm--done {
+  border-left: 4px solid var(--muted);
+}
+.rm--done .rm__status { color: var(--muted); font-size: 10px; margin-bottom: 5px; opacity: 0.7; }
+.rm--done::before { background: var(--muted); border-color: var(--muted); }
+.rm--done h3 { text-decoration: line-through; color: var(--muted); }
+
+/* --- STATO: ACTIVE (Fase 2 Completata/Focus) --- */
+.rm--active {
+  border: 1px solid var(--acc);
+  box-shadow: 0 0 20px rgba(10, 255, 132, 0.1);
+  background: linear-gradient(90deg, rgba(10, 255, 132, 0.05), transparent);
+}
+.rm--active::before {
+  background: var(--acc);
+  border-color: var(--acc);
+  box-shadow: 0 0 10px var(--acc);
+}
+.rm--active .rm__status {
+  color: var(--acc);
+  font-weight: bold;
+  font-size: 11px;
+  margin-bottom: 8px;
+}
+.rm--active h3 { color: var(--text); }
+
+/* --- STATO: FUTURE (Opzionale) --- */
+.rm--future { opacity: 0.5; border-style: dashed; }
+
+/* Layout interno Card */
+.rm__content h3 { margin: 5px 0; font-size: 18px; }
+.rm__tag { color: var(--acc2); font-size: 11px; margin-bottom: 2px; }
+
+/* --- CLASSE PER ATTIVARE ANIMAZIONE (Via JS) --- */
+.rm.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Mobile Adjustments per la roadmap */
+@media (max-width: 800px) {
+  .roadmap-container { padding-left: 15px; }
+  .rm::before { left: -22px; }
+}
