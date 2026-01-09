@@ -194,21 +194,46 @@ _</script>
       </div>
     </section>
 
-    <section id="setup" class="section section--alt">
+<section id="setup" class="section section--alt">
       <div class="wrap">
-        <h2>🚀 Setup</h2>
+        <h2>🚀 Setup Protocol</h2>
         <div class="split">
             <div class="panel">
-                <h3>Prerequisites</h3>
-                <ol>
-                  <li>Android Studio Koala+</li>
-                  <li>Orbot installed</li>
-                </ol>
+                <h3>System Requirements</h3>
+                <ul style="list-style: none; padding: 0; margin: 0; line-height: 1.8;">
+                  <li>
+                    <strong style="color: var(--acc)">Target Device:</strong><br>
+                    <span class="mono tiny" style="color: var(--text)">Android 8.0 (API 26) up to Android 15</span>
+                  </li>
+                  <li>
+                    <strong style="color: var(--acc)">Build Environment:</strong><br>
+                    <span class="mono tiny" style="color: var(--text)">JDK 17+, Android SDK Command-line Tools</span>
+                  </li>
+                  <li>
+                    <strong style="color: var(--acc)">Network:</strong><br>
+                    <span class="mono tiny" style="color: var(--text)">Orbot (Tor) active in background</span>
+                  </li>
+                  <li>
+                    <strong style="color: var(--acc)">Integrity:</strong><br>
+                    <span class="mono tiny" style="color: var(--text)">Physical device recommended (Emulators may trigger anti-forensics)</span>
+                  </li>
+                </ul>
             </div>
-             <div class="panel">
-            <pre class="mono code">$ git clone https://github.com/zonkeynet/Quantum-P1NG.git
+
+            <div class="panel">
+                <h3>Source Compilation</h3>
+                <pre class="mono code" style="font-size: 11px;">
+# 1. Clone the repository
+$ git clone https://github.com/zonkeynet/Quantum-P1NG.git
+
+# 2. Initialize project
 $ cd Quantum-P1NG
-$ ./gradlew assembleDebug</pre>
+
+# 3. Build Debug APK (No signing key required)
+$ ./gradlew assembleDebug
+
+# 4. Deploy via ADB (Physical connection)
+$ adb install -r app/build/outputs/apk/debug/app-debug.apk</pre>
             </div>
         </div>
       </div>
