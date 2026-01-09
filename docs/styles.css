@@ -242,11 +242,11 @@ a:hover{color:var(--acc)}
 .code{background:#000; padding:15px; border-radius:8px; border:1px solid #333; color:var(--muted); font-size:10px}
 
 /* Mobile */
-/* --- MOBILE OPTIMIZATIONS (FINAL POLISH) --- */
+/* --- MOBILE OPTIMIZATIONS (FIXED) --- */
 @media (max-width: 800px) {
-  /* 1. Layout & Spaziatura */
-  .wrap { padding: 0 24px; }
-  .section { padding: 60px 0; }
+  /* 1. Layout Generale */
+  .wrap { padding: 0 20px; overflow-x: hidden; } /* Protegge da scroll orizzontali indesiderati */
+  .section { padding: 50px 0; }
   
   /* 2. Hero Section */
   .hero { 
@@ -260,82 +260,73 @@ a:hover{color:var(--acc)}
   .hero__grid { 
     display: flex;
     flex-direction: column;
-    gap: 40px; 
+    gap: 30px; 
     width: 100%;
   }
 
-  /* 3. Tipografia Adattiva */
-  .kicker { font-size: 11px; margin-bottom: 16px; letter-spacing: 0.2em; }
+  /* 3. Tipografia */
+  .title { font-size: 42px; margin-bottom: 20px; word-break: break-word; }
+  .subtitle { font-size: 16px; margin: 0 auto 30px; }
   
-  .title { 
-    font-size: 48px; /* Bilanciato */
-    line-height: 1.1;
-    margin: 0 auto 20px;
-    max-width: 100%;
-    /* Fix Glitch overflow */
-    overflow: visible; 
-  }
-  
-  .subtitle { 
-    font-size: 16px; 
-    margin: 0 auto 30px; 
-    line-height: 1.6;
-    max-width: 90%; /* Evita che il testo tocchi i bordi */
-  }
-  
-  /* 4. Bottoni "Thumb-Friendly" (Full Width) */
-  .hero__cta { 
-    flex-direction: column; /* Impila i bottoni */
+  /* 4. Bottoni Full Width */
+  .hero__cta { flex-direction: column; width: 100%; gap: 12px; }
+  .btn { width: 100%; padding: 14px; }
+
+  /* 5. FIX CRITICO: PANEL E CODE */
+  .panel {
+    padding: 16px; /* Meno padding interno per guadagnare spazio */
     width: 100%;
-    gap: 16px; /* Spazio tra i bottoni */
-  }
-  
-  .btn { 
-    width: 100%; /* Occupa tutta la larghezza */
-    padding: 16px; /* Più alto per il tocco */
-    font-size: 16px;
+    /* Impedisce al pannello di uscire, ma lascia vedere il contenuto */
+    box-sizing: border-box; 
   }
 
-  /* 5. Terminale e Card */
-  .logoCard { margin-top: 0; }
-  .terminal { margin-top: 20px; }
-  .terminal__body { height: 180px; }
+  .code, .copybox code {
+    white-space: pre-wrap;       /* FONDAMENTALE: Obbliga il codice ad andare a capo */
+    word-break: break-all;       /* FONDAMENTALE: Spezza le URL lunghe (come git clone) */
+    font-size: 11px;             /* Font più piccolo per far stare più caratteri */
+    line-height: 1.4;
+    width: 100%;                 /* Forza larghezza massima */
+    display: block;              /* Assicura che si comporti come blocco */
+  }
 
-  /* 6. Navigazione & Burger */
+  /* Terminale */
+  .terminal { margin-top: 20px; width: 100%; }
+  .terminal__body { height: 160px; font-size: 11px; }
+
+  /* 6. Navigazione & Menu Mobile Solido */
   .nav { display: none; } 
   
   .burger { 
     display: block; 
     z-index: 200; 
-    background: rgba(255,255,255,0.05); /* Sfondo leggero al bottone */
+    background: rgba(255,255,255,0.05);
     border-radius: 8px;
   }
   
   .mobilemenu {
     position: fixed;
-    top: 70px; left: 0; right: 0; bottom: 0; /* Copre tutto lo schermo sotto la navbar */
-    background: var(--bg); /* Sfondo solido (Nero) */
-    padding: 30px 24px;
+    top: 70px; left: 0; right: 0; bottom: 0;
+    background: #0b0f14; /* COLORE DI SFONDO SOLIDO (importante!) */
+    padding: 20px;
     z-index: 199;
     border-top: 1px solid var(--line);
     display: flex;
     flex-direction: column;
     gap: 10px;
+    overflow-y: auto; /* Permette scroll se il menu è lungo */
   }
   
   .mobilemenu a {
-    font-size: 20px;
+    font-size: 18px;
     padding: 15px;
     border: 1px solid var(--line);
-    border-radius: 12px;
-    text-align: center;
     background: var(--panel);
     color: var(--text);
+    text-align: center;
+    border-radius: 12px;
   }
   
-  /* Griglie a colonna singola */
+  /* Griglie */
   .cards, .split, .callout, .rm { grid-template-columns: 1fr; }
-  
-  /* Footer centrato */
   .footer__inner { flex-direction: column; gap: 20px; text-align: center; }
 }
