@@ -242,95 +242,100 @@ a:hover{color:var(--acc)}
 .code{background:#000; padding:15px; border-radius:8px; border:1px solid #333; color:var(--muted); font-size:13px}
 
 /* Mobile */
-/* --- MOBILE OPTIMIZATIONS --- */
+/* --- MOBILE OPTIMIZATIONS (FINAL POLISH) --- */
 @media (max-width: 800px) {
-  /* 1. Layout Generale */
-  .wrap { padding: 0 20px; }
-  .section { padding: 50px 0; } /* Meno spazio tra le sezioni */
+  /* 1. Layout & Spaziatura */
+  .wrap { padding: 0 24px; }
+  .section { padding: 60px 0; }
   
-  /* 2. Hero Section Compatta */
+  /* 2. Hero Section */
   .hero { 
-    padding: 80px 0 40px; /* Riduciamo il padding superiore */
-    text-align: center; /* Centriamo tutto su mobile per impatto visivo */
+    padding: 80px 0 40px; 
+    text-align: center; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   .hero__grid { 
-    gap: 30px; /* Spazio tra testo e immagine */
+    display: flex;
+    flex-direction: column;
+    gap: 40px; 
+    width: 100%;
   }
-  
-  /* 3. Tipografia Mobile */
-  .kicker { font-size: 11px; margin-bottom: 12px; }
+
+  /* 3. Tipografia Adattiva */
+  .kicker { font-size: 11px; margin-bottom: 16px; letter-spacing: 0.2em; }
   
   .title { 
-    font-size: 42px; /* Molto più piccolo di 64px, evita a capo brutti */
-    margin-bottom: 16px;
+    font-size: 48px; /* Bilanciato */
+    line-height: 1.1;
+    margin: 0 auto 20px;
+    max-width: 100%;
+    /* Fix Glitch overflow */
+    overflow: visible; 
   }
   
   .subtitle { 
     font-size: 16px; 
-    margin: 0 auto 24px; /* Centrato */
-    line-height: 1.5;
+    margin: 0 auto 30px; 
+    line-height: 1.6;
+    max-width: 90%; /* Evita che il testo tocchi i bordi */
   }
   
-  /* 4. Badges e Bottoni Centrati */
-  .badges { 
-    justify-content: center; 
-    margin-bottom: 24px; 
-  }
-  
+  /* 4. Bottoni "Thumb-Friendly" (Full Width) */
   .hero__cta { 
-    justify-content: center; 
-    flex-direction: column; /* Bottoni uno sopra l'altro su schermi stretti */
+    flex-direction: column; /* Impila i bottoni */
     width: 100%;
+    gap: 16px; /* Spazio tra i bottoni */
   }
   
-  .btn { width: 100%; } /* Bottoni a larghezza piena per tocco facile */
+  .btn { 
+    width: 100%; /* Occupa tutta la larghezza */
+    padding: 16px; /* Più alto per il tocco */
+    font-size: 16px;
+  }
 
   /* 5. Terminale e Card */
-  .logoCard { 
-    margin-top: 10px; 
-    padding: 16px; 
-  }
-  
-  .terminal {
-    margin-top: 16px;
-    font-size: 11px; /* Testo terminale leggermente più piccolo */
-  }
-  .terminal__body {
-    height: 160px; /* Meno alto su mobile */
-  }
+  .logoCard { margin-top: 0; }
+  .terminal { margin-top: 20px; }
+  .terminal__body { height: 180px; }
 
-  /* 6. Navigazione */
-  .nav { display: none; } /* Nascondi menu desktop */
+  /* 6. Navigazione & Burger */
+  .nav { display: none; } 
   
   .burger { 
     display: block; 
-    z-index: 102; /* Sopra a tutto */
-    position: relative;
+    z-index: 200; 
+    background: rgba(255,255,255,0.05); /* Sfondo leggero al bottone */
+    border-radius: 8px;
   }
   
   .mobilemenu {
     position: fixed;
-    top: 70px; left: 0; right: 0;
-    background: rgba(5, 7, 10, 0.95); /* Sfondo quasi solido leggibile */
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid var(--line);
-    padding: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    z-index: 101;
+    top: 70px; left: 0; right: 0; bottom: 0; /* Copre tutto lo schermo sotto la navbar */
+    background: var(--bg); /* Sfondo solido (Nero) */
+    padding: 30px 24px;
+    z-index: 199;
+    border-top: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
   
   .mobilemenu a {
-    font-size: 18px;
-    padding: 12px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 20px;
+    padding: 15px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
     text-align: center;
+    background: var(--panel);
     color: var(--text);
   }
   
-  /* Griglie interne diventano singola colonna */
+  /* Griglie a colonna singola */
   .cards, .split, .callout, .rm { grid-template-columns: 1fr; }
   
-  /* Footer */
-  .footer__inner { flex-direction: column; gap: 16px; }
+  /* Footer centrato */
+  .footer__inner { flex-direction: column; gap: 20px; text-align: center; }
 }
