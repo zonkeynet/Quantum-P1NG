@@ -165,7 +165,54 @@ a:hover { color: var(--acc); }
   border: 1px solid var(--line);
 }
 .btn--ghost:hover { border-color: var(--text); background: rgba(255, 255, 255, 0.05); }
+/* --- DOWNLOAD BUTTON STYLES --- */
 
+.btn--download {
+  background: var(--acc); /* Usa il Verde Neon */
+  color: var(--bg);       /* Testo scuro per contrasto */
+  border: 1px solid var(--acc);
+  box-shadow: 0 0 20px var(--acc-dim); /* Effetto Glow */
+  position: relative;
+  overflow: hidden;
+}
+
+.btn--download:hover {
+  background: var(--acc2); /* Diventa Ciano al passaggio */
+  border-color: var(--acc2);
+  box-shadow: 0 0 30px rgba(0, 243, 255, 0.4);
+  transform: translateY(-3px) scale(1.02);
+  color: var(--bg);
+}
+
+/* Etichetta versione (ALPHA) piccola accanto al testo */
+.version-tag {
+  background: rgba(0,0,0,0.2);
+  color: inherit;
+  font-size: 9px;
+  padding: 2px 5px;
+  border-radius: 4px;
+  margin-left: 8px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  opacity: 0.8;
+}
+
+/* Animazione di luce che scorre sul bottone download */
+.btn--download::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transform: skewX(-20deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% { left: -100%; }
+  20% { left: 200%; } /* Passa veloce */
+  100% { left: 200%; } /* Pausa lunga */
+}
 /* --- TERMINAL & CARDS --- */
 .logoCard {
   border-radius: var(--radius);
