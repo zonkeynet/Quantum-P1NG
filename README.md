@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/zonkeynet/Quantum-P1NG/blob/main/logo_quantum.png?raw=true" 
+  <img src="https://github.com/zonkeynet/Quantum-P1NG/blob/main/Qp1ng_logo.png?raw=true" 
        alt="quantum P1NG logo" 
        width="260"/>
 </p>
