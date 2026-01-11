@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -7,7 +8,7 @@
   <meta name="description" content="Quantum P1NG — ghost signals for a nomadic network. Privacy-first messaging over Tor, anti-forensics, zero-log relay." />
   <link rel="icon" href="https://github.com/zonkeynet/Quantum-P1NG/blob/main/Qp1ng_logo.png?raw=true" type="image/png" />
   <title>Quantum P1NG — Ghost Signals</title>
-  
+
   <link rel="stylesheet" href="./styles.css" />
 </head>
 
@@ -19,24 +20,26 @@
         <span class="brand__name">- P1NG</span>
       </a>
 
-      <nav class="nav">
+      <nav class="nav" aria-label="Primary">
         <a href="#mission">Mission</a>
         <a href="#stack">Tech Stack</a>
         <a href="#security">Security</a>
+        <a href="#protocols">Protocols</a>
         <a href="#setup">Setup</a>
         <a href="#roadmap">Roadmap</a>
         <a class="nav__cta" href="https://github.com/zonkeynet/Quantum-P1NG" target="_blank" rel="noopener">GitHub</a>
       </nav>
 
-      <button class="burger" aria-label="Open menu" aria-expanded="false">
+      <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobilemenu">
         <span></span><span></span><span></span>
       </button>
     </div>
 
-    <div class="mobilemenu" aria-hidden="true">
+    <div id="mobilemenu" class="mobilemenu" aria-hidden="true">
       <a href="#mission">Mission</a>
       <a href="#stack">Tech Stack</a>
       <a href="#security">Security</a>
+      <a href="#protocols">Protocols</a>
       <a href="#setup">Setup</a>
       <a href="#roadmap">Roadmap</a>
       <a href="https://github.com/zonkeynet/Quantum-P1NG" target="_blank" rel="noopener">GitHub</a>
@@ -49,16 +52,19 @@
         <div class="hero__left">
           <div class="kicker mono">> INITIALIZING UPLINK...</div>
           <h1 class="title glitch" data-text="Quantum P1NG">Quantum P1NG</h1>
+
           <p class="subtitle">
             A <strong>privacy-first</strong> communication tool designed for hostile environments:
-            <strong>Tor</strong> routing, <strong>anti-forensics</strong>, <strong>zero-log</strong> relay.
+            <strong>Tor</strong> routing, <strong>anti-forensics</strong>, <strong>plausible deniability</strong>, <strong>zero-log</strong> relay.
           </p>
 
-          <div class="badges">
-            <span class="badge">Tor-only</span>
-            <span class="badge">Zero-log relay</span>
-            <span class="badge">Anti-forensics</span>
-            <span class="badge">Android (Kotlin/Compose)</span>
+          <div class="badges" role="list" aria-label="Feature badges">
+            <span class="badge" role="listitem">Tor-capable</span>
+            <span class="badge" role="listitem">Zero-log relay</span>
+            <span class="badge" role="listitem">Anti-forensics</span>
+            <span class="badge" role="listitem">Decoy mode</span>
+            <span class="badge" role="listitem">Kinetic reflexes</span>
+            <span class="badge" role="listitem">Android (Kotlin/Compose)</span>
           </div>
 
           <div class="hero__cta">
@@ -77,8 +83,12 @@
           </div>
 
           <p class="quote">
-            <span>“We do not store what we cannot see. We do not see what is encrypted.”</span>
+            <span>“Trust no one. Encrypt everything.”</span>
           </p>
+
+          <div class="miniNote mono tiny">
+            SYSTEM_KERNEL_INFO • QUANTUM_P1NG_V2.0 • STATUS: ENCRYPTED // SECURE // UNTRACEABLE
+          </div>
         </div>
 
         <div class="hero__right">
@@ -100,17 +110,23 @@
               <span class="terminal__title mono">root@quantum-node:~</span>
             </div>
             <pre class="mono terminal__body" id="typewriter-output"></pre>
+
+            <!-- Unified boot / info sequence (matches the app InfoScreen vibe) -->
             <script id="terminal-text" type="text/plain">
-$ quantum-p1ng --route tor
-> [init] verifying integrity... OK
-> [net] orbot detected
-> [proxy] socks5://127.0.0.1:9050 connected
-> [keys] RSA-2048 keypair generated
-> [uplink] relay reachable (latency: 120ms)
-> [info] sending secure ping...
-> [done] delivered.
-> [decay] local traces wiped.
-_</script>
+$ quantum-p1ng --boot
+> KERNEL LOADING................... [OK]
+> KERNEL INTEGRITY CHECK......... [PASS]
+> MOUNTING SQLCIPHER FS............ [OK]
+> GENERATING RSA-4096 KEYS......... [DONE]
+> ACTIVATING NFC CONTROLLER........ [OK]
+> CALIBRATING GYROSCOPE............ [OK]
+> ACTIVATING KINETIC SENSORS....... [ACTIVE]
+> ESTABLISHING TOR CIRCUIT......... [READY]
+> ESTABLISHING EDGE TUNNEL......... [SECURE]
+> ACTIVATING STEGANOGRAPHY LAYER... [ACTIVE]
+> SYSTEM READY.
+_
+</script>
           </div>
         </div>
       </div>
@@ -124,20 +140,30 @@ _</script>
         <h2>📡 Mission</h2>
         <p class="lead">
           <strong>Quantum P1NG</strong> is not just a chat application: it is a survival tool for communication in hostile environments.
+          The design goal is simple: <strong>minimize metadata</strong>, <strong>protect content</strong>, <strong>resist coercion</strong>.
         </p>
+
         <div class="cards">
           <article class="card">
-            <h3>Tor-only</h3>
-            <p>Exclusive routing via Tor (Orbot). The relay never sees real IP addresses, minimizing metadata exposure.</p>
+            <h3>Tor-capable routing</h3>
+            <p>Traffic can be routed through Tor (e.g., via Orbot). This reduces direct IP exposure and adds resilience under censorship.</p>
           </article>
           <article class="card">
             <h3>Ephemeral by default</h3>
-            <p>Messages as events: delivery, decay, and trace minimization.</p>
+            <p>Messages are treated as events: delivery, decay, trace minimization. Less data at rest, less to lose.</p>
           </article>
           <article class="card">
             <h3>Operator-first</h3>
-            <p>Burn-on-Read, Duress Mode, Integrity Checks. Designed to survive physical coercion.</p>
+            <p>Duress/Decoy mode, background auto-lock, integrity checks. Built to behave sensibly under physical pressure.</p>
           </article>
+        </div>
+
+        <div class="callout callout--soft">
+          <div class="callout__title mono">Operational Intelligence</div>
+          <p class="callout__text">
+            You’re operating a <strong>ghost node</strong>: the system is designed to exist without leaving an obvious footprint.
+            Identity can be decoupled from hardware identifiers where the platform allows it.
+          </p>
         </div>
       </div>
     </section>
@@ -145,24 +171,40 @@ _</script>
     <section id="stack" class="section section--alt">
       <div class="wrap">
         <h2>🛠 Tech Stack</h2>
+
         <div class="split">
           <div class="panel">
-            <h3>Client Node</h3>
+            <h3>Client Node (Android)</h3>
             <ul>
-              <li><strong>Native Android Architecture</strong></li>
-              <li><strong>Tor Circuit Integration</strong></li>
-              <li><strong>AES-256 Local Encryption</strong></li>
-              <li><strong>Hybrid Cryptography (Asymmetric/Symmetric)</strong></li>
+              <li><strong>Native Android Architecture</strong> (Kotlin + Compose)</li>
+              <li><strong>Tor Integration</strong> (via local SOCKS5 proxy when available)</li>
+              <li><strong>Encrypted Local Storage</strong> (e.g., SQLCipher-style DB)</li>
+              <li><strong>Hybrid Cryptography</strong> (asymmetric + symmetric)</li>
+              <li><strong>Kinetic triggers</strong> (accelerometer / device posture)</li>
+              <li><strong>Offline exchange</strong> (NFC handshake concepts)</li>
             </ul>
           </div>
+
           <div class="panel">
             <h3>Relay Node</h3>
             <ul>
-              <li><strong>Blind Relay Protocol</strong></li>
-              <li><strong>Zero-Knowledge Architecture</strong></li>
-              <li><strong>Ephemeral Data Handling</strong></li>
-              <li><strong>Traffic Obfuscation</strong></li>
+              <li><strong>Blind Relay Protocol</strong> (relay never needs plaintext)</li>
+              <li><strong>Zero-Knowledge posture</strong> (keep relay dumb by design)</li>
+              <li><strong>Ephemeral handling</strong> (avoid durable storage where possible)</li>
+              <li><strong>Traffic obfuscation</strong> (shape, padding, timing where feasible)</li>
+              <li><strong>Failover-ready</strong> (multi-relay roadmap)</li>
             </ul>
+          </div>
+        </div>
+
+        <div class="note">
+          <div class="note__icon">⌁</div>
+          <div class="note__body">
+            <div class="mono note__title">Reality check</div>
+            <div class="note__text">
+              Security is a system property: design, implementation, build chain, and operator behavior all matter.
+              Keep claims falsifiable, and test aggressively.
+            </div>
           </div>
         </div>
       </div>
@@ -171,60 +213,151 @@ _</script>
     <section id="security" class="section">
       <div class="wrap">
         <h2>🛡 Security Protocol</h2>
+
         <div class="cards">
           <article class="card">
             <h3>🧅 Onion Layer</h3>
-            <p>Traffic routed via Tor. Reduces IP leak risks and increases network resilience.</p>
+            <p>Tor routing reduces IP leak risks and adds censorship resistance. When Tor is unavailable, the system can degrade gracefully (roadmap).</p>
           </article>
+
           <article class="card">
             <h3>🔐 End-to-End</h3>
-            <p>Asymmetric handshake. The relay sees only unintelligible data.</p>
+            <p>Asymmetric handshake + symmetric payloads. The relay sees only ciphertext and opaque routing data.</p>
           </article>
+
           <article class="card">
             <h3>💀 Anti-Forensics</h3>
-            <p>Integrity checks, background auto-lock, duress PIN decoy.</p>
+            <p>Background auto-lock, integrity checks, and operational “decay” behaviors to reduce recoverable traces.</p>
           </article>
         </div>
-        
+
         <div class="callout">
-             <div class="callout__title mono">Hidden Service Configuration</div>
-             <div class="copybox">
-              <code id="onionUrl" class="mono">http://quantump1ngRelayV2.onion</code>
-              <button class="copybtn" data-copy="onionUrl">Copy</button>
-            </div>
+          <div class="callout__title mono">Hidden Service Configuration</div>
+          <div class="copybox">
+            <code id="onionUrl" class="mono">http://quantump1ngRelayV2.onion</code>
+            <button class="copybtn" data-copy="onionUrl">Copy</button>
+          </div>
+          <div class="tiny muted" style="margin-top:10px;">
+            Tip: treat .onion endpoints like volatile infrastructure—rotate, audit, and monitor.
+          </div>
+        </div>
+
+        <div class="callout callout--danger">
+          <div class="callout__title mono">PROTOCOL: SCORCHED EARTH</div>
+          <p class="callout__text">
+            The app UI supports a <strong>panic / duress concept</strong> (e.g., a “Panic PIN” pattern).
+            If you implement this, do it responsibly: explicit warnings, anti-mistap UX, and a verifiable design that does not store secrets.
+            This page documents the feature as an <em>operator safety mechanism</em>, not as a toy.
+          </p>
         </div>
       </div>
     </section>
 
-<section id="setup" class="section section--alt">
+    <!-- NEW: Unified “Protocols” section that mirrors the app InfoScreen content -->
+    <section id="protocols" class="section section--alt">
+      <div class="wrap">
+        <h2>🧬 System Kernel Info</h2>
+        <p class="lead">
+          The website mirrors the in-app <span class="mono">SYSTEM_KERNEL_INFO</span> panel: features, warnings, and operational assumptions in one place.
+        </p>
+
+        <div class="grid2">
+          <article class="card">
+            <h3>Hardware Protocols</h3>
+            <div class="mono tiny muted">[1] CONTACTLESS HANDSHAKE (NFC)</div>
+            <p>Offline identity exchange concept: devices touch in the physical world. No internet transit, no server-side identity roster.</p>
+
+            <div class="mono tiny muted" style="margin-top:12px;">[2] GHOST MESH RADAR</div>
+            <p>Proximity discovery concept (Wi-Fi Aware style): detect allied nodes nearby without joining a hotspot.</p>
+          </article>
+
+          <article class="card">
+            <h3>Kinetic Reflexes</h3>
+            <div class="mono tiny muted">[ACCELEROMETER TRIGGERS]</div>
+            <p>
+              Hardware sensors mapped to emergency defense behaviors:
+              <span class="mono">SHAKE</span> → load Decoy Mode;
+              <span class="mono">FACE DOWN</span> → emergency lock / black screen.
+            </p>
+            <div class="tiny muted">Designed to behave fast when your brain is busy screaming.</div>
+          </article>
+
+          <article class="card">
+            <h3>Adaptive Camouflage</h3>
+            <div class="mono tiny muted">[THE CALCULATOR ILLUSION]</div>
+            <p>A cover surface that behaves like a normal utility app. Sensitive UI can remain dormant until a specific sequence is entered.</p>
+
+            <div class="mono tiny muted" style="margin-top:12px;">[DECOY MODE]</div>
+            <p>A believable decoy surface to buy time and reduce risk during casual inspection.</p>
+          </article>
+
+          <article class="card">
+            <h3>Hardware Vault</h3>
+            <div class="mono tiny muted">[SQLCIPHER 4.x STYLE]</div>
+            <p>At-rest encryption: database files look like high entropy noise without the correct key material.</p>
+
+            <div class="mono tiny muted" style="margin-top:12px;">[KEYS & ISOLATION]</div>
+            <p>Prefer platform keystore / TEE-backed storage where possible. Assume seized devices; plan accordingly.</p>
+          </article>
+
+          <article class="card">
+            <h3>Network Invisibility</h3>
+            <div class="mono tiny muted">[EDGE TUNNELING]</div>
+            <p>Traffic routing can be layered (Tor + edge indirection) to avoid a stable origin signal.</p>
+
+            <div class="mono tiny muted" style="margin-top:12px;">[ZERO-TRUST HANDSHAKE]</div>
+            <p>Application-layer cryptographic tokens can harden relay interaction against naive scraping and protocol confusion.</p>
+          </article>
+
+          <article class="card">
+            <h3>Plausible Deniability</h3>
+            <div class="mono tiny muted">[PIN ROUTING CONCEPT]</div>
+            <p class="mono" style="line-height:1.8;">
+              PIN 1111 → Access Chat<br/>
+              PIN 0000 → Decoy Mode<br/>
+              Panic PIN → Safety protocol (documented above)
+            </p>
+            <div class="tiny muted">Use responsibly; avoid “magic numbers” in production builds.</div>
+          </article>
+        </div>
+
+        <div class="sloganBox">
+          <div class="mono sloganBox__title">“TRUST NO ONE. ENCRYPT EVERYTHING.”</div>
+          <div class="tiny muted">Silence is the only true security.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="setup" class="section">
       <div class="wrap">
         <h2>🚀 Setup Protocol</h2>
-        <div class="split">
-            <div class="panel">
-                <h3>System Requirements</h3>
-                <ul style="list-style: none; padding: 0; margin: 0; line-height: 1.8;">
-                  <li>
-                    <strong style="color: var(--acc)">Target Device:</strong><br>
-                    <span class="mono tiny" style="color: var(--text)">Android 8.0 (API 26) up to Android 15</span>
-                  </li>
-                  <li>
-                    <strong style="color: var(--acc)">Build Environment:</strong><br>
-                    <span class="mono tiny" style="color: var(--text)">JDK 17+, Android SDK Command-line Tools</span>
-                  </li>
-                  <li>
-                    <strong style="color: var(--acc)">Network:</strong><br>
-                    <span class="mono tiny" style="color: var(--text)">Orbot (Tor) active in background</span>
-                  </li>
-                  <li>
-                    <strong style="color: var(--acc)">Integrity:</strong><br>
-                    <span class="mono tiny" style="color: var(--text)">Physical device recommended (Emulators may trigger anti-forensics)</span>
-                  </li>
-                </ul>
-            </div>
 
-            <div class="panel">
-                <h3>Source Compilation</h3>
-                <pre class="mono code" style="font-size: 11px;">
+        <div class="split">
+          <div class="panel">
+            <h3>System Requirements</h3>
+            <ul class="req">
+              <li>
+                <strong class="acc">Target Device:</strong><br />
+                <span class="mono tiny">Android 8.0 (API 26) up to Android 15</span>
+              </li>
+              <li>
+                <strong class="acc">Build Environment:</strong><br />
+                <span class="mono tiny">JDK 17+, Android SDK Command-line Tools</span>
+              </li>
+              <li>
+                <strong class="acc">Network:</strong><br />
+                <span class="mono tiny">Orbot (Tor) active in background (when Tor mode is enabled)</span>
+              </li>
+              <li>
+                <strong class="acc">Integrity:</strong><br />
+                <span class="mono tiny">Physical device recommended (emulators may behave differently)</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="panel">
+            <h3>Source Compilation</h3>
+            <pre class="mono code">
 # 1. Clone the repository
 $ git clone https://github.com/zonkeynet/Quantum-P1NG.git
 
@@ -236,12 +369,20 @@ $ ./gradlew assembleDebug
 
 # 4. Deploy via ADB (Physical connection)
 $ adb install -r app/build/outputs/apk/debug/app-debug.apk</pre>
-            </div>
+          </div>
+        </div>
+
+        <div class="callout callout--soft">
+          <div class="callout__title mono">Operator Notes</div>
+          <p class="callout__text">
+            Threat models differ. Decide what you’re defending against (ISP logging? device seizure? coercion?),
+            then configure features accordingly. A tool is only as “secure” as its assumptions.
+          </p>
         </div>
       </div>
     </section>
 
-<section id="roadmap" class="section">
+    <section id="roadmap" class="section section--alt">
       <div class="wrap">
         <h2>🧭 Roadmap</h2>
 
@@ -260,7 +401,7 @@ $ adb install -r app/build/outputs/apk/debug/app-debug.apk</pre>
             <div class="rm__content">
               <div class="rm__tag mono">Phase 1</div>
               <h3>Duress & Decay</h3>
-              <p>Duress PIN, decoy UI, burn-on-read, background lock, data decay policies.</p>
+              <p>Duress/Decoy mode, burn-on-read concept, background lock, data decay policies.</p>
             </div>
           </div>
 
@@ -272,16 +413,15 @@ $ adb install -r app/build/outputs/apk/debug/app-debug.apk</pre>
               <p>Multi-relay support, failover, temporary store-and-forward, operational hardening.</p>
             </div>
           </div>
-          
-          <div class="rm rm--future">
-             <div class="rm__status mono">[PENDING]</div>
-             <div class="rm__content">
-               <div class="rm__tag mono">Phase 3</div>
-               <h3>Quantum Mesh</h3>
-               <p>Direct device-to-device (P2P) fallback via Bluetooth/WiFi/LoRa aware for local grid comms.</p>
-             </div>
-          </div>
 
+          <div class="rm rm--future">
+            <div class="rm__status mono">[PENDING]</div>
+            <div class="rm__content">
+              <div class="rm__tag mono">Phase 3</div>
+              <h3>Quantum Mesh</h3>
+              <p>Direct device-to-device (P2P) fallback via Bluetooth/Wi-Fi/LoRa-aware local grid comms.</p>
+            </div>
+          </div>
         </div>
 
         <div class="footerline">
@@ -291,15 +431,15 @@ $ adb install -r app/build/outputs/apk/debug/app-debug.apk</pre>
         </div>
       </div>
     </section>
-    
+
     <footer class="footer">
       <div class="wrap footer__inner">
         <div class="mono tiny">Quantum P1NG • ghost signals • 2026</div>
         <div class="tiny"><a href="#top">Top</a></div>
       </div>
     </footer>
-
   </main>
+
   <script src="./script.js"></script>
 </body>
 </html>
