@@ -5,13 +5,13 @@
   --text: #e8eef7;
   --muted: #8b9bb4;
   --line: rgba(255, 255, 255, 0.08);
-  
+
   /* Palette Hacker */
   --acc: #0aff84;      /* Neon Green */
   --acc-dim: rgba(10, 255, 132, 0.15);
   --acc2: #00f3ff;     /* Cyan Cyberpunk */
   --warn: #ff0055;     /* Error Red */
-  
+
   --shadow: 0 20px 80px -10px rgba(0, 0, 0, 0.8);
   --radius: 16px;
   --font-sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
@@ -34,7 +34,7 @@ body::before {
   content: "";
   position: fixed;
   top: 0; left: 0; width: 100%; height: 100%;
-  background: 
+  background:
     radial-gradient(circle at 15% 50%, rgba(0, 243, 255, 0.08), transparent 25%),
     radial-gradient(circle at 85% 30%, rgba(10, 255, 132, 0.06), transparent 25%);
   pointer-events: none;
@@ -148,7 +148,7 @@ a:hover { color: var(--acc); }
   font-family: var(--font-mono);
 }
 
-.hero__cta { display: flex; gap: 16px; }
+.hero__cta { display: flex; gap: 16px; flex-wrap: wrap; }
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
   padding: 12px 24px;
@@ -165,8 +165,8 @@ a:hover { color: var(--acc); }
   border: 1px solid var(--line);
 }
 .btn--ghost:hover { border-color: var(--text); background: rgba(255, 255, 255, 0.05); }
-/* --- DOWNLOAD BUTTON STYLES --- */
 
+/* --- DOWNLOAD BUTTON STYLES --- */
 .btn--download {
   background: var(--acc); /* Usa il Verde Neon */
   color: var(--bg);       /* Testo scuro per contrasto */
@@ -175,7 +175,6 @@ a:hover { color: var(--acc); }
   position: relative;
   overflow: hidden;
 }
-
 .btn--download:hover {
   background: var(--acc2); /* Diventa Ciano al passaggio */
   border-color: var(--acc2);
@@ -183,8 +182,6 @@ a:hover { color: var(--acc); }
   transform: translateY(-3px) scale(1.02);
   color: var(--bg);
 }
-
-/* Etichetta versione (ALPHA) piccola accanto al testo */
 .version-tag {
   background: rgba(0,0,0,0.2);
   color: inherit;
@@ -196,8 +193,6 @@ a:hover { color: var(--acc); }
   font-weight: 700;
   opacity: 0.8;
 }
-
-/* Animazione di luce che scorre sul bottone download */
 .btn--download::after {
   content: '';
   position: absolute;
@@ -207,12 +202,12 @@ a:hover { color: var(--acc); }
   transform: skewX(-20deg);
   animation: shine 3s infinite;
 }
-
 @keyframes shine {
   0% { left: -100%; }
-  20% { left: 200%; } /* Passa veloce */
-  100% { left: 200%; } /* Pausa lunga */
+  20% { left: 200%; }
+  100% { left: 200%; }
 }
+
 /* --- TERMINAL & CARDS --- */
 .logoCard {
   border-radius: var(--radius);
@@ -237,6 +232,12 @@ a:hover { color: var(--acc); }
   padding: 8px 12px;
   border-bottom: 1px solid #222;
   display: flex; align-items: center;
+  gap: 8px;
+}
+.dot{
+  width:10px; height:10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.2);
 }
 .terminal__title { color: #666; font-size: 11px; margin-left: auto; margin-right: auto; }
 .terminal__body {
@@ -272,6 +273,7 @@ a:hover { color: var(--acc); }
   transform: translateY(-5px);
 }
 .card h3 { color: var(--text); margin-top: 0; }
+.card p { color: var(--muted); line-height: 1.6; }
 
 /* Scanlines */
 .scanlines {
@@ -288,14 +290,16 @@ a:hover { color: var(--acc); }
 .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 30px; }
 .split { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px; }
 .panel { background: var(--panel); border: 1px solid var(--line); padding: 24px; border-radius: var(--radius); }
-.code { 
-  background: #000; 
-  padding: 15px; 
-  border-radius: 8px; 
-  border: 1px solid #333; 
-  color: var(--muted); 
+.code {
+  background: #000;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  color: var(--muted);
   font-size: 12px;
 }
+
+/* Copy box */
 .copybox {
   display: flex; gap: 10px; align-items: center;
   background: rgba(0,0,0,.35);
@@ -312,56 +316,148 @@ a:hover { color: var(--acc); }
   border-radius: 8px;
   cursor: pointer;
 }
+
+/* Footer */
 .footer { padding: 40px 0; border-top: 1px solid var(--line); margin-top: 40px;}
 .footer__inner { display: flex; justify-content: space-between; align-items: center; }
+.footerline { margin-top: 24px; display:flex; justify-content:center; }
+
+/* ======= INTEGRAZIONI NECESSARIE (coerenti col tuo stile) ======= */
+
+.quote{
+  margin-top: 18px;
+  color: rgba(232,238,247,.85);
+  border-left: 2px solid rgba(0,243,255,.35);
+  padding-left: 12px;
+  font-style: italic;
+}
+.miniNote{
+  margin-top: 16px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.25);
+  color: rgba(232,238,247,.70);
+}
+
+/* Callout variants */
+.callout{
+  margin-top: 22px;
+  border: 1px solid rgba(0,243,255,.20);
+  background: rgba(0,243,255,.06);
+  border-radius: var(--radius);
+  padding: 18px;
+}
+.callout__title{
+  font-family: var(--font-mono);
+  color: var(--acc2);
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+.callout__text{ margin:0; color: rgba(232,238,247,.85); line-height: 1.7; }
+.callout--soft{
+  border-color: rgba(10,255,132,.18);
+  background: rgba(10,255,132,.06);
+}
+.callout--soft .callout__title{ color: var(--acc); }
+.callout--danger{
+  border-color: rgba(255,0,85,.30);
+  background: rgba(255,0,85,.06);
+}
+.callout--danger .callout__title{ color: var(--warn); }
+
+/* grid2 for protocols */
+.grid2{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+/* note block */
+.note{
+  margin-top: 20px;
+  background: rgba(0,0,0,.25);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px;
+  display:flex;
+  gap: 14px;
+  align-items:flex-start;
+}
+.note__icon{
+  width: 34px; height: 34px;
+  border-radius: 12px;
+  display:grid; place-items:center;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  color: var(--acc2);
+  font-family: var(--font-mono);
+}
+.note__title{ font-weight: 900; color: rgba(232,238,247,.92); }
+.note__text{ color: var(--muted); line-height: 1.6; margin-top: 4px; }
+
+/* slogan */
+.sloganBox{
+  margin-top: 24px;
+  text-align:center;
+  border: 1px solid rgba(10,255,132,.18);
+  background: rgba(255,255,255,.02);
+  border-radius: var(--radius);
+  padding: 18px;
+}
+.sloganBox__title{
+  color: var(--acc);
+  font-weight: 900;
+  letter-spacing: .8px;
+  margin-bottom: 6px;
+}
+
+/* blink helper */
+.blink-text{ animation: blinkText 1.1s steps(2,end) infinite; }
+@keyframes blinkText{ 50%{ opacity:.25; } }
 
 /* ========================================= */
 /* MOBILE OPTIMIZATIONS (LOGO ON TOP)        */
 /* ========================================= */
 
 @media (max-width: 800px) {
-  
+
   /* 1. LAYOUT & SPAZIATURA */
   .wrap { padding: 0 20px; overflow-x: hidden; }
   .section { padding: 50px 0; }
-  
+
   /* 2. HERO SECTION & LOGO ON TOP */
-  .hero { 
-    padding: 40px 0 40px; 
-    text-align: center; 
+  .hero {
+    padding: 40px 0 40px;
+    text-align: center;
   }
-  
-  .hero__grid { 
+
+  .hero__grid {
     display: flex;
     flex-direction: column;
-    gap: 20px; 
+    gap: 20px;
     width: 100%;
   }
 
-  /* --- IL TRUCCO PER SPOSTARE IL LOGO --- */
-  /* Fa "sparire" il contenitore hero__right dal flusso, 
-     liberando i figli (logo e terminale) per essere ordinati */
   .hero__right { display: contents; }
 
-  /* IL LOGO VA SOPRA A TUTTO */
   .logoCard {
-    order: -1; 
+    order: -1;
     margin-bottom: 10px;
     width: 100%;
-    max-width: 280px; 
+    max-width: 280px;
     margin-left: auto;
     margin-right: auto;
   }
 
-  /* IL TERMINALE VA SOTTO A TUTTO */
   .terminal {
-    order: 10; 
+    order: 10;
     margin-top: 20px;
     width: 100%;
   }
   .terminal__body { height: 160px; font-size: 11px; text-align: left; }
 
-  /* IL TESTO RIMANE AL CENTRO */
   .hero__left {
     display: flex;
     flex-direction: column;
@@ -370,42 +466,42 @@ a:hover { color: var(--acc); }
 
   /* 3. TIPOGRAFIA */
   .kicker { font-size: 10px; margin-bottom: 12px; letter-spacing: 0.15em; }
-  
-  .title { 
-    font-size: 40px; 
+
+  .title {
+    font-size: 40px;
     line-height: 1.1;
     margin-bottom: 16px;
-    word-break: break-word; 
+    word-break: break-word;
   }
-  .subtitle { 
-    font-size: 16px; 
-    margin: 0 auto 24px; 
+  .subtitle {
+    font-size: 16px;
+    margin: 0 auto 24px;
     max-width: 100%;
   }
-  
+
   /* 4. BOTTONI FULL WIDTH */
   .hero__cta { flex-direction: column; width: 100%; gap: 12px; }
   .btn { width: 100%; padding: 14px; }
 
   /* 5. FIX OVERFLOW CODE/PANEL */
   .panel {
-    padding: 16px; 
+    padding: 16px;
     width: 100%;
-    box-sizing: border-box; 
+    box-sizing: border-box;
   }
 
   .code, .copybox code {
-    white-space: pre-wrap;       
-    word-break: break-all;       
-    font-size: 11px;             
+    white-space: pre-wrap;
+    word-break: break-all;
+    font-size: 11px;
     line-height: 1.4;
-    width: 100%;                 
-    display: block;              
+    width: 100%;
+    display: block;
   }
 
   /* 6. NAVBAR & MENU MOBILE */
   .nav { display: none; }
-  
+
   .burger {
     display: flex;
     flex-direction: column;
@@ -424,18 +520,16 @@ a:hover { color: var(--acc); }
     border-radius: 2px;
     transition: all 0.3s ease;
   }
-  
-  /* Animazione Burger */
+
   .burger[aria-expanded="true"] span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
   .burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
   .burger[aria-expanded="true"] span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
 
-  /* MENU MOBILE OVERLAY */
   .mobilemenu {
-    display: none; 
+    display: none;
     position: fixed;
     top: 70px; left: 0; right: 0; bottom: 0;
-    background: var(--bg); /* Nero solido */
+    background: var(--bg);
     padding: 20px 24px;
     z-index: 1001;
     border-top: 1px solid var(--line);
@@ -444,7 +538,6 @@ a:hover { color: var(--acc); }
     overflow-y: auto;
     animation: slideIn 0.3s ease-out;
   }
-
   .mobilemenu.is-open { display: flex !important; }
 
   .mobilemenu a {
@@ -458,7 +551,8 @@ a:hover { color: var(--acc); }
   }
 
   /* 7. GRIGLIE SINGOLA COLONNA */
-  .cards, .split, .callout, .rm { grid-template-columns: 1fr; }
+  .cards, .split { grid-template-columns: 1fr; }
+  .grid2 { grid-template-columns: 1fr; }
   .footer__inner { flex-direction: column; gap: 20px; text-align: center; }
 }
 
@@ -475,8 +569,7 @@ a:hover { color: var(--acc); }
   opacity: 0;
   transform: scale(0.8) skewX(15deg);
   filter: blur(10px) brightness(2) contrast(2);
-  /* Animazione Ingresso + Pulsazione continua */
-  animation: 
+  animation:
     quantumSnap 0.8s cubic-bezier(0.1, 0.7, 0.3, 1) 0.3s forwards,
     quantumPulse 4s ease-in-out 1.2s infinite;
 }
@@ -507,6 +600,7 @@ a:hover { color: var(--acc); }
   0%, 100% { filter: drop-shadow(0 0 0px rgba(10, 255, 132, 0)); }
   50% { filter: drop-shadow(0 0 15px var(--acc-dim)); }
 }
+
 /* --- ROADMAP TIMELINE & ANIMATION --- */
 
 .roadmap-container {
@@ -515,8 +609,8 @@ a:hover { color: var(--acc); }
   flex-direction: column;
   gap: 20px;
   margin-top: 30px;
-  padding-left: 20px; /* Spazio per la linea laterale */
-  border-left: 2px solid var(--line); /* La linea temporale */
+  padding-left: 20px;
+  border-left: 2px solid var(--line);
 }
 
 .rm {
@@ -525,17 +619,16 @@ a:hover { color: var(--acc); }
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 20px;
-  /* Setup per animazione scroll */
-  opacity: 0; 
+
+  opacity: 0;
   transform: translateX(-20px);
   transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-/* Decorazione: Pallino sulla linea temporale */
 .rm::before {
   content: '';
   position: absolute;
-  left: -27px; /* Posizionato sulla linea del container */
+  left: -27px;
   top: 25px;
   width: 12px; height: 12px;
   background: var(--bg);
@@ -545,15 +638,11 @@ a:hover { color: var(--acc); }
   transition: all 0.3s;
 }
 
-/* --- STATO: DONE (Fasi passate) --- */
-.rm--done {
-  border-left: 4px solid var(--muted);
-}
+.rm--done { border-left: 4px solid var(--muted); }
 .rm--done .rm__status { color: var(--muted); font-size: 10px; margin-bottom: 5px; opacity: 0.7; }
 .rm--done::before { background: var(--muted); border-color: var(--muted); }
 .rm--done h3 { text-decoration: line-through; color: var(--muted); }
 
-/* --- STATO: ACTIVE (Fase 2 Completata/Focus) --- */
 .rm--active {
   border: 1px solid var(--acc);
   box-shadow: 0 0 20px rgba(10, 255, 132, 0.1);
@@ -572,20 +661,16 @@ a:hover { color: var(--acc); }
 }
 .rm--active h3 { color: var(--text); }
 
-/* --- STATO: FUTURE (Opzionale) --- */
 .rm--future { opacity: 0.5; border-style: dashed; }
 
-/* Layout interno Card */
 .rm__content h3 { margin: 5px 0; font-size: 18px; }
 .rm__tag { color: var(--acc2); font-size: 11px; margin-bottom: 2px; }
 
-/* --- CLASSE PER ATTIVARE ANIMAZIONE (Via JS) --- */
 .rm.in-view {
   opacity: 1;
   transform: translateX(0);
 }
 
-/* Mobile Adjustments per la roadmap */
 @media (max-width: 800px) {
   .roadmap-container { padding-left: 15px; }
   .rm::before { left: -22px; }
