@@ -254,24 +254,41 @@ _
     </section>
 
     <!-- NEW: Unified “Protocols” section that mirrors the app InfoScreen content -->
-    <section id="protocols" class="section section--alt">
-      <div class="wrap">
-        <h2>🧬 System Kernel Info</h2>
-        <p class="lead">
-          The website mirrors the in-app <span class="mono">SYSTEM_KERNEL_INFO</span> panel: features, warnings, and operational assumptions in one place.
-        </p>
+<section id="protocols" class="section section--alt">
+  <div class="wrap">
+    <h2>🧬 System Kernel Info</h2>
+    <p class="lead">
+      The website mirrors the in-app <span class="mono">SYSTEM_KERNEL_INFO</span> panel: features, warnings, and operational assumptions in one place.
+    </p>
 
-        <div class="grid2">
-          <article class="card">
+    <div class="grid2">
+      
+      <article class="card interactive-card" onclick="toggleCard(this)">
+        <div class="card-cover">
+          <img src="assets/img/mesh.jpeg" alt="NFC and Radar Mesh">
+          <div class="cover-overlay">
+            <div class="cover-title">HARDWARE PROTOCOLS</div>
+            <div class="cover-status blink-text">[ ENCRYPTED - CLICK TO VIEW ]</div>
+          </div>
+        </div>
+        <div class="card-content">
             <h3>Hardware Protocols</h3>
             <div class="mono tiny muted">[1] CONTACTLESS HANDSHAKE (NFC)</div>
             <p>Offline identity exchange concept: devices touch in the physical world. No internet transit, no server-side identity roster.</p>
-
             <div class="mono tiny muted" style="margin-top:12px;">[2] GHOST MESH RADAR</div>
             <p>Proximity discovery concept (Wi-Fi Aware style): detect allied nodes nearby without joining a hotspot.</p>
-          </article>
+        </div>
+      </article>
 
-          <article class="card">
+      <article class="card interactive-card" onclick="toggleCard(this)">
+        <div class="card-cover">
+          <img src="assets/img/shake_cleanup.png" alt="Motion Sensors">
+          <div class="cover-overlay">
+            <div class="cover-title">KINETIC REFLEXES</div>
+            <div class="cover-status blink-text">[ SENSOR DATA LOCKED ]</div>
+          </div>
+        </div>
+        <div class="card-content">
             <h3>Kinetic Reflexes</h3>
             <div class="mono tiny muted">[ACCELEROMETER TRIGGERS]</div>
             <p>
@@ -280,46 +297,95 @@ _
               <span class="mono">FACE DOWN</span> → emergency lock / black screen.
             </p>
             <div class="tiny muted">Designed to behave fast when your brain is busy screaming.</div>
-          </article>
+        </div>
+      </article>
 
-          <article class="card">
+      <article class="card interactive-card" onclick="toggleCard(this)">
+        <div class="card-cover">
+          <img src="assets/img/calculator.jpeg" alt="Decoy Interface">
+          <div class="cover-overlay">
+            <div class="cover-title">ADAPTIVE CAMOUFLAGE</div>
+            <div class="cover-status blink-text">[ STEALTH MODE ACTIVE ]</div>
+          </div>
+        </div>
+        <div class="card-content">
             <h3>Adaptive Camouflage</h3>
             <div class="mono tiny muted">[THE CALCULATOR ILLUSION]</div>
             <p>A cover surface that behaves like a normal utility app. Sensitive UI can remain dormant until a specific sequence is entered.</p>
-
             <div class="mono tiny muted" style="margin-top:12px;">[DECOY MODE]</div>
             <p>A believable decoy surface to buy time and reduce risk during casual inspection.</p>
-          </article>
+        </div>
+      </article>
 
-          <article class="card">
+      <article class="card interactive-card" onclick="toggleCard(this)">
+        <div class="card-cover">
+          <img src="assets/img/sec_vault.png" alt="Encrypted Chip">
+          <div class="cover-overlay">
+            <div class="cover-title">HARDWARE VAULT</div>
+            <div class="cover-status blink-text">[ SQLCIPHER ENCRYPTED ]</div>
+          </div>
+        </div>
+        <div class="card-content">
             <h3>Hardware Vault</h3>
             <div class="mono tiny muted">[SQLCIPHER 4.x STYLE]</div>
             <p>At-rest encryption: database files look like high entropy noise without the correct key material.</p>
-
             <div class="mono tiny muted" style="margin-top:12px;">[KEYS & ISOLATION]</div>
             <p>Prefer platform keystore / TEE-backed storage where possible. Assume seized devices; plan accordingly.</p>
-          </article>
+        </div>
+      </article>
 
-          <article class="card">
+      <article class="card interactive-card" onclick="toggleCard(this)">
+        <div class="card-cover">
+          <img src="assets/img/tor_edge.png" alt="Tor Network Routing">
+          <div class="cover-overlay">
+            <div class="cover-title">NETWORK INVISIBILITY</div>
+            <div class="cover-status blink-text">[ ONION ROUTING ENGAGED ]</div>
+          </div>
+        </div>
+        <div class="card-content">
             <h3>Network Invisibility</h3>
             <div class="mono tiny muted">[EDGE TUNNELING]</div>
             <p>Traffic routing can be layered (Tor + edge indirection) to avoid a stable origin signal.</p>
-
             <div class="mono tiny muted" style="margin-top:12px;">[ZERO-TRUST HANDSHAKE]</div>
             <p>Application-layer cryptographic tokens can harden relay interaction against naive scraping and protocol confusion.</p>
-          </article>
+        </div>
+      </article>
 
-          <article class="card">
+      <article class="card interactive-card" onclick="toggleCard(this)">
+        <div class="card-cover">
+          <img src="assets/img/pin.jpeg" alt="PIN Security">
+          <div class="cover-overlay">
+            <div class="cover-title">PLAUSIBLE DENIABILITY</div>
+            <div class="cover-status blink-text">[ WAITING FOR PIN ]</div>
+          </div>
+        </div>
+        <div class="card-content">
             <h3>Plausible Deniability</h3>
             <div class="mono tiny muted">[PIN ROUTING CONCEPT]</div>
             <p class="mono" style="line-height:1.8;">
               PIN 1111 → Access Chat<br/>
               PIN 0000 → Decoy Mode<br/>
-              Panic PIN → Safety protocol (documented above)
+              Panic PIN → Safety protocol
             </p>
             <div class="tiny muted">Use responsibly; avoid “magic numbers” in production builds.</div>
-          </article>
         </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<script>
+function toggleCard(element) {
+    if (element.classList.contains('is-open')) {
+        element.classList.remove('is-open');
+    } else {
+        // Opzionale: decommenta la riga sotto se vuoi che se ne apra solo una alla volta
+        // document.querySelectorAll('.interactive-card').forEach(c => c.classList.remove('is-open'));
+        element.classList.add('is-open');
+    }
+}
+</script>
 
         <div class="sloganBox">
           <div class="mono sloganBox__title">“TRUST NO ONE. ENCRYPT EVERYTHING.”</div>
