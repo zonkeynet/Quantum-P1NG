@@ -844,3 +844,132 @@ a:hover { color: var(--acc); }
         font-size: 16px;
     }
 }
+/* --- MISSION SECTION: HUD SCANNER STYLE --- */
+
+/* Layout Griglia specifico per Mission */
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+/* Base della Card Mission */
+.mission-card {
+    background: rgba(10, 15, 20, 0.6);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    /* Reset padding se ereditato */
+    padding: 0; 
+    display: flex;
+    flex-direction: column;
+}
+
+.mission-card:hover {
+    border-color: var(--acc); /* Bordo verde neon all'hover */
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px -10px rgba(10, 255, 132, 0.15);
+}
+
+/* Contenitore Immagine */
+.mission-visual {
+    position: relative;
+    width: 100%;
+    height: 160px; /* Altezza fissa compatta */
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+}
+
+/* Stile Immagine: Effetto "Digitalizzato" di base */
+.mission-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Filtro iniziale: verde monocromatico e scuro */
+    filter: grayscale(100%) sepia(100%) hue-rotate(70deg) saturate(300%) brightness(0.7);
+    transition: all 0.5s ease;
+}
+
+/* Hover: L'immagine diventa realistica */
+.mission-card:hover .mission-visual img {
+    filter: none; /* Rimuove i filtri */
+    transform: scale(1.05); /* Leggero zoom */
+}
+
+/* Etichetta sovrimpressa (es. ROUTING::ONION) */
+.mission-overlay {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: rgba(0,0,0,0.8);
+    color: var(--acc);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    padding: 4px 8px;
+    border-top-left-radius: 8px;
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+}
+
+/* --- EFFETTO LASER SCANNER --- */
+.scan-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--acc); /* Linea verde */
+    box-shadow: 0 0 10px var(--acc);
+    opacity: 0; /* Invisibile di default */
+    z-index: 5;
+    pointer-events: none;
+}
+
+/* Animazione Scanner solo all'hover */
+.mission-card:hover .scan-line {
+    opacity: 1;
+    animation: scanMove 2s linear infinite;
+}
+
+@keyframes scanMove {
+    0% { top: 0%; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+}
+
+/* Contenuto Testuale */
+.mission-content {
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.mission-content h3 {
+    margin-top: 0;
+    color: var(--text);
+    font-size: 18px;
+    border-left: 2px solid var(--acc2); /* Accento Ciano a sinistra del titolo */
+    padding-left: 10px;
+}
+
+.mission-content p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 800px) {
+    .mission-grid {
+        grid-template-columns: 1fr; /* Una colonna su mobile */
+        gap: 20px;
+    }
+    
+    .mission-visual {
+        height: 180px; /* Un po' più alta su mobile per visibilità */
+    }
+}

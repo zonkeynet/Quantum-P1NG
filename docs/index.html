@@ -135,38 +135,62 @@ _
       <div class="glow" aria-hidden="true"></div>
     </section>
 
-    <section id="mission" class="section">
-      <div class="wrap">
-        <h2>📡 Mission</h2>
-        <p class="lead">
-          <strong>Quantum P1NG</strong> is not just a chat application: it is a survival tool for communication in hostile environments.
-          The design goal is simple: <strong>minimize metadata</strong>, <strong>protect content</strong>, <strong>resist coercion</strong>.
-        </p>
+<section id="mission" class="section">
+  <div class="wrap">
+    <h2>📡 Mission</h2>
+    <p class="lead">
+      <strong>Quantum P1NG</strong> is not just a chat application: it is a survival tool for communication in hostile environments.
+      The design goal is simple: <strong>minimize metadata</strong>, <strong>protect content</strong>, <strong>resist coercion</strong>.
+    </p>
 
-        <div class="cards">
-          <article class="card">
-            <h3>Tor-capable routing</h3>
-            <p>Traffic can be routed through Tor (e.g., via Orbot). This reduces direct IP exposure and adds resilience under censorship.</p>
-          </article>
-          <article class="card">
-            <h3>Ephemeral by default</h3>
-            <p>Messages are treated as events: delivery, decay, trace minimization. Less data at rest, less to lose.</p>
-          </article>
-          <article class="card">
-            <h3>Operator-first</h3>
-            <p>Duress/Decoy mode, background auto-lock, integrity checks. Built to behave sensibly under physical pressure.</p>
-          </article>
+    <div class="mission-grid">
+      
+      <article class="card mission-card">
+        <div class="mission-visual">
+          <img src="assets/img/tor_routing.jpg" alt="Tor Routing">
+          <div class="scan-line"></div> <div class="mission-overlay">ROUTING::ONION</div>
         </div>
+        <div class="mission-content">
+          <h3>Tor-capable routing</h3>
+          <p>Traffic can be routed through Tor (e.g., via Orbot). This reduces direct IP exposure and adds resilience under censorship.</p>
+        </div>
+      </article>
 
-        <div class="callout callout--soft">
-          <div class="callout__title mono">Operational Intelligence</div>
-          <p class="callout__text">
-            You’re operating a <strong>ghost node</strong>: the system is designed to exist without leaving an obvious footprint.
-            Identity can be decoupled from hardware identifiers where the platform allows it.
-          </p>
+      <article class="card mission-card">
+        <div class="mission-visual">
+          <img src="assets/img/trace.png" alt="Ephemeral Data">
+          <div class="scan-line"></div>
+          <div class="mission-overlay">DATA::DECAY</div>
         </div>
-      </div>
-    </section>
+        <div class="mission-content">
+          <h3>Ephemeral by default</h3>
+          <p>Messages are treated as events: delivery, decay, trace minimization. Less data at rest, less to lose.</p>
+        </div>
+      </article>
+
+      <article class="card mission-card">
+        <div class="mission-visual">
+          <img src="assets/img/operator_focus.jpg" alt="Operator Safety">
+          <div class="scan-line"></div>
+          <div class="mission-overlay">OPERATOR::SAFE</div>
+        </div>
+        <div class="mission-content">
+          <h3>Operator-first</h3>
+          <p>Duress/Decoy mode, background auto-lock, integrity checks. Built to behave sensibly under physical pressure.</p>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="callout callout--soft">
+      <div class="callout__title mono">Operational Intelligence</div>
+      <p class="callout__text">
+        You’re operating a <strong>ghost node</strong>: the system is designed to exist without leaving an obvious footprint.
+        Identity can be decoupled from hardware identifiers where the platform allows it.
+      </p>
+    </div>
+  </div>
+</section>
 
     <section id="stack" class="section section--alt">
       <div class="wrap">
