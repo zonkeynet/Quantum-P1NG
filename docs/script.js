@@ -113,25 +113,26 @@
     });
   });
 
+// =========================================
+  // 4. ROADMAP SCROLL OBSERVER (FIXED)
   // =========================================
-  // 4. ROADMAP SCROLL OBSERVER
-  // =========================================
-  const roadmapItems = document.querySelectorAll('.rm');
+  // Cerchiamo .rm-node invece di .rm per la nuova struttura
+  const roadmapItems = document.querySelectorAll('.rm-node'); 
 
   if (roadmapItems.length > 0) {
       const observerOptions = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.2 // Trigger when 20% visible
+        threshold: 0.1 // Abbassato a 10% per triggerare prima su mobile
       };
 
       const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach((entry, index) => {
           if (entry.isIntersecting) {
-            // Stagger effect
+            // Stagger effect (ritardo a cascata)
             setTimeout(() => {
               entry.target.classList.add('in-view');
-            }, index * 100); 
+            }, index * 150); 
             
             obs.unobserve(entry.target);
           }
