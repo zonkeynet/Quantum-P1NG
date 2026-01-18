@@ -437,7 +437,7 @@ _
 
     <div class="grid2">
       
-      <article class="card interactive-card" onclick="toggleCard(this)">
+      <article class="card interactive-card">
         <div class="card-cover">
           <img src="assets/img/mesh.jpeg" alt="NFC and Radar Mesh">
           <div class="cover-overlay">
@@ -548,18 +548,6 @@ _
     </div>
   </div>
 </section>
-
-<script>
-function toggleCard(element) {
-    if (element.classList.contains('is-open')) {
-        element.classList.remove('is-open');
-    } else {
-        // Opzionale: decommenta la riga sotto se vuoi che se ne apra solo una alla volta
-        // document.querySelectorAll('.interactive-card').forEach(c => c.classList.remove('is-open'));
-        element.classList.add('is-open');
-    }
-}
-</script>
 
       <div class="system-footer">
         <div class="sys-line mono">

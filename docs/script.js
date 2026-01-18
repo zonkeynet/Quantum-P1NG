@@ -1,6 +1,6 @@
 (() => {
   // =========================================
-  // 1. MOBILE MENU LOGIC (Updated for CSS class)
+  // 1. MOBILE MENU LOGIC
   // =========================================
   const burger = document.querySelector(".burger");
   const mobileMenu = document.querySelector(".mobilemenu");
@@ -53,7 +53,7 @@
         if(line.includes("$")) line = `<span style="color:#fff">${line}</span>`;
         if(line.includes("OK") || line.includes("connected")) {
             line = line.replace("OK", "<span style='color:#0aff84'>OK</span>")
-                       .replace("connected", "<span style='color:#0aff84'>connected</span>");
+                        .replace("connected", "<span style='color:#0aff84'>connected</span>");
         }
         
         const lineEl = document.createElement('div');
@@ -113,17 +113,16 @@
     });
   });
 
-// =========================================
-  // 4. ROADMAP SCROLL OBSERVER (FIXED)
   // =========================================
-  // Cerchiamo .rm-node invece di .rm per la nuova struttura
+  // 4. ROADMAP SCROLL OBSERVER
+  // =========================================
   const roadmapItems = document.querySelectorAll('.rm-node'); 
 
   if (roadmapItems.length > 0) {
       const observerOptions = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.1 // Abbassato a 10% per triggerare prima su mobile
+        threshold: 0.1 // Trigger al 10% di visibilità
       };
 
       const observer = new IntersectionObserver((entries, obs) => {
@@ -143,5 +142,32 @@
         observer.observe(item);
       });
   }
+
+  // =========================================
+  // 5. INTERACTIVE CARDS LOGIC (Nuova Sezione)
+  // =========================================
+  // Sostituisce la funzione inline 'toggleCard(this)'
+  const cards = document.querySelectorAll('.interactive-card');
+
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      
+      // LOGICA ACCORDION (Opzionale): 
+      // Se vuoi che se ne apra solo una alla volta, togli il commento qui sotto:
+      /*
+      cards.forEach(c => {
+         if (c !== card) c.classList.remove('is-open');
+      });
+      */
+
+      // Logica toggle standard
+      if (card.classList.contains('is-open')) {
+        card.classList.remove('is-open');
+      } else {
+        card.classList.add('is-open');
+      }
+      
+    });
+  });
 
 })();
