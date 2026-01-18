@@ -13,23 +13,20 @@
     
     if (shouldOpen) {
       mobileMenu.classList.add("is-open");
-      document.body.style.overflow = "hidden"; // Blocca lo scroll della pagina sotto
+      document.body.style.overflow = "hidden"; 
     } else {
       mobileMenu.classList.remove("is-open");
-      document.body.style.overflow = ""; // Riabilita lo scroll
+      document.body.style.overflow = ""; 
     }
   };
 
   if (burger && mobileMenu) {
-    // Click sul burger
     burger.addEventListener("click", () => toggleMenu());
 
-    // Chiudi il menu quando clicchi su un link
     mobileMenu.querySelectorAll("a").forEach(a => {
       a.addEventListener("click", () => toggleMenu(true));
     });
 
-    // Chiudi il menu se l'utente ridimensiona la finestra verso Desktop
     window.addEventListener('resize', () => {
       if (window.innerWidth > 800) {
         toggleMenu(true);
@@ -59,26 +56,21 @@
         const lineEl = document.createElement('div');
         element.appendChild(lineEl);
         
-        // Temporary div to strip HTML tags for typing effect
         const tempDiv = document.createElement('div');
         tempDiv.innerHTML = line;
         const plainText = tempDiv.textContent;
         
-        lineEl.innerHTML = ""; // Start empty
+        lineEl.innerHTML = ""; 
         
         for (let j = 0; j < plainText.length; j++) {
             lineEl.textContent += plainText[j];
-            // Random delay for realism
             await new Promise(r => setTimeout(r, Math.random() * 30 + 10));
         }
         
-        // Restore HTML (colors)
         lineEl.innerHTML = line; 
         
-        // Pause at end of line
         await new Promise(r => setTimeout(r, 100));
         
-        // Auto scroll
         element.scrollTop = element.scrollHeight;
     }
   };
@@ -122,13 +114,12 @@
       const observerOptions = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.1 // Trigger al 10% di visibilità
+        threshold: 0.1 
       };
 
       const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach((entry, index) => {
           if (entry.isIntersecting) {
-            // Stagger effect (ritardo a cascata)
             setTimeout(() => {
               entry.target.classList.add('in-view');
             }, index * 150); 
@@ -146,21 +137,11 @@
   // =========================================
   // 5. INTERACTIVE CARDS LOGIC (Nuova Sezione)
   // =========================================
-  // Sostituisce la funzione inline 'toggleCard(this)'
   const cards = document.querySelectorAll('.interactive-card');
 
   cards.forEach(card => {
     card.addEventListener('click', () => {
       
-      // LOGICA ACCORDION (Opzionale): 
-      // Se vuoi che se ne apra solo una alla volta, togli il commento qui sotto:
-      /*
-      cards.forEach(c => {
-         if (c !== card) c.classList.remove('is-open');
-      });
-      */
-
-      // Logica toggle standard
       if (card.classList.contains('is-open')) {
         card.classList.remove('is-open');
       } else {
