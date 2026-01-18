@@ -35,8 +35,8 @@
   <meta name="twitter:description" content="Secure communications for the nomadic network. Operating over Tor." />
   <meta name="twitter:image" content="https://www.qp1ng.com/assets/img/social-preview.png" />
 
-  <link rel="preload" href="/styles.css" as="style" />
-  <link rel="stylesheet" href="/styles.css" />
+  <link rel="preload" href="./styles.css" as="style" />
+  <link rel="stylesheet" href="./styles.css" />
 
   <script type="application/ld+json">
   {
@@ -59,8 +59,14 @@
   <header class="topbar">
     <div class="wrap topbar__inner">
       <a class="brand" href="#top" aria-label="Quantum P1NG home">
-        <span class="brand__mark">Q</span>
-        <span class="brand__name">- P1NG</span>
+        <div class="brand__icon">
+          <span class="brand__q" data-glitch="Q">Q</span>
+          <div class="brand__ring"></div>
+        </div>
+        <div class="brand__text">
+          <span class="txt-micro">QUANTUM</span>
+          <span class="txt-main glitch-text" data-text="P1NG">P1NG</span>
+        </div>
       </a>
 
       <nav class="nav" aria-label="Primary">
@@ -770,14 +776,27 @@ _
     </div>
 
     <div class="f-col f-right">
-      <div class="f-links mono">
-        <a href="https://github.com/zonkeynet/Quantum-P1NG" target="_blank">GITHUB</a>
-        <span class="sep">/</span>
-        <a href="#">KEYS</a>
-        <span class="sep">/</span>
-        <a href="#">ISSUES</a>
+      <div class="f-links mono" style="text-align:right;">
+        <div style="margin-bottom: 8px;">
+            <span style="color:var(--muted); font-size:10px;">[SRC]</span>
+            <a href="https://github.com/zonkeynet/Quantum-P1NG" target="_blank">GITHUB</a>
+            <span class="sep">::</span>
+            <a href="#">KEYS</a>
+            <span class="sep">::</span>
+            <a href="#">ISSUES</a>
+        </div>
+        
+        <div>
+            <span style="color:var(--muted); font-size:10px;">[COMM]</span>
+            <a href="https://mastodon.social/@qp1ng" target="_blank" style="color:var(--acc2);">MASTODON</a>
+            <span class="sep">/</span>
+            <a href="#" target="_blank" style="color:var(--acc2);">DISCORD</a>
+            <span class="sep">/</span>
+            <a href="#" target="_blank" style="color:var(--acc2);">TELEGRAM</a>
+        </div>
       </div>
-      <a href="#top" class="uplink-btn mono">
+
+      <a href="#top" class="uplink-btn mono" style="margin-top:15px;">
         ^ INITIALIZE_UPLINK
       </a>
     </div>
