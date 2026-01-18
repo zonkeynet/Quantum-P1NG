@@ -980,6 +980,15 @@ a:hover { color: var(--acc); }
     color: #c9d1d9;
 }
 
+/* Media query per schermi piccoli (es. smartphone) */
+@media (max-width: 600px) {
+    .term-body {
+      padding: 15px;
+      font-size: 10px;
+      line-height: 1.5;
+    }
+}
+
 .line { border-bottom: 1px solid rgba(255,255,255,0.03); }
 
 .prompt {
