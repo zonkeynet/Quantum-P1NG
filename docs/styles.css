@@ -19,14 +19,21 @@
 }
 
 * { box-sizing: border-box; }
+/* AGGIORNAMENTO GLOBALE */
+html, body {
+  width: 100%;
+  overflow-x: hidden; /* Blocca rigorosamente lo scroll orizzontale */
+  margin: 0;
+  padding: 0;
+}
+
 html { scroll-behavior: smooth; }
 
 body {
-  margin: 0;
   font-family: var(--font-sans);
   background: var(--bg);
   color: var(--text);
-  overflow-x: hidden;
+  position: relative; /* Aiuta a contenere gli elementi fixed */
 }
 
 /* Background Effects */
