@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Privacy Policy - Quantum P1NG</title>
+<style>
+    body { 
+        background-color: #050a10; 
+        color: #e0e6ed; 
+        font-family: 'Inter', -apple-system, sans-serif; 
+        line-height: 1.7; 
+        max-width: 850px; 
+        margin: 40px auto; 
+        padding: 30px;
+        border: 1px solid #1a2634;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    h1 { 
+        color: #00f2ff; 
+        text-transform: uppercase; 
+        letter-spacing: 2px; 
+        font-family: 'Courier New', monospace;
+        border-bottom: 2px solid #00f2ff;
+        padding-bottom: 10px;
+    }
+    h2 { 
+        color: #00f2ff; 
+        margin-top: 30px; 
+        font-size: 1.2rem;
+        text-transform: uppercase;
+    }
+    strong { color: #00f2ff; }
+    ul { list-style: none; padding-left: 0; }
+    li::before { content: "> "; color: #00f2ff; font-weight: bold; }
+    li { margin-bottom: 10px; padding-left: 10px; }
+    p { margin-bottom: 20px; }
+    
+    /* Effetto Cyber */
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                    linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+        background-size: 100% 2px, 3px 100%;
+        pointer-events: none;
+        z-index: 1000;
+    }
+</style>
+</head>
+<body>
+    <h1>Privacy Policy</h1>
+    <p><strong>Last Updated: January 20, 2026</strong></p>
+    
+    <p>Quantum P1NG is built with privacy as a primary goal. Our architecture is based on the principle of <strong>data minimization</strong>.</p>
+
+    <h2>1. Data Collection</h2>
+    <ul>
+        <li><strong>No Personal Data:</strong> We do not require phone numbers, emails, names, or access to your contacts to function.</li>
+        <li><strong>Anonymous Identifiers:</strong> The only identifier used is your mailbox hash (SHA-256), which cannot be traced back to your real identity.</li>
+        <li><strong>Cryptographic Keys:</strong> RSA private keys are generated and stored exclusively on your device. Only your public key is transmitted to the server to enable message delivery.</li>
+    </ul>
+
+    <h2>2. Message Handling</h2>
+    <ul>
+        <li><strong>End-to-End Encryption:</strong> Every message is encrypted on the sender's device and can only be decrypted by the recipient. The server acts only as a temporary "Dead Drop".</li>
+        <li><strong>Zero-Knowledge:</strong> We have no technical means to read your messages or attachments.</li>
+        <li><strong>Automatic Deletion:</strong> Messages are deleted from the server immediately after delivery to the recipient.</li>
+    </ul>
+
+    <h2>3. Connectivity and Logs</h2>
+    <ul>
+        <li><strong>No Server Logs:</strong> Our server is configured not to log client IP addresses.</li>
+        <li><strong>Tor Integration:</strong> We natively support connections via the Tor network to hide your geographical location and traffic origin.</li>
+        <li><strong>Onion Address:</strong> Users can choose to use the .onion address to completely bypass standard web gateways.</li>
+    </ul>
+
+    <h2>4. Contact</h2>
+    <p>For support or privacy inquiries: <strong>quantump1ng@proton.me</strong></p>
+</body>
+</html>
