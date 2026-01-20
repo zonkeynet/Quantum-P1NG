@@ -328,14 +328,47 @@ a:hover { color: var(--acc); }
 }
 
 /* --- TERMINAL & CARDS --- */
+/* --- LOGOCARD FIX & WOW EFFECT --- */
 .logoCard {
-  border-radius: var(--radius);
-  background: var(--panel);
-  border: 1px solid var(--line);
-  padding: 20px;
-  backdrop-filter: blur(10px);
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Forza l'allineamento verticale */
+    border-radius: var(--radius);
+    background: rgba(5, 7, 10, 0.9);
+    border: 1px solid var(--acc2);
+    padding: 24px;
+    backdrop-filter: blur(15px);
+    transition: all 0.4s ease;
+    overflow: hidden; /* Mantiene i riflessi all'interno */
+    z-index: 1;
 }
-.logoCard img { width: 100%; border-radius: 12px; border: 1px solid var(--line); }
+
+.logoCard__meta {
+    position: relative;
+    z-index: 3; /* Sopra ogni eventuale riflesso */
+    padding-top: 15px;
+    border-top: 1px solid rgba(0, 243, 255, 0.2);
+    text-align: center;
+    background: transparent;
+    width: 100%;
+}
+
+.logoCard__line {
+    font-family: var(--font-mono);
+    font-weight: 800;
+    font-size: 14px;
+    color: var(--acc);
+    text-shadow: 0 0 10px rgba(10, 255, 132, 0.5);
+    margin-bottom: 4px;
+}
+
+.logoCard__sub {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
 
 .terminal {
   margin-top: 20px;
@@ -567,42 +600,87 @@ a:hover { color: var(--acc); }
 /* ANIMATIONS (QUANTUM MATERIALIZATION)      */
 /* ========================================= */
 
+/* ========================================= */
+/* LOGO IMAGE DEFINITIVE UNIFIED CONFIG      */
+/* ========================================= */
+
 .logoCard img {
-  opacity: 0;
+  /* 1. LAYOUT & POSITIONING */
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  position: relative;
+  z-index: 5; /* Assicura visibilità sopra gli effetti HUD */
+
+  /* 2. INITIAL STATE (PRE-ANIMATION) */
+  opacity: 0; 
   transform: scale(0.8) skewX(15deg);
-  filter: blur(10px) brightness(2) contrast(2);
+  filter: blur(10px) brightness(2);
+
+  /* 3. ANIMATION CHAIN
+     - Snap: Materializzazione iniziale (una volta sola)
+     - Pulse: Respiro luminoso ciclico (infinito)
+     - Glitch: Interferenza digitale (infinito)
+  */
   animation:
     quantumSnap 0.8s cubic-bezier(0.1, 0.7, 0.3, 1) 0.3s forwards,
-    quantumPulse 4s ease-in-out 1.2s infinite;
+    quantumPulse 4s ease-in-out 1.2s infinite,
+    quantumGlitch 5s ease-in-out 2s infinite;
 }
 
+/* 4. KEYFRAMES: MATERIALIZATION (SNAP) */
 @keyframes quantumSnap {
   0% {
     opacity: 0;
     transform: scale(0.8) skewX(20deg);
     filter: blur(10px) brightness(3);
   }
-  40% {
-    opacity: 0.8;
-    transform: scale(1.05) skewX(-5deg);
-    filter: blur(2px) brightness(1.5) hue-rotate(90deg);
-  }
-  70% {
-    transform: scale(0.98) skewX(2deg);
-    filter: blur(0) brightness(1.2);
-  }
   100% {
-    opacity: 1;
+    opacity: 1; /* Rende visibile l'immagine */
     transform: scale(1) skewX(0);
     filter: blur(0) brightness(1);
   }
 }
 
+/* 5. KEYFRAMES: LUMINOUS BREATH (PULSE) */
 @keyframes quantumPulse {
-  0%, 100% { filter: drop-shadow(0 0 0px rgba(10, 255, 132, 0)); }
-  50% { filter: drop-shadow(0 0 15px var(--acc-dim)); }
+  0%, 100% { 
+    filter: drop-shadow(0 0 0px rgba(10, 255, 132, 0)); 
+  }
+  50% { 
+    filter: drop-shadow(0 0 15px var(--acc-dim)); /* Bagliore ciano/verde */
+  }
 }
 
+/* 6. KEYFRAMES: DIGITAL INTERFERENCE (GLITCH) */
+@keyframes quantumGlitch {
+  0%, 94%, 100% {
+    transform: scale(1) skewX(0) translate(0);
+    filter: blur(0) brightness(1) contrast(1);
+  }
+  95% {
+    transform: scale(1.03) translate(-3px, 1px);
+    filter: brightness(1.4) hue-rotate(90deg); /* Aberrazione cromatica */
+  }
+  96% {
+    transform: scale(0.97) translate(3px, -1px);
+    filter: brightness(1.4) contrast(1.5) invert(10%);
+  }
+  97% {
+    transform: scale(1) translate(0);
+    filter: brightness(1.1) drop-shadow(0 0 15px var(--acc2));
+  }
+}
+
+/* 7. FAILSAFE: VISIBILITY CHECK */
+.logoCard img:not([src]), 
+.logoCard img[src=""] {
+  border: 2px dashed var(--warn);
+  height: 200px;
+  background: rgba(255, 0, 85, 0.1);
+}
 /* ========================================= */
 /* MOBILE OPTIMIZATIONS (LOGO ON TOP)        */
 /* ========================================= */

@@ -144,33 +144,34 @@
           </div>
         </div>
 
-        <div class="hero__right">
-          <div class="logoCard">
-            <img
-              src="./assets/img/qp1ng_icon.png"
-              alt="Quantum P1NG logo"
-              loading="eager"
-            />
-            <div class="logoCard__meta">
-              <div class="logoCard__line"><span class="mono blink-text">_STATUS: ACTIVE</span></div>
-              <div class="logoCard__sub mono">P1NG → E2E → relay → ∅ logs</div>
+<div class="hero__right">
+    <div class="logoCard">
+        <div class="hud-frame mono">
+            <span class="blink-dot"></span> [LN-77 // TRACE: DISABLED]
+        </div>
+        
+        <img src="./assets/img/qp1ng_icon.png" alt="Quantum P1NG logo" loading="eager" />
+        
+        <div class="logoCard__meta">
+            <div class="logoCard__line">
+                <span class="mono blink-text">_STATUS: ACTIVE</span>
             </div>
-          </div>
+            <div class="logoCard__sub mono">P1NG → E2E → relay → ∅ logs</div>
+            <div class="meta-scanner"></div>
+        </div>
+    </div> <div class="terminal">
+        <div class="terminal__bar">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="terminal__title mono">root@quantum-node:~</span>
+        </div>
+        <pre class="mono terminal__body" id="typewriter-output"></pre>
 
-          <div class="terminal">
-            <div class="terminal__bar">
-              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-              <span class="terminal__title mono">root@quantum-node:~</span>
-            </div>
-            <pre class="mono terminal__body" id="typewriter-output"></pre>
-
-            <!-- Unified boot / info sequence (matches the app InfoScreen vibe) -->
-            <script id="terminal-text" type="text/plain">
+        <script id="terminal-text" type="text/plain">
 $ quantum-p1ng --boot
 > KERNEL LOADING................... [OK]
 > KERNEL INTEGRITY CHECK......... [PASS]
 > MOUNTING SQLCIPHER FS............ [OK]
-> GENERATING RSA-4096 KEYS......... [DONE]
+> GENERATING RSA-2048 KEYS......... [DONE]
 > ACTIVATING NFC CONTROLLER........ [OK]
 > CALIBRATING GYROSCOPE............ [OK]
 > ACTIVATING KINETIC SENSORS....... [ACTIVE]
@@ -179,9 +180,8 @@ $ quantum-p1ng --boot
 > ACTIVATING STEGANOGRAPHY LAYER... [ACTIVE]
 > SYSTEM READY.
 _
-</script>
-          </div>
-        </div>
+        </script>
+    </div> </div>
       </div>
 
       <div class="scanlines" aria-hidden="true"></div>
