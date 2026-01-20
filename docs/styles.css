@@ -400,8 +400,14 @@ a:hover { color: var(--acc); }
   height: 200px;
   overflow-y: auto;
   white-space: pre-wrap;
+  overflow-y: auto; /* Permette lo scroll interno senza mostrare la barra */
+  scrollbar-width: none; /* Nasconde la barra su Firefox */
+  -ms-overflow-style: none; /* Nasconde la barra su IE/Edge */
 }
-
+/* Nasconde la barra su Chrome, Safari e Opera */
+.terminal__body::-webkit-scrollbar {
+    display: none;
+}
 /* Blinking Cursor */
 .typing-cursor::after {
   content: '█';
