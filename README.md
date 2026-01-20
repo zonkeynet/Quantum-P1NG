@@ -165,6 +165,3 @@ Privacy & legal documentation will be published under `/docs/legal/`.
 <p align="center">
   <i>"In the nomadic network, the only trace left is the one you choose to leave."</i>
 </p>
-
-APK output:
-
