@@ -171,6 +171,7 @@ $ quantum-p1ng --boot
 > KERNEL LOADING................... [OK]
 > KERNEL INTEGRITY CHECK......... [PASS]
 > MOUNTING SQLCIPHER FS............ [OK]
+> INIT BITCOIN DEV KIT (BDK)....... [READY]
 > GENERATING RSA-2048 KEYS......... [DONE]
 > ACTIVATING NFC CONTROLLER........ [OK]
 > CALIBRATING GYROSCOPE............ [OK]
@@ -437,7 +438,92 @@ _
 
   </div>
 </section>
+<section id="finance" class="section section--alt">
+  <div class="wrap">
+    <div class="kicker mono" style="color:var(--btc)">> MODULE: BITCOIN_CORE_BDK</div>
+    <h2>Financial Sovereignty</h2>
+    <p class="lead">
+      Move value as silently as you move data. A fully <strong>Non-Custodial Bitcoin Vault</strong> integrated directly into the secure mesh. 
+      Broadcast transactions over Tor. Sign with Biometrics.
+    </p>
 
+    <div class="finance-grid">
+      
+      <div class="vault-interface">
+        <div class="vault-header">
+          <div class="vault-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            SECURE_VAULT_V1
+          </div>
+          <div class="vault-status mono">TOR_CIRCUIT: READY</div>
+        </div>
+
+        <div class="tx-log">
+          <div class="tx-row">
+            <span>TYPE</span>
+            <span style="color:#fff">NATIVE SEGWIT (BIP84)</span>
+          </div>
+          <div class="tx-row">
+            <span>DERIVATION</span>
+            <span>m/84'/0'/0'</span>
+          </div>
+          <div class="tx-row">
+            <span>SIGNER</span>
+            <span style="color:var(--acc)">BIOMETRIC_TEE_UNLOCK</span>
+          </div>
+          
+          <div style="margin-top:20px; margin-bottom:10px; font-size:10px; color:var(--muted)">LATEST BROADCAST (TESTNET)</div>
+          
+          <div class="tx-row" style="border:none; background:rgba(0,0,0,0.3); padding:10px; border-radius:6px;">
+            <div>
+              <div class="tx-hash">txid: 8a9f...3c2d</div>
+              <div class="tiny mono" style="margin-top:4px;">Via: Electrum (Blockstream) over Tor</div>
+            </div>
+            <div style="text-align:right;">
+              <div class="tx-amt">-0.0045 BTC</div>
+              <div class="tx-status">CONFIRMED</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fin-features">
+        
+        <div class="fin-item">
+          <div class="fin-icon">🔑</div>
+          <div class="fin-content">
+            <h4>You Hold The Keys</h4>
+            <p>
+              Zero-knowledge architecture. Private keys (entropy) are generated locally, encrypted with <strong>AES-256-GCM</strong>, and stored in the Android Hardware Keystore (TEE). We cannot freeze your funds.
+            </p>
+          </div>
+        </div>
+
+        <div class="fin-item">
+          <div class="fin-icon">🧬</div>
+          <div class="fin-content">
+            <h4>Biometric Signing</h4>
+            <p>
+              Transactions require physical proof of identity. The vault utilizes Android <strong>BiometricPrompt</strong> to decrypt the master key only milliseconds before signing.
+            </p>
+          </div>
+        </div>
+
+        <div class="fin-item">
+          <div class="fin-icon">🧅</div>
+          <div class="fin-content">
+            <h4>Tor Broadcast</h4>
+            <p>
+              Transactions are pushed to the blockchain via Tor (Orbot). The Bitcoin node sees the exit node's IP, not yours. Complete network isolation.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
     <!-- NEW: Unified “Protocols” section that mirrors the app InfoScreen content -->
 <section id="protocols" class="section section--alt">
   <div class="wrap">

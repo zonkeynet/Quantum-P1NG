@@ -11,6 +11,8 @@
   --acc-dim: rgba(10, 255, 132, 0.15);
   --acc2: #00f3ff;     /* Cyan Cyberpunk */
   --warn: #ff0055;     /* Error Red */
+  --btc: #f7931a;      /* Bitcoin Orange */
+  --btc-dim: rgba(247, 147, 26, 0.15);
 
   --shadow: 0 20px 80px -10px rgba(0, 0, 0, 0.8);
   --radius: 16px;
@@ -2082,4 +2084,132 @@ a:hover { color: var(--acc); }
     color: #000;
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
   }
+}
+
+/* ========================================= */
+/* --- FINANCE / VAULT SECTION ---           */
+/* ========================================= */
+
+.finance-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    align-items: center;
+    margin-top: 40px;
+}
+
+@media (max-width: 800px) {
+    .finance-grid { grid-template-columns: 1fr; }
+}
+
+/* Card stile "Hard Wallet" */
+.vault-interface {
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+}
+
+/* Effetto circuito stampato sfondo */
+.vault-interface::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: 
+        linear-gradient(rgba(247, 147, 26, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(247, 147, 26, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.vault-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.vault-title {
+    color: var(--btc);
+    font-family: var(--font-mono);
+    font-weight: 800;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.vault-status {
+    font-size: 10px;
+    background: rgba(247, 147, 26, 0.1);
+    border: 1px solid var(--btc);
+    color: var(--btc);
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.tx-log {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: #8b949e;
+    line-height: 1.8;
+    position: relative;
+    z-index: 1;
+}
+
+.tx-row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dashed rgba(255,255,255,0.05);
+    padding: 8px 0;
+}
+
+.tx-hash { color: var(--acc2); }
+.tx-amt { color: #fff; font-weight: bold; }
+.tx-status { color: var(--acc); }
+
+/* Feature List Finanziaria */
+.fin-features {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.fin-item {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.fin-icon {
+    width: 40px; height: 40px;
+    border-radius: 8px;
+    background: var(--btc-dim);
+    border: 1px solid var(--btc);
+    color: var(--btc);
+    display: grid;
+    place-items: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.fin-content h4 {
+    margin: 0 0 5px 0;
+    color: var(--text);
+    font-size: 16px;
+}
+
+.fin-content p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
 }
