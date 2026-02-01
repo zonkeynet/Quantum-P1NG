@@ -1,3 +1,4 @@
+/* --- GLOBAL STYLES & VARIABLES --- */
 :root {
   --bg: #05070a;
   --bg2: #0a0e14;
@@ -13,11 +14,27 @@
   --warn: #ff0055;     /* Error Red */
   --btc: #f7931a;      /* Bitcoin Orange */
   --btc-dim: rgba(247, 147, 26, 0.15);
+  --cyber-cyan: #00f6ff;
+  --cyber-green: #00ff9c;
+  --cyber-purple: #9d6bff;
+  --cyber-red: #ff355d;
+  --cyber-gold: #f5c77a;
+  --cyber-blue: #4aa3ff;
 
   --shadow: 0 20px 80px -10px rgba(0, 0, 0, 0.8);
   --radius: 16px;
   --font-sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, monospace;
+  --font-cyber: "QP1NG-Digital", "JetBrains Mono", monospace;
+
+}
+
+@font-face {
+  font-family: 'QP1NG-Digital';
+  src: url('./assets/fonts/square_dot_digital_qp1ng.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* evita FOIT */
 }
 
 * { box-sizing: border-box; }
@@ -48,6 +65,18 @@ body::before {
     radial-gradient(circle at 85% 30%, rgba(10, 255, 132, 0.06), transparent 25%);
   pointer-events: none;
   z-index: -1;
+}
+
+h2 {
+  font-family: 'QP1NG-Digital', var(--font-mono);
+  letter-spacing: 0.1em;
+  color: var(--cyber-green);
+}
+
+h3 {
+  font-family: 'QP1NG-Digital', var(--font-mono);
+  letter-spacing: 0.1em;
+  color: var(--cyber-green);
 }
 
 a { color: inherit; text-decoration: none; transition: color .2s; }
@@ -111,7 +140,7 @@ a:hover { color: var(--acc); }
 
 /* 3. LA LETTERA "Q" */
 .brand__q {
-  font-family: var(--font-mono);
+  font-family: var(--font-cyber);
   font-weight: 900;
   font-size: 24px;
   color: #fff;
@@ -163,6 +192,7 @@ a:hover { color: var(--acc); }
 }
 
 .txt-main {
+  font-family: var(--font-cyber); 
   font-size: 20px;
   font-weight: 800;
   color: var(--text);
@@ -222,41 +252,63 @@ a:hover { color: var(--acc); }
   opacity: 0.8;
 }
 
-/* Glitch Effect on Title */
+/* === H1 CYBER TITLE === */
 .title {
+  font-family: 'QP1NG-Digital', var(--font-mono);
   font-size: 64px;
   line-height: 1;
   margin: 0 0 20px;
-  letter-spacing: -.03em;
+  letter-spacing: 0.08em; /* più adatto a font digitali */
   position: relative;
   color: #fff;
+  text-transform: uppercase;
 }
-.glitch { position: relative; }
-.glitch::before, .glitch::after {
+
+/* === GLITCH CORE === */
+.glitch {
+  position: relative;
+}
+
+.glitch::before,
+.glitch::after {
   content: attr(data-text);
   position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  /* 🔑 FONDAMENTALE: eredita il font */
+  font-family: inherit;
 }
+
+/* Magenta channel */
 .glitch::before {
   left: 2px;
   text-shadow: -1px 0 #ff00c1;
-  clip: rect(44px, 450px, 56px, 0);
+  clip: rect(44px, 9999px, 56px, 0);
   animation: glitch-anim 5s infinite linear alternate-reverse;
 }
+
+/* Cyan channel */
 .glitch::after {
   left: -2px;
   text-shadow: -1px 0 #00fff9;
-  clip: rect(44px, 450px, 56px, 0);
+  clip: rect(44px, 9999px, 56px, 0);
   animation: glitch-anim2 5s infinite linear alternate-reverse;
 }
+
+/* === ANIMATIONS === */
 @keyframes glitch-anim {
-  0% { clip: rect(38px, 9999px, 81px, 0); }
+  0%   { clip: rect(38px, 9999px, 81px, 0); }
   100% { clip: rect(30px, 9999px, 7px, 0); }
 }
+
 @keyframes glitch-anim2 {
-  0% { clip: rect(10px, 9999px, 2px, 0); }
+  0%   { clip: rect(10px, 9999px, 2px, 0); }
   100% { clip: rect(6px, 9999px, 96px, 0); }
 }
+
 
 .subtitle { font-size: 20px; color: var(--muted); margin-bottom: 24px; max-width: 500px; }
 .badges { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
