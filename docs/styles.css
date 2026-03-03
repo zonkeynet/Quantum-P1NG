@@ -2271,20 +2271,20 @@ a:hover { color: var(--acc); }
 /* ========================================= */
 
 #games {
-    padding: 80px 0; /* Ridotto per coerenza con le altre sezioni */
+    padding: 80px 0;
     border-top: 1px solid var(--line);
     position: relative;
     overflow: hidden;
 }
 
-/* Terminale di Accesso (Immagine Generale Cliccabile) */
+/* Terminale di Accesso */
 .games-terminal {
     position: relative;
     max-width: 700px;
     margin: 40px auto;
     cursor: pointer;
     border: 1px solid var(--acc2);
-    border-radius: 4px; /* Angoli meno arrotondati, più tattici */
+    border-radius: 4px;
     overflow: hidden;
     background: #000;
     transition: transform 0.4s var(--cb), box-shadow 0.4s;
@@ -2327,7 +2327,6 @@ a:hover { color: var(--acc); }
     z-index: 2;
 }
 
-/* Effetto Scanline interno al terminale */
 .games-terminal .scanline {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -2343,16 +2342,34 @@ a:hover { color: var(--acc); }
     opacity: 0;
 }
 
-/* Effetto Apparizione Cyberpunk */
+/* Modifica la classe rivelata della griglia per non fare il fade globale, 
+   dato che ora lo fanno le singole card a cascata via JS */
 .cyber-grid.revealed {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
     margin-top: 40px;
-    animation: cyberReveal 0.7s var(--cb) forwards;
+    opacity: 1; /* Nessuna animazione qui, è gestita dalle singole card */
 }
 
-/* --- Cinematic Reveal Animation --- */
+/* --- Animazioni --- */
+
+/* Tremolio della UI simulando un impatto di sistema */
+@keyframes screenShake {
+  0% { transform: translate(2px, 1px) rotate(0deg); filter: hue-rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); filter: hue-rotate(90deg); }
+  30% { transform: translate(0px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); filter: hue-rotate(-90deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(2px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); filter: hue-rotate(0deg); }
+  90% { transform: translate(2px, 2px) rotate(0deg); }
+  100% { transform: translate(0px, 0px) rotate(0deg); }
+}
+
+/* Cinematic Reveal per le SINGOLE card */
 @keyframes cinematicReveal {
     0% { 
         opacity: 0; 
@@ -2367,7 +2384,6 @@ a:hover { color: var(--acc); }
     20% { transform: translate(5px, -2px) skewX(5deg); filter: hue-rotate(90deg); }
     25% { transform: translate(-5px, 2px) skewX(-5deg); filter: hue-rotate(180deg); }
     30% { transform: translate(0); filter: hue-rotate(0deg); }
-    /* Micro-glitch a metà durata (allineato al suono) */
     70% { transform: scale(1.02); filter: contrast(1.5) brightness(1.2); }
     72% { transform: scale(1); filter: contrast(1) brightness(1); }
     100% { 
@@ -2377,20 +2393,11 @@ a:hover { color: var(--acc); }
     }
 }
 
-.cyber-grid.revealed {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-top: 40px;
-    /* Durata sincronizzata a 2 secondi */
-    animation: cinematicReveal 2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-}
-
 /* Overlay di disturbo durante il caricamento */
 .glitch-noise {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: url('assets/img/glitch.gif'); /* Texture rumore bianco */
+    background: url('assets/img/glitch.gif');
     opacity: 0.05;
     pointer-events: none;
     z-index: 999;
@@ -2399,7 +2406,7 @@ a:hover { color: var(--acc); }
 
 .glitch-noise.active {
     display: block;
-    animation: noiseFade 2s forwards;
+    animation: noiseFade 2.5s forwards; /* Aumentato a 2.5s per coprire tutta la sequenza JS */
 }
 
 @keyframes noiseFade {
@@ -2431,13 +2438,11 @@ a:hover { color: var(--acc); }
     .cyber-grid.revealed {
         grid-template-columns: 1fr;
         gap: 16px;
-        /* Riduciamo lo scale su mobile per evitare scroll orizzontali indesiderati */
-        animation: cinematicReveal 2s ease-out forwards;
+        /* RIMOZIONE DELL'ANIMAZIONE GLOBALE QUI */
     }
 
     @keyframes cinematicReveal {
         0% { opacity: 0; transform: scale(1.05); filter: blur(10px); }
         100% { opacity: 1; transform: scale(1); filter: blur(0); }
     }
-
 }
