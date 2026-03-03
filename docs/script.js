@@ -150,5 +150,108 @@
       
     });
   });
+ // =========================================================================
+// 6. CINEMATIC GAMES REVEAL (ENHANCED "WOW" EDITION)
+// =========================================================================
+const terminal = document.getElementById('games-terminal');
+const gamesGrid = document.getElementById('cyber-games-grid');
+const glitchText = terminal ? terminal.querySelector('.glitch-text') : null;
+
+// Creazione dinamica dell'overlay di rumore per l'effetto cinema
+const noise = document.createElement('div');
+noise.className = 'glitch-noise';
+document.body.appendChild(noise);
+
+const unlockSound = new Audio('assets/audio/glitch.mp3');
+unlockSound.volume = 0.6; // Volume leggermente alzato per l'impatto
+
+// Set di caratteri per l'effetto di decriptazione
+const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*<>";
+let scrambleInterval;
+
+if (terminal && gamesGrid) {
+  terminal.addEventListener('click', () => {
+    // Disabilita ulteriori click durante l'animazione
+    terminal.style.pointerEvents = 'none';
+
+    // --- FASE 1: DECRIPTAZIONE & ANTICIPAZIONE (0.0s - 0.6s) ---
+    unlockSound.play().catch(e => console.log("Audio trigger failed"));
+
+    if (window.navigator.vibrate) {
+      window.navigator.vibrate([30, 50, 30]); // Feedback tattile leggero ("calcolo in corso")
+    }
+
+    // Effetto Scramble sul testo "[ INITIALIZE_ARCADE ]"
+    if (glitchText) {
+      let iterations = 0;
+      const originalText = glitchText.dataset.text || "[ INITIALIZE_ARCADE ]";
+      
+      scrambleInterval = setInterval(() => {
+        glitchText.innerText = originalText.split('')
+          .map((char, index) => {
+            if(index < iterations) return originalText[index];
+            return chars[Math.floor(Math.random() * chars.length)];
+          }).join('');
+        iterations += 1/2; // Velocità di decriptazione
+      }, 30);
+    }
+
+    // Distorsione del terminale in preparazione alla "rottura"
+    terminal.style.transform = "scale(0.97)";
+    terminal.style.filter = "brightness(2.5) contrast(1.5) hue-rotate(90deg) blur(2px)";
+    terminal.style.transition = "all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
+
+    // --- FASE 2: LA BRECCIA (0.6s) ---
+    setTimeout(() => {
+      clearInterval(scrambleInterval); // Ferma lo scramble
+      if (glitchText) glitchText.innerText = "[ ACCESS GRANTED ]"; // Messaggio finale rapido
+      
+      noise.classList.add('active'); // Attiva rumore bianco totale
+
+      if (window.navigator.vibrate) {
+        window.navigator.vibrate([200, 100, 300]); // Feedback tattile pesante ("esplosione")
+      }
+
+      // Effetto di tremolio su tutto il corpo della pagina
+      document.body.style.animation = "screenShake 0.4s ease-out";
+
+      // --- FASE 3: RIVELAZIONE A CASCATA (0.8s) ---
+      setTimeout(() => {
+        terminal.style.display = 'none';
+        gamesGrid.classList.remove('hidden');
+        gamesGrid.classList.add('revealed');
+
+        // Iniettiamo un ritardo a cascata per ogni singola card
+        const cards = gamesGrid.querySelectorAll('.cyber-card');
+        cards.forEach((card, index) => {
+          card.style.opacity = '0'; // Partono invisibili per far lavorare l'animazione
+          card.style.animation = `cinematicReveal 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards`;
+          // Il cuore dell'effetto wow: la prima card appare subito, la seconda dopo 0.15s, ecc.
+          card.style.animationDelay = `${index * 0.15}s`; 
+        });
+      }, 200); // Breve ritardo dopo il glitch massimo
+
+    }, 600); // Durata della decriptazione iniziale
+
+    // --- FASE 4: CLEANUP & STABILIZZAZIONE (2.5s) ---
+    setTimeout(() => {
+      noise.classList.remove('active');
+      document.body.style.animation = "none"; // Ferma il tremolio
+
+      // Rimuoviamo le animazioni dalle card per evitare problemi di hover/interazione successivi
+      const cards = gamesGrid.querySelectorAll('.cyber-card');
+      cards.forEach(card => {
+        card.style.animation = "none";
+        card.style.opacity = "1";
+        card.style.transform = "none";
+        card.style.filter = "none";
+      });
+
+      gamesGrid.style.animation = "none";
+      gamesGrid.style.opacity = "1";
+    }, 2500);
+
+  });
+}
 
 })();

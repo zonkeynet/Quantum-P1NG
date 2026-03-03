@@ -92,6 +92,7 @@
       <a href="#mission">Mission</a>
       <a href="#stack">Tech Stack</a>
       <a href="#security">Security</a>
+      <a href="#games">Games</a>
       <a href="#protocols">Protocols</a>
       <a href="#setup">Setup</a>
       <a href="#roadmap">Roadmap</a>
@@ -524,6 +525,73 @@ _
     </div>
   </div>
 </section>
+<section id="games" class="section section--alt">
+  <div class="wrap">
+    <div class="kicker mono" style="color:var(--acc2)">> MODULE: OFFLINE_PASSATEMPI_V1</div>
+    <h2 class="neon-title">Retro-Privacy Games</h2>
+    <p class="lead">Operational stress management via 100% offline arcade widgets.</p>
+
+    <div id="games-terminal" class="games-terminal">
+      <img src="assets/img/games.png" alt="Access Arcade" class="terminal-img">
+      <div class="terminal-overlay">
+        <div class="glitch-text mono" data-text="[ INITIALIZE_ARCADE ]">[ INITIALIZE_ARCADE ]</div>
+        <div class="scanline"></div>
+      </div>
+    </div>
+
+    <div id="cyber-games-grid" class="grid3 cyber-grid hidden">
+      
+      <article class="card interactive-card cyber-card">
+        <div class="card-cover">
+          <picture>
+            <source media="(max-width: 900px)" srcset="assets/img/q-snake-front.png">
+            <img src="assets/img/q-snake.png" alt="Phantom Snake">
+          </picture>
+          <div class="cover-overlay">
+            <div class="cover-title neon-text">PHANTOM SNAKE</div>
+            <div class="cover-status blink-text">[ IDLE ]</div>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3>Phantom Snake</h3>
+          <p class="mono tiny muted">[WIDGET_SNAKE.KT]</p>
+        </div>
+      </article>
+
+      <article class="card interactive-card cyber-card">
+        <div class="card-cover">
+          <img src="assets/img/q-block-front.png" alt="Shadow Tetris">
+          <div class="cover-overlay">
+            <div class="cover-title neon-text">SHADOW TETRIS</div>
+            <div class="cover-status blink-text">[ ACTIVE ]</div>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3>Shadow Tetris</h3>
+          <p class="mono tiny muted">[WIDGET_TETRIS.KT]</p>
+        </div>
+      </article>
+
+      <article class="card interactive-card cyber-card">
+        <div class="card-cover">
+          <picture>
+            <source media="(max-width: 900px)" srcset="assets/img/q-chomp-front.png">
+            <img src="assets/img/q-chomp.png" alt="Cipher Pacman">
+          </picture>
+          <div class="cover-overlay">
+            <div class="cover-title neon-text">CIPHER PACMAN</div>
+            <div class="cover-status blink-text">[ EVADING ]</div>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3>Cipher Pacman</h3>
+          <p class="mono tiny muted">[WIDGET_PACMAN.KT]</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
     <!-- NEW: Unified “Protocols” section that mirrors the app InfoScreen content -->
 <section id="protocols" class="section section--alt">
   <div class="wrap">
@@ -536,18 +604,20 @@ _
       
       <article class="card interactive-card">
         <div class="card-cover">
-          <img src="assets/img/mesh.jpeg" alt="NFC and Radar Mesh">
+          <img src="assets/img/lora_offline.png" alt="LoRa Mesh Transport">
           <div class="cover-overlay">
-            <div class="cover-title">HARDWARE PROTOCOLS</div>
-            <div class="cover-status blink-text">[ ENCRYPTED - CLICK TO VIEW ]</div>
+            <div class="cover-title">QUANTUM MESH (LoRa)</div>
+            <div class="cover-status blink-text">[ SIGNAL_DETECTED ]</div>
           </div>
         </div>
         <div class="card-content">
-            <h3>Hardware Protocols</h3>
-            <div class="mono tiny muted">[1] CONTACTLESS HANDSHAKE (NFC)</div>
-            <p>Offline identity exchange concept: devices touch in the physical world. No internet transit, no server-side identity roster.</p>
-            <div class="mono tiny muted" style="margin-top:12px;">[2] GHOST MESH RADAR</div>
-            <p>Proximity discovery concept (Wi-Fi Aware style): detect allied nodes nearby without joining a hotspot.</p>
+            <h3>LoRa & Proximity Transport</h3>
+            <div class="mono tiny muted">[LoRaTransportManager.kt]</div>
+            <p>
+              Moving data beyond the ISP reach. Using <strong>LoRa</strong> for long-range text bursts and 
+              <strong>Wi-Fi Aware</strong> for high-bandwidth local proximity mesh.
+            </p>
+            <div class="tiny muted" style="margin-top:12px;">Status: Integrating Physical Layer [PHASE_02]</div>
         </div>
       </article>
 
