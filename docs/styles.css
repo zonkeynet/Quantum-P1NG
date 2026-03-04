@@ -226,15 +226,48 @@ a:hover { color: var(--acc); }
 .nav a { color: var(--muted); font-size: 20px; font-weight: 500; }
 .nav a:hover { color: var(--text); }
 .nav__cta {
-  color: var(--bg) !important;
-  font-weight: 700;
-  padding: 8px 16px;
-  border-radius: 6px;
-  background: var(--acc);
-  box-shadow: 0 0 15px var(--acc-dim);
-  transition: transform .2s;
+    color: var(--acc) !important;          /* testo neon */
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 6px;
+
+    background: rgba(0, 0, 0, 0.2);        /* sfondo trasparente */
+    border: 2px solid var(--acc);          /* bordo colorato */
+    box-shadow: 0 0 10px var(--acc);       /* glow iniziale */
+    text-shadow: 0 0 5px var(--acc);       /* glow testo */
+
+    transition: transform 0.2s;
+    animation: neonPulse 1.5s infinite alternate;
 }
-.nav__cta:hover { transform: translateY(-2px); box-shadow: 0 0 25px var(--acc-dim); }
+
+.nav__cta:hover {
+    transform: scale(1.05);
+    animation: neonPulseHover 1s infinite alternate;
+}
+
+/* Animazione glow neon base */
+@keyframes neonPulse {
+    0% {
+        box-shadow: 0 0 10px var(--acc), 0 0 20px var(--acc-dim);
+        text-shadow: 0 0 5px var(--acc), 0 0 10px var(--acc-dim);
+    }
+    100% {
+        box-shadow: 0 0 20px var(--acc), 0 0 40px var(--acc-dim);
+        text-shadow: 0 0 10px var(--acc), 0 0 20px var(--acc-dim);
+    }
+}
+
+/* Hover più intenso */
+@keyframes neonPulseHover {
+    0% {
+        box-shadow: 0 0 15px var(--acc), 0 0 30px var(--acc-dim);
+        text-shadow: 0 0 8px var(--acc), 0 0 16px var(--acc-dim);
+    }
+    100% {
+        box-shadow: 0 0 25px var(--acc), 0 0 50px var(--acc-dim);
+        text-shadow: 0 0 15px var(--acc), 0 0 30px var(--acc-dim);
+    }
+}
 
 
 .mobilemenu {
