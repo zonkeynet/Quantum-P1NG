@@ -2454,3 +2454,512 @@ a:hover { color: var(--acc); }
     }
 
 }
+
+/* ============================================
+   LORA NEXUS - APEX PREDATOR MESH STYLES
+   ============================================ */
+
+/* --- 1. BASE WRAPPER & VARIABLES --- */
+#lora-nexus {
+    --cyber-purple: #9d6bff;
+    --cyber-purple-dim: rgba(157, 107, 255, 0.15);
+    --cyber-pink: #ff00de;
+    --cyber-dark: #07050d;
+    --cyber-border: rgba(157, 107, 255, 0.4);
+    
+    background: 
+        radial-gradient(circle at center, #110b1a 0%, var(--cyber-dark) 100%),
+        linear-gradient(rgba(157, 107, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(157, 107, 255, 0.03) 1px, transparent 1px);
+    background-size: 100% 100%, 30px 30px, 30px 30px;
+    border-top: 1px solid var(--cyber-border);
+    border-bottom: 1px solid var(--cyber-border);
+    padding: 80px 0;
+    position: relative;
+    box-shadow: inset 0 0 100px rgba(0,0,0,0.8);
+}
+
+.neon-text-purple {
+    color: #fff;
+    text-shadow: 0 0 10px var(--cyber-purple), 0 0 20px var(--cyber-purple), 0 0 40px var(--cyber-purple-dim);
+}
+
+/* --- 2. TACTICAL FEATURES GRID (MANIFESTO) --- */
+.lora-features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 35px 0 45px 0;
+}
+
+.lora-feature {
+    display: flex;
+    gap: 15px;
+    background: rgba(157, 107, 255, 0.03);
+    border: 1px solid rgba(157, 107, 255, 0.15);
+    padding: 18px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.lora-feature::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 2px; height: 100%;
+    background: var(--cyber-purple);
+    box-shadow: 0 0 10px var(--cyber-purple);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.lora-feature:hover {
+    background: rgba(157, 107, 255, 0.08);
+    border-color: rgba(157, 107, 255, 0.4);
+    transform: translateX(5px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+}
+
+.lora-feature:hover::before { opacity: 1; }
+
+.lf-icon {
+    font-size: 11px;
+    color: var(--cyber-purple);
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--cyber-purple);
+    padding: 6px 8px;
+    height: fit-content;
+    border-radius: 2px;
+    box-shadow: inset 0 0 5px rgba(157, 107, 255, 0.2);
+}
+
+.lf-text h4 {
+    margin: 0 0 8px 0;
+    color: var(--text);
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.lf-text p {
+    margin: 0;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+/* --- 3. NEXUS INTERFACE LAYOUT --- */
+.nexus-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 30px;
+    height: 500px; /* Altezza fissa per il layout desktop */
+}
+
+/* FIX CRITICO: Contenitori con Flexbox rigido */
+.nexus-controls, .nexus-visual {
+    background: rgba(5, 5, 10, 0.7);
+    border: 1px solid var(--cyber-border);
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 20px var(--cyber-purple-dim);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Blocca lo straripamento */
+    min-height: 0; /* Essenziale per far funzionare lo scroll interno */
+    border-radius: 4px; /* Un tocco di morbidezza dietro i tagli HUD */
+}
+
+/* Bordi tagliati stile HUD (Angoli) */
+.nexus-controls::before, .nexus-controls::after, 
+.nexus-visual::before, .nexus-visual::after {
+    content: ''; position: absolute; width: 15px; height: 15px; z-index: 5; pointer-events: none;
+}
+.nexus-controls::before, .nexus-visual::before { 
+    top: -1px; left: -1px; 
+    border-top: 2px solid var(--cyber-purple); 
+    border-left: 2px solid var(--cyber-purple); 
+}
+.nexus-controls::after, .nexus-visual::after { 
+    bottom: -1px; right: -1px; 
+    border-bottom: 2px solid var(--cyber-purple); 
+    border-right: 2px solid var(--cyber-purple); 
+}
+
+/* --- 4. PANELS, INPUT & TERMINAL --- */
+.panel-header {
+    background: linear-gradient(90deg, rgba(157, 107, 255, 0.15), transparent);
+    color: var(--cyber-purple);
+    padding: 12px 15px;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    border-bottom: 1px solid var(--cyber-border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-shadow: 0 0 8px var(--cyber-purple-dim);
+}
+
+.input-wrapper {
+    display: flex;
+    padding: 15px;
+    gap: 12px;
+    border-bottom: 1px solid rgba(157, 107, 255, 0.15);
+    background: rgba(0,0,0,0.3);
+}
+
+#lora-input {
+    flex-grow: 1;
+    background: rgba(0,0,0,0.6);
+    border: 1px solid var(--cyber-border);
+    color: #fff;
+    padding: 12px 15px;
+    outline: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    font-size: 13px;
+}
+
+#lora-input::placeholder { color: rgba(157, 107, 255, 0.4); }
+
+#lora-input:focus {
+    box-shadow: inset 0 0 10px var(--cyber-purple-dim), 0 0 20px rgba(157, 107, 255, 0.2);
+    border-color: var(--cyber-purple);
+}
+
+.cyber-button {
+    background: rgba(255, 0, 222, 0.05);
+    border: 1px solid var(--cyber-pink);
+    color: var(--cyber-pink);
+    padding: 0 24px;
+    cursor: pointer;
+    font-weight: 900;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+}
+
+.cyber-button:hover {
+    background: var(--cyber-pink);
+    color: #fff;
+    box-shadow: 0 0 20px rgba(255, 0, 222, 0.6);
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.terminal-feed {
+    flex-grow: 1;
+    padding: 15px 20px;
+    overflow-y: auto;
+    min-height: 0; /* FIX CRITICO: Contenimento Scroll */
+    font-size: 11px;
+    line-height: 1.7;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* Custom Scrollbar Cyberpunk */
+.terminal-feed::-webkit-scrollbar { width: 6px; }
+.terminal-feed::-webkit-scrollbar-track { background: rgba(0,0,0,0.4); border-left: 1px solid rgba(157, 107, 255, 0.1); }
+.terminal-feed::-webkit-scrollbar-thumb { background: var(--cyber-purple); border-radius: 3px; }
+.terminal-feed::-webkit-scrollbar-thumb:hover { background: var(--cyber-pink); }
+
+.term-line { margin-bottom: 6px; opacity: 0.95; }
+.term-line.cmd { color: var(--cyber-purple); }
+.term-line.hex { color: #888; font-size: 10px; word-break: break-all; letter-spacing: 1px; }
+.term-line.success { color: #0aff84; text-shadow: 0 0 5px rgba(10, 255, 132, 0.5); }
+.term-line.error { color: #ff0055; text-shadow: 0 0 5px rgba(255, 0, 85, 0.5); }
+
+/* --- 5. MESH CANVAS VISUALIZER --- */
+.canvas-wrapper {
+    flex-grow: 1;
+    position: relative;
+    background: #020104; /* Scuro profondo per far risaltare il campo RF */
+    overflow: hidden;
+}
+
+#mesh-canvas { width: 100%; height: 100%; display: block; }
+
+.overlay-grid {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: 
+        linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.3) 50%), 
+        linear-gradient(90deg, rgba(255, 0, 0, 0.04), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.04));
+    background-size: 100% 4px, 3px 100%;
+    pointer-events: none;
+    z-index: 10;
+    mix-blend-mode: overlay;
+}
+
+.mesh-stats {
+    display: flex; justify-content: space-between;
+    padding: 12px 20px; font-size: 10px; font-weight: bold;
+    border-top: 1px solid var(--cyber-border);
+    color: rgba(255,255,255,0.7);
+    background: rgba(157, 107, 255, 0.08);
+}
+
+/* --- 6. RESPONSIVE MOBILE --- */
+@media (max-width: 900px) {
+    .lora-features-grid { 
+        grid-template-columns: 1fr; 
+        gap: 15px;
+    }
+    
+    .nexus-container { 
+        grid-template-columns: 1fr; 
+        height: auto; 
+        gap: 20px;
+    }
+    
+    /* Fissiamo altezze precise su mobile per evitare scroll infiniti del body */
+    .nexus-controls { height: 350px; }
+    .nexus-visual { height: 400px; }
+    
+    .input-wrapper { flex-direction: column; }
+    .cyber-button { padding: 12px; }
+}
+/* =========================================================================
+   7. HARDWARE FLASHER & SERIAL MONITOR (OPSEC EDITION)
+   ========================================================================= */
+
+/* --- A. MAIN PANEL LAYOUT --- */
+.flasher-panel {
+    margin-top: 50px;
+    background: rgba(10, 5, 8, 0.85); /* Leggermente scuro/rosso per indicare operazione a basso livello */
+    border: 1px solid rgba(255, 0, 85, 0.4);
+    border-radius: 4px;
+    box-shadow: 0 10px 40px rgba(255, 0, 85, 0.15), inset 0 0 30px rgba(255, 0, 85, 0.05);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+/* Striscia energetica rossa a sinistra (Warning / Hardware level) */
+.flasher-panel::before {
+    content: ''; 
+    position: absolute; 
+    top: 0; left: 0; 
+    width: 3px; height: 100%;
+    background: var(--warn);
+    box-shadow: 0 0 15px var(--warn), 0 0 30px var(--warn);
+    z-index: 10;
+}
+
+.flasher-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 25px 35px;
+    gap: 40px;
+    position: relative;
+    z-index: 5;
+}
+
+.flasher-text {
+    flex-grow: 1;
+    max-width: 600px;
+}
+
+.flasher-action {
+    width: 380px; /* Larghezza fissa per la colonna dei controlli */
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- B. CRYPTO & SUPPLY CHAIN BOX --- */
+.crypto-box {
+    margin-top: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(0, 243, 255, 0.2);
+    border-left: 2px solid var(--acc2);
+    padding: 12px 15px;
+    font-size: 11px;
+    border-radius: 4px;
+    box-shadow: inset 0 0 15px rgba(0, 243, 255, 0.05);
+}
+
+.crypto-line {
+    margin-bottom: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    word-break: break-all;
+    line-height: 1.4;
+}
+
+.crypto-line:last-child { margin-bottom: 0; }
+
+.crypto-label {
+    color: var(--muted);
+    user-select: none;
+    font-weight: bold;
+}
+
+/* --- C. HARDWARE REQUIREMENTS BADGES --- */
+.req-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.req-tags .badge {
+    border-color: rgba(255, 0, 85, 0.3);
+    background: rgba(255, 0, 85, 0.08);
+    color: var(--warn);
+    box-shadow: inset 0 0 10px rgba(255, 0, 85, 0.1);
+    font-size: 10px;
+    padding: 6px 10px;
+    letter-spacing: 1px;
+}
+
+/* --- D. TACTICAL FLASH CONTROLS (ERASE TOGGLE) --- */
+.flash-controls {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #333;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 10px; /* Ridotto per far respirare il bottone seriale sotto */
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+}
+
+.cyber-checkbox {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    font-size: 11px;
+    color: var(--warn);
+    user-select: none;
+    line-height: 1.2;
+}
+
+.cyber-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    background-color: rgba(255,0,85,0.1);
+    border: 1px solid var(--warn);
+    border-radius: 2px;
+    transition: all 0.2s;
+}
+
+.cyber-checkbox:hover input ~ .checkmark {
+    background-color: rgba(255,0,85,0.3);
+}
+
+.cyber-checkbox input:checked ~ .checkmark {
+    background-color: var(--warn);
+    box-shadow: 0 0 10px var(--warn);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.cyber-checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.cyber-checkbox .checkmark:after {
+    left: 4px;
+    top: 1px;
+    width: 4px;
+    height: 8px;
+    border: solid #000;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* --- E. FLASH BUTTONS & OVERRIDES --- */
+.warn-btn {
+    border-color: var(--warn);
+    color: var(--warn);
+    background: rgba(255, 0, 85, 0.05);
+    padding: 12px 30px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.warn-btn:hover {
+    background: var(--warn);
+    color: #fff;
+    box-shadow: 0 0 25px rgba(255, 0, 85, 0.6);
+    border-color: #fff;
+}
+
+/* Override interno per il Web Component nativo */
+esp-web-install-button {
+    --esp-tools-button-color: transparent;
+    display: block;
+    width: 100%;
+}
+
+/* --- F. LIVE SERIAL TELEMETRY CONSOLE --- */
+.flash-console {
+    margin-top: 15px;
+    background: #020304;
+    border: 1px solid #222;
+    border-top: 1px solid #333;
+    padding: 12px;
+    font-size: 10px;
+    height: 160px; /* Leggermente più alta per far leggere i log comodamente */
+    overflow-y: auto;
+    border-radius: 4px;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.9);
+    line-height: 1.6;
+}
+
+/* Scrollbar Custom per la telemetria (Più dark e tecnica) */
+.flash-console::-webkit-scrollbar { width: 4px; }
+.flash-console::-webkit-scrollbar-track { background: rgba(0,0,0,0.6); border-left: 1px solid #111; }
+.flash-console::-webkit-scrollbar-thumb { background: #444; border-radius: 2px; }
+.flash-console::-webkit-scrollbar-thumb:hover { background: var(--warn); }
+
+.flash-console.hidden { display: none; }
+
+.term-line { 
+    opacity: 0.9; 
+    margin-bottom: 4px; 
+    word-break: break-word; /* Impedisce lo straripamento orizzontale di hash lunghi */
+}
+
+.term-line.info { color: var(--cyber-blue); }
+.term-line.hw { color: #ffbd2e; font-weight: bold; } /* Colore per letture Hardware / Seriali Raw */
+.term-line.critical { 
+    color: var(--warn); 
+    background: rgba(255,0,85,0.1); 
+    padding-left: 6px; 
+    border-left: 2px solid var(--warn);
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+/* --- G. RESPONSIVE MOBILE FIXES --- */
+@media (max-width: 900px) {
+    .flasher-content {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        gap: 25px;
+    }
+    .flasher-text, .flasher-action {
+        width: 100%;
+        max-width: 100%;
+    }
+}

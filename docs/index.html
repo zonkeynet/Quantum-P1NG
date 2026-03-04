@@ -307,7 +307,7 @@ _
           <div class="line"><span class="prompt">></span> DATA_VAULT: <span class="val">SQLCipher (At-Rest Encryption)</span></div>
           <div class="line"><span class="prompt">></span> NETWORK: <span class="val">Tor Proxy Hooks / SOCKS5</span></div>
           <div class="line"><span class="prompt">></span> SENSORS: <span class="val">Kinetic Kill-Switch (Accel.)</span></div>
-          <div class="line"><span class="prompt">></span> OFFLINE_MESH: <span class="val">BLE / Wi-Fi Aware / NFC</span></div>
+          <div class="line"><span class="prompt">></span> OFFLINE_MESH: <span class="val">BLE / Wi-Fi Aware / NFC / LoRa</span></div>
           <div class="line success">[ SYSTEM STATUS: HARDENED ]</div>
         </div>
       </div>
@@ -439,6 +439,173 @@ _
 
   </div>
 </section>
+
+<section id="lora-nexus" class="section cyber-panel">
+  <svg style="position: absolute; width: 0; height: 0;" width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+      <filter id="cyber-glitch">
+        <feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" result="red"/>
+        <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0" result="green"/>
+        <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0" result="blue"/>
+        <feOffset in="red" dx="3" dy="0" result="red-shifted">
+          <animate attributeName="dx" values="3; -3; 2; -2; 3" dur="0.2s" repeatCount="indefinite" />
+        </feOffset>
+        <feOffset in="blue" dx="-3" dy="0" result="blue-shifted">
+          <animate attributeName="dx" values="-3; 3; -1; 1; -3" dur="0.2s" repeatCount="indefinite" />
+        </feOffset>
+        <feBlend in="red-shifted" in2="green" mode="screen" result="rgb"/>
+        <feBlend in="rgb" in2="blue-shifted" mode="screen"/>
+      </filter>
+    </defs>
+  </svg>
+
+  <div class="wrap">
+    <div class="kicker mono core-glitch" data-text="> MODULE: LORA_CORE_v3.4">> MODULE: LORA_CORE_v3.4</div>
+    <h2 class="neon-text-purple" style="display: flex; align-items: center; gap: 12px;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M2 20h.01"></path><path d="M7 20v-4"></path><path d="M12 20v-8"></path><path d="M17 20V8"></path><path d="M22 20V4"></path>
+      </svg>
+      Ghost Signals (Apex Predator Mesh)
+    </h2>
+    
+    <p class="lead muted" style="max-width: 900px;">
+      Engineered for <strong>total internet blackouts</strong> and state-sponsored censorship. When ISPs fall, Quantum P1NG shifts to the 433MHz spectrum. We don't use off-the-shelf firmwares; our hardware executes a custom <strong>Swarm Protocol</strong> designed to dominate hostile RF environments and evade Deep Packet Inspection.
+    </p>
+
+    <div class="lora-features-grid">
+      <div class="lora-feature">
+        <div class="lf-icon mono">01</div>
+        <div class="lf-text">
+          <h4 class="mono">STOCHASTIC ROUTING</h4>
+          <p>Naive meshes collapse under "broadcast storms". Our relays autonomously calculate forward-probability using real-time battery decay, RF congestion (Airtime Pressure), and RSSI.</p>
+        </div>
+      </div>
+      
+      <div class="lora-feature">
+        <div class="lf-icon mono">02</div>
+        <div class="lf-text">
+          <h4 class="mono">CRYPTOGRAPHIC AIR-GAP</h4>
+          <p>The phone handles <strong>ZLIB</strong> + <strong>AES-256-GCM</strong>. The radio node only routes raw ciphertext. If the external hardware is seized by hostile forces, it yields zero cryptographic keys or data.</p>
+        </div>
+      </div>
+
+      <div class="lora-feature">
+        <div class="lf-icon mono">03</div>
+        <div class="lf-text">
+          <h4 class="mono">HARDWARE BACKPRESSURE</h4>
+          <p>Safely bridging high-speed BLE and low-speed LoRa. Double-chunking and <strong>Deep Session GC</strong> (Garbage Collection) ensure the hardware RAM isn't corrupted during crossfire or packet loss.</p>
+        </div>
+      </div>
+
+      <div class="lora-feature">
+        <div class="lf-icon mono">04</div>
+        <div class="lf-text">
+          <h4 class="mono">PAYLOAD TACTICAL FILTER</h4>
+          <p>The Android engine actively monitors the Transport State. It drops heavy media (images/files) to protect the narrow-band, instantly routing critical text through the physical ether.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="nexus-container">
+      <div class="nexus-controls">
+        <div class="panel-header mono">
+          <span class="blink-dot" style="background-color:var(--cyber-purple); box-shadow:0 0 8px var(--cyber-purple);"></span>
+          [SYS.TX] // BLE_UPLINK_BUFFER
+        </div>
+        <div class="input-wrapper">
+          <input type="text" id="lora-input" placeholder="Type message..." maxlength="128" class="mono">
+          <button id="lora-transmit-btn" class="cyber-button mono">
+            <span class="glitch-input">[ EXEC_INJECT ]</span>
+          </button>
+        </div>
+        
+        <div class="terminal-feed mono" id="lora-terminal">
+          <div class="term-line cmd">> Awaiting BLE link sequence...</div>
+          <div class="term-line success">> T-Deck Hardware: CONNECTED (MTU: 247)</div>
+          <div class="term-line cmd">> Mesh Network Status: ONLINE (42 Nodes)</div>
+        </div>
+      </div>
+
+      <div class="nexus-visual">
+        <div class="panel-header mono">
+          <span class="blink-dot" style="background-color:#0aff84; box-shadow:0 0 8px #0aff84;"></span>
+          [MAP] // MESH_TOPOLOGY_LIVE
+        </div>
+        <div class="canvas-wrapper">
+          <canvas id="mesh-canvas"></canvas>
+          <div class="overlay-grid"></div> 
+        </div>
+        <div class="mesh-stats mono">
+          <span>FREQ: 433MHz</span>
+          <span>SF: 12</span>
+          <span>BW: 125kHz</span>
+          <span>CR: 4/5</span>
+        </div>
+      </div>
+    </div>
+<div class="flasher-panel">
+      <div class="panel-header mono" style="border-bottom-color: var(--warn); color: var(--warn); background: linear-gradient(90deg, rgba(255, 0, 85, 0.15), transparent);">
+        <span class="blink-dot" style="background-color:var(--warn); box-shadow:0 0 8px var(--warn);"></span>
+        [SYS.FLASH] // ANONYMOUS_HARDWARE_INJECTION
+      </div>
+      
+      <div class="flasher-content">
+        <div class="flasher-text">
+          <h3 style="color: #fff; margin-top:0; font-size:18px;">Apex Predator v15.1 (Universal Build)</h3>
+          <p class="muted" style="font-size: 13px; line-height: 1.6; max-width: 600px;">
+            To enforce uncompromising Operational Security (OPSEC), Quantum P1NG hardware nodes are engineered to be <strong>strictly anonymous and entirely disposable</strong>. Zero tracking keys, unique identifiers, or cryptographic fingerprints are injected into the silicon. The T-Deck operates exclusively as a stateless air-gap for stochastic routing. If the physical hardware is seized by hostile forces, it yields zero intelligence. It acts as a blind, untraceable relay for AES-256-GCM ciphertexts, neutralizing any attempt at device-level surveillance or supply-chain tracking.
+          </p>
+          
+          <div class="crypto-box mono">
+            <div class="crypto-line">
+              <span class="crypto-label">BUILD_TARGET:</span> 
+              <span style="color:var(--text)">ESP32-S3 (LilyGO T-Deck)</span>
+            </div>
+            <div class="crypto-line">
+              <span class="crypto-label">PAYLOAD_SHA256:</span> 
+              <span style="color:var(--acc2)">8f434346648f6b96df89dda901c5176b10a6d83961dd3c1ac88b59b2dc327aa4</span>
+            </div>
+          </div>
+
+          <div class="req-tags mono">
+            <span class="badge">USB-C DATA CABLE</span>
+            <span class="badge">CHROMIUM CORE</span>
+            <span class="badge">BAUD: 115200</span>
+          </div>
+        </div>
+        
+        <div class="flasher-action">
+          <script type="module" src="https://unpkg.com/esp-web-tools@10.0.1/dist/web/install-button.js?module" crossorigin="anonymous"></script>
+          
+          <div class="flash-controls">
+            <label class="cyber-checkbox mono">
+              <input type="checkbox" id="erase-toggle" checked>
+              <span class="checkmark"></span>
+              [ENFORCE_FULL_ERASE] <span class="tiny muted" style="margin-left:5px;">(Destroys existing data)</span>
+            </label>
+
+            <esp-web-install-button manifest="./firmware/manifest.json" id="esp-flasher">
+              <button slot="activate" class="cyber-button warn-btn mono">
+                <span class="glitch-input">INIT_SECURE_FLASH</span>
+              </button>
+              <span slot="unsupported" class="mono tiny" style="color:var(--warn); display:block; text-align:center; margin-top:10px;">[ERR] BROWSER_LACKS_SERIAL_API</span>
+              <span slot="not-allowed" class="mono tiny" style="color:var(--warn); display:block; text-align:center; margin-top:10px;">[ERR] STRICT_HTTPS_REQUIRED</span>
+            </esp-web-install-button>
+          </div>
+
+          <button id="open-serial-btn" class="cyber-button mono" style="width:100%; margin-top:10px; border-color:var(--cyber-blue); color:var(--cyber-blue);">
+            > OPEN_LIVE_SERIAL_LINK
+          </button>
+
+          <div id="flash-console" class="flash-console mono hidden">
+            <div class="term-line cmd">> System standby. Waiting for hardware interface...</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="finance" class="section section--alt">
   <div class="wrap">
     <div class="kicker mono" style="color:var(--btc)">> MODULE: BITCOIN_CORE_BDK</div>
@@ -901,15 +1068,14 @@ _
         <div class="rm-card">
           <div class="rm-header">
             <span class="rm-tag mono" style="color:var(--bg); background:var(--acc);">PHASE_02</span>
-            <span class="rm-status mono blink-text" style="color:var(--acc);">>>> INTEGRATING_HARDWARE</span>
+            <span class="rm-status mono blink-text" style="color:var(--acc);">>>> HARDWARE_DEPLOYED</span>
           </div>
           <h3>Quantum Mesh (Off-Grid)</h3>
           <p>
-            Bridging physical distance without internet.
-            Active integration of <strong>Wi-Fi Aware (NAN)</strong> and <strong>BLE</strong> for proximity handshakes and side-channel comms.
+            Bridging physical distance without internet. Deployment of autonomous 433MHz tactical nodes featuring <strong>Stochastic Routing</strong>, <strong>Deep Session GC</strong>, and <strong>Hardware Backpressure</strong> to dominate hostile RF environments[cite: 2, 8].
           </p>
           <div class="progress-bar-sm">
-            <div class="bar-fill" style="width: 65%;"></div>
+            <div class="bar-fill" style="width: 85%;"></div>
           </div>
         </div>
       </div>

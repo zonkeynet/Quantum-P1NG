@@ -253,5 +253,786 @@ if (terminal && gamesGrid) {
 
   });
 }
+// =========================================
+// 7. LORA NEXUS MESH ENGINE & SIMULATION (QUANTUM FIELD EDITION)
+// =========================================
+(() => {
+    const canvas = document.getElementById('mesh-canvas');
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    const container = canvas.parentElement;
+    const input = document.getElementById('lora-input');
+    const btn = document.getElementById('lora-transmit-btn');
+    const terminal = document.getElementById('lora-terminal');
+    const svgGlitchId = 'url(#cyber-glitch)';
 
+    let width, height;
+    let nodes = [];
+    let packets = [];
+    const NUM_NODES = 45; 
+    const CONNECTION_DIST = 130;
+
+    // --- Colori Spettrali e Interpolazione (Lerp) ---
+    const SPECTRUM = [
+        [10, 255, 132],   // 0: Verde Neon (Sorgente)
+        [0, 243, 255],    // 1: Ciano
+        [255, 0, 222],    // 2: Magenta
+        [157, 107, 255]   // 3: Viola (Destinazione)
+    ];
+
+    function getSpectralColor(progress) {
+        const p = Math.max(0, Math.min(1, progress)) * (SPECTRUM.length - 1);
+        const i = Math.floor(p);
+        const j = Math.min(i + 1, SPECTRUM.length - 1);
+        const t = p - i;
+        const r = Math.round(SPECTRUM[i][0] * (1 - t) + SPECTRUM[j][0] * t);
+        const g = Math.round(SPECTRUM[i][1] * (1 - t) + SPECTRUM[j][1] * t);
+        const b = Math.round(SPECTRUM[i][2] * (1 - t) + SPECTRUM[j][2] * t);
+        return `rgb(${r}, ${g}, ${b})`;
+    }
+
+    // --- Campo Elettromagnetico Globale (Griglia RF) ---
+    const CELL_SIZE = 25;
+    let cols, rows;
+    let rfField = [];
+
+    function initRFGrid() {
+        cols = Math.ceil(width / CELL_SIZE);
+        rows = Math.ceil(height / CELL_SIZE);
+        rfField = Array.from({length: cols}, () => new Float32Array(rows));
+    }
+
+    function injectRF(x, y, amount) {
+        const cx = Math.floor(x / CELL_SIZE);
+        const cy = Math.floor(y / CELL_SIZE);
+        // Diffusione Gaussiana (3x3)
+        for (let i = -1; i <= 1; i++) {
+            for (let j = -1; j <= 1; j++) {
+                const nx = cx + i; const ny = cy + j;
+                if (nx >= 0 && nx < cols && ny >= 0 && ny < rows) {
+                    const dist = i*i + j*j;
+                    rfField[nx][ny] += amount / (1 + dist * 2);
+                }
+            }
+        }
+    }
+
+    let globalFlash = 0; // Per le collisioni
+    const spectrumBins = new Array(64).fill(0);
+
+    function triggerGlitch(duration) {
+        canvas.style.filter = svgGlitchId;
+        setTimeout(() => canvas.style.filter = 'none', duration);
+    }
+
+    // --- NODE CLASS (Entità con Z-Depth e Implosione) ---
+    class Node {
+        constructor(x, y) {
+            this.x = x; this.y = y;
+            this.z = Math.random() * 0.8 + 0.2; // Parallasse (0.2 = lontano, 1.0 = vicino)
+            
+            // Velocità scalata per parallasse
+            this.vx = (Math.random() - 0.5) * 0.4 * this.z;
+            this.vy = (Math.random() - 0.5) * 0.4 * this.z;
+            
+            this.baseRadius = (Math.random() * 1.5 + 1) * this.z;
+            this.radius = this.baseRadius;
+            
+            this.isPulsing = false;
+            this.pulseRadius = 0;
+            this.phase = Math.random() * Math.PI * 2;
+            
+            this.isDead = false;
+            this.deadTimer = 0;
+
+            // Stato di Assorbimento (0: Idle, 1: Implosione, 2: Esplosione)
+            this.absorptionState = 0;
+            this.absorptionTimer = 0;
+        }
+        
+        update() {
+            if (this.isDead) {
+                this.deadTimer--;
+                if (this.deadTimer <= 0) this.isDead = false;
+                return;
+            }
+
+            if (Math.random() < 0.0002) {
+                this.isDead = true;
+                this.deadTimer = Math.floor(Math.random() * 150) + 50; 
+            }
+
+            this.x += this.vx; this.y += this.vy;
+            if (this.x < 0 || this.x > width) this.vx *= -1;
+            if (this.y < 0 || this.y > height) this.vy *= -1;
+
+            this.phase += 0.03 * this.z;
+
+            if (this.isPulsing) {
+                this.pulseRadius += 3 * this.z;
+                if (this.pulseRadius > 80 * this.z) {
+                    this.isPulsing = false;
+                    this.pulseRadius = 0;
+                }
+            }
+
+            // Cinematica dell'Assorbimento
+            if (this.absorptionState === 1) { // Implosione
+                this.absorptionTimer -= 0.15;
+                this.radius = this.baseRadius * Math.max(0.1, this.absorptionTimer);
+                if (this.absorptionTimer <= 0) {
+                    this.absorptionState = 2; // Passa all'esplosione
+                    this.pulse(); 
+                    injectRF(this.x, this.y, 15); // Esplosione di campo RF
+                }
+            } else if (this.absorptionState === 2) { // Esplosione
+                this.absorptionTimer += 0.05;
+                this.radius = this.baseRadius * (1 + Math.sin(this.absorptionTimer * Math.PI) * 2);
+                if (this.absorptionTimer >= 1) {
+                    this.absorptionState = 0;
+                    this.radius = this.baseRadius;
+                }
+            }
+        }
+        
+        draw() {
+            if (this.isDead) {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(26, 16, 37, ${this.z})`;
+                ctx.fill();
+                return;
+            }
+
+            // Depth fading color
+            const r = Math.floor(157 * this.z);
+            const g = Math.floor(107 * this.z);
+            const b = Math.floor(255); // Mantiene il blu profondo in lontananza
+            const nodeColor = `${r}, ${g}, ${b}`;
+
+            const energy = Math.sin(this.phase) * 0.5 + 0.5;
+            const haloRadius = this.radius * (4 + energy * 3);
+            
+            // Render Halo
+            const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, haloRadius);
+            gradient.addColorStop(0, `rgba(${nodeColor}, ${0.8 + energy * 0.2})`);
+            gradient.addColorStop(1, `rgba(${nodeColor}, 0)`);
+            
+            ctx.fillStyle = gradient;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, haloRadius, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Render Core
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255, 255, 255, ${this.z})`;
+            ctx.fill();
+
+            // Concentric Wavefronts
+            if (this.isPulsing && !this.isDead) {
+                for (let w = 0; w < 3; w++) {
+                    let rad = this.pulseRadius - (w * 15 * this.z);
+                    if (rad > 0) {
+                        const intensity = 1 / (1 + (rad * rad * 0.001));
+                        ctx.beginPath();
+                        ctx.arc(this.x, this.y, rad, 0, Math.PI * 2);
+                        ctx.strokeStyle = `rgba(10, 255, 132, ${intensity * (1 - w * 0.2) * this.z})`;
+                        ctx.lineWidth = 1 * this.z;
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+        
+        pulse() { if (!this.isDead) { this.isPulsing = true; this.pulseRadius = 0; } }
+        absorb() { this.absorptionState = 1; this.absorptionTimer = 1; }
+    }
+
+    // --- PACKET CLASS (Onda AM con Doppler) ---
+// --- PACKET CLASS (Onda AM con Doppler e Solitone EM) ---
+    class Packet {
+        constructor(path) {
+            this.path = path;
+            this.currentStep = 0;
+            const startNode = nodes[path[0]];
+            this.x = startNode.x; this.y = startNode.y;
+            this.speed = 4;
+            this.arrived = false;
+            
+            // Distanza totale per calcolo spettrale
+            this.totalDist = 0;
+            this.traveledDist = 0;
+            for(let i = 0; i < path.length - 1; i++) {
+                const n1 = nodes[path[i]], n2 = nodes[path[i+1]];
+                this.totalDist += Math.sqrt((n2.x - n1.x)**2 + (n2.y - n1.y)**2);
+            }
+            
+            this.hopEnergy = 0;
+            startNode.pulse();
+        }
+        
+        update() {
+            if (this.arrived) return;
+            const prevNode = nodes[this.path[this.currentStep]];
+            const targetNode = nodes[this.path[this.currentStep + 1]];
+            
+            if (!targetNode || targetNode.isDead) { 
+                this.arrived = true; 
+                logTerm('>> COLLISION: Link severed. Entropy absorbed.', 'error');
+                triggerGlitch(150); 
+                return; 
+            }
+
+            const dx = targetNode.x - this.x;
+            const dy = targetNode.y - this.y;
+            const dist = Math.sqrt(dx*dx + dy*dy);
+            this.hopEnergy = dist;
+
+            // Inietta energia RF nella griglia
+            injectRF(this.x, this.y, 0.5);
+
+            const speed = this.speed * prevNode.z; // Parallasse velocità
+
+            if (dist < speed) {
+                this.currentStep++;
+                this.x = targetNode.x; this.y = targetNode.y;
+                
+                if (this.currentStep >= this.path.length - 1) {
+                    this.arrived = true;
+                    this.hopEnergy = 0;
+                    targetNode.absorb(); // Innesca Implosione Target
+                    logTerm('>> Payload Grounded. Decrypting Buffer.', 'success');
+                    triggerGlitch(120);
+                } else {
+                    targetNode.pulse();
+                }
+            } else {
+                this.x += (dx / dist) * speed;
+                this.y += (dy / dist) * speed;
+                this.traveledDist += speed;
+            }
+        }
+        
+        draw() {
+            if (this.arrived) return;
+            const prevNode = nodes[this.path[this.currentStep]];
+            const targetNode = nodes[this.path[this.currentStep + 1]];
+            if (!targetNode) return;
+
+            const dx = targetNode.x - prevNode.x;
+            const dy = targetNode.y - prevNode.y;
+            const dist = Math.sqrt(dx*dx + dy*dy);
+            const angle = Math.atan2(dy, dx);
+            
+            const trX = this.x - prevNode.x;
+            const trY = this.y - prevNode.y;
+            // Progress locale dell'hop (0 -> 1)
+            const progress = Math.min(1, Math.sqrt(trX*trX + trY*trY) / dist);
+
+            // Interpolazione Cromatica Totale
+            const globalProgress = this.traveledDist / this.totalDist;
+            const waveColor = getSpectralColor(globalProgress);
+
+            // Calcolo Effetto DOPPLER
+            const relVel = (targetNode.vx * Math.cos(angle) + targetNode.vy * Math.sin(angle));
+            const dopplerShift = 1 + relVel * 1.5;
+
+            ctx.save();
+            ctx.translate(prevNode.x, prevNode.y);
+            ctx.rotate(angle);
+            
+            const time = performance.now() * 0.02;
+            const distortion = globalFlash > 0 ? (Math.random()*6 - 3) : 0;
+            
+            // Calcolo della dimensione del "Solitone" (la lunghezza della cometa)
+            const tailLength = 0.3; // Il pacchetto occupa il 30% del link visivamente
+            const tailX = Math.max(0, (progress - tailLength) * dist);
+            const headX = progress * dist;
+
+            ctx.globalCompositeOperation = 'lighter'; // Effetto plasma sovrapposto
+
+            // --- 1. CORE BEAM (Spina dorsale dati) ---
+            const coreGrad = ctx.createLinearGradient(tailX, 0, headX, 0);
+            coreGrad.addColorStop(0, 'rgba(255,255,255,0)');
+            coreGrad.addColorStop(0.7, waveColor);
+            coreGrad.addColorStop(1, '#ffffff');
+
+            ctx.beginPath();
+            ctx.moveTo(tailX, distortion);
+            ctx.lineTo(headX, distortion);
+            ctx.strokeStyle = coreGrad;
+            ctx.lineWidth = 2.5 * prevNode.z;
+            ctx.shadowBlur = 15;
+            ctx.shadowColor = waveColor;
+            ctx.stroke();
+
+            // --- 2. DUAL EM FIELDS (Onde intrecciate Seno/Coseno) ---
+            const drawField = (phaseOffset, amplitude, isSecondary) => {
+                ctx.beginPath();
+                let started = false;
+                
+                // Disegna l'onda solo lungo il corpo del pacchetto
+                for (let i = Math.floor(tailX); i <= headX; i += 2) { // Step 2 per performance
+                    const localT = i / dist;
+                    // Inviluppo per far gonfiare l'onda al centro e stringerla ai bordi
+                    const tailProgress = (i - tailX) / (headX - tailX); 
+                    const envelope = Math.sin(tailProgress * Math.PI) ** 1.5; 
+
+                    const offset = Math.sin(localT * 40 * dopplerShift - time + phaseOffset) * amplitude * envelope * prevNode.z;
+                    
+                    if (!started) {
+                        ctx.moveTo(i, offset + distortion);
+                        started = true;
+                    } else {
+                        ctx.lineTo(i, offset + distortion);
+                    }
+                }
+                ctx.strokeStyle = isSecondary ? 'rgba(255,255,255,0.7)' : waveColor;
+                ctx.lineWidth = (isSecondary ? 1 : 1.5) * prevNode.z;
+                ctx.shadowBlur = isSecondary ? 5 : 15;
+                ctx.shadowColor = waveColor;
+                ctx.stroke();
+            };
+
+            // Campo Primario
+            drawField(0, 8, false);
+            // Campo Secondario (Sfasato di 90 gradi per effetto 3D)
+            drawField(Math.PI / 2, -6, true);
+
+            // --- 3. THE PHOTON FLARE (Testa del pacchetto) ---
+            // Un'ellisse orizzontale per dare senso di aerodinamicità/velocità
+            ctx.beginPath();
+            ctx.ellipse(headX, distortion, 8 * prevNode.z, 2 * prevNode.z, 0, 0, Math.PI * 2);
+            ctx.fillStyle = '#ffffff';
+            ctx.shadowBlur = 25;
+            ctx.shadowColor = waveColor;
+            ctx.fill();
+
+            // Nucleo bianco puro al centro della testa
+            ctx.beginPath();
+            ctx.arc(headX, distortion, 2 * prevNode.z, 0, Math.PI * 2);
+            ctx.fillStyle = '#ffffff';
+            ctx.shadowBlur = 0;
+            ctx.fill();
+
+            ctx.restore();
+        }
+    }
+
+    // --- BFS Pathfinding ---
+    function getAdjacencyList() {
+        const adj = Array.from({length: nodes.length}, () => []);
+        for (let i = 0; i < nodes.length; i++) {
+            if (nodes[i].isDead) continue;
+            for (let j = i + 1; j < nodes.length; j++) {
+                if (nodes[j].isDead) continue;
+                const dx = nodes[i].x - nodes[j].x;
+                const dy = nodes[i].y - nodes[j].y;
+                // Nodi su piani Z diversi fanno più fatica a connettersi
+                const dz = (nodes[i].z - nodes[j].z) * 100; 
+                if (dx*dx + dy*dy + dz*dz < CONNECTION_DIST * CONNECTION_DIST) {
+                    adj[i].push(j);
+                    adj[j].push(i);
+                }
+            }
+        }
+        return adj;
+    }
+
+    function findPathBFS(start, end) {
+        const adj = getAdjacencyList();
+        const queue = [[start]];
+        const visited = new Set([start]);
+
+        while (queue.length > 0) {
+            const path = queue.shift();
+            const node = path[path.length - 1];
+            if (node === end) return path;
+
+            for (let neighbor of adj[node]) {
+                if (!visited.has(neighbor)) {
+                    visited.add(neighbor);
+                    queue.push([...path, neighbor]);
+                }
+            }
+        }
+        return null;
+    }
+
+    function initNodes() {
+        nodes = [];
+        for (let i = 0; i < NUM_NODES; i++) {
+            nodes.push(new Node(Math.random() * width, Math.random() * height));
+        }
+    }
+
+    function resize() {
+        const oldWidth = width;
+        width = canvas.width = container.offsetWidth;
+        height = canvas.height = container.offsetHeight;
+        initRFGrid();
+        if (nodes.length === 0 || Math.abs(oldWidth - width) > 50) {
+            initNodes();
+        } else {
+            nodes.forEach(n => {
+                if (n.x > width) n.x = width;
+                if (n.y > height) n.y = height;
+            });
+        }
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+
+    // --- MAIN RENDER LOOP ---
+    function drawScene() {
+        // Plasma persistente (Inerzia)
+        ctx.fillStyle = 'rgba(2, 1, 4, 0.12)';
+        ctx.fillRect(0, 0, width, height);
+        
+        // 1. Render Campo RF Globale (Aria Ionizzata)
+        ctx.globalCompositeOperation = 'lighter';
+        for (let i = 0; i < cols; i++) {
+            for (let j = 0; j < rows; j++) {
+                if (rfField[i][j] > 0.01) {
+                    const alpha = Math.min(0.3, rfField[i][j]);
+                    // Gradiente radiale per ogni cella attiva
+                    const rg = ctx.createRadialGradient(
+                        i*CELL_SIZE + CELL_SIZE/2, j*CELL_SIZE + CELL_SIZE/2, 0, 
+                        i*CELL_SIZE + CELL_SIZE/2, j*CELL_SIZE + CELL_SIZE/2, CELL_SIZE
+                    );
+                    rg.addColorStop(0, `rgba(0, 243, 255, ${alpha})`);
+                    rg.addColorStop(1, 'rgba(0, 243, 255, 0)');
+                    ctx.fillStyle = rg;
+                    ctx.fillRect(i*CELL_SIZE, j*CELL_SIZE, CELL_SIZE, CELL_SIZE);
+                    
+                    rfField[i][j] *= 0.85; // Decadimento campo
+                }
+            }
+        }
+        ctx.globalCompositeOperation = 'source-over';
+
+        // 2. Controllo Collisioni Coerenti
+        let collisionDetected = false;
+        for (let i = 0; i < packets.length; i++) {
+            for (let j = i + 1; j < packets.length; j++) {
+                const dx = packets[i].x - packets[j].x;
+                const dy = packets[i].y - packets[j].y;
+                if (dx*dx + dy*dy < 400) { // Distanza 20px
+                    collisionDetected = true;
+                    injectRF(packets[i].x, packets[i].y, 20); // Spaccatura nel campo
+                }
+            }
+        }
+        
+        if (collisionDetected && globalFlash === 0) {
+            globalFlash = 1.0;
+            logTerm('>> ANOMALY: Signal Interference Detected.', 'error');
+            triggerGlitch(200);
+        }
+
+        // Render Flash di Collisione
+        if (globalFlash > 0) {
+            ctx.fillStyle = `rgba(255, 255, 255, ${globalFlash * 0.5})`;
+            ctx.fillRect(0, 0, width, height);
+            globalFlash -= 0.1;
+        }
+
+        // 3. Render Connessioni Parallasse
+        ctx.lineWidth = 1;
+        for (let i = 0; i < nodes.length; i++) {
+            if (nodes[i].isDead) continue;
+            for (let j = i + 1; j < nodes.length; j++) {
+                if (nodes[j].isDead) continue;
+                const dx = nodes[i].x - nodes[j].x;
+                const dy = nodes[i].y - nodes[j].y;
+                const dz = (nodes[i].z - nodes[j].z) * 100;
+                const distSq = dx*dx + dy*dy + dz*dz;
+                if (distSq < CONNECTION_DIST * CONNECTION_DIST) {
+                    const opacity = 1 - (Math.sqrt(distSq) / CONNECTION_DIST);
+                    const avgZ = (nodes[i].z + nodes[j].z) / 2;
+                    // I link profondi sono più blu, quelli vicini più viola
+                    const bColor = avgZ < 0.5 ? '4aa3ff' : '157, 107, 255'; 
+                    ctx.strokeStyle = `rgba(${bColor}, ${opacity * 0.25 * avgZ})`;
+                    ctx.beginPath();
+                    ctx.moveTo(nodes[i].x, nodes[i].y);
+                    ctx.lineTo(nodes[j].x, nodes[j].y);
+                    ctx.stroke();
+                }
+            }
+        }
+        
+        // 4. Update & Render
+        nodes.forEach(n => n.update());
+        // Sort by Z to draw distant nodes first (Painter's algorithm)
+        nodes.slice().sort((a,b) => a.z - b.z).forEach(n => n.draw()); 
+        
+        packets = packets.filter(p => !p.arrived);
+        packets.forEach(p => { p.update(); p.draw(); });
+
+        // 5. Spettro e Rumore
+        let totalEnergy = globalFlash * 50; 
+        packets.forEach(p => totalEnergy += p.hopEnergy);
+        
+        const binWidth = width / spectrumBins.length;
+        ctx.fillStyle = 'rgba(10, 255, 132, 0.4)';
+        for (let i = 0; i < spectrumBins.length; i++) {
+            spectrumBins[i] *= 0.85; // Decadimento
+            spectrumBins[i] += Math.random() * (globalFlash > 0 ? 30 : 5); // Esplosione di spettro su collisione
+            
+            if (totalEnergy > 0 && Math.random() < 0.1) {
+                spectrumBins[i] += Math.random() * (totalEnergy * 0.15);
+            }
+            const barHeight = Math.min(spectrumBins[i], 40);
+            ctx.fillRect(i * binWidth + 1, height - barHeight, binWidth - 2, barHeight);
+        }
+
+        requestAnimationFrame(drawScene);
+    }
+    
+    requestAnimationFrame(drawScene);
+
+    // Terminal Helper
+    function logTerm(msg, type = 'cmd') {
+        const line = document.createElement('div');
+        line.className = `term-line ${type}`;
+        line.innerText = msg;
+        terminal.appendChild(line);
+        terminal.scrollTop = terminal.scrollHeight;
+        while (terminal.childNodes.length > 30) terminal.removeChild(terminal.firstChild);
+        return line;
+    }
+
+    const randHex = (bytes) => Array.from({length: bytes}, () => Math.floor(Math.random()*256).toString(16).padStart(2, '0')).join('').toUpperCase();
+
+    // Transmission Sequence
+    async function transmit() {
+        const text = input.value.trim();
+        if (!text) return;
+        input.value = '';
+
+        logTerm(`> RAW_INPUT: "${text}"`, 'cmd');
+
+        if (text.includes('IMG_DROP|') || text.includes('FILE_DROP|')) {
+            logTerm('⚠️ LORA ABORT: Payload contains media metadata. Too heavy for radio.', 'error');
+            return;
+        }
+
+        await new Promise(r => setTimeout(r, 400));
+        logTerm(`> Applying ZLIB Compression + AES-256-GCM...`, 'cmd');
+        
+        const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*<>";
+        const payloadLine = logTerm(`> ENCRYPTING: [ ]`, 'cmd');
+        let iterations = 0;
+        
+        await new Promise((resolve) => {
+            const scrambleInterval = setInterval(() => {
+                const scrambled = text.split('').map(() => chars[Math.floor(Math.random() * chars.length)]).join('');
+                payloadLine.innerText = `> ENCRYPTING: [ ${scrambled} ]`;
+                iterations++;
+                
+                if (iterations > 18) {
+                    clearInterval(scrambleInterval);
+                    const iv = randHex(12); 
+                    const tag = randHex(16); 
+                    const ctLength = Math.max(8, Math.floor(text.length * 0.8)); 
+                    const ct = randHex(ctLength);
+                    
+                    payloadLine.className = 'term-line hex';
+                    payloadLine.innerText = `> CIPHERTEXT: [ IV:${iv} | CT:${ct} | TAG:${tag} ]`;
+                    resolve();
+                }
+            }, 35);
+        });
+
+        await new Promise(r => setTimeout(r, 300));
+        logTerm(`> Plaintext wiped from memory.`, 'success');
+        
+        await new Promise(r => setTimeout(r, 400));
+        logTerm(`> BLE GATT Write (MTU: 247). Effective ATT payload: 244 bytes.`, 'cmd');
+        
+        triggerGlitch(200); 
+
+        // BFS Pathfinding
+        const aliveNodes = nodes.map((n, i) => n.isDead ? -1 : i).filter(i => i !== -1);
+        if (aliveNodes.length < 2) {
+            logTerm('> ROUTE FAILED: Network collapsed. No alive nodes.', 'error');
+            return;
+        }
+
+        const startIdx = aliveNodes[Math.floor(Math.random() * aliveNodes.length)];
+        let endIdx = aliveNodes[Math.floor(Math.random() * aliveNodes.length)];
+        while(endIdx === startIdx) endIdx = aliveNodes[Math.floor(Math.random() * aliveNodes.length)];
+
+        const path = findPathBFS(startIdx, endIdx);
+
+        if (!path) {
+            logTerm(`> ROUTE FAILED: No viable path to target node in current topology.`, 'error');
+            nodes[startIdx].isPulsing = true;
+            nodes[startIdx].pulseRadius = 0;
+            triggerGlitch(150);
+            return;
+        }
+        
+        logTerm(`> Transmitting LoRa RF sequence (Hop Count: ${path.length - 1})...`, 'success');
+        packets.push(new Packet(path));
+    }
+
+    btn.addEventListener('click', transmit);
+    input.addEventListener('keypress', e => { if (e.key === 'Enter') transmit(); });
+})();
+
+// =========================================================================
+// 8. HARDWARE INJECTION & LIVE SERIAL MONITOR
+// =========================================================================
+(() => {
+    const flasher = document.getElementById('esp-flasher');
+    const flashConsole = document.getElementById('flash-console');
+    const eraseToggle = document.getElementById('erase-toggle');
+    const serialBtn = document.getElementById('open-serial-btn');
+
+    if (!flasher || !flashConsole) return;
+
+    // Funzione di utility per stampare nel terminale nero
+    function logTerminal(msg, type = 'cmd') {
+        const line = document.createElement('div');
+        line.className = `term-line ${type}`;
+        line.innerText = msg;
+        flashConsole.appendChild(line);
+        flashConsole.scrollTop = flashConsole.scrollHeight;
+        while (flashConsole.childNodes.length > 150) flashConsole.removeChild(flashConsole.firstChild);
+    }
+
+    // --- GESTIONE FLASH & ERASE ---
+    if (eraseToggle) {
+        eraseToggle.addEventListener('change', (e) => {
+            // Nota: esp-web-tools permette di passare 'eraseFirst' programmaticamente
+            flasher.eraseFirst = e.target.checked;
+            if (e.target.checked) {
+                logTerminal('> ERASE POLICY: STRICT (Device will be wiped completely)', 'warn');
+            } else {
+                logTerminal('> ERASE POLICY: UPDATE ONLY (Existing NVS data preserved)', 'info');
+            }
+        });
+    }
+
+    flasher.addEventListener('state-changed', (e) => {
+        const state = e.detail.state;
+        flashConsole.classList.remove('hidden');
+
+        switch (state) {
+            case 'CONNECTING': logTerminal('> Opening Web Serial descriptor...', 'cmd'); break;
+            case 'CONNECTED': logTerminal('> SERIAL LINK ESTABLISHED.', 'success'); break;
+            case 'INITIALIZING': logTerminal('> Injecting flasher stub...', 'info'); break;
+            case 'ERASING': logTerminal('> [WARNING] WIPING FLASH MEMORY...', 'critical'); break;
+            case 'WRITING': logTerminal('> STREAMING UNIVERSAL BINARY PAYLOAD...', 'info'); break;
+            case 'FINISHED': 
+                logTerminal('> PAYLOAD COMMITTED TO SILICON.', 'success'); 
+                logTerminal('> HARDWARE REBOOTING...', 'warn');
+                logTerminal('> Click [OPEN LIVE SERIAL LINK] to monitor tactical telemetry.', 'info');
+                break;
+            case 'ERROR':
+                logTerminal(`> [FATAL] OPERATION ABORTED: ${e.detail.message || "Hardware disconnect"}`, 'critical');
+                break;
+        }
+    });
+
+    // --- MONITOR SERIALE DAL VIVO (RAW USB-C) ---
+    let port;
+    let reader;
+    let inputDone;
+
+    async function openLiveSerial() {
+        if (!('serial' in navigator)) {
+            logTerminal('> [ERR] Web Serial API not supported by this browser.', 'critical');
+            return;
+        }
+
+        try {
+            flashConsole.classList.remove('hidden');
+            
+            if (port) {
+                await closeSerial();
+                return;
+            }
+
+            port = await navigator.serial.requestPort();
+            // Il T-Deck usa i 115200 baud standard
+            await port.open({ baudRate: 115200 });
+
+            logTerminal('> ---------------------------------------', 'cmd');
+            logTerminal('> LIVE SERIAL LINK ACTIVE @ 115200 BAUD', 'success');
+            logTerminal('> ---------------------------------------', 'cmd');
+
+            const decoder = new TextDecoderStream();
+            inputDone = port.readable.pipeTo(decoder.writable);
+            reader = decoder.readable.getReader();
+
+            serialBtn.innerText = "> DISCONNECT SERIAL";
+            serialBtn.style.color = "var(--warn)";
+            serialBtn.style.borderColor = "var(--warn)";
+
+            readLoop();
+
+        } catch (err) {
+            logTerminal(`> [SERIAL ERR]: ${err.message}`, 'error');
+        }
+    }
+
+    async function readLoop() {
+        let lineBuffer = '';
+        while (true) {
+            try {
+                const { value, done } = await reader.read();
+                if (value) {
+                    lineBuffer += value;
+                    const lines = lineBuffer.split('\n');
+                    lineBuffer = lines.pop(); // Mantieni la riga incompleta nel buffer
+                    
+                    for (let line of lines) {
+                        line = line.replace('\r', '').trim();
+                        if (line.length > 0) {
+                            // Colora in arancione i log che provengono dal tuo codice C++ (che iniziano con "> ")
+                            if (line.startsWith('>')) {
+                                logTerminal(`[T-DECK] ${line}`, 'hw');
+                            } else {
+                                logTerminal(`[T-DECK] ${line}`, 'info');
+                            }
+                        }
+                    }
+                }
+                if (done) {
+                    reader.releaseLock();
+                    break;
+                }
+            } catch (err) {
+                logTerminal(`> [SERIAL DISCONNECTED]: ${err.message}`, 'error');
+                break;
+            }
+        }
+    }
+
+    async function closeSerial() {
+        if (reader) {
+            await reader.cancel();
+            await inputDone.catch(() => {});
+            reader = null;
+            inputDone = null;
+        }
+        if (port) {
+            await port.close();
+            port = null;
+        }
+        logTerminal('> SERIAL LINK SEVERED.', 'warn');
+        serialBtn.innerText = "> OPEN_LIVE_SERIAL_LINK";
+        serialBtn.style.color = "var(--cyber-blue)";
+        serialBtn.style.borderColor = "var(--cyber-blue)";
+    }
+
+    if (serialBtn) {
+        serialBtn.addEventListener('click', openLiveSerial);
+    }
+})();
 })();
