@@ -1035,7 +1035,6 @@ if (terminal && gamesGrid) {
         serialBtn.addEventListener('click', openLiveSerial);
     }
 })();
-// =========================================================================
 // 9. Q-MAP NEURAL DISPATCHER - CYBERPUNK ENGINE (v2)
 // =========================================================================
 (() => {
@@ -1435,6 +1434,8 @@ if (terminal && gamesGrid) {
   let fpsT = 0;
   let fps = 0;
 
+  let lastFrame = performance.now();
+
   function loop(ts) {
     if (!running) return;
 
@@ -1574,8 +1575,6 @@ if (terminal && gamesGrid) {
     setMode('[PAUSED]');
   }
 
-  let lastFrame = performance.now();
-
   // Pointer tracking
   function updatePointerFromEvent(e) {
     const rect = canvas.getBoundingClientRect();
@@ -1612,6 +1611,28 @@ if (terminal && gamesGrid) {
   // Resize
   window.addEventListener('resize', resize);
 
+  // --- Public pulse hook (used by replay widget) ---
+  function qmapPulse(evt, strength = 1.0){
+    // add a few waves + a brief status tick
+    const cx = W * 0.5;
+    const cy = H * 0.5;
+    const s = clamp(strength, 0.2, 1.2);
+
+    waves.push(new Wave(cx, cy, '#00f3ff'));
+    waves.push(new Wave(cx + (Math.random()*40-20), cy + (Math.random()*40-20), '#0aff84'));
+
+    markLast(evt || 'PULSE');
+    setStatus('PULSE', 'warn');
+
+    // brief decay back
+    setTimeout(() => setStatus(frozen ? 'PAUSED' : 'IDLE', frozen ? 'warn' : 'ok'), 420);
+    // boost glow
+    for (const n of nodes) n.glow = Math.max(n.glow, 0.6 * s);
+  }
+
+  window.__QMAP = window.__QMAP || {};
+  window.__QMAP.pulse = qmapPulse;
+
   // Init nodes
   const baseCount = reducedMotion ? 12 : 18;
   for (let i = 0; i < baseCount; i++) nodes.push(new PeerNode(i));
@@ -1631,4 +1652,417 @@ if (terminal && gamesGrid) {
   }
 })();
 
+// =========================================================================
+// 9B. Q-MAP REPLAY WIDGET (VIDEO) - Lazy load + drag + resize + minimize
+// =========================================================================
+(() => {
+  const section = document.getElementById('q-map-engine');
+  const win = document.getElementById('qmap-replay');
+  const phone = document.getElementById('qmap-phone');
+  const video = document.getElementById('qmap-demo');
+  const state = document.getElementById('qmap-replay-state');
+
+  const openBtn = document.getElementById('qmap-replay-open');
+  const modal = document.getElementById('qmap-modal');
+  const modalBody = document.getElementById('qmap-modal-body');
+  const closeBtn = document.getElementById('qmap-replay-close');
+
+  if (!section || !win || !phone || !video) return;
+
+  const wrapper = win.closest('.qmap-canvas-wrapper') || win.parentElement;
+  if (!wrapper) return;
+
+  const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const saveData = !!(navigator.connection && navigator.connection.saveData);
+
+  // bump version to ignore old "too big" stored sizes
+  const KEY = 'qmapReplayWidget_v3';
+  const PAD = 12;
+
+  let loaded = false;
+  let isMin = false;
+
+  // widget state (px in wrapper coordinates)
+  let x = 0, y = 0, w = 260;
+
+  // drag/resize runtime
+  let mode = null; // 'drag' | 'resize'
+  let startX = 0, startY = 0;
+  let startWX = 0, startWY = 0;
+  let startW = 0, startWidgetX = 0, startWidgetY = 0;
+
+  // raf batching
+  let raf = 0;
+  function clamp(v, a, b){ return Math.max(a, Math.min(b, v)); }
+
+  function setState(txt){ if (state) state.textContent = txt; }
+
+  function widgetRect(){ return win.getBoundingClientRect(); }
+  function wrapperRect(){ return wrapper.getBoundingClientRect(); }
+
+  function apply(){
+    win.style.width = `${Math.round(w)}px`;
+    win.style.transform = `translate3d(${Math.round(x)}px, ${Math.round(y)}px, 0)`;
+  }
+
+  function clampIntoBounds(){
+    // after width set, height depends on content; measure
+    const wr = wrapperRect();
+    const r = widgetRect();
+
+    const maxX = Math.max(PAD, wr.width - r.width - PAD);
+    const maxY = Math.max(PAD, wr.height - r.height - PAD);
+
+    x = clamp(x, PAD, maxX);
+    y = clamp(y, PAD, maxY);
+
+    // width bounds relative to wrapper
+    const minW = 190;
+    const maxW = Math.min(380, Math.floor(wr.width - PAD * 2));
+    w = clamp(w, minW, maxW);
+  }
+
+  function scheduleApply(){
+    if (raf) return;
+    raf = requestAnimationFrame(() => {
+      raf = 0;
+      clampIntoBounds();
+      apply();
+      save();
+    });
+  }
+
+  function defaults(){
+    const wr = wrapperRect();
+    const vw = window.innerWidth;
+
+    // smaller by default: stops covering the node field
+    const target = vw < 520 ? wr.width * 0.44 : wr.width * 0.24;
+    w = clamp(Math.floor(target), 190, vw < 520 ? 260 : 320);
+
+    // put it bottom-right by default
+    win.style.width = `${w}px`;
+    // one paint to measure height
+    const r = widgetRect();
+
+    x = Math.floor(wr.width - r.width - PAD);
+    y = Math.floor(wr.height - r.height - PAD);
+
+    // if HUD exists and overlaps, move bottom-left
+    const hud = wrapper.querySelector('.qmap-hud');
+    if (hud){
+      const hr = hud.getBoundingClientRect();
+      const ww = wrapperRect();
+
+      const widgetLeft = ww.left + x;
+      const widgetTop  = ww.top + y;
+      const widgetRight = widgetLeft + r.width;
+      const widgetBottom = widgetTop + r.height;
+
+      const overlap =
+        widgetLeft < hr.right && widgetRight > hr.left &&
+        widgetTop < hr.bottom && widgetBottom > hr.top;
+
+      if (overlap){
+        x = PAD;
+        y = Math.floor(wr.height - r.height - PAD);
+      }
+    }
+
+    // on tiny screens, start minimized
+    isMin = (window.innerWidth < 420 || wr.width < 340 || wr.height < 420);
+    win.classList.toggle('is-minimized', isMin);
+
+    apply();
+    save();
+  }
+
+  function save(){
+    try{ localStorage.setItem(KEY, JSON.stringify({ x, y, w, isMin })); }catch(_){}
+  }
+
+  function load(){
+    try{
+      const raw = localStorage.getItem(KEY);
+      if (!raw) return false;
+      const obj = JSON.parse(raw);
+      if (typeof obj.w === 'number') w = obj.w;
+      if (typeof obj.x === 'number') x = obj.x;
+      if (typeof obj.y === 'number') y = obj.y;
+      isMin = !!obj.isMin;
+      win.classList.toggle('is-minimized', isMin);
+      clampIntoBounds();
+      apply();
+      return true;
+    }catch(_){
+      return false;
+    }
+  }
+
+  // ---------- Lazy load video ----------
+  function loadVideoSources(){
+    if (loaded) return;
+    const sources = video.querySelectorAll('source[data-src]');
+    sources.forEach(s => { s.src = s.dataset.src; });
+    video.load();
+    loaded = true;
+    setState('[BUFFERING]');
+
+    const last = document.getElementById('qmap-last');
+    if (last) last.textContent = 'REPLAY_BUFFER';
+  }
+
+  async function attemptPlay(){
+    if (reducedMotion || saveData) return;
+    try{
+      await video.play();
+      setState('[LIVE]');
+      if (window.__QMAP && typeof window.__QMAP.pulse === 'function') {
+        window.__QMAP.pulse('REPLAY_SYNC_PULSE', 1.0);
+      }
+    }catch(_){
+      setState('[TAP]');
+    }
+  }
+
+  function arm(){
+    loadVideoSources();
+
+    // metadata preload = faster first frame without pulling full file
+    try { video.preload = 'metadata'; } catch(_){}
+
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => { attemptPlay(); }, { timeout: 1200 });
+    } else {
+      setTimeout(() => { attemptPlay(); }, 200);
+    }
+  }
+
+  // If autoplay is blocked, tapping the video retries play.
+  video.addEventListener('pointerdown', () => { attemptPlay(); }, { passive: true });
+
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      const near = entries.some(e => e.isIntersecting);
+      if (near) { arm(); io.disconnect(); }
+    }, { threshold: 0.12, rootMargin: '650px 0px' });
+    io.observe(section);
+  } else {
+    setTimeout(arm, 900);
+  }
+
+  video.addEventListener('canplay', () => {
+    setState('[LIVE]');
+    if (window.__QMAP && typeof window.__QMAP.pulse === 'function') {
+      window.__QMAP.pulse('REPLAY_READY_PULSE', 0.85);
+    }
+  }, { once: true });
+
+  video.addEventListener('error', () => {
+    setState('[ERR]');
+    const integrity = document.getElementById('integrity-status');
+    if (integrity) { integrity.textContent = 'REPLAY_FAIL'; integrity.className = 'status-warn'; }
+  });
+
+  // ---------- Inject controls (min/reset) + resize handle ----------
+  const bar = win.querySelector('.qmap-replay__bar');
+  let resizeHandle = win.querySelector('.qmap-replay__resize');
+
+  if (!resizeHandle){
+    resizeHandle = document.createElement('div');
+    resizeHandle.className = 'qmap-replay__resize';
+    resizeHandle.setAttribute('aria-hidden', 'true');
+    win.appendChild(resizeHandle);
+  }
+
+  // Create MIN + RESET if not present
+  let minBtn = win.querySelector('#qmap-replay-min');
+  if (!minBtn && bar){
+    minBtn = document.createElement('button');
+    minBtn.id = 'qmap-replay-min';
+    minBtn.type = 'button';
+    minBtn.className = 'qmap-replay__btn mono';
+    minBtn.textContent = 'MIN';
+    if (openBtn) bar.insertBefore(minBtn, openBtn);
+    else bar.appendChild(minBtn);
+  }
+
+  let resetBtn = win.querySelector('#qmap-replay-reset');
+  if (!resetBtn && bar){
+    resetBtn = document.createElement('button');
+    resetBtn.id = 'qmap-replay-reset';
+    resetBtn.type = 'button';
+    resetBtn.className = 'qmap-replay__btn mono';
+    resetBtn.textContent = 'RST';
+    if (minBtn) bar.insertBefore(resetBtn, minBtn);
+    else bar.appendChild(resetBtn);
+  }
+
+  function toggleMin(){
+    isMin = !isMin;
+    win.classList.toggle('is-minimized', isMin);
+    setState(isMin ? '[MIN]' : '[LIVE]');
+    scheduleApply();
+  }
+
+  if (minBtn) minBtn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); toggleMin(); });
+
+  if (resetBtn) resetBtn.addEventListener('click', (e) => {
+    e.preventDefault(); e.stopPropagation();
+    try{ localStorage.removeItem(KEY); }catch(_){}
+    defaults();
+  });
+
+  // double click/tap on bar to minimize
+  if (bar) bar.addEventListener('dblclick', (e) => {
+    if (e.target && e.target.closest('button')) return;
+    toggleMin();
+  });
+
+  // ---------- Drag / Resize ----------
+  function pointerToWrapper(e){
+    const wr = wrapperRect();
+    return { px: e.clientX - wr.left, py: e.clientY - wr.top };
+  }
+
+  function beginDrag(e){
+    if (!bar) return;
+    if (e.target && e.target.closest('button')) return; // don’t drag when pressing buttons
+    e.preventDefault();
+
+    mode = 'drag';
+    win.classList.add('is-active','is-dragging');
+
+    const p = pointerToWrapper(e);
+    startX = p.px; startY = p.py;
+    startWidgetX = x; startWidgetY = y;
+
+    bar.setPointerCapture && bar.setPointerCapture(e.pointerId);
+  }
+
+  function beginResize(e){
+    e.preventDefault();
+
+    mode = 'resize';
+    win.classList.add('is-active','is-resizing');
+
+    const p = pointerToWrapper(e);
+    startWX = p.px; startWY = p.py;
+    startW = w;
+
+    resizeHandle.setPointerCapture && resizeHandle.setPointerCapture(e.pointerId);
+  }
+
+  function move(e){
+    if (!mode) return;
+    const p = pointerToWrapper(e);
+
+    if (mode === 'drag'){
+      const dx = p.px - startX;
+      const dy = p.py - startY;
+      x = startWidgetX + dx;
+      y = startWidgetY + dy;
+      scheduleApply();
+      return;
+    }
+
+    if (mode === 'resize'){
+      // Resize mainly by width; height follows via aspect-ratio
+      const dx = p.px - startWX;
+      w = startW + dx;
+      scheduleApply();
+    }
+  }
+
+  function end(){
+    if (!mode) return;
+    mode = null;
+    win.classList.remove('is-dragging','is-resizing');
+    setTimeout(() => win.classList.remove('is-active'), 250);
+    scheduleApply();
+  }
+
+  if (bar){
+    bar.addEventListener('pointerdown', beginDrag);
+    bar.addEventListener('pointermove', move);
+    bar.addEventListener('pointerup', end);
+    bar.addEventListener('pointercancel', end);
+  }
+
+  if (resizeHandle){
+    resizeHandle.addEventListener('pointerdown', (e) => { e.stopPropagation(); beginResize(e); });
+    resizeHandle.addEventListener('pointermove', move);
+    resizeHandle.addEventListener('pointerup', end);
+    resizeHandle.addEventListener('pointercancel', end);
+  }
+
+  // dim when user is interacting with canvas
+  let dimT = 0;
+  wrapper.addEventListener('pointermove', (e) => {
+    if (e.target && e.target.closest && e.target.closest('#qmap-replay')) return;
+    win.classList.add('dimmed');
+    clearTimeout(dimT);
+    dimT = setTimeout(() => win.classList.remove('dimmed'), 650);
+  });
+
+  // keep within bounds on wrapper resize/orientation changes
+  if ('ResizeObserver' in window) {
+    const ro = new ResizeObserver(() => scheduleApply());
+    ro.observe(wrapper);
+  } else {
+    window.addEventListener('resize', () => scheduleApply());
+  }
+
+  // ---------- Fullscreen modal (teleport phone) ----------
+  let homeParent = null;
+  let homeNext = null;
+
+  function openModal(){
+    if (!modal || !modalBody) return;
+    loadVideoSources();
+
+    if (!homeParent) {
+      homeParent = phone.parentElement;
+      homeNext = phone.nextSibling;
+    }
+
+    modalBody.innerHTML = '';
+    modalBody.appendChild(phone);
+
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('qmap-modal-open');
+
+    attemptPlay();
+    if (window.__QMAP && typeof window.__QMAP.pulse === 'function') {
+      window.__QMAP.pulse('REPLAY_FULLSCREEN_PULSE', 0.85);
+    }
+  }
+
+  function closeModal(){
+    if (!modal) return;
+
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('qmap-modal-open');
+
+    if (homeParent) {
+      if (homeNext) homeParent.insertBefore(phone, homeNext);
+      else homeParent.appendChild(phone);
+    }
+  }
+
+  if (openBtn) openBtn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); openModal(); });
+  if (closeBtn) closeBtn.addEventListener('click', (e) => { e.preventDefault(); closeModal(); });
+
+  if (modal) modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+  window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+  // ---------- Init layout ----------
+  requestAnimationFrame(() => {
+    const ok = load();
+    if (!ok) defaults();
+    scheduleApply();
+  });
+})();
 })();

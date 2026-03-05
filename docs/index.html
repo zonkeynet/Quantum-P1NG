@@ -40,6 +40,7 @@
   <meta name="twitter:image" content="./assets/img/social-preview.png" />
 
   <link rel="preload" href="./styles.css" as="style" />
+  <link rel="preload" as="image" href="assets/vid/qmap_poster.webp">
   <link rel="stylesheet" href="./styles.css" />
 
   <script type="application/ld+json">
@@ -646,59 +647,106 @@ _
       </div>
 
       <div class="neural-layout">
-        <div class="qmap-canvas-wrapper">
-          <canvas id="neuralCanvas" aria-label="Q-Map neural synchronization visualization"></canvas>
+  <!-- LEFT: CANVAS STAGE -->
+  <div class="qmap-canvas-wrapper">
+    <canvas id="neuralCanvas" aria-label="Q-Map neural synchronization visualization"></canvas>
 
-          <div class="qmap-hud mono" aria-hidden="true">
-            <div class="hud-grid">
-              <div class="hud-item">PEERS: <span id="peer-count" class="status-ok">0</span></div>
-              <div class="hud-item">STATE: <span id="sync-status" class="status-ok">IDLE</span></div>
-              <div class="hud-item">DELTA/s: <span id="delta-rate" class="status-ok">0.00</span></div>
-              <div class="hud-item">PACKETS: <span id="pkt-count" class="status-ok">0</span></div>
-              <div class="hud-item">TOR: <span class="status-ok">ENCRYPTED</span></div>
-              <div class="hud-item">INTEGRITY: <span id="integrity-status" class="status-ok">VERIFIED</span></div>
-            </div>
-
-            <div class="qmap-hintbar">
-              <span class="hint-chip">[MOVE] FIELD_WARP</span>
-              <span class="hint-chip">[CLICK] FORCE_SYNC</span>
-              <span class="hint-chip">[SPACE] FREEZE</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="specs-wrapper">
-          <div class="spec-card mono qmap-telemetry">
-            <div class="spec-title">LIVE TELEMETRY</div>
-            <div class="qmap-telemetry-grid">
-              <div class="trow"><span class="tkey">ENGINE</span><span class="tval">NEURAL_DISPATCHER</span></div>
-              <div class="trow"><span class="tkey">RENDER</span><span class="tval">CANVAS_2D</span></div>
-              <div class="trow"><span class="tkey">CLOCK</span><span class="tval" id="qmap-fps">-- fps</span></div>
-              <div class="trow"><span class="tkey">LAST_EVT</span><span class="tval" id="qmap-last">BOOT</span></div>
-            </div>
-          </div>
-
-          <div class="spec-card mono">
-            <div class="spec-title">TOR-DRIVEN ANONYMITY</div>
-            <p class="muted small">Real-time mental map synchronization over Tor. Share thoughts, high-res images, and investigative data with minimal metadata exposure and geographic obfuscation.</p>
-          </div>
-
-          <div class="spec-card mono">
-            <div class="spec-title">HYBRID LORA SYNC</div>
-            <p class="muted small">The MindMapSyncEngine supports asynchronous radio bridging. Collaborate offline in denied environments, then forward intelligence via LoRa when a relay path appears.</p>
-          </div>
-
-          <div class="spec-card mono">
-            <div class="spec-title">MULTIMEDIA ORCHESTRATION</div>
-            <p class="muted small">Dispatcher for video, audio, and visual evidence. Payloads are fragmented, encrypted, and reassembled across the mesh with deterministic ordering.</p>
-          </div>
-
-          <div class="spec-card mono">
-            <div class="spec-title">STATELESS CONSISTENCY</div>
-            <p class="muted small">Powered by a deterministic StateManager. Each node converges on the same tamper-evident global map through atomic delta commits.</p>
-          </div>
-        </div>
+    <div class="qmap-hud mono" aria-hidden="true">
+      <div class="hud-grid">
+        <div class="hud-item">PEERS: <span id="peer-count" class="status-ok">0</span></div>
+        <div class="hud-item">STATE: <span id="sync-status" class="status-ok">IDLE</span></div>
+        <div class="hud-item">DELTA/s: <span id="delta-rate" class="status-ok">0.00</span></div>
+        <div class="hud-item">PACKETS: <span id="pkt-count" class="status-ok">0</span></div>
+        <div class="hud-item">TOR: <span class="status-ok">ENCRYPTED</span></div>
+        <div class="hud-item">INTEGRITY: <span id="integrity-status" class="status-ok">VERIFIED</span></div>
       </div>
+
+      <div class="qmap-hintbar">
+        <span class="hint-chip">[MOVE] FIELD_WARP</span>
+        <span class="hint-chip">[CLICK] FORCE_SYNC</span>
+        <span class="hint-chip">[SPACE] FREEZE</span>
+      </div>
+    </div>
+
+    <!-- Q-MAP REPLAY WINDOW (Android capture) -->
+    <div class="qmap-replay" id="qmap-replay" aria-label="Q-Map replay window">
+      <div class="qmap-replay__bar mono">
+        <span class="blink-dot" style="background-color:var(--acc2); box-shadow:0 0 10px rgba(0,243,255,.8);"></span>
+        [REPLAY] // Q-MAP_ANDROID_CAPTURE
+        <span class="qmap-replay__state mono" id="qmap-replay-state">[WARMING]</span>
+        <button class="qmap-replay__btn mono" id="qmap-replay-open" type="button">EXPAND</button>
+      </div>
+
+      <div class="qmap-phone" id="qmap-phone">
+        <div class="qmap-phone__screen">
+          <video
+            id="qmap-demo"
+            class="qmap-video"
+            playsinline
+            muted
+            loop
+            preload="none"
+            poster="assets/vid/qmap_poster.webp"
+          >
+            <source data-src="assets/vid/qmap-demo.webm" type="video/webm">
+            <source data-src="assets/vid/qmap-demo.mp4" type="video/mp4">
+          </video>
+          <div class="qmap-phone__glass" aria-hidden="true"></div>
+        </div>
+        <div class="qmap-phone__notch" aria-hidden="true"></div>
+        <div class="qmap-phone__btns" aria-hidden="true"></div>
+      </div>
+    </div>
+    <!-- /Q-MAP REPLAY -->
+  </div>
+  <!-- /LEFT: qmap-canvas-wrapper -->
+
+  <!-- RIGHT: SPECS PANEL -->
+  <div class="specs-wrapper">
+    <div class="spec-card mono qmap-telemetry">
+      <div class="spec-title">LIVE TELEMETRY</div>
+      <div class="qmap-telemetry-grid">
+        <div class="trow"><span class="tkey">ENGINE</span><span class="tval">NEURAL_DISPATCHER</span></div>
+        <div class="trow"><span class="tkey">RENDER</span><span class="tval">CANVAS_2D</span></div>
+        <div class="trow"><span class="tkey">CLOCK</span><span class="tval" id="qmap-fps">-- fps</span></div>
+        <div class="trow"><span class="tkey">LAST_EVT</span><span class="tval" id="qmap-last">BOOT</span></div>
+      </div>
+    </div>
+
+    <div class="spec-card mono">
+      <div class="spec-title">TOR-DRIVEN ANONYMITY</div>
+      <p class="muted small">Real-time mental map synchronization over Tor. Share thoughts, high-res images, and investigative data with minimal metadata exposure and geographic obfuscation.</p>
+    </div>
+
+    <div class="spec-card mono">
+      <div class="spec-title">HYBRID LORA SYNC</div>
+      <p class="muted small">The MindMapSyncEngine supports asynchronous radio bridging. Collaborate offline in denied environments, then forward intelligence via LoRa when a relay path appears.</p>
+    </div>
+
+    <div class="spec-card mono">
+      <div class="spec-title">MULTIMEDIA ORCHESTRATION</div>
+      <p class="muted small">Dispatcher for video, audio, and visual evidence. Payloads are fragmented, encrypted, and reassembled across the mesh with deterministic ordering.</p>
+    </div>
+
+    <div class="spec-card mono">
+      <div class="spec-title">STATELESS CONSISTENCY</div>
+      <p class="muted small">Powered by a deterministic StateManager. Each node converges on the same tamper-evident global map through atomic delta commits.</p>
+    </div>
+  </div>
+  <!-- /RIGHT: specs-wrapper -->
+</div>
+    </div>
+  </div>
+  <!-- Q-MAP REPLAY MODAL (teleports the phone window to fullscreen) -->
+  <div class="qmap-modal" id="qmap-modal" aria-hidden="true">
+    <div class="qmap-modal__inner" role="dialog" aria-modal="true" aria-label="Q-Map replay fullscreen">
+      <div class="qmap-modal__bar mono">
+        <span class="blink-dot" style="background-color:var(--acc); box-shadow:0 0 10px rgba(10,255,132,.7);"></span>
+        [Q-MAP REPLAY] // FULLSCREEN_VIEW
+        <button class="qmap-replay__btn mono" id="qmap-replay-close" type="button">CLOSE</button>
+      </div>
+      <div class="qmap-modal__body" id="qmap-modal-body"></div>
+      <div class="qmap-modal__hint mono tiny muted">Tip: click outside or press ESC to close • muted autoplay allowed • audio removed for OPSEC</div>
     </div>
   </div>
 </section>
