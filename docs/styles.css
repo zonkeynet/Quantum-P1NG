@@ -2846,7 +2846,16 @@ a:hover { color: var(--acc); }
     padding: 6px 10px;
     letter-spacing: 1px;
 }
-
+/* Fix desktop: serial button troppo "thin" */
+#open-serial-btn{
+  padding: 12px 16px;     
+  min-height: 44px;    
+  line-height: 1.1;
+  display: flex;         
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
 /* --- D. TACTICAL FLASH CONTROLS (ERASE TOGGLE) --- */
 .flash-controls {
     background: rgba(0, 0, 0, 0.5);
@@ -2995,4 +3004,348 @@ esp-web-install-button {
         width: 100%;
         max-width: 100%;
     }
+}
+/* =========================================================================
+   9. Q-MAP NEURAL DISPATCHER - CYBERPUNK MASTER DECK (v2)
+   ========================================================================= */
+
+.neural-container.qmap-deck {
+  margin-top: 26px;
+  border: 1px solid rgba(0, 243, 255, 0.28);
+  background:
+    radial-gradient(circle at 20% 25%, rgba(0, 243, 255, 0.10), transparent 35%),
+    radial-gradient(circle at 85% 30%, rgba(10, 255, 132, 0.07), transparent 35%),
+    linear-gradient(135deg, rgba(2, 4, 8, 0.94) 0%, rgba(10, 2, 5, 0.94) 100%);
+  border-radius: var(--radius);
+  box-shadow:
+    0 0 70px rgba(0, 243, 255, 0.06),
+    inset 0 0 25px rgba(0, 0, 0, 0.55);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(18px);
+}
+
+.neural-container.qmap-deck::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: var(--radius);
+  padding: 1px;
+  background: linear-gradient(120deg, rgba(0,243,255,.55), rgba(157,107,255,.35), rgba(10,255,132,.35));
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  opacity: 0.35;
+}
+
+.neural-container.qmap-deck::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 50%, transparent 55%, rgba(0,0,0,0.75) 100%),
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.02), rgba(255,255,255,0.02) 1px, transparent 1px, transparent 4px);
+  opacity: 0.18;
+  mix-blend-mode: overlay;
+}
+
+/* --- HEADER (cyan override of the generic .panel-header) --- */
+.neural-container.qmap-deck .panel-header.qmap-header {
+  background: linear-gradient(90deg, rgba(0, 243, 255, 0.16), transparent);
+  color: var(--acc2);
+  border-bottom: 1px solid rgba(0, 243, 255, 0.18);
+  text-shadow: 0 0 10px rgba(0, 243, 255, 0.35);
+  position: relative;
+  overflow: hidden;
+}
+
+.neural-container.qmap-deck .panel-header.qmap-header::after {
+  content: "";
+  position: absolute;
+  top: 0; left: -40%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0,243,255,0.20), transparent);
+  filter: blur(2px);
+  animation: qmapHeaderScan 4.8s linear infinite;
+  opacity: 0.75;
+}
+
+.qmap-mode {
+  margin-left: auto;
+  padding: 2px 8px;
+  border: 1px solid rgba(0, 243, 255, 0.25);
+  border-radius: 999px;
+  background: rgba(0,0,0,0.25);
+  color: rgba(0,243,255,0.95);
+  font-size: 10px;
+  letter-spacing: 1px;
+  box-shadow: 0 0 18px rgba(0,243,255,0.10);
+}
+
+/* --- LAYOUT --- */
+.neural-layout {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  height: 690px;
+  transition: all 0.5s ease-in-out;
+}
+
+/* --- CANVAS DECK --- */
+.qmap-canvas-wrapper {
+  position: relative;
+  overflow: hidden;
+
+  /* cyber grid + glow */
+  background:
+    radial-gradient(circle at 50% 45%, rgba(0,243,255,0.10), transparent 55%),
+    linear-gradient(rgba(0, 243, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 243, 255, 0.06) 1px, transparent 1px);
+  background-size: auto, 44px 44px, 44px 44px;
+
+  box-shadow: inset 0 0 140px rgba(0, 0, 0, 0.85);
+  border-right: 1px solid rgba(0, 243, 255, 0.14);
+}
+
+.qmap-canvas-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  /* scanlines + subtle chromatic jitter layer */
+  background:
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 5px),
+    radial-gradient(circle at 15% 20%, rgba(157,107,255,0.08), transparent 30%),
+    radial-gradient(circle at 85% 70%, rgba(10,255,132,0.06), transparent 35%);
+  opacity: 0.22;
+  mix-blend-mode: overlay;
+  animation: qmapFlicker 7s steps(1,end) infinite;
+}
+
+.qmap-canvas-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 0;
+  background:
+    linear-gradient(90deg, rgba(255,0,85,0.06), transparent 35%, rgba(0,243,255,0.06)),
+    radial-gradient(circle at 50% 50%, transparent 55%, rgba(0,0,0,0.85) 100%);
+  opacity: 0.30;
+}
+
+#neuralCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: crosshair;
+  filter: drop-shadow(0 0 12px rgba(0,243,255,0.06));
+}
+
+/* --- HUD --- */
+.qmap-hud {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  min-width: 240px;
+  max-width: 320px;
+  padding: 12px 12px 10px 12px;
+  background: rgba(2, 4, 8, 0.55);
+  border: 1px solid rgba(0,243,255,0.22);
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(0,243,255,0.10);
+  backdrop-filter: blur(10px);
+  pointer-events: none; /* lascia il canvas cliccabile */
+  animation: qmapHudBreath 4.2s ease-in-out infinite;
+}
+
+.hud-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 14px;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.hud-item { opacity: 0.95; }
+
+.qmap-hintbar {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  opacity: 0.85;
+}
+
+.hint-chip {
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.03);
+  color: rgba(255,255,255,0.80);
+}
+
+/* --- SIDEBAR --- */
+.specs-wrapper {
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.36);
+  border-left: 1px solid rgba(0, 243, 255, 0.14);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--acc2) transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.specs-wrapper::-webkit-scrollbar { width: 4px; }
+.specs-wrapper::-webkit-scrollbar-track { background: transparent; }
+.specs-wrapper::-webkit-scrollbar-thumb { background: rgba(0,243,255,0.7); border-radius: 10px; }
+
+.spec-card {
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-left: 3px solid rgba(0, 243, 255, 0.20);
+  border-radius: 14px;
+  transition: transform 0.25s var(--cb), background 0.25s var(--cb), border-color 0.25s var(--cb);
+  position: relative;
+  overflow: hidden;
+}
+
+.spec-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(120deg, transparent 0%, rgba(0,243,255,0.10) 30%, transparent 60%),
+    repeating-linear-gradient(90deg, transparent 0px, transparent 10px, rgba(255,255,255,0.02) 10px, rgba(255,255,255,0.02) 11px);
+  opacity: 0.12;
+  transform: translateX(-18%);
+}
+
+.spec-card:hover {
+  transform: translateX(8px);
+  background: rgba(0, 243, 255, 0.04);
+  border-color: rgba(0, 243, 255, 0.35);
+  border-left-color: var(--acc2);
+}
+
+.spec-title {
+  color: var(--acc2);
+  font-size: 12px;
+  font-weight: 900;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 0 0 12px rgba(0, 243, 255, 0.35);
+}
+
+.spec-card p {
+  font-size: 12px;
+  line-height: 1.65;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* Telemetry card */
+.qmap-telemetry-grid {
+  display: grid;
+  gap: 10px;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.qmap-telemetry-grid .trow {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.qmap-telemetry-grid .trow:last-child { border-bottom: none; padding-bottom: 0; }
+
+.qmap-telemetry-grid .tkey { color: rgba(255,255,255,0.65); }
+.qmap-telemetry-grid .tval { color: rgba(255,255,255,0.90); }
+
+/* Status helpers */
+.status-ok {
+  color: #0aff84;
+  font-weight: 800;
+  text-shadow: 0 0 10px rgba(10, 255, 132, 0.45);
+}
+
+.status-warn {
+  color: #ffbd2e;
+  font-weight: 800;
+  text-shadow: 0 0 10px rgba(255, 189, 46, 0.35);
+}
+
+.status-bad {
+  color: var(--warn);
+  font-weight: 800;
+  text-shadow: 0 0 12px rgba(255, 0, 85, 0.40);
+}
+
+/* --- ANIMATIONS --- */
+@keyframes qmapHudBreath {
+  0%, 100% { transform: translateZ(0); box-shadow: 0 0 26px rgba(0,243,255,0.10); }
+  50% { box-shadow: 0 0 40px rgba(0,243,255,0.18); }
+}
+
+@keyframes qmapHeaderScan {
+  0% { transform: translateX(-10%); }
+  100% { transform: translateX(360%); }
+}
+
+@keyframes qmapFlicker {
+  0%, 100% { opacity: 0.20; }
+  7% { opacity: 0.12; }
+  8% { opacity: 0.28; }
+  52% { opacity: 0.18; }
+  53% { opacity: 0.30; }
+  54% { opacity: 0.18; }
+}
+
+/* Motion safety */
+@media (prefers-reduced-motion: reduce) {
+  .neural-container.qmap-deck .panel-header.qmap-header::after,
+  .qmap-hud,
+  .qmap-canvas-wrapper::before {
+    animation: none !important;
+  }
+}
+
+/* --- MOBILE & LANDSCAPE ADAPTIVITY --- */
+@media (max-width: 1000px) {
+  .neural-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: 420px 1fr;
+    height: auto;
+  }
+  .qmap-canvas-wrapper {
+    border-right: none;
+    border-bottom: 1px solid rgba(0, 243, 255, 0.16);
+  }
+  .specs-wrapper {
+    border-left: none;
+    padding: 24px;
+  }
+  .qmap-hud { top: 12px; left: 12px; }
+}
+
+@media (max-height: 520px) and (orientation: landscape) {
+  .neural-layout { height: 100vh; }
+  .qmap-hud { transform: scale(0.95); transform-origin: top left; }
+  .spec-card { padding: 12px; }
+  .spec-title { font-size: 11px; margin-bottom: 6px; }
+  .spec-card p { font-size: 11px; }
 }

@@ -1035,4 +1035,600 @@ if (terminal && gamesGrid) {
         serialBtn.addEventListener('click', openLiveSerial);
     }
 })();
+// =========================================================================
+// 9. Q-MAP NEURAL DISPATCHER - CYBERPUNK ENGINE (v2)
+// =========================================================================
+(() => {
+  const canvas = document.getElementById('neuralCanvas');
+  if (!canvas) return;
+
+  // 2D context (try desynchronized if available)
+  const ctx =
+    canvas.getContext('2d', { alpha: true, desynchronized: true }) ||
+    canvas.getContext('2d');
+
+  const peerCounter = document.getElementById('peer-count');
+  const statusLabel = document.getElementById('sync-status');
+  const deltaRateLabel = document.getElementById('delta-rate');
+  const pktCountLabel = document.getElementById('pkt-count');
+  const integrityLabel = document.getElementById('integrity-status');
+  const fpsLabel = document.getElementById('qmap-fps');
+  const lastEvtLabel = document.getElementById('qmap-last');
+  const modeLabel = document.getElementById('qmap-mode');
+
+  const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const MAX_DPR = reducedMotion ? 1 : 2;
+
+  let W = 0, H = 0, dpr = 1;
+  let running = false;
+  let rafId = 0;
+  let frozen = false;
+
+  const pointer = { x: 0, y: 0, active: false, down: false };
+
+  const DATA_TYPES = ['IMG', 'VID', 'TXT', 'VOX', 'MAP'];
+  const TYPE_COLOR = {
+    IMG: '#00f3ff', // cyan
+    VID: '#0aff84', // neon green
+    TXT: '#9d6bff', // purple
+    VOX: '#ffbd2e', // gold
+    MAP: '#ff0055'  // magenta
+  };
+
+  const nodes = [];
+  const packets = [];
+  const waves = [];
+  const sessions = [];
+
+  function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+
+  function setMode(text) {
+    if (!modeLabel) return;
+    modeLabel.textContent = text;
+  }
+
+  function setStatus(text, level = 'ok') {
+    if (!statusLabel) return;
+    statusLabel.textContent = text;
+
+    const cls =
+      level === 'bad' ? 'status-bad' :
+      level === 'warn' ? 'status-warn' : 'status-ok';
+
+    statusLabel.className = cls;
+  }
+
+  function setIntegrity(text, level = 'ok') {
+    if (!integrityLabel) return;
+    integrityLabel.textContent = text;
+
+    const cls =
+      level === 'bad' ? 'status-bad' :
+      level === 'warn' ? 'status-warn' : 'status-ok';
+
+    integrityLabel.className = cls;
+  }
+
+  function markLast(evt) {
+    if (lastEvtLabel) lastEvtLabel.textContent = evt;
+  }
+
+  class PeerNode {
+    constructor(id) {
+      this.id = id;
+      this.reset(true);
+    }
+
+    reset(hard) {
+      this.x = Math.random() * W;
+      this.y = Math.random() * H;
+
+      if (hard) {
+        this.vx = (Math.random() - 0.5) * 0.55;
+        this.vy = (Math.random() - 0.5) * 0.55;
+      }
+
+      this.r = 2.8 + Math.random() * 0.9;
+      this.state = 'IDLE';   // IDLE | HANDSHAKE | SYNCING
+      this.linked = false;
+      this.glow = 0;
+    }
+
+    update(dt) {
+      // micro damping
+      this.vx *= 0.996;
+      this.vy *= 0.996;
+
+      // pointer warp field (subtle)
+      if (pointer.active) {
+        const dx = pointer.x - this.x;
+        const dy = pointer.y - this.y;
+        const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+
+        if (dist < 190) {
+          // swirl + push: gives "magnetic field" feeling
+          const t = (1 - dist / 190);
+          const swirl = 0.020 * t * (pointer.down ? 1.8 : 1.0);
+          const push  = 0.015 * t * (pointer.down ? -1.2 : 1.0);
+
+          // swirl component (perpendicular)
+          this.vx += (-dy / dist) * swirl * (dt * 60);
+          this.vy += ( dx / dist) * swirl * (dt * 60);
+
+          // push component (radial)
+          this.vx += (dx / dist) * push * (dt * 60);
+          this.vy += (dy / dist) * push * (dt * 60);
+        }
+      }
+
+      this.x += this.vx * (dt * 60);
+      this.y += this.vy * (dt * 60);
+
+      // edge bounce with slight friction
+      if (this.x < 0) { this.x = 0; this.vx *= -0.95; }
+      if (this.x > W) { this.x = W; this.vx *= -0.95; }
+      if (this.y < 0) { this.y = 0; this.vy *= -0.95; }
+      if (this.y > H) { this.y = H; this.vy *= -0.95; }
+
+      // glow decay
+      this.glow *= 0.92;
+    }
+
+    draw() {
+      let color = '#00f3ff';
+      let blur = 6;
+      if (this.state === 'HANDSHAKE') { color = '#ffbd2e'; blur = 10; }
+      if (this.state === 'SYNCING')   { color = '#ff0055'; blur = 16; }
+
+      // core
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+      ctx.fillStyle = color;
+      ctx.shadowColor = color;
+      ctx.shadowBlur = blur;
+      ctx.globalAlpha = 0.95;
+      ctx.fill();
+
+      // halo ring
+      ctx.shadowBlur = 0;
+      ctx.globalAlpha = 0.25;
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, 10 + this.glow * 8, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(255,255,255,0.14)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+
+      ctx.restore();
+    }
+  }
+
+  class DataPacket {
+    constructor(a, b, type) {
+      this.ax = a.x; this.ay = a.y;
+      this.x = a.x;  this.y = a.y;
+      this.b = b;
+      this.type = type;
+      this.t = 0;
+      this.speed = 0.85 + Math.random() * 0.55; // seconds-ish
+      this.tail = [];
+      this.color = TYPE_COLOR[type] || '#ff0055';
+    }
+
+    update(dt) {
+      this.t += dt / this.speed;
+
+      const k = clamp(this.t, 0, 1);
+      // ease-in-out
+      const e = k < 0.5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
+
+      this.x = this.ax + (this.b.x - this.ax) * e;
+      this.y = this.ay + (this.b.y - this.ay) * e;
+
+      this.tail.push([this.x, this.y]);
+      if (this.tail.length > 10) this.tail.shift();
+
+      return k >= 1;
+    }
+
+    draw() {
+      ctx.save();
+      ctx.globalCompositeOperation = 'lighter';
+
+      // trail
+      for (let i = 1; i < this.tail.length; i++) {
+        const p0 = this.tail[i - 1];
+        const p1 = this.tail[i];
+        const a = i / this.tail.length;
+
+        ctx.beginPath();
+        ctx.moveTo(p0[0], p0[1]);
+        ctx.lineTo(p1[0], p1[1]);
+        ctx.strokeStyle = `rgba(255,255,255,${0.05 + a * 0.18})`;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+
+      // head
+      ctx.shadowColor = this.color;
+      ctx.shadowBlur = 16;
+      ctx.fillStyle = this.color;
+      ctx.globalAlpha = 0.9;
+      ctx.fillRect(this.x - 1.2, this.y - 1.2, 2.4, 2.4);
+
+      // tiny tag
+      ctx.shadowBlur = 0;
+      ctx.globalAlpha = 0.85;
+      ctx.font = '9px "JetBrains Mono", monospace';
+      ctx.fillStyle = 'rgba(255,255,255,0.85)';
+      ctx.fillText(this.type, this.x + 6, this.y - 3);
+
+      ctx.restore();
+    }
+  }
+
+  class Wave {
+    constructor(x, y, color) {
+      this.x = x; this.y = y;
+      this.r = 4;
+      this.a = 0.55;
+      this.color = color || '#00f3ff';
+    }
+    update(dt) {
+      this.r += (dt * 60) * 2.4;
+      this.a *= 0.93;
+      return this.a < 0.03;
+    }
+    draw() {
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+      ctx.strokeStyle = `rgba(255,255,255,${this.a * 0.25})`;
+      ctx.lineWidth = 1;
+      ctx.stroke();
+
+      ctx.shadowColor = this.color;
+      ctx.shadowBlur = 18;
+      ctx.strokeStyle = `rgba(0,243,255,${this.a})`;
+      ctx.stroke();
+      ctx.restore();
+    }
+  }
+
+  class Session {
+    constructor(a, b, origin) {
+      this.a = a;
+      this.b = b;
+      this.origin = origin || 'AUTO';
+      this.phase = 'HANDSHAKE';
+      this.t = 0;
+
+      this.handshakeDur = 0.55 + Math.random() * 0.25;
+      this.syncDur = 0.95 + Math.random() * 0.55;
+      this.burstLeft = 2 + Math.floor(Math.random() * 4);
+      this.burstCd = 0.10 + Math.random() * 0.10;
+
+      // initial glow pulse
+      this.a.glow = 1;
+      this.b.glow = 1;
+
+      const mx = (a.x + b.x) / 2;
+      const my = (a.y + b.y) / 2;
+      waves.push(new Wave(mx, my, '#ffbd2e'));
+
+      markLast(this.origin === 'OPERATOR' ? 'FORCED_HANDSHAKE' : 'HANDSHAKE_AUTH');
+      setIntegrity('CHECKING', 'warn');
+      setStatus('HANDSHAKE_AUTH', 'warn');
+    }
+
+    update(dt) {
+      this.t += dt;
+
+      if (this.phase === 'HANDSHAKE') {
+        this.a.state = 'HANDSHAKE';
+        this.b.state = 'HANDSHAKE';
+
+        if (this.t >= this.handshakeDur) {
+          this.phase = 'SYNCING';
+          this.t = 0;
+          markLast('TRANSFER_BEGIN');
+          setStatus('TRANSFERRING_DELTA', 'bad');
+          setIntegrity('VERIFIED', 'ok');
+
+          waves.push(new Wave(this.a.x, this.a.y, '#ff0055'));
+          waves.push(new Wave(this.b.x, this.b.y, '#ff0055'));
+        }
+        return false;
+      }
+
+      if (this.phase === 'SYNCING') {
+        this.a.state = 'SYNCING';
+        this.b.state = 'SYNCING';
+
+        // burst packets over time
+        this.burstCd -= dt;
+        if (this.burstLeft > 0 && this.burstCd <= 0) {
+          this.burstCd = 0.10 + Math.random() * 0.12;
+          this.burstLeft--;
+
+          const type = DATA_TYPES[(Math.random() * DATA_TYPES.length) | 0];
+          packets.push(new DataPacket(this.a, this.b, type));
+          // extra flicker glow
+          this.a.glow = 1;
+          this.b.glow = 1;
+          rateCounter++;
+        }
+
+        if (this.t >= this.syncDur) {
+          this.phase = 'COMMIT';
+          this.t = 0;
+          markLast('COMMIT_ATOMIC');
+          setStatus('COMMIT_ATOMIC', 'ok');
+          waves.push(new Wave((this.a.x + this.b.x) / 2, (this.a.y + this.b.y) / 2, '#0aff84'));
+        }
+        return false;
+      }
+
+      // COMMIT (short)
+      this.a.state = 'IDLE';
+      this.b.state = 'IDLE';
+      return this.t >= 0.20;
+    }
+  }
+
+  function resize() {
+    const wrapper = canvas.parentElement;
+    if (!wrapper) return;
+
+    W = Math.max(1, wrapper.clientWidth);
+    H = Math.max(1, wrapper.clientHeight);
+
+    dpr = Math.min(window.devicePixelRatio || 1, MAX_DPR);
+
+    canvas.width = Math.floor(W * dpr);
+    canvas.height = Math.floor(H * dpr);
+    canvas.style.width = W + 'px';
+    canvas.style.height = H + 'px';
+
+    // Draw in CSS pixels, scale once
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.imageSmoothingEnabled = true;
+
+    nodes.forEach(n => n.reset(true));
+    markLast('RESIZE');
+  }
+
+  function nearestNodes(x, y) {
+    let a = null, b = null;
+    let da = Infinity, db = Infinity;
+
+    for (const n of nodes) {
+      const dx = n.x - x, dy = n.y - y;
+      const d = dx * dx + dy * dy;
+      if (d < da) {
+        db = da; b = a;
+        da = d;  a = n;
+      } else if (d < db) {
+        db = d; b = n;
+      }
+    }
+    return [a, b];
+  }
+
+  function forceSession(origin) {
+    const [a, b] = nearestNodes(pointer.x, pointer.y);
+    if (!a || !b) return;
+
+    // avoid stacking too many sessions
+    if (sessions.length > 8) sessions.shift();
+
+    sessions.push(new Session(a, b, origin || 'OPERATOR'));
+    waves.push(new Wave(pointer.x, pointer.y, '#00f3ff'));
+  }
+
+  // Stats (EMA rate + FPS)
+  let rateCounter = 0;
+  let rateEMA = 0;
+  let rateT = 0;
+
+  let fpsFrames = 0;
+  let fpsT = 0;
+  let fps = 0;
+
+  function loop(ts) {
+    if (!running) return;
+
+    const now = ts || performance.now();
+    const dt = clamp((now - lastFrame) / 1000, 0, 0.05);
+    lastFrame = now;
+
+    // background trail (motion blur)
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.fillStyle = 'rgba(2, 4, 8, 0.12)';
+    ctx.fillRect(0, 0, W, H);
+
+    // occasional micro-glitch flash
+    if (!reducedMotion && Math.random() > 0.995) {
+      ctx.fillStyle = 'rgba(255,0,85,0.03)';
+      ctx.fillRect(0, 0, W, H);
+    }
+
+    // update nodes + sessions
+    for (const n of nodes) n.linked = false;
+
+    if (!frozen) {
+      for (const n of nodes) n.update(dt);
+    }
+
+    // link drawing
+    ctx.save();
+    ctx.globalCompositeOperation = 'lighter';
+    for (let i = 0; i < nodes.length; i++) {
+      const a = nodes[i];
+      for (let j = i + 1; j < nodes.length; j++) {
+        const b = nodes[j];
+
+        const dx = a.x - b.x;
+        const dy = a.y - b.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (dist < 150) {
+          a.linked = b.linked = true;
+          const alpha = (1 - dist / 150) * 0.22;
+
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+
+          const isHot = (a.state === 'SYNCING' || b.state === 'SYNCING');
+          ctx.strokeStyle = isHot
+            ? `rgba(255, 0, 85, ${alpha})`
+            : `rgba(0, 243, 255, ${alpha})`;
+
+          ctx.lineWidth = 1;
+          ctx.stroke();
+
+          // auto handshakes (rare)
+          if (!frozen && dist < 64 && Math.random() > (reducedMotion ? 0.9999 : 0.9987)) {
+            sessions.push(new Session(a, b, 'AUTO'));
+          }
+        }
+      }
+    }
+    ctx.restore();
+
+    // update sessions
+    for (let i = sessions.length - 1; i >= 0; i--) {
+      const done = sessions[i].update(dt);
+      if (done) sessions.splice(i, 1);
+    }
+
+    // draw nodes
+    for (const n of nodes) n.draw();
+
+    // packets
+    for (let i = packets.length - 1; i >= 0; i--) {
+      packets[i].draw();
+      const finished = frozen ? false : packets[i].update(dt);
+      if (finished) {
+        // confirm flash at target
+        waves.push(new Wave(packets[i].b.x, packets[i].b.y, '#0aff84'));
+        packets[i].b.glow = 1;
+        packets.splice(i, 1);
+      }
+    }
+
+    // waves
+    for (let i = waves.length - 1; i >= 0; i--) {
+      waves[i].draw();
+      if (frozen) continue;
+      const dead = waves[i].update(dt);
+      if (dead) waves.splice(i, 1);
+    }
+
+    // HUD updates
+    if (peerCounter) {
+      let linked = 0;
+      for (const n of nodes) if (n.linked) linked++;
+      peerCounter.textContent = String(linked);
+    }
+
+    if (pktCountLabel) pktCountLabel.textContent = String(packets.length);
+
+    // rate update (EMA)
+    rateT += dt;
+    if (rateT >= 0.5) {
+      const inst = rateCounter / rateT;
+      rateEMA = rateEMA * 0.80 + inst * 0.20;
+      rateCounter = 0;
+      rateT = 0;
+
+      if (deltaRateLabel) deltaRateLabel.textContent = rateEMA.toFixed(2);
+    }
+
+    // fps update
+    fpsFrames++;
+    fpsT += dt;
+    if (fpsT >= 1.0) {
+      fps = fpsFrames / fpsT;
+      fpsFrames = 0;
+      fpsT = 0;
+      if (fpsLabel) fpsLabel.textContent = `${Math.round(fps)} fps`;
+    }
+
+    rafId = requestAnimationFrame(loop);
+  }
+
+  function start() {
+    if (running) return;
+    running = true;
+    lastFrame = performance.now();
+    setMode(frozen ? '[FROZEN]' : '[RUNNING]');
+    rafId = requestAnimationFrame(loop);
+  }
+
+  function stop() {
+    if (!running) return;
+    running = false;
+    cancelAnimationFrame(rafId);
+    setMode('[PAUSED]');
+  }
+
+  let lastFrame = performance.now();
+
+  // Pointer tracking
+  function updatePointerFromEvent(e) {
+    const rect = canvas.getBoundingClientRect();
+    pointer.x = clamp(e.clientX - rect.left, 0, rect.width);
+    pointer.y = clamp(e.clientY - rect.top, 0, rect.height);
+  }
+
+  canvas.addEventListener('pointerenter', () => { pointer.active = true; });
+  canvas.addEventListener('pointerleave', () => { pointer.active = false; pointer.down = false; });
+
+  canvas.addEventListener('pointermove', (e) => {
+    updatePointerFromEvent(e);
+  });
+
+  canvas.addEventListener('pointerdown', (e) => {
+    pointer.down = true;
+    updatePointerFromEvent(e);
+    forceSession('OPERATOR');
+  });
+
+  window.addEventListener('pointerup', () => { pointer.down = false; });
+
+  // Freeze toggle
+  window.addEventListener('keydown', (e) => {
+    if (e.code === 'Space') {
+      e.preventDefault();
+      frozen = !frozen;
+      setMode(frozen ? '[FROZEN]' : '[RUNNING]');
+      markLast(frozen ? 'FREEZE' : 'RESUME');
+      setStatus(frozen ? 'PAUSED' : 'IDLE', frozen ? 'warn' : 'ok');
+    }
+  });
+
+  // Resize
+  window.addEventListener('resize', resize);
+
+  // Init nodes
+  const baseCount = reducedMotion ? 12 : 18;
+  for (let i = 0; i < baseCount; i++) nodes.push(new PeerNode(i));
+
+  resize();
+
+  // Start/Stop on visibility
+  const deck = canvas.closest('.neural-container') || canvas.parentElement;
+  if ('IntersectionObserver' in window && deck) {
+    const io = new IntersectionObserver((entries) => {
+      const vis = entries.some(e => e.isIntersecting);
+      if (vis) start(); else stop();
+    }, { threshold: 0.18 });
+    io.observe(deck);
+  } else {
+    start();
+  }
+})();
+
 })();

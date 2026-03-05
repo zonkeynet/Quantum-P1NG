@@ -531,11 +531,35 @@ _
           <span class="blink-dot" style="background-color:#0aff84; box-shadow:0 0 8px #0aff84;"></span>
           [MAP] // MESH_TOPOLOGY_LIVE
         </div>
-        <div class="canvas-wrapper">
-          <canvas id="mesh-canvas"></canvas>
-          <div class="overlay-grid"></div> 
+        <div class="canvas-wrapper mesh-stage">
+      <canvas id="mesh-canvas"></canvas>
+      <canvas id="mesh-waterfall" aria-hidden="true"></canvas>
+
+      <div class="mesh-hud mono" aria-hidden="true">
+        <div class="mesh-hud-row">
+          <span class="hud-label">MODE</span><span id="mesh-mode">[RUNNING]</span>
+          <span class="hud-sep">|</span>
+          <span class="hud-label">ALIVE</span><span id="mesh-alive">—</span>
+          <span class="hud-label">LINKS</span><span id="mesh-links">—</span>
+          <span class="hud-label">PKTS</span><span id="mesh-pkts">—</span>
         </div>
-        <div class="mesh-stats mono">
+        <div class="mesh-hud-row">
+          <span class="hud-label">AIRTIME</span><span id="mesh-airtime">—</span>
+          <span class="hud-label">NOISE</span><span id="mesh-noise">—</span>
+          <span class="hud-label">COLL</span><span id="mesh-collisions">0</span>
+          <span class="hud-label">FPS</span><span id="mesh-fps">—</span>
+          <span class="hud-label">SEL</span><span id="mesh-sel">—</span>
+        </div>
+          <div class="mesh-hud-row mesh-hud-last">
+            <span class="hud-label">LAST</span><span id="mesh-last">BOOT</span>
+            <span class="hud-tip">SHIFT+CLICK → JAMMER</span>
+            <span class="hud-tip">SPACE → PAUSE</span>
+          </div>
+        </div>
+
+        <div class="overlay-grid"></div>
+      </div>
+      <div class="mesh-stats mono">
           <span>FREQ: 433MHz</span>
           <span>SF: 12</span>
           <span>BW: 125kHz</span>
@@ -605,7 +629,79 @@ _
     </div>
   </div>
 </section>
+<section id="q-map-engine" class="section section--alt">
+  <div class="wrap">
+    <div class="kicker mono" style="color:var(--acc2)">> MODULE: Q-MAP_ENGINE_V1</div>
+    <h2>🧠 Q-Map MindMap</h2>
+    <p class="lead">
+      A living visualization of the MindMap sync stack: peer discovery, Tor-wrapped handshakes, multimedia delta packets —
+      rendered as a distributed cognition network.
+    </p>
 
+    <div class="neural-container qmap-deck">
+      <div class="panel-header mono qmap-header">
+        <span class="blink-dot" style="background-color:var(--acc2); box-shadow:0 0 10px rgba(0,243,255,.8);"></span>
+        [SYS.Q-MAP] // DISTRIBUTED_COGNITION_NETWORK
+        <span class="qmap-mode mono" id="qmap-mode">[RUNNING]</span>
+      </div>
+
+      <div class="neural-layout">
+        <div class="qmap-canvas-wrapper">
+          <canvas id="neuralCanvas" aria-label="Q-Map neural synchronization visualization"></canvas>
+
+          <div class="qmap-hud mono" aria-hidden="true">
+            <div class="hud-grid">
+              <div class="hud-item">PEERS: <span id="peer-count" class="status-ok">0</span></div>
+              <div class="hud-item">STATE: <span id="sync-status" class="status-ok">IDLE</span></div>
+              <div class="hud-item">DELTA/s: <span id="delta-rate" class="status-ok">0.00</span></div>
+              <div class="hud-item">PACKETS: <span id="pkt-count" class="status-ok">0</span></div>
+              <div class="hud-item">TOR: <span class="status-ok">ENCRYPTED</span></div>
+              <div class="hud-item">INTEGRITY: <span id="integrity-status" class="status-ok">VERIFIED</span></div>
+            </div>
+
+            <div class="qmap-hintbar">
+              <span class="hint-chip">[MOVE] FIELD_WARP</span>
+              <span class="hint-chip">[CLICK] FORCE_SYNC</span>
+              <span class="hint-chip">[SPACE] FREEZE</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="specs-wrapper">
+          <div class="spec-card mono qmap-telemetry">
+            <div class="spec-title">LIVE TELEMETRY</div>
+            <div class="qmap-telemetry-grid">
+              <div class="trow"><span class="tkey">ENGINE</span><span class="tval">NEURAL_DISPATCHER</span></div>
+              <div class="trow"><span class="tkey">RENDER</span><span class="tval">CANVAS_2D</span></div>
+              <div class="trow"><span class="tkey">CLOCK</span><span class="tval" id="qmap-fps">-- fps</span></div>
+              <div class="trow"><span class="tkey">LAST_EVT</span><span class="tval" id="qmap-last">BOOT</span></div>
+            </div>
+          </div>
+
+          <div class="spec-card mono">
+            <div class="spec-title">TOR-DRIVEN ANONYMITY</div>
+            <p class="muted small">Real-time mental map synchronization over Tor. Share thoughts, high-res images, and investigative data with minimal metadata exposure and geographic obfuscation.</p>
+          </div>
+
+          <div class="spec-card mono">
+            <div class="spec-title">HYBRID LORA SYNC</div>
+            <p class="muted small">The MindMapSyncEngine supports asynchronous radio bridging. Collaborate offline in denied environments, then forward intelligence via LoRa when a relay path appears.</p>
+          </div>
+
+          <div class="spec-card mono">
+            <div class="spec-title">MULTIMEDIA ORCHESTRATION</div>
+            <p class="muted small">Dispatcher for video, audio, and visual evidence. Payloads are fragmented, encrypted, and reassembled across the mesh with deterministic ordering.</p>
+          </div>
+
+          <div class="spec-card mono">
+            <div class="spec-title">STATELESS CONSISTENCY</div>
+            <p class="muted small">Powered by a deterministic StateManager. Each node converges on the same tamper-evident global map through atomic delta commits.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <section id="finance" class="section section--alt">
   <div class="wrap">
     <div class="kicker mono" style="color:var(--btc)">> MODULE: BITCOIN_CORE_BDK</div>
