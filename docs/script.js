@@ -2065,4 +2065,83 @@ if (terminal && gamesGrid) {
     scheduleApply();
   });
 })();
+// =========================================
+// Q-MAP REPLAY VIDEO ENGINE
+// =========================================
+
+(() => {
+
+  const video = document.getElementById('qmap-demo');
+  const state = document.getElementById('qmap-replay-state');
+  const win = document.getElementById('qmap-replay');
+
+  if(!video) return;
+
+  function setState(txt){
+    if(state) state.textContent = txt;
+  }
+
+  // autoplay fallback
+  function tryPlay(){
+
+    video.play().then(()=>{
+
+      setState('[LIVE]');
+
+    }).catch(()=>{
+
+      setState('[TAP]');
+      video.addEventListener('pointerdown', ()=>video.play(), {once:true});
+
+    });
+
+  }
+
+  // avvio video
+
+  if(document.readyState === "complete"){
+
+    setTimeout(tryPlay,300);
+
+  }else{
+
+    window.addEventListener('load', ()=>setTimeout(tryPlay,300));
+
+  }
+
+  // HUD pulse quando la rete QMAP manda eventi
+
+  function hudPulse(){
+
+    if(!win) return;
+
+    win.style.boxShadow =
+      "0 0 70px rgba(0,243,255,0.55), inset 0 0 20px rgba(0,0,0,0.8)";
+
+    setTimeout(()=>{
+
+      win.style.boxShadow =
+      "0 0 35px rgba(0,243,255,0.15), inset 0 0 20px rgba(0,0,0,0.75)";
+
+    },220);
+
+  }
+
+  // hook nella rete QMAP
+
+  if(window.__QMAP){
+
+    const oldPulse = window.__QMAP.pulse;
+
+    window.__QMAP.pulse = function(){
+
+      hudPulse();
+
+      if(oldPulse) oldPulse.apply(this, arguments);
+
+    }
+
+  }
+
+})();
 })();

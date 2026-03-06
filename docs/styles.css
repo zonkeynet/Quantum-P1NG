@@ -3632,53 +3632,26 @@ body.qmap-modal-open{ overflow: hidden; }
   .qmap-replay__bar::after{ animation: none !important; }
   .qmap-replay{ transition: none; }
 }
+
 /* =========================================
-   Q-MAP MOBILE FIX (FORCE OPEN VIDEO)
+   Q-MAP MOBILE: show video immediately
    ========================================= */
 
-@media (max-width: 900px) {
+@media (max-width: 900px){
 
-  /* layout stack */
-  .neural-layout{
-    display:flex;
-    flex-direction:column;
+  /* disattiva stato minimizzato */
+  .qmap-replay.is-minimized .qmap-phone{
+    display:block !important;
   }
 
-  /* replay window sempre visibile */
-  .qmap-replay{
-    position:relative !important;
-    right:auto !important;
-    bottom:auto !important;
-
-    width:100%;
-    max-width:420px;
-    margin:20px auto 0 auto;
-
-    transform:none !important;
-  }
-
-  /* telefono più grande */
+  /* mostra sempre il telefono */
   .qmap-phone{
-    width:100%;
-    max-width:420px;
+    display:block !important;
   }
 
-  .qmap-phone__screen{
-    aspect-ratio:9/19;
-  }
-
-  /* video riempie */
-  .qmap-video{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-  }
-
-  /* nascondiamo controlli desktop inutili */
-  #qmap-replay-min,
-  #qmap-replay-reset,
-  .qmap-replay__resize{
-    display:none !important;
+  /* dimensione più adatta al mobile */
+  .qmap-replay{
+    width: min(320px, 92vw) !important;
   }
 
 }
