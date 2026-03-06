@@ -3656,3 +3656,21 @@ body.qmap-modal-open{ overflow: hidden; }
   }
 
 }
+@media (min-width:1000px){
+
+  .qmap-phone{
+      max-width:620px;
+      margin:auto;
+  }
+
+}
+@media (max-width:900px){
+
+  .qmap-phone{
+      width:100%;
+      max-width:420px;
+      margin:auto;
+      padding:8px;
+  }
+
+}
