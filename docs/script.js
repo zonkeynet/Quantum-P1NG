@@ -1717,7 +1717,7 @@ if (terminal && gamesGrid) {
     y = clamp(y, PAD, maxY);
 
     // width bounds relative to wrapper
-    const minW = 190;
+    const minW = window.innerWidth < 700 ? 140 : 190;
     const maxW = Math.min(380, Math.floor(wr.width - PAD * 2));
     w = clamp(w, minW, maxW);
   }
@@ -1735,42 +1735,64 @@ if (terminal && gamesGrid) {
   function defaults(){
     const wr = wrapperRect();
     const vw = window.innerWidth;
+    const isMobile = vw < 700;
 
-    // smaller by default: stops covering the node field
-    const target = vw < 520 ? wr.width * 0.44 : wr.width * 0.24;
-    w = clamp(Math.floor(target), 190, vw < 520 ? 260 : 320);
+    // ── Width ← derived from available canvas HEIGHT ───────────────────────
+    // Phone aspect-ratio CSS is 9/19 (width:height).
+    // Widget total height ≈ BAR_H + phone_outer_height,
+    // and phone_outer_height = widget_width * 19/9.
+    // We want the widget to fill (canvas_height - top_pad - bottom_pad).
+    const BAR_H = 38;       // qmap-replay__bar approximate rendered height (px)
+    const V_PAD = PAD * 4;  // top + bottom breathing room
 
-    // put it bottom-right by default
+    const availH = Math.max(0, wr.height - V_PAD - BAR_H);
+    const targetW = Math.floor(availH * 9 / 19);
+
+    // Hard caps: don't exceed ~42 % of canvas width so the node field stays visible
+    // On mobile: fixed target of 170px — proven to keep a 16px gap from the compact HUD
+    const maxW = isMobile
+      ? Math.min(170, Math.floor(wr.width * 0.43))
+      : Math.min(320, Math.floor(wr.width * 0.42));
+
+    w = clamp(targetW, 150, maxW);
+
+    // ── Position ──────────────────────────────────────────────────────────
     win.style.width = `${w}px`;
-    // one paint to measure height
-    const r = widgetRect();
+    const r = widgetRect(); // measure actual rendered widget height
 
-    x = Math.floor(wr.width - r.width - PAD);
-    y = Math.floor(wr.height - r.height - PAD);
+    if (isMobile) {
+      // Bottom-right: below HUD (top-left) on small screens
+      x = Math.floor(wr.width  - r.width  - PAD);
+      y = Math.floor(wr.height - r.height - PAD);
+    } else {
+      // Top-right corner: gives maximum unobstructed video height
+      x = Math.floor(wr.width - r.width - PAD);
+      y = PAD;
+    }
 
-    // if HUD exists and overlaps, move bottom-left
+    // Safety: if it still overlaps the HUD, push it to bottom-right
     const hud = wrapper.querySelector('.qmap-hud');
-    if (hud){
+    if (hud) {
       const hr = hud.getBoundingClientRect();
       const ww = wrapperRect();
-
-      const widgetLeft = ww.left + x;
-      const widgetTop  = ww.top + y;
-      const widgetRight = widgetLeft + r.width;
-      const widgetBottom = widgetTop + r.height;
-
+      const wLeft   = ww.left + x;
+      const wTop    = ww.top  + y;
+      const wRight  = wLeft + r.width;
+      const wBottom = wTop  + r.height;
       const overlap =
-        widgetLeft < hr.right && widgetRight > hr.left &&
-        widgetTop < hr.bottom && widgetBottom > hr.top;
-
-      if (overlap){
-        x = PAD;
+        wLeft < hr.right && wRight > hr.left &&
+        wTop  < hr.bottom && wBottom > hr.top;
+      if (overlap) {
+        // Fall back: bottom-right (HUD is top-left, so no collision there)
+        x = Math.floor(wr.width  - r.width  - PAD);
         y = Math.floor(wr.height - r.height - PAD);
       }
     }
 
-    // on tiny screens, start minimized
-    isMin = (window.innerWidth < 420 || wr.width < 340 || wr.height < 420);
+    clampIntoBounds();
+
+    // Start minimized only on very tiny viewports
+    isMin = (vw < 380 || wr.width < 260 || wr.height < 260);
     win.classList.toggle('is-minimized', isMin);
 
     apply();

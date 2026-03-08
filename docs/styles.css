@@ -3650,9 +3650,10 @@ body.qmap-modal-open{ overflow: hidden; }
     display:block !important;
   }
 
-  /* dimensione più adatta al mobile */
+  /* let JS set width — no !important override */
   .qmap-replay{
-    width: min(320px, 92vw) !important;
+    min-width: 140px;
+    max-width: min(300px, 60vw);
   }
 
 }
@@ -3673,4 +3674,53 @@ body.qmap-modal-open{ overflow: hidden; }
       padding:8px;
   }
 
+}
+
+/* =========================================
+   Q-MAP: max-height video + compact HUD
+   ========================================= */
+
+/* Desktop: bump default min-width so JS can go up to ~300px */
+.qmap-replay {
+  min-width: 140px;
+}
+
+/* --- Mobile HUD: hide secondary metrics to free up space for video --- */
+@media (max-width: 700px) {
+
+  /* Hide DELTA/s (3rd item) and PACKETS (4th item) */
+  .qmap-hud .hud-grid .hud-item:nth-child(3),
+  .qmap-hud .hud-grid .hud-item:nth-child(4) {
+    display: none;
+  }
+
+  /* Tighter HUD footprint */
+  .qmap-hud {
+    min-width: 170px;
+    max-width: 230px;
+    padding: 8px 10px 7px;
+  }
+
+  .hud-grid {
+    gap: 6px 10px;
+    font-size: 10px;
+  }
+
+  /* Hide hintbar on small screens — reclaim vertical space */
+  .qmap-hintbar {
+    display: none;
+  }
+}
+
+/* Extra-small: also hide INTEGRITY (6th), keep only PEERS / STATE / TOR */
+@media (max-width: 420px) {
+
+  .qmap-hud .hud-grid .hud-item:nth-child(6) {
+    display: none;
+  }
+
+  .qmap-hud {
+    min-width: 150px;
+    max-width: 195px;
+  }
 }
