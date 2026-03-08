@@ -1330,8 +1330,8 @@ if (terminal && gamesGrid) {
         if (this.t >= this.handshakeDur) {
           this.phase = 'SYNCING';
           this.t = 0;
-          markLast('TRANSFER_BEGIN');
-          setStatus('TRANSFERRING_DELTA', 'bad');
+          markLast('TRANSFER');
+          setStatus('TRANSFERRING', 'bad');
           setIntegrity('VERIFIED', 'ok');
 
           waves.push(new Wave(this.a.x, this.a.y, '#ff0055'));
