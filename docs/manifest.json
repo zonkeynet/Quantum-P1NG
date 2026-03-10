@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "updatedAt": "2026-03-08T00:00:00Z",
+  "version": 2,
+  "updatedAt": "2026-03-09T00:00:00Z",
   "packs": [
     {
       "id": "stt-base-multi",
@@ -69,6 +69,40 @@
       "commercialOk": true,
       "minAppVersion": 1,
       "recommended": false
+    },
+    {
+      "id": "tts-en-tactical",
+      "type": "TTS",
+      "name": "Tactical Voice (EN)",
+      "description": "Offline neural voice synthesis for News Briefings. Human-like cadence.",
+      "engine": "piper",
+      "language": "en",
+      "sizeBytes": 22000000,
+      "sha256": "skip_check", 
+      "downloadUrl": "https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US/lessac/medium/en_US-lessac-medium.onnx",
+      "fileName": "en_US-tactical.onnx",
+      "engineLicense": "MIT",
+      "weightsLicense": "OpenRAIL",
+      "commercialOk": true,
+      "minAppVersion": 1,
+      "recommended": true
+    },
+    {
+      "id": "llm-phi-2-q4",
+      "type": "LLM",
+      "name": "Q-Brain (Phi-2 2.7B)",
+      "description": "Tactical LLM for advanced document analysis and intelligence. Requires 2GB free RAM.",
+      "engine": "llama.cpp",
+      "language": "multi",
+      "sizeBytes": 1790000000,
+      "sha256": "skip_check",
+      "downloadUrl": "https://huggingface.co/TheBloke/phi-2-GGUF/resolve/main/phi-2.Q4_K_M.gguf",
+      "fileName": "phi-2-q4.gguf",
+      "engineLicense": "MIT",
+      "weightsLicense": "MIT",
+      "commercialOk": false,
+      "minAppVersion": 1,
+      "recommended": true
     }
   ]
 }
