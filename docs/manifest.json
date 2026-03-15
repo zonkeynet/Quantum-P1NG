@@ -106,7 +106,7 @@
       "recommended": false
     },
     {
-      "id": "llm-qwen3-17b-mobile",
+      "id": "llm-qwen3-1.7b-mobile",
       "type": "LLM",
       "name": "Q-Brain Mobile (Qwen3 1.7B Q4_K_M)",
       "description": "Balanced default for most Android phones in 2026. Strong multilingual chat, summaries and light agent workflows.",
