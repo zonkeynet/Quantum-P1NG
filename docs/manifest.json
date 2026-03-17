@@ -87,7 +87,23 @@
       "minAppVersion": 1,
       "recommended": true
     },
-
+    {
+      "id": "embedding-minilm-l6-v2-q8",
+      "type": "EMBEDDING",
+      "name": "Q-Brain Embedding (all-MiniLM-L6-v2 Q8_0)",
+      "description": "Local sentence embedding model for Hybrid RAG retrieval, knowledge vault indexing and semantic search.",
+      "engine": "llama.cpp",
+      "language": "en",
+      "sizeBytes": 26214400,
+      "sha256": "e5ec722e8c82dc4ffaf965175ca472f5da3f97b695590b5b0780bdbfa29bcaf3",
+      "downloadUrl": "https://huggingface.co/leliuga/all-MiniLM-L6-v2-GGUF/resolve/main/all-MiniLM-L6-v2.Q8_0.gguf",
+      "fileName": "all-MiniLM-L6-v2.Q8_0.gguf",
+      "engineLicense": "MIT",
+      "weightsLicense": "Apache-2.0",
+      "commercialOk": true,
+      "minAppVersion": 1,
+      "recommended": true
+    },
     {
       "id": "llm-qwen3-06b-lite",
       "type": "LLM",
@@ -260,6 +276,58 @@
       "commercialOk": true,
       "minAppVersion": 1,
       "recommended": true
+    },
+    {
+      "id": "img-absolutereality-1.8.1",
+      "type": "IMAGE_GEN",
+      "name": "Absolute Reality 1.8.1",
+      "description": "Photorealistic Stable Diffusion 1.5 checkpoint for offline image generation.",
+      "engine": "local-dream",
+      "language": "multi",
+      "sizeBytes": 2130000000,
+      "sha256": "463d6a9fe8a4b56a4d69ef3692074c0617428dfd8e8f12f9efe3b1e9a71717ce",
+      "downloadUrl": "https://huggingface.co/Lykon/AbsoluteReality/resolve/main/AbsoluteReality_1.8.1_pruned.safetensors",
+      "fileName": "AbsoluteReality_1.8.1_pruned.safetensors",
+      "engineLicense": "MIT",
+      "weightsLicense": "other",
+      "commercialOk": false,
+      "minAppVersion": 1,
+      "recommended": false,
+      "minRamMb": 6000
+    },
+    {
+      "id": "img-dreamshaper-8",
+      "type": "IMAGE_GEN",
+      "name": "DreamShaper 8",
+      "description": "Balanced SD1.5 checkpoint for stylized and mixed-purpose offline image generation.",
+      "engine": "local-dream",
+      "language": "multi",
+      "sizeBytes": 2132625894,
+      "sha256": "879db523c30d3b9017143d56705015e15a2cb5628762c11d086fed9538abd7fd",
+      "downloadUrl": "https://huggingface.co/Lykon/DreamShaper/resolve/main/DreamShaper_8_pruned.safetensors",
+      "fileName": "DreamShaper_8_pruned.safetensors",
+      "engineLicense": "MIT",
+      "weightsLicense": "other",
+      "commercialOk": false,
+      "minAppVersion": 1,
+      "recommended": true
+    },
+    {
+      "id": "img-anything-v5",
+      "type": "IMAGE_GEN",
+      "name": "Anything V5",
+      "description": "Anime-oriented SD1.5 checkpoint for offline image generation.",
+      "engine": "local-dream",
+      "language": "multi",
+      "sizeBytes": 2132626102,
+      "sha256": "7f96a1a9ca9b3a3242a9ae95d19284f0d2da8d5282b42d2d974398bf7663a252",
+      "downloadUrl": "https://huggingface.co/genai-archive/anything-v5/resolve/main/anything-v5.safetensors",
+      "fileName": "anything-v5.safetensors",
+      "engineLicense": "MIT",
+      "weightsLicense": "creativeml-openrail-m",
+      "commercialOk": false,
+      "minAppVersion": 1,
+      "recommended": false
     }
   ]
 }
