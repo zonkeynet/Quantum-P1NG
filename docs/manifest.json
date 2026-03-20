@@ -305,6 +305,26 @@
       "recommended": true
     },
     {
+      "id": "img-absolutereality-localdream-mnn",
+      "type": "IMAGE_GEN",
+      "name": "Absolute Reality 1.8.1 (LocalDream CPU/MNN)",
+      "description": "Universal ZIP bundle engineered for LocalDream. Optimized for CPU/GPU inference via MNN. Safe for MediaTek, Pixel, and non-Snapdragon devices.",
+      "engine": "local-dream",
+      "storageKind": "ZIP_BUNDLE",
+      "language": "multi",
+      "sizeBytes": 1288490188,
+      "sha256": "skip_check",
+      "downloadUrl": "https://huggingface.co/xororz/sd-mnn/resolve/main/AbsoluteReality.zip",
+      "fileName": "AbsoluteReality_mnn.zip",
+      "bundleEntryPoint": "",
+      "engineLicense": "MIT",
+      "weightsLicense": "other",
+      "commercialOk": false,
+      "minAppVersion": 1,
+      "recommended": true,
+      "minRamMb": 4000
+    },
+    {
       "id": "img-absolutereality-localdream",
       "type": "IMAGE_GEN",
       "name": "Absolute Reality 1.8.1 (LocalDream NPU)",
