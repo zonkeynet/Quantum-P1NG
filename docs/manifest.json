@@ -344,7 +344,7 @@
       "recommended": false,
       "minRamMb": 4000
     },
-    {
+   {
       "id": "img-dreamshaper-8-localdream",
       "type": "IMAGE_GEN",
       "name": "DreamShaper 8 (LocalDream NPU)",
@@ -354,8 +354,8 @@
       "language": "multi",
       "sizeBytes": 994000000,
       "sha256": "skip_check",
-      "downloadUrl": "https://huggingface.co/xororz/sd-qnn/resolve/main/DreamShaper8_qnn2.28_min.zip",
-      "fileName": "DreamShaper8_qnn2.28_min.zip",
+      "downloadUrl": "https://huggingface.co/xororz/sd-qnn/resolve/main/DreamShaperV8_qnn2.28_min.zip",
+      "fileName": "DreamShaperV8_qnn2.28_min.zip",
       "bundleEntryPoint": "",
       "engineLicense": "MIT",
       "weightsLicense": "other",
