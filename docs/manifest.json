@@ -489,7 +489,7 @@
           "required": false
         }
       ]
-    }
+    },
     {
       "id": "stt-base-multi",
       "type": "STT",
