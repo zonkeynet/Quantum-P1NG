@@ -444,48 +444,52 @@
       "section": "text"
     },
     {
-      "id": "tts-en-tactical",
+      "id": "tts-en-lessac-base",
       "type": "TTS",
-      "name": "Tactical Voice (EN)",
-      "description": "Offline neural voice synthesis for News Briefings. Human-like cadence.",
-      "engine": "piper",
-      "storageKind": "SINGLE_FILE",
-      "language": "en",
-      "sizeBytes": 63200000,
-      "sha256": "31e719d5064a855c8655994c6690c55ffd3ec128877f9380852a9a72fe539ffe",
-      "downloadUrl": "https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US/lessac/medium/en_US-lessac-medium.onnx",
-      "fileName": "en_US-tactical.onnx",
-      "engineLicense": "MIT",
-      "weightsLicense": "OpenRAIL",
-      "commercialOk": true,
-      "minAppVersion": 1,
-      "recommended": true,
+      "section": "voice",
       "category": "speech",
-      "runtimeBackend": "PIPER",
-      "section": "voice"
-    },
-    {
-      "id": "tts-kokoro-82m",
-      "type": "TTS",
-      "name": "Kokoro 82M (English)",
-      "family": "kokoro",
-      "description": "Ultra-lightweight (82M) offline TTS engine. Exceptional voice quality and fluid cadence for Q-News Briefings.",
-      "engine": "onnxruntime",
-      "storageKind": "SINGLE_FILE",
+      "name": "English Base Voice",
+      "description": "Offline English TTS for Q-News using sherpa-onnx. Optional download from Hugging Face.",
+      "engine": "sherpa-onnx",
       "language": "en",
-      "sizeBytes": 341838848,
-      "sha256": "8fbea51ea711f2af382e88c833d9e288c6dc82ce5e98421ea61c058ce21a34cb",
-      "downloadUrl": "https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX/resolve/main/onnx/model.onnx",
-      "fileName": "kokoro-82m-v1.0.onnx",
-      "engineLicense": "MIT",
-      "weightsLicense": "Apache-2.0",
-      "commercialOk": true,
-      "minAppVersion": 1,
+      "variant": "medium",
+      "sizeBytes": 70000000,
+      "sha256": "skip_check",
+      "downloadUrl": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-medium/resolve/main/en_US-lessac-medium.onnx",
+      "fileName": "en_US-lessac-medium.onnx",
+      "engineLicense": "Apache-2.0",
+      "weightsLicense": "VERIFY_BEFORE_COMMERCIAL_SHIP",
+      "commercialOk": false,
       "recommended": true,
-      "category": "speech",
-      "runtimeBackend": "KOKORO",
-      "section": "voice"
-    },
+      "family": "sherpa",
+      "runtimeBackend": "SHERPA_ONNX",
+      "storageKind": "DIRECTORY_BUNDLE",
+      "bundleEntryPoint": "en_US-lessac-medium.onnx",
+      "additionalArtifacts": [
+        "en_US-lessac-medium.onnx.json",
+        "tokens.txt",
+        "MODEL_CARD"
+      ],
+      "remoteArtifacts": [
+        {
+          "path": "en_US-lessac-medium.onnx",
+          "url": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-medium/resolve/main/en_US-lessac-medium.onnx"
+        },
+        {
+          "path": "en_US-lessac-medium.onnx.json",
+          "url": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-medium/resolve/main/en_US-lessac-medium.onnx.json"
+        },
+        {
+          "path": "tokens.txt",
+          "url": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-medium/resolve/main/tokens.txt"
+        },
+        {
+          "path": "MODEL_CARD",
+          "url": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-medium/resolve/main/MODEL_CARD",
+          "required": false
+        }
+      ]
+    }
     {
       "id": "stt-base-multi",
       "type": "STT",
