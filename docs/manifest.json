@@ -431,7 +431,7 @@
       "commercialOk": false,
       "recommended": true,
       "family": "sherpa",
-      "dependencyPackIds": ["tts-espeak-ng-data"]
+      "dependencyPackIds": ["tts-espeak-ng-data"],
       "runtimeBackend": "SHERPA_ONNX",
       "storageKind": "DIRECTORY_BUNDLE",
       "bundleEntryPoint": "en_US-lessac-medium.onnx",
