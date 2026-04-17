@@ -460,6 +460,154 @@
         }
       ]
     },
+    ,
+    {
+      "id": "tts-en-lessac-high",
+      "type": "TTS",
+      "section": "voice",
+      "category": "speech",
+      "name": "English Voice HD (Lessac High)",
+      "description": "Higher-quality offline English US TTS for Q-News using sherpa-onnx.",
+      "engine": "sherpa-onnx",
+      "language": "en",
+      "variant": "high",
+      "sizeBytes": 114000000,
+      "sha256": "skip_check",
+      "downloadUrl": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-high/resolve/main/en_US-lessac-high.onnx",
+      "fileName": "en_US-lessac-high.onnx",
+      "engineLicense": "Apache-2.0",
+      "weightsLicense": "VERIFY_BEFORE_COMMERCIAL_SHIP",
+      "commercialOk": false,
+      "minAppVersion": 1,
+      "recommended": false,
+      "family": "sherpa",
+      "dependencyPackIds": ["tts-espeak-ng-data"],
+      "runtimeBackend": "SHERPA_ONNX",
+      "storageKind": "DIRECTORY_BUNDLE",
+      "bundleEntryPoint": "en_US-lessac-high.onnx",
+      "additionalArtifacts": [
+        "en_US-lessac-high.onnx.json",
+        "tokens.txt",
+        "MODEL_CARD"
+      ],
+      "remoteArtifacts": [
+        {
+          "path": "en_US-lessac-high.onnx",
+          "url": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-high/resolve/main/en_US-lessac-high.onnx"
+        },
+        {
+          "path": "en_US-lessac-high.onnx.json",
+          "url": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-high/resolve/main/en_US-lessac-high.onnx.json"
+        },
+        {
+          "path": "tokens.txt",
+          "url": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-high/resolve/main/tokens.txt"
+        },
+        {
+          "path": "MODEL_CARD",
+          "url": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-high/resolve/main/MODEL_CARD",
+          "required": false
+        }
+      ]
+    },
+    {
+      "id": "tts-en-gb-alan-medium",
+      "type": "TTS",
+      "section": "voice",
+      "category": "speech",
+      "name": "English UK Voice Alan",
+      "description": "Offline English UK TTS using sherpa-onnx.",
+      "engine": "sherpa-onnx",
+      "language": "en-GB",
+      "variant": "medium",
+      "sizeBytes": 63200000,
+      "sha256": "skip_check",
+      "downloadUrl": "https://huggingface.co/csukuangfj/vits-piper-en_GB-alan-medium/resolve/main/en_GB-alan-medium.onnx",
+      "fileName": "en_GB-alan-medium.onnx",
+      "engineLicense": "Apache-2.0",
+      "weightsLicense": "VERIFY_BEFORE_COMMERCIAL_SHIP",
+      "commercialOk": false,
+      "minAppVersion": 1,
+      "recommended": false,
+      "family": "sherpa",
+      "dependencyPackIds": ["tts-espeak-ng-data"],
+      "runtimeBackend": "SHERPA_ONNX",
+      "storageKind": "DIRECTORY_BUNDLE",
+      "bundleEntryPoint": "en_GB-alan-medium.onnx",
+      "additionalArtifacts": [
+        "en_GB-alan-medium.onnx.json",
+        "tokens.txt",
+        "MODEL_CARD"
+      ],
+      "remoteArtifacts": [
+        {
+          "path": "en_GB-alan-medium.onnx",
+          "url": "https://huggingface.co/csukuangfj/vits-piper-en_GB-alan-medium/resolve/main/en_GB-alan-medium.onnx"
+        },
+        {
+          "path": "en_GB-alan-medium.onnx.json",
+          "url": "https://huggingface.co/csukuangfj/vits-piper-en_GB-alan-medium/resolve/main/en_GB-alan-medium.onnx.json"
+        },
+        {
+          "path": "tokens.txt",
+          "url": "https://huggingface.co/csukuangfj/vits-piper-en_GB-alan-medium/resolve/main/tokens.txt"
+        },
+        {
+          "path": "MODEL_CARD",
+          "url": "https://huggingface.co/csukuangfj/vits-piper-en_GB-alan-medium/resolve/main/MODEL_CARD",
+          "required": false
+        }
+      ]
+    },
+    {
+      "id": "tts-it-paola-medium",
+      "type": "TTS",
+      "section": "voice",
+      "category": "speech",
+      "name": "Italian Voice Paola",
+      "description": "Offline Italian TTS using sherpa-onnx.",
+      "engine": "sherpa-onnx",
+      "language": "it",
+      "variant": "medium",
+      "sizeBytes": 63500000,
+      "sha256": "skip_check",
+      "downloadUrl": "https://huggingface.co/csukuangfj/vits-piper-it_IT-paola-medium/resolve/main/it_IT-paola-medium.onnx",
+      "fileName": "it_IT-paola-medium.onnx",
+      "engineLicense": "Apache-2.0",
+      "weightsLicense": "VERIFY_BEFORE_COMMERCIAL_SHIP",
+      "commercialOk": false,
+      "minAppVersion": 1,
+      "recommended": false,
+      "family": "sherpa",
+      "dependencyPackIds": ["tts-espeak-ng-data"],
+      "runtimeBackend": "SHERPA_ONNX",
+      "storageKind": "DIRECTORY_BUNDLE",
+      "bundleEntryPoint": "it_IT-paola-medium.onnx",
+      "additionalArtifacts": [
+        "it_IT-paola-medium.onnx.json",
+        "tokens.txt",
+        "MODEL_CARD"
+      ],
+      "remoteArtifacts": [
+        {
+          "path": "it_IT-paola-medium.onnx",
+          "url": "https://huggingface.co/csukuangfj/vits-piper-it_IT-paola-medium/resolve/main/it_IT-paola-medium.onnx"
+        },
+        {
+          "path": "it_IT-paola-medium.onnx.json",
+          "url": "https://huggingface.co/csukuangfj/vits-piper-it_IT-paola-medium/resolve/main/it_IT-paola-medium.onnx.json"
+        },
+        {
+          "path": "tokens.txt",
+          "url": "https://huggingface.co/csukuangfj/vits-piper-it_IT-paola-medium/resolve/main/tokens.txt"
+        },
+        {
+          "path": "MODEL_CARD",
+          "url": "https://huggingface.co/csukuangfj/vits-piper-it_IT-paola-medium/resolve/main/MODEL_CARD",
+          "required": false
+        }
+      ]
+    },
     {
       "id": "stt-base-multi",
       "type": "STT",
