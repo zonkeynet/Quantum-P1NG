@@ -608,6 +608,153 @@
       ]
     },
     {
+      "id": "tts-fr-siwis-medium",
+      "type": "TTS",
+      "section": "voice",
+      "category": "speech",
+      "name": "French Voice Siwis",
+      "description": "Offline French TTS using sherpa-onnx.",
+      "engine": "sherpa-onnx",
+      "language": "fr",
+      "variant": "medium",
+      "sizeBytes": 63200000,
+      "sha256": "skip_check",
+      "downloadUrl": "https://huggingface.co/csukuangfj/vits-piper-fr_FR-siwis-medium/resolve/main/fr_FR-siwis-medium.onnx",
+      "fileName": "fr_FR-siwis-medium.onnx",
+      "engineLicense": "Apache-2.0",
+      "weightsLicense": "VERIFY_BEFORE_COMMERCIAL_SHIP",
+      "commercialOk": false,
+      "minAppVersion": 1,
+      "recommended": false,
+      "family": "sherpa",
+      "dependencyPackIds": ["tts-espeak-ng-data"],
+      "runtimeBackend": "SHERPA_ONNX",
+      "storageKind": "DIRECTORY_BUNDLE",
+      "bundleEntryPoint": "fr_FR-siwis-medium.onnx",
+      "additionalArtifacts": [
+        "fr_FR-siwis-medium.onnx.json",
+        "tokens.txt",
+        "MODEL_CARD"
+      ],
+      "remoteArtifacts": [
+        {
+          "path": "fr_FR-siwis-medium.onnx",
+          "url": "https://huggingface.co/csukuangfj/vits-piper-fr_FR-siwis-medium/resolve/main/fr_FR-siwis-medium.onnx"
+        },
+        {
+          "path": "fr_FR-siwis-medium.onnx.json",
+          "url": "https://huggingface.co/csukuangfj/vits-piper-fr_FR-siwis-medium/resolve/main/fr_FR-siwis-medium.onnx.json"
+        },
+        {
+          "path": "tokens.txt",
+          "url": "https://huggingface.co/csukuangfj/vits-piper-fr_FR-siwis-medium/resolve/main/tokens.txt"
+        },
+        {
+          "path": "MODEL_CARD",
+          "url": "https://huggingface.co/csukuangfj/vits-piper-fr_FR-siwis-medium/resolve/main/MODEL_CARD",
+          "required": false
+        }
+      ]
+    },
+    {
+      "id": "tts-de-thorsten-medium",
+      "type": "TTS",
+      "section": "voice",
+      "category": "speech",
+      "name": "German Voice Thorsten",
+      "description": "Offline German TTS using sherpa-onnx.",
+      "engine": "sherpa-onnx",
+      "language": "de",
+      "variant": "medium",
+      "sizeBytes": 63200000,
+      "sha256": "skip_check",
+      "downloadUrl": "https://huggingface.co/csukuangfj/vits-piper-de_DE-thorsten-medium/resolve/main/de_DE-thorsten-medium.onnx",
+      "fileName": "de_DE-thorsten-medium.onnx",
+      "engineLicense": "Apache-2.0",
+      "weightsLicense": "VERIFY_BEFORE_COMMERCIAL_SHIP",
+      "commercialOk": false,
+      "minAppVersion": 1,
+      "recommended": false,
+      "family": "sherpa",
+      "dependencyPackIds": ["tts-espeak-ng-data"],
+      "runtimeBackend": "SHERPA_ONNX",
+      "storageKind": "DIRECTORY_BUNDLE",
+      "bundleEntryPoint": "de_DE-thorsten-medium.onnx",
+      "additionalArtifacts": [
+        "de_DE-thorsten-medium.onnx.json",
+        "tokens.txt",
+        "MODEL_CARD"
+      ],
+      "remoteArtifacts": [
+        {
+          "path": "de_DE-thorsten-medium.onnx",
+          "url": "https://huggingface.co/csukuangfj/vits-piper-de_DE-thorsten-medium/resolve/main/de_DE-thorsten-medium.onnx"
+        },
+        {
+          "path": "de_DE-thorsten-medium.onnx.json",
+          "url": "https://huggingface.co/csukuangfj/vits-piper-de_DE-thorsten-medium/resolve/main/de_DE-thorsten-medium.onnx.json"
+        },
+        {
+          "path": "tokens.txt",
+          "url": "https://huggingface.co/csukuangfj/vits-piper-de_DE-thorsten-medium/resolve/main/tokens.txt"
+        },
+        {
+          "path": "MODEL_CARD",
+          "url": "https://huggingface.co/csukuangfj/vits-piper-de_DE-thorsten-medium/resolve/main/MODEL_CARD",
+          "required": false
+        }
+      ]
+    },
+    {
+      "id": "tts-es-sharvard-medium",
+      "type": "TTS",
+      "section": "voice",
+      "category": "speech",
+      "name": "Spanish Voice Sharvard",
+      "description": "Offline Spanish TTS using sherpa-onnx.",
+      "engine": "sherpa-onnx",
+      "language": "es",
+      "variant": "medium",
+      "sizeBytes": 76700000,
+      "sha256": "skip_check",
+      "downloadUrl": "https://huggingface.co/csukuangfj/vits-piper-es_ES-sharvard-medium/resolve/main/es_ES-sharvard-medium.onnx",
+      "fileName": "es_ES-sharvard-medium.onnx",
+      "engineLicense": "Apache-2.0",
+      "weightsLicense": "VERIFY_BEFORE_COMMERCIAL_SHIP",
+      "commercialOk": false,
+      "minAppVersion": 1,
+      "recommended": false,
+      "family": "sherpa",
+      "dependencyPackIds": ["tts-espeak-ng-data"],
+      "runtimeBackend": "SHERPA_ONNX",
+      "storageKind": "DIRECTORY_BUNDLE",
+      "bundleEntryPoint": "es_ES-sharvard-medium.onnx",
+      "additionalArtifacts": [
+        "es_ES-sharvard-medium.onnx.json",
+        "tokens.txt",
+        "MODEL_CARD"
+      ],
+      "remoteArtifacts": [
+        {
+          "path": "es_ES-sharvard-medium.onnx",
+          "url": "https://huggingface.co/csukuangfj/vits-piper-es_ES-sharvard-medium/resolve/main/es_ES-sharvard-medium.onnx"
+        },
+        {
+          "path": "es_ES-sharvard-medium.onnx.json",
+          "url": "https://huggingface.co/csukuangfj/vits-piper-es_ES-sharvard-medium/resolve/main/es_ES-sharvard-medium.onnx.json"
+        },
+        {
+          "path": "tokens.txt",
+          "url": "https://huggingface.co/csukuangfj/vits-piper-es_ES-sharvard-medium/resolve/main/tokens.txt"
+        },
+        {
+          "path": "MODEL_CARD",
+          "url": "https://huggingface.co/csukuangfj/vits-piper-es_ES-sharvard-medium/resolve/main/MODEL_CARD",
+          "required": false
+        }
+      ]
+    }
+    {
       "id": "stt-base-multi",
       "type": "STT",
       "name": "Whisper Base (Multi)",
