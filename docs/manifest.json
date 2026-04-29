@@ -203,6 +203,9 @@
       "topK": 64,
       "stopWords": [
         "<turn|>",
+        "<|turn>user",
+        "<|turn>system",
+        "<|turn>model",
         "<end_of_turn>",
         "<start_of_turn>",
         "</end_of_turn>",
@@ -252,6 +255,9 @@
       "topK": 64,
       "stopWords": [
         "<turn|>",
+        "<|turn>user",
+        "<|turn>system",
+        "<|turn>model",
         "<end_of_turn>",
         "<start_of_turn>",
         "</end_of_turn>",
@@ -301,6 +307,9 @@
       "topK": 64,
       "stopWords": [
         "<turn|>",
+        "<|turn>user",
+        "<|turn>system",
+        "<|turn>model",
         "<end_of_turn>",
         "<start_of_turn>",
         "</end_of_turn>",
@@ -350,6 +359,9 @@
       "topK": 64,
       "stopWords": [
         "<turn|>",
+        "<|turn>user",
+        "<|turn>system",
+        "<|turn>model",
         "<end_of_turn>",
         "<start_of_turn>",
         "</end_of_turn>",
@@ -399,6 +411,9 @@
       "topK": 64,
       "stopWords": [
         "<turn|>",
+        "<|turn>user",
+        "<|turn>system",
+        "<|turn>model",
         "<end_of_turn>",
         "<start_of_turn>",
         "</end_of_turn>",
