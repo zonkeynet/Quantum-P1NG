@@ -331,7 +331,7 @@
       "weightsLicense": "Apache-2.0",
       "commercialOk": true,
       "minAppVersion": 1,
-      "recommended": true,
+      "recommended": false,
       "category": "llm",
       "runtimeBackend": "LLAMA_CPP",
       "quantTier": "Q4",
@@ -358,9 +358,9 @@
         "<eos>"
       ],
       "useMmap": true,
-      "minRamMb": 7000,
-      "recommendedRamMb": 8000,
-      "mobileTier": "default",
+      "minRamMb": 8000,
+      "recommendedRamMb": 10000,
+      "mobileTier": "flagship",
       "section": "text"
     },
     {
