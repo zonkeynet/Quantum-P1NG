@@ -1,6 +1,6 @@
 {
-  "version": 14,
-  "updatedAt": "2026-04-28T12:00:00Z",
+  "version": 16,
+  "updatedAt": "2026-05-14T00:00:00Z",
   "schemaVersion": "2.2",
   "appId": "com.qp1ng.android",
   "minAppVersion": 1,
@@ -21,6 +21,44 @@
       "title": "Image Generation",
       "description": "On-device Stable Diffusion packs for LocalDream and sd.cpp runtimes."
     }
+  },
+  "sandboxRootfs": [
+    {
+      "id": "sandbox-alpine-minirootfs-3-23-4-aarch64",
+      "type": "SANDBOX_ROOTFS",
+      "abi": "arm64-v8a",
+      "upstreamArch": "aarch64",
+      "alpineVersion": "3.23.4",
+      "releasedAt": "2026-04-15",
+      "storageKind": "TAR_GZ",
+      "extractionMode": "ROOTFS_TAR_GZ",
+      "featureLevel": "PRO",
+      "requiresUserConsent": true,
+      "defaultEnabled": false,
+      "networkDefault": false,
+      "sizeBytes": 4041810,
+      "sha256": "9250667a8affac8f1e98086392f80f43f086626701e9bce33398eb9b6c0bd64c",
+      "downloadUrl": "https://dl-cdn.alpinelinux.org/alpine/v3.23/releases/aarch64/alpine-minirootfs-3.23.4-aarch64.tar.gz",
+      "sha256Url": "https://dl-cdn.alpinelinux.org/alpine/v3.23/releases/aarch64/alpine-minirootfs-3.23.4-aarch64.tar.gz.sha256",
+      "signatureUrl": "https://dl-cdn.alpinelinux.org/alpine/v3.23/releases/aarch64/alpine-minirootfs-3.23.4-aarch64.tar.gz.asc",
+      "fileName": "alpine-minirootfs-3.23.4-aarch64.tar.gz"
+    }
+  ],
+  "sandboxProot": {
+    "id": "sandbox-proot-arm64-v8a",
+    "type": "SANDBOX_PROOT",
+    "name": "Q-P1NG proot arm64-v8a",
+    "abi": "arm64-v8a",
+    "fileName": "proot",
+    "installPath": "bin/proot",
+    "sizeBytes": 0,
+    "sha256": "REPLACE_WITH_REAL_SHA256",
+    "downloadUrl": "https://github.com/zonkeynet/Quantum-P1NG/releases/download/sandbox-v1/proot-arm64-v8a",
+    "executable": true,
+    "chmod": "0700",
+    "featureLevel": "PRO",
+    "requiresUserConsent": true,
+    "defaultEnabled": false
   },
   "packs": [
     {
