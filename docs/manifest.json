@@ -1665,3 +1665,62 @@
       "category": "image_gen",
       "runtimeBackend": "LOCAL_DREAM",
       "supportsTxt2Img": true,
+      "recommendedWidth": 512,
+      "recommendedHeight": 512,
+      "recommendedSteps": 15,
+      "recommendedCfgScale": 7.0,
+      "accelerationTargets": ["CPU", "GPU", "MNN"],
+      "recommendedRamMb": 6000,
+      "section": "image"
+    },
+    {
+      "id": "img-qteamix-localdream",
+      "type": "IMAGE_GEN",
+      "name": "QteaMix (LocalDream QNN min)",
+      "description": "Balanced stylized pre-converted ZIP bundle for LocalDream Snapdragon NPU. Broadest QNN profile.",
+      "engine": "local-dream",
+      "storageKind": "ZIP_BUNDLE",
+      "language": "multi",
+      "sizeBytes": 1060000000,
+      "sha256": "69ad4761d761a89ab7ae950ba81ea4ee73765409362fe7893e305e0da6c0fdf4",
+      "downloadUrl": "https://huggingface.co/xororz/sd-qnn/resolve/main/QteaMix_qnn2.28_min.zip",
+      "fileName": "QteaMix_qnn2.28_min.zip",
+      "engineLicense": "MIT",
+      "weightsLicense": "other",
+      "commercialOk": false,
+      "minAppVersion": 1,
+      "recommended": false,
+      "minRamMb": 4000,
+      "category": "image_gen",
+      "runtimeBackend": "LOCAL_DREAM",
+      "supportsTxt2Img": true,
+      "recommendedWidth": 512,
+      "recommendedHeight": 512,
+      "recommendedSteps": 15,
+      "recommendedCfgScale": 7.0,
+      "accelerationTargets": ["NPU", "QNN"],
+      "requiresSnapdragonQnn": true,
+      "hardwareProfile": "snapdragon_qnn2.28_min",
+      "recommendedRamMb": 6000,
+      "section": "image"
+    }
+  ],
+  "sections": {
+    "text": {
+      "title": "Text & Reasoning",
+      "description": "Language models, vision, embeddings and future text-native AI packs for chat, RAG, summaries and agent flows.",
+      "categories": ["llm", "vision", "embedding"]
+    },
+    "voice": {
+      "title": "Speech & Voice",
+      "description": "Offline speech recognition and voice synthesis packs.",
+      "categories": ["speech"]
+    },
+    "image": {
+      "title": "Image Generation",
+      "description": "On-device image generation packs for LocalDream and stable-diffusion.cpp runtimes.",
+      "categories": ["image_gen"]
+    }
+  },
+  "sectionOrder": ["text", "voice", "image"]
+}
