@@ -287,7 +287,7 @@
       "storageKind": "DIRECTORY_BUNDLE",
       "language": "multi",
       "sizeBytes": 279000000,
-      "sha256": "af7ce9955faf71d74d374a360f30b81c6dd7546c12722bf2927582375ee45072",
+      "sha256": "af7ce9951a2f46c4f6e5def253e5b896ca5e417010e7a9949fdc9e5175c27767",
       "downloadUrl": "https://huggingface.co/ggml-org/SmolVLM2-256M-Video-Instruct-GGUF/resolve/main/SmolVLM2-256M-Video-Instruct-Q8_0.gguf",
       "fileName": "SmolVLM2-256M-Video-Instruct-Q8_0.gguf",
       "bundleEntryPoint": "SmolVLM2-256M-Video-Instruct-Q8_0.gguf",
@@ -295,13 +295,15 @@
         {
           "path": "SmolVLM2-256M-Video-Instruct-Q8_0.gguf",
           "url": "https://huggingface.co/ggml-org/SmolVLM2-256M-Video-Instruct-GGUF/resolve/main/SmolVLM2-256M-Video-Instruct-Q8_0.gguf",
-          "sha256": "af7ce9955faf71d74d374a360f30b81c6dd7546c12722bf2927582375ee45072",
+          "sha256": "af7ce9951a2f46c4f6e5def253e5b896ca5e417010e7a9949fdc9e5175c27767",
+          "sizeBytes": 175056352,
           "required": true
         },
         {
           "path": "mmproj-SmolVLM2-256M-Video-Instruct-Q8_0.gguf",
           "url": "https://huggingface.co/ggml-org/SmolVLM2-256M-Video-Instruct-GGUF/resolve/main/mmproj-SmolVLM2-256M-Video-Instruct-Q8_0.gguf",
-          "sha256": "d34913a501b8b04e879d08e0819bd52d5661baee68d58973c2ee81462797cdd9",
+          "sha256": "d34913a588464ff7215f086193e0426a4f045eaba74456ee5e2667d8ed6798b1",
+          "sizeBytes": 103771680,
           "required": true
         }
       ],
