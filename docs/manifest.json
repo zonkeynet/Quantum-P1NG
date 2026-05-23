@@ -1,6 +1,6 @@
 {
-  "version": 21,
-  "updatedAt": "2026-05-22T00:00:00Z",
+  "version": 22,
+  "updatedAt": "2026-05-23T00:00:00Z",
   "schemaVersion": "2.2",
   "appId": "com.qp1ng.android",
   "minAppVersion": 1,
@@ -274,6 +274,65 @@
       "topK": 20,
       "recommendedContextSize": 2048,
       "reserveOutputTokens": 384,
+      "useMmap": true,
+      "section": "text"
+    },
+    {
+      "id": "vision-smolvlm2-256m-video-gguf",
+      "type": "LLM",
+      "name": "Q-Brain Vision Lite (SmolVLM2 256M Q8_0)",
+      "family": "smolvlm2",
+      "description": "Mobile-first local vision model for Q-Brain image intake, OCR-like reasoning and lightweight multimodal analysis. Installs the GGUF model together with its mmproj projector artifact.",
+      "engine": "llama.cpp",
+      "storageKind": "DIRECTORY_BUNDLE",
+      "language": "multi",
+      "sizeBytes": 279000000,
+      "sha256": "af7c86f6d4d080cdbd6d53ffc2abccaf74b8f1af6225036b0e8dfbd062ad4b13",
+      "downloadUrl": "https://huggingface.co/ggml-org/SmolVLM2-256M-Video-Instruct-GGUF/resolve/main/SmolVLM2-256M-Video-Instruct-Q8_0.gguf",
+      "fileName": "SmolVLM2-256M-Video-Instruct-Q8_0.gguf",
+      "bundleEntryPoint": "SmolVLM2-256M-Video-Instruct-Q8_0.gguf",
+      "remoteArtifacts": [
+        {
+          "path": "SmolVLM2-256M-Video-Instruct-Q8_0.gguf",
+          "url": "https://huggingface.co/ggml-org/SmolVLM2-256M-Video-Instruct-GGUF/resolve/main/SmolVLM2-256M-Video-Instruct-Q8_0.gguf",
+          "sha256": "af7c86f6d4d080cdbd6d53ffc2abccaf74b8f1af6225036b0e8dfbd062ad4b13",
+          "required": true
+        },
+        {
+          "path": "mmproj-SmolVLM2-256M-Video-Instruct-Q8_0.gguf",
+          "url": "https://huggingface.co/ggml-org/SmolVLM2-256M-Video-Instruct-GGUF/resolve/main/mmproj-SmolVLM2-256M-Video-Instruct-Q8_0.gguf",
+          "sha256": "d3499a2254c68c6f1c03092fa48bfa7cd0237ff94ebc6e08f98d94eb60ac34a7",
+          "required": true
+        }
+      ],
+      "engineLicense": "MIT",
+      "weightsLicense": "Apache-2.0",
+      "commercialOk": true,
+      "minAppVersion": 1,
+      "recommended": false,
+      "category": "vision",
+      "runtimeBackend": "LLAMA_CPP",
+      "quantTier": "Q8",
+      "promptFormat": "CHATML",
+      "supportsTools": false,
+      "supportsVision": true,
+      "supportsImage": true,
+      "supportsVideo": true,
+      "supportsAudio": false,
+      "supportsOcrLikeReasoning": true,
+      "requiresMmproj": true,
+      "sourceOrg": "HuggingFaceTB / ggml-org",
+      "upstreamModelCardUrl": "https://huggingface.co/HuggingFaceTB/SmolVLM2-256M-Video-Instruct",
+      "ggufRepoUrl": "https://huggingface.co/ggml-org/SmolVLM2-256M-Video-Instruct-GGUF",
+      "sourceTrust": "OFFICIAL_GGUF",
+      "runtimeTier": "ANDROID_LOCAL",
+      "minRamMb": 2048,
+      "recommendedRamMb": 3072,
+      "recommendedContextSize": 2048,
+      "reserveOutputTokens": 384,
+      "temperature": 0.7,
+      "topP": 0.9,
+      "topK": 40,
       "useMmap": true,
       "section": "text"
     },
@@ -1606,62 +1665,3 @@
       "category": "image_gen",
       "runtimeBackend": "LOCAL_DREAM",
       "supportsTxt2Img": true,
-      "recommendedWidth": 512,
-      "recommendedHeight": 512,
-      "recommendedSteps": 15,
-      "recommendedCfgScale": 7.0,
-      "accelerationTargets": ["CPU", "GPU", "MNN"],
-      "recommendedRamMb": 6000,
-      "section": "image"
-    },
-    {
-      "id": "img-qteamix-localdream",
-      "type": "IMAGE_GEN",
-      "name": "QteaMix (LocalDream QNN min)",
-      "description": "Balanced stylized pre-converted ZIP bundle for LocalDream Snapdragon NPU. Broadest QNN profile.",
-      "engine": "local-dream",
-      "storageKind": "ZIP_BUNDLE",
-      "language": "multi",
-      "sizeBytes": 1060000000,
-      "sha256": "69ad4761d761a89ab7ae950ba81ea4ee73765409362fe7893e305e0da6c0fdf4",
-      "downloadUrl": "https://huggingface.co/xororz/sd-qnn/resolve/main/QteaMix_qnn2.28_min.zip",
-      "fileName": "QteaMix_qnn2.28_min.zip",
-      "engineLicense": "MIT",
-      "weightsLicense": "other",
-      "commercialOk": false,
-      "minAppVersion": 1,
-      "recommended": false,
-      "minRamMb": 4000,
-      "category": "image_gen",
-      "runtimeBackend": "LOCAL_DREAM",
-      "supportsTxt2Img": true,
-      "recommendedWidth": 512,
-      "recommendedHeight": 512,
-      "recommendedSteps": 15,
-      "recommendedCfgScale": 7.0,
-      "accelerationTargets": ["NPU", "QNN"],
-      "requiresSnapdragonQnn": true,
-      "hardwareProfile": "snapdragon_qnn2.28_min",
-      "recommendedRamMb": 6000,
-      "section": "image"
-    }
-  ],
-  "sections": {
-    "text": {
-      "title": "Text & Reasoning",
-      "description": "Language models, embeddings and future text-native AI packs for chat, RAG, summaries and agent flows.",
-      "categories": ["llm", "embedding"]
-    },
-    "voice": {
-      "title": "Speech & Voice",
-      "description": "Offline speech recognition and voice synthesis packs.",
-      "categories": ["speech"]
-    },
-    "image": {
-      "title": "Image Generation",
-      "description": "On-device image generation packs for LocalDream and stable-diffusion.cpp runtimes.",
-      "categories": ["image_gen"]
-    }
-  },
-  "sectionOrder": ["text", "voice", "image"]
-}
