@@ -286,7 +286,7 @@
       "engine": "llama.cpp",
       "storageKind": "DIRECTORY_BUNDLE",
       "language": "multi",
-      "sizeBytes": 279000000,
+      "sizeBytes": 278828032,
       "sha256": "af7ce9951a2f46c4f6e5def253e5b896ca5e417010e7a9949fdc9e5175c27767",
       "downloadUrl": "https://huggingface.co/ggml-org/SmolVLM2-256M-Video-Instruct-GGUF/resolve/main/SmolVLM2-256M-Video-Instruct-Q8_0.gguf",
       "fileName": "SmolVLM2-256M-Video-Instruct-Q8_0.gguf",
