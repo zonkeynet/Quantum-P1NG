@@ -1,7 +1,7 @@
 {
-  "version": 23,
-  "updatedAt": "2026-05-23T00:00:00Z",
-  "schemaVersion": "2.2",
+  "version": 24,
+  "updatedAt": "2026-09-21",
+  "schemaVersion": "2.3",
   "appId": "com.qp1ng.android",
   "minAppVersion": 1,
   "categories": {
@@ -118,7 +118,7 @@
     {
       "id": "vision-gemma-3n-e2b-it",
       "displayName": "Gemma 3n E2B IT",
-      "family": "gemma4",
+      "family": "gemma3n",
       "sourceOrg": "Google / ggml-org",
       "upstreamModelCardUrl": "https://huggingface.co/google/gemma-3n-E2B-it",
       "ggufRepoUrl": "https://huggingface.co/ggml-org/gemma-3n-E2B-it-GGUF",
@@ -207,7 +207,9 @@
       "loaderSha256": "44ef39c1e1a18c09f6e4c4b5d6f8bba82d30596598bd155ec162d05c5122ff04",
       "downloadUrl": null,
       "executable": true,
-      "neededLibraries": ["libc.so"],
+      "neededLibraries": [
+        "libc.so"
+      ],
       "commercialOk": true,
       "minAppVersion": 1,
       "recommended": true,
@@ -228,7 +230,7 @@
       "language": "en",
       "sizeBytes": 2491874688,
       "sha256": "01999f17c39cc3074afae5e9c539bc82d45f2dd7faa3917c66cbef76fce8c0c2",
-      "downloadUrl": "https://huggingface.co/bartowski/microsoft_Phi-4-mini-instruct-GGUF/resolve/main/microsoft_Phi-4-mini-instruct-Q4_K_M.gguf",
+      "downloadUrl": "https://huggingface.co/bartowski/microsoft_Phi-4-mini-instruct-GGUF/resolve/7ff82c2aaa4dde30121698a973765f39be5288c0/microsoft_Phi-4-mini-instruct-Q4_K_M.gguf",
       "fileName": "microsoft_Phi-4-mini-instruct-Q4_K_M.gguf",
       "engineLicense": "MIT",
       "weightsLicense": "MIT",
@@ -243,7 +245,9 @@
       "recommendedContextSize": 4096,
       "reserveOutputTokens": 768,
       "useMmap": true,
-      "section": "text"
+      "section": "text",
+      "minRamMb": 6656,
+      "recommendedRamMb": 8704
     },
     {
       "id": "llm-qwen3-1.7b-mobile",
@@ -254,9 +258,9 @@
       "engine": "llama.cpp",
       "storageKind": "SINGLE_FILE",
       "language": "multi",
-      "sizeBytes": 1110000000,
+      "sizeBytes": 1107409472,
       "sha256": "b139949c5bd74937ad8ed8c8cf3d9ffb1e99c866c823204dc42c0d91fa181897",
-      "downloadUrl": "https://huggingface.co/unsloth/Qwen3-1.7B-GGUF/resolve/main/Qwen3-1.7B-Q4_K_M.gguf",
+      "downloadUrl": "https://huggingface.co/unsloth/Qwen3-1.7B-GGUF/resolve/d7f544eead698dbd1f15126ef60b45a1e1933222/Qwen3-1.7B-Q4_K_M.gguf",
       "fileName": "Qwen3-1.7B-Q4_K_M.gguf",
       "engineLicense": "MIT",
       "weightsLicense": "Apache-2.0",
@@ -275,7 +279,9 @@
       "recommendedContextSize": 2048,
       "reserveOutputTokens": 384,
       "useMmap": true,
-      "section": "text"
+      "section": "text",
+      "minRamMb": 3584,
+      "recommendedRamMb": 5632
     },
     {
       "id": "vision-smolvlm2-256m-video-gguf",
@@ -286,24 +292,24 @@
       "engine": "llama.cpp",
       "storageKind": "DIRECTORY_BUNDLE",
       "language": "multi",
-      "sizeBytes": 278828032,
-      "sha256": "af7ce9951a2f46c4f6e5def253e5b896ca5e417010e7a9949fdc9e5175c27767",
-      "downloadUrl": "https://huggingface.co/ggml-org/SmolVLM2-256M-Video-Instruct-GGUF/resolve/main/SmolVLM2-256M-Video-Instruct-Q8_0.gguf",
+      "sizeBytes": 278827872,
+      "sha256": "1202d1c54493bddff5b0ecbc36fcb7520ff720b9fa3d7224aeb293581f90529a",
+      "downloadUrl": "https://huggingface.co/ggml-org/SmolVLM2-256M-Video-Instruct-GGUF/resolve/2fd73d28c10a108a723cbf6f348114977cd488c1/SmolVLM2-256M-Video-Instruct-Q8_0.gguf",
       "fileName": "SmolVLM2-256M-Video-Instruct-Q8_0.gguf",
       "bundleEntryPoint": "SmolVLM2-256M-Video-Instruct-Q8_0.gguf",
       "remoteArtifacts": [
         {
           "path": "SmolVLM2-256M-Video-Instruct-Q8_0.gguf",
-          "url": "https://huggingface.co/ggml-org/SmolVLM2-256M-Video-Instruct-GGUF/resolve/main/SmolVLM2-256M-Video-Instruct-Q8_0.gguf",
-          "sha256": "af7ce9951a2f46c4f6e5def253e5b896ca5e417010e7a9949fdc9e5175c27767",
-          "sizeBytes": 175056352,
+          "url": "https://huggingface.co/ggml-org/SmolVLM2-256M-Video-Instruct-GGUF/resolve/2fd73d28c10a108a723cbf6f348114977cd488c1/SmolVLM2-256M-Video-Instruct-Q8_0.gguf",
+          "sha256": "1202d1c54493bddff5b0ecbc36fcb7520ff720b9fa3d7224aeb293581f90529a",
+          "sizeBytes": 175056256,
           "required": true
         },
         {
           "path": "mmproj-SmolVLM2-256M-Video-Instruct-Q8_0.gguf",
-          "url": "https://huggingface.co/ggml-org/SmolVLM2-256M-Video-Instruct-GGUF/resolve/main/mmproj-SmolVLM2-256M-Video-Instruct-Q8_0.gguf",
-          "sha256": "d34913a588464ff7215f086193e0426a4f045eaba74456ee5e2667d8ed6798b1",
-          "sizeBytes": 103771680,
+          "url": "https://huggingface.co/ggml-org/SmolVLM2-256M-Video-Instruct-GGUF/resolve/2fd73d28c10a108a723cbf6f348114977cd488c1/mmproj-SmolVLM2-256M-Video-Instruct-Q8_0.gguf",
+          "sha256": "05d5751132244a6ebd64cba9b34898c0d874b2cb78159d758e1d4da3aad91581",
+          "sizeBytes": 103771616,
           "required": true
         }
       ],
@@ -347,9 +353,9 @@
       "engine": "llama.cpp",
       "storageKind": "SINGLE_FILE",
       "language": "multi",
-      "sizeBytes": 773000000,
+      "sizeBytes": 770928768,
       "sha256": "9e08846ce40981cd5e395dc4da41d7f6c4c0629d281808ef264e290cb6d1566c",
-      "downloadUrl": "https://huggingface.co/bartowski/Llama-3.2-1B-Instruct-GGUF/resolve/main/Llama-3.2-1B-Instruct-Q4_0_4_4.gguf",
+      "downloadUrl": "https://huggingface.co/bartowski/Llama-3.2-1B-Instruct-GGUF/resolve/067b946cf014b7c697f3654f621d577a3e3afd1c/Llama-3.2-1B-Instruct-Q4_0_4_4.gguf",
       "fileName": "Llama-3.2-1B-Instruct-Q4_0_4_4.gguf",
       "engineLicense": "MIT",
       "weightsLicense": "llama3.2",
@@ -364,7 +370,9 @@
       "recommendedContextSize": 2048,
       "reserveOutputTokens": 384,
       "useMmap": true,
-      "section": "text"
+      "section": "text",
+      "minRamMb": 3072,
+      "recommendedRamMb": 5120
     },
     {
       "id": "llm-llama32-1b-mobile",
@@ -375,9 +383,9 @@
       "engine": "llama.cpp",
       "storageKind": "SINGLE_FILE",
       "language": "multi",
-      "sizeBytes": 808000000,
+      "sizeBytes": 807694464,
       "sha256": "6f85a640a97cf2bf5b8e764087b1e83da0fdb51d7c9fab7d0fece9385611df83",
-      "downloadUrl": "https://huggingface.co/bartowski/Llama-3.2-1B-Instruct-GGUF/resolve/main/Llama-3.2-1B-Instruct-Q4_K_M.gguf",
+      "downloadUrl": "https://huggingface.co/bartowski/Llama-3.2-1B-Instruct-GGUF/resolve/067b946cf014b7c697f3654f621d577a3e3afd1c/Llama-3.2-1B-Instruct-Q4_K_M.gguf",
       "fileName": "Llama-3.2-1B-Instruct-Q4_K_M.gguf",
       "engineLicense": "MIT",
       "weightsLicense": "llama3.2",
@@ -392,7 +400,9 @@
       "recommendedContextSize": 2048,
       "reserveOutputTokens": 384,
       "useMmap": true,
-      "section": "text"
+      "section": "text",
+      "minRamMb": 3072,
+      "recommendedRamMb": 5120
     },
     {
       "id": "llm-llama32-3b-mobile",
@@ -404,8 +414,8 @@
       "storageKind": "SINGLE_FILE",
       "language": "multi",
       "sizeBytes": 2019377600,
-      "sha256": "07fad0aa1e8b70bbaa67e0ba4202aeb82c993df41c9228ddd6ac7a39b0bdfca1",
-      "downloadUrl": "https://huggingface.co/unsloth/Llama-3.2-3B-Instruct-GGUF/resolve/main/Llama-3.2-3B-Instruct-Q4_K_M.gguf",
+      "sha256": "6c99cc00ae910f6a532a80022cb4bc1939094527a089c29294b841c0bd87f74d",
+      "downloadUrl": "https://huggingface.co/unsloth/Llama-3.2-3B-Instruct-GGUF/resolve/e7d0997e49c9cb00d88b4c1a6a16aa894b0bbc31/Llama-3.2-3B-Instruct-Q4_K_M.gguf",
       "fileName": "Llama-3.2-3B-Instruct-Q4_K_M.gguf",
       "engineLicense": "MIT",
       "weightsLicense": "llama3.2",
@@ -420,7 +430,9 @@
       "recommendedContextSize": 3072,
       "reserveOutputTokens": 768,
       "useMmap": true,
-      "section": "text"
+      "section": "text",
+      "minRamMb": 5632,
+      "recommendedRamMb": 7680
     },
     {
       "id": "llm-gemma4-e2b-safe",
@@ -431,9 +443,9 @@
       "engine": "llama.cpp",
       "storageKind": "SINGLE_FILE",
       "language": "multi",
-      "sizeBytes": 2445650048,
-      "sha256": "fce55e2ce5c7b8c96a9a4ea7dd9882ca6dd533edcfa50302526c4951d4e055ba",
-      "downloadUrl": "https://huggingface.co/unsloth/gemma-4-E2B-it-GGUF/resolve/main/gemma-4-E2B-it-Q3_K_S.gguf",
+      "sizeBytes": 2445652064,
+      "sha256": "80d155f647d3a896669b1d1605b494b97ee9dbd1dcafd27957394134c280d270",
+      "downloadUrl": "https://huggingface.co/unsloth/gemma-4-E2B-it-GGUF/resolve/0314792d7f1f7e229411f620751375812bb9faf2/gemma-4-E2B-it-Q3_K_S.gguf",
       "fileName": "gemma-4-E2B-it-Q3_K_S.gguf",
       "engineLicense": "MIT",
       "weightsLicense": "Apache-2.0",
@@ -483,9 +495,9 @@
       "engine": "llama.cpp",
       "storageKind": "SINGLE_FILE",
       "language": "multi",
-      "sizeBytes": 2536784000,
-      "sha256": "31aeee4a8b5c4a743f51f4021c29cfaa809d31a892cf9b918b9bb40542941197",
-      "downloadUrl": "https://huggingface.co/unsloth/gemma-4-E2B-it-GGUF/resolve/main/gemma-4-E2B-it-Q3_K_M.gguf",
+      "sizeBytes": 2536786016,
+      "sha256": "086e2f5ba85057f8f19712e3160a644728f74f323c9feeac4cd73fab11b43085",
+      "downloadUrl": "https://huggingface.co/unsloth/gemma-4-E2B-it-GGUF/resolve/0314792d7f1f7e229411f620751375812bb9faf2/gemma-4-E2B-it-Q3_K_M.gguf",
       "fileName": "gemma-4-E2B-it-Q3_K_M.gguf",
       "engineLicense": "MIT",
       "weightsLicense": "Apache-2.0",
@@ -535,9 +547,9 @@
       "engine": "llama.cpp",
       "storageKind": "SINGLE_FILE",
       "language": "multi",
-      "sizeBytes": 3043932288,
-      "sha256": "0a2fac16f388b4839f075dedb681357aec3e73a96bd66b413e462b6853550c99",
-      "downloadUrl": "https://huggingface.co/unsloth/gemma-4-E2B-it-GGUF/resolve/main/gemma-4-E2B-it-Q4_K_S.gguf",
+      "sizeBytes": 3043934304,
+      "sha256": "96ee1ee1d562be52dbbc4c12694ed67de8c6ae09451d420fed7d067e552c25cb",
+      "downloadUrl": "https://huggingface.co/unsloth/gemma-4-E2B-it-GGUF/resolve/0314792d7f1f7e229411f620751375812bb9faf2/gemma-4-E2B-it-Q4_K_S.gguf",
       "fileName": "gemma-4-E2B-it-Q4_K_S.gguf",
       "engineLicense": "MIT",
       "weightsLicense": "Apache-2.0",
@@ -587,9 +599,9 @@
       "engine": "llama.cpp",
       "storageKind": "SINGLE_FILE",
       "language": "multi",
-      "sizeBytes": 3106736256,
-      "sha256": "9378bc471710229ef165709b62e34bfb62231420ddaf6d729e727305b5b8672d",
-      "downloadUrl": "https://huggingface.co/unsloth/gemma-4-E2B-it-GGUF/resolve/main/gemma-4-E2B-it-Q4_K_M.gguf",
+      "sizeBytes": 3106738272,
+      "sha256": "740185b21d22ceb83a11c3aa62ad5842ef32c70f6096d756bbee85a1e4ec34b8",
+      "downloadUrl": "https://huggingface.co/unsloth/gemma-4-E2B-it-GGUF/resolve/0314792d7f1f7e229411f620751375812bb9faf2/gemma-4-E2B-it-Q4_K_M.gguf",
       "fileName": "gemma-4-E2B-it-Q4_K_M.gguf",
       "engineLicense": "MIT",
       "weightsLicense": "Apache-2.0",
@@ -639,9 +651,9 @@
       "engine": "llama.cpp",
       "storageKind": "SINGLE_FILE",
       "language": "multi",
-      "sizeBytes": 4977169568,
-      "sha256": "519b9793ed6ce0ff530f1b7c96e848e08e49e7af4d57bb97f76215963a54146d",
-      "downloadUrl": "https://huggingface.co/unsloth/gemma-4-E4B-it-GGUF/resolve/main/gemma-4-E4B-it-Q4_K_M.gguf",
+      "sizeBytes": 4977171584,
+      "sha256": "85a896a047553e842f25297ee5b031d64ff30147d9c4af17b1e4b394cd1fab87",
+      "downloadUrl": "https://huggingface.co/unsloth/gemma-4-E4B-it-GGUF/resolve/bfc15c382204943c3a8fff0c750b94ae2364d7a3/gemma-4-E4B-it-Q4_K_M.gguf",
       "fileName": "gemma-4-E4B-it-Q4_K_M.gguf",
       "engineLicense": "MIT",
       "weightsLicense": "Apache-2.0",
@@ -691,9 +703,9 @@
       "engine": "llama.cpp",
       "storageKind": "SINGLE_FILE",
       "language": "multi",
-      "sizeBytes": 397000000,
+      "sizeBytes": 396705472,
       "sha256": "ac2d97712095a558e31573f62f466a3f9d93990898b0ec79d7c974c1780d524a",
-      "downloadUrl": "https://huggingface.co/unsloth/Qwen3-0.6B-GGUF/resolve/main/Qwen3-0.6B-Q4_K_M.gguf",
+      "downloadUrl": "https://huggingface.co/unsloth/Qwen3-0.6B-GGUF/resolve/50968a4468ef4233ed78cd7c3de230dd1d61a56b/Qwen3-0.6B-Q4_K_M.gguf",
       "fileName": "Qwen3-0.6B-Q4_K_M.gguf",
       "engineLicense": "MIT",
       "weightsLicense": "Apache-2.0",
@@ -712,7 +724,9 @@
       "recommendedContextSize": 2048,
       "reserveOutputTokens": 384,
       "useMmap": true,
-      "section": "text"
+      "section": "text",
+      "minRamMb": 2560,
+      "recommendedRamMb": 4608
     },
     {
       "id": "llm-qwen3-4b-pro",
@@ -723,9 +737,9 @@
       "engine": "llama.cpp",
       "storageKind": "SINGLE_FILE",
       "language": "multi",
-      "sizeBytes": 2500000000,
-      "sha256": "skip_check",
-      "downloadUrl": "https://huggingface.co/unsloth/Qwen3-4B-GGUF/resolve/main/Qwen3-4B-Q4_K_M.gguf",
+      "sizeBytes": 2497281312,
+      "sha256": "f6f851777709861056efcdad3af01da38b31223a3ba26e61a4f8bf3a2195813a",
+      "downloadUrl": "https://huggingface.co/unsloth/Qwen3-4B-GGUF/resolve/22c9fc8a8c7700b76a1789366280a6a5a1ad1120/Qwen3-4B-Q4_K_M.gguf",
       "fileName": "Qwen3-4B-Q4_K_M.gguf",
       "engineLicense": "MIT",
       "weightsLicense": "Apache-2.0",
@@ -744,7 +758,9 @@
       "recommendedContextSize": 3072,
       "reserveOutputTokens": 768,
       "useMmap": true,
-      "section": "text"
+      "section": "text",
+      "minRamMb": 6144,
+      "recommendedRamMb": 8192
     },
     {
       "id": "llm-qwen3-8b-ultra",
@@ -755,9 +771,9 @@
       "engine": "llama.cpp",
       "storageKind": "SINGLE_FILE",
       "language": "multi",
-      "sizeBytes": 5250000000,
-      "sha256": "9ea6310459d07ddbb3e29bca644f384a5f6bc2de42515dfd16f0f4797284463c",
-      "downloadUrl": "https://huggingface.co/unsloth/Qwen3-8B-GGUF/resolve/main/Qwen3-8B-Q4_K_M.gguf",
+      "sizeBytes": 5027784512,
+      "sha256": "120307ba529eb2439d6c430d94104dabd578497bc7bfe7e322b5d9933b449bd4",
+      "downloadUrl": "https://huggingface.co/unsloth/Qwen3-8B-GGUF/resolve/a6adef130ffb23ddaf1a62fec9dced968c9bc482/Qwen3-8B-Q4_K_M.gguf",
       "fileName": "Qwen3-8B-Q4_K_M.gguf",
       "engineLicense": "MIT",
       "weightsLicense": "Apache-2.0",
@@ -776,7 +792,9 @@
       "recommendedContextSize": 4096,
       "reserveOutputTokens": 768,
       "useMmap": true,
-      "section": "text"
+      "section": "text",
+      "minRamMb": 10752,
+      "recommendedRamMb": 12800
     },
     {
       "id": "llm-deepseek-r1-0528-8b-safe",
@@ -787,9 +805,9 @@
       "engine": "llama.cpp",
       "storageKind": "SINGLE_FILE",
       "language": "multi",
-      "sizeBytes": 3110000000,
-      "sha256": "skip_check",
-      "downloadUrl": "https://huggingface.co/unsloth/DeepSeek-R1-0528-Qwen3-8B-GGUF/resolve/main/DeepSeek-R1-0528-Qwen3-8B-UD-IQ2_M.gguf",
+      "sizeBytes": 3110504960,
+      "sha256": "9e21af64845a9e0877c57ae9ec6bdbccaebbfc97683c1f7a9cad61b3b691c5d5",
+      "downloadUrl": "https://huggingface.co/unsloth/DeepSeek-R1-0528-Qwen3-8B-GGUF/resolve/eb48357c179d34dbf515983f798dfb8752a0f261/DeepSeek-R1-0528-Qwen3-8B-UD-IQ2_M.gguf",
       "fileName": "DeepSeek-R1-0528-Qwen3-8B-UD-IQ2_M.gguf",
       "engineLicense": "MIT",
       "weightsLicense": "MIT",
@@ -821,9 +839,9 @@
       "engine": "llama.cpp",
       "storageKind": "SINGLE_FILE",
       "language": "multi",
-      "sizeBytes": 4120000000,
-      "sha256": "skip_check",
-      "downloadUrl": "https://huggingface.co/unsloth/DeepSeek-R1-0528-Qwen3-8B-GGUF/resolve/main/DeepSeek-R1-0528-Qwen3-8B-Q3_K_M.gguf",
+      "sizeBytes": 4124162560,
+      "sha256": "750c8e88c22ab8ef5f1acb6bb0eb10dc186a64b83c4e67dfe4d06a30a6fc8121",
+      "downloadUrl": "https://huggingface.co/unsloth/DeepSeek-R1-0528-Qwen3-8B-GGUF/resolve/eb48357c179d34dbf515983f798dfb8752a0f261/DeepSeek-R1-0528-Qwen3-8B-Q3_K_M.gguf",
       "fileName": "DeepSeek-R1-0528-Qwen3-8B-Q3_K_M.gguf",
       "engineLicense": "MIT",
       "weightsLicense": "MIT",
@@ -854,9 +872,9 @@
       "engine": "llama.cpp",
       "storageKind": "SINGLE_FILE",
       "language": "en",
-      "sizeBytes": 26214400,
+      "sizeBytes": 25008064,
       "sha256": "e5ec722e8c82dc4ffaf965175ca472f5da3f97b695590b5b0780bdbfa29bcaf3",
-      "downloadUrl": "https://huggingface.co/leliuga/all-MiniLM-L6-v2-GGUF/resolve/main/all-MiniLM-L6-v2.Q8_0.gguf",
+      "downloadUrl": "https://huggingface.co/leliuga/all-MiniLM-L6-v2-GGUF/resolve/ddf2e25d5b8530422e7b14aa39f33a657ff9aec0/all-MiniLM-L6-v2.Q8_0.gguf",
       "fileName": "all-MiniLM-L6-v2.Q8_0.gguf",
       "engineLicense": "MIT",
       "weightsLicense": "Apache-2.0",
@@ -868,7 +886,9 @@
       "quantTier": "Q8",
       "recommendedContextSize": 2048,
       "useMmap": true,
-      "section": "text"
+      "section": "text",
+      "minRamMb": 2048,
+      "recommendedRamMb": 4096
     },
     {
       "id": "tts-espeak-ng-data",
@@ -880,8 +900,8 @@
       "engine": "sherpa-onnx",
       "language": "multi",
       "variant": "shared-data",
-      "sizeBytes": 18000000,
-      "sha256": "skip_check",
+      "sizeBytes": 7252012,
+      "sha256": "4135ccf82e1f40613491c0874d4945ae9e9c7840933d8e25a6f9e003d9ebf533",
       "downloadUrl": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/espeak-ng-data.tar.bz2",
       "fileName": "espeak-ng-data.tar.bz2",
       "engineLicense": "Apache-2.0",
@@ -892,8 +912,7 @@
       "family": "sherpa",
       "runtimeBackend": "SHERPA_ONNX",
       "storageKind": "DIRECTORY_BUNDLE",
-      "bundleEntryPoint": "espeak-ng-data",
-      "section": "voice"
+      "bundleEntryPoint": "espeak-ng-data"
     },
     {
       "id": "tts-en-lessac-base",
@@ -905,16 +924,18 @@
       "engine": "sherpa-onnx",
       "language": "en",
       "variant": "medium",
-      "sizeBytes": 70000000,
-      "sha256": "skip_check",
-      "downloadUrl": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-medium/resolve/main/en_US-lessac-medium.onnx",
+      "sizeBytes": 63207582,
+      "sha256": "ea793a648ce0370665f99fbf891eae3b3a973565c72b08534bb5b2c04e8f2332",
+      "downloadUrl": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-medium/resolve/83f7470750b36549037551ef7007fa3b4b8697e0/en_US-lessac-medium.onnx",
       "fileName": "en_US-lessac-medium.onnx",
       "engineLicense": "Apache-2.0",
       "weightsLicense": "VERIFY_BEFORE_COMMERCIAL_SHIP",
       "commercialOk": false,
       "recommended": true,
       "family": "sherpa",
-      "dependencyPackIds": ["tts-espeak-ng-data"],
+      "dependencyPackIds": [
+        "tts-espeak-ng-data"
+      ],
       "runtimeBackend": "SHERPA_ONNX",
       "storageKind": "DIRECTORY_BUNDLE",
       "bundleEntryPoint": "en_US-lessac-medium.onnx",
@@ -926,20 +947,28 @@
       "remoteArtifacts": [
         {
           "path": "en_US-lessac-medium.onnx",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-medium/resolve/main/en_US-lessac-medium.onnx"
+          "url": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-medium/resolve/83f7470750b36549037551ef7007fa3b4b8697e0/en_US-lessac-medium.onnx",
+          "sha256": "ea793a648ce0370665f99fbf891eae3b3a973565c72b08534bb5b2c04e8f2332",
+          "sizeBytes": 63201425
         },
         {
           "path": "en_US-lessac-medium.onnx.json",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-medium/resolve/main/en_US-lessac-medium.onnx.json"
+          "url": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-medium/resolve/83f7470750b36549037551ef7007fa3b4b8697e0/en_US-lessac-medium.onnx.json",
+          "sha256": "efe19c417bed055f2d69908248c6ba650fa135bc868b0e6abb3da181dab690a0",
+          "sizeBytes": 4885
         },
         {
           "path": "tokens.txt",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-medium/resolve/main/tokens.txt"
+          "url": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-medium/resolve/83f7470750b36549037551ef7007fa3b4b8697e0/tokens.txt",
+          "sha256": "87c8ef66eae5473ed0cc0366b3964c736ca6c5f676c979522ea31234e47430b9",
+          "sizeBytes": 921
         },
         {
           "path": "MODEL_CARD",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-medium/resolve/main/MODEL_CARD",
-          "required": false
+          "url": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-medium/resolve/83f7470750b36549037551ef7007fa3b4b8697e0/MODEL_CARD",
+          "required": false,
+          "sha256": "ce49eb457742208166d399a40cdec2c7fa9db77960930031564ab56f12882645",
+          "sizeBytes": 351
         }
       ]
     },
@@ -953,9 +982,9 @@
       "engine": "sherpa-onnx",
       "language": "en",
       "variant": "high",
-      "sizeBytes": 114000000,
-      "sha256": "skip_check",
-      "downloadUrl": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-high/resolve/main/en_US-lessac-high.onnx",
+      "sizeBytes": 113901483,
+      "sha256": "1315b0b3746e9ff52f8ccc88d3d9eaa6c289001fc58951ed88c0fb3a0befe635",
+      "downloadUrl": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-high/resolve/a3cffbe82b4df3b9edefa73189f4443ed638d9a1/en_US-lessac-high.onnx",
       "fileName": "en_US-lessac-high.onnx",
       "engineLicense": "Apache-2.0",
       "weightsLicense": "VERIFY_BEFORE_COMMERCIAL_SHIP",
@@ -963,7 +992,9 @@
       "minAppVersion": 1,
       "recommended": false,
       "family": "sherpa",
-      "dependencyPackIds": ["tts-espeak-ng-data"],
+      "dependencyPackIds": [
+        "tts-espeak-ng-data"
+      ],
       "runtimeBackend": "SHERPA_ONNX",
       "storageKind": "DIRECTORY_BUNDLE",
       "bundleEntryPoint": "en_US-lessac-high.onnx",
@@ -975,20 +1006,28 @@
       "remoteArtifacts": [
         {
           "path": "en_US-lessac-high.onnx",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-high/resolve/main/en_US-lessac-high.onnx"
+          "url": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-high/resolve/a3cffbe82b4df3b9edefa73189f4443ed638d9a1/en_US-lessac-high.onnx",
+          "sha256": "1315b0b3746e9ff52f8ccc88d3d9eaa6c289001fc58951ed88c0fb3a0befe635",
+          "sizeBytes": 113895332
         },
         {
           "path": "en_US-lessac-high.onnx.json",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-high/resolve/main/en_US-lessac-high.onnx.json"
+          "url": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-high/resolve/a3cffbe82b4df3b9edefa73189f4443ed638d9a1/en_US-lessac-high.onnx.json",
+          "sha256": "db42b97d9859f257bc1561b8ed980e7fb2398402050a74ddd6cbec931a92412f",
+          "sizeBytes": 4883
         },
         {
           "path": "tokens.txt",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-high/resolve/main/tokens.txt"
+          "url": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-high/resolve/a3cffbe82b4df3b9edefa73189f4443ed638d9a1/tokens.txt",
+          "sha256": "87c8ef66eae5473ed0cc0366b3964c736ca6c5f676c979522ea31234e47430b9",
+          "sizeBytes": 921
         },
         {
           "path": "MODEL_CARD",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-high/resolve/main/MODEL_CARD",
-          "required": false
+          "url": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-high/resolve/a3cffbe82b4df3b9edefa73189f4443ed638d9a1/MODEL_CARD",
+          "required": false,
+          "sha256": "7671826d947a0ffc11dd76af0bd890d93e956b00358696ad71348f21aa827100",
+          "sizeBytes": 347
         }
       ]
     },
@@ -1002,9 +1041,9 @@
       "engine": "sherpa-onnx",
       "language": "en-GB",
       "variant": "medium",
-      "sizeBytes": 63200000,
-      "sha256": "skip_check",
-      "downloadUrl": "https://huggingface.co/csukuangfj/vits-piper-en_GB-alan-medium/resolve/main/en_GB-alan-medium.onnx",
+      "sizeBytes": 63207559,
+      "sha256": "d907c48857000940104a9ad3248a94617df917d1a525c9495490fdbf87fd54b2",
+      "downloadUrl": "https://huggingface.co/csukuangfj/vits-piper-en_GB-alan-medium/resolve/a449faf03a5e8e2eed012793ce95441d0738b605/en_GB-alan-medium.onnx",
       "fileName": "en_GB-alan-medium.onnx",
       "engineLicense": "Apache-2.0",
       "weightsLicense": "VERIFY_BEFORE_COMMERCIAL_SHIP",
@@ -1012,7 +1051,9 @@
       "minAppVersion": 1,
       "recommended": false,
       "family": "sherpa",
-      "dependencyPackIds": ["tts-espeak-ng-data"],
+      "dependencyPackIds": [
+        "tts-espeak-ng-data"
+      ],
       "runtimeBackend": "SHERPA_ONNX",
       "storageKind": "DIRECTORY_BUNDLE",
       "bundleEntryPoint": "en_GB-alan-medium.onnx",
@@ -1024,20 +1065,28 @@
       "remoteArtifacts": [
         {
           "path": "en_GB-alan-medium.onnx",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-en_GB-alan-medium/resolve/main/en_GB-alan-medium.onnx"
+          "url": "https://huggingface.co/csukuangfj/vits-piper-en_GB-alan-medium/resolve/a449faf03a5e8e2eed012793ce95441d0738b605/en_GB-alan-medium.onnx",
+          "sha256": "d907c48857000940104a9ad3248a94617df917d1a525c9495490fdbf87fd54b2",
+          "sizeBytes": 63201430
         },
         {
           "path": "en_GB-alan-medium.onnx.json",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-en_GB-alan-medium/resolve/main/en_GB-alan-medium.onnx.json"
+          "url": "https://huggingface.co/csukuangfj/vits-piper-en_GB-alan-medium/resolve/a449faf03a5e8e2eed012793ce95441d0738b605/en_GB-alan-medium.onnx.json",
+          "sha256": "c0f0d124e5895c00e7c03b35dcc8287f319a6998a365b182deb5c8e752ee8c1e",
+          "sizeBytes": 4888
         },
         {
           "path": "tokens.txt",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-en_GB-alan-medium/resolve/main/tokens.txt"
+          "url": "https://huggingface.co/csukuangfj/vits-piper-en_GB-alan-medium/resolve/a449faf03a5e8e2eed012793ce95441d0738b605/tokens.txt",
+          "sha256": "87c8ef66eae5473ed0cc0366b3964c736ca6c5f676c979522ea31234e47430b9",
+          "sizeBytes": 921
         },
         {
           "path": "MODEL_CARD",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-en_GB-alan-medium/resolve/main/MODEL_CARD",
-          "required": false
+          "url": "https://huggingface.co/csukuangfj/vits-piper-en_GB-alan-medium/resolve/a449faf03a5e8e2eed012793ce95441d0738b605/MODEL_CARD",
+          "required": false,
+          "sha256": "abcbc3e961124398911436acd9eaaa0ab167cdf221d5a24146aa08732c52630f",
+          "sizeBytes": 320
         }
       ]
     },
@@ -1051,9 +1100,9 @@
       "engine": "sherpa-onnx",
       "language": "it",
       "variant": "medium",
-      "sizeBytes": 63500000,
-      "sha256": "skip_check",
-      "downloadUrl": "https://huggingface.co/csukuangfj/vits-piper-it_IT-paola-medium/resolve/main/it_IT-paola-medium.onnx",
+      "sizeBytes": 63519489,
+      "sha256": "cbe315465f8a0be7db8b40f922fe906cf202996b0e15d388c540e9ac3d4b7fd7",
+      "downloadUrl": "https://huggingface.co/csukuangfj/vits-piper-it_IT-paola-medium/resolve/b2d11ae8ce81120ba05f39fb43ecbff2d6d634ea/it_IT-paola-medium.onnx",
       "fileName": "it_IT-paola-medium.onnx",
       "engineLicense": "Apache-2.0",
       "weightsLicense": "VERIFY_BEFORE_COMMERCIAL_SHIP",
@@ -1061,7 +1110,9 @@
       "minAppVersion": 1,
       "recommended": false,
       "family": "sherpa",
-      "dependencyPackIds": ["tts-espeak-ng-data"],
+      "dependencyPackIds": [
+        "tts-espeak-ng-data"
+      ],
       "runtimeBackend": "SHERPA_ONNX",
       "storageKind": "DIRECTORY_BUNDLE",
       "bundleEntryPoint": "it_IT-paola-medium.onnx",
@@ -1073,20 +1124,28 @@
       "remoteArtifacts": [
         {
           "path": "it_IT-paola-medium.onnx",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-it_IT-paola-medium/resolve/main/it_IT-paola-medium.onnx"
+          "url": "https://huggingface.co/csukuangfj/vits-piper-it_IT-paola-medium/resolve/b2d11ae8ce81120ba05f39fb43ecbff2d6d634ea/it_IT-paola-medium.onnx",
+          "sha256": "cbe315465f8a0be7db8b40f922fe906cf202996b0e15d388c540e9ac3d4b7fd7",
+          "sizeBytes": 63511166
         },
         {
           "path": "it_IT-paola-medium.onnx.json",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-it_IT-paola-medium/resolve/main/it_IT-paola-medium.onnx.json"
+          "url": "https://huggingface.co/csukuangfj/vits-piper-it_IT-paola-medium/resolve/b2d11ae8ce81120ba05f39fb43ecbff2d6d634ea/it_IT-paola-medium.onnx.json",
+          "sha256": "aea19c0a7fce29fbc359b93f10e7902854401e4c95ae2ea328ae516b15d296cf",
+          "sizeBytes": 7099
         },
         {
           "path": "tokens.txt",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-it_IT-paola-medium/resolve/main/tokens.txt"
+          "url": "https://huggingface.co/csukuangfj/vits-piper-it_IT-paola-medium/resolve/b2d11ae8ce81120ba05f39fb43ecbff2d6d634ea/tokens.txt",
+          "sha256": "95064d2a5d6b029c6710f9c83062a4401cbcee9678e419f381ca3b18a690983d",
+          "sizeBytes": 921
         },
         {
           "path": "MODEL_CARD",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-it_IT-paola-medium/resolve/main/MODEL_CARD",
-          "required": false
+          "url": "https://huggingface.co/csukuangfj/vits-piper-it_IT-paola-medium/resolve/b2d11ae8ce81120ba05f39fb43ecbff2d6d634ea/MODEL_CARD",
+          "required": false,
+          "sha256": "c53fd0070dc93b438edbce06728eb83759ba030fff0cce523209ee4a0a6363c0",
+          "sizeBytes": 303
         }
       ]
     },
@@ -1100,9 +1159,9 @@
       "engine": "sherpa-onnx",
       "language": "fr",
       "variant": "medium",
-      "sizeBytes": 63200000,
-      "sha256": "skip_check",
-      "downloadUrl": "https://huggingface.co/csukuangfj/vits-piper-fr_FR-siwis-medium/resolve/main/fr_FR-siwis-medium.onnx",
+      "sizeBytes": 63207501,
+      "sha256": "830f55d861ce7c8a442fd5593890ff5ee50c9d5efd4c4f42d24d537fe46d2d52",
+      "downloadUrl": "https://huggingface.co/csukuangfj/vits-piper-fr_FR-siwis-medium/resolve/6b956227093bc8f9c05e5549508c4a510e97ef26/fr_FR-siwis-medium.onnx",
       "fileName": "fr_FR-siwis-medium.onnx",
       "engineLicense": "Apache-2.0",
       "weightsLicense": "VERIFY_BEFORE_COMMERCIAL_SHIP",
@@ -1110,7 +1169,9 @@
       "minAppVersion": 1,
       "recommended": false,
       "family": "sherpa",
-      "dependencyPackIds": ["tts-espeak-ng-data"],
+      "dependencyPackIds": [
+        "tts-espeak-ng-data"
+      ],
       "runtimeBackend": "SHERPA_ONNX",
       "storageKind": "DIRECTORY_BUNDLE",
       "bundleEntryPoint": "fr_FR-siwis-medium.onnx",
@@ -1122,20 +1183,28 @@
       "remoteArtifacts": [
         {
           "path": "fr_FR-siwis-medium.onnx",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-fr_FR-siwis-medium/resolve/main/fr_FR-siwis-medium.onnx"
+          "url": "https://huggingface.co/csukuangfj/vits-piper-fr_FR-siwis-medium/resolve/6b956227093bc8f9c05e5549508c4a510e97ef26/fr_FR-siwis-medium.onnx",
+          "sha256": "830f55d861ce7c8a442fd5593890ff5ee50c9d5efd4c4f42d24d537fe46d2d52",
+          "sizeBytes": 63201421
         },
         {
           "path": "fr_FR-siwis-medium.onnx.json",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-fr_FR-siwis-medium/resolve/main/fr_FR-siwis-medium.onnx.json"
+          "url": "https://huggingface.co/csukuangfj/vits-piper-fr_FR-siwis-medium/resolve/6b956227093bc8f9c05e5549508c4a510e97ef26/fr_FR-siwis-medium.onnx.json",
+          "sha256": "39479916c2db192b5ac9764daddd0c744d83e023ad890c6976c0633ae4df8959",
+          "sizeBytes": 4875
         },
         {
           "path": "tokens.txt",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-fr_FR-siwis-medium/resolve/main/tokens.txt"
+          "url": "https://huggingface.co/csukuangfj/vits-piper-fr_FR-siwis-medium/resolve/6b956227093bc8f9c05e5549508c4a510e97ef26/tokens.txt",
+          "sha256": "87c8ef66eae5473ed0cc0366b3964c736ca6c5f676c979522ea31234e47430b9",
+          "sizeBytes": 921
         },
         {
           "path": "MODEL_CARD",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-fr_FR-siwis-medium/resolve/main/MODEL_CARD",
-          "required": false
+          "url": "https://huggingface.co/csukuangfj/vits-piper-fr_FR-siwis-medium/resolve/6b956227093bc8f9c05e5549508c4a510e97ef26/MODEL_CARD",
+          "required": false,
+          "sha256": "bd8b8d079d4d3d2c4cc20345889bbcd586d72f021a132f93357a763eb5232cce",
+          "sizeBytes": 284
         }
       ]
     },
@@ -1149,9 +1218,9 @@
       "engine": "sherpa-onnx",
       "language": "de",
       "variant": "medium",
-      "sizeBytes": 63200000,
-      "sha256": "skip_check",
-      "downloadUrl": "https://huggingface.co/csukuangfj/vits-piper-de_DE-thorsten-medium/resolve/main/de_DE-thorsten-medium.onnx",
+      "sizeBytes": 63207432,
+      "sha256": "1c305abe13dda2f50a9783da3e7645396833cdf2d09f24fa9a823c91293d65a6",
+      "downloadUrl": "https://huggingface.co/csukuangfj/vits-piper-de_DE-thorsten-medium/resolve/da8bed7888b27d17e1aa8fbd53e6703ab939583a/de_DE-thorsten-medium.onnx",
       "fileName": "de_DE-thorsten-medium.onnx",
       "engineLicense": "Apache-2.0",
       "weightsLicense": "VERIFY_BEFORE_COMMERCIAL_SHIP",
@@ -1159,7 +1228,9 @@
       "minAppVersion": 1,
       "recommended": false,
       "family": "sherpa",
-      "dependencyPackIds": ["tts-espeak-ng-data"],
+      "dependencyPackIds": [
+        "tts-espeak-ng-data"
+      ],
       "runtimeBackend": "SHERPA_ONNX",
       "storageKind": "DIRECTORY_BUNDLE",
       "bundleEntryPoint": "de_DE-thorsten-medium.onnx",
@@ -1171,20 +1242,28 @@
       "remoteArtifacts": [
         {
           "path": "de_DE-thorsten-medium.onnx",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-de_DE-thorsten-medium/resolve/main/de_DE-thorsten-medium.onnx"
+          "url": "https://huggingface.co/csukuangfj/vits-piper-de_DE-thorsten-medium/resolve/da8bed7888b27d17e1aa8fbd53e6703ab939583a/de_DE-thorsten-medium.onnx",
+          "sha256": "1c305abe13dda2f50a9783da3e7645396833cdf2d09f24fa9a823c91293d65a6",
+          "sizeBytes": 63201421
         },
         {
           "path": "de_DE-thorsten-medium.onnx.json",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-de_DE-thorsten-medium/resolve/main/de_DE-thorsten-medium.onnx.json"
+          "url": "https://huggingface.co/csukuangfj/vits-piper-de_DE-thorsten-medium/resolve/da8bed7888b27d17e1aa8fbd53e6703ab939583a/de_DE-thorsten-medium.onnx.json",
+          "sha256": "974adee790533adb273a1ac88f49027d2a1b8f0f2cf4905954a4791e79264e85",
+          "sizeBytes": 4819
         },
         {
           "path": "tokens.txt",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-de_DE-thorsten-medium/resolve/main/tokens.txt"
+          "url": "https://huggingface.co/csukuangfj/vits-piper-de_DE-thorsten-medium/resolve/da8bed7888b27d17e1aa8fbd53e6703ab939583a/tokens.txt",
+          "sha256": "2619c1a9de1bcf928162f40c583caf39368cfd6b2340c7bcad51dc634411ec36",
+          "sizeBytes": 907
         },
         {
           "path": "MODEL_CARD",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-de_DE-thorsten-medium/resolve/main/MODEL_CARD",
-          "required": false
+          "url": "https://huggingface.co/csukuangfj/vits-piper-de_DE-thorsten-medium/resolve/da8bed7888b27d17e1aa8fbd53e6703ab939583a/MODEL_CARD",
+          "required": false,
+          "sha256": "5196b5ab0794e6056263a1f37c18bec407b61ac187529bee29d1c366871e5c9e",
+          "sizeBytes": 285
         }
       ]
     },
@@ -1198,9 +1277,9 @@
       "engine": "sherpa-onnx",
       "language": "es",
       "variant": "medium",
-      "sizeBytes": 76700000,
-      "sha256": "skip_check",
-      "downloadUrl": "https://huggingface.co/csukuangfj/vits-piper-es_ES-sharvard-medium/resolve/main/es_ES-sharvard-medium.onnx",
+      "sizeBytes": 76739959,
+      "sha256": "f26006cd03e2d558966fa3c49cfa9361dfa22d72197d74b6b50437cb02b8faaf",
+      "downloadUrl": "https://huggingface.co/csukuangfj/vits-piper-es_ES-sharvard-medium/resolve/2306b73bae558eddfdaee0a7ef3048a966a291d4/es_ES-sharvard-medium.onnx",
       "fileName": "es_ES-sharvard-medium.onnx",
       "engineLicense": "Apache-2.0",
       "weightsLicense": "VERIFY_BEFORE_COMMERCIAL_SHIP",
@@ -1208,7 +1287,9 @@
       "minAppVersion": 1,
       "recommended": false,
       "family": "sherpa",
-      "dependencyPackIds": ["tts-espeak-ng-data"],
+      "dependencyPackIds": [
+        "tts-espeak-ng-data"
+      ],
       "runtimeBackend": "SHERPA_ONNX",
       "storageKind": "DIRECTORY_BUNDLE",
       "bundleEntryPoint": "es_ES-sharvard-medium.onnx",
@@ -1220,20 +1301,28 @@
       "remoteArtifacts": [
         {
           "path": "es_ES-sharvard-medium.onnx",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-es_ES-sharvard-medium/resolve/main/es_ES-sharvard-medium.onnx"
+          "url": "https://huggingface.co/csukuangfj/vits-piper-es_ES-sharvard-medium/resolve/2306b73bae558eddfdaee0a7ef3048a966a291d4/es_ES-sharvard-medium.onnx",
+          "sha256": "f26006cd03e2d558966fa3c49cfa9361dfa22d72197d74b6b50437cb02b8faaf",
+          "sizeBytes": 76733743
         },
         {
           "path": "es_ES-sharvard-medium.onnx.json",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-es_ES-sharvard-medium/resolve/main/es_ES-sharvard-medium.onnx.json"
+          "url": "https://huggingface.co/csukuangfj/vits-piper-es_ES-sharvard-medium/resolve/2306b73bae558eddfdaee0a7ef3048a966a291d4/es_ES-sharvard-medium.onnx.json",
+          "sha256": "7438c9b699c72b0c3388dae1b68d3f364dc66a2150fe554a1c11f03372957b2c",
+          "sizeBytes": 4903
         },
         {
           "path": "tokens.txt",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-es_ES-sharvard-medium/resolve/main/tokens.txt"
+          "url": "https://huggingface.co/csukuangfj/vits-piper-es_ES-sharvard-medium/resolve/2306b73bae558eddfdaee0a7ef3048a966a291d4/tokens.txt",
+          "sha256": "87c8ef66eae5473ed0cc0366b3964c736ca6c5f676c979522ea31234e47430b9",
+          "sizeBytes": 921
         },
         {
           "path": "MODEL_CARD",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-es_ES-sharvard-medium/resolve/main/MODEL_CARD",
-          "required": false
+          "url": "https://huggingface.co/csukuangfj/vits-piper-es_ES-sharvard-medium/resolve/2306b73bae558eddfdaee0a7ef3048a966a291d4/MODEL_CARD",
+          "required": false,
+          "sha256": "37655314d08fe8a0900abc628d3bcbee48ffbdd8fad9306b89525a0ada20fefc",
+          "sizeBytes": 392
         }
       ]
     },
@@ -1247,7 +1336,7 @@
       "language": "multi",
       "sizeBytes": 147951465,
       "sha256": "60ed5bc3dd14eea856493d334349b405782ddcaf0028d4b5df4088345fba2efe",
-      "downloadUrl": "https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-base.bin",
+      "downloadUrl": "https://huggingface.co/ggerganov/whisper.cpp/resolve/5359861c739e955e79d9a303bcbc70fb988958b1/ggml-base.bin",
       "fileName": "ggml-base.bin",
       "engineLicense": "MIT",
       "weightsLicense": "MIT",
@@ -1268,7 +1357,7 @@
       "language": "en",
       "sizeBytes": 147964211,
       "sha256": "a03779c86df3323075f5e796cb2ce5029f00ec8869eee3fdfb897afe36c6d002",
-      "downloadUrl": "https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-base.en.bin",
+      "downloadUrl": "https://huggingface.co/ggerganov/whisper.cpp/resolve/5359861c739e955e79d9a303bcbc70fb988958b1/ggml-base.en.bin",
       "fileName": "ggml-base.en.bin",
       "engineLicense": "MIT",
       "weightsLicense": "MIT",
@@ -1289,7 +1378,7 @@
       "language": "en",
       "sizeBytes": 77704715,
       "sha256": "921e4cf8686fdd993dcd081a5da5b6c365bfde1162e72b08d75ac75289920b1f",
-      "downloadUrl": "https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-tiny.en.bin",
+      "downloadUrl": "https://huggingface.co/ggerganov/whisper.cpp/resolve/5359861c739e955e79d9a303bcbc70fb988958b1/ggml-tiny.en.bin",
       "fileName": "ggml-tiny.en.bin",
       "engineLicense": "MIT",
       "weightsLicense": "MIT",
@@ -1310,7 +1399,7 @@
       "language": "multi",
       "sizeBytes": 77691713,
       "sha256": "be07e048e1e599ad46341c8d2a135645097a538221678b7acdd1b1919c6e1b21",
-      "downloadUrl": "https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-tiny.bin",
+      "downloadUrl": "https://huggingface.co/ggerganov/whisper.cpp/resolve/5359861c739e955e79d9a303bcbc70fb988958b1/ggml-tiny.bin",
       "fileName": "ggml-tiny.bin",
       "engineLicense": "MIT",
       "weightsLicense": "MIT",
@@ -1332,17 +1421,17 @@
       "language": "en",
       "variant": "high",
       "sizeBytes": 87000000,
-      "sha256": "4b91763a925439a7b51b033d3c859d33261a29350de263919e1ff131efeb43cc",
+      "sha256": "",
       "downloadUrl": "https://huggingface.co/hexgrad/Kokoro-82M/resolve/main/kokoro-v1.0.onnx",
       "fileName": "kokoro-v1.0.onnx",
       "engineLicense": "Apache-2.0",
       "weightsLicense": "Apache-2.0",
       "commercialOk": true,
       "minAppVersion": 1,
-      "recommended": true,
+      "recommended": false,
       "family": "kokoro",
-      "runtimeBackend": "KOKORO_ONNX",
-      "storageKind": "SINGLE_FILE",
+      "runtimeBackend": "KOKORO",
+      "storageKind": "DIRECTORY_BUNDLE",
       "additionalArtifacts": [
         "voices.bin"
       ],
@@ -1355,7 +1444,10 @@
           "path": "voices.bin",
           "url": "https://huggingface.co/hexgrad/Kokoro-82M/resolve/main/voices.bin"
         }
-      ]
+      ],
+      "installable": false,
+      "unavailableReason": "The declared ONNX and voice files are absent upstream. A compatible Kokoro phonemizer, token/voice bundle and runtime adapter must be validated before enabling this pack.",
+      "bundleEntryPoint": "kokoro-v1.0.onnx"
     },
     {
       "id": "stt-small-multi",
@@ -1365,9 +1457,9 @@
       "engine": "whisper.cpp",
       "storageKind": "SINGLE_FILE",
       "language": "multi",
-      "sizeBytes": 487541249,
-      "sha256": "9b1c7a8d5f3e4b2d1c6e7a9b0c2d3e5f4b6d8a0c1e3f5b7d9a1c2e4f6b8d0a2c",
-      "downloadUrl": "https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-small.bin",
+      "sizeBytes": 487601967,
+      "sha256": "1be3a9b2063867b937e64e2ec7483364a79917e157fa98c5d94b5c1fffea987b",
+      "downloadUrl": "https://huggingface.co/ggerganov/whisper.cpp/resolve/5359861c739e955e79d9a303bcbc70fb988958b1/ggml-small.bin",
       "fileName": "ggml-small.bin",
       "engineLicense": "MIT",
       "weightsLicense": "MIT",
@@ -1388,7 +1480,7 @@
       "storageKind": "SINGLE_FILE",
       "language": "multi",
       "sizeBytes": 5420000000,
-      "sha256": "8f3b2a1d4c5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1",
+      "sha256": "",
       "downloadUrl": "https://huggingface.co/bartowski/gemma-3-9b-it-GGUF/resolve/main/gemma-3-9b-it-Q4_K_M.gguf",
       "fileName": "gemma-3-9b-it-Q4_K_M.gguf",
       "engineLicense": "MIT",
@@ -1399,12 +1491,14 @@
       "category": "llm",
       "runtimeBackend": "LLAMA_CPP",
       "quantTier": "Q4",
-      "promptFormat": "GEMMA3",
+      "promptFormat": "GEMMA",
       "supportsTools": true,
       "recommendedContextSize": 4096,
       "useMmap": true,
       "minRamMb": 10000,
-      "section": "text"
+      "section": "text",
+      "installable": false,
+      "unavailableReason": "The declared Gemma 3 9B repository cannot be verified. Select an available Gemma model until a compatible artifact is validated."
     },
     {
       "id": "llm-bitnet-b158-2b",
@@ -1416,7 +1510,7 @@
       "storageKind": "SINGLE_FILE",
       "language": "en",
       "sizeBytes": 450000000,
-      "sha256": "3a2b1c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2",
+      "sha256": "",
       "downloadUrl": "https://huggingface.co/HF1BitLLM/Llama3-8B-1.58-100B-tokens-GGUF/resolve/main/bitnet_b1_58-2b.gguf",
       "fileName": "bitnet_b1_58-2b.gguf",
       "engineLicense": "MIT",
@@ -1426,13 +1520,15 @@
       "recommended": false,
       "category": "llm",
       "runtimeBackend": "LLAMA_CPP",
-      "quantTier": "BITNET",
+      "quantTier": "OTHER",
       "promptFormat": "CHATML",
       "supportsTools": false,
       "recommendedContextSize": 1024,
       "useMmap": true,
       "minRamMb": 2048,
-      "section": "text"
+      "section": "text",
+      "installable": false,
+      "unavailableReason": "The declared 2B artifact points to an unverified 8B repository. A compatible GGUF and native quantization backend must be validated first."
     },
     {
       "id": "img-juggernaut-xl-v9-gguf",
@@ -1442,9 +1538,9 @@
       "engine": "stable-diffusion.cpp",
       "storageKind": "SINGLE_FILE",
       "language": "multi",
-      "sizeBytes": 3850000000,
-      "sha256": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2",
-      "downloadUrl": "https://huggingface.co/offgrid-ai/juggernaut-xl-v9-GGUF/resolve/main/juggernaut-xl-v9-Q4_K.gguf",
+      "sizeBytes": 2965023776,
+      "sha256": "a2d08292fd9c036f9f1b0bc7754d5e2ac262ecec79a0f2fcdc9b2c35afd56705",
+      "downloadUrl": "https://huggingface.co/offgrid-ai/juggernaut-xl-v9-GGUF/resolve/83cc52b4b170edad3cca2c8c2cac48ce515112a8/juggernaut-xl-v9-Q4_K.gguf",
       "fileName": "juggernaut-xl-v9-Q4_K.gguf",
       "engineLicense": "MIT",
       "weightsLicense": "OpenRAIL",
@@ -1459,7 +1555,9 @@
       "recommendedHeight": 1024,
       "recommendedSteps": 25,
       "recommendedCfgScale": 6.0,
-      "accelerationTargets": ["VULKAN", "CPU"],
+      "accelerationTargets": [
+        "CPU"
+      ],
       "recommendedRamMb": 10000,
       "section": "image"
     },
@@ -1471,9 +1569,9 @@
       "engine": "stable-diffusion.cpp",
       "storageKind": "SINGLE_FILE",
       "language": "multi",
-      "sizeBytes": 3810000000,
-      "sha256": "c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4",
-      "downloadUrl": "https://huggingface.co/offgrid-ai/realvisxl-v5.0-lightning-GGUF/resolve/main/realvisxl-v5.0-lightning-Q4_K.gguf",
+      "sizeBytes": 2797755008,
+      "sha256": "2c821ab5b61c572b7085d7951e5247a05688e5f77c64d84724073235cb90875e",
+      "downloadUrl": "https://huggingface.co/offgrid-ai/realvisxl-v5.0-lightning-GGUF/resolve/2f4ff9d5fb58ee055bb892b17db106221baf325e/realvisxl-v5.0-lightning-Q4_K.gguf",
       "fileName": "realvisxl-v5.0-lightning-Q4_K.gguf",
       "engineLicense": "MIT",
       "weightsLicense": "OpenRAIL",
@@ -1488,7 +1586,9 @@
       "recommendedHeight": 1024,
       "recommendedSteps": 6,
       "recommendedCfgScale": 2.0,
-      "accelerationTargets": ["VULKAN", "CPU"],
+      "accelerationTargets": [
+        "CPU"
+      ],
       "recommendedRamMb": 10000,
       "section": "image"
     },
@@ -1500,9 +1600,9 @@
       "engine": "stable-diffusion.cpp",
       "storageKind": "SINGLE_FILE",
       "language": "multi",
-      "sizeBytes": 3940000000,
-      "sha256": "f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7",
-      "downloadUrl": "https://huggingface.co/offgrid-ai/pony-diffusion-v6-xl-GGUF/resolve/main/pony-diffusion-v6-xl-Q4_K.gguf",
+      "sizeBytes": 2797752960,
+      "sha256": "f25f621cc552b35a0340b7915093ecbb7d02acc7963f89a86fa3e7c3baaf26e4",
+      "downloadUrl": "https://huggingface.co/offgrid-ai/pony-diffusion-v6-xl-GGUF/resolve/b952fe9fad7fe6f6973c6f74a9d179a6fe4f77eb/pony-diffusion-v6-xl-Q4_K.gguf",
       "fileName": "pony-diffusion-v6-xl-Q4_K.gguf",
       "engineLicense": "MIT",
       "weightsLicense": "OpenRAIL",
@@ -1517,7 +1617,9 @@
       "recommendedHeight": 1024,
       "recommendedSteps": 25,
       "recommendedCfgScale": 7.0,
-      "accelerationTargets": ["VULKAN", "CPU"],
+      "accelerationTargets": [
+        "CPU"
+      ],
       "recommendedRamMb": 10000,
       "section": "image"
     },
@@ -1531,7 +1633,7 @@
       "language": "multi",
       "sizeBytes": 1190041452,
       "sha256": "ef619a92e0efcca78c369aad46f9764a7ae3288ca66537a2a2c9cb2903fe0b30",
-      "downloadUrl": "https://huggingface.co/xororz/sd-mnn/resolve/main/AbsoluteReality.zip",
+      "downloadUrl": "https://huggingface.co/xororz/sd-mnn/resolve/332f02a38932005d1f5af35c6dab0448f8b13996/AbsoluteReality.zip",
       "fileName": "AbsoluteReality.zip",
       "engineLicense": "MIT",
       "weightsLicense": "other",
@@ -1546,7 +1648,11 @@
       "recommendedHeight": 512,
       "recommendedSteps": 15,
       "recommendedCfgScale": 7.0,
-      "accelerationTargets": ["CPU", "GPU", "MNN"],
+      "accelerationTargets": [
+        "CPU",
+        "GPU",
+        "MNN"
+      ],
       "recommendedRamMb": 6000,
       "section": "image"
     },
@@ -1558,9 +1664,9 @@
       "engine": "local-dream",
       "storageKind": "ZIP_BUNDLE",
       "language": "multi",
-      "sizeBytes": 993000000,
-      "sha256": "b702ca2d4b351359e177818120c8e9eaf7ef308c9321141891d168bb407ae938",
-      "downloadUrl": "https://huggingface.co/xororz/sd-qnn/resolve/main/AbsoluteReality_qnn2.28_min.zip",
+      "sizeBytes": 993451663,
+      "sha256": "c4396637a90dbd4ded0e8c0d2747e2f60925ced9c64fb286328be6478e9d6913",
+      "downloadUrl": "https://huggingface.co/xororz/sd-qnn/resolve/64d16039e0c3a71d3c5db1faccc090faae93cb28/AbsoluteReality_qnn2.28_min.zip",
       "fileName": "AbsoluteReality_qnn2.28_min.zip",
       "engineLicense": "MIT",
       "weightsLicense": "other",
@@ -1575,7 +1681,10 @@
       "recommendedHeight": 512,
       "recommendedSteps": 15,
       "recommendedCfgScale": 7.0,
-      "accelerationTargets": ["NPU", "QNN"],
+      "accelerationTargets": [
+        "NPU",
+        "QNN"
+      ],
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_min",
       "recommendedRamMb": 6000,
@@ -1589,9 +1698,9 @@
       "engine": "stable-diffusion.cpp",
       "storageKind": "SINGLE_FILE",
       "language": "multi",
-      "sizeBytes": 2130000000,
+      "sizeBytes": 2132625432,
       "sha256": "463d6a9fe8a4b56a4d69ef3692074c0617428dfd8e8f12f9efe3b1e9a71717ce",
-      "downloadUrl": "https://huggingface.co/Lykon/AbsoluteReality/resolve/main/AbsoluteReality_1.8.1_pruned.safetensors",
+      "downloadUrl": "https://huggingface.co/Lykon/AbsoluteReality/resolve/df7c3efce8f54d02cf73a21fcecd908a0fde2898/AbsoluteReality_1.8.1_pruned.safetensors",
       "fileName": "AbsoluteReality_1.8.1_pruned.safetensors",
       "engineLicense": "MIT",
       "weightsLicense": "other",
@@ -1606,7 +1715,9 @@
       "recommendedHeight": 512,
       "recommendedSteps": 15,
       "recommendedCfgScale": 7.0,
-      "accelerationTargets": ["CPU", "VULKAN"],
+      "accelerationTargets": [
+        "CPU"
+      ],
       "recommendedRamMb": 8000,
       "section": "image"
     },
@@ -1620,7 +1731,7 @@
       "language": "multi",
       "sizeBytes": 1191044427,
       "sha256": "6183835e6b3f438a743ee16d4f929cb8bd2f20e50dc56d1a8eab0185e0734bbf",
-      "downloadUrl": "https://huggingface.co/xororz/sd-mnn/resolve/main/AnythingV5.zip",
+      "downloadUrl": "https://huggingface.co/xororz/sd-mnn/resolve/332f02a38932005d1f5af35c6dab0448f8b13996/AnythingV5.zip",
       "fileName": "AnythingV5.zip",
       "engineLicense": "MIT",
       "weightsLicense": "other",
@@ -1635,7 +1746,11 @@
       "recommendedHeight": 512,
       "recommendedSteps": 15,
       "recommendedCfgScale": 7.0,
-      "accelerationTargets": ["CPU", "GPU", "MNN"],
+      "accelerationTargets": [
+        "CPU",
+        "GPU",
+        "MNN"
+      ],
       "recommendedRamMb": 6000,
       "section": "image"
     },
@@ -1647,9 +1762,9 @@
       "engine": "local-dream",
       "storageKind": "ZIP_BUNDLE",
       "language": "multi",
-      "sizeBytes": 995000000,
-      "sha256": "ee90840357fc7a58ea793602adf5691fb3476e725003d0c2d9715f47b00b65ea",
-      "downloadUrl": "https://huggingface.co/xororz/sd-qnn/resolve/main/AnythingV5_qnn2.28_min.zip",
+      "sizeBytes": 995100213,
+      "sha256": "c00225884b000fdf855ccb6a8759b477a2c732cfafd54cb86a1748ab63ff0731",
+      "downloadUrl": "https://huggingface.co/xororz/sd-qnn/resolve/64d16039e0c3a71d3c5db1faccc090faae93cb28/AnythingV5_qnn2.28_min.zip",
       "fileName": "AnythingV5_qnn2.28_min.zip",
       "engineLicense": "MIT",
       "weightsLicense": "other",
@@ -1664,7 +1779,10 @@
       "recommendedHeight": 512,
       "recommendedSteps": 15,
       "recommendedCfgScale": 7.0,
-      "accelerationTargets": ["NPU", "QNN"],
+      "accelerationTargets": [
+        "NPU",
+        "QNN"
+      ],
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_min",
       "recommendedRamMb": 6000,
@@ -1680,7 +1798,7 @@
       "language": "multi",
       "sizeBytes": 2132626102,
       "sha256": "7f96a1a9ca9b3a3242a9ae95d19284f0d2da8d5282b42d2d974398bf7663a252",
-      "downloadUrl": "https://huggingface.co/genai-archive/anything-v5/resolve/main/anything-v5.safetensors",
+      "downloadUrl": "https://huggingface.co/genai-archive/anything-v5/resolve/5a5d7ab51adda6ae5d0cfee9ac625cc2a8fa91bc/anything-v5.safetensors",
       "fileName": "anything-v5.safetensors",
       "engineLicense": "MIT",
       "weightsLicense": "creativeml-openrail-m",
@@ -1694,7 +1812,9 @@
       "recommendedHeight": 512,
       "recommendedSteps": 15,
       "recommendedCfgScale": 7.0,
-      "accelerationTargets": ["CPU", "VULKAN"],
+      "accelerationTargets": [
+        "CPU"
+      ],
       "recommendedRamMb": 8000,
       "section": "image"
     },
@@ -1708,7 +1828,7 @@
       "language": "multi",
       "sizeBytes": 1203917293,
       "sha256": "1fbd028a5e08dca3dde9ab8dc1b3922eb91962fa2599f1c0fcb6d44bdccd737b",
-      "downloadUrl": "https://huggingface.co/xororz/sd-mnn/resolve/main/ChilloutMix.zip",
+      "downloadUrl": "https://huggingface.co/xororz/sd-mnn/resolve/332f02a38932005d1f5af35c6dab0448f8b13996/ChilloutMix.zip",
       "fileName": "ChilloutMix.zip",
       "engineLicense": "MIT",
       "weightsLicense": "other",
@@ -1723,7 +1843,11 @@
       "recommendedHeight": 512,
       "recommendedSteps": 15,
       "recommendedCfgScale": 7.0,
-      "accelerationTargets": ["CPU", "GPU", "MNN"],
+      "accelerationTargets": [
+        "CPU",
+        "GPU",
+        "MNN"
+      ],
       "recommendedRamMb": 6000,
       "section": "image"
     },
@@ -1735,9 +1859,9 @@
       "engine": "local-dream",
       "storageKind": "ZIP_BUNDLE",
       "language": "multi",
-      "sizeBytes": 1070000000,
-      "sha256": "3f51fa3c82857c5ff84481e78cb20bbb17fd6f5c0bb2ba24812b9aa00f6d8e55",
-      "downloadUrl": "https://huggingface.co/xororz/sd-qnn/resolve/main/ChilloutMix_qnn2.28_min.zip",
+      "sizeBytes": 1007485231,
+      "sha256": "f521d77eef922dd54872b5168d562c242bda2c102664bad30ec9943ab92a2822",
+      "downloadUrl": "https://huggingface.co/xororz/sd-qnn/resolve/64d16039e0c3a71d3c5db1faccc090faae93cb28/ChilloutMix_qnn2.28_min.zip",
       "fileName": "ChilloutMix_qnn2.28_min.zip",
       "engineLicense": "MIT",
       "weightsLicense": "other",
@@ -1752,7 +1876,10 @@
       "recommendedHeight": 512,
       "recommendedSteps": 15,
       "recommendedCfgScale": 7.0,
-      "accelerationTargets": ["NPU", "QNN"],
+      "accelerationTargets": [
+        "NPU",
+        "QNN"
+      ],
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_min",
       "recommendedRamMb": 6000,
@@ -1768,7 +1895,7 @@
       "language": "multi",
       "sizeBytes": 1188112898,
       "sha256": "32715edb416d32d65b8126799f229e972f5c905f68cab5081101b304725889fb",
-      "downloadUrl": "https://huggingface.co/xororz/sd-mnn/resolve/main/CuteYukiMix.zip",
+      "downloadUrl": "https://huggingface.co/xororz/sd-mnn/resolve/332f02a38932005d1f5af35c6dab0448f8b13996/CuteYukiMix.zip",
       "fileName": "CuteYukiMix.zip",
       "engineLicense": "MIT",
       "weightsLicense": "other",
@@ -1783,7 +1910,11 @@
       "recommendedHeight": 512,
       "recommendedSteps": 15,
       "recommendedCfgScale": 7.0,
-      "accelerationTargets": ["CPU", "GPU", "MNN"],
+      "accelerationTargets": [
+        "CPU",
+        "GPU",
+        "MNN"
+      ],
       "recommendedRamMb": 6000,
       "section": "image"
     },
@@ -1795,9 +1926,9 @@
       "engine": "local-dream",
       "storageKind": "ZIP_BUNDLE",
       "language": "multi",
-      "sizeBytes": 1060000000,
-      "sha256": "ed90888b8192398d1109ae638aa4eaae5950045830a9c8e50bea5243cd9b1405",
-      "downloadUrl": "https://huggingface.co/xororz/sd-qnn/resolve/main/CuteYukiMix_qnn2.28_min.zip",
+      "sizeBytes": 993526703,
+      "sha256": "d165a12e9f1c004adc79030bdefa9039692449db2f8195c172138ff919875979",
+      "downloadUrl": "https://huggingface.co/xororz/sd-qnn/resolve/64d16039e0c3a71d3c5db1faccc090faae93cb28/CuteYukiMix_qnn2.28_min.zip",
       "fileName": "CuteYukiMix_qnn2.28_min.zip",
       "engineLicense": "MIT",
       "weightsLicense": "other",
@@ -1812,7 +1943,10 @@
       "recommendedHeight": 512,
       "recommendedSteps": 15,
       "recommendedCfgScale": 7.0,
-      "accelerationTargets": ["NPU", "QNN"],
+      "accelerationTargets": [
+        "NPU",
+        "QNN"
+      ],
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_min",
       "recommendedRamMb": 6000,
@@ -1828,7 +1962,7 @@
       "language": "multi",
       "sizeBytes": 2132625894,
       "sha256": "879db523c30d3b9017143d56705015e15a2cb5628762c11d086fed9538abd7fd",
-      "downloadUrl": "https://huggingface.co/Lykon/DreamShaper/resolve/main/DreamShaper_8_pruned.safetensors",
+      "downloadUrl": "https://huggingface.co/Lykon/DreamShaper/resolve/228d79cb20811466f5c5710aa91f05dabd0b8a14/DreamShaper_8_pruned.safetensors",
       "fileName": "DreamShaper_8_pruned.safetensors",
       "engineLicense": "MIT",
       "weightsLicense": "other",
@@ -1842,7 +1976,9 @@
       "recommendedHeight": 512,
       "recommendedSteps": 15,
       "recommendedCfgScale": 7.0,
-      "accelerationTargets": ["CPU", "VULKAN"],
+      "accelerationTargets": [
+        "CPU"
+      ],
       "recommendedRamMb": 8000,
       "section": "image"
     },
@@ -1856,7 +1992,7 @@
       "language": "multi",
       "sizeBytes": 1191096924,
       "sha256": "b00654c8ddab20a699cf851e8ce13a17da7f19e4ed9e2dc40247595313c86761",
-      "downloadUrl": "https://huggingface.co/xororz/sd-mnn/resolve/main/QteaMix.zip",
+      "downloadUrl": "https://huggingface.co/xororz/sd-mnn/resolve/332f02a38932005d1f5af35c6dab0448f8b13996/QteaMix.zip",
       "fileName": "QteaMix.zip",
       "engineLicense": "MIT",
       "weightsLicense": "other",
@@ -1871,7 +2007,11 @@
       "recommendedHeight": 512,
       "recommendedSteps": 15,
       "recommendedCfgScale": 7.0,
-      "accelerationTargets": ["CPU", "GPU", "MNN"],
+      "accelerationTargets": [
+        "CPU",
+        "GPU",
+        "MNN"
+      ],
       "recommendedRamMb": 6000,
       "section": "image"
     },
@@ -1883,9 +2023,9 @@
       "engine": "local-dream",
       "storageKind": "ZIP_BUNDLE",
       "language": "multi",
-      "sizeBytes": 1060000000,
-      "sha256": "69ad4761d761a89ab7ae950ba81ea4ee73765409362fe7893e305e0da6c0fdf4",
-      "downloadUrl": "https://huggingface.co/xororz/sd-qnn/resolve/main/QteaMix_qnn2.28_min.zip",
+      "sizeBytes": 995347176,
+      "sha256": "a62832bdaa92c62130d6dfa7e1200d7401973a2a8302a46aa02ba3a025faea20",
+      "downloadUrl": "https://huggingface.co/xororz/sd-qnn/resolve/64d16039e0c3a71d3c5db1faccc090faae93cb28/QteaMix_qnn2.28_min.zip",
       "fileName": "QteaMix_qnn2.28_min.zip",
       "engineLicense": "MIT",
       "weightsLicense": "other",
@@ -1900,7 +2040,10 @@
       "recommendedHeight": 512,
       "recommendedSteps": 15,
       "recommendedCfgScale": 7.0,
-      "accelerationTargets": ["NPU", "QNN"],
+      "accelerationTargets": [
+        "NPU",
+        "QNN"
+      ],
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_min",
       "recommendedRamMb": 6000,
@@ -1911,18 +2054,30 @@
     "text": {
       "title": "Text & Reasoning",
       "description": "Language models, vision, embeddings and future text-native AI packs for chat, RAG, summaries and agent flows.",
-      "categories": ["llm", "vision", "embedding"]
+      "categories": [
+        "llm",
+        "vision",
+        "embedding"
+      ]
     },
     "voice": {
       "title": "Speech & Voice",
       "description": "Offline speech recognition and voice synthesis packs.",
-      "categories": ["speech"]
+      "categories": [
+        "speech"
+      ]
     },
     "image": {
       "title": "Image Generation",
       "description": "On-device image generation packs for LocalDream and stable-diffusion.cpp runtimes.",
-      "categories": ["image_gen"]
+      "categories": [
+        "image_gen"
+      ]
     }
   },
-  "sectionOrder": ["text", "voice", "image"]
+  "sectionOrder": [
+    "text",
+    "voice",
+    "image"
+  ]
 }
