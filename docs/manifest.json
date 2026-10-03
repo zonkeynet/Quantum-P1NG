@@ -1,9 +1,9 @@
 {
-  "version": 30,
+  "version": 31,
   "updatedAt": "2026-10-03",
   "schemaVersion": "2.4",
   "appId": "com.qp1ng.android",
-  "minAppVersion": 117,
+  "minAppVersion": 213,
   "categories": {
     "speech": {
       "title": "Speech & Voice",
@@ -289,7 +289,8 @@
       "useMmap": true,
       "section": "text",
       "minRamMb": 6656,
-      "recommendedRamMb": 8704
+      "recommendedRamMb": 8704,
+      "catalogFeatured": false
     },
     {
       "id": "llm-qwen3-1.7b-mobile",
@@ -323,14 +324,15 @@
       "useMmap": true,
       "section": "text",
       "minRamMb": 3584,
-      "recommendedRamMb": 5632
+      "recommendedRamMb": 5632,
+      "catalogFeatured": false
     },
     {
       "id": "llm-qwen3.5-2b-mobile",
       "type": "LLM",
       "name": "Qwen3.5 2B (Q4_K_M, text)",
       "family": "qwen35",
-      "description": "Qwen3.5 hybrid model for offline multilingual text chat. Text-only package; no vision projector included. Non-thinking mode is the mobile default.",
+      "description": "Balanced multilingual assistant for everyday chat, summaries and writing, including Italian. Optional reasoning for more complex requests; uses less memory than the 4B version.",
       "engine": "llama.cpp",
       "storageKind": "SINGLE_FILE",
       "language": "multi",
@@ -342,7 +344,7 @@
       "weightsLicense": "Apache-2.0",
       "commercialOk": true,
       "minAppVersion": 1,
-      "recommended": false,
+      "recommended": true,
       "supportsReasoningSwitch": true,
       "category": "llm",
       "runtimeBackend": "LLAMA_CPP",
@@ -359,14 +361,15 @@
       "minRamMb": 3584,
       "recommendedRamMb": 5632,
       "supportsVision": false,
-      "requiresMmproj": false
+      "requiresMmproj": false,
+      "catalogFeatured": true
     },
     {
       "id": "llm-qwen3.5-0.8b-mobile",
       "type": "LLM",
       "name": "Qwen3.5 0.8B (Q4_K_M, text)",
       "family": "qwen35",
-      "description": "Qwen3.5 hybrid model for offline multilingual text chat. Text-only package; no vision projector included. Non-thinking mode is the mobile default.",
+      "description": "Compact multilingual text model for short instructions and simple everyday tasks. A lightweight option with lower accuracy than the larger Qwen models; keep conversations short on devices with limited RAM.",
       "engine": "llama.cpp",
       "storageKind": "SINGLE_FILE",
       "language": "multi",
@@ -395,12 +398,13 @@
       "minRamMb": 2560,
       "recommendedRamMb": 4608,
       "supportsVision": false,
-      "requiresMmproj": false
+      "requiresMmproj": false,
+      "catalogFeatured": true
     },
     {
       "id": "vision-smolvlm2-256m-video-gguf",
       "type": "LLM",
-      "name": "Q-Brain Vision Lite (SmolVLM2 256M Q8_0)",
+      "name": "SmolVLM2 256M Vision (Q8_0)",
       "family": "smolvlm2",
       "description": "Compact paired Vision model for simple image questions. Limited fine-text OCR and multilingual accuracy; stronger models are available in Vision.",
       "engine": "llama.cpp",
@@ -461,7 +465,8 @@
         "<end_of_utterance>",
         "<|im_start|>"
       ],
-      "maxTokens": 384
+      "maxTokens": 384,
+      "catalogFeatured": true
     },
     {
       "id": "llm-llama32-1b-armsafe",
@@ -491,14 +496,15 @@
       "useMmap": true,
       "section": "text",
       "minRamMb": 3072,
-      "recommendedRamMb": 5120
+      "recommendedRamMb": 5120,
+      "catalogFeatured": false
     },
     {
       "id": "llm-llama32-1b-mobile",
       "type": "LLM",
-      "name": "Q-Brain Fast (Llama 3.2 1B Q4_K_M)",
+      "name": "Llama 3.2 1B (Q4_K_M)",
       "family": "llama3",
-      "description": "Fast multilingual helper with excellent compatibility. Good fallback when Qwen is too heavy or unavailable.",
+      "description": "Compact multilingual assistant for short conversations, summaries and simple instructions. A lightweight Llama option with modest memory requirements.",
       "engine": "llama.cpp",
       "storageKind": "SINGLE_FILE",
       "language": "multi",
@@ -521,14 +527,15 @@
       "useMmap": true,
       "section": "text",
       "minRamMb": 3072,
-      "recommendedRamMb": 5120
+      "recommendedRamMb": 5120,
+      "catalogFeatured": true
     },
     {
       "id": "llm-llama32-3b-mobile",
       "type": "LLM",
-      "name": "Q-Brain Fast Pro (Llama 3.2 3B Q4_K_M)",
+      "name": "Llama 3.2 3B (Q4_K_M)",
       "family": "llama3",
-      "description": "Higher-quality Llama fallback for stronger phones. Good middle ground between tiny 1B and heavier 4B+ classes.",
+      "description": "Multilingual assistant for chat, writing and summaries. A balanced Llama option for devices with more memory than the 1B version requires.",
       "engine": "llama.cpp",
       "storageKind": "SINGLE_FILE",
       "language": "multi",
@@ -551,7 +558,8 @@
       "useMmap": true,
       "section": "text",
       "minRamMb": 5632,
-      "recommendedRamMb": 7680
+      "recommendedRamMb": 7680,
+      "catalogFeatured": true
     },
     {
       "id": "llm-gemma4-e2b-safe",
@@ -603,7 +611,8 @@
       "minRamMb": 5000,
       "recommendedRamMb": 6000,
       "mobileTier": "safe",
-      "section": "text"
+      "section": "text",
+      "catalogFeatured": false
     },
     {
       "id": "llm-gemma4-e2b-balanced",
@@ -655,7 +664,8 @@
       "minRamMb": 6000,
       "recommendedRamMb": 7000,
       "mobileTier": "balanced",
-      "section": "text"
+      "section": "text",
+      "catalogFeatured": false
     },
     {
       "id": "llm-gemma4-e2b-mobile-plus",
@@ -707,7 +717,8 @@
       "minRamMb": 7000,
       "recommendedRamMb": 8000,
       "mobileTier": "plus",
-      "section": "text"
+      "section": "text",
+      "catalogFeatured": false
     },
     {
       "id": "llm-gemma4-e2b-mobile",
@@ -759,7 +770,8 @@
       "minRamMb": 8000,
       "recommendedRamMb": 10000,
       "mobileTier": "flagship",
-      "section": "text"
+      "section": "text",
+      "catalogFeatured": false
     },
     {
       "id": "llm-gemma4-e4b-pro",
@@ -811,7 +823,8 @@
       "minRamMb": 12000,
       "recommendedRamMb": 16000,
       "mobileTier": "pro",
-      "section": "text"
+      "section": "text",
+      "catalogFeatured": false
     },
     {
       "id": "llm-qwen3-06b-lite",
@@ -845,7 +858,8 @@
       "useMmap": true,
       "section": "text",
       "minRamMb": 2560,
-      "recommendedRamMb": 4608
+      "recommendedRamMb": 4608,
+      "catalogFeatured": false
     },
     {
       "id": "llm-qwen3-4b-pro",
@@ -879,7 +893,8 @@
       "useMmap": true,
       "section": "text",
       "minRamMb": 6144,
-      "recommendedRamMb": 8192
+      "recommendedRamMb": 8192,
+      "catalogFeatured": false
     },
     {
       "id": "llm-qwen3-8b-ultra",
@@ -913,7 +928,8 @@
       "useMmap": true,
       "section": "text",
       "minRamMb": 10752,
-      "recommendedRamMb": 12800
+      "recommendedRamMb": 12800,
+      "catalogFeatured": false
     },
     {
       "id": "llm-deepseek-r1-0528-8b-safe",
@@ -947,7 +963,8 @@
       "useMmap": true,
       "minRamMb": 6000,
       "recommendedRamMb": 8000,
-      "section": "text"
+      "section": "text",
+      "catalogFeatured": false
     },
     {
       "id": "llm-deepseek-r1-0528-8b-balanced",
@@ -981,7 +998,8 @@
       "useMmap": true,
       "minRamMb": 8000,
       "recommendedRamMb": 10000,
-      "section": "text"
+      "section": "text",
+      "catalogFeatured": false
     },
     {
       "id": "embedding-minilm-l6-v2-q8",
@@ -1007,7 +1025,8 @@
       "useMmap": true,
       "section": "text",
       "minRamMb": 2048,
-      "recommendedRamMb": 4096
+      "recommendedRamMb": 4096,
+      "catalogFeatured": true
     },
     {
       "id": "tts-espeak-ng-data",
@@ -1031,7 +1050,8 @@
       "family": "sherpa",
       "runtimeBackend": "SHERPA_ONNX",
       "storageKind": "DIRECTORY_BUNDLE",
-      "bundleEntryPoint": "espeak-ng-data"
+      "bundleEntryPoint": "espeak-ng-data",
+      "catalogFeatured": true
     },
     {
       "id": "tts-en-lessac-base",
@@ -1039,7 +1059,7 @@
       "section": "voice",
       "category": "speech",
       "name": "English Base Voice",
-      "description": "Offline English TTS for Q-News using sherpa-onnx. Optional download from Hugging Face.",
+      "description": "Offline English speech synthesis for reading text aloud.",
       "engine": "sherpa-onnx",
       "language": "en",
       "variant": "medium",
@@ -1089,7 +1109,8 @@
           "sha256": "ce49eb457742208166d399a40cdec2c7fa9db77960930031564ab56f12882645",
           "sizeBytes": 351
         }
-      ]
+      ],
+      "catalogFeatured": true
     },
     {
       "id": "tts-en-lessac-high",
@@ -1148,7 +1169,8 @@
           "sha256": "7671826d947a0ffc11dd76af0bd890d93e956b00358696ad71348f21aa827100",
           "sizeBytes": 347
         }
-      ]
+      ],
+      "catalogFeatured": false
     },
     {
       "id": "tts-en-gb-alan-medium",
@@ -1207,7 +1229,8 @@
           "sha256": "abcbc3e961124398911436acd9eaaa0ab167cdf221d5a24146aa08732c52630f",
           "sizeBytes": 320
         }
-      ]
+      ],
+      "catalogFeatured": false
     },
     {
       "id": "tts-it-paola-medium",
@@ -1215,7 +1238,7 @@
       "section": "voice",
       "category": "speech",
       "name": "Italian Voice Paola",
-      "description": "Offline Italian TTS using sherpa-onnx.",
+      "description": "Offline Italian speech synthesis for reading text aloud.",
       "engine": "sherpa-onnx",
       "language": "it",
       "variant": "medium",
@@ -1266,7 +1289,8 @@
           "sha256": "c53fd0070dc93b438edbce06728eb83759ba030fff0cce523209ee4a0a6363c0",
           "sizeBytes": 303
         }
-      ]
+      ],
+      "catalogFeatured": true
     },
     {
       "id": "tts-fr-siwis-medium",
@@ -1274,7 +1298,7 @@
       "section": "voice",
       "category": "speech",
       "name": "French Voice Siwis",
-      "description": "Offline French TTS using sherpa-onnx.",
+      "description": "Offline French speech synthesis for reading text aloud.",
       "engine": "sherpa-onnx",
       "language": "fr",
       "variant": "medium",
@@ -1325,7 +1349,8 @@
           "sha256": "bd8b8d079d4d3d2c4cc20345889bbcd586d72f021a132f93357a763eb5232cce",
           "sizeBytes": 284
         }
-      ]
+      ],
+      "catalogFeatured": true
     },
     {
       "id": "tts-de-thorsten-medium",
@@ -1333,7 +1358,7 @@
       "section": "voice",
       "category": "speech",
       "name": "German Voice Thorsten",
-      "description": "Offline German TTS using sherpa-onnx.",
+      "description": "Offline German speech synthesis for reading text aloud.",
       "engine": "sherpa-onnx",
       "language": "de",
       "variant": "medium",
@@ -1384,7 +1409,8 @@
           "sha256": "5196b5ab0794e6056263a1f37c18bec407b61ac187529bee29d1c366871e5c9e",
           "sizeBytes": 285
         }
-      ]
+      ],
+      "catalogFeatured": true
     },
     {
       "id": "tts-es-sharvard-medium",
@@ -1392,7 +1418,7 @@
       "section": "voice",
       "category": "speech",
       "name": "Spanish Voice Sharvard",
-      "description": "Offline Spanish TTS using sherpa-onnx.",
+      "description": "Offline Spanish speech synthesis for reading text aloud.",
       "engine": "sherpa-onnx",
       "language": "es",
       "variant": "medium",
@@ -1443,7 +1469,8 @@
           "sha256": "37655314d08fe8a0900abc628d3bcbee48ffbdd8fad9306b89525a0ada20fefc",
           "sizeBytes": 392
         }
-      ]
+      ],
+      "catalogFeatured": true
     },
     {
       "id": "stt-base-multi",
@@ -1464,7 +1491,8 @@
       "recommended": true,
       "category": "speech",
       "runtimeBackend": "WHISPER_CPP",
-      "section": "voice"
+      "section": "voice",
+      "catalogFeatured": false
     },
     {
       "id": "stt-base-en",
@@ -1485,7 +1513,8 @@
       "recommended": false,
       "category": "speech",
       "runtimeBackend": "WHISPER_CPP",
-      "section": "voice"
+      "section": "voice",
+      "catalogFeatured": false
     },
     {
       "id": "stt-tiny-en",
@@ -1506,7 +1535,8 @@
       "recommended": false,
       "category": "speech",
       "runtimeBackend": "WHISPER_CPP",
-      "section": "voice"
+      "section": "voice",
+      "catalogFeatured": false
     },
     {
       "id": "stt-tiny-multi",
@@ -1527,46 +1557,8 @@
       "recommended": false,
       "category": "speech",
       "runtimeBackend": "WHISPER_CPP",
-      "section": "voice"
-    },
-    {
-      "id": "tts-kokoro-v1-en",
-      "type": "TTS",
       "section": "voice",
-      "category": "speech",
-      "name": "Kokoro TTS (English HD)",
-      "description": "Compact offline speech synthesis candidate. Not installable until a compatible voice bundle, phonemizer and runtime adapter are integrated.",
-      "engine": "kokoro-onnx",
-      "language": "en",
-      "variant": "high",
-      "sizeBytes": 87000000,
-      "sha256": "",
-      "downloadUrl": "https://huggingface.co/hexgrad/Kokoro-82M/resolve/main/kokoro-v1.0.onnx",
-      "fileName": "kokoro-v1.0.onnx",
-      "engineLicense": "Apache-2.0",
-      "weightsLicense": "Apache-2.0",
-      "commercialOk": true,
-      "minAppVersion": 1,
-      "recommended": false,
-      "family": "kokoro",
-      "runtimeBackend": "KOKORO",
-      "storageKind": "DIRECTORY_BUNDLE",
-      "additionalArtifacts": [
-        "voices.bin"
-      ],
-      "remoteArtifacts": [
-        {
-          "path": "kokoro-v1.0.onnx",
-          "url": "https://huggingface.co/hexgrad/Kokoro-82M/resolve/main/kokoro-v1.0.onnx"
-        },
-        {
-          "path": "voices.bin",
-          "url": "https://huggingface.co/hexgrad/Kokoro-82M/resolve/main/voices.bin"
-        }
-      ],
-      "installable": false,
-      "unavailableReason": "The declared ONNX and voice files are absent upstream. A compatible Kokoro phonemizer, token/voice bundle and runtime adapter must be validated before enabling this pack.",
-      "bundleEntryPoint": "kokoro-v1.0.onnx"
+      "catalogFeatured": false
     },
     {
       "id": "stt-small-multi",
@@ -1587,67 +1579,8 @@
       "recommended": false,
       "category": "speech",
       "runtimeBackend": "WHISPER_CPP",
-      "section": "voice"
-    },
-    {
-      "id": "llm-gemma3-9b-instruct",
-      "type": "LLM",
-      "name": "Q-Brain Gemma 3 (9B Q4_K_M)",
-      "family": "gemma3",
-      "description": "Official Gemma 3 Instruct profile. Exceptional reasoning and context handling for 12GB+ RAM flagship devices.",
-      "engine": "llama.cpp",
-      "storageKind": "SINGLE_FILE",
-      "language": "multi",
-      "sizeBytes": 5420000000,
-      "sha256": "",
-      "downloadUrl": "https://huggingface.co/bartowski/gemma-3-9b-it-GGUF/resolve/main/gemma-3-9b-it-Q4_K_M.gguf",
-      "fileName": "gemma-3-9b-it-Q4_K_M.gguf",
-      "engineLicense": "MIT",
-      "weightsLicense": "Gemma",
-      "commercialOk": true,
-      "minAppVersion": 1,
-      "recommended": false,
-      "category": "llm",
-      "runtimeBackend": "LLAMA_CPP",
-      "quantTier": "Q4",
-      "promptFormat": "GEMMA",
-      "supportsTools": true,
-      "recommendedContextSize": 4096,
-      "useMmap": true,
-      "minRamMb": 10000,
-      "section": "text",
-      "installable": false,
-      "unavailableReason": "The declared Gemma 3 9B repository cannot be verified. Select an available Gemma model until a compatible artifact is validated."
-    },
-    {
-      "id": "llm-bitnet-b158-2b",
-      "type": "LLM",
-      "name": "Q-Brain Ultra-Lite (BitNet 2B)",
-      "family": "bitnet",
-      "description": "1.58-bit ternary model for legacy devices. Requires incredibly low memory (~400MB) while maintaining coherent chat capabilities. Perfect for older fallback phones.",
-      "engine": "llama.cpp",
-      "storageKind": "SINGLE_FILE",
-      "language": "en",
-      "sizeBytes": 450000000,
-      "sha256": "",
-      "downloadUrl": "https://huggingface.co/HF1BitLLM/Llama3-8B-1.58-100B-tokens-GGUF/resolve/main/bitnet_b1_58-2b.gguf",
-      "fileName": "bitnet_b1_58-2b.gguf",
-      "engineLicense": "MIT",
-      "weightsLicense": "MIT",
-      "commercialOk": true,
-      "minAppVersion": 1,
-      "recommended": false,
-      "category": "llm",
-      "runtimeBackend": "LLAMA_CPP",
-      "quantTier": "OTHER",
-      "promptFormat": "CHATML",
-      "supportsTools": false,
-      "recommendedContextSize": 1024,
-      "useMmap": true,
-      "minRamMb": 2048,
-      "section": "text",
-      "installable": false,
-      "unavailableReason": "The declared 2B artifact points to an unverified 8B repository. A compatible GGUF and native quantization backend must be validated first."
+      "section": "voice",
+      "catalogFeatured": false
     },
     {
       "id": "img-dreamshaper8-lcm-mnn",
@@ -1704,7 +1637,8 @@
       "supportsTxt2Img": true,
       "supportsImg2Img": false,
       "supportsInpaint": false,
-      "supportsLora": false
+      "supportsLora": false,
+      "catalogFeatured": true
     },
     {
       "id": "img-juggernaut-xl-v9-gguf",
@@ -1736,13 +1670,14 @@
         "VULKAN"
       ],
       "recommendedRamMb": 10000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-realvisxl-lightning-gguf",
       "type": "IMAGE_GEN",
       "name": "RealVisXL V5.0 Lightning (SDXL Q4_K)",
-      "description": "Ultra-fast SDXL portrait model. Uses Lightning distillation to generate high-quality images in just 4-8 steps, saving battery and time.",
+      "description": "SDXL model focused on realistic portraits and photography. Lightning distillation supports short sampling schedules. Requires substantial RAM; generation speed depends on device hardware and resolution.",
       "engine": "stable-diffusion.cpp",
       "storageKind": "SINGLE_FILE",
       "language": "multi",
@@ -1754,7 +1689,7 @@
       "weightsLicense": "OpenRAIL",
       "commercialOk": false,
       "minAppVersion": 1,
-      "recommended": true,
+      "recommended": false,
       "minRamMb": 8000,
       "category": "image_gen",
       "runtimeBackend": "STABLE_DIFFUSION_CPP",
@@ -1768,7 +1703,8 @@
         "VULKAN"
       ],
       "recommendedRamMb": 10000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": true
     },
     {
       "id": "img-pony-diffusion-v6-gguf",
@@ -1800,7 +1736,8 @@
         "VULKAN"
       ],
       "recommendedRamMb": 10000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-absolutereality-localdream-mnn",
@@ -1818,7 +1755,7 @@
       "weightsLicense": "other",
       "commercialOk": false,
       "minAppVersion": 1,
-      "recommended": true,
+      "recommended": false,
       "minRamMb": 4000,
       "category": "image_gen",
       "runtimeBackend": "LOCAL_DREAM",
@@ -1834,7 +1771,8 @@
         "MNN"
       ],
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": true
     },
     {
       "id": "img-absolutereality-localdream",
@@ -1868,7 +1806,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_min",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-absolutereality-1.8.1",
@@ -1900,7 +1839,8 @@
         "VULKAN"
       ],
       "recommendedRamMb": 8000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-anythingv5-localdream-mnn",
@@ -1934,7 +1874,8 @@
         "MNN"
       ],
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": true
     },
     {
       "id": "img-anythingv5-localdream",
@@ -1968,7 +1909,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_min",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-anything-v5",
@@ -2000,7 +1942,8 @@
       ],
       "recommendedRamMb": 8000,
       "section": "image",
-      "minRamMb": 6000
+      "minRamMb": 6000,
+      "catalogFeatured": false
     },
     {
       "id": "img-chilloutmix-localdream-mnn",
@@ -2034,7 +1977,8 @@
         "MNN"
       ],
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-chilloutmix-localdream",
@@ -2068,7 +2012,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_min",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-cuteyukimix-localdream-mnn",
@@ -2102,7 +2047,8 @@
         "MNN"
       ],
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-cuteyukimix-localdream",
@@ -2136,7 +2082,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_min",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-dreamshaper-8",
@@ -2168,7 +2115,8 @@
       ],
       "recommendedRamMb": 8000,
       "section": "image",
-      "minRamMb": 6000
+      "minRamMb": 6000,
+      "catalogFeatured": false
     },
     {
       "id": "img-qteamix-localdream-mnn",
@@ -2202,7 +2150,8 @@
         "MNN"
       ],
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-qteamix-localdream",
@@ -2236,7 +2185,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_min",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "vision-smolvlm2-500m-video-gguf",
@@ -2298,7 +2248,8 @@
       "requiresMmproj": true,
       "sourceOrg": "ggml-org",
       "sourceTrust": "OFFICIAL_GGUF",
-      "runtimeTier": "ANDROID_LOCAL"
+      "runtimeTier": "ANDROID_LOCAL",
+      "catalogFeatured": false
     },
     {
       "id": "vision-smolvlm-2b-gguf",
@@ -2360,7 +2311,8 @@
       "requiresMmproj": true,
       "sourceOrg": "ggml-org",
       "sourceTrust": "OFFICIAL_GGUF",
-      "runtimeTier": "ANDROID_LOCAL"
+      "runtimeTier": "ANDROID_LOCAL",
+      "catalogFeatured": false
     },
     {
       "id": "vision-smolvlm2-2.2b-gguf",
@@ -2422,7 +2374,8 @@
       "requiresMmproj": true,
       "sourceOrg": "ggml-org",
       "sourceTrust": "OFFICIAL_GGUF",
-      "runtimeTier": "ANDROID_LOCAL"
+      "runtimeTier": "ANDROID_LOCAL",
+      "catalogFeatured": false
     },
     {
       "id": "llm-smollm3-3b",
@@ -2460,7 +2413,8 @@
       "ggufRepoUrl": "https://huggingface.co/ggml-org/SmolLM3-3B-GGUF",
       "upstreamModelCardUrl": "https://huggingface.co/ggml-org/SmolLM3-3B-GGUF",
       "useMmap": true,
-      "section": "text"
+      "section": "text",
+      "catalogFeatured": false
     },
     {
       "id": "llm-smollm2-360m",
@@ -2498,7 +2452,8 @@
       "ggufRepoUrl": "https://huggingface.co/QuantFactory/SmolLM2-360M-Instruct-GGUF",
       "upstreamModelCardUrl": "https://huggingface.co/QuantFactory/SmolLM2-360M-Instruct-GGUF",
       "useMmap": true,
-      "section": "text"
+      "section": "text",
+      "catalogFeatured": false
     },
     {
       "id": "llm-mistral-7b-v03",
@@ -2536,7 +2491,8 @@
       "ggufRepoUrl": "https://huggingface.co/bartowski/Mistral-7B-Instruct-v0.3-GGUF",
       "upstreamModelCardUrl": "https://huggingface.co/bartowski/Mistral-7B-Instruct-v0.3-GGUF",
       "useMmap": true,
-      "section": "text"
+      "section": "text",
+      "catalogFeatured": false
     },
     {
       "id": "llm-qwen3.5-9b",
@@ -2574,7 +2530,8 @@
       "ggufRepoUrl": "https://huggingface.co/unsloth/Qwen3.5-9B-GGUF",
       "upstreamModelCardUrl": "https://huggingface.co/unsloth/Qwen3.5-9B-GGUF",
       "useMmap": true,
-      "section": "text"
+      "section": "text",
+      "catalogFeatured": true
     },
     {
       "id": "vision-qwen3.5-0.8b",
@@ -2636,7 +2593,8 @@
       "requiresMmproj": true,
       "sourceOrg": "unsloth",
       "sourceTrust": "COMMUNITY_VERIFIED",
-      "runtimeTier": "ANDROID_LOCAL"
+      "runtimeTier": "ANDROID_LOCAL",
+      "catalogFeatured": false
     },
     {
       "id": "vision-qwen3.5-2b",
@@ -2698,7 +2656,8 @@
       "requiresMmproj": true,
       "sourceOrg": "unsloth",
       "sourceTrust": "COMMUNITY_VERIFIED",
-      "runtimeTier": "ANDROID_HIGH_RAM"
+      "runtimeTier": "ANDROID_HIGH_RAM",
+      "catalogFeatured": true
     },
     {
       "id": "vision-qwen3.5-9b",
@@ -2760,7 +2719,8 @@
       "requiresMmproj": true,
       "sourceOrg": "unsloth",
       "sourceTrust": "COMMUNITY_VERIFIED",
-      "runtimeTier": "ANDROID_HIGH_RAM"
+      "runtimeTier": "ANDROID_HIGH_RAM",
+      "catalogFeatured": false
     },
     {
       "id": "vision-gemma4-e2b",
@@ -2822,7 +2782,8 @@
       "requiresMmproj": true,
       "sourceOrg": "unsloth",
       "sourceTrust": "COMMUNITY_VERIFIED",
-      "runtimeTier": "ANDROID_HIGH_RAM"
+      "runtimeTier": "ANDROID_HIGH_RAM",
+      "catalogFeatured": false
     },
     {
       "id": "vision-gemma4-e4b",
@@ -2884,7 +2845,8 @@
       "requiresMmproj": true,
       "sourceOrg": "unsloth",
       "sourceTrust": "COMMUNITY_VERIFIED",
-      "runtimeTier": "ANDROID_HIGH_RAM"
+      "runtimeTier": "ANDROID_HIGH_RAM",
+      "catalogFeatured": false
     },
     {
       "id": "stt-small-en",
@@ -2907,7 +2869,8 @@
       "runtimeBackend": "WHISPER_CPP",
       "section": "voice",
       "minRamMb": 2048,
-      "recommendedRamMb": 4096
+      "recommendedRamMb": 4096,
+      "catalogFeatured": false
     },
     {
       "id": "stt-medium-en",
@@ -2930,7 +2893,8 @@
       "runtimeBackend": "WHISPER_CPP",
       "section": "voice",
       "minRamMb": 4096,
-      "recommendedRamMb": 6144
+      "recommendedRamMb": 6144,
+      "catalogFeatured": false
     },
     {
       "id": "stt-medium-multi",
@@ -2953,7 +2917,8 @@
       "runtimeBackend": "WHISPER_CPP",
       "section": "voice",
       "minRamMb": 4096,
-      "recommendedRamMb": 6144
+      "recommendedRamMb": 6144,
+      "catalogFeatured": false
     },
     {
       "id": "stt-large-v3-turbo-multi",
@@ -2976,7 +2941,8 @@
       "runtimeBackend": "WHISPER_CPP",
       "section": "voice",
       "minRamMb": 6144,
-      "recommendedRamMb": 8192
+      "recommendedRamMb": 8192,
+      "catalogFeatured": false
     },
     {
       "id": "stt-large-v3-multi",
@@ -2999,7 +2965,8 @@
       "runtimeBackend": "WHISPER_CPP",
       "section": "voice",
       "minRamMb": 8192,
-      "recommendedRamMb": 12288
+      "recommendedRamMb": 12288,
+      "catalogFeatured": false
     },
     {
       "id": "img-absolutereality-qnn-8gen1",
@@ -3033,7 +3000,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen1",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-absolutereality-qnn-8gen2",
@@ -3067,7 +3035,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen2",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-anythingv5-qnn-8gen1",
@@ -3101,7 +3070,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen1",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-anythingv5-qnn-8gen2",
@@ -3135,7 +3105,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen2",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-chilloutmix-qnn-8gen1",
@@ -3169,7 +3140,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen1",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-chilloutmix-qnn-8gen2",
@@ -3203,7 +3175,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen2",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-crosskemono2-5-qnn-8gen1",
@@ -3237,7 +3210,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen1",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-crosskemono2-5-qnn-8gen2",
@@ -3271,7 +3245,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen2",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-crosskemono2-5-qnn-min",
@@ -3305,7 +3280,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_min",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-cuteyukimix-qnn-8gen1",
@@ -3339,7 +3315,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen1",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-cuteyukimix-qnn-8gen2",
@@ -3373,7 +3350,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen2",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-darksushiv4-qnn-8gen1",
@@ -3407,7 +3385,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen1",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-darksushiv4-qnn-8gen2",
@@ -3441,7 +3420,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen2",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-darksushiv4-qnn-min",
@@ -3475,12 +3455,13 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_min",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-dreamshaperv8-qnn-8gen1",
       "type": "IMAGE_GEN",
-      "name": "DreamShaperV8 (LocalDream QNN 8gen1)",
+      "name": "DreamShaper 8 (Snapdragon 8 Gen 1)",
       "description": "Offline image generation. Requires a compatible Qualcomm QNN device and the 8gen1 profile; unavailable on Tensor and Exynos.",
       "engine": "local-dream",
       "storageKind": "ZIP_BUNDLE",
@@ -3509,12 +3490,13 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen1",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": true
     },
     {
       "id": "img-dreamshaperv8-qnn-8gen2",
       "type": "IMAGE_GEN",
-      "name": "DreamShaperV8 (LocalDream QNN 8gen2)",
+      "name": "DreamShaper 8 (Snapdragon 8 Gen 2+)",
       "description": "Offline image generation. Requires a compatible Qualcomm QNN device and the 8gen2 profile; unavailable on Tensor and Exynos.",
       "engine": "local-dream",
       "storageKind": "ZIP_BUNDLE",
@@ -3543,12 +3525,13 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen2",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": true
     },
     {
       "id": "img-dreamshaperv8-qnn-min",
       "type": "IMAGE_GEN",
-      "name": "DreamShaperV8 (LocalDream QNN min)",
+      "name": "DreamShaper 8 (Snapdragon compatible)",
       "description": "Offline image generation. Requires a compatible Qualcomm QNN device and the min profile; unavailable on Tensor and Exynos.",
       "engine": "local-dream",
       "storageKind": "ZIP_BUNDLE",
@@ -3577,7 +3560,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_min",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": true
     },
     {
       "id": "img-hyperspirev5-qnn-8gen1",
@@ -3611,7 +3595,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen1",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-hyperspirev5-qnn-8gen2",
@@ -3645,7 +3630,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen2",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-hyperspirev5-qnn-min",
@@ -3679,7 +3665,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_min",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-majicmixrealisticv7-qnn-8gen1",
@@ -3713,7 +3700,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen1",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-majicmixrealisticv7-qnn-8gen2",
@@ -3747,7 +3735,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen2",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-majicmixrealisticv7-qnn-min",
@@ -3781,7 +3770,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_min",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-meinamixv12-qnn-8gen1",
@@ -3815,7 +3805,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen1",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-meinamixv12-qnn-8gen2",
@@ -3849,7 +3840,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen2",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-meinamixv12-qnn-min",
@@ -3883,7 +3875,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_min",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-mistoonanimev3-qnn-8gen1",
@@ -3917,7 +3910,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen1",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-mistoonanimev3-qnn-8gen2",
@@ -3951,7 +3945,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen2",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-mistoonanimev3-qnn-min",
@@ -3985,7 +3980,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_min",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-naianimev2-qnn-8gen1",
@@ -4019,7 +4015,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen1",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-naianimev2-qnn-8gen2",
@@ -4053,7 +4050,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen2",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-naianimev2-qnn-min",
@@ -4087,7 +4085,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_min",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-neverendingdreamv122-qnn-8gen1",
@@ -4121,7 +4120,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen1",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-neverendingdreamv122-qnn-8gen2",
@@ -4155,7 +4155,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen2",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-neverendingdreamv122-qnn-min",
@@ -4189,7 +4190,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_min",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-qteamix-qnn-8gen1",
@@ -4223,7 +4225,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen1",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-qteamix-qnn-8gen2",
@@ -4257,7 +4260,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen2",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-realisianv6-qnn-8gen1",
@@ -4291,7 +4295,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen1",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-realisianv6-qnn-8gen2",
@@ -4325,7 +4330,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen2",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-realisianv6-qnn-min",
@@ -4359,7 +4365,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_min",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-realisticvisionhyper-qnn-8gen1",
@@ -4393,7 +4400,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen1",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-realisticvisionhyper-qnn-8gen2",
@@ -4427,7 +4435,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen2",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-realisticvisionhyper-qnn-min",
@@ -4461,7 +4470,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_min",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-sweetmixv22flat-qnn-8gen1",
@@ -4495,7 +4505,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen1",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-sweetmixv22flat-qnn-8gen2",
@@ -4529,7 +4540,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen2",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-sweetmixv22flat-qnn-min",
@@ -4563,7 +4575,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_min",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-counterfeitv30-qnn-8gen1",
@@ -4597,7 +4610,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen1",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-counterfeitv30-qnn-8gen2",
@@ -4631,7 +4645,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen2",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-counterfeitv30-qnn-min",
@@ -4665,7 +4680,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_min",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-superinvinciblev2-qnn-8gen1",
@@ -4699,7 +4715,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen1",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-superinvinciblev2-qnn-8gen2",
@@ -4733,7 +4750,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen2",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-superinvinciblev2-qnn-min",
@@ -4767,7 +4785,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_min",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-unstableillusion-qnn-8gen1",
@@ -4801,7 +4820,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen1",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-unstableillusion-qnn-8gen2",
@@ -4835,7 +4855,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_8gen2",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "img-unstableillusion-qnn-min",
@@ -4869,7 +4890,8 @@
       "requiresSnapdragonQnn": true,
       "hardwareProfile": "snapdragon_qnn2.28_min",
       "recommendedRamMb": 6000,
-      "section": "image"
+      "section": "image",
+      "catalogFeatured": false
     },
     {
       "id": "llm-minicpm5-2b",
@@ -4912,7 +4934,8 @@
         "<|im_end|>",
         "<|im_start|>",
         "</s>"
-      ]
+      ],
+      "catalogFeatured": false
     },
     {
       "id": "llm-lfm2.5-1.2b-instruct-qad",
@@ -4958,7 +4981,8 @@
       "sha256": "bb741ebb106d543e9de114b843a3d3d73d51c74b5801e69da2abde821a0cb3e1",
       "sizeBytes": 695755488,
       "ggufRepoUrl": "https://huggingface.co/LiquidAI/LFM2.5-1.2B-Instruct-GGUF",
-      "minAppVersion": 212
+      "minAppVersion": 212,
+      "catalogFeatured": true
     },
     {
       "id": "llm-lfm2.5-2.6b-qad",
@@ -5004,7 +5028,8 @@
       "sha256": "a247afd6414918eac8e520a9e6137dc271235461ecbe1180462221d5b8d40b03",
       "sizeBytes": 1593894944,
       "ggufRepoUrl": "https://huggingface.co/LiquidAI/LFM2.5-2.6B-GGUF",
-      "minAppVersion": 212
+      "minAppVersion": 212,
+      "catalogFeatured": false
     },
     {
       "id": "llm-gemma4-e2b-qat",
@@ -5061,7 +5086,8 @@
       "sourceTrust": "OFFICIAL_AUTHOR",
       "runtimeTier": "ANDROID_HIGH_RAM",
       "upstreamModelCardUrl": "https://huggingface.co/google/gemma-4-E2B-it-qat-q4_0-gguf",
-      "ggufRepoUrl": "https://huggingface.co/google/gemma-4-E2B-it-qat-q4_0-gguf"
+      "ggufRepoUrl": "https://huggingface.co/google/gemma-4-E2B-it-qat-q4_0-gguf",
+      "catalogFeatured": true
     },
     {
       "id": "llm-gemma4-e4b-qat",
@@ -5118,7 +5144,8 @@
       "sourceTrust": "OFFICIAL_AUTHOR",
       "runtimeTier": "ANDROID_HIGH_RAM",
       "upstreamModelCardUrl": "https://huggingface.co/google/gemma-4-E4B-it-qat-q4_0-gguf",
-      "ggufRepoUrl": "https://huggingface.co/google/gemma-4-E4B-it-qat-q4_0-gguf"
+      "ggufRepoUrl": "https://huggingface.co/google/gemma-4-E4B-it-qat-q4_0-gguf",
+      "catalogFeatured": false
     },
     {
       "id": "vision-lfm2.5-vl-450m",
@@ -5185,7 +5212,8 @@
           "sizeBytes": 102815168,
           "required": true
         }
-      ]
+      ],
+      "catalogFeatured": true
     },
     {
       "id": "llm-qwen3.5-4b-mobile",
@@ -5226,14 +5254,15 @@
       "sourceTrust": "COMMUNITY_VERIFIED",
       "runtimeTier": "ANDROID_HIGH_RAM",
       "upstreamModelCardUrl": "https://huggingface.co/Qwen/Qwen3.5-4B",
-      "ggufRepoUrl": "https://huggingface.co/unsloth/Qwen3.5-4B-GGUF"
+      "ggufRepoUrl": "https://huggingface.co/unsloth/Qwen3.5-4B-GGUF",
+      "catalogFeatured": true
     },
     {
       "id": "vision-qwen3.5-4b",
       "type": "LLM",
       "name": "Qwen3.5 4B Vision (Q4_K_M)",
       "family": "qwen35",
-      "description": "Multilingual model for single-image analysis, visual questions and text in images. Requires substantial free memory; the 0.8B or 2B variants suit smaller devices. Video and audio input are not enabled.",
+      "description": "Multilingual model for single-image analysis, visual questions and text in images. Requires substantial free memory; the 2B variant suits smaller devices. Video and audio input are not enabled.",
       "engine": "llama.cpp",
       "storageKind": "DIRECTORY_BUNDLE",
       "language": "multi",
@@ -5288,13 +5317,14 @@
       "requiresMmproj": true,
       "sourceOrg": "unsloth",
       "sourceTrust": "COMMUNITY_VERIFIED",
-      "runtimeTier": "ANDROID_HIGH_RAM"
+      "runtimeTier": "ANDROID_HIGH_RAM",
+      "catalogFeatured": true
     },
     {
       "id": "stt-tiny-multi-q5-1",
       "type": "STT",
       "name": "Whisper Tiny (Multi, Q5_1)",
-      "description": "Multilingual offline speech recognition, including Italian. 5-bit weights reduce download size and model memory compared with the full-precision variant. Accuracy and processing speed depend on the audio and device.",
+      "description": "The smallest speech recognition option for short dictation and simple recordings. Multilingual, including Italian. Compact 5-bit weights; less suitable for difficult audio than the larger variants.",
       "engine": "whisper.cpp",
       "storageKind": "SINGLE_FILE",
       "language": "multi",
@@ -5318,13 +5348,14 @@
       "upstreamModelCardUrl": "https://huggingface.co/openai/whisper-tiny",
       "family": "whisper",
       "runtimeTier": "ANDROID_LOCAL",
-      "ggufRepoUrl": "https://huggingface.co/ggerganov/whisper.cpp"
+      "ggufRepoUrl": "https://huggingface.co/ggerganov/whisper.cpp",
+      "catalogFeatured": true
     },
     {
       "id": "stt-base-multi-q5-1",
       "type": "STT",
       "name": "Whisper Base (Multi, Q5_1)",
-      "description": "Multilingual offline speech recognition, including Italian. 5-bit weights reduce download size and model memory compared with the full-precision variant. Accuracy and processing speed depend on the audio and device.",
+      "description": "Balanced offline speech recognition for everyday dictation and recordings. Multilingual, including Italian. Compact 5-bit weights keep memory and download requirements low.",
       "engine": "whisper.cpp",
       "storageKind": "SINGLE_FILE",
       "language": "multi",
@@ -5336,7 +5367,7 @@
       "weightsLicense": "MIT",
       "commercialOk": true,
       "minAppVersion": 212,
-      "recommended": false,
+      "recommended": true,
       "category": "speech",
       "runtimeBackend": "WHISPER_CPP",
       "section": "voice",
@@ -5348,13 +5379,14 @@
       "upstreamModelCardUrl": "https://huggingface.co/openai/whisper-base",
       "family": "whisper",
       "runtimeTier": "ANDROID_LOCAL",
-      "ggufRepoUrl": "https://huggingface.co/ggerganov/whisper.cpp"
+      "ggufRepoUrl": "https://huggingface.co/ggerganov/whisper.cpp",
+      "catalogFeatured": true
     },
     {
       "id": "stt-small-multi-q5-1",
       "type": "STT",
       "name": "Whisper Small (Multi, Q5_1)",
-      "description": "Multilingual offline speech recognition, including Italian. 5-bit weights reduce download size and model memory compared with the full-precision variant. Accuracy and processing speed depend on the audio and device.",
+      "description": "Offline transcription for users who can dedicate more memory and processing time to speech recognition. Multilingual, including Italian. Compact 5-bit weights.",
       "engine": "whisper.cpp",
       "storageKind": "SINGLE_FILE",
       "language": "multi",
@@ -5378,7 +5410,8 @@
       "upstreamModelCardUrl": "https://huggingface.co/openai/whisper-small",
       "family": "whisper",
       "runtimeTier": "ANDROID_LOCAL",
-      "ggufRepoUrl": "https://huggingface.co/ggerganov/whisper.cpp"
+      "ggufRepoUrl": "https://huggingface.co/ggerganov/whisper.cpp",
+      "catalogFeatured": true
     },
     {
       "id": "stt-medium-multi-q5-0",
@@ -5408,13 +5441,14 @@
       "upstreamModelCardUrl": "https://huggingface.co/openai/whisper-medium",
       "family": "whisper",
       "runtimeTier": "ANDROID_HIGH_RAM",
-      "ggufRepoUrl": "https://huggingface.co/ggerganov/whisper.cpp"
+      "ggufRepoUrl": "https://huggingface.co/ggerganov/whisper.cpp",
+      "catalogFeatured": false
     },
     {
       "id": "stt-large-v3-turbo-multi-q5-0",
       "type": "STT",
       "name": "Whisper Large-V3-Turbo (Multi, Q5_0)",
-      "description": "Multilingual offline speech recognition, including Italian. 5-bit weights reduce download size and model memory compared with the full-precision variant. Accuracy and processing speed depend on the audio and device.",
+      "description": "Larger multilingual speech recognition model, including Italian, for devices with ample memory. Turbo reduces decoder work compared with Large V3. Best suited to recorded audio; compact 5-bit weights.",
       "engine": "whisper.cpp",
       "storageKind": "SINGLE_FILE",
       "language": "multi",
@@ -5438,13 +5472,14 @@
       "upstreamModelCardUrl": "https://huggingface.co/openai/whisper-large-v3-turbo",
       "family": "whisper",
       "runtimeTier": "ANDROID_HIGH_RAM",
-      "ggufRepoUrl": "https://huggingface.co/ggerganov/whisper.cpp"
+      "ggufRepoUrl": "https://huggingface.co/ggerganov/whisper.cpp",
+      "catalogFeatured": true
     }
   ],
   "sections": {
     "text": {
       "title": "Text & Reasoning",
-      "description": "Language models, vision, embeddings and future text-native AI packs for chat, RAG, summaries and agent flows.",
+      "description": "Chat and vision models for entry, midrange and high-memory devices, plus local retrieval. Start with the essential selection or explore the full catalog.",
       "categories": [
         "llm",
         "vision",
@@ -5453,14 +5488,14 @@
     },
     "voice": {
       "title": "Speech & Voice",
-      "description": "Offline speech recognition and voice synthesis packs.",
+      "description": "Offline speech recognition and voices. Essential selection offers multilingual Whisper and one voice per language; the full catalog includes specialist variants.",
       "categories": [
         "speech"
       ]
     },
     "image": {
       "title": "Image Generation",
-      "description": "On-device image generation packs for LocalDream and stable-diffusion.cpp runtimes.",
+      "description": "Offline image generation for supported CPU, GPU and Snapdragon hardware. Start with the essential selection or explore additional styles in the full catalog.",
       "categories": [
         "image_gen"
       ]
