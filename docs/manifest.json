@@ -1,5 +1,5 @@
 {
-  "version": 28,
+  "version": 29,
   "updatedAt": "2026-10-03",
   "schemaVersion": "2.4",
   "appId": "com.qp1ng.android",
@@ -1613,7 +1613,8 @@
       "section": "image",
       "category": "image_gen",
       "name": "DreamShaper 8 LCM (fast offline)",
-      "description": "Fast offline images: LCM, 384×384, 6 steps (4 for speed), CFG 1. Tested on Pixel 10a with MNN CPU. Downloads the original author checkpoint (2.13 GB), verifies and converts it locally to a 1.33 GB bundle. Needs at least 6 GB usable physical RAM and 3.7 GB free storage during installation. CPU only; negative prompts are inactive at CFG 1. Runtime license: non-commercial.",
+      "language": "en",
+      "description": "Fast offline images: LCM, 384×384, 6 steps (4 for speed), CFG 1. English prompts recommended. Tested on Pixel 10a with MNN CPU. Downloads the original author checkpoint (2.13 GB), verifies and converts it locally to a 1.33 GB bundle. Needs at least 6 GB usable physical RAM and 3.7 GB free storage during installation. CPU only; negative prompts are inactive at CFG 1. Runtime license: non-commercial.",
       "engine": "local-dream",
       "family": "sd15-lcm",
       "runtimeBackend": "LOCAL_DREAM",
@@ -1956,7 +1957,8 @@
         "VULKAN"
       ],
       "recommendedRamMb": 8000,
-      "section": "image"
+      "section": "image",
+      "minRamMb": 6000
     },
     {
       "id": "img-chilloutmix-localdream-mnn",
@@ -2123,7 +2125,8 @@
         "VULKAN"
       ],
       "recommendedRamMb": 8000,
-      "section": "image"
+      "section": "image",
+      "minRamMb": 6000
     },
     {
       "id": "img-qteamix-localdream-mnn",
