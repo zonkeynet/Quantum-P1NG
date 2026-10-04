@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.qp1ng.com
+
+# Sitemaps
+Sitemap: https://www.qp1ng.com/sitemap.xml

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://www.qp1ng.com/</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.qp1ng.com/assets/img/social-preview.png</image:loc>
+      <image:title>Quantum P1NG - OPSEC-First Secure Communications Suite</image:title>
+      <image:caption>Quantum P1NG Interface, Vault and Decentralized Chat</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.qp1ng.com/assets/img/qp1ng_icon.png</image:loc>
+      <image:title>Quantum P1NG Emblem</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.qp1ng.com/assets/img/qcam_manifestation_protected.jpg</image:loc>
+      <image:title>Q-CAM Privacy Capture</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.qp1ng.com/assets/img/net_invisibility.png</image:loc>
+      <image:title>Network Invisibility and Tor Edge</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.qp1ng.com/privacy.html</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.qp1ng.com/terms.html</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+</urlset>
