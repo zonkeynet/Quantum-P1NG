@@ -4874,10 +4874,78 @@ if (terminal && gamesGrid) {
   if (!section) return;
 
   const canvas = document.getElementById('agStreamCanvas');
+  const canvasBox = document.getElementById('agCanvasBox');
+  const wifiVideoWrap = document.getElementById('agWifiVideoWrap');
+  const wifiVideo = document.getElementById('agWifiVideo');
+  const wifiPlayPill = document.getElementById('agWifiPlayPill');
+  const wifiPlayPillText = wifiPlayPill ? wifiPlayPill.querySelector('.ag-play-text') : null;
+  const wifiPlayPillIcon = wifiPlayPill ? wifiPlayPill.querySelector('.ag-play-icon') : null;
   const tabs = section.querySelectorAll('.ag-tab');
   const toggleBtn = document.getElementById('ag-toggle-stream');
   const cyclePayloadBtn = document.getElementById('ag-cycle-payload');
   const payloadTypeEl = document.getElementById('ag-payload-type');
+
+  let isWifiVideoPlaying = false;
+
+  function playWifiVideo() {
+    if (!wifiVideo || !wifiVideoWrap) return;
+    isWifiVideoPlaying = true;
+    wifiVideoWrap.classList.add('is-playing');
+    if (wifiPlayPillText) wifiPlayPillText.textContent = 'PAUSE STREAM';
+    if (wifiPlayPillIcon) wifiPlayPillIcon.textContent = '■';
+    if (toggleBtn) {
+      const g = toggleBtn.querySelector('.ag-btn-glitch');
+      if (g) g.textContent = '[ PAUSE STREAM ]';
+    }
+    wifiVideo.muted = true;
+    wifiVideo.play().catch(() => {});
+  }
+
+  function pauseWifiVideo() {
+    if (!wifiVideo || !wifiVideoWrap) return;
+    isWifiVideoPlaying = false;
+    wifiVideoWrap.classList.remove('is-playing');
+    if (wifiPlayPillText) wifiPlayPillText.textContent = 'CLICK TO PLAY';
+    if (wifiPlayPillIcon) wifiPlayPillIcon.textContent = '▶';
+    if (toggleBtn) {
+      const g = toggleBtn.querySelector('.ag-btn-glitch');
+      if (g) g.textContent = '[ RESUME STREAM ]';
+    }
+    wifiVideo.pause();
+  }
+
+  function toggleWifiVideo(e) {
+    if (e) e.preventDefault();
+    if (isWifiVideoPlaying && !wifiVideo.paused) {
+      pauseWifiVideo();
+    } else {
+      playWifiVideo();
+    }
+  }
+
+  if (wifiVideoWrap) {
+    wifiVideoWrap.addEventListener('click', toggleWifiVideo);
+    wifiVideoWrap.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        toggleWifiVideo(e);
+      }
+    });
+  }
+
+  if (wifiVideo) {
+    wifiVideo.addEventListener('timeupdate', () => {
+      if (activeMode !== 'wifi' || wifiVideo.paused) return;
+      const t = wifiVideo.currentTime;
+      const mbps = (47.8 + Math.sin(t * 2.8) * 4.6).toFixed(1);
+      const chunks = Math.floor(1200 + Math.sin(t * 3.5) * 45);
+      if (telemetryEl) {
+        telemetryEl.textContent = `THROUGHPUT: ${mbps} MB/s | TLS 1.3 PINNED`;
+      }
+      if (rateStatEl) {
+        rateStatEl.textContent = `${chunks.toLocaleString()} CHUNKS/SEC`;
+      }
+    });
+  }
   
   const modeNameEl = document.getElementById('ag-deck-mode-name');
   const telemetryEl = document.getElementById('ag-deck-telemetry');
@@ -5004,6 +5072,20 @@ if (terminal && gamesGrid) {
         .map(l => `<div class="ag-log-line ${l.includes('OK') || l.includes('COMPLETE') || l.includes('VALIDATED') ? 'ok' : ''}">${l}</div>`)
         .join('');
     }
+
+    if (mode === 'wifi') {
+      if (canvasBox) canvasBox.classList.add('is-wifi-mode');
+      if (isVisible) {
+        playWifiVideo();
+      }
+    } else {
+      if (canvasBox) canvasBox.classList.remove('is-wifi-mode');
+      pauseWifiVideo();
+      if (isRunning && isVisible && !animId) {
+        lastFrameTime = performance.now();
+        animId = requestAnimationFrame(render);
+      }
+    }
   }
 
   // Tabs click
@@ -5023,8 +5105,13 @@ if (terminal && gamesGrid) {
   // Toggle Stream
   if (toggleBtn) {
     toggleBtn.addEventListener('click', () => {
+      if (activeMode === 'wifi') {
+        toggleWifiVideo();
+        return;
+      }
       isRunning = !isRunning;
-      toggleBtn.querySelector('.ag-btn-glitch').textContent = isRunning ? '[ PAUSE STREAM ]' : '[ RESUME STREAM ]';
+      const g = toggleBtn.querySelector('.ag-btn-glitch');
+      if (g) g.textContent = isRunning ? '[ PAUSE STREAM ]' : '[ RESUME STREAM ]';
       if (isRunning && isVisible) {
         lastFrameTime = performance.now();
         animId = requestAnimationFrame(render);
@@ -5515,21 +5602,34 @@ if (terminal && gamesGrid) {
     const time = timestamp * 0.001;
 
     if (activeMode === 'optical') renderOpticalQr(time);
-    else if (activeMode === 'wifi') renderWifiDirect(time);
     else if (activeMode === 'acoustic') renderAcoustic(time);
 
-    animId = requestAnimationFrame(render);
+    if (activeMode !== 'wifi') {
+      animId = requestAnimationFrame(render);
+    } else {
+      animId = 0;
+    }
   }
 
   function start() {
     if (isVisible) return;
     isVisible = true;
-    if (isRunning) animId = requestAnimationFrame(render);
+    if (activeMode === 'wifi') {
+      playWifiVideo();
+    } else if (isRunning) {
+      animId = requestAnimationFrame(render);
+    }
   }
 
   function stop() {
     isVisible = false;
-    cancelAnimationFrame(animId);
+    if (animId) {
+      cancelAnimationFrame(animId);
+      animId = 0;
+    }
+    if (wifiVideo && !wifiVideo.paused) {
+      wifiVideo.pause();
+    }
   }
 
   // Observer

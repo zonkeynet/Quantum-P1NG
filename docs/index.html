@@ -45,7 +45,7 @@
   <meta name="twitter:image" content="https://www.qp1ng.com/assets/img/social-preview.png" />
 
   <link rel="preload" href="assets/fonts/square_dot_digital_qp1ng.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="styles.css?v=2.6.9" as="style" />
+  <link rel="preload" href="styles.css?v=2.7.0" as="style" />
   <link rel="preload" as="image" href="assets/vid/intro_bg_poster.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/intro_mobile_poster.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/qmap_poster.webp">
@@ -59,7 +59,7 @@
       }
     } catch(e){}
   </script>
-  <link rel="stylesheet" href="styles.css?v=2.6.9" />
+  <link rel="stylesheet" href="styles.css?v=2.7.0" />
 
   <!-- Schema.org Comprehensive Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -2238,8 +2238,26 @@ _
           <span class="ag-deck-telemetry" id="ag-deck-telemetry">FPS: 24 | LOSS_REPAIR: ACTIVE</span>
         </div>
 
-        <div class="ag-canvas-box">
+        <div class="ag-canvas-box" id="agCanvasBox">
           <canvas id="agStreamCanvas" width="480" height="480" aria-label="Air-gap data stream visualization"></canvas>
+
+          <!-- Local Wi-Fi & Hotspot P2P Tactical Video -->
+          <div class="ag-wifi-video-wrap" id="agWifiVideoWrap" role="button" tabindex="0" aria-label="Toggle Local Wi-Fi P2P video playback" title="Click to play / pause video animation">
+            <picture class="ag-wifi-poster-wrap" id="agWifiPosterWrap">
+              <source srcset="assets/img/video_local_wifi_poster.webp?v=1" type="image/webp">
+              <img src="assets/img/video_local_wifi_poster.jpg?v=1" alt="Local Wi-Fi and Hotspot P2P Carrier Diagram" class="ag-wifi-poster-img" width="1280" height="720" loading="lazy" decoding="async">
+            </picture>
+
+            <video id="agWifiVideo" class="ag-wifi-video" width="1280" height="720" poster="assets/img/video_local_wifi_poster.webp?v=1" loop muted playsinline preload="metadata" title="Click to play / pause video animation">
+              <source src="assets/vid/video_local_wifi.mp4?v=1" type="video/mp4">
+              <source src="assets/vid/video_local_wifi.webm?v=1" type="video/webm">
+            </video>
+
+            <div class="ag-wifi-play-pill mono" id="agWifiPlayPill" aria-hidden="true">
+              <span class="ag-play-icon">▶</span>
+              <span class="ag-play-text">CLICK TO PLAY STREAM</span>
+            </div>
+          </div>
 
           <!-- Overlay Reticle & HUD markers -->
           <div class="ag-reticle" aria-hidden="true">
@@ -6534,6 +6552,6 @@ _
 </footer>
   </main>
 
-  <script src="script.js?v=2.6.3" defer></script>
+  <script src="script.js?v=2.6.4" defer></script>
 </body>
 </html>
