@@ -6672,41 +6672,77 @@ body.qmap-modal-open {
 .qcall-scanline {
   position: absolute; left: 0; right: 0; height: 2px;
   background: linear-gradient(90deg, transparent 0%, rgba(0,242,255,0.2) 40%, rgba(0,242,255,0.5) 50%, rgba(0,242,255,0.2) 60%, transparent 100%);
-  animation: qcallScanline 4s linear infinite; z-index: 2; pointer-events: none;
+  animation: qcallScanline 4s linear infinite; z-index: 3; pointer-events: none;
 }
 
 .qcall-noise {
-  position: absolute; inset: 0; opacity: 0.4; pointer-events: none; z-index: 1;
+  position: absolute; inset: 0; opacity: 0.28; pointer-events: none; z-index: 2;
   background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
 }
 
-/* Avatar */
-.qcall-avatar {
-  position: relative; z-index: 3;
-  display: flex; flex-direction: column; align-items: center; gap: 10px;
+/* Video feed image layer */
+.qcall-video-feed-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+  display: block;
 }
 
-.qa-ring {
-  position: absolute; border-radius: 50%;
-  border: 1px solid; top: 50%; left: 50%; transform: translate(-50%, -50%);
+.qcall-video-feed {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  display: block;
+  filter: contrast(1.05) brightness(0.95);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
 }
 
-.qa-ring-1 { width: 70px;  height: 70px;  border-color: rgba(0,242,255,0.4);  animation: qcallRing 3s ease-in-out infinite;            }
-.qa-ring-2 { width: 96px;  height: 96px;  border-color: rgba(0,242,255,0.22); animation: qcallRing 3s 0.6s ease-in-out infinite;       }
-.qa-ring-3 { width: 122px; height: 122px; border-color: rgba(0,242,255,0.1);  animation: qcallRing 3s 1.2s ease-in-out infinite;       }
-
-.qa-icon {
-  width: 54px; height: 54px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  background: rgba(0, 242, 255, 0.08);
-  border: 1.5px solid rgba(0, 242, 255, 0.4);
-  color: rgba(0, 242, 255, 0.7);
-  position: relative; z-index: 1;
+.qcall-video-stage:hover .qcall-video-feed {
+  transform: scale(1.02);
+  filter: contrast(1.1) brightness(1.02);
 }
 
-.qa-label {
-  font-size: 9px; letter-spacing: 0.16em; color: rgba(0,242,255,0.6);
-  text-transform: uppercase; position: relative; z-index: 1; margin-top: 56px;
+.qcall-video-feed-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 95% 90% at 50% 50%, transparent 35%, rgba(2, 7, 13, 0.76) 100%),
+    linear-gradient(180deg, rgba(2, 7, 13, 0.45) 0%, transparent 20%, transparent 75%, rgba(2, 7, 13, 0.82) 100%);
+  pointer-events: none;
+}
+
+.qcall-feed-live-tag {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 5.5px;
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  color: var(--qcall-green, #35ff8a);
+  background: rgba(2, 8, 14, 0.82);
+  border: 1px solid rgba(53, 255, 138, 0.35);
+  border-radius: 4px;
+  padding: 3px 8px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 0 12px rgba(53, 255, 138, 0.14);
+}
+
+.qcall-live-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--qcall-green, #35ff8a);
+  box-shadow: 0 0 8px var(--qcall-green, #35ff8a);
+  animation: agPulseDot 1.4s infinite ease-in-out;
 }
 
 /* Video overlay */

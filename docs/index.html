@@ -45,7 +45,7 @@
   <meta name="twitter:image" content="https://www.qp1ng.com/assets/img/social-preview.png" />
 
   <link rel="preload" href="assets/fonts/square_dot_digital_qp1ng.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="styles.css?v=2.7.2" as="style" />
+  <link rel="preload" href="styles.css?v=2.7.3" as="style" />
   <link rel="preload" as="image" href="assets/vid/intro_bg_poster.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/intro_mobile_poster.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/qmap_poster.webp">
@@ -59,7 +59,7 @@
       }
     } catch(e){}
   </script>
-  <link rel="stylesheet" href="styles.css?v=2.7.2" />
+  <link rel="stylesheet" href="styles.css?v=2.7.3" />
 
   <!-- Schema.org Comprehensive Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -5018,18 +5018,19 @@ _
 
         <!-- Video stage -->
         <div class="qcall-video-stage" role="img" aria-label="Secure video session — identity masked, screen capture blocked">
+          <!-- Realtime encrypted video feed -->
+          <picture class="qcall-video-feed-wrap">
+            <source srcset="assets/img/qcall_video_stage.webp" type="image/webp">
+            <img src="assets/img/qcall_video_stage.jpg" class="qcall-video-feed" alt="Quantum P2P Encrypted Video Feed" loading="lazy" decoding="async" width="1376" height="768">
+          </picture>
+
           <div class="qcall-scanline" aria-hidden="true"></div>
           <div class="qcall-noise" aria-hidden="true"></div>
 
-          <!-- Anonymous avatar -->
-          <div class="qcall-avatar" aria-hidden="true">
-            <div class="qa-ring qa-ring-3"></div>
-            <div class="qa-ring qa-ring-2"></div>
-            <div class="qa-ring qa-ring-1"></div>
-            <div class="qa-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            </div>
-            <span class="qa-label mono">IDENTITY MASKED</span>
+          <!-- Live encryption feed status tag -->
+          <div class="qcall-feed-live-tag mono" aria-hidden="true">
+            <span class="qcall-live-dot"></span>
+            <span>FEED_ENCRYPTED</span>
           </div>
 
           <!-- Security overlay indicators -->
