@@ -45,7 +45,7 @@
   <meta name="twitter:image" content="https://www.qp1ng.com/assets/img/social-preview.png" />
 
   <link rel="preload" href="assets/fonts/square_dot_digital_qp1ng.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="styles.css?v=2.5.4" as="style" />
+  <link rel="preload" href="styles.css?v=2.5.5" as="style" />
   <link rel="preload" as="image" href="assets/vid/intro_bg_poster.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/intro_mobile_poster.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/qmap_poster.webp">
@@ -59,7 +59,7 @@
       }
     } catch(e){}
   </script>
-  <link rel="stylesheet" href="styles.css?v=2.5.4" />
+  <link rel="stylesheet" href="styles.css?v=2.5.5" />
 
   <!-- Schema.org Comprehensive Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -4532,7 +4532,22 @@ _
 
     <div class="rb-mode-grid" aria-label="RadioBridge hardware support">
       <article class="rb-mode-card is-active" data-rb-mode-card="aioc">
-        <span class="rb-card-index mono">01</span>
+        <div class="rb-card-header">
+          <span class="rb-card-index mono">01</span>
+          <div class="rb-view-toggles mono" role="toolbar" aria-label="AIOC View Mode">
+            <button type="button" class="rb-view-btn is-active" data-src="assets/img/aioc_usb.webp" data-fallback="assets/img/aioc_usb.png" aria-pressed="true">DARK RIG</button>
+            <button type="button" class="rb-view-btn" data-src="assets/img/aioc_usb_white.webp" data-fallback="assets/img/aioc_usb_white.png" aria-pressed="false">SCHEMATIC</button>
+          </div>
+        </div>
+
+        <div class="rb-card-visual">
+          <picture>
+            <source srcset="assets/img/aioc_usb.webp" type="image/webp">
+            <img src="assets/img/aioc_usb.png" alt="AIOC All-In-One-Cable USB-C to K1 Adapter" class="rb-card-img" width="512" height="364" loading="lazy">
+          </picture>
+          <div class="rb-card-glow" aria-hidden="true"></div>
+        </div>
+
         <h3>AIOC Serial PTT</h3>
         <p>Best controlled path: USB audio carries modem tones and USB serial DTR/RTS keys the radio.</p>
         <ul>
@@ -4569,7 +4584,22 @@ _
       </article>
 
       <article class="rb-mode-card" data-rb-mode-card="radios">
-        <span class="rb-card-index mono">03</span>
+        <div class="rb-card-header">
+          <span class="rb-card-index mono">03</span>
+          <div class="rb-view-toggles mono" role="toolbar" aria-label="USB-C Adapter View Mode">
+            <button type="button" class="rb-view-btn is-active" data-src="assets/img/usbc_audio_adapter.webp" data-fallback="assets/img/usbc_audio_adapter.png" aria-pressed="true">DARK RIG</button>
+            <button type="button" class="rb-view-btn" data-src="assets/img/usbc_audio_adapter_white.webp" data-fallback="assets/img/usbc_audio_adapter_white.png" aria-pressed="false">SCHEMATIC</button>
+          </div>
+        </div>
+
+        <div class="rb-card-visual">
+          <picture>
+            <source srcset="assets/img/usbc_audio_adapter.webp" type="image/webp">
+            <img src="assets/img/usbc_audio_adapter.png" alt="USB-C to 3.5mm Audio Adapter Dongle Interface" class="rb-card-img" width="512" height="369" loading="lazy">
+          </picture>
+          <div class="rb-card-glow" aria-hidden="true"></div>
+        </div>
+
         <h3>Radio Targets</h3>
         <div class="rb-target-pill mono">
           <span class="badge-dot"></span>
@@ -6244,6 +6274,6 @@ _
 </footer>
   </main>
 
-  <script src="script.js?v=2.5.1" defer></script>
+  <script src="script.js?v=2.5.2" defer></script>
 </body>
 </html>
