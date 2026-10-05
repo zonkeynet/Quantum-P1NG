@@ -16767,6 +16767,7 @@ main section *,
   content: '';
   position: absolute;
   inset: 0;
+  pointer-events: none;
   background:
     repeating-linear-gradient(90deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 58px),
     repeating-linear-gradient(0deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 42px);
@@ -17198,11 +17199,7 @@ main section *,
   }
 
   .qcam-play-pill {
-    top: auto;
-    bottom: 66px;
-    right: 12px;
-    padding: 6px 9px;
-    font-size: 8.5px;
+    display: none !important;
   }
 }
 
@@ -17297,6 +17294,12 @@ main section *,
   color: #ff2a6d;
 }
 
+@media (max-width: 768px), (hover: none) and (pointer: coarse) {
+  .qcam-play-pill {
+    display: none !important;
+  }
+}
+
 #qcamBadge {
   transition: color 300ms ease, text-shadow 300ms ease;
 }
@@ -17322,6 +17325,7 @@ main section *,
   left: 18px;
   bottom: 66px;
   z-index: 4;
+  pointer-events: none;
   padding: 8px 10px;
   border: 1px solid rgba(10, 255, 132, 0.22);
   border-radius: 6px;
@@ -17336,6 +17340,7 @@ main section *,
 .qcam-mask,
 .qcam-hud-row {
   z-index: 5;
+  pointer-events: none;
 }
 
 /* Secure Dictation - Feature Media Visual Integration */
