@@ -284,22 +284,197 @@
       </a>
 
       <nav class="nav" aria-label="Primary">
-        <a href="#mission">Mission</a>
-        <a href="#stack">Tech Stack</a>
-        <a href="#security">Security</a>
-        <a href="#anti-forensic">Anti-Forensic</a>
-        <a href="#air-gap">Air-Gap</a>
-        <a href="#q-geo">Q-Geo</a>
-        <a href="#q-feed">Q-Feed</a>
-        <a href="#q-cam">Q-CAM</a>
-        <a href="#protocols">Protocols</a>
-        <a href="#roadmap">Roadmap</a>
-        <a href="#q-sdr">Q-SDR</a>
-        <a href="#q-sat">Q-Sat</a>
-        <a href="#radio-bridge">RadioBridge</a>
-        <a href="#q-call">Q-CALL</a>
-        <a href="#q-ai">Q-AI</a>
-        <a href="#action-forge">ActionForge</a>
+        <!-- Architecture -->
+        <div class="nav-group" data-nav-category="architecture">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true">
+            <span>Architecture</span>
+            <span class="nav-chevron" aria-hidden="true">▾</span>
+          </button>
+          <div class="nav-dropdown" role="menu">
+            <div class="nav-dropdown-header mono">[ 01 // KERNEL_ARCH ]</div>
+            <a href="#mission" class="nav-drop-item" role="menuitem">
+              <span class="drop-idx mono">01</span>
+              <div class="drop-text">
+                <span class="drop-title">Mission & Manifesto</span>
+                <span class="drop-sub">Zero-cloud OPSEC philosophy</span>
+              </div>
+            </a>
+            <a href="#stack" class="nav-drop-item" role="menuitem">
+              <span class="drop-idx mono">02</span>
+              <div class="drop-text">
+                <span class="drop-title">Tech Stack</span>
+                <span class="drop-sub">C++, Rust & Cryptography</span>
+              </div>
+            </a>
+            <a href="#protocols" class="nav-drop-item" role="menuitem">
+              <span class="drop-idx mono">03</span>
+              <div class="drop-text">
+                <span class="drop-title">Protocols Mirror</span>
+                <span class="drop-sub">In-app architecture & runtime</span>
+              </div>
+            </a>
+            <a href="#roadmap" class="nav-drop-item" role="menuitem">
+              <span class="drop-idx mono">04</span>
+              <div class="drop-text">
+                <span class="drop-title">Roadmap</span>
+                <span class="drop-sub">Hardware & deployment phases</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Security & OPSEC -->
+        <div class="nav-group" data-nav-category="security">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true">
+            <span>Security & OPSEC</span>
+            <span class="nav-chevron" aria-hidden="true">▾</span>
+          </button>
+          <div class="nav-dropdown" role="menu">
+            <div class="nav-dropdown-header mono">[ 02 // DEFENSE_LAYER ]</div>
+            <a href="#security" class="nav-drop-item" role="menuitem">
+              <span class="drop-idx mono">01</span>
+              <div class="drop-text">
+                <span class="drop-title">Security Core</span>
+                <span class="drop-sub">X3DH & Double Ratchet</span>
+              </div>
+            </a>
+            <a href="#anti-forensic" class="nav-drop-item" role="menuitem">
+              <span class="drop-idx mono">02</span>
+              <div class="drop-text">
+                <span class="drop-title">Anti-Forensic</span>
+                <span class="drop-sub">Panic wipe & zero identity</span>
+              </div>
+            </a>
+            <a href="#air-gap" class="nav-drop-item" role="menuitem">
+              <span class="drop-idx mono">03</span>
+              <div class="drop-text">
+                <span class="drop-title">Air-Gap Transports</span>
+                <span class="drop-sub">Off-grid physical links</span>
+              </div>
+            </a>
+            <a href="#data-sanitizer" class="nav-drop-item" role="menuitem">
+              <span class="drop-idx mono">04</span>
+              <div class="drop-text">
+                <span class="drop-title">Data Sanitizer</span>
+                <span class="drop-sub">EXIF & metadata stripper</span>
+              </div>
+            </a>
+            <a href="#finance" class="nav-drop-item" role="menuitem">
+              <span class="drop-idx mono">05</span>
+              <div class="drop-text">
+                <span class="drop-title">Bitcoin Vault</span>
+                <span class="drop-sub">Sovereign cold storage</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- RF & Comms -->
+        <div class="nav-group" data-nav-category="rf">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true">
+            <span>RF & Comms</span>
+            <span class="nav-chevron" aria-hidden="true">▾</span>
+          </button>
+          <div class="nav-dropdown" role="menu">
+            <div class="nav-dropdown-header mono">[ 03 // SPECTRUM_NODES ]</div>
+            <a href="#lora-nexus" class="nav-drop-item" role="menuitem">
+              <span class="drop-idx mono">01</span>
+              <div class="drop-text">
+                <span class="drop-title">LoRa Nexus</span>
+                <span class="drop-sub">Autonomous RF mesh transport</span>
+              </div>
+            </a>
+            <a href="#q-sdr" class="nav-drop-item" role="menuitem">
+              <span class="drop-idx mono">02</span>
+              <div class="drop-text">
+                <span class="drop-title">Q-SDR Lab</span>
+                <span class="drop-sub">Live FFT & Waterfall monitor</span>
+              </div>
+            </a>
+            <a href="#q-sat" class="nav-drop-item" role="menuitem">
+              <span class="drop-idx mono">03</span>
+              <div class="drop-text">
+                <span class="drop-title">Q-Sat Satellite</span>
+                <span class="drop-sub">Orbital tracking & EME bridge</span>
+              </div>
+            </a>
+            <a href="#radio-bridge" class="nav-drop-item" role="menuitem">
+              <span class="drop-idx mono">04</span>
+              <div class="drop-text">
+                <span class="drop-title">RadioBridge</span>
+                <span class="drop-sub">AIOC & CM108 USB interface</span>
+              </div>
+            </a>
+            <a href="#q-call" class="nav-drop-item" role="menuitem">
+              <span class="drop-idx mono">05</span>
+              <div class="drop-text">
+                <span class="drop-title">Q-CALL</span>
+                <span class="drop-sub">Encrypted WebRTC voice mesh</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Tactical Tools & AI -->
+        <div class="nav-group" data-nav-category="tools">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true">
+            <span>Tools & AI</span>
+            <span class="nav-chevron" aria-hidden="true">▾</span>
+          </button>
+          <div class="nav-dropdown" role="menu">
+            <div class="nav-dropdown-header mono">[ 04 // LOCAL_ENGINES ]</div>
+            <a href="#stt" class="nav-drop-item" role="menuitem">
+              <span class="drop-idx mono">01</span>
+              <div class="drop-text">
+                <span class="drop-title">Secure Dictation</span>
+                <span class="drop-sub">Local Whisper STT on-device</span>
+              </div>
+            </a>
+            <a href="#q-ai" class="nav-drop-item" role="menuitem">
+              <span class="drop-idx mono">02</span>
+              <div class="drop-text">
+                <span class="drop-title">Q-AI Engine</span>
+                <span class="drop-sub">Offline neural assistant</span>
+              </div>
+            </a>
+            <a href="#action-forge" class="nav-drop-item" role="menuitem">
+              <span class="drop-idx mono">03</span>
+              <div class="drop-text">
+                <span class="drop-title">ActionForge</span>
+                <span class="drop-sub">Tactical scenario automation</span>
+              </div>
+            </a>
+            <a href="#q-geo" class="nav-drop-item" role="menuitem">
+              <span class="drop-idx mono">04</span>
+              <div class="drop-text">
+                <span class="drop-title">Q-Geo Tactical</span>
+                <span class="drop-sub">Vector maps & offline tiles</span>
+              </div>
+            </a>
+            <a href="#q-feed" class="nav-drop-item" role="menuitem">
+              <span class="drop-idx mono">05</span>
+              <div class="drop-text">
+                <span class="drop-title">Q-Feed</span>
+                <span class="drop-sub">Decentralized P2P dispatch</span>
+              </div>
+            </a>
+            <a href="#q-cam" class="nav-drop-item" role="menuitem">
+              <span class="drop-idx mono">06</span>
+              <div class="drop-text">
+                <span class="drop-title">Q-CAM</span>
+                <span class="drop-sub">Biometric facial shielding</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Direct Arcade Link -->
+        <a href="#games" class="nav-link nav-link--games" aria-label="Offline Games Hub">
+          <span>Games</span>
+          <span class="nav-badge mono">5</span>
+        </a>
+
+        <!-- GitHub CTA -->
         <a class="nav__cta" href="https://github.com/zonkeynet/Quantum-P1NG" target="_blank" rel="noopener">GitHub</a>
       </nav>
 
@@ -309,24 +484,43 @@
     </div>
 
     <div id="mobilemenu" class="mobilemenu" aria-hidden="true">
-      <a href="#mission">Mission</a>
-      <a href="#stack">Tech Stack</a>
-      <a href="#security">Security</a>
-      <a href="#anti-forensic">Anti-Forensic</a>
-      <a href="#air-gap">Air-Gap</a>
-      <a href="#q-geo">Q-Geo</a>
-      <a href="#q-feed">Q-Feed</a>
-      <a href="#q-cam">Q-CAM</a>
-      <a href="#games">Games</a>
-      <a href="#protocols">Protocols</a>
-      <a href="#roadmap">Roadmap</a>
-      <a href="#q-sdr">Q-SDR</a>
-      <a href="#q-sat">Q-Sat</a>
-      <a href="#radio-bridge">RadioBridge</a>
-      <a href="#q-call">Q-CALL</a>
-      <a href="#q-ai">Q-AI</a>
-      <a href="#action-forge">ActionForge</a>
-      <a href="https://github.com/zonkeynet/Quantum-P1NG" target="_blank" rel="noopener">GitHub</a>
+      <div class="mobilemenu-section">
+        <span class="mobilemenu-label mono">[ 01 // ARCHITECTURE ]</span>
+        <a href="#mission">Mission & Manifesto</a>
+        <a href="#stack">Tech Stack</a>
+        <a href="#protocols">Protocols Mirror</a>
+        <a href="#roadmap">Roadmap</a>
+      </div>
+      <div class="mobilemenu-section">
+        <span class="mobilemenu-label mono">[ 02 // SECURITY & OPSEC ]</span>
+        <a href="#security">Security Core</a>
+        <a href="#anti-forensic">Anti-Forensic</a>
+        <a href="#air-gap">Air-Gap Transports</a>
+        <a href="#data-sanitizer">Data Sanitizer</a>
+        <a href="#finance">Bitcoin Vault</a>
+      </div>
+      <div class="mobilemenu-section">
+        <span class="mobilemenu-label mono">[ 03 // RF & COMMS ]</span>
+        <a href="#lora-nexus">LoRa Nexus Mesh</a>
+        <a href="#q-sdr">Q-SDR Lab Spectrum</a>
+        <a href="#q-sat">Q-Sat Satellite EME</a>
+        <a href="#radio-bridge">RadioBridge Interface</a>
+        <a href="#q-call">Q-CALL WebRTC</a>
+      </div>
+      <div class="mobilemenu-section">
+        <span class="mobilemenu-label mono">[ 04 // TOOLS & AI ]</span>
+        <a href="#stt">Secure Dictation (STT)</a>
+        <a href="#q-ai">Q-AI Engine</a>
+        <a href="#action-forge">ActionForge</a>
+        <a href="#q-geo">Q-Geo Tactical</a>
+        <a href="#q-feed">Q-Feed</a>
+        <a href="#q-cam">Q-CAM Privacy</a>
+      </div>
+      <div class="mobilemenu-section">
+        <span class="mobilemenu-label mono">[ 05 // ARCADE ]</span>
+        <a href="#games" style="color:var(--acc2); border-color:rgba(0,242,255,0.35);">Games Hub [5 Games]</a>
+      </div>
+      <a href="https://github.com/zonkeynet/Quantum-P1NG" target="_blank" rel="noopener">GitHub Repository</a>
     </div>
   </header>
 

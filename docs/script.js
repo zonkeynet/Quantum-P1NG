@@ -52,6 +52,106 @@
   }
 
   // =========================================
+  // 1B. DESKTOP HUD DROPDOWNS & SCROLLSPY
+  // =========================================
+  const navGroups = document.querySelectorAll('.nav-group');
+  
+  const closeAllDropdowns = () => {
+    navGroups.forEach(g => {
+      g.classList.remove('is-open');
+      const btn = g.querySelector('.nav-trigger');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    });
+  };
+
+  navGroups.forEach(group => {
+    const trigger = group.querySelector('.nav-trigger');
+    if (!trigger) return;
+
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = group.classList.contains('is-open');
+      closeAllDropdowns();
+      if (!isOpen) {
+        group.classList.add('is-open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    group.querySelectorAll('.nav-drop-item').forEach(item => {
+      item.addEventListener('click', () => {
+        closeAllDropdowns();
+      });
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-group')) {
+      closeAllDropdowns();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeAllDropdowns();
+    }
+  });
+
+  const categoryMap = {
+    'mission': 'architecture',
+    'stack': 'architecture',
+    'protocols': 'architecture',
+    'roadmap': 'architecture',
+    'security': 'security',
+    'anti-forensic': 'security',
+    'air-gap': 'security',
+    'data-sanitizer': 'security',
+    'finance': 'security',
+    'lora-nexus': 'rf',
+    'q-sdr': 'rf',
+    'q-sat': 'rf',
+    'radio-bridge': 'rf',
+    'q-call': 'rf',
+    'stt': 'tools',
+    'q-ai': 'tools',
+    'action-forge': 'tools',
+    'q-geo': 'tools',
+    'q-feed': 'tools',
+    'q-cam': 'tools',
+    'games': 'games'
+  };
+
+  const sectionsToWatch = Object.keys(categoryMap)
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
+
+  if ('IntersectionObserver' in window && sectionsToWatch.length > 0) {
+    const gamesLink = document.querySelector('.nav-link--games');
+    const spyObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const cat = categoryMap[entry.target.id];
+          navGroups.forEach(g => {
+            if (g.dataset.navCategory === cat) {
+              g.classList.add('is-active');
+            } else {
+              g.classList.remove('is-active');
+            }
+          });
+          if (gamesLink) {
+            gamesLink.classList.toggle('is-active', cat === 'games');
+          }
+        }
+      });
+    }, {
+      rootMargin: '-20% 0px -65% 0px',
+      threshold: 0
+    });
+
+    sectionsToWatch.forEach(s => spyObserver.observe(s));
+  }
+
+  // =========================================
   // 2. HACKER TYPEWRITER EFFECT
   // =========================================
   const typeWriter = async (element, text) => {
