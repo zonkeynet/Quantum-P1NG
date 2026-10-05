@@ -45,7 +45,7 @@
   <meta name="twitter:image" content="https://www.qp1ng.com/assets/img/social-preview.png" />
 
   <link rel="preload" href="assets/fonts/square_dot_digital_qp1ng.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="styles.css?v=2.6.0" as="style" />
+  <link rel="preload" href="styles.css?v=2.6.1" as="style" />
   <link rel="preload" as="image" href="assets/vid/intro_bg_poster.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/intro_mobile_poster.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/qmap_poster.webp">
@@ -59,7 +59,7 @@
       }
     } catch(e){}
   </script>
-  <link rel="stylesheet" href="styles.css?v=2.6.0" />
+  <link rel="stylesheet" href="styles.css?v=2.6.1" />
 
   <!-- Schema.org Comprehensive Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -4586,17 +4586,40 @@ _
       <article class="rb-mode-card" data-rb-mode-card="radios">
         <div class="rb-card-header">
           <span class="rb-card-index mono">03</span>
-          <div class="rb-view-toggles mono" role="toolbar" aria-label="USB-C Adapter View Mode">
-            <button type="button" class="rb-view-btn is-active" data-src="assets/img/usbc_audio_adapter.webp" data-fallback="assets/img/usbc_audio_adapter.png" aria-pressed="true">DARK RIG</button>
-            <button type="button" class="rb-view-btn" data-src="assets/img/usbc_audio_adapter_white.webp" data-fallback="assets/img/usbc_audio_adapter_white.png" aria-pressed="false">SCHEMATIC</button>
+          <div class="rb-view-toggles mono" role="toolbar" aria-label="USB-C and K1 Cable View Mode">
+            <button type="button" class="rb-view-btn is-active" 
+              data-src="assets/img/usbc_audio_adapter.webp" data-fallback="assets/img/usbc_audio_adapter.png"
+              data-src-k1="assets/img/k1_audio_cable.webp" data-fallback-k1="assets/img/k1_audio_cable.png"
+              aria-pressed="true">DARK RIG</button>
+            <button type="button" class="rb-view-btn" 
+              data-src="assets/img/usbc_audio_adapter_white.webp" data-fallback="assets/img/usbc_audio_adapter_white.png"
+              data-src-k1="assets/img/k1_audio_cable_white.webp" data-fallback-k1="assets/img/k1_audio_cable_white.png"
+              aria-pressed="false">SCHEMATIC</button>
           </div>
         </div>
 
-        <div class="rb-card-visual">
-          <picture>
-            <source srcset="assets/img/usbc_audio_adapter.webp" type="image/webp">
-            <img src="assets/img/usbc_audio_adapter.png" alt="USB-C to 3.5mm Audio Adapter Dongle Interface" class="rb-card-img" width="512" height="369" loading="lazy">
-          </picture>
+        <div class="rb-card-visual rb-card-visual--dual" data-dual-rig="combo">
+          <div class="rb-visual-slot rb-slot--usbc" title="Modalità 1: Adattatore USB-C (per smartphone senza jack 3.5mm)">
+            <picture>
+              <source srcset="assets/img/usbc_audio_adapter.webp" type="image/webp">
+              <img src="assets/img/usbc_audio_adapter.png" alt="USB-C to 3.5mm Audio Adapter" class="rb-card-img" width="512" height="369" loading="lazy">
+            </picture>
+            <span class="rb-slot-label mono">USB-C</span>
+          </div>
+
+          <div class="rb-visual-connector mono" aria-hidden="true" title="Catena di collegamento: USB-C + K1 oppure Solo K1">
+            <span class="rb-conn-plus">+</span>
+            <span class="rb-conn-or">OR</span>
+          </div>
+
+          <div class="rb-visual-slot rb-slot--k1" title="Modalità 1 & 2: Cavo audio Kenwood K1 a doppio pin">
+            <picture>
+              <source srcset="assets/img/k1_audio_cable.webp" type="image/webp">
+              <img src="assets/img/k1_audio_cable.png" alt="Cavo audio Kenwood K1 a doppio pin" class="rb-card-img" width="512" height="512" loading="lazy">
+            </picture>
+            <span class="rb-slot-label mono">K1 CABLE</span>
+          </div>
+
           <div class="rb-card-glow" aria-hidden="true"></div>
         </div>
 
@@ -4605,11 +4628,21 @@ _
           <span class="badge-dot"></span>
           <span>BAOFENG UV-5R REFERENCE RIG</span>
         </div>
+
+        <div class="rb-wiring-modes mono" role="tablist" aria-label="Modalità di collegamento radio">
+          <button type="button" class="rb-wiring-chip is-active" data-mode="combo" role="tab" aria-selected="true" title="Smartphone con porta USB-C: richiede adattatore audio USB-C + Cavo K1">
+            <span class="chip-dot"></span>MOD 1: USB-C + K1
+          </button>
+          <button type="button" class="rb-wiring-chip" data-mode="direct" role="tab" aria-selected="false" title="Dispositivo con jack 3.5mm: richiede solo il cavo K1 diretto">
+            <span class="chip-dot"></span>MOD 2: SOLO K1 (3.5mm)
+          </button>
+        </div>
+
         <p>Designed for common analog handhelds and lab receivers using the Kenwood K1 accessory style.</p>
-        <ul>
-          <li>Baofeng, Quansheng and compatible K1 radios</li>
-          <li>Power LOW, volume low, authorized channel only</li>
-          <li>Use dummy load or controlled test path first</li>
+        <ul class="rb-target-modes-list">
+          <li class="rb-mode-item--combo"><strong>USB-C + K1:</strong> Smartphone USB-C &rarr; Adattatore 3.5mm &rarr; Cavo K1 &rarr; Radio</li>
+          <li class="rb-mode-item--direct"><strong>Solo K1:</strong> Jack 3.5mm diretto &rarr; Cavo K1 doppio pin &rarr; Radio</li>
+          <li>Baofeng UV-5R, Quansheng e apparati analogici compatibili K1</li>
         </ul>
       </article>
     </div>
@@ -6285,6 +6318,6 @@ _
 </footer>
   </main>
 
-  <script src="script.js?v=2.5.6" defer></script>
+  <script src="script.js?v=2.5.7" defer></script>
 </body>
 </html>

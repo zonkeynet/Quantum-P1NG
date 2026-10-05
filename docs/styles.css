@@ -9030,6 +9030,182 @@ body.qmap-modal-open {
   opacity: 0.6;
 }
 
+/* Card 03 Dual Component Visual Stage (USB-C Adapter + K1 Cable) */
+.rb-card-visual--dual {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 8px 12px;
+  gap: 8px;
+}
+
+.rb-visual-slot {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: 100%;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: opacity 0.28s ease, transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), filter 0.28s ease;
+}
+
+.rb-visual-slot picture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: calc(100% - 18px);
+}
+
+.rb-slot--usbc .rb-card-img {
+  max-width: 96%;
+  max-height: 94px;
+}
+
+.rb-slot--k1 .rb-card-img {
+  max-width: 96%;
+  max-height: 102px;
+}
+
+.rb-visual-slot:hover .rb-card-img {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 14px rgba(53, 255, 138, 0.6));
+}
+
+.rb-slot-label {
+  display: inline-block;
+  margin-top: 2px;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  color: rgba(0, 242, 255, 0.85);
+  background: rgba(0, 242, 255, 0.08);
+  border: 1px solid rgba(0, 242, 255, 0.22);
+  border-radius: 3px;
+  padding: 1px 5px;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+  pointer-events: none;
+}
+
+.rb-visual-slot:hover .rb-slot-label {
+  color: #35ff8a;
+  border-color: rgba(53, 255, 138, 0.5);
+  background: rgba(53, 255, 138, 0.15);
+}
+
+.rb-visual-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  flex-shrink: 0;
+  padding: 4px 6px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 242, 255, 0.2);
+  border-radius: 4px;
+  transition: opacity 0.3s ease;
+  user-select: none;
+  z-index: 1;
+}
+
+.rb-conn-plus {
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--rb-green, #35ff8a);
+  text-shadow: 0 0 6px rgba(53, 255, 138, 0.5);
+}
+
+.rb-conn-or {
+  font-size: 7.5px;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  color: rgba(220, 234, 245, 0.65);
+}
+
+/* Wiring modes interactive chips */
+.rb-wiring-modes {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 6px;
+  margin: 6px 0 8px;
+}
+
+.rb-wiring-chip {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: rgba(1, 8, 14, 0.7);
+  border: 1px solid rgba(0, 242, 255, 0.2);
+  border-radius: 4px;
+  padding: 4.5px 6px;
+  color: rgba(220, 234, 245, 0.72);
+  font-family: var(--font-mono, monospace);
+  font-size: 8.5px;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: all 0.22s ease;
+}
+
+.rb-wiring-chip:hover {
+  border-color: rgba(0, 242, 255, 0.45);
+  color: #fff;
+  background: rgba(0, 242, 255, 0.08);
+}
+
+.rb-wiring-chip.is-active {
+  border-color: rgba(53, 255, 138, 0.6);
+  background: rgba(53, 255, 138, 0.12);
+  color: #35ff8a;
+  box-shadow: 0 0 10px rgba(53, 255, 138, 0.2);
+  font-weight: 700;
+}
+
+.rb-wiring-chip .chip-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 6px currentColor;
+}
+
+/* Dual rig wiring states */
+[data-dual-rig="direct"] .rb-slot--usbc {
+  opacity: 0.18;
+  filter: grayscale(1) brightness(0.6);
+  transform: scale(0.9);
+}
+
+[data-dual-rig="direct"] .rb-visual-connector {
+  opacity: 0.35;
+}
+
+[data-dual-rig="direct"] .rb-slot--k1 {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 16px rgba(53, 255, 138, 0.65));
+}
+
+[data-dual-rig="direct"] .rb-slot--k1 .rb-slot-label {
+  background: rgba(53, 255, 138, 0.22);
+  border-color: rgba(53, 255, 138, 0.6);
+  color: #35ff8a;
+}
+
+[data-dual-rig="combo"] .rb-mode-item--combo {
+  color: #fff;
+}
+
+[data-dual-rig="direct"] .rb-mode-item--direct {
+  color: #35ff8a;
+}
+
 .rb-view-toggles {
   display: inline-flex;
   gap: 2px;
@@ -9264,6 +9440,25 @@ body.qmap-modal-open {
   .rb-card-img {
     max-width: 92%;
     max-height: 108px;
+  }
+  .rb-card-visual--dual {
+    height: 126px;
+    padding: 6px 8px;
+    gap: 6px;
+  }
+  .rb-slot--usbc .rb-card-img {
+    max-height: 80px;
+  }
+  .rb-slot--k1 .rb-card-img {
+    max-height: 86px;
+  }
+  .rb-slot-label {
+    font-size: 7.5px;
+    padding: 1px 4px;
+  }
+  .rb-wiring-chip {
+    font-size: 8px;
+    padding: 3.5px 5px;
   }
   .rb-mode-card h3 {
     font-size: 17px;

@@ -4049,15 +4049,22 @@ if (terminal && gamesGrid) {
         if (!card) return;
         const targetSrc = btn.getAttribute('data-src');
         const fallbackSrc = btn.getAttribute('data-fallback') || targetSrc;
-        const img = card.querySelector('.rb-card-img');
-        const picture = card.querySelector('picture');
-        const source = picture ? picture.querySelector('source') : null;
+        const targetSrcK1 = btn.getAttribute('data-src-k1');
+        const fallbackSrcK1 = btn.getAttribute('data-fallback-k1') || targetSrcK1;
 
-        if (source && targetSrc.endsWith('.webp')) {
-          source.srcset = targetSrc;
+        const pictures = card.querySelectorAll('picture');
+        const imgs = card.querySelectorAll('.rb-card-img');
+
+        if (pictures[0] && targetSrc) {
+          const s0 = pictures[0].querySelector('source');
+          if (s0 && targetSrc.endsWith('.webp')) s0.srcset = targetSrc;
+          if (imgs[0]) imgs[0].src = targetSrc.endsWith('.webp') ? fallbackSrc : targetSrc;
         }
-        if (img) {
-          img.src = targetSrc.endsWith('.webp') ? fallbackSrc : targetSrc;
+
+        if (pictures[1] && targetSrcK1) {
+          const s1 = pictures[1].querySelector('source');
+          if (s1 && targetSrcK1.endsWith('.webp')) s1.srcset = targetSrcK1;
+          if (imgs[1]) imgs[1].src = targetSrcK1.endsWith('.webp') ? fallbackSrcK1 : targetSrcK1;
         }
 
         card.querySelectorAll('.rb-view-btn').forEach((b) => {
@@ -4068,6 +4075,44 @@ if (terminal && gamesGrid) {
         btn.setAttribute('aria-pressed', 'true');
       });
     });
+
+    // Radio Targets wiring mode chips (USB-C + K1 vs Solo K1)
+    const wiringChips = section.querySelectorAll('.rb-wiring-chip');
+    const dualVisual = section.querySelector('.rb-card-visual--dual');
+    if (wiringChips.length && dualVisual) {
+      wiringChips.forEach((chip) => {
+        chip.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const mode = chip.getAttribute('data-mode'); // 'combo' or 'direct'
+          wiringChips.forEach((c) => {
+            c.classList.remove('is-active');
+            c.setAttribute('aria-selected', 'false');
+          });
+          chip.classList.add('is-active');
+          chip.setAttribute('aria-selected', 'true');
+          dualVisual.setAttribute('data-dual-rig', mode);
+        });
+      });
+
+      const slotUsbc = dualVisual.querySelector('.rb-slot--usbc');
+      const slotK1 = dualVisual.querySelector('.rb-slot--k1');
+      if (slotUsbc) {
+        slotUsbc.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const comboChip = section.querySelector('.rb-wiring-chip[data-mode="combo"]');
+          if (comboChip) comboChip.click();
+        });
+      }
+      if (slotK1) {
+        slotK1.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const currentMode = dualVisual.getAttribute('data-dual-rig');
+          const targetMode = currentMode === 'direct' ? 'combo' : 'direct';
+          const targetChip = section.querySelector(`.rb-wiring-chip[data-mode="${targetMode}"]`);
+          if (targetChip) targetChip.click();
+        });
+      }
+    }
 
     window.addEventListener('resize', resizeCanvas, { passive: true });
     reduceMotion.addEventListener?.('change', () => {
