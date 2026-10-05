@@ -25678,3 +25678,728 @@ html.intro-active body > *:not(#intro-screen):not(script):not(style) {
     font-size: 0.75rem;
   }
 }
+
+/* ==========================================================================
+   TACTICAL DEPLOYMENT SCHEMATIC & DOWNLOAD HUB
+   Interactive external connection diagram for APK, Google Play, and F-Droid
+   ========================================================================== */
+
+.hero__cta-wrapper {
+  display: block;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 0 22px;
+  position: relative;
+  z-index: 25;
+}
+
+.hero__cta-wrapper .hero__cta {
+  margin: 0 0 14px;
+}
+
+/* Master Download Trigger Button Enhancement */
+.dl-trigger-btn {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 20px !important;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, rgba(0, 242, 255, 0.95) 0%, rgba(10, 255, 132, 0.9) 100%) !important;
+  color: #04090f !important;
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  box-shadow: 0 0 24px rgba(0, 242, 255, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.dl-trigger-btn:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 0 35px rgba(0, 242, 255, 0.7), inset 0 1px 0 #ffffff !important;
+  filter: brightness(1.08);
+}
+
+.dl-trigger-btn:active {
+  transform: translateY(0);
+}
+
+/* Live Tactical Beacon inside trigger button */
+.dl-trigger-beacon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+}
+
+.dl-trigger-beacon__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #022013;
+  box-shadow: 0 0 4px #022013;
+}
+
+.dl-trigger-beacon__ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1.5px solid #042417;
+  animation: dlBeaconPulse 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+}
+
+@keyframes dlBeaconPulse {
+  0% { transform: scale(0.6); opacity: 0.9; }
+  100% { transform: scale(2.6); opacity: 0; }
+}
+
+.dl-trigger-btn__label {
+  font-weight: 800;
+  letter-spacing: 0.3px;
+}
+
+.dl-trigger-btn__tag {
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.32);
+  color: #04121a;
+  border: 1px solid rgba(0, 0, 0, 0.22);
+  border-radius: 4px;
+  font-size: 0.68rem;
+  padding: 3px 6px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+}
+
+.dl-trigger-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 2px;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.dl-trigger-btn[aria-expanded="true"] .dl-trigger-arrow {
+  transform: rotate(180deg);
+}
+
+/* Schematic Drawer Container */
+.dl-schematic-drawer {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  visibility: hidden;
+  transition: grid-template-rows 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease, visibility 0.45s ease, margin 0.35s ease;
+  margin-top: 14px;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.dl-schematic-drawer.is-open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  visibility: visible;
+  margin-bottom: 24px;
+}
+
+.dl-schematic-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* The Schematic Board HUD */
+.dl-schematic-board {
+  position: relative;
+  background: linear-gradient(180deg, rgba(8, 16, 26, 0.96) 0%, rgba(4, 9, 15, 0.98) 100%);
+  border: 1px solid rgba(0, 242, 255, 0.32);
+  border-radius: 10px;
+  padding: 22px 24px;
+  box-shadow: 0 16px 48px -8px rgba(0, 0, 0, 0.85), 0 0 35px -5px rgba(0, 242, 255, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Board Header */
+.dl-board-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(0, 242, 255, 0.15);
+  margin-bottom: 18px;
+}
+
+.dl-board-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  letter-spacing: 0.8px;
+  color: var(--acc2, #00f2ff);
+  text-transform: uppercase;
+}
+
+.dl-board-status-led {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #0aff84;
+  box-shadow: 0 0 8px #0aff84;
+  animation: dlLedBlink 2.2s ease-in-out infinite;
+}
+
+@keyframes dlLedBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+.dl-board-close {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  color: var(--muted, #94a3b8);
+  font-size: 0.7rem;
+  padding: 4px 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dl-board-close:hover {
+  border-color: #ff3366;
+  color: #ff3366;
+  background: rgba(255, 51, 102, 0.08);
+}
+
+/* Origin Core Node (Dispatcher) */
+.dl-origin-node {
+  background: rgba(0, 242, 255, 0.04);
+  border: 1px solid rgba(0, 242, 255, 0.2);
+  border-radius: 8px;
+  padding: 12px 18px;
+  position: relative;
+  text-align: center;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+.dl-origin-badge {
+  font-size: 0.65rem;
+  letter-spacing: 0.8px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.dl-origin-core {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.dl-origin-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(0, 242, 255, 0.12);
+  border: 1px solid rgba(0, 242, 255, 0.35);
+  color: var(--acc2, #00f2ff);
+  box-shadow: 0 0 12px rgba(0, 242, 255, 0.3);
+  flex-shrink: 0;
+}
+
+.dl-origin-text {
+  text-align: left;
+}
+
+.dl-origin-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dl-origin-title strong {
+  font-size: 1.05rem;
+  color: #ffffff;
+  letter-spacing: 0.3px;
+}
+
+.dl-status-chip {
+  font-size: 0.65rem;
+  padding: 2px 6px;
+  border-radius: 3px;
+  background: rgba(10, 255, 132, 0.15);
+  color: #0aff84;
+  border: 1px solid rgba(10, 255, 132, 0.3);
+  letter-spacing: 0.5px;
+}
+
+.dl-origin-meta {
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 3px;
+  letter-spacing: 0.4px;
+}
+
+/* Circuit Bus SVG Section */
+.dl-bus-wrap {
+  width: 100%;
+  height: 75px;
+  position: relative;
+  margin: 6px 0 4px;
+  display: block;
+}
+
+.dl-circuit-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+.dl-circuit-rail {
+  stroke: rgba(255, 255, 255, 0.08);
+  stroke-width: 1px;
+  stroke-dasharray: 2 4;
+}
+
+.dl-circuit-track {
+  fill: none;
+  stroke: rgba(0, 242, 255, 0.22);
+  stroke-width: 2px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke 0.3s ease, stroke-width 0.3s ease;
+}
+
+/* Pulsing Signal flow */
+.dl-circuit-pulse {
+  fill: none;
+  stroke-width: 2.5px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 8 18;
+  stroke-dashoffset: 0;
+  animation: dlBusPulseFlow 2s linear infinite;
+  transition: filter 0.3s ease, stroke 0.3s ease, stroke-width 0.3s ease;
+}
+
+.dl-circuit-pulse--apk {
+  stroke: #0aff84;
+  filter: drop-shadow(0 0 6px rgba(10, 255, 132, 0.85));
+}
+
+.dl-circuit-pulse--play {
+  stroke: #00f2ff;
+  filter: drop-shadow(0 0 6px rgba(0, 242, 255, 0.85));
+}
+
+.dl-circuit-pulse--fdroid {
+  stroke: #38bdf8;
+  filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.85));
+}
+
+@keyframes dlBusPulseFlow {
+  to { stroke-dashoffset: -52; }
+}
+
+/* Junction Pins */
+.dl-pin {
+  fill: #040c14;
+  stroke: rgba(0, 242, 255, 0.6);
+  stroke-width: 2px;
+  transition: all 0.3s ease;
+}
+
+.dl-pin--origin {
+  stroke: #00f2ff;
+  fill: #00f2ff;
+  filter: drop-shadow(0 0 6px #00f2ff);
+}
+
+.dl-pin--apk { stroke: #0aff84; }
+.dl-pin--play { stroke: #00f2ff; }
+.dl-pin--fdroid { stroke: #38bdf8; }
+
+.dl-circuit-label {
+  font-size: 9px;
+  fill: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.6px;
+  font-family: var(--font-mono, monospace);
+  font-weight: 600;
+}
+
+/* 3 Distribution Destination Cards Grid */
+.dl-dest-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 4px;
+}
+
+.dl-dest-card {
+  position: relative;
+  background: rgba(8, 18, 30, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  overflow: hidden;
+}
+
+.dl-dest-card__accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.15);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dl-dest-card--apk .dl-dest-card__accent { background: #0aff84; }
+.dl-dest-card--play .dl-dest-card__accent { background: #00f2ff; }
+.dl-dest-card--fdroid .dl-dest-card__accent { background: #38bdf8; }
+
+.dl-dest-card:hover,
+.dl-dest-card.is-active-route {
+  transform: translateY(-4px);
+  background: rgba(12, 24, 40, 0.92);
+}
+
+.dl-dest-card--apk:hover,
+.dl-dest-card--apk.is-active-route {
+  border-color: rgba(10, 255, 132, 0.5);
+  box-shadow: 0 10px 28px -4px rgba(10, 255, 132, 0.2);
+}
+
+.dl-dest-card--play:hover,
+.dl-dest-card--play.is-active-route {
+  border-color: rgba(0, 242, 255, 0.5);
+  box-shadow: 0 10px 28px -4px rgba(0, 242, 255, 0.2);
+}
+
+.dl-dest-card--fdroid:hover,
+.dl-dest-card--fdroid.is-active-route {
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow: 0 10px 28px -4px rgba(56, 189, 248, 0.2);
+}
+
+/* Card Header */
+.dl-dest-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.dl-channel-id {
+  font-size: 0.65rem;
+  letter-spacing: 0.6px;
+  color: rgba(255, 255, 255, 0.5);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dl-ch-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.dl-dest-card--apk .dl-ch-dot { color: #0aff84; }
+.dl-dest-card--play .dl-ch-dot { color: #00f2ff; }
+.dl-dest-card--fdroid .dl-ch-dot { color: #38bdf8; }
+
+.dl-channel-badge {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.dl-channel-badge--recommended {
+  background: rgba(10, 255, 132, 0.15);
+  color: #0aff84;
+  border: 1px solid rgba(10, 255, 132, 0.35);
+}
+
+.dl-channel-badge--play {
+  background: rgba(0, 242, 255, 0.15);
+  color: #00f2ff;
+  border: 1px solid rgba(0, 242, 255, 0.35);
+}
+
+.dl-channel-badge--fdroid {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+}
+
+/* Card Title Row */
+.dl-dest-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.dl-dest-icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: rgba(10, 255, 132, 0.12);
+  border: 1px solid rgba(10, 255, 132, 0.35);
+  color: #0aff84;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dl-dest-icon-box--play {
+  background: rgba(0, 242, 255, 0.12);
+  border-color: rgba(0, 242, 255, 0.35);
+  color: #00f2ff;
+}
+
+.dl-dest-icon-box--fdroid {
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.35);
+  color: #38bdf8;
+}
+
+.dl-dest-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.dl-dest-sub {
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.5);
+  display: block;
+  letter-spacing: 0.3px;
+  margin-top: 2px;
+}
+
+.dl-dest-desc {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.45;
+  margin: 0 0 12px;
+  min-height: 52px;
+}
+
+/* Specs List */
+.dl-dest-specs {
+  list-style: none;
+  padding: 8px 10px;
+  margin: 0 0 16px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dl-dest-specs .k {
+  color: var(--acc2, #00f2ff);
+  font-weight: 700;
+  margin-right: 4px;
+}
+
+/* Card Action Button */
+.dl-dest-card__cta {
+  margin-top: auto;
+}
+
+.btn--dl-channel {
+  width: 100%;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 46px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn--dl-apk {
+  background: #0aff84 !important;
+  color: #04121a !important;
+  border: 1px solid #0aff84 !important;
+  box-shadow: 0 0 16px rgba(10, 255, 132, 0.35);
+}
+
+.btn--dl-apk:hover {
+  background: #26ff96 !important;
+  box-shadow: 0 0 24px rgba(10, 255, 132, 0.65) !important;
+  transform: translateY(-2px);
+}
+
+.btn--dl-play {
+  background: rgba(0, 242, 255, 0.12) !important;
+  color: #00f2ff !important;
+  border: 1px solid rgba(0, 242, 255, 0.5) !important;
+}
+
+.btn--dl-play:hover {
+  background: rgba(0, 242, 255, 0.22) !important;
+  box-shadow: 0 0 20px rgba(0, 242, 255, 0.45) !important;
+  transform: translateY(-2px);
+}
+
+.btn--dl-fdroid {
+  background: rgba(56, 189, 248, 0.12) !important;
+  color: #38bdf8 !important;
+  border: 1px solid rgba(56, 189, 248, 0.5) !important;
+}
+
+.btn--dl-fdroid:hover {
+  background: rgba(56, 189, 248, 0.22) !important;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.45) !important;
+  transform: translateY(-2px);
+}
+
+/* Hover cross-highlighting with SVG tracks */
+.dl-schematic-board:has(.dl-dest-card--apk:hover) .dl-circuit-pulse--apk,
+.dl-circuit-pulse--apk.is-active-trace {
+  stroke-width: 4px;
+  stroke: #0aff84;
+  animation-duration: 0.9s;
+  filter: drop-shadow(0 0 10px rgba(10, 255, 132, 1));
+}
+
+.dl-schematic-board:has(.dl-dest-card--play:hover) .dl-circuit-pulse--play,
+.dl-circuit-pulse--play.is-active-trace {
+  stroke-width: 4px;
+  stroke: #00f2ff;
+  animation-duration: 0.9s;
+  filter: drop-shadow(0 0 10px rgba(0, 242, 255, 1));
+}
+
+.dl-schematic-board:has(.dl-dest-card--fdroid:hover) .dl-circuit-pulse--fdroid,
+.dl-circuit-pulse--fdroid.is-active-trace {
+  stroke-width: 4px;
+  stroke: #38bdf8;
+  animation-duration: 0.9s;
+  filter: drop-shadow(0 0 10px rgba(56, 189, 248, 1));
+}
+
+/* Board Footer */
+.dl-board-footer {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.dl-board-footer__note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 620px;
+  line-height: 1.4;
+}
+
+.dl-shield-ico {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.dl-board-footer__action a {
+  font-size: 0.7rem;
+  color: var(--acc2, #00f2ff);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: color 0.2s ease;
+}
+
+.dl-board-footer__action a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .dl-dest-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .dl-bus-wrap {
+    display: none;
+  }
+  .dl-origin-core {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+  .dl-origin-text {
+    text-align: center;
+  }
+  .dl-origin-title {
+    justify-content: center;
+  }
+  .dl-schematic-board {
+    padding: 16px 14px;
+  }
+  .dl-dest-desc {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .dl-trigger-btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.88rem;
+    padding: 12px 14px !important;
+  }
+  .dl-trigger-btn__tag {
+    font-size: 0.6rem;
+  }
+  .dl-board-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .dl-board-close {
+    align-self: flex-end;
+  }
+}

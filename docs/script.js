@@ -9179,3 +9179,88 @@ if (terminal && gamesGrid) {
     startIntroSequence();
   }
 })();
+
+// ==========================================================================
+// TACTICAL DEPLOYMENT SCHEMATIC CONTROLLER
+// Interactive external download channels (APK, Google Play, F-Droid)
+// ==========================================================================
+(() => {
+  const triggerBtn = document.getElementById('dlHubTrigger');
+  const drawer = document.getElementById('dlSchematicHub');
+  const closeBtn = document.getElementById('dlHubClose');
+  const container = document.getElementById('heroDownloadHub');
+
+  if (!triggerBtn || !drawer) return;
+
+  const setSchematicOpen = (open) => {
+    drawer.classList.toggle('is-open', open);
+    triggerBtn.setAttribute('aria-expanded', String(open));
+    drawer.setAttribute('aria-hidden', String(!open));
+
+    if (open) {
+      window.requestAnimationFrame(() => {
+        const rect = drawer.getBoundingClientRect();
+        if (rect.bottom > window.innerHeight) {
+          window.scrollBy({
+            top: Math.min(rect.bottom - window.innerHeight + 40, 280),
+            behavior: 'smooth'
+          });
+        }
+      });
+    }
+  };
+
+  triggerBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const isOpen = drawer.classList.contains('is-open');
+    setSchematicOpen(!isOpen);
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      setSchematicOpen(false);
+      triggerBtn.focus();
+    });
+  }
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && drawer.classList.contains('is-open')) {
+      setSchematicOpen(false);
+      triggerBtn.focus();
+    }
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!drawer.classList.contains('is-open')) return;
+    if (container && !container.contains(e.target)) {
+      setSchematicOpen(false);
+    }
+  });
+
+  // Highlight corresponding SVG circuit signal trace on card hover/focus
+  const destCards = drawer.querySelectorAll('.dl-dest-card[data-channel]');
+  destCards.forEach((card) => {
+    const channel = card.getAttribute('data-channel');
+    if (!channel) return;
+    const signalTrace = drawer.querySelector(`.dl-circuit-pulse[data-signal="${channel}"]`);
+
+    const activate = () => {
+      card.classList.add('is-active-route');
+      if (signalTrace) signalTrace.classList.add('is-active-trace');
+    };
+
+    const deactivate = () => {
+      card.classList.remove('is-active-route');
+      if (signalTrace) signalTrace.classList.remove('is-active-trace');
+    };
+
+    card.addEventListener('mouseenter', activate);
+    card.addEventListener('mouseleave', deactivate);
+    card.addEventListener('focusin', activate);
+    card.addEventListener('focusout', deactivate);
+  });
+})();
+
