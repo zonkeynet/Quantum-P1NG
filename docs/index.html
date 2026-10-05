@@ -45,7 +45,7 @@
   <meta name="twitter:image" content="https://www.qp1ng.com/assets/img/social-preview.png" />
 
   <link rel="preload" href="assets/fonts/square_dot_digital_qp1ng.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="styles.css?v=2.5.3" as="style" />
+  <link rel="preload" href="styles.css?v=2.5.4" as="style" />
   <link rel="preload" as="image" href="assets/vid/intro_bg_poster.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/intro_mobile_poster.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/qmap_poster.webp">
@@ -59,7 +59,7 @@
       }
     } catch(e){}
   </script>
-  <link rel="stylesheet" href="styles.css?v=2.5.3" />
+  <link rel="stylesheet" href="styles.css?v=2.5.4" />
 
   <!-- Schema.org Comprehensive Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -4462,7 +4462,7 @@ _
               </div>
               <div class="rb-chain-link"></div>
               <div class="rb-chain-node rb-chain-node--active" id="rbInterfaceNode">
-                <span class="rb-node-icon">AI</span>
+                <span class="rb-node-icon" id="rbNodeIcon">AI</span>
                 <strong id="rbInterfaceTitle">AIOC</strong>
                 <small id="rbInterfaceText">USB audio + serial DTR/RTS</small>
               </div>
@@ -4543,7 +4543,22 @@ _
       </article>
 
       <article class="rb-mode-card" data-rb-mode-card="vox">
-        <span class="rb-card-index mono">02</span>
+        <div class="rb-card-header">
+          <span class="rb-card-index mono">02</span>
+          <div class="rb-view-toggles mono" role="toolbar" aria-label="CM108 View Mode">
+            <button type="button" class="rb-view-btn is-active" data-src="assets/img/cm108_usb.webp" data-fallback="assets/img/cm108_usb.png" aria-pressed="true">DARK RIG</button>
+            <button type="button" class="rb-view-btn" data-src="assets/img/cm108_usb_white.webp" data-fallback="assets/img/cm108_usb_white.png" aria-pressed="false">SCHEMATIC</button>
+          </div>
+        </div>
+
+        <div class="rb-card-visual">
+          <picture>
+            <source srcset="assets/img/cm108_usb.webp" type="image/webp">
+            <img src="assets/img/cm108_usb.png" alt="CM108 USB Audio Interface VOX Lite Adapter" class="rb-card-img" width="512" height="225" loading="lazy">
+          </picture>
+          <div class="rb-card-glow" aria-hidden="true"></div>
+        </div>
+
         <h3>VOX Lite CM108</h3>
         <p>No hardware PTT: the app opens VOX with tone energy, then sends the QGW AFSK frame.</p>
         <ul>
@@ -6229,6 +6244,6 @@ _
 </footer>
   </main>
 
-  <script src="script.js?v=2.5.0" defer></script>
+  <script src="script.js?v=2.5.1" defer></script>
 </body>
 </html>

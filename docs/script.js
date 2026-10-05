@@ -3982,6 +3982,8 @@ if (terminal && gamesGrid) {
       if (activeMode) activeMode.textContent = data.title;
       if (interfaceTitle) interfaceTitle.textContent = data.iface;
       if (interfaceText) interfaceText.textContent = data.ifaceText;
+      const nodeIcon = document.getElementById('rbNodeIcon');
+      if (nodeIcon) nodeIcon.textContent = resolved === 'vox' ? 'CM' : 'AI';
       if (sequenceTitle) sequenceTitle.textContent = data.sequenceTitle;
       if (sequenceText) sequenceText.textContent = data.sequenceText;
       if (log1) log1.textContent = data.logs[0];
@@ -4020,6 +4022,34 @@ if (terminal && gamesGrid) {
           }
         });
       }
+    });
+
+    const rbViewBtns = section.querySelectorAll('.rb-view-btn');
+    rbViewBtns.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const card = btn.closest('.rb-mode-card');
+        if (!card) return;
+        const targetSrc = btn.getAttribute('data-src');
+        const fallbackSrc = btn.getAttribute('data-fallback') || targetSrc;
+        const img = card.querySelector('.rb-card-img');
+        const picture = card.querySelector('picture');
+        const source = picture ? picture.querySelector('source') : null;
+
+        if (source && targetSrc.endsWith('.webp')) {
+          source.srcset = targetSrc;
+        }
+        if (img) {
+          img.src = targetSrc.endsWith('.webp') ? fallbackSrc : targetSrc;
+        }
+
+        card.querySelectorAll('.rb-view-btn').forEach((b) => {
+          b.classList.remove('is-active');
+          b.setAttribute('aria-pressed', 'false');
+        });
+        btn.classList.add('is-active');
+        btn.setAttribute('aria-pressed', 'true');
+      });
     });
 
     window.addEventListener('resize', resizeCanvas, { passive: true });
