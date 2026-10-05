@@ -2367,12 +2367,13 @@ if (terminal && gamesGrid) {
       }
       container.classList.add('is-playing');
       if (badge) {
-        badge.textContent = activeText;
+        const badgeLabel = badge.querySelector('.badge-label') || badge;
+        badgeLabel.textContent = activeText;
         badge.classList.add('is-playing');
       }
-      const pillText = container.querySelector('.qcam-play-text');
+      const pillText = container.querySelector('.qcam-play-text, .rb-play-text');
       if (pillText) pillText.textContent = 'PAUSE STREAM';
-      const pillIcon = container.querySelector('.qcam-play-icon');
+      const pillIcon = container.querySelector('.qcam-play-icon, .rb-play-icon');
       if (pillIcon) pillIcon.textContent = '■';
       video.muted = true;
       try {
@@ -2389,12 +2390,13 @@ if (terminal && gamesGrid) {
       }
       container.classList.remove('is-playing');
       if (badge) {
-        badge.textContent = defaultText;
+        const badgeLabel = badge.querySelector('.badge-label') || badge;
+        badgeLabel.textContent = defaultText;
         badge.classList.remove('is-playing');
       }
-      const pillText = container.querySelector('.qcam-play-text');
+      const pillText = container.querySelector('.qcam-play-text, .rb-play-text');
       if (pillText) pillText.textContent = 'CLICK TO PLAY';
-      const pillIcon = container.querySelector('.qcam-play-icon');
+      const pillIcon = container.querySelector('.qcam-play-icon, .rb-play-icon');
       if (pillIcon) pillIcon.textContent = '▶';
       video.pause();
       // Reset to beginning after the card fade-out transition completes
@@ -2474,6 +2476,9 @@ if (terminal && gamesGrid) {
 
   // Principle 06: Ghost Mesh Radar Video
   setupVideoCard('meshMediaContainer', 'meshVideo', 'meshBadge', 'RADAR::ACTIVE', 'LAB::SAFE');
+
+  // RadioBridge Field Video
+  setupVideoCard('rbRadioMediaContainer', 'rbRadioVideo', 'rbRadioLinkBadge', 'RF LINK ACTIVE', 'RF LINK STANDBY');
 
   // Q-CAM Field Video
   setupVideoCard('qcamMediaContainer', 'qcamVideo', 'qcamBadge', 'FEED::LIVE_STREAM', 'LIVE_DETECT');
@@ -3897,7 +3902,6 @@ if (terminal && gamesGrid) {
     const log1 = document.getElementById('rbLogLine1');
     const log2 = document.getElementById('rbLogLine2');
     const log3 = document.getElementById('rbLogLine3');
-    const radioVideo = document.getElementById('rbRadioVideo');
 
     const modes = {
       aioc: {
@@ -4011,9 +4015,6 @@ if (terminal && gamesGrid) {
 
     function start() {
       section.classList.add('is-visible');
-      if (radioVideo && !reduceMotion.matches) {
-        radioVideo.play().catch(() => {});
-      }
       if (visible) return;
       visible = true;
       if (!reduceMotion.matches) {
@@ -4025,9 +4026,6 @@ if (terminal && gamesGrid) {
     function stop() {
       visible = false;
       cancelAnimationFrame(raf);
-      if (radioVideo) {
-        radioVideo.pause();
-      }
     }
 
     tabs.forEach((tab) => {
@@ -4119,16 +4117,6 @@ if (terminal && gamesGrid) {
           if (targetChip) targetChip.click();
         });
       }
-    }
-
-    if (radioVideo) {
-      radioVideo.addEventListener('click', () => {
-        if (radioVideo.paused) {
-          radioVideo.play().catch(() => {});
-        } else {
-          radioVideo.pause();
-        }
-      });
     }
 
     window.addEventListener('resize', resizeCanvas, { passive: true });

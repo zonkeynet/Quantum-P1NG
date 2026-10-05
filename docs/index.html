@@ -45,7 +45,7 @@
   <meta name="twitter:image" content="https://www.qp1ng.com/assets/img/social-preview.png" />
 
   <link rel="preload" href="assets/fonts/square_dot_digital_qp1ng.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="styles.css?v=2.6.2" as="style" />
+  <link rel="preload" href="styles.css?v=2.6.3" as="style" />
   <link rel="preload" as="image" href="assets/vid/intro_bg_poster.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/intro_mobile_poster.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/qmap_poster.webp">
@@ -59,7 +59,7 @@
       }
     } catch(e){}
   </script>
-  <link rel="stylesheet" href="styles.css?v=2.6.2" />
+  <link rel="stylesheet" href="styles.css?v=2.6.3" />
 
   <!-- Schema.org Comprehensive Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -4499,16 +4499,26 @@ _
           <div class="rb-radio-stage" aria-label="Baofeng UV-5R and Smartphone Wireless RF Link Video">
             <div class="rb-radio-hud-top mono">
               <span class="rb-radio-freq-badge"><i class="ag-pulse-dot"></i> 155.500 / 400.025 MHz</span>
-              <span class="rb-radio-link-badge mono"><span class="badge-dot"></span>RF LINK ACTIVE</span>
+              <span class="rb-radio-link-badge mono" id="rbRadioLinkBadge"><span class="badge-dot"></span><span class="badge-label">RF LINK STANDBY</span></span>
             </div>
 
-            <div class="rb-radio-viewport rb-radio-viewport--video" id="rbRadioMediaContainer">
-              <video id="rbRadioVideo" class="rb-radio-video" width="1280" height="720" poster="assets/img/radio_collegamento_poster_empty.webp" autoplay loop muted playsinline preload="metadata" title="Click to play / pause video animation">
+            <div class="rb-radio-viewport rb-radio-viewport--video" id="rbRadioMediaContainer" role="button" tabindex="0" aria-label="Toggle Wireless RF Link video playback" title="Click to play / pause video animation">
+              <picture class="rb-radio-poster-wrap">
+                <source srcset="assets/img/radio_collegamento_poster.webp" type="image/webp">
+                <img src="assets/img/radio_collegamento_poster.png" alt="Baofeng UV-5R and Smartphone Wireless RF Link Diagram" class="rb-radio-poster-img" width="1280" height="720" loading="lazy" decoding="async">
+              </picture>
+
+              <video id="rbRadioVideo" class="rb-radio-video" width="1280" height="720" poster="assets/img/radio_collegamento_poster.webp" loop muted playsinline preload="metadata" title="Click to play / pause video animation">
                 <source src="assets/vid/radio_collegamento.mp4" type="video/mp4">
                 <source src="assets/vid/radio_collegamento.webm" type="video/webm">
-                <img src="assets/img/radio_collegamento_poster_empty.webp" alt="Baofeng UV-5R and Smartphone Wireless RF Link Diagram" class="rb-radio-img" width="1280" height="720">
               </video>
+
               <div class="rb-radio-glow" aria-hidden="true"></div>
+
+              <div class="rb-radio-play-pill mono" aria-hidden="true">
+                <span class="rb-play-icon">▶</span>
+                <span class="rb-play-text">CLICK TO PLAY</span>
+              </div>
             </div>
 
             <div class="rb-radio-hud-bottom mono">
@@ -6309,6 +6319,6 @@ _
 </footer>
   </main>
 
-  <script src="script.js?v=2.5.9" defer></script>
+  <script src="script.js?v=2.6.0" defer></script>
 </body>
 </html>
