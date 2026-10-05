@@ -45,7 +45,7 @@
   <meta name="twitter:image" content="https://www.qp1ng.com/assets/img/social-preview.png" />
 
   <link rel="preload" href="assets/fonts/square_dot_digital_qp1ng.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="styles.css?v=2.6.1" as="style" />
+  <link rel="preload" href="styles.css?v=2.6.2" as="style" />
   <link rel="preload" as="image" href="assets/vid/intro_bg_poster.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/intro_mobile_poster.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/qmap_poster.webp">
@@ -59,7 +59,7 @@
       }
     } catch(e){}
   </script>
-  <link rel="stylesheet" href="styles.css?v=2.6.1" />
+  <link rel="stylesheet" href="styles.css?v=2.6.2" />
 
   <!-- Schema.org Comprehensive Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -4495,34 +4495,25 @@ _
             </div>
           </div>
 
-          <!-- Tactical Handheld Radio Rig (Baofeng UV-5R) -->
-          <div class="rb-radio-stage" aria-label="Baofeng UV-5R Handheld Transceiver K1 Rig">
+          <!-- Tactical Handheld Radio Rig (Baofeng UV-5R & Smartphone Wireless Link) -->
+          <div class="rb-radio-stage" aria-label="Baofeng UV-5R and Smartphone Wireless RF Link Video">
             <div class="rb-radio-hud-top mono">
               <span class="rb-radio-freq-badge"><i class="ag-pulse-dot"></i> 155.500 / 400.025 MHz</span>
+              <span class="rb-radio-link-badge mono"><span class="badge-dot"></span>RF LINK ACTIVE</span>
             </div>
 
-            <div class="rb-radio-viewport">
-              <div class="rb-antenna-waves" aria-hidden="true">
-                <span class="rb-wave-ring ring-1"></span>
-                <span class="rb-wave-ring ring-2"></span>
-                <span class="rb-wave-ring ring-3"></span>
-              </div>
-
-              <picture>
-                <source srcset="assets/img/baofeng_radio.webp" type="image/webp">
-                <img src="assets/img/baofeng_radio.png" alt="Baofeng UV-5R Handheld Transceiver K1 Interface" class="rb-radio-img" loading="lazy" width="429" height="916">
-              </picture>
+            <div class="rb-radio-viewport rb-radio-viewport--video" id="rbRadioMediaContainer">
+              <video id="rbRadioVideo" class="rb-radio-video" width="1280" height="720" poster="assets/img/radio_collegamento_poster_empty.webp" autoplay loop muted playsinline preload="metadata" title="Click to play / pause video animation">
+                <source src="assets/vid/radio_collegamento.mp4" type="video/mp4">
+                <source src="assets/vid/radio_collegamento.webm" type="video/webm">
+                <img src="assets/img/radio_collegamento_poster_empty.webp" alt="Baofeng UV-5R and Smartphone Wireless RF Link Diagram" class="rb-radio-img" width="1280" height="720">
+              </video>
               <div class="rb-radio-glow" aria-hidden="true"></div>
-
-              <div class="rb-k1-cable-tag mono" aria-hidden="true">
-                <span class="cable-dot"></span>
-                <span>K1 AUDIO/PTT LINK</span>
-              </div>
             </div>
 
             <div class="rb-radio-hud-bottom mono">
               <span class="rb-radio-spec-pill">BAOFENG UV-5R</span>
-              <span class="rb-radio-spec-pill">KENWOOD K1</span>
+              <span class="rb-radio-spec-pill">WIRELESS RF LINK</span>
               <span class="rb-radio-spec-pill">AFSK 1200</span>
             </div>
           </div>
@@ -6318,6 +6309,6 @@ _
 </footer>
   </main>
 
-  <script src="script.js?v=2.5.7" defer></script>
+  <script src="script.js?v=2.5.9" defer></script>
 </body>
 </html>

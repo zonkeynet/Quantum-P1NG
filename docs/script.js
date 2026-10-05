@@ -3897,6 +3897,7 @@ if (terminal && gamesGrid) {
     const log1 = document.getElementById('rbLogLine1');
     const log2 = document.getElementById('rbLogLine2');
     const log3 = document.getElementById('rbLogLine3');
+    const radioVideo = document.getElementById('rbRadioVideo');
 
     const modes = {
       aioc: {
@@ -4010,6 +4011,9 @@ if (terminal && gamesGrid) {
 
     function start() {
       section.classList.add('is-visible');
+      if (radioVideo && !reduceMotion.matches) {
+        radioVideo.play().catch(() => {});
+      }
       if (visible) return;
       visible = true;
       if (!reduceMotion.matches) {
@@ -4021,6 +4025,9 @@ if (terminal && gamesGrid) {
     function stop() {
       visible = false;
       cancelAnimationFrame(raf);
+      if (radioVideo) {
+        radioVideo.pause();
+      }
     }
 
     tabs.forEach((tab) => {
@@ -4112,6 +4119,16 @@ if (terminal && gamesGrid) {
           if (targetChip) targetChip.click();
         });
       }
+    }
+
+    if (radioVideo) {
+      radioVideo.addEventListener('click', () => {
+        if (radioVideo.paused) {
+          radioVideo.play().catch(() => {});
+        } else {
+          radioVideo.pause();
+        }
+      });
     }
 
     window.addEventListener('resize', resizeCanvas, { passive: true });

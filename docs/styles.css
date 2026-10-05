@@ -8529,7 +8529,7 @@ body.qmap-modal-open {
 
 .rb-console-body {
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(210px, 0.75fr);
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
   gap: 16px;
   align-items: stretch;
   margin-top: 18px;
@@ -8658,9 +8658,10 @@ body.qmap-modal-open {
 .rb-radio-hud-top {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 8px;
   width: 100%;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
   z-index: 2;
 }
 
@@ -8679,6 +8680,28 @@ body.qmap-modal-open {
   box-shadow: 0 0 12px rgba(53, 255, 138, 0.15);
 }
 
+.rb-radio-link-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: var(--rb-cyan, #00f2ff);
+  background: rgba(0, 242, 255, 0.08);
+  border: 1px solid rgba(0, 242, 255, 0.25);
+  padding: 3px 7px;
+  border-radius: 4px;
+}
+
+.rb-radio-link-badge .badge-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #00f2ff;
+  box-shadow: 0 0 6px #00f2ff;
+  animation: pulse-dot 1.8s infinite ease-in-out;
+}
+
 .rb-radio-viewport {
   position: relative;
   display: flex;
@@ -8686,30 +8709,37 @@ body.qmap-modal-open {
   justify-content: center;
   width: 100%;
   flex: 1;
-  min-height: 240px;
+  min-height: 180px;
   padding: 6px 0;
+  border-radius: 6px;
+  overflow: hidden;
 }
 
-.rb-radio-viewport picture {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.rb-radio-video {
   width: 100%;
-  height: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  display: block;
+  border-radius: 6px;
+  filter: drop-shadow(0 6px 20px rgba(0, 242, 255, 0.28)) drop-shadow(0 0 25px rgba(53, 255, 138, 0.15));
+  transition: transform 0.35s ease, filter 0.35s ease;
   z-index: 2;
+  position: relative;
+  cursor: pointer;
+}
+
+.rb-radio-stage:hover .rb-radio-video {
+  transform: scale(1.02);
+  filter: drop-shadow(0 10px 28px rgba(0, 242, 255, 0.45)) drop-shadow(0 0 35px rgba(53, 255, 138, 0.25));
 }
 
 .rb-radio-img {
-  max-height: 260px;
-  width: auto;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
   object-fit: contain;
-  filter: drop-shadow(0 8px 24px rgba(0, 242, 255, 0.35)) drop-shadow(0 0 35px rgba(53, 255, 138, 0.15));
-  transition: transform 0.35s ease, filter 0.35s ease;
-}
-
-.rb-radio-stage:hover .rb-radio-img {
-  transform: translateY(-2px) scale(1.02);
-  filter: drop-shadow(0 12px 30px rgba(0, 242, 255, 0.55)) drop-shadow(0 0 45px rgba(53, 255, 138, 0.28));
 }
 
 .rb-radio-glow {
@@ -8717,88 +8747,13 @@ body.qmap-modal-open {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 150px;
-  height: 150px;
+  width: 220px;
+  height: 140px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 242, 255, 0.22) 0%, rgba(53, 255, 138, 0.12) 50%, transparent 70%);
-  filter: blur(30px);
+  background: radial-gradient(ellipse at 50% 50%, rgba(0, 242, 255, 0.2) 0%, rgba(53, 255, 138, 0.1) 50%, transparent 72%);
+  filter: blur(28px);
   pointer-events: none;
   z-index: 1;
-}
-
-/* Concentric RF Antenna Radiation Waves */
-.rb-antenna-waves {
-  position: absolute;
-  top: 6px;
-  left: calc(50% - 36px);
-  width: 40px;
-  height: 40px;
-  pointer-events: none;
-  z-index: 3;
-}
-
-.rb-wave-ring {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 1.5px solid rgba(0, 242, 255, 0.7);
-  border-radius: 50%;
-  opacity: 0;
-  animation: rbAntennaPulse 2.4s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
-}
-
-.rb-wave-ring.ring-1 { animation-delay: 0s; }
-.rb-wave-ring.ring-2 { animation-delay: 0.8s; }
-.rb-wave-ring.ring-3 { animation-delay: 1.6s; }
-
-@keyframes rbAntennaPulse {
-  0% {
-    width: 6px;
-    height: 6px;
-    opacity: 0.95;
-    border-color: #35ff8a;
-  }
-  50% {
-    opacity: 0.6;
-    border-color: #00f2ff;
-  }
-  100% {
-    width: 42px;
-    height: 42px;
-    opacity: 0;
-    border-color: #00f2ff;
-  }
-}
-
-/* Cable connector line to K1 port */
-.rb-k1-cable-tag {
-  position: absolute;
-  right: 4px;
-  top: 48%;
-  transform: translateY(-50%);
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 8.5px;
-  letter-spacing: 0.08em;
-  color: #ffb830;
-  background: rgba(2, 6, 12, 0.9);
-  border: 1px solid rgba(255, 184, 48, 0.38);
-  padding: 2px 6px;
-  border-radius: 3px;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  z-index: 3;
-}
-
-.rb-k1-cable-tag .cable-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #ffb830;
-  box-shadow: 0 0 6px #ffb830;
-  animation: rbPulse 1.6s ease-in-out infinite;
 }
 
 .rb-radio-hud-bottom {
@@ -9482,11 +9437,15 @@ body.qmap-modal-open {
   }
   .rb-radio-stage {
     order: -1;
-    max-height: 290px;
-    padding: 10px;
+    max-height: none;
+    padding: 12px 10px;
   }
+  .rb-radio-viewport {
+    min-height: auto;
+  }
+  .rb-radio-video,
   .rb-radio-img {
-    max-height: 210px;
+    max-height: 240px;
   }
 }
 
@@ -9531,10 +9490,15 @@ body.qmap-modal-open {
   .rb-test-strip { grid-template-columns: 1fr; }
   .rb-mode-switcher { grid-template-columns: 1fr; }
   .rb-radio-stage {
-    max-height: 260px;
+    max-height: none;
+    padding: 10px 8px;
   }
+  .rb-radio-viewport {
+    min-height: auto;
+  }
+  .rb-radio-video,
   .rb-radio-img {
-    max-height: 190px;
+    max-height: 210px;
   }
 }
 
@@ -9545,6 +9509,9 @@ body.qmap-modal-open {
   .rb-detail-card,
   .rb-test-step { padding: 14px; }
   .rb-chain-node { min-height: 112px; }
+  .rb-radio-freq-badge { font-size: 8px; padding: 2px 6px; }
+  .rb-radio-link-badge { font-size: 8px; padding: 2px 5px; }
+  .rb-radio-spec-pill { font-size: 7.5px; padding: 2px 4px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
