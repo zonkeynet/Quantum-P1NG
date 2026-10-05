@@ -45,7 +45,7 @@
   <meta name="twitter:image" content="https://www.qp1ng.com/assets/img/social-preview.png" />
 
   <link rel="preload" href="assets/fonts/square_dot_digital_qp1ng.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="styles.css?v=2.7.1" as="style" />
+  <link rel="preload" href="styles.css?v=2.7.2" as="style" />
   <link rel="preload" as="image" href="assets/vid/intro_bg_poster.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/intro_mobile_poster.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/qmap_poster.webp">
@@ -59,7 +59,7 @@
       }
     } catch(e){}
   </script>
-  <link rel="stylesheet" href="styles.css?v=2.7.1" />
+  <link rel="stylesheet" href="styles.css?v=2.7.2" />
 
   <!-- Schema.org Comprehensive Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -5196,18 +5196,38 @@ _
       </article>
 
       <!-- Live Risk Signals panel -->
-      <article class="qcall-panel">
+      <article class="qcall-panel qcall-panel--risk" id="qcallRiskPanel">
         <header class="qcall-panel-hd">
-          <span class="qcall-panel-title mono">LIVE RISK SIGNALS</span>
-          <span class="qcall-panel-badge qcall-green mono">MONITORING</span>
+          <span class="qcall-panel-title mono"><span class="hud-sep">//</span> LIVE RISK SIGNALS</span>
+          <span class="qcall-panel-badge qcall-green mono"><i class="ag-pulse-dot"></i> MONITORING</span>
         </header>
-        <canvas id="qcallRiskRadar" class="qcall-risk-radar" aria-hidden="true" width="80" height="80"></canvas>
-        <ul class="qcall-status-list">
-          <li><span>Screen capture</span><span class="qcall-green">Blocked</span></li>
-          <li><span>Recording risk</span><span class="qcall-yellow">Monitored</span></li>
-          <li><span>Network switch</span><span class="qcall-yellow">Watched</span></li>
-          <li><span>Contact identity</span><span class="qcall-green">Verified</span></li>
-          <li><span>Session residue</span><span class="qcall-green">Minimal</span></li>
+
+        <div class="qcall-risk-radar-wrap">
+          <canvas id="qcallRiskRadar" class="qcall-risk-radar" aria-hidden="true" width="80" height="80"></canvas>
+          <div class="qcall-radar-crosshair" aria-hidden="true"></div>
+        </div>
+
+        <ul class="qcall-status-list mono">
+          <li>
+            <span class="status-name"><i class="status-dot green"></i> Screen capture</span>
+            <span class="status-badge qcall-green">BLOCKED</span>
+          </li>
+          <li>
+            <span class="status-name"><i class="status-dot yellow"></i> Recording risk</span>
+            <span class="status-badge qcall-yellow">MONITORED</span>
+          </li>
+          <li>
+            <span class="status-name"><i class="status-dot yellow"></i> Network switch</span>
+            <span class="status-badge qcall-yellow">WATCHED</span>
+          </li>
+          <li>
+            <span class="status-name"><i class="status-dot green"></i> Contact identity</span>
+            <span class="status-badge qcall-green">VERIFIED</span>
+          </li>
+          <li>
+            <span class="status-name"><i class="status-dot green"></i> Session residue</span>
+            <span class="status-badge qcall-green">MINIMAL</span>
+          </li>
         </ul>
       </article>
 
@@ -6552,6 +6572,6 @@ _
 </footer>
   </main>
 
-  <script src="script.js?v=2.6.4" defer></script>
+  <script src="script.js?v=2.6.5" defer></script>
 </body>
 </html>

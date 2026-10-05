@@ -3462,17 +3462,35 @@ if (terminal && gamesGrid) {
         : `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
     }
 
-    function setupCanvas(canvas) {
+    function setupCanvas(canvas, defaultW, defaultH) {
       if (!canvas) return null;
       const ctx = canvas.getContext('2d', { alpha: true, desynchronized: true }) || canvas.getContext('2d');
       if (!ctx) return null;
       let dpr = window.__qpDpr();
       const resize = () => {
         dpr = window.__qpDpr();
-        const rect = canvas.getBoundingClientRect();
-        if (!rect.width || !rect.height) return;
-        canvas.width = Math.max(1, Math.floor(rect.width * dpr));
-        canvas.height = Math.max(1, Math.floor(rect.height * dpr));
+        let displayW = 0;
+        let displayH = 0;
+        if (canvas.id === 'qcallRiskRadar') {
+          const rect = canvas.getBoundingClientRect();
+          displayW = Math.min(80, Math.max(50, rect.width || canvas.clientWidth || 80));
+          displayH = displayW;
+        } else if (canvas.id === 'qcallWaveform') {
+          const rect = canvas.getBoundingClientRect();
+          displayW = Math.min(220, Math.max(80, rect.width || canvas.clientWidth || 180));
+          displayH = Math.min(50, Math.max(24, rect.height || canvas.clientHeight || 36));
+        } else {
+          const rect = canvas.getBoundingClientRect();
+          displayW = rect.width || canvas.clientWidth || (canvas.parentElement ? canvas.parentElement.clientWidth : (defaultW || 300));
+          displayH = rect.height || canvas.clientHeight || (canvas.parentElement ? canvas.parentElement.clientHeight : (defaultH || 150));
+        }
+        if (!displayW || !displayH) return;
+        const targetW = Math.max(1, Math.floor(displayW * dpr));
+        const targetH = Math.max(1, Math.floor(displayH * dpr));
+        if (canvas.width !== targetW || canvas.height !== targetH) {
+          canvas.width = targetW;
+          canvas.height = targetH;
+        }
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       };
       resize();
@@ -3481,8 +3499,8 @@ if (terminal && gamesGrid) {
     }
 
     const particles = setupCanvas(particlesCanvas);
-    const waveform = setupCanvas(waveformCanvas);
-    const radar = setupCanvas(radarCanvas);
+    const waveform = setupCanvas(waveformCanvas, 180, 36);
+    const radar = setupCanvas(radarCanvas, 80, 80);
 
     const particleSet = Array.from({ length: 70 }, () => ({
       x: Math.random(),
@@ -3544,32 +3562,66 @@ if (terminal && gamesGrid) {
       const h = canvas.height / dpr;
       const cx = w / 2;
       const cy = h / 2;
-      const radius = Math.min(w, h) * 0.42;
+      const radius = Math.min(w, h) * 0.44;
       const now = performance.now() * 0.001;
       ctx.clearRect(0, 0, w, h);
-      ctx.strokeStyle = 'rgba(0,242,255,0.18)';
+
+      // Range rings
+      ctx.strokeStyle = 'rgba(0,242,255,0.22)';
       ctx.lineWidth = 1;
       for (let i = 1; i <= 3; i += 1) {
         ctx.beginPath();
-        ctx.arc(cx, cy, radius * i / 3, 0, Math.PI * 2);
+        ctx.arc(cx, cy, (radius * i) / 3, 0, Math.PI * 2);
         ctx.stroke();
       }
+
+      // Crosshairs
+      ctx.strokeStyle = 'rgba(0,242,255,0.12)';
+      ctx.beginPath();
+      ctx.moveTo(cx - radius, cy);
+      ctx.lineTo(cx + radius, cy);
+      ctx.moveTo(cx, cy - radius);
+      ctx.lineTo(cx, cy + radius);
+      ctx.stroke();
+
+      // Radar sweep sector glow
       const angle = now * 1.35;
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(cx, cy);
+      ctx.arc(cx, cy, radius, angle - 0.45, angle);
+      ctx.closePath();
+      const sweepGrad = ctx.createRadialGradient(cx, cy, 2, cx, cy, radius);
+      sweepGrad.addColorStop(0, 'rgba(53,255,138,0.28)');
+      sweepGrad.addColorStop(1, 'rgba(53,255,138,0.02)');
+      ctx.fillStyle = sweepGrad;
+      ctx.fill();
+      ctx.restore();
+
+      // Sweep leading beam
       ctx.beginPath();
       ctx.moveTo(cx, cy);
       ctx.lineTo(cx + Math.cos(angle) * radius, cy + Math.sin(angle) * radius);
-      ctx.strokeStyle = 'rgba(53,255,138,0.85)';
-      ctx.shadowBlur = 10;
+      ctx.strokeStyle = '#35ff8a';
+      ctx.shadowBlur = 8;
       ctx.shadowColor = '#35ff8a';
+      ctx.lineWidth = 1.5;
       ctx.stroke();
       ctx.shadowBlur = 0;
+
+      // Pulsing telemetry blips
       const blips = [0.7, 2.4, 4.1, 5.2];
       blips.forEach((a, i) => {
         const pulse = 0.55 + 0.45 * Math.sin(now * 2 + i);
+        const bx = cx + Math.cos(a) * radius * (0.35 + i * 0.13);
+        const by = cy + Math.sin(a) * radius * (0.35 + i * 0.13);
         ctx.fillStyle = i === 2 ? '#ffd166' : '#00f2ff';
+        ctx.shadowColor = i === 2 ? '#ffd166' : '#00f2ff';
+        ctx.shadowBlur = 6;
         ctx.beginPath();
-        ctx.arc(cx + Math.cos(a) * radius * (0.35 + i * 0.13), cy + Math.sin(a) * radius * (0.35 + i * 0.13), 2 + pulse, 0, Math.PI * 2);
+        ctx.arc(bx, by, 2 + pulse, 0, Math.PI * 2);
         ctx.fill();
+        ctx.shadowBlur = 0;
       });
       rafRadar = requestAnimationFrame(drawRadar);
     }
