@@ -4,7 +4,7 @@
        width="260"/>
 </p>
 
-<h1 align="center">Quantum P1NG</h1>
+<h1 align="center">Quantum P1NG (Q-P1NG®)</h1>
 
 <p align="center">
   <i>ghost signals for a nomadic network</i><br>
@@ -151,14 +151,20 @@ sudo ./install_qp1ng_complete.sh
 
 ---
 
-## ⚖️ Legal & Compliance
+## ⚖️ Legal, Commercial License & Intellectual Property
 
-**License:** GNU AGPLv3  
-**Copyright:** © 2026 ZonkeyNet / Quantum P1NG Team  
+**Commercial Software:** Quantum P1NG (Q-P1NG®) is proprietary commercial software.  
+**Registered Trademark:** **Q-P1NG®** and **Quantum P1NG®** are registered trademarks of ZonkeyNet to defend and protect intellectual property. All rights reserved.  
+**License:** Commercial End User License Agreement ([EULA](LICENSE) / [Web EULA](https://www.qp1ng.com/license.html))  
+**Copyright:** © 2026 ZonkeyNet / Quantum P1NG Team. All rights reserved.  
 
-**Contact:** quantump1ng@proton.me  
+**Contact:** support@qp1ng.com | legal@qp1ng.com  
+**Official Portal:** [https://www.qp1ng.com](https://www.qp1ng.com)  
 
-Privacy & legal documentation will be published under `/docs/legal/`.
+Legal documentation and policies:
+- [Commercial License & EULA](https://www.qp1ng.com/license.html)
+- [Terms of Service](https://www.qp1ng.com/terms.html)
+- [Zero-Telemetry Privacy Policy](https://www.qp1ng.com/privacy.html)
 
 ---
 
