@@ -11888,7 +11888,39 @@ body.qmap-modal-open {
     width: 100%;
   }
 
-  .hero-proof-grid,
+  .hero-proof-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    width: 100%;
+    margin: 8px auto 16px;
+  }
+
+  .hero-proof {
+    min-height: auto;
+    padding: 10px 11px;
+    text-align: left;
+    background: rgba(8, 16, 28, 0.65);
+    border: 1px solid rgba(0, 242, 255, 0.18);
+    border-left: 3px solid var(--acc2, #00f2ff);
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  }
+
+  .hero-proof span {
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: 0.04em;
+    text-shadow: 0 0 10px rgba(0, 242, 255, 0.35);
+  }
+
+  .hero-proof small {
+    font-size: 11px;
+    margin-top: 3px;
+    line-height: 1.25;
+    color: rgba(200, 220, 240, 0.72);
+  }
+
   .hero-module-grid,
   .hero-signal-rail {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -11930,7 +11962,30 @@ body.qmap-modal-open {
     white-space: normal;
   }
 
-  .hero-proof-grid,
+  .hero-proof-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 6px;
+    margin: 6px 0 14px;
+    width: 100%;
+  }
+
+  .hero-proof {
+    min-height: auto;
+    padding: 8px 9px;
+    border-left-width: 2.5px;
+  }
+
+  .hero-proof span {
+    font-size: 14.5px;
+    line-height: 1.1;
+  }
+
+  .hero-proof small {
+    font-size: 10px;
+    margin-top: 2px;
+    line-height: 1.22;
+  }
+
   .hero-module-grid,
   .hero-signal-rail {
     grid-template-columns: 1fr;
@@ -11984,6 +12039,23 @@ body.qmap-modal-open {
   .hero-kicker {
     display: flex;
     width: 100%;
+  }
+
+  .hero-proof-grid {
+    gap: 5px;
+  }
+
+  .hero-proof {
+    padding: 6px 7px;
+  }
+
+  .hero-proof span {
+    font-size: 13px;
+  }
+
+  .hero-proof small {
+    font-size: 9.5px;
+    line-height: 1.2;
   }
 }
 
