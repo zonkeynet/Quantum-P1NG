@@ -26177,15 +26177,16 @@ html.intro-active body > *:not(#intro-screen):not(script):not(style) {
 }
 
 .dl-dest-icon-box--play {
-  background: rgba(0, 242, 255, 0.12);
-  border-color: rgba(0, 242, 255, 0.35);
-  color: #00f2ff;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
 }
 
 .dl-dest-icon-box--fdroid {
-  background: rgba(56, 189, 248, 0.12);
-  border-color: rgba(56, 189, 248, 0.35);
+  background: rgba(47, 128, 237, 0.15);
+  border-color: rgba(47, 128, 237, 0.45);
   color: #38bdf8;
+  box-shadow: 0 0 15px rgba(47, 128, 237, 0.25);
 }
 
 .dl-dest-title {
@@ -26253,6 +26254,10 @@ html.intro-active body > *:not(#intro-screen):not(script):not(style) {
   letter-spacing: 0.4px;
   text-decoration: none;
   transition: all 0.2s ease;
+}
+
+.btn--dl-channel svg {
+  flex-shrink: 0;
 }
 
 .btn--dl-apk {

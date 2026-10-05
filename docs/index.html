@@ -45,7 +45,7 @@
   <meta name="twitter:image" content="https://www.qp1ng.com/assets/img/social-preview.png" />
 
   <link rel="preload" href="assets/fonts/square_dot_digital_qp1ng.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="styles.css?v=2.6.8" as="style" />
+  <link rel="preload" href="styles.css?v=2.6.9" as="style" />
   <link rel="preload" as="image" href="assets/vid/intro_bg_poster.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/intro_mobile_poster.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/qmap_poster.webp">
@@ -59,7 +59,7 @@
       }
     } catch(e){}
   </script>
-  <link rel="stylesheet" href="styles.css?v=2.6.8" />
+  <link rel="stylesheet" href="styles.css?v=2.6.9" />
 
   <!-- Schema.org Comprehensive Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -585,7 +585,7 @@
 
           <div class="hero__cta-wrapper" id="heroDownloadHub">
             <div class="hero__cta" aria-label="Primary actions">
-              <button type="button" class="btn btn--download dl-trigger-btn" id="dlHubTrigger" aria-expanded="false" aria-controls="dlSchematicHub">
+              <button type="button" class="btn btn--download dl-trigger-btn" id="dlHubTrigger" aria-expanded="false" aria-controls="dlSchematicHub" aria-label="Download Q-P1NG (Choose from 3 distribution channels)">
                 <span class="dl-trigger-beacon" aria-hidden="true">
                   <span class="dl-trigger-beacon__dot"></span>
                   <span class="dl-trigger-beacon__ring"></span>
@@ -596,7 +596,7 @@
                   <line x1="12" y1="15" x2="12" y2="3"></line>
                 </svg>
                 <span class="dl-trigger-btn__label">Download Q-P1NG</span>
-                <span class="dl-trigger-btn__tag mono">3 CANALI // ALPHA</span>
+                <span class="dl-trigger-btn__tag mono">3 CHANNELS // ALPHA</span>
                 <span class="dl-trigger-arrow" aria-hidden="true">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </span>
@@ -609,20 +609,20 @@
             <!-- TACTICAL DEPLOYMENT SCHEMATIC DECK -->
             <div class="dl-schematic-drawer" id="dlSchematicHub" aria-hidden="true">
               <div class="dl-schematic-inner">
-                <div class="dl-schematic-board" role="region" aria-label="Diagramma opzioni di download e nodi di distribuzione">
+                <div class="dl-schematic-board" role="region" aria-label="Download channels and distribution node schematic">
                   <header class="dl-board-header">
                     <div class="dl-board-title mono">
                       <span class="dl-board-status-led" aria-hidden="true"></span>
-                      <span>TACTICAL DEPLOYMENT MATRIX // CANALI DI CONNESSIONE ESTERNA</span>
+                      <span>TACTICAL DEPLOYMENT MATRIX // EXTERNAL CONNECTION NODES</span>
                     </div>
-                    <button type="button" class="dl-board-close mono" id="dlHubClose" aria-label="Chiudi diagramma di download">
-                      <span>[ CHIUDI ✕ ]</span>
+                    <button type="button" class="dl-board-close mono" id="dlHubClose" aria-label="Close download schematic">
+                      <span>[ CLOSE ✕ ]</span>
                     </button>
                   </header>
 
                   <!-- Central Dispatcher Core Node -->
                   <div class="dl-origin-node">
-                    <div class="dl-origin-badge mono">SORGENTE CENTRALE // DETERMINISTIC REPRODUCIBLE BUILD</div>
+                    <div class="dl-origin-badge mono">CENTRAL SOURCE // DETERMINISTIC REPRODUCIBLE BUILD</div>
                     <div class="dl-origin-core">
                       <div class="dl-origin-icon" aria-hidden="true">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -634,9 +634,9 @@
                       <div class="dl-origin-text">
                         <div class="dl-origin-title">
                           <strong>Q-P1NG CORE v2.6.8</strong>
-                          <span class="dl-status-chip mono">DISPATCHER ATTIVO</span>
+                          <span class="dl-status-chip mono">DISPATCHER ACTIVE</span>
                         </div>
-                        <div class="dl-origin-meta mono">SHA-256 SIGNED • ZERO TRACKING • P2P &amp; REPO ROUTING</div>
+                        <div class="dl-origin-meta mono">SHA-256 SIGNED • ZERO TELEMETRY • P2P &amp; REPO ROUTING</div>
                       </div>
                     </div>
                   </div>
@@ -675,16 +675,16 @@
 
                   <!-- 3 External Distribution Channels (Cards) -->
                   <div class="dl-dest-grid" role="list">
-                    <!-- CANALE 1: APK DIRETTO SITO WEB / GITHUB -->
+                    <!-- CHANNEL 1: DIRECT APK FROM WEBSITE / GITHUB -->
                     <article class="dl-dest-card dl-dest-card--apk" data-channel="apk" role="listitem">
                       <div class="dl-dest-card__accent" aria-hidden="true"></div>
                       <div class="dl-dest-card__header">
-                        <span class="dl-channel-id mono"><span class="dl-ch-dot"></span>NODO 01 // SITO WEB</span>
-                        <span class="dl-channel-badge dl-channel-badge--recommended mono">CONSIGLIATO</span>
+                        <span class="dl-channel-id mono"><span class="dl-ch-dot"></span>NODE 01 // DIRECT WEB</span>
+                        <span class="dl-channel-badge dl-channel-badge--recommended mono">RECOMMENDED</span>
                       </div>
                       <div class="dl-dest-card__main">
                         <div class="dl-dest-title-row">
-                          <div class="dl-dest-icon-box">
+                          <div class="dl-dest-icon-box dl-dest-icon-box--apk">
                             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                               <polyline points="7 10 12 15 17 10"></polyline>
@@ -692,95 +692,101 @@
                             </svg>
                           </div>
                           <div>
-                            <h3 class="dl-dest-title">APK Diretto</h3>
-                            <span class="dl-dest-sub mono">GitHub Releases Ufficiale</span>
+                            <h3 class="dl-dest-title">Direct APK</h3>
+                            <span class="dl-dest-sub mono">Official Website &amp; GitHub</span>
                           </div>
                         </div>
-                        <p class="dl-dest-desc">Download diretto e immediato senza intermediari. Riceve aggiornamenti interni e garantisce sovranità totale del dispositivo.</p>
+                        <p class="dl-dest-desc">Direct and immediate download with zero intermediaries. Autonomous in-app update checks guarantee total device sovereignty.</p>
                         <ul class="dl-dest-specs mono">
                           <li><span class="k">PACKAGE:</span> app-release.apk</li>
-                          <li><span class="k">INTEGRITY:</span> SHA-256 Verificabile</li>
-                          <li><span class="k">UPDATE:</span> Notifiche P2P interne</li>
+                          <li><span class="k">INTEGRITY:</span> SHA-256 Verifiable</li>
+                          <li><span class="k">UPDATES:</span> Autonomous P2P Checks</li>
                         </ul>
                       </div>
                       <div class="dl-dest-card__cta">
                         <a href="https://github.com/zonkeynet/Quantum-P1NG/releases/latest/download/app-release.apk" class="btn btn--dl-channel btn--dl-apk" target="_blank" rel="noopener">
                           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                          <span>Scarica APK Diretto</span>
+                          <span>Direct APK</span>
                         </a>
                       </div>
                     </article>
 
-                    <!-- CANALE 2: GOOGLE PLAY STORE -->
+                    <!-- CHANNEL 2: GOOGLE PLAY STORE -->
                     <article class="dl-dest-card dl-dest-card--play" data-channel="play" role="listitem">
                       <div class="dl-dest-card__accent" aria-hidden="true"></div>
                       <div class="dl-dest-card__header">
-                        <span class="dl-channel-id mono"><span class="dl-ch-dot"></span>NODO 02 // STORE</span>
+                        <span class="dl-channel-id mono"><span class="dl-ch-dot"></span>NODE 02 // APP STORE</span>
                         <span class="dl-channel-badge dl-channel-badge--play mono">PLAY PROTECT</span>
                       </div>
                       <div class="dl-dest-card__main">
                         <div class="dl-dest-title-row">
                           <div class="dl-dest-icon-box dl-dest-icon-box--play">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                              <path d="M3.609 1.814L13.792 12 3.61 22.186a2.38 2.38 0 0 1-.61-1.636V3.45c0-.623.224-1.2.609-1.636zm11.242 11.245l2.42 2.42-11.75 6.78 9.33-9.2zm0-2.118l-9.33-9.2 11.75 6.78-2.42 2.42zm1.488 1.059l3.526 2.035c.983.567.983 1.487 0 2.054l-3.526 2.035-2.122-2.122 2.122-2.122z"/>
+                            <!-- Official Google Play Vector Icon -->
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                              <path d="M1.337 0.924a1.486 1.486 0 0 0-0.112 0.568v21.017c0 0.217 0.045 0.419 0.124 0.6l11.155-11.087L1.337 0.924z" fill="#00D2FF" />
+                              <path d="M13.544 10.989l3.258-3.238L3.45 0.195a1.466 1.466 0 0 0-0.946-0.179l11.04 10.973z" fill="#00E676" />
+                              <path d="M13.544 13.056l-11 10.933c0.298 0.036 0.612-0.016 0.906-0.183l13.324-7.54-3.23-3.21z" fill="#FF3A44" />
+                              <path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594z" fill="#FFD600" />
                             </svg>
                           </div>
                           <div>
                             <h3 class="dl-dest-title">Google Play Store</h3>
-                            <span class="dl-dest-sub mono">Distribuzione Android Ufficiale</span>
+                            <span class="dl-dest-sub mono">Official Android Ecosystem</span>
                           </div>
                         </div>
-                        <p class="dl-dest-desc">Distribuzione ufficiale con scansione automatica Play Protect e aggiornamenti gestiti in background dal sistema Android.</p>
+                        <p class="dl-dest-desc">Official distribution channel verified by Google Play Protect with seamless automated background updates managed by Android OS.</p>
                         <ul class="dl-dest-specs mono">
                           <li><span class="k">CHANNEL:</span> Google Play Store</li>
                           <li><span class="k">SECURITY:</span> Google Play Protect</li>
-                          <li><span class="k">SYSTEM:</span> Android 8.0+ standard</li>
+                          <li><span class="k">TARGET:</span> Android 8.0+ standard</li>
                         </ul>
                       </div>
                       <div class="dl-dest-card__cta">
                         <a href="https://play.google.com/store/apps/details?id=com.qp1ng.android" class="btn btn--dl-channel btn--dl-play" target="_blank" rel="noopener">
-                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                          <span>Apri su Play Store</span>
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M1.337 0.924a1.486 1.486 0 0 0-0.112 0.568v21.017c0 0.217 0.045 0.419 0.124 0.6l11.155-11.087L1.337 0.924z" fill="#00D2FF" />
+                            <path d="M13.544 10.989l3.258-3.238L3.45 0.195a1.466 1.466 0 0 0-0.946-0.179l11.04 10.973z" fill="#00E676" />
+                            <path d="M13.544 13.056l-11 10.933c0.298 0.036 0.612-0.016 0.906-0.183l13.324-7.54-3.23-3.21z" fill="#FF3A44" />
+                            <path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594z" fill="#FFD600" />
+                          </svg>
+                          <span>Open on Play</span>
                         </a>
                       </div>
                     </article>
 
-                    <!-- CANALE 3: F-DROID REPOSITORY -->
+                    <!-- CHANNEL 3: F-DROID REPOSITORY -->
                     <article class="dl-dest-card dl-dest-card--fdroid" data-channel="fdroid" role="listitem">
                       <div class="dl-dest-card__accent" aria-hidden="true"></div>
                       <div class="dl-dest-card__header">
-                        <span class="dl-channel-id mono"><span class="dl-ch-dot"></span>NODO 03 // FOSS</span>
+                        <span class="dl-channel-id mono"><span class="dl-ch-dot"></span>NODE 03 // FOSS REPO</span>
                         <span class="dl-channel-badge dl-channel-badge--fdroid mono">ZERO TRACKERS</span>
                       </div>
                       <div class="dl-dest-card__main">
                         <div class="dl-dest-title-row">
                           <div class="dl-dest-icon-box dl-dest-icon-box--fdroid">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                              <rect x="5" y="4" width="14" height="16" rx="2"></rect>
-                              <line x1="9" y1="9" x2="9.01" y2="9" stroke-width="3"></line>
-                              <line x1="15" y1="9" x2="15.01" y2="9" stroke-width="3"></line>
-                              <path d="M8 20v2"></path>
-                              <path d="M16 20v2"></path>
-                              <path d="M2 11h3"></path>
-                              <path d="M19 11h3"></path>
+                            <!-- Official F-Droid Vector Mascot Icon -->
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                              <path d="M20.472 10.081H3.528c-0.877 0-1.589 0.711-1.589 1.589v10.59c0 0.877 0.711 1.589 1.589 1.589h16.944c0.877 0 1.589-0.711 1.589-1.589V11.67c0-0.878-0.712-1.589-1.589-1.589zm-8.472 12.444c-3.066 0-5.56-2.494-5.56-5.56s2.494-5.56 5.56-5.56 5.56 2.494 5.56 5.56-2.494 5.56-5.56 5.56zm0-10.114c-2.511 0-4.554 2.043-4.554 4.554s2.043 4.554 4.554 4.554 4.554-2.043 4.554-4.554-2.043-4.554-4.554-4.554zm0 7.863c-1.563 0-2.881-1.103-3.221-2.568h1.67c0.275 0.581 0.859 0.979 1.551 0.979 0.96 0 1.721-0.761 1.721-1.721s-0.761-1.721-1.721-1.721c-0.649 0-1.2 0.352-1.493 0.874H8.805c0.378-1.412 1.669-2.462 3.195-2.462 1.818 0 3.309 1.491 3.309 3.309 0 1.818-1.491 3.309-3.309 3.309zM23.849 0.396a.434.434 0 0 0-.527-.233c-.202.005-.391.097-.512.259l-1.818 2.353c-.164-.058-.339-.095-.523-.095H3.528c-.184 0-.358.038-.523.095L1.187.41C1.066.248.877.157.675.151c-.24.006-.403.1-.519.238a.508.508 0 0 0-.005.007c-.066.078-.297.426-.012.824l1.909 2.471c-.067.177-.108.367-.108.567v3.707c0 .877.711 1.589 1.589 1.589h16.944c.877 0 1.589-.711 1.589-1.589V4.258c0-.2-.041-.39-.109-.566l1.909-2.471c.285-.398.054-.746-.012-.825zM6.904 8.228c-.987 0-1.787-.8-1.787-1.787s.8-1.787 1.787-1.787 1.787.8 1.787 1.787-.8 1.787-1.787 1.787zm10.325 0c-.987 0-1.787-.8-1.787-1.787s.8-1.787 1.787-1.787 1.787.8 1.787 1.787-.8 1.787-1.787 1.787z" />
                             </svg>
                           </div>
                           <div>
-                            <h3 class="dl-dest-title">F-Droid Repo</h3>
-                            <span class="dl-dest-sub mono">Catalogo FOSS Indipendente</span>
+                            <h3 class="dl-dest-title">F-Droid Repository</h3>
+                            <span class="dl-dest-sub mono">Independent FOSS Catalog</span>
                           </div>
                         </div>
-                        <p class="dl-dest-desc">Compilato direttamente da codice sorgente aperto. Perfetto per ROM degoogled (GrapheneOS, CalyxOS, LineageOS) a zero tracciamento.</p>
+                        <p class="dl-dest-desc">Built directly from open source code by the F-Droid maintainers. Ideal for de-googled ROMs (GrapheneOS, CalyxOS, LineageOS) with zero trackers.</p>
                         <ul class="dl-dest-specs mono">
                           <li><span class="k">PACKAGE:</span> F-Droid FOSS Build</li>
-                          <li><span class="k">TRACKING:</span> 0 Tracciatori &amp; No Ads</li>
+                          <li><span class="k">TRACKING:</span> 0 Trackers &amp; No Ads</li>
                           <li><span class="k">FREEDOM:</span> 100% De-Googled</li>
                         </ul>
                       </div>
                       <div class="dl-dest-card__cta">
                         <a href="https://f-droid.org/packages/com.qp1ng.android/" class="btn btn--dl-channel btn--dl-fdroid" target="_blank" rel="noopener">
-                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                          <span>Apri su F-Droid</span>
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M20.472 10.081H3.528c-0.877 0-1.589 0.711-1.589 1.589v10.59c0 0.877 0.711 1.589 1.589 1.589h16.944c0.877 0 1.589-0.711 1.589-1.589V11.67c0-0.878-0.712-1.589-1.589-1.589zm-8.472 12.444c-3.066 0-5.56-2.494-5.56-5.56s2.494-5.56 5.56-5.56 5.56 2.494 5.56 5.56-2.494 5.56-5.56 5.56zm0-10.114c-2.511 0-4.554 2.043-4.554 4.554s2.043 4.554 4.554 4.554 4.554-2.043 4.554-4.554-2.043-4.554-4.554-4.554zm0 7.863c-1.563 0-2.881-1.103-3.221-2.568h1.67c0.275 0.581 0.859 0.979 1.551 0.979 0.96 0 1.721-0.761 1.721-1.721s-0.761-1.721-1.721-1.721c-0.649 0-1.2 0.352-1.493 0.874H8.805c0.378-1.412 1.669-2.462 3.195-2.462 1.818 0 3.309 1.491 3.309 3.309 0 1.818-1.491 3.309-3.309 3.309zM23.849 0.396a.434.434 0 0 0-.527-.233c-.202.005-.391.097-.512.259l-1.818 2.353c-.164-.058-.339-.095-.523-.095H3.528c-.184 0-.358.038-.523.095L1.187.41C1.066.248.877.157.675.151c-.24.006-.403.1-.519.238a.508.508 0 0 0-.005.007c-.066.078-.297.426-.012.824l1.909 2.471c-.067.177-.108.367-.108.567v3.707c0 .877.711 1.589 1.589 1.589h16.944c.877 0 1.589-.711 1.589-1.589V4.258c0-.2-.041-.39-.109-.566l1.909-2.471c.285-.398.054-.746-.012-.825zM6.904 8.228c-.987 0-1.787-.8-1.787-1.787s.8-1.787 1.787-1.787 1.787.8 1.787 1.787-.8 1.787-1.787 1.787zm10.325 0c-.987 0-1.787-.8-1.787-1.787s.8-1.787 1.787-1.787 1.787.8 1.787 1.787-.8 1.787-1.787 1.787z" />
+                          </svg>
+                          <span>Open on F-Droid</span>
                         </a>
                       </div>
                     </article>
@@ -790,10 +796,10 @@
                   <footer class="dl-board-footer">
                     <div class="dl-board-footer__note mono">
                       <span class="dl-shield-ico" aria-hidden="true">🛡</span>
-                      <span>GARANZIA DI INTEGRITÀ: Tutti i canali distribuiscono binari verificati derivati dall'albero di rilascio ufficiale firmato GPG Zonkeynet.</span>
+                      <span>INTEGRITY GUARANTEE: All distribution channels deploy verified binaries built from the same Zonkeynet GPG-signed release tree.</span>
                     </div>
                     <div class="dl-board-footer__action mono">
-                      <a href="https://github.com/zonkeynet/Quantum-P1NG/releases" target="_blank" rel="noopener">VEDI RELEASE GITHUB &amp; HASH SHA-256 &rarr;</a>
+                      <a href="https://github.com/zonkeynet/Quantum-P1NG/releases" target="_blank" rel="noopener">VIEW GITHUB RELEASES &amp; SHA-256 HASHES &rarr;</a>
                     </div>
                   </footer>
                 </div>
@@ -6528,6 +6534,6 @@ _
 </footer>
   </main>
 
-  <script src="script.js?v=2.6.1" defer></script>
+  <script src="script.js?v=2.6.2" defer></script>
 </body>
 </html>
