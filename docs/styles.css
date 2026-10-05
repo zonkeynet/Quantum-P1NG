@@ -624,6 +624,7 @@ a:hover { color: var(--acc); }
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
   font-family: var(--font-mono);
   overflow: hidden;
+  text-align: left;
 }
 .terminal__bar {
   background: #111;
@@ -646,9 +647,12 @@ a:hover { color: var(--acc); }
   height: 200px;
   overflow-y: auto;
   white-space: pre-wrap;
-  overflow-y: auto; /* Permette lo scroll interno senza mostrare la barra */
   scrollbar-width: none; /* Nasconde la barra su Firefox */
   -ms-overflow-style: none; /* Nasconde la barra su IE/Edge */
+  text-align: left !important;
+}
+.terminal__body div {
+  text-align: left !important;
 }
 /* Nasconde la barra su Chrome, Safari e Opera */
 .terminal__body::-webkit-scrollbar {
@@ -11708,6 +11712,7 @@ body.qmap-modal-open {
   background: rgba(1, 5, 10, 0.92);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(0, 242, 255, 0.02);
   overflow: hidden;
+  text-align: left;
 }
 
 .hero--definitive .hero-terminal .terminal__bar {
@@ -11748,6 +11753,11 @@ body.qmap-modal-open {
   letter-spacing: 0;
   text-shadow: 0 0 8px rgba(10, 255, 132, 0.4);
   padding: 14px;
+  text-align: left !important;
+}
+
+.hero--definitive .hero-terminal .terminal__body div {
+  text-align: left !important;
 }
 
 .hero-signal-rail {
@@ -12029,6 +12039,19 @@ body.qmap-modal-open {
   .hero-logo,
   .hero-logo-halo {
     transform: none;
+  }
+
+  .hero--definitive .hero-terminal {
+    text-align: left !important;
+  }
+
+  .hero--definitive .hero-terminal .terminal__body,
+  .hero--definitive .hero-terminal .terminal__body div,
+  .hero--definitive #typewriter-output,
+  .hero--definitive #typewriter-output div {
+    text-align: left !important;
+    white-space: pre-wrap;
+    word-break: break-word;
   }
 
   .hero--definitive .hero-terminal .terminal__body {
