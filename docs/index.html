@@ -45,7 +45,7 @@
   <meta name="twitter:image" content="https://www.qp1ng.com/assets/img/social-preview.png" />
 
   <link rel="preload" href="assets/fonts/square_dot_digital_qp1ng.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="styles.css?v=2.5.9" as="style" />
+  <link rel="preload" href="styles.css?v=2.6.0" as="style" />
   <link rel="preload" as="image" href="assets/vid/intro_bg_poster.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/intro_mobile_poster.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/qmap_poster.webp">
@@ -59,7 +59,7 @@
       }
     } catch(e){}
   </script>
-  <link rel="stylesheet" href="styles.css?v=2.5.9" />
+  <link rel="stylesheet" href="styles.css?v=2.6.0" />
 
   <!-- Schema.org Comprehensive Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -5614,12 +5614,23 @@ _
         <div class="qcam-device">
           <div class="qcam-device-top mono">
             <span>Q-CAM // PROTECTED PREVIEW</span>
-            <span>LIVE_DETECT</span>
+            <span id="qcamBadge">LIVE_DETECT</span>
           </div>
 
-          <div class="qcam-viewfinder">
+          <div class="qcam-viewfinder" id="qcamMediaContainer" role="button" tabindex="0" aria-label="Toggle Q-CAM video demonstration" title="Click to play / pause video">
             <img class="qcam-preview-img" decoding="async" loading="lazy" src="assets/img/qcam_manifestation_protected.jpg" alt="Generated Q-CAM example of a peaceful public demonstration with activist and bystander faces protected by privacy overlays" width="1672" height="941">
+            
+            <video id="qcamVideo" class="qcam-inline-video" width="1280" height="720" muted loop playsinline preload="metadata">
+              <source src="assets/vid/qcam_manifestation_protected.mp4" type="video/mp4">
+              <source src="assets/vid/qcam_manifestation_protected.webm" type="video/webm">
+            </video>
+
             <div class="qcam-generated-badge mono" aria-hidden="true">GENERATED FIELD EXAMPLE // FACES PROTECTED</div>
+
+            <div class="qcam-play-pill mono" aria-hidden="true">
+              <span class="qcam-play-icon">▶</span>
+              <span class="qcam-play-text">CLICK TO PLAY</span>
+            </div>
 
             <div class="qcam-face-box qcam-face-box--one"><span class="mono">FACE_01</span></div>
             <div class="qcam-face-box qcam-face-box--two"><span class="mono">FACE_02</span></div>
@@ -6274,6 +6285,6 @@ _
 </footer>
   </main>
 
-  <script src="script.js?v=2.5.5" defer></script>
+  <script src="script.js?v=2.5.6" defer></script>
 </body>
 </html>

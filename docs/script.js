@@ -2366,7 +2366,14 @@ if (terminal && gamesGrid) {
         updateCardPlayingState();
       }
       container.classList.add('is-playing');
-      if (badge) badge.textContent = activeText;
+      if (badge) {
+        badge.textContent = activeText;
+        badge.classList.add('is-playing');
+      }
+      const pillText = container.querySelector('.qcam-play-text');
+      if (pillText) pillText.textContent = 'PAUSE STREAM';
+      const pillIcon = container.querySelector('.qcam-play-icon');
+      if (pillIcon) pillIcon.textContent = '■';
       video.muted = true;
       try {
         video.currentTime = 0;
@@ -2381,7 +2388,14 @@ if (terminal && gamesGrid) {
         updateCardPlayingState();
       }
       container.classList.remove('is-playing');
-      if (badge) badge.textContent = defaultText;
+      if (badge) {
+        badge.textContent = defaultText;
+        badge.classList.remove('is-playing');
+      }
+      const pillText = container.querySelector('.qcam-play-text');
+      if (pillText) pillText.textContent = 'CLICK TO PLAY';
+      const pillIcon = container.querySelector('.qcam-play-icon');
+      if (pillIcon) pillIcon.textContent = '▶';
       video.pause();
       // Reset to beginning after the card fade-out transition completes
       setTimeout(() => {
@@ -2460,6 +2474,9 @@ if (terminal && gamesGrid) {
 
   // Principle 06: Ghost Mesh Radar Video
   setupVideoCard('meshMediaContainer', 'meshVideo', 'meshBadge', 'RADAR::ACTIVE', 'LAB::SAFE');
+
+  // Q-CAM Field Video
+  setupVideoCard('qcamMediaContainer', 'qcamVideo', 'qcamBadge', 'FEED::LIVE_STREAM', 'LIVE_DETECT');
 })();
 
 // =========================================
