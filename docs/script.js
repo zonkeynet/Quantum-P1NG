@@ -2480,6 +2480,65 @@ if (terminal && gamesGrid) {
   // RadioBridge Field Video
   setupVideoCard('rbRadioMediaContainer', 'rbRadioVideo', 'rbRadioLinkBadge', 'RF LINK ACTIVE', 'RF LINK STANDBY');
 
+  // Dynamic Telemetry HUD sync for RadioBridge Dual-Sequence (RF Link -> AIOC Hardware Rig)
+  (() => {
+    const rbVideo = document.getElementById('rbRadioVideo');
+    const rbTitle = document.getElementById('rbRadioHudTitle');
+    const rbBadge = document.getElementById('rbRadioLinkBadge');
+    const rbBadgeLabel = rbBadge ? rbBadge.querySelector('.badge-label') : null;
+    const rbBottom = document.getElementById('rbRadioHudBottom');
+    const rbContainer = document.getElementById('rbRadioMediaContainer');
+
+    if (!rbVideo || !rbTitle || !rbBottom) return;
+
+    let currentPhase = -1; // 0 = RF link, 1 = Hardware AIOC
+
+    function updateHud(phase) {
+      if (currentPhase === phase) return;
+      currentPhase = phase;
+
+      if (phase === 1) {
+        // AIOC Rig Hardware Phase
+        rbTitle.innerHTML = '<span class="hud-sep">//</span> HARDWARE INTERFACE: AIOC ADAPTER &times; DIGITAL PTT';
+        if (rbBadgeLabel && rbContainer && rbContainer.classList.contains('is-playing')) {
+          rbBadgeLabel.textContent = 'AIOC RIG ACTIVE';
+        }
+        rbBottom.innerHTML = `
+          <span class="rb-radio-spec-pill"><i class="pill-dot"></i> BAOFENG UV-5R TRANSCEIVER</span>
+          <span class="rb-radio-spec-pill"><i class="pill-dot"></i> AIOC ALL-IN-ONE CABLE</span>
+          <span class="rb-radio-spec-pill"><i class="pill-dot"></i> USB AUDIO CODEC + CM108</span>
+          <span class="rb-radio-spec-pill"><i class="pill-dot"></i> OPTO-ISOLATED DIGITAL PTT</span>
+        `;
+      } else {
+        // Wireless RF Link Phase
+        rbTitle.innerHTML = '<span class="hud-sep">//</span> RF LINK MONITOR: BAOFENG UV-5R &times; SMARTPHONE';
+        if (rbBadgeLabel && rbContainer && rbContainer.classList.contains('is-playing')) {
+          rbBadgeLabel.textContent = 'RF LINK ACTIVE';
+        }
+        rbBottom.innerHTML = `
+          <span class="rb-radio-spec-pill"><i class="pill-dot"></i> BAOFENG UV-5R TRANSCEIVER</span>
+          <span class="rb-radio-spec-pill"><i class="pill-dot"></i> WIRELESS RF TRANSMISSION</span>
+          <span class="rb-radio-spec-pill"><i class="pill-dot"></i> AFSK 1200 BELL 202</span>
+          <span class="rb-radio-spec-pill"><i class="pill-dot"></i> HALF DUPLEX LAB LINK</span>
+        `;
+      }
+    }
+
+    rbVideo.addEventListener('timeupdate', () => {
+      if (rbVideo.paused) return;
+      // Sequence timing: 0.0s - 1.8s is RF Link, 1.8s - 11.3s is Hardware AIOC Connected Device
+      if (rbVideo.currentTime >= 1.8 && rbVideo.currentTime < 11.3) {
+        updateHud(1);
+      } else {
+        updateHud(0);
+      }
+    });
+
+    rbVideo.addEventListener('pause', () => {
+      updateHud(0);
+    });
+  })();
+
   // Q-CAM Field Video
   setupVideoCard('qcamMediaContainer', 'qcamVideo', 'qcamBadge', 'FEED::LIVE_STREAM', 'LIVE_DETECT');
 })();

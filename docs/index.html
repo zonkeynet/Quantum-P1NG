@@ -4712,19 +4712,19 @@ _
       <div class="rb-radio-stage" aria-label="Baofeng UV-5R and Smartphone Wireless RF Link Video">
         <div class="rb-radio-hud-top mono">
           <span class="rb-radio-freq-badge"><i class="ag-pulse-dot"></i> 155.500 / 400.025 MHz</span>
-          <span class="rb-radio-hud-title mono"><span class="hud-sep">//</span> RF LINK MONITOR: BAOFENG UV-5R &times; SMARTPHONE</span>
+          <span class="rb-radio-hud-title mono" id="rbRadioHudTitle"><span class="hud-sep">//</span> RF LINK MONITOR: BAOFENG UV-5R &times; SMARTPHONE</span>
           <span class="rb-radio-link-badge mono" id="rbRadioLinkBadge"><span class="badge-dot"></span><span class="badge-label">RF LINK STANDBY</span></span>
         </div>
 
         <div class="rb-radio-viewport rb-radio-viewport--video" id="rbRadioMediaContainer" role="button" tabindex="0" aria-label="Toggle Wireless RF Link video playback" title="Click to play / pause video animation">
           <picture class="rb-radio-poster-wrap">
-            <source srcset="assets/img/radio_collegamento_poster.webp" type="image/webp">
-            <img src="assets/img/radio_collegamento_poster.png" alt="Baofeng UV-5R and Smartphone Wireless RF Link Diagram" class="rb-radio-poster-img" width="1280" height="720" loading="lazy" decoding="async">
+            <source srcset="assets/img/radio_collegamento_poster.webp?v=2" type="image/webp">
+            <img src="assets/img/radio_collegamento_poster.png?v=2" alt="Baofeng UV-5R and Smartphone Wireless RF Link Diagram" class="rb-radio-poster-img" width="1280" height="720" loading="lazy" decoding="async">
           </picture>
 
-          <video id="rbRadioVideo" class="rb-radio-video" width="1280" height="720" poster="assets/img/radio_collegamento_poster.webp" loop muted playsinline preload="metadata" title="Click to play / pause video animation">
-            <source src="assets/vid/radio_collegamento.mp4" type="video/mp4">
-            <source src="assets/vid/radio_collegamento.webm" type="video/webm">
+          <video id="rbRadioVideo" class="rb-radio-video" width="1280" height="720" poster="assets/img/radio_collegamento_poster.webp?v=2" loop muted playsinline preload="metadata" title="Click to play / pause video animation">
+            <source src="assets/vid/radio_collegamento.mp4?v=2" type="video/mp4">
+            <source src="assets/vid/radio_collegamento.webm?v=2" type="video/webm">
           </video>
 
           <div class="rb-radio-play-pill mono" aria-hidden="true">
@@ -4733,7 +4733,7 @@ _
           </div>
         </div>
 
-        <div class="rb-radio-hud-bottom mono">
+        <div class="rb-radio-hud-bottom mono" id="rbRadioHudBottom">
           <span class="rb-radio-spec-pill"><i class="pill-dot"></i> BAOFENG UV-5R TRANSCEIVER</span>
           <span class="rb-radio-spec-pill"><i class="pill-dot"></i> WIRELESS RF TRANSMISSION</span>
           <span class="rb-radio-spec-pill"><i class="pill-dot"></i> AFSK 1200 BELL 202</span>
@@ -6534,6 +6534,6 @@ _
 </footer>
   </main>
 
-  <script src="script.js?v=2.6.2" defer></script>
+  <script src="script.js?v=2.6.3" defer></script>
 </body>
 </html>
