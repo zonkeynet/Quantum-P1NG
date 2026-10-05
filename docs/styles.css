@@ -8529,7 +8529,7 @@ body.qmap-modal-open {
 
 .rb-console-body {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
   gap: 16px;
   align-items: stretch;
   margin-top: 18px;
@@ -8720,9 +8720,9 @@ body.qmap-modal-open {
   align-items: center;
   justify-content: center;
   width: 100%;
-  flex: 1;
-  min-height: 200px;
   aspect-ratio: 16 / 9;
+  max-width: 100%;
+  margin: auto 0;
   padding: 0;
   border-radius: 6px;
   overflow: hidden;
@@ -8757,7 +8757,7 @@ body.qmap-modal-open {
   height: 100%;
   max-width: 100%;
   max-height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center center;
   display: block;
   border-radius: 6px;
@@ -8776,7 +8776,7 @@ body.qmap-modal-open {
   height: 100%;
   max-width: 100%;
   max-height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center center;
   display: block;
   border-radius: 6px;
