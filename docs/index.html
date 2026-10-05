@@ -45,7 +45,7 @@
   <meta name="twitter:image" content="https://www.qp1ng.com/assets/img/social-preview.png" />
 
   <link rel="preload" href="assets/fonts/square_dot_digital_qp1ng.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="styles.css?v=2.6.5" as="style" />
+  <link rel="preload" href="styles.css?v=2.6.6" as="style" />
   <link rel="preload" as="image" href="assets/vid/intro_bg_poster.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/intro_mobile_poster.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/qmap_poster.webp">
@@ -59,7 +59,7 @@
       }
     } catch(e){}
   </script>
-  <link rel="stylesheet" href="styles.css?v=2.6.5" />
+  <link rel="stylesheet" href="styles.css?v=2.6.6" />
 
   <!-- Schema.org Comprehensive Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -4453,78 +4453,80 @@ _
         </div>
 
         <div class="rb-console-body">
-          <div class="rb-console-main">
-            <div class="rb-chain" aria-label="RadioBridge signal chain">
-              <div class="rb-chain-node">
-                <span class="rb-node-icon">QP</span>
-                <strong>Phone</strong>
-                <small>Android USB host</small>
-              </div>
-              <div class="rb-chain-link"></div>
-              <div class="rb-chain-node rb-chain-node--active" id="rbInterfaceNode">
-                <span class="rb-node-icon" id="rbNodeIcon">AI</span>
-                <strong id="rbInterfaceTitle">AIOC</strong>
-                <small id="rbInterfaceText">USB audio + serial DTR/RTS</small>
-              </div>
-              <div class="rb-chain-link rb-chain-link--radio"></div>
-              <div class="rb-chain-node rb-chain-node--radio" id="rbRadioNode">
-                <span class="rb-node-icon">RF</span>
-                <strong>Radio K1</strong>
-                <small>Baofeng UV-5R K1</small>
-              </div>
+          <div class="rb-chain" aria-label="RadioBridge signal chain">
+            <div class="rb-chain-node">
+              <span class="rb-node-icon">QP</span>
+              <strong>Phone</strong>
+              <small>Android USB host</small>
             </div>
-
-            <div class="rb-console-grid">
-              <article class="rb-status-panel">
-                <span class="rb-panel-label mono">TX SEQUENCE</span>
-                <h3 id="rbSequenceTitle">Serial PTT guarded send</h3>
-                <p id="rbSequenceText">USB audio sends AFSK tones while DTR/RTS controls PTT. Stop, close and errors force PTT off.</p>
-                <div class="rb-sequence-bars" aria-hidden="true">
-                  <span style="--rbw: 24%"></span>
-                  <span style="--rbw: 38%"></span>
-                  <span style="--rbw: 62%"></span>
-                  <span style="--rbw: 82%"></span>
-                </div>
-              </article>
-
-              <article class="rb-terminal mono" aria-label="RadioBridge diagnostics">
-                <div><span>&gt;</span><span id="rbLogLine1">mode=AIOC_SERIAL_PTT sampleRate=48000</span></div>
-                <div><span>&gt;</span><span id="rbLogLine2">packet=QGW TEST_CLEAR payload="QP1NG TEST 001"</span></div>
-                <div><span>&gt;</span><span id="rbLogLine3">crc=CRC16/X25 secure_tx=disabled</span></div>
-              </article>
+            <div class="rb-chain-link"></div>
+            <div class="rb-chain-node rb-chain-node--active" id="rbInterfaceNode">
+              <span class="rb-node-icon" id="rbNodeIcon">AI</span>
+              <strong id="rbInterfaceTitle">AIOC</strong>
+              <small id="rbInterfaceText">USB audio + serial DTR/RTS</small>
+            </div>
+            <div class="rb-chain-link rb-chain-link--radio"></div>
+            <div class="rb-chain-node rb-chain-node--radio" id="rbRadioNode">
+              <span class="rb-node-icon">RF</span>
+              <strong>Radio K1</strong>
+              <small>Baofeng UV-5R K1</small>
             </div>
           </div>
 
-          <!-- Tactical Handheld Radio Rig (Baofeng UV-5R & Smartphone Wireless Link) -->
-          <div class="rb-radio-stage" aria-label="Baofeng UV-5R and Smartphone Wireless RF Link Video">
-            <div class="rb-radio-hud-top mono">
-              <span class="rb-radio-freq-badge"><i class="ag-pulse-dot"></i> 155.500 / 400.025 MHz</span>
-              <span class="rb-radio-link-badge mono" id="rbRadioLinkBadge"><span class="badge-dot"></span><span class="badge-label">RF LINK STANDBY</span></span>
-            </div>
-
-            <div class="rb-radio-viewport rb-radio-viewport--video" id="rbRadioMediaContainer" role="button" tabindex="0" aria-label="Toggle Wireless RF Link video playback" title="Click to play / pause video animation">
-              <picture class="rb-radio-poster-wrap">
-                <source srcset="assets/img/radio_collegamento_poster.webp" type="image/webp">
-                <img src="assets/img/radio_collegamento_poster.png" alt="Baofeng UV-5R and Smartphone Wireless RF Link Diagram" class="rb-radio-poster-img" width="1280" height="720" loading="lazy" decoding="async">
-              </picture>
-
-              <video id="rbRadioVideo" class="rb-radio-video" width="1280" height="720" poster="assets/img/radio_collegamento_poster.webp" loop muted playsinline preload="metadata" title="Click to play / pause video animation">
-                <source src="assets/vid/radio_collegamento.mp4" type="video/mp4">
-                <source src="assets/vid/radio_collegamento.webm" type="video/webm">
-              </video>
-
-              <div class="rb-radio-play-pill mono" aria-hidden="true">
-                <span class="rb-play-icon">▶</span>
-                <span class="rb-play-text">CLICK TO PLAY</span>
+          <div class="rb-console-grid">
+            <article class="rb-status-panel">
+              <span class="rb-panel-label mono">TX SEQUENCE</span>
+              <h3 id="rbSequenceTitle">Serial PTT guarded send</h3>
+              <p id="rbSequenceText">USB audio sends AFSK tones while DTR/RTS controls PTT. Stop, close and errors force PTT off.</p>
+              <div class="rb-sequence-bars" aria-hidden="true">
+                <span style="--rbw: 24%"></span>
+                <span style="--rbw: 38%"></span>
+                <span style="--rbw: 62%"></span>
+                <span style="--rbw: 82%"></span>
               </div>
-            </div>
+            </article>
 
-            <div class="rb-radio-hud-bottom mono">
-              <span class="rb-radio-spec-pill">BAOFENG UV-5R</span>
-              <span class="rb-radio-spec-pill">WIRELESS RF LINK</span>
-              <span class="rb-radio-spec-pill">AFSK 1200</span>
-            </div>
+            <article class="rb-terminal mono" aria-label="RadioBridge diagnostics">
+              <div><span>&gt;</span><span id="rbLogLine1">mode=AIOC_SERIAL_PTT sampleRate=48000</span></div>
+              <div><span>&gt;</span><span id="rbLogLine2">packet=QGW TEST_CLEAR payload="QP1NG TEST 001"</span></div>
+              <div><span>&gt;</span><span id="rbLogLine3">crc=CRC16/X25 secure_tx=disabled</span></div>
+            </article>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tactical Handheld Radio Rig Showcase (Baofeng UV-5R & Smartphone Wireless Link) -->
+    <div class="rb-radio-showcase" aria-label="Baofeng UV-5R and Smartphone Wireless RF Link Showcase">
+      <div class="rb-radio-stage" aria-label="Baofeng UV-5R and Smartphone Wireless RF Link Video">
+        <div class="rb-radio-hud-top mono">
+          <span class="rb-radio-freq-badge"><i class="ag-pulse-dot"></i> 155.500 / 400.025 MHz</span>
+          <span class="rb-radio-hud-title mono"><span class="hud-sep">//</span> RF LINK MONITOR: BAOFENG UV-5R &times; SMARTPHONE</span>
+          <span class="rb-radio-link-badge mono" id="rbRadioLinkBadge"><span class="badge-dot"></span><span class="badge-label">RF LINK STANDBY</span></span>
+        </div>
+
+        <div class="rb-radio-viewport rb-radio-viewport--video" id="rbRadioMediaContainer" role="button" tabindex="0" aria-label="Toggle Wireless RF Link video playback" title="Click to play / pause video animation">
+          <picture class="rb-radio-poster-wrap">
+            <source srcset="assets/img/radio_collegamento_poster.webp" type="image/webp">
+            <img src="assets/img/radio_collegamento_poster.png" alt="Baofeng UV-5R and Smartphone Wireless RF Link Diagram" class="rb-radio-poster-img" width="1280" height="720" loading="lazy" decoding="async">
+          </picture>
+
+          <video id="rbRadioVideo" class="rb-radio-video" width="1280" height="720" poster="assets/img/radio_collegamento_poster.webp" loop muted playsinline preload="metadata" title="Click to play / pause video animation">
+            <source src="assets/vid/radio_collegamento.mp4" type="video/mp4">
+            <source src="assets/vid/radio_collegamento.webm" type="video/webm">
+          </video>
+
+          <div class="rb-radio-play-pill mono" aria-hidden="true">
+            <span class="rb-play-icon">▶</span>
+            <span class="rb-play-text">CLICK TO PLAY RF LINK</span>
+          </div>
+        </div>
+
+        <div class="rb-radio-hud-bottom mono">
+          <span class="rb-radio-spec-pill"><i class="pill-dot"></i> BAOFENG UV-5R TRANSCEIVER</span>
+          <span class="rb-radio-spec-pill"><i class="pill-dot"></i> WIRELESS RF TRANSMISSION</span>
+          <span class="rb-radio-spec-pill"><i class="pill-dot"></i> AFSK 1200 BELL 202</span>
+          <span class="rb-radio-spec-pill"><i class="pill-dot"></i> HALF DUPLEX LAB LINK</span>
         </div>
       </div>
     </div>
