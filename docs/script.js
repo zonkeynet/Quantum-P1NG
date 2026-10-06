@@ -8034,6 +8034,52 @@ if (terminal && gamesGrid) {
           }
         }
       }
+      htags.forEach(t => t.style.borderColor = '');
+      tag.style.borderColor = 'var(--neon-green)';
+    });
+  });
+
+  // Tactical Hazards Catalog Interactive Filter & Selection Logic
+  const hazardFilterBtns = section.querySelectorAll('.qgeo-filter-badges .filter-badge');
+  const hazardCards = section.querySelectorAll('.qgeo-hazard-card');
+
+  hazardFilterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.getAttribute('data-filter');
+      hazardFilterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      hazardCards.forEach(card => {
+        const cat = card.getAttribute('data-category');
+        if (filter === 'all' || cat === filter) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  hazardCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const hexCode = card.getAttribute('data-hex');
+      const cardName = card.querySelector('.qhc-name') ? card.querySelector('.qhc-name').textContent : hexCode;
+
+      if (genHazardSelect) {
+        for (let i = 0; i < genHazardSelect.options.length; i++) {
+          if (genHazardSelect.options[i].value === hexCode) {
+            genHazardSelect.selectedIndex = i;
+            break;
+          }
+        }
+      }
+
+      // Visual feedback
+      hazardCards.forEach(c => c.style.outline = '');
+      card.style.outline = '2px solid var(--neon-cyan)';
+      setTimeout(() => { card.style.outline = ''; }, 1200);
+
+      logRadioEvent(`Selected ${hexCode} [${cardName}] from tactical catalog. Ready for radio broadcast.`, 'txt-cyan');
     });
   });
 

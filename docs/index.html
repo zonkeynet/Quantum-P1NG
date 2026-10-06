@@ -45,7 +45,7 @@
   <meta name="twitter:image" content="https://www.qp1ng.com/assets/img/social-preview.png" />
 
   <link rel="preload" href="assets/fonts/square_dot_digital_qp1ng.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="styles.css?v=2.7.6" as="style" />
+  <link rel="preload" href="styles.css?v=2.7.7" as="style" />
   <link rel="preload" as="image" href="assets/vid/intro_bg_poster.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/intro_mobile_poster.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/qmap_poster.webp">
@@ -59,7 +59,7 @@
       }
     } catch(e){}
   </script>
-  <link rel="stylesheet" href="styles.css?v=2.7.6" />
+  <link rel="stylesheet" href="styles.css?v=2.7.7" />
 
   <!-- Schema.org Comprehensive Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -2878,15 +2878,25 @@ _
             <div class="qgeo-hazard-tags mono">
               <span class="ctrl-label">STANDARDIZED TACTICAL HAZARDS (QGeoModels.kt):</span>
               <div class="tag-cloud">
-                <span class="htag" data-hex="0x01">0x01 EXPLOSION</span>
-                <span class="htag" data-hex="0x04">0x04 ROAD_BLOCKED</span>
-                <span class="htag" data-hex="0x09">0x09 ARMED_CHECKPOINT</span>
-                <span class="htag" data-hex="0x0D">0x0D HOSPITAL_OPEN</span>
-                <span class="htag" data-hex="0x0F">0x0F WATER_POINT</span>
-                <span class="htag" data-hex="0x10">0x10 SHELTER_ACTIVE</span>
-                <span class="htag" data-hex="0x14">0x14 DRONE_ACTIVITY</span>
-                <span class="htag" data-hex="0x17">0x17 LANDMINE_UXO</span>
-                <span class="htag" data-hex="0x19">0x19 SIGNAL_JAMMING</span>
+                <span class="htag" data-hex="0x01"><img src="assets/img/hazards/hazard_0x01_explosion.svg" alt="" width="14" height="14"> 0x01 EXPLOSION</span>
+                <span class="htag" data-hex="0x02"><img src="assets/img/hazards/hazard_0x02_fire.svg" alt="" width="14" height="14"> 0x02 FIRE</span>
+                <span class="htag" data-hex="0x03"><img src="assets/img/hazards/hazard_0x03_building_collapse.svg" alt="" width="14" height="14"> 0x03 COLLAPSE</span>
+                <span class="htag" data-hex="0x04"><img src="assets/img/hazards/hazard_0x04_road_blocked.svg" alt="" width="14" height="14"> 0x04 ROAD_BLOCKED</span>
+                <span class="htag" data-hex="0x05"><img src="assets/img/hazards/hazard_0x05_bridge_damaged.svg" alt="" width="14" height="14"> 0x05 BRIDGE_OUT</span>
+                <span class="htag" data-hex="0x09"><img src="assets/img/hazards/hazard_0x09_armed_checkpoint.svg" alt="" width="14" height="14"> 0x09 CHECKPOINT</span>
+                <span class="htag" data-hex="0x0A"><img src="assets/img/hazards/hazard_0x0a_clashes.svg" alt="" width="14" height="14"> 0x0A CLASHES</span>
+                <span class="htag" data-hex="0x0D"><img src="assets/img/hazards/hazard_0x0d_hospital_operational.svg" alt="" width="14" height="14"> 0x0D HOSPITAL</span>
+                <span class="htag" data-hex="0x0E"><img src="assets/img/hazards/hazard_0x0e_temporary_medical_point.svg" alt="" width="14" height="14"> 0x0E MED_POINT</span>
+                <span class="htag" data-hex="0x0F"><img src="assets/img/hazards/hazard_0x0f_water_available.svg" alt="" width="14" height="14"> 0x0F WATER_POINT</span>
+                <span class="htag" data-hex="0x10"><img src="assets/img/hazards/hazard_0x10_shelter.svg" alt="" width="14" height="14"> 0x10 SHELTER</span>
+                <span class="htag" data-hex="0x13"><img src="assets/img/hazards/hazard_0x13_airstrike_warning.svg" alt="" width="14" height="14"> 0x13 AIRSTRIKE</span>
+                <span class="htag" data-hex="0x14"><img src="assets/img/hazards/hazard_0x14_drone_activity.svg" alt="" width="14" height="14"> 0x14 DRONE</span>
+                <span class="htag" data-hex="0x15"><img src="assets/img/hazards/hazard_0x15_artillery_shelling.svg" alt="" width="14" height="14"> 0x15 ARTILLERY</span>
+                <span class="htag" data-hex="0x16"><img src="assets/img/hazards/hazard_0x16_sniper_zone.svg" alt="" width="14" height="14"> 0x16 SNIPER</span>
+                <span class="htag" data-hex="0x17"><img src="assets/img/hazards/hazard_0x17_landmine_uxo.svg" alt="" width="14" height="14"> 0x17 MINE_UXO</span>
+                <span class="htag" data-hex="0x18"><img src="assets/img/hazards/hazard_0x18_internet_shutdown.svg" alt="" width="14" height="14"> 0x18 NET_OUTAGE</span>
+                <span class="htag" data-hex="0x19"><img src="assets/img/hazards/hazard_0x19_signal_jamming.svg" alt="" width="14" height="14"> 0x19 EW_JAMMING</span>
+                <span class="htag" data-hex="0x7F"><img src="assets/img/hazards/hazard_0x7f_other.svg" alt="" width="14" height="14"> 0x7F OTHER</span>
               </div>
             </div>
           </div>
@@ -2903,12 +2913,32 @@ _
                 <label>
                   <span>HAZARD CLASSIFICATION:</span>
                   <select id="gen-hazard-select" class="qgeo-select">
-                    <option value="0x17" selected>0x17 - LANDMINE / UXO WARNING (TTL: 30 Days)</option>
+                    <option value="0x17" selected>0x17 - MINE / UNEXPLODED ORDNANCE (UXO) (TTL: 30 Days)</option>
+                    <option value="0x01">0x01 - EXPLOSION INCIDENT (TTL: 24 Hours)</option>
+                    <option value="0x02">0x02 - FIRE / CONFLAGRATION (TTL: 12 Hours)</option>
+                    <option value="0x03">0x03 - BUILDING COLLAPSE (TTL: 48 Hours)</option>
+                    <option value="0x04">0x04 - ROAD BLOCKED / IMPASSABLE (TTL: 12 Hours)</option>
+                    <option value="0x05">0x05 - BRIDGE DAMAGED / COLLAPSED (TTL: 72 Hours)</option>
+                    <option value="0x06">0x06 - FLOOD / SUBMERGED AREA (TTL: 24 Hours)</option>
+                    <option value="0x07">0x07 - TOXIC SMOKE / HAZMAT (TTL: 6 Hours)</option>
+                    <option value="0x08">0x08 - SUSPICIOUS OBJECT / IED (TTL: 12 Hours)</option>
                     <option value="0x09">0x09 - ARMED CHECKPOINT (TTL: 2 Hours)</option>
-                    <option value="0x14">0x14 - DRONE RECON ACTIVITY (TTL: 1 Hour)</option>
-                    <option value="0x04">0x04 - ROAD BLOCKED / BRIDGE OUT (TTL: 12 Hours)</option>
-                    <option value="0x0D">0x0D - FIELD HOSPITAL OPERATIONAL (TTL: 24 Hours)</option>
+                    <option value="0x0A">0x0A - ACTIVE CLASHES / FIREFIGHT (TTL: 3 Hours)</option>
+                    <option value="0x0B">0x0B - POWER GRID FAILURE (TTL: 24 Hours)</option>
+                    <option value="0x0C">0x0C - COMMUNICATIONS DOWN (TTL: 24 Hours)</option>
+                    <option value="0x0D">0x0D - FIELD HOSPITAL OPERATIONAL (TTL: 48 Hours)</option>
+                    <option value="0x0E">0x0E - TEMPORARY MEDICAL AID POINT (TTL: 24 Hours)</option>
                     <option value="0x0F">0x0F - POTABLE WATER AVAILABLE (TTL: 24 Hours)</option>
+                    <option value="0x10">0x10 - EMERGENCY SHELTER (TTL: 48 Hours)</option>
+                    <option value="0x11">0x11 - MISSING PERSON ALERT (TTL: 72 Hours)</option>
+                    <option value="0x12">0x12 - ROUTE REPORTED PASSABLE (TTL: 12 Hours)</option>
+                    <option value="0x13">0x13 - AIRSTRIKE WARNING (TTL: 1 Hour)</option>
+                    <option value="0x14">0x14 - DRONE RECON / ACTIVITY (TTL: 1 Hour)</option>
+                    <option value="0x15">0x15 - ARTILLERY SHELLING ZONE (TTL: 2 Hours)</option>
+                    <option value="0x16">0x16 - SNIPER RISK / PRECISION FIRE (TTL: 6 Hours)</option>
+                    <option value="0x18">0x18 - INTERNET DISRUPTION (TTL: 24 Hours)</option>
+                    <option value="0x19">0x19 - EW SIGNAL JAMMING / INTERFERENCE (TTL: 4 Hours)</option>
+                    <option value="0x7F">0x7F - OTHER TACTICAL OBSERVATION (TTL: 12 Hours)</option>
                   </select>
                 </label>
 
@@ -2944,15 +2974,15 @@ _
         </div>
       </div>
 
-      <!-- TAB PANE 4: FIELD OPERATIONAL GUIDE // GUIDA ALL'USO IN APP -->
+      <!-- TAB PANE 4: FIELD OPERATIONAL GUIDE // ANDROID APP GUIDE -->
       <div class="qgeo-tab-pane" id="qgeo-pane-guide" data-pane="guide" role="tabpanel">
         <div class="qgeo-guide-wrap">
           <!-- Guide Header -->
           <div class="qgeo-guide-header">
             <div class="qgeo-badge-label mono">ANDROID FIELD MANUAL // QGEOHOMEUI.KT &amp; QGEOLAYERSDIALOG.KT</div>
-            <h3 class="qgeo-pane-title">Come Utilizzare le Mappe Tattiche Q-Geo in App</h3>
+            <h3 class="qgeo-pane-title">How to Operate Q-Geo Tactical Maps in App</h3>
             <p class="qgeo-text">
-              Q-Geo è architettato per operare in contesti ad alto rischio: blackout cellulare, zone di crisi e ambienti con guerra elettronica (EW). La regola fondamentale è zero-leakage: <em>la cartografia di base non viaggia mai su canali radio</em>. Solo le delta minime di evento firmate (28-36 byte) vengono propagate. Ecco come configurare e usare le mappe in app con la massima sicurezza OPSEC.
+              Q-Geo is engineered for high-threat operational theatres: complete cellular blackouts, crisis zones, and intense electronic warfare (EW) environments. The foundational OPSEC rule is zero data leakage: <em>base cartography never travels over radio links</em>. Only signed, compact event deltas (28-36 bytes) are propagated across the airwaves. Follow this operational guide to configure, navigate, and dispatch field reports with maximum cryptographic integrity and location security.
             </p>
           </div>
 
@@ -2964,8 +2994,8 @@ _
                 <span class="qgeo-flow-tag mono">01 // RESILIENT MAPPING</span>
               </div>
               <div class="qgeo-flow-desc">
-                <h4>Cartografia Vettoriale Offline</h4>
-                <p>Mascotte protetta, zero dipendenza da server esterni. Le mappe vettoriali (MBTiles/PMTiles) vengono caricate localmente e renderizzate via GPU a 60 FPS con nodi radio e pericoli.</p>
+                <h4>Offline Vector Cartography</h4>
+                <p>Protected on-device mascot, zero cloud server dependencies. Vector basemaps (MBTiles/PMTiles) are cached locally and GPU-rendered at 60 FPS alongside mesh radio peers and hazard markers.</p>
               </div>
             </article>
 
@@ -2975,8 +3005,8 @@ _
                 <span class="qgeo-flow-tag mono">02 // TOR FAIL-CLOSED</span>
               </div>
               <div class="qgeo-flow-desc">
-                <h4>Isolamento Tor &amp; Blocco Clearnet</h4>
-                <p>Se connessi ad internet, le richieste di tile passano esclusivamente su circuito Tor a 3 nodi. Il traffico diretto verso IP in chiaro è rigorosamente bloccato (Fail-Closed) per prevenire deanonimizzazioni.</p>
+                <h4>Tor Isolation &amp; Clearnet Block</h4>
+                <p>When internet connectivity is available, all remote tile queries route strictly through an isolated 3-hop Tor circuit. Direct clearnet IP leaks are strictly blocked (fail-closed) to prevent operator triangulation.</p>
               </div>
             </article>
 
@@ -2986,8 +3016,8 @@ _
                 <span class="qgeo-flow-tag mono">03 // P2P MESH BLACKOUT</span>
               </div>
               <div class="qgeo-flow-desc">
-                <h4>Mesh Bluetooth &amp; Wi-Fi Diretto</h4>
-                <p>Durante il blackout delle celle telefoniche, i dispositivi formano una rete magliata ad hoc. Gli eventi pericolo (codificati <code>QG1:Base64...</code>) si propagano di smartphone in smartphone in tempo reale.</p>
+                <h4>Bluetooth &amp; Wi-Fi Direct Mesh</h4>
+                <p>During cellular network blackouts, handsets form a zero-infrastructure ad-hoc mesh. Signed hazard events (formatted as compact <code>QG1:Base64...</code> frames) hop peer-to-peer in real time without cellular towers.</p>
               </div>
             </article>
 
@@ -2997,8 +3027,8 @@ _
                 <span class="qgeo-flow-tag mono">04 // LORA MEDIUM-RANGE</span>
               </div>
               <div class="qgeo-flow-desc">
-                <h4>Ponte Radio LoRa con LilyGO T-Deck</h4>
-                <p>Collegando lo smartphone via BLE a un terminale T-Deck o Meshtastic, le trame cifrate <code>QGR1</code> vengono ritrasmesse su ripetitori montani LoRa (868/915 MHz) a chilometri di distanza.</p>
+                <h4>LoRa Mesh Radio Relay (LilyGO T-Deck)</h4>
+                <p>Bridging the handset via BLE to a LilyGO T-Deck or Meshtastic node allows encrypted <code>QGR1</code> packets to travel over 868/915 MHz mountain and urban repeaters across multi-kilometer spans.</p>
               </div>
             </article>
 
@@ -3008,8 +3038,8 @@ _
                 <span class="qgeo-flow-tag mono">05 // VHF WALKIE-TALKIE</span>
               </div>
               <div class="qgeo-flow-desc">
-                <h4>Relay Walkie-Talkie VHF &amp; Cifratura</h4>
-                <p>Connessione via cavo audio/AIOC a radio ricetrasmittenti analogiche VHF. Gli allarmi pericolo vengono firmati con Ed25519, protetti da correzione d'errore Reed-Solomon FEC e modulati in frequenza.</p>
+                <h4>VHF Walkie-Talkie Audio Relay</h4>
+                <p>Connected via 3.5mm TRRS audio cable or AIOC interface to commercial analog VHF/UHF transceivers. Hazards are Ed25519-signed, hardened with Reed-Solomon FEC, and modulated as audio tones.</p>
               </div>
             </article>
           </div>
@@ -3020,40 +3050,40 @@ _
               <div class="qgeo-pillar-icon">
                 <img src="assets/img/qgeo_map_globe.svg" alt="Tactical GIS" width="30" height="30">
               </div>
-              <h4>1. Installazione e Temi Mappa (QGeoLayersDialog.kt)</h4>
-              <p>Nell'app Android apri il menu <strong>Layers</strong> dalla barra superiore. Puoi selezionare pacchetti <strong>Offline MBTiles</strong> scaricati localmente o fonti sicure. Scegli il tema tattico adatto:</p>
+              <h4>1. Map Installation &amp; Themes (QGeoLayersDialog.kt)</h4>
+              <p>In the Android app, tap the <strong>Layers</strong> menu in the top bar. Select pre-loaded <strong>Offline MBTiles</strong> packs or verified secure sources. Toggle between 4 mission-optimized palettes:</p>
               <ul>
-                <li><strong>HUD Dark:</strong> Contrasto cibernetico ottimizzato per ambienti a bassa illuminazione.</li>
-                <li><strong>Military Topo:</strong> Curve di livello dettagliate per pianificazione topografica.</li>
-                <li><strong>NVG Green Phosphor:</strong> Tonalità monocromatica fosfori verdi, non acceca l'operatore con visore notturno.</li>
-                <li><strong>OLED True Black:</strong> Zero emissione luminosa e risparmio batteria massimo su schermi AMOLED.</li>
+                <li><strong>HUD Dark:</strong> High-contrast cybernetic styling optimized for low-light tactical environments.</li>
+                <li><strong>Military Topo:</strong> High-precision topographic contours and relief shading for route scouting.</li>
+                <li><strong>NVG Green Phosphor:</strong> Monochromatic green phosphor palette, preserving operator night vision goggles.</li>
+                <li><strong>OLED True Black:</strong> Emits zero stray light and delivers maximum battery conservation on AMOLED displays.</li>
               </ul>
             </div>
 
             <div class="qgeo-pillar-card">
               <div class="qgeo-pillar-icon">
-                <img src="assets/img/qgeo_privacy.svg" alt="Privacy Geografica" width="30" height="30">
+                <img src="assets/img/qgeo_privacy.svg" alt="Geographic Privacy" width="30" height="30">
               </div>
-              <h4>2. Protezione Geografica &amp; Modalità Fuzzy (QGeoPrivacy.kt)</h4>
-              <p>Per impedire all'avversario di triangolare la tua postazione radio quando condividi una minaccia:</p>
+              <h4>2. Geographic Privacy &amp; Fuzzy Mode (QGeoPrivacy.kt)</h4>
+              <p>To prevent adversaries from triangulating your radio transmitter when broadcasting a threat report:</p>
               <ul>
-                <li><strong>Modalità Fuzzy (~111m) [CONSIGLIATA]:</strong> Arrotonda automaticamente le coordinate a 3 decimali (flag <code>0x02 APPROXIMATE_LOCATION</code>). I compagni vedono l'area di pericolo senza conoscere il punto esatto di trasmissione.</li>
-                <li><strong>Modalità GPS Esatto (Local Only):</strong> Utilizzata sul dispositivo personale per orientamento proprio, senza mai diffonderla in chiaro sulla maglia radio.</li>
+                <li><strong>Fuzzy Mode (~111m) [RECOMMENDED]:</strong> Automatically quantizes coordinates to 3 decimal places (flag <code>0x02 APPROXIMATE_LOCATION</code>). Friendly units receive actionable danger boundaries without exposing exact operator coordinates.</li>
+                <li><strong>Exact GPS Mode (Local Only):</strong> Reserved strictly for on-device navigation; never broadcast in plaintext over radio or mesh hops.</li>
               </ul>
             </div>
 
             <div class="qgeo-pillar-card">
               <div class="qgeo-pillar-icon">
-                <img src="assets/img/qgeo_rf_tower.svg" alt="Wizard Report Pericoli" width="30" height="30">
+                <img src="assets/img/qgeo_rf_tower.svg" alt="Hazard Report Wizard" width="30" height="30">
               </div>
-              <h4>3. Wizard Report Pericoli a 5 Step (QGeoReportWizard.kt)</h4>
-              <p>Tocca il pulsante circolare <strong>+ NEW REPORT</strong> in basso a destra per aprire il wizard guidato:</p>
+              <h4>3. 5-Step Hazard Dispatch Wizard (QGeoReportWizard.kt)</h4>
+              <p>Tap the floating <strong>+ NEW REPORT</strong> action button to trigger the guided tactical reporting workflow:</p>
               <ol>
-                <li><strong>Selezione Minaccia:</strong> Scegli tra 25 codici standard (0x01 Esplosione, 0x04 Strada Bloccata, 0x09 Checkpoint, 0x14 Drone, 0x17 Mina/UXO, 0x0D Ospedale).</li>
-                <li><strong>Livello di Severità:</strong> Da 1 (Informativo) a 5 (Critico Mortale).</li>
-                <li><strong>Raggio &amp; TTL:</strong> Imposta raggio operativo (es. 500m) e tempo di vita (TTL da 30m a 30gg) per auto-cancellazione.</li>
-                <li><strong>Posizione:</strong> Fissa con GPS, clicca sulla mappa o inserisci coordinate.</li>
-                <li><strong>Vettore di Invio:</strong> Seleziona Wi-Fi, Tor, LoRa (T-Deck) o Walkie-Talkie VHF.</li>
+                <li><strong>Hazard Classification:</strong> Choose from 26 standardized codes (0x01 Explosion, 0x04 Road Blocked, 0x09 Armed Checkpoint, 0x14 Drone Recon, 0x17 Mine/UXO, 0x0D Hospital).</li>
+                <li><strong>Threat Severity:</strong> Scale from Level 1 (Advisory/Info) up to Level 5 (Critical Lethal Hazard).</li>
+                <li><strong>Radius &amp; TTL:</strong> Define operational affected perimeter (e.g. 500m) and time-to-live validity (from 30 min to 30 days) for automatic map purge.</li>
+                <li><strong>Target Location:</strong> Lock with GPS, tap on map canvas, or manually input MGRS/WGS84 coordinates.</li>
+                <li><strong>Transmission Vector:</strong> Dispatch via Bluetooth Mesh, Tor Relay, LoRa (T-Deck), or VHF Audio Tone.</li>
               </ol>
             </div>
 
@@ -3061,34 +3091,472 @@ _
               <div class="qgeo-pillar-icon">
                 <img src="assets/img/qgeo_logo.svg" alt="Egress &amp; Geofence" width="30" height="30">
               </div>
-              <h4>4. Allarmi Geofencing &amp; Fuga Sicura BRouter</h4>
-              <p>Funzionalità dinamiche automatiche durante il movimento sul terreno:</p>
+              <h4>4. Geofencing Alarms &amp; BRouter Safe Egress</h4>
+              <p>Dynamic on-the-move situational awareness algorithms:</p>
               <ul>
-                <li><strong>Allarme Geofencing Perimetrale:</strong> L'app attiva una vibrazione tattile e suono di avviso se entri nel raggio di 500m da una zona segnalata come minata o bombardata.</li>
-                <li><strong>Calcolo Egress Route BRouter:</strong> Calcola offline percorsi sicuri a piedi, in bicicletta o fuoristrada, ricalcolando dinamicamente la traiettoria per aggirare le minacce confermate sul mesh.</li>
+                <li><strong>Perimeter Geofencing Alarm:</strong> Triggers distinct haptic tactile pulses and high-priority audio alerts whenever the operator approaches within 500m of an active minefield, airstrike, or shelling zone.</li>
+                <li><strong>Offline BRouter Egress Engine:</strong> Computes offline evacuation vectors for on-foot, bicycle, or 4x4 vehicles, dynamically re-routing away from active mesh hazard pins in real time.</li>
               </ul>
+            </div>
+          </div>
+
+          <!-- STANDARDIZED TACTICAL HAZARDS CATALOG (26 Standard OpCodes) -->
+          <div class="qgeo-hazards-catalog mono">
+            <div class="qgeo-catalog-head">
+              <div class="catalog-title-group">
+                <span class="qgeo-badge-label">TACTICAL SIGNALS REPERTOIRE // QGEOMODELS.KT</span>
+                <h4 class="qgeo-catalog-title">Official Tactical Hazard &amp; Resource Signals (26 Standard OpCodes)</h4>
+              </div>
+              <div class="qgeo-filter-badges" role="group" aria-label="Filter tactical hazard signals">
+                <button type="button" class="filter-badge active" data-filter="all">ALL (26)</button>
+                <button type="button" class="filter-badge f-threat" data-filter="threat">THREATS (11)</button>
+                <button type="button" class="filter-badge f-access" data-filter="access">ACCESS (5)</button>
+                <button type="button" class="filter-badge f-service" data-filter="service">SERVICES (4)</button>
+                <button type="button" class="filter-badge f-support" data-filter="support">AID &amp; RES (5)</button>
+                <button type="button" class="filter-badge f-other" data-filter="other">OTHER (1)</button>
+              </div>
+            </div>
+            <p class="qgeo-catalog-sub">
+              Official byte-level signal codes extracted directly from Android production drawables and <code>QGeoModels.kt</code>. Click any tactical signal to inspect opcode parameters and auto-load into the Radio Event Generator.
+            </p>
+            <div class="qgeo-hazards-grid">
+              <!-- 0x01 Explosion -->
+              <div class="qgeo-hazard-card f-threat" data-hex="0x01" data-category="threat">
+                <div class="qhc-top">
+                  <div class="qhc-icon-wrap"><img src="assets/img/hazards/hazard_0x01_explosion.svg" alt="Explosion" width="24" height="24" loading="lazy"></div>
+                  <span class="qhc-code">0x01</span>
+                </div>
+                <div class="qhc-body">
+                  <strong class="qhc-name">Explosion Incident</strong>
+                  <span class="qhc-cat">Immediate Hazard</span>
+                </div>
+                <div class="qhc-footer">
+                  <span class="qhc-sev qhc-sev--5">LVL 5/5</span>
+                  <span class="qhc-ttl">TTL: 24h</span>
+                </div>
+              </div>
+
+              <!-- 0x02 Fire -->
+              <div class="qgeo-hazard-card f-threat" data-hex="0x02" data-category="threat">
+                <div class="qhc-top">
+                  <div class="qhc-icon-wrap"><img src="assets/img/hazards/hazard_0x02_fire.svg" alt="Fire" width="24" height="24" loading="lazy"></div>
+                  <span class="qhc-code">0x02</span>
+                </div>
+                <div class="qhc-body">
+                  <strong class="qhc-name">Active Fire</strong>
+                  <span class="qhc-cat">Immediate Hazard</span>
+                </div>
+                <div class="qhc-footer">
+                  <span class="qhc-sev qhc-sev--4">LVL 4/5</span>
+                  <span class="qhc-ttl">TTL: 12h</span>
+                </div>
+              </div>
+
+              <!-- 0x03 Building Collapse -->
+              <div class="qgeo-hazard-card f-threat" data-hex="0x03" data-category="threat">
+                <div class="qhc-top">
+                  <div class="qhc-icon-wrap"><img src="assets/img/hazards/hazard_0x03_building_collapse.svg" alt="Building Collapse" width="24" height="24" loading="lazy"></div>
+                  <span class="qhc-code">0x03</span>
+                </div>
+                <div class="qhc-body">
+                  <strong class="qhc-name">Building Collapse</strong>
+                  <span class="qhc-cat">Immediate Hazard</span>
+                </div>
+                <div class="qhc-footer">
+                  <span class="qhc-sev qhc-sev--4">LVL 4/5</span>
+                  <span class="qhc-ttl">TTL: 48h</span>
+                </div>
+              </div>
+
+              <!-- 0x04 Road Blocked -->
+              <div class="qgeo-hazard-card f-access" data-hex="0x04" data-category="access">
+                <div class="qhc-top">
+                  <div class="qhc-icon-wrap"><img src="assets/img/hazards/hazard_0x04_road_blocked.svg" alt="Road Blocked" width="24" height="24" loading="lazy"></div>
+                  <span class="qhc-code">0x04</span>
+                </div>
+                <div class="qhc-body">
+                  <strong class="qhc-name">Road Blocked</strong>
+                  <span class="qhc-cat">Roads &amp; Access</span>
+                </div>
+                <div class="qhc-footer">
+                  <span class="qhc-sev qhc-sev--3">LVL 3/5</span>
+                  <span class="qhc-ttl">TTL: 12h</span>
+                </div>
+              </div>
+
+              <!-- 0x05 Bridge Damaged -->
+              <div class="qgeo-hazard-card f-access" data-hex="0x05" data-category="access">
+                <div class="qhc-top">
+                  <div class="qhc-icon-wrap"><img src="assets/img/hazards/hazard_0x05_bridge_damaged.svg" alt="Bridge Damaged" width="24" height="24" loading="lazy"></div>
+                  <span class="qhc-code">0x05</span>
+                </div>
+                <div class="qhc-body">
+                  <strong class="qhc-name">Bridge Damaged</strong>
+                  <span class="qhc-cat">Roads &amp; Access</span>
+                </div>
+                <div class="qhc-footer">
+                  <span class="qhc-sev qhc-sev--4">LVL 4/5</span>
+                  <span class="qhc-ttl">TTL: 72h</span>
+                </div>
+              </div>
+
+              <!-- 0x06 Flood -->
+              <div class="qgeo-hazard-card f-access" data-hex="0x06" data-category="access">
+                <div class="qhc-top">
+                  <div class="qhc-icon-wrap"><img src="assets/img/hazards/hazard_0x06_flood.svg" alt="Flood" width="24" height="24" loading="lazy"></div>
+                  <span class="qhc-code">0x06</span>
+                </div>
+                <div class="qhc-body">
+                  <strong class="qhc-name">Flood / Inundation</strong>
+                  <span class="qhc-cat">Roads &amp; Access</span>
+                </div>
+                <div class="qhc-footer">
+                  <span class="qhc-sev qhc-sev--3">LVL 3/5</span>
+                  <span class="qhc-ttl">TTL: 24h</span>
+                </div>
+              </div>
+
+              <!-- 0x07 Toxic Smoke -->
+              <div class="qgeo-hazard-card f-threat" data-hex="0x07" data-category="threat">
+                <div class="qhc-top">
+                  <div class="qhc-icon-wrap"><img src="assets/img/hazards/hazard_0x07_toxic_smoke.svg" alt="Toxic Smoke" width="24" height="24" loading="lazy"></div>
+                  <span class="qhc-code">0x07</span>
+                </div>
+                <div class="qhc-body">
+                  <strong class="qhc-name">Toxic Smoke / HazMat</strong>
+                  <span class="qhc-cat">Immediate Hazard</span>
+                </div>
+                <div class="qhc-footer">
+                  <span class="qhc-sev qhc-sev--4">LVL 4/5</span>
+                  <span class="qhc-ttl">TTL: 6h</span>
+                </div>
+              </div>
+
+              <!-- 0x08 Suspicious Object -->
+              <div class="qgeo-hazard-card f-threat" data-hex="0x08" data-category="threat">
+                <div class="qhc-top">
+                  <div class="qhc-icon-wrap"><img src="assets/img/hazards/hazard_0x08_suspicious_object.svg" alt="Suspicious Object" width="24" height="24" loading="lazy"></div>
+                  <span class="qhc-code">0x08</span>
+                </div>
+                <div class="qhc-body">
+                  <strong class="qhc-name">Suspicious Object / IED</strong>
+                  <span class="qhc-cat">Immediate Hazard</span>
+                </div>
+                <div class="qhc-footer">
+                  <span class="qhc-sev qhc-sev--3">LVL 3/5</span>
+                  <span class="qhc-ttl">TTL: 12h</span>
+                </div>
+              </div>
+
+              <!-- 0x09 Armed Checkpoint -->
+              <div class="qgeo-hazard-card f-access" data-hex="0x09" data-category="access">
+                <div class="qhc-top">
+                  <div class="qhc-icon-wrap"><img src="assets/img/hazards/hazard_0x09_armed_checkpoint.svg" alt="Armed Checkpoint" width="24" height="24" loading="lazy"></div>
+                  <span class="qhc-code">0x09</span>
+                </div>
+                <div class="qhc-body">
+                  <strong class="qhc-name">Armed Checkpoint</strong>
+                  <span class="qhc-cat">Roads &amp; Access</span>
+                </div>
+                <div class="qhc-footer">
+                  <span class="qhc-sev qhc-sev--4">LVL 4/5</span>
+                  <span class="qhc-ttl">TTL: 2h</span>
+                </div>
+              </div>
+
+              <!-- 0x0A Clashes -->
+              <div class="qgeo-hazard-card f-threat" data-hex="0x0A" data-category="threat">
+                <div class="qhc-top">
+                  <div class="qhc-icon-wrap"><img src="assets/img/hazards/hazard_0x0a_clashes.svg" alt="Clashes" width="24" height="24" loading="lazy"></div>
+                  <span class="qhc-code">0x0A</span>
+                </div>
+                <div class="qhc-body">
+                  <strong class="qhc-name">Clashes / Firefight</strong>
+                  <span class="qhc-cat">Immediate Hazard</span>
+                </div>
+                <div class="qhc-footer">
+                  <span class="qhc-sev qhc-sev--5">LVL 5/5</span>
+                  <span class="qhc-ttl">TTL: 3h</span>
+                </div>
+              </div>
+
+              <!-- 0x0B Power Outage -->
+              <div class="qgeo-hazard-card f-service" data-hex="0x0B" data-category="service">
+                <div class="qhc-top">
+                  <div class="qhc-icon-wrap"><img src="assets/img/hazards/hazard_0x0b_power_outage.svg" alt="Power Outage" width="24" height="24" loading="lazy"></div>
+                  <span class="qhc-code">0x0B</span>
+                </div>
+                <div class="qhc-body">
+                  <strong class="qhc-name">Power Grid Outage</strong>
+                  <span class="qhc-cat">Service Disruption</span>
+                </div>
+                <div class="qhc-footer">
+                  <span class="qhc-sev qhc-sev--2">LVL 2/5</span>
+                  <span class="qhc-ttl">TTL: 24h</span>
+                </div>
+              </div>
+
+              <!-- 0x0C Comms Down -->
+              <div class="qgeo-hazard-card f-service" data-hex="0x0C" data-category="service">
+                <div class="qhc-top">
+                  <div class="qhc-icon-wrap"><img src="assets/img/hazards/hazard_0x0c_communications_outage.svg" alt="Comms Outage" width="24" height="24" loading="lazy"></div>
+                  <span class="qhc-code">0x0C</span>
+                </div>
+                <div class="qhc-body">
+                  <strong class="qhc-name">Communications Down</strong>
+                  <span class="qhc-cat">Service Disruption</span>
+                </div>
+                <div class="qhc-footer">
+                  <span class="qhc-sev qhc-sev--3">LVL 3/5</span>
+                  <span class="qhc-ttl">TTL: 24h</span>
+                </div>
+              </div>
+
+              <!-- 0x0D Hospital Operational -->
+              <div class="qgeo-hazard-card f-support" data-hex="0x0D" data-category="support">
+                <div class="qhc-top">
+                  <div class="qhc-icon-wrap"><img src="assets/img/hazards/hazard_0x0d_hospital_operational.svg" alt="Hospital Operational" width="24" height="24" loading="lazy"></div>
+                  <span class="qhc-code">0x0D</span>
+                </div>
+                <div class="qhc-body">
+                  <strong class="qhc-name">Hospital Operational</strong>
+                  <span class="qhc-cat">Support &amp; Resources</span>
+                </div>
+                <div class="qhc-footer">
+                  <span class="qhc-sev qhc-sev--1">LVL 1/5</span>
+                  <span class="qhc-ttl">TTL: 48h</span>
+                </div>
+              </div>
+
+              <!-- 0x0E Medical Point -->
+              <div class="qgeo-hazard-card f-support" data-hex="0x0E" data-category="support">
+                <div class="qhc-top">
+                  <div class="qhc-icon-wrap"><img src="assets/img/hazards/hazard_0x0e_temporary_medical_point.svg" alt="Medical Point" width="24" height="24" loading="lazy"></div>
+                  <span class="qhc-code">0x0E</span>
+                </div>
+                <div class="qhc-body">
+                  <strong class="qhc-name">Medical Aid Point</strong>
+                  <span class="qhc-cat">Support &amp; Resources</span>
+                </div>
+                <div class="qhc-footer">
+                  <span class="qhc-sev qhc-sev--1">LVL 1/5</span>
+                  <span class="qhc-ttl">TTL: 24h</span>
+                </div>
+              </div>
+
+              <!-- 0x0F Potable Water -->
+              <div class="qgeo-hazard-card f-support" data-hex="0x0F" data-category="support">
+                <div class="qhc-top">
+                  <div class="qhc-icon-wrap"><img src="assets/img/hazards/hazard_0x0f_water_available.svg" alt="Water Available" width="24" height="24" loading="lazy"></div>
+                  <span class="qhc-code">0x0F</span>
+                </div>
+                <div class="qhc-body">
+                  <strong class="qhc-name">Potable Water Available</strong>
+                  <span class="qhc-cat">Support &amp; Resources</span>
+                </div>
+                <div class="qhc-footer">
+                  <span class="qhc-sev qhc-sev--1">LVL 1/5</span>
+                  <span class="qhc-ttl">TTL: 24h</span>
+                </div>
+              </div>
+
+              <!-- 0x10 Emergency Shelter -->
+              <div class="qgeo-hazard-card f-support" data-hex="0x10" data-category="support">
+                <div class="qhc-top">
+                  <div class="qhc-icon-wrap"><img src="assets/img/hazards/hazard_0x10_shelter.svg" alt="Emergency Shelter" width="24" height="24" loading="lazy"></div>
+                  <span class="qhc-code">0x10</span>
+                </div>
+                <div class="qhc-body">
+                  <strong class="qhc-name">Emergency Shelter</strong>
+                  <span class="qhc-cat">Support &amp; Resources</span>
+                </div>
+                <div class="qhc-footer">
+                  <span class="qhc-sev qhc-sev--1">LVL 1/5</span>
+                  <span class="qhc-ttl">TTL: 48h</span>
+                </div>
+              </div>
+
+              <!-- 0x11 Missing Person -->
+              <div class="qgeo-hazard-card f-support" data-hex="0x11" data-category="support">
+                <div class="qhc-top">
+                  <div class="qhc-icon-wrap"><img src="assets/img/hazards/hazard_0x11_missing_person.svg" alt="Missing Person" width="24" height="24" loading="lazy"></div>
+                  <span class="qhc-code">0x11</span>
+                </div>
+                <div class="qhc-body">
+                  <strong class="qhc-name">Missing Person Search</strong>
+                  <span class="qhc-cat">Support &amp; Resources</span>
+                </div>
+                <div class="qhc-footer">
+                  <span class="qhc-sev qhc-sev--2">LVL 2/5</span>
+                  <span class="qhc-ttl">TTL: 72h</span>
+                </div>
+              </div>
+
+              <!-- 0x12 Route Passable -->
+              <div class="qgeo-hazard-card f-access" data-hex="0x12" data-category="access">
+                <div class="qhc-top">
+                  <div class="qhc-icon-wrap"><img src="assets/img/hazards/hazard_0x12_route_reported_passable.svg" alt="Route Passable" width="24" height="24" loading="lazy"></div>
+                  <span class="qhc-code">0x12</span>
+                </div>
+                <div class="qhc-body">
+                  <strong class="qhc-name">Route Reported Passable</strong>
+                  <span class="qhc-cat">Roads &amp; Access</span>
+                </div>
+                <div class="qhc-footer">
+                  <span class="qhc-sev qhc-sev--1">LVL 1/5</span>
+                  <span class="qhc-ttl">TTL: 12h</span>
+                </div>
+              </div>
+
+              <!-- 0x13 Airstrike Warning -->
+              <div class="qgeo-hazard-card f-threat" data-hex="0x13" data-category="threat">
+                <div class="qhc-top">
+                  <div class="qhc-icon-wrap"><img src="assets/img/hazards/hazard_0x13_airstrike_warning.svg" alt="Airstrike Warning" width="24" height="24" loading="lazy"></div>
+                  <span class="qhc-code">0x13</span>
+                </div>
+                <div class="qhc-body">
+                  <strong class="qhc-name">Airstrike Warning</strong>
+                  <span class="qhc-cat">Immediate Hazard</span>
+                </div>
+                <div class="qhc-footer">
+                  <span class="qhc-sev qhc-sev--5">LVL 5/5</span>
+                  <span class="qhc-ttl">TTL: 1h</span>
+                </div>
+              </div>
+
+              <!-- 0x14 Drone Activity -->
+              <div class="qgeo-hazard-card f-threat" data-hex="0x14" data-category="threat">
+                <div class="qhc-top">
+                  <div class="qhc-icon-wrap"><img src="assets/img/hazards/hazard_0x14_drone_activity.svg" alt="Drone Activity" width="24" height="24" loading="lazy"></div>
+                  <span class="qhc-code">0x14</span>
+                </div>
+                <div class="qhc-body">
+                  <strong class="qhc-name">Drone Recon / Loitering</strong>
+                  <span class="qhc-cat">Immediate Hazard</span>
+                </div>
+                <div class="qhc-footer">
+                  <span class="qhc-sev qhc-sev--4">LVL 4/5</span>
+                  <span class="qhc-ttl">TTL: 1h</span>
+                </div>
+              </div>
+
+              <!-- 0x15 Artillery Shelling -->
+              <div class="qgeo-hazard-card f-threat" data-hex="0x15" data-category="threat">
+                <div class="qhc-top">
+                  <div class="qhc-icon-wrap"><img src="assets/img/hazards/hazard_0x15_artillery_shelling.svg" alt="Artillery Shelling" width="24" height="24" loading="lazy"></div>
+                  <span class="qhc-code">0x15</span>
+                </div>
+                <div class="qhc-body">
+                  <strong class="qhc-name">Artillery Shelling Zone</strong>
+                  <span class="qhc-cat">Immediate Hazard</span>
+                </div>
+                <div class="qhc-footer">
+                  <span class="qhc-sev qhc-sev--5">LVL 5/5</span>
+                  <span class="qhc-ttl">TTL: 2h</span>
+                </div>
+              </div>
+
+              <!-- 0x16 Sniper Zone -->
+              <div class="qgeo-hazard-card f-threat" data-hex="0x16" data-category="threat">
+                <div class="qhc-top">
+                  <div class="qhc-icon-wrap"><img src="assets/img/hazards/hazard_0x16_sniper_zone.svg" alt="Sniper Zone" width="24" height="24" loading="lazy"></div>
+                  <span class="qhc-code">0x16</span>
+                </div>
+                <div class="qhc-body">
+                  <strong class="qhc-name">Sniper / Precision Fire</strong>
+                  <span class="qhc-cat">Immediate Hazard</span>
+                </div>
+                <div class="qhc-footer">
+                  <span class="qhc-sev qhc-sev--5">LVL 5/5</span>
+                  <span class="qhc-ttl">TTL: 6h</span>
+                </div>
+              </div>
+
+              <!-- 0x17 Landmine / UXO -->
+              <div class="qgeo-hazard-card f-threat" data-hex="0x17" data-category="threat">
+                <div class="qhc-top">
+                  <div class="qhc-icon-wrap"><img src="assets/img/hazards/hazard_0x17_landmine_uxo.svg" alt="Landmine UXO" width="24" height="24" loading="lazy"></div>
+                  <span class="qhc-code">0x17</span>
+                </div>
+                <div class="qhc-body">
+                  <strong class="qhc-name">Mine / Unexploded UXO</strong>
+                  <span class="qhc-cat">Immediate Hazard</span>
+                </div>
+                <div class="qhc-footer">
+                  <span class="qhc-sev qhc-sev--5">LVL 5/5</span>
+                  <span class="qhc-ttl">TTL: 30d</span>
+                </div>
+              </div>
+
+              <!-- 0x18 Internet Outage -->
+              <div class="qgeo-hazard-card f-service" data-hex="0x18" data-category="service">
+                <div class="qhc-top">
+                  <div class="qhc-icon-wrap"><img src="assets/img/hazards/hazard_0x18_internet_shutdown.svg" alt="Internet Outage" width="24" height="24" loading="lazy"></div>
+                  <span class="qhc-code">0x18</span>
+                </div>
+                <div class="qhc-body">
+                  <strong class="qhc-name">Internet Outage / Blackout</strong>
+                  <span class="qhc-cat">Service Disruption</span>
+                </div>
+                <div class="qhc-footer">
+                  <span class="qhc-sev qhc-sev--3">LVL 3/5</span>
+                  <span class="qhc-ttl">TTL: 24h</span>
+                </div>
+              </div>
+
+              <!-- 0x19 Signal Jamming -->
+              <div class="qgeo-hazard-card f-service" data-hex="0x19" data-category="service">
+                <div class="qhc-top">
+                  <div class="qhc-icon-wrap"><img src="assets/img/hazards/hazard_0x19_signal_jamming.svg" alt="Signal Jamming" width="24" height="24" loading="lazy"></div>
+                  <span class="qhc-code">0x19</span>
+                </div>
+                <div class="qhc-body">
+                  <strong class="qhc-name">EW Signal Jamming / Interference</strong>
+                  <span class="qhc-cat">Service Disruption</span>
+                </div>
+                <div class="qhc-footer">
+                  <span class="qhc-sev qhc-sev--4">LVL 4/5</span>
+                  <span class="qhc-ttl">TTL: 4h</span>
+                </div>
+              </div>
+
+              <!-- 0x7F Other Event -->
+              <div class="qgeo-hazard-card f-other" data-hex="0x7F" data-category="other">
+                <div class="qhc-top">
+                  <div class="qhc-icon-wrap"><img src="assets/img/hazards/hazard_0x7f_other.svg" alt="Other Event" width="24" height="24" loading="lazy"></div>
+                  <span class="qhc-code">0x7F</span>
+                </div>
+                <div class="qhc-body">
+                  <strong class="qhc-name">Other Tactical Event</strong>
+                  <span class="qhc-cat">Other / Unclassified</span>
+                </div>
+                <div class="qhc-footer">
+                  <span class="qhc-sev qhc-sev--2">LVL 2/5</span>
+                  <span class="qhc-ttl">TTL: 12h</span>
+                </div>
+              </div>
             </div>
           </div>
 
           <!-- Official App Icons Reference Bar -->
           <div class="qgeo-icons-ref mono">
-            <span class="ctrl-label">ICONE TATTICHE UFFICIALI UTILIZZATE IN APP ANDROID:</span>
+            <span class="ctrl-label">OFFICIAL TACTICAL ICONS UTILIZED IN ANDROID APP:</span>
             <div class="qgeo-icons-legend">
               <div class="icon-legend-item">
                 <img src="assets/img/qgeo_logo.svg" alt="Q-Geo Core Icon">
-                <div><strong>Q-GEO EMBLEM</strong><span>Mascotte &amp; Dispatcher Tattico</span></div>
+                <div><strong>Q-GEO EMBLEM</strong><span>Tactical Mascot &amp; Map Dispatcher</span></div>
               </div>
               <div class="icon-legend-item">
                 <img src="assets/img/qgeo_map_globe.svg" alt="Tactical GIS Icon">
-                <div><strong>TACTICAL GIS</strong><span>Cartografia Vettoriale &amp; Layer</span></div>
+                <div><strong>TACTICAL GIS</strong><span>Offline Vector Tiles &amp; Map Layers</span></div>
               </div>
               <div class="icon-legend-item">
                 <img src="assets/img/qgeo_privacy.svg" alt="Privacy Shield Icon">
-                <div><strong>FUZZY PRIVACY</strong><span>Quantizzazione Coordinate (~111m)</span></div>
+                <div><strong>FUZZY PRIVACY</strong><span>3-Decimal Coord Quantization (~111m)</span></div>
               </div>
               <div class="icon-legend-item">
                 <img src="assets/img/qgeo_rf_tower.svg" alt="RF Dispatch Icon">
-                <div><strong>RF DISPATCH</strong><span>Trasmissione Pacchetto Radio LoRa/VHF</span></div>
+                <div><strong>RF DISPATCH</strong><span>LoRa &amp; VHF Compact Binary Packet Transmission</span></div>
               </div>
             </div>
           </div>
@@ -6719,6 +7187,6 @@ _
 </footer>
   </main>
 
-  <script src="script.js?v=2.6.7" defer></script>
+  <script src="script.js?v=2.6.8" defer></script>
 </body>
 </html>

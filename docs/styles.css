@@ -22951,6 +22951,9 @@ main section *,
 }
 
 .htag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 4px;
@@ -22959,12 +22962,22 @@ main section *,
   color: rgba(255, 255, 255, 0.7);
   cursor: pointer;
   transition: all 0.15s;
+  user-select: none;
+}
+
+.htag img {
+  width: 14px;
+  height: 14px;
+  display: block;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 3px rgba(0, 242, 255, 0.4));
 }
 
 .htag:hover {
   background: rgba(255, 0, 60, 0.15);
   border-color: var(--neon-red);
   color: #fff;
+  transform: translateY(-1px);
 }
 
 /* Event Generator Form */
@@ -23216,6 +23229,260 @@ main section *,
   color: var(--neon-green, #35ff8a);
 }
 
+/* TACTICAL HAZARDS REPERTOIRE CATALOG (26 Standard OpCodes) */
+.qgeo-hazards-catalog {
+  background: rgba(4, 9, 18, 0.9);
+  border: 1px solid rgba(0, 242, 255, 0.25);
+  border-radius: 12px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(0, 242, 255, 0.03);
+}
+
+.qgeo-catalog-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 14px;
+}
+
+.catalog-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.qgeo-catalog-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+.qgeo-catalog-sub {
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: rgba(216, 228, 242, 0.75);
+  margin: 0;
+}
+
+.qgeo-filter-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.filter-badge {
+  background: rgba(14, 24, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  color: rgba(216, 228, 242, 0.7);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-badge:hover {
+  background: rgba(0, 242, 255, 0.12);
+  border-color: rgba(0, 242, 255, 0.4);
+  color: #fff;
+}
+
+.filter-badge.active {
+  background: linear-gradient(135deg, rgba(0, 242, 255, 0.25) 0%, rgba(0, 255, 157, 0.2) 100%);
+  border-color: var(--neon-cyan);
+  color: #fff;
+  box-shadow: 0 0 10px rgba(0, 242, 255, 0.25);
+}
+
+.filter-badge.f-threat.active {
+  background: rgba(255, 0, 60, 0.25);
+  border-color: var(--neon-red);
+  box-shadow: 0 0 10px rgba(255, 0, 60, 0.3);
+}
+
+.filter-badge.f-access.active {
+  background: rgba(255, 184, 0, 0.25);
+  border-color: var(--neon-amber);
+  box-shadow: 0 0 10px rgba(255, 184, 0, 0.3);
+}
+
+.filter-badge.f-service.active {
+  background: rgba(0, 180, 255, 0.25);
+  border-color: #00b4d8;
+  box-shadow: 0 0 10px rgba(0, 180, 255, 0.3);
+}
+
+.filter-badge.f-support.active {
+  background: rgba(0, 255, 157, 0.25);
+  border-color: var(--neon-green);
+  box-shadow: 0 0 10px rgba(0, 255, 157, 0.3);
+}
+
+.filter-badge.f-other.active {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Hazards Grid */
+.qgeo-hazards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+  gap: 12px;
+}
+
+.qgeo-hazard-card {
+  background: rgba(8, 14, 26, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+}
+
+.qgeo-hazard-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: transparent;
+  transition: background 0.2s;
+}
+
+.qgeo-hazard-card.f-threat::before { background: var(--neon-red); }
+.qgeo-hazard-card.f-access::before { background: var(--neon-amber); }
+.qgeo-hazard-card.f-service::before { background: #00b4d8; }
+.qgeo-hazard-card.f-support::before { background: var(--neon-green); }
+.qgeo-hazard-card.f-other::before { background: rgba(255, 255, 255, 0.4); }
+
+.qgeo-hazard-card:hover {
+  transform: translateY(-2px);
+  background: rgba(12, 22, 40, 0.95);
+  border-color: rgba(0, 242, 255, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 242, 255, 0.12);
+}
+
+.qgeo-hazard-card.f-threat:hover {
+  border-color: rgba(255, 0, 60, 0.5);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 0, 60, 0.2);
+}
+
+.qgeo-hazard-card.f-access:hover {
+  border-color: rgba(255, 184, 0, 0.5);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 184, 0, 0.2);
+}
+
+.qgeo-hazard-card.f-service:hover {
+  border-color: rgba(0, 180, 255, 0.5);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 180, 255, 0.2);
+}
+
+.qgeo-hazard-card.f-support:hover {
+  border-color: rgba(0, 255, 157, 0.5);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 255, 157, 0.2);
+}
+
+.qhc-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.qhc-icon-wrap {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.qgeo-hazard-card:hover .qhc-icon-wrap {
+  transform: scale(1.08);
+}
+
+.qhc-icon-wrap img {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.qhc-code {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--neon-cyan);
+  background: rgba(0, 242, 255, 0.08);
+  border: 1px solid rgba(0, 242, 255, 0.2);
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+
+.qhc-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.qhc-name {
+  font-size: 0.78rem;
+  color: #fff;
+  font-family: var(--font-cyber, monospace);
+  line-height: 1.3;
+}
+
+.qhc-cat {
+  font-size: 0.64rem;
+  color: rgba(216, 228, 242, 0.55);
+}
+
+.qhc-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.65rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 6px;
+  margin-top: 2px;
+}
+
+.qhc-sev {
+  font-weight: 700;
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+.qhc-sev--5 { color: #ff3366; background: rgba(255, 51, 102, 0.12); }
+.qhc-sev--4 { color: #ff8800; background: rgba(255, 136, 0, 0.12); }
+.qhc-sev--3 { color: #ffcc00; background: rgba(255, 204, 0, 0.12); }
+.qhc-sev--2 { color: #00ccff; background: rgba(0, 204, 255, 0.12); }
+.qhc-sev--1 { color: #00ff99; background: rgba(0, 255, 153, 0.12); }
+
+.qhc-ttl {
+  color: rgba(255, 255, 255, 0.5);
+}
+
 .qgeo-icons-ref {
   background: rgba(3, 10, 20, 0.85);
   border: 1px solid rgba(0, 242, 255, 0.22);
@@ -23301,6 +23568,14 @@ main section *,
   .qgeo-icons-legend {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+  .qgeo-hazards-grid {
+    grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+    gap: 8px;
+  }
+  .qgeo-catalog-head {
+    flex-direction: column;
+    align-items: stretch;
+  }
 }
 
 @media (max-width: 680px) {
@@ -23347,6 +23622,16 @@ main section *,
   }
   .gen-row {
     grid-template-columns: 1fr;
+  }
+  .qgeo-hazards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+  .qgeo-hazard-card {
+    padding: 8px 10px;
+  }
+  .qhc-name {
+    font-size: 0.72rem;
   }
 }
 
