@@ -45,7 +45,7 @@
   <meta name="twitter:image" content="https://www.qp1ng.com/assets/img/social-preview.png" />
 
   <link rel="preload" href="assets/fonts/square_dot_digital_qp1ng.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="styles.css?v=2.8.3" as="style" />
+  <link rel="preload" href="styles.css?v=2.8.4" as="style" />
   <link rel="preload" as="image" href="assets/vid/intro_bg_poster.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/intro_mobile_poster.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/qmap_poster.webp">
@@ -59,7 +59,7 @@
       }
     } catch(e){}
   </script>
-  <link rel="stylesheet" href="styles.css?v=2.8.3" />
+  <link rel="stylesheet" href="styles.css?v=2.8.4" />
 
   <!-- Schema.org Comprehensive Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -3944,6 +3944,102 @@ _
       </div>
     </div>
 
+    <!-- LIVE RUNTIME SHOWCASE: PIXEL 10a REAL APP DEMO -->
+    <div class="qfeed-video-showcase" aria-label="Q-Feed Live Smartphone Demonstration">
+      <div class="qfeed-showcase-frame">
+        <!-- Top HUD Telemetry Bar -->
+        <div class="qfeed-showcase-hud mono">
+          <div class="qfeed-hud-left">
+            <span class="qfeed-pulse-dot"></span>
+            <span class="qfeed-hud-title">REAL-TIME OPERATIONAL RUNTIME // PIXEL 10a AIR-GAP FEED</span>
+          </div>
+          <div class="qfeed-hud-right">
+            <span class="qfeed-chip qfeed-chip--live">&#x25CF; LIVE SCREENRECORD</span>
+            <span class="qfeed-chip qfeed-chip--nostr">NOSTR NIP-01 + TOR</span>
+            <span class="qfeed-chip qfeed-chip--mesh">ED25519 VERIFIED</span>
+          </div>
+        </div>
+
+        <div class="qfeed-showcase-body">
+          <!-- Left: Smartphone Hardware Mockup Frame -->
+          <div class="qfeed-phone-stage">
+            <div class="qfeed-phone-chassis">
+              <!-- Camera Punch Hole & Top Bezel Sensor -->
+              <div class="qfeed-phone-camera" aria-hidden="true"></div>
+              <div class="qfeed-phone-speaker" aria-hidden="true"></div>
+              
+              <!-- Screen Viewport with Video -->
+              <div class="qfeed-phone-screen">
+                <video class="qfeed-phone-video" id="qfeed-runtime-video"
+                  autoplay loop muted playsinline preload="metadata"
+                  poster="assets/vid/qfeed_runtime_poster.webp"
+                  width="384" height="860">
+                  <source src="assets/vid/qfeed_runtime.webm" type="video/webm">
+                  <source src="assets/vid/qfeed_runtime.mp4" type="video/mp4">
+                  Your browser does not support HTML5 video.
+                </video>
+                <div class="qfeed-phone-glare" aria-hidden="true"></div>
+                <div class="qfeed-phone-scanline" aria-hidden="true"></div>
+
+                <!-- Floating Play/Pause Controls Bar -->
+                <div class="qfeed-video-overlay mono">
+                  <button type="button" class="qfeed-play-toggle" id="qfeed-play-toggle" aria-label="Play or Pause Q-Feed demonstration video">
+                    <svg class="icon-pause" viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                    <svg class="icon-play" viewBox="0 0 24 24" width="12" height="12" fill="currentColor" style="display:none;"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    <span class="toggle-text">PAUSE</span>
+                  </button>
+                  <span class="qfeed-video-tag">PIXEL 10a // 60 FPS</span>
+                </div>
+              </div>
+
+              <!-- Bottom Home Indicator -->
+              <div class="qfeed-phone-home-pill" aria-hidden="true"></div>
+            </div>
+          </div>
+
+          <!-- Right: Interactive Feature Highlights corresponding to what is on screen -->
+          <div class="qfeed-features-deck mono">
+            <div class="qfeed-deck-kicker">FEATURE RUNTIME BREAKDOWN</div>
+            <h3 class="qfeed-deck-title">Sovereign Social Protocol in Action</h3>
+            <p class="qfeed-deck-desc">
+              Captured directly from the Google Pixel 10a hardware testbed running Quantum P1NG. Every post, reaction and event note is signed on-device with zero centralized metadata leakage.
+            </p>
+
+            <div class="qfeed-deck-cards">
+              <div class="qfeed-feature-card">
+                <div class="fcard-badge txt-cyan">01 // SIGNED P2P SOCIAL LAYER</div>
+                <strong>Multi-Scope Audience Dispatch</strong>
+                <p>Filter across ALL, ME, EVENTS, and SAVED. Notes route over local LoRa mesh hops or Tor-isolated Nostr relays.</p>
+              </div>
+
+              <div class="qfeed-feature-card">
+                <div class="fcard-badge txt-green">02 // TICKETED EVENT AGENDA</div>
+                <strong>Boom Fest &amp; UTXO-Gated Access</strong>
+                <p>Air-gapped event announcements with offline ticket claim. Zero middlemen ticketing platforms, verified cryptographically.</p>
+              </div>
+
+              <div class="qfeed-feature-card">
+                <div class="fcard-badge txt-purple">03 // ACTIVITY SIGNAL METRICS</div>
+                <strong>100% On-Device Cryptographic Telemetry</strong>
+                <p>Real-time analytics curve of daily events, peaks, and reactions stored exclusively in local encrypted SQLite. No cloud leakage.</p>
+              </div>
+
+              <div class="qfeed-feature-card">
+                <div class="fcard-badge txt-amber">04 // LIGHTNING ZAPS &amp; RECEIPTS</div>
+                <strong>Instant Offline Proofs</strong>
+                <p>Support operators and events with Bitcoin Sats and signed Nostr zaps accompanied by air-gapped CameraX verification vouchers.</p>
+              </div>
+            </div>
+
+            <div class="qfeed-deck-footer">
+              <a href="#qfeed-workspace" class="cyber-button-sm txt-cyan">EXPLORE INTERACTIVE WORKSPACE &darr;</a>
+              <span class="f-deck-status txt-green">&#x25CF; SECURE RUNTIME VERIFIED</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Main Workspace -->
     <div class="qfeed-workspace" id="qfeed-workspace">
       <!-- Navigation Tabs -->
@@ -7413,6 +7509,6 @@ _
     </div>
   </div>
 
-  <script src="script.js?v=2.6.13" defer></script>
+  <script src="script.js?v=2.6.14" defer></script>
 </body>
 </html>

@@ -8833,6 +8833,44 @@ if (terminal && gamesGrid) {
     });
   }
 
+  // Live Runtime Demonstration Video Controller
+  const qfeedVideo = document.getElementById('qfeed-runtime-video');
+  const qfeedPlayToggle = document.getElementById('qfeed-play-toggle');
+
+  if (qfeedVideo && qfeedPlayToggle) {
+    const iconPause = qfeedPlayToggle.querySelector('.icon-pause');
+    const iconPlay = qfeedPlayToggle.querySelector('.icon-play');
+    const toggleText = qfeedPlayToggle.querySelector('.toggle-text');
+
+    function syncVideoUI(isPlaying) {
+      if (iconPause) iconPause.style.display = isPlaying ? 'block' : 'none';
+      if (iconPlay) iconPlay.style.display = isPlaying ? 'none' : 'block';
+      if (toggleText) toggleText.textContent = isPlaying ? 'PAUSE' : 'PLAY';
+      qfeedPlayToggle.setAttribute('aria-pressed', isPlaying ? 'true' : 'false');
+    }
+
+    qfeedPlayToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (qfeedVideo.paused) {
+        qfeedVideo.play().catch(() => {});
+      } else {
+        qfeedVideo.pause();
+      }
+    });
+
+    // Toggle on video click as well for fluid mobile interaction
+    qfeedVideo.addEventListener('click', () => {
+      if (qfeedVideo.paused) {
+        qfeedVideo.play().catch(() => {});
+      } else {
+        qfeedVideo.pause();
+      }
+    });
+
+    qfeedVideo.addEventListener('play', () => syncVideoUI(true));
+    qfeedVideo.addEventListener('pause', () => syncVideoUI(false));
+  }
+
   // Initial draw
   drawQrCode();
   updateSigPreview();
