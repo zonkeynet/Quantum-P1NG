@@ -7188,12 +7188,17 @@ if (terminal && gamesGrid) {
   tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const tabTarget = btn.getAttribute('data-tab');
-      tabBtns.forEach(b => b.classList.remove('active'));
+      tabBtns.forEach(b => {
+        const isActive = b === btn;
+        b.classList.toggle('active', isActive);
+        b.setAttribute('aria-selected', String(isActive));
+      });
       panes.forEach(p => p.classList.remove('active'));
-      btn.classList.add('active');
 
-      const targetPane = section.querySelector(`.qgeo-tab-pane[data-pane="${tabTarget}"]`);
-      if (targetPane) targetPane.classList.add('active');
+      const targetPane = section.querySelector(`.qgeo-tab-pane[data-pane="${tabTarget}"], #qgeo-pane-${tabTarget}`);
+      if (targetPane) {
+        targetPane.classList.add('active');
+      }
 
       if (tabTarget === 'map') {
         resizeCanvas();

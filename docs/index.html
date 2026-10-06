@@ -45,7 +45,7 @@
   <meta name="twitter:image" content="https://www.qp1ng.com/assets/img/social-preview.png" />
 
   <link rel="preload" href="assets/fonts/square_dot_digital_qp1ng.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="styles.css?v=2.7.5" as="style" />
+  <link rel="preload" href="styles.css?v=2.7.6" as="style" />
   <link rel="preload" as="image" href="assets/vid/intro_bg_poster.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/intro_mobile_poster.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/qmap_poster.webp">
@@ -59,7 +59,7 @@
       }
     } catch(e){}
   </script>
-  <link rel="stylesheet" href="styles.css?v=2.7.5" />
+  <link rel="stylesheet" href="styles.css?v=2.7.6" />
 
   <!-- Schema.org Comprehensive Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -2569,7 +2569,7 @@ _
       </div>
     </div>
 
-    <!-- MAIN INTERACTIVE WORKSPACE (Tabs: Tactical Map / Map Packs / Event Protocol) -->
+    <!-- MAIN INTERACTIVE WORKSPACE (Tabs: Tactical Map / Map Packs / Event Protocol / Guide) -->
     <div class="qgeo-workspace" id="qgeo-workspace">
       <div class="qgeo-workspace-nav" role="tablist" aria-label="Q-Geo modules">
         <button class="qgeo-tab-btn active" data-tab="map" role="tab" aria-selected="true">
@@ -2582,12 +2582,16 @@ _
         </button>
         <button class="qgeo-tab-btn" data-tab="protocol" role="tab" aria-selected="false">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          <span>COMPACT RADIO PROTOCOL (0x01-0x19)</span>
+          <span>COMPACT RADIO PROTOCOL</span>
+        </button>
+        <button class="qgeo-tab-btn" data-tab="guide" role="tab" aria-selected="false">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span>OPERATIONAL APP GUIDE</span>
         </button>
       </div>
 
       <!-- TAB PANE 1: TACTICAL GIS & HAZARD MAP -->
-      <div class="qgeo-tab-pane active" id="qgeo-pane-map" role="tabpanel">
+      <div class="qgeo-tab-pane active" id="qgeo-pane-map" data-pane="map" role="tabpanel">
         <div class="qgeo-grid-2col">
           <!-- Left Column: Cartography Controls & Layer Filters -->
           <div class="qgeo-info-col">
@@ -2698,7 +2702,7 @@ _
       </div>
 
       <!-- TAB PANE 2: OFFLINE MAP PACK MANAGER -->
-      <div class="qgeo-tab-pane" id="qgeo-pane-packs" role="tabpanel">
+      <div class="qgeo-tab-pane" id="qgeo-pane-packs" data-pane="packs" role="tabpanel">
         <div class="qgeo-grid-2col">
           <!-- Left Column: Pack Catalog & Component Selection -->
           <div class="qgeo-info-col">
@@ -2809,7 +2813,7 @@ _
       </div>
 
       <!-- TAB PANE 3: COMPACT RADIO EVENT PROTOCOL -->
-      <div class="qgeo-tab-pane" id="qgeo-pane-protocol" role="tabpanel">
+      <div class="qgeo-tab-pane" id="qgeo-pane-protocol" data-pane="protocol" role="tabpanel">
         <div class="qgeo-grid-2col">
           <!-- Left Column: Protocol Specifications & Dissector -->
           <div class="qgeo-info-col">
@@ -2934,6 +2938,157 @@ _
                 <div class="stream-line txt-cyan">&gt; RAW_HEX: 51 47 01 01 17 40 49 0E AB 40 21 58 12 05 A0 03 9A 4F B1 2C ...</div>
                 <div class="stream-line txt-green">&gt; [LORA_TX] Pkt dispatched: 32 bytes (Airtime: 56ms, Ch: 868.1 MHz, SF7)</div>
                 <div class="stream-line">&gt; Node peer relay quorum: 4/4 ACK received. Map updated.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB PANE 4: FIELD OPERATIONAL GUIDE // GUIDA ALL'USO IN APP -->
+      <div class="qgeo-tab-pane" id="qgeo-pane-guide" data-pane="guide" role="tabpanel">
+        <div class="qgeo-guide-wrap">
+          <!-- Guide Header -->
+          <div class="qgeo-guide-header">
+            <div class="qgeo-badge-label mono">ANDROID FIELD MANUAL // QGEOHOMEUI.KT &amp; QGEOLAYERSDIALOG.KT</div>
+            <h3 class="qgeo-pane-title">Come Utilizzare le Mappe Tattiche Q-Geo in App</h3>
+            <p class="qgeo-text">
+              Q-Geo è architettato per operare in contesti ad alto rischio: blackout cellulare, zone di crisi e ambienti con guerra elettronica (EW). La regola fondamentale è zero-leakage: <em>la cartografia di base non viaggia mai su canali radio</em>. Solo le delta minime di evento firmate (28-36 byte) vengono propagate. Ecco come configurare e usare le mappe in app con la massima sicurezza OPSEC.
+            </p>
+          </div>
+
+          <!-- Interactive Visual Walkthrough (5 Official App Flows) -->
+          <div class="qgeo-flows-grid">
+            <article class="qgeo-flow-card">
+              <div class="qgeo-flow-img-box">
+                <img src="assets/img/qgeo_flow_crisis.webp" alt="Q-Geo Resilient Crisis Mapping" loading="lazy" decoding="async">
+                <span class="qgeo-flow-tag mono">01 // RESILIENT MAPPING</span>
+              </div>
+              <div class="qgeo-flow-desc">
+                <h4>Cartografia Vettoriale Offline</h4>
+                <p>Mascotte protetta, zero dipendenza da server esterni. Le mappe vettoriali (MBTiles/PMTiles) vengono caricate localmente e renderizzate via GPU a 60 FPS con nodi radio e pericoli.</p>
+              </div>
+            </article>
+
+            <article class="qgeo-flow-card">
+              <div class="qgeo-flow-img-box">
+                <img src="assets/img/qgeo_flow_tor.webp" alt="Q-Geo Tor Fail-Closed Route" loading="lazy" decoding="async">
+                <span class="qgeo-flow-tag mono">02 // TOR FAIL-CLOSED</span>
+              </div>
+              <div class="qgeo-flow-desc">
+                <h4>Isolamento Tor &amp; Blocco Clearnet</h4>
+                <p>Se connessi ad internet, le richieste di tile passano esclusivamente su circuito Tor a 3 nodi. Il traffico diretto verso IP in chiaro è rigorosamente bloccato (Fail-Closed) per prevenire deanonimizzazioni.</p>
+              </div>
+            </article>
+
+            <article class="qgeo-flow-card">
+              <div class="qgeo-flow-img-box">
+                <img src="assets/img/qgeo_flow_mesh.webp" alt="Q-Geo Offline Mesh Sharing" loading="lazy" decoding="async">
+                <span class="qgeo-flow-tag mono">03 // P2P MESH BLACKOUT</span>
+              </div>
+              <div class="qgeo-flow-desc">
+                <h4>Mesh Bluetooth &amp; Wi-Fi Diretto</h4>
+                <p>Durante il blackout delle celle telefoniche, i dispositivi formano una rete magliata ad hoc. Gli eventi pericolo (codificati <code>QG1:Base64...</code>) si propagano di smartphone in smartphone in tempo reale.</p>
+              </div>
+            </article>
+
+            <article class="qgeo-flow-card">
+              <div class="qgeo-flow-img-box">
+                <img src="assets/img/qgeo_flow_lora.webp" alt="Q-Geo LoRa Link LilyGO T-Deck" loading="lazy" decoding="async">
+                <span class="qgeo-flow-tag mono">04 // LORA MEDIUM-RANGE</span>
+              </div>
+              <div class="qgeo-flow-desc">
+                <h4>Ponte Radio LoRa con LilyGO T-Deck</h4>
+                <p>Collegando lo smartphone via BLE a un terminale T-Deck o Meshtastic, le trame cifrate <code>QGR1</code> vengono ritrasmesse su ripetitori montani LoRa (868/915 MHz) a chilometri di distanza.</p>
+              </div>
+            </article>
+
+            <article class="qgeo-flow-card">
+              <div class="qgeo-flow-img-box">
+                <img src="assets/img/qgeo_flow_vhf.webp" alt="Q-Geo VHF Long-Range Event Relay" loading="lazy" decoding="async">
+                <span class="qgeo-flow-tag mono">05 // VHF WALKIE-TALKIE</span>
+              </div>
+              <div class="qgeo-flow-desc">
+                <h4>Relay Walkie-Talkie VHF &amp; Cifratura</h4>
+                <p>Connessione via cavo audio/AIOC a radio ricetrasmittenti analogiche VHF. Gli allarmi pericolo vengono firmati con Ed25519, protetti da correzione d'errore Reed-Solomon FEC e modulati in frequenza.</p>
+              </div>
+            </article>
+          </div>
+
+          <!-- 4 Operational Pillars Grid -->
+          <div class="qgeo-pillars-grid">
+            <div class="qgeo-pillar-card">
+              <div class="qgeo-pillar-icon">
+                <img src="assets/img/qgeo_map_globe.svg" alt="Tactical GIS" width="30" height="30">
+              </div>
+              <h4>1. Installazione e Temi Mappa (QGeoLayersDialog.kt)</h4>
+              <p>Nell'app Android apri il menu <strong>Layers</strong> dalla barra superiore. Puoi selezionare pacchetti <strong>Offline MBTiles</strong> scaricati localmente o fonti sicure. Scegli il tema tattico adatto:</p>
+              <ul>
+                <li><strong>HUD Dark:</strong> Contrasto cibernetico ottimizzato per ambienti a bassa illuminazione.</li>
+                <li><strong>Military Topo:</strong> Curve di livello dettagliate per pianificazione topografica.</li>
+                <li><strong>NVG Green Phosphor:</strong> Tonalità monocromatica fosfori verdi, non acceca l'operatore con visore notturno.</li>
+                <li><strong>OLED True Black:</strong> Zero emissione luminosa e risparmio batteria massimo su schermi AMOLED.</li>
+              </ul>
+            </div>
+
+            <div class="qgeo-pillar-card">
+              <div class="qgeo-pillar-icon">
+                <img src="assets/img/qgeo_privacy.svg" alt="Privacy Geografica" width="30" height="30">
+              </div>
+              <h4>2. Protezione Geografica &amp; Modalità Fuzzy (QGeoPrivacy.kt)</h4>
+              <p>Per impedire all'avversario di triangolare la tua postazione radio quando condividi una minaccia:</p>
+              <ul>
+                <li><strong>Modalità Fuzzy (~111m) [CONSIGLIATA]:</strong> Arrotonda automaticamente le coordinate a 3 decimali (flag <code>0x02 APPROXIMATE_LOCATION</code>). I compagni vedono l'area di pericolo senza conoscere il punto esatto di trasmissione.</li>
+                <li><strong>Modalità GPS Esatto (Local Only):</strong> Utilizzata sul dispositivo personale per orientamento proprio, senza mai diffonderla in chiaro sulla maglia radio.</li>
+              </ul>
+            </div>
+
+            <div class="qgeo-pillar-card">
+              <div class="qgeo-pillar-icon">
+                <img src="assets/img/qgeo_rf_tower.svg" alt="Wizard Report Pericoli" width="30" height="30">
+              </div>
+              <h4>3. Wizard Report Pericoli a 5 Step (QGeoReportWizard.kt)</h4>
+              <p>Tocca il pulsante circolare <strong>+ NEW REPORT</strong> in basso a destra per aprire il wizard guidato:</p>
+              <ol>
+                <li><strong>Selezione Minaccia:</strong> Scegli tra 25 codici standard (0x01 Esplosione, 0x04 Strada Bloccata, 0x09 Checkpoint, 0x14 Drone, 0x17 Mina/UXO, 0x0D Ospedale).</li>
+                <li><strong>Livello di Severità:</strong> Da 1 (Informativo) a 5 (Critico Mortale).</li>
+                <li><strong>Raggio &amp; TTL:</strong> Imposta raggio operativo (es. 500m) e tempo di vita (TTL da 30m a 30gg) per auto-cancellazione.</li>
+                <li><strong>Posizione:</strong> Fissa con GPS, clicca sulla mappa o inserisci coordinate.</li>
+                <li><strong>Vettore di Invio:</strong> Seleziona Wi-Fi, Tor, LoRa (T-Deck) o Walkie-Talkie VHF.</li>
+              </ol>
+            </div>
+
+            <div class="qgeo-pillar-card">
+              <div class="qgeo-pillar-icon">
+                <img src="assets/img/qgeo_logo.svg" alt="Egress &amp; Geofence" width="30" height="30">
+              </div>
+              <h4>4. Allarmi Geofencing &amp; Fuga Sicura BRouter</h4>
+              <p>Funzionalità dinamiche automatiche durante il movimento sul terreno:</p>
+              <ul>
+                <li><strong>Allarme Geofencing Perimetrale:</strong> L'app attiva una vibrazione tattile e suono di avviso se entri nel raggio di 500m da una zona segnalata come minata o bombardata.</li>
+                <li><strong>Calcolo Egress Route BRouter:</strong> Calcola offline percorsi sicuri a piedi, in bicicletta o fuoristrada, ricalcolando dinamicamente la traiettoria per aggirare le minacce confermate sul mesh.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Official App Icons Reference Bar -->
+          <div class="qgeo-icons-ref mono">
+            <span class="ctrl-label">ICONE TATTICHE UFFICIALI UTILIZZATE IN APP ANDROID:</span>
+            <div class="qgeo-icons-legend">
+              <div class="icon-legend-item">
+                <img src="assets/img/qgeo_logo.svg" alt="Q-Geo Core Icon">
+                <div><strong>Q-GEO EMBLEM</strong><span>Mascotte &amp; Dispatcher Tattico</span></div>
+              </div>
+              <div class="icon-legend-item">
+                <img src="assets/img/qgeo_map_globe.svg" alt="Tactical GIS Icon">
+                <div><strong>TACTICAL GIS</strong><span>Cartografia Vettoriale &amp; Layer</span></div>
+              </div>
+              <div class="icon-legend-item">
+                <img src="assets/img/qgeo_privacy.svg" alt="Privacy Shield Icon">
+                <div><strong>FUZZY PRIVACY</strong><span>Quantizzazione Coordinate (~111m)</span></div>
+              </div>
+              <div class="icon-legend-item">
+                <img src="assets/img/qgeo_rf_tower.svg" alt="RF Dispatch Icon">
+                <div><strong>RF DISPATCH</strong><span>Trasmissione Pacchetto Radio LoRa/VHF</span></div>
               </div>
             </div>
           </div>
@@ -6564,6 +6719,6 @@ _
 </footer>
   </main>
 
-  <script src="script.js?v=2.6.6" defer></script>
+  <script src="script.js?v=2.6.7" defer></script>
 </body>
 </html>
