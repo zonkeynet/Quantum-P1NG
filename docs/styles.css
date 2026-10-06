@@ -12004,10 +12004,28 @@ body.qmap-modal-open {
   min-height: 86px;
   padding: 13px 12px;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-left-color: rgba(0, 242, 255, 0.56);
+  border-left: 3px solid rgba(0, 242, 255, 0.56);
   border-radius: 6px;
   background: linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.012));
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
+
+.hero-proof:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.hero-proof:nth-child(1) { border-left-color: var(--neon-cyan, #00f2ff); }
+.hero-proof:nth-child(1) span { color: var(--neon-cyan, #00f2ff); }
+
+.hero-proof:nth-child(2) { border-left-color: var(--neon-green, #00ff9d); }
+.hero-proof:nth-child(2) span { color: var(--neon-green, #00ff9d); }
+
+.hero-proof:nth-child(3) { border-left-color: var(--neon-amber, #ffb800); }
+.hero-proof:nth-child(3) span { color: var(--neon-amber, #ffb800); }
+
+.hero-proof:nth-child(4) { border-left-color: var(--neon-purple, #bd00ff); }
+.hero-proof:nth-child(4) span { color: var(--neon-purple, #bd00ff); }
 
 .hero-proof span {
   display: block;
@@ -12753,35 +12771,34 @@ body.qmap-modal-open {
 
   .hero-proof-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
+    gap: 6px;
     width: 100%;
-    margin: 8px auto 16px;
+    margin: 6px auto 14px;
   }
 
   .hero-proof {
     min-height: auto;
-    padding: 10px 11px;
+    padding: 7px 10px;
     text-align: left;
-    background: rgba(8, 16, 28, 0.65);
-    border: 1px solid rgba(0, 242, 255, 0.18);
-    border-left: 3px solid var(--acc2, #00f2ff);
+    background: rgba(6, 14, 24, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-left-width: 3px;
     border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
   }
 
   .hero-proof span {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 800;
     line-height: 1.1;
     letter-spacing: 0.04em;
-    text-shadow: 0 0 10px rgba(0, 242, 255, 0.35);
   }
 
   .hero-proof small {
-    font-size: 11px;
-    margin-top: 3px;
+    font-size: 10px;
+    margin-top: 2px;
     line-height: 1.25;
-    color: rgba(200, 220, 240, 0.72);
+    color: rgba(200, 222, 242, 0.72);
   }
 
   .hero-module-grid,
@@ -12841,25 +12858,25 @@ body.qmap-modal-open {
   .hero-proof-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     gap: 6px;
-    margin: 6px 0 14px;
+    margin: 6px 0 12px;
     width: 100%;
   }
 
   .hero-proof {
     min-height: auto;
-    padding: 8px 9px;
+    padding: 6px 8px;
     border-left-width: 2.5px;
   }
 
   .hero-proof span {
-    font-size: 14.5px;
+    font-size: 13px;
     line-height: 1.1;
   }
 
   .hero-proof small {
-    font-size: 10px;
+    font-size: 9.5px;
     margin-top: 2px;
-    line-height: 1.22;
+    line-height: 1.2;
   }
 
   .hero-module-grid,
@@ -12918,20 +12935,21 @@ body.qmap-modal-open {
   }
 
   .hero-proof-grid {
-    gap: 5px;
+    gap: 4px;
+    margin: 4px 0 10px;
   }
 
   .hero-proof {
-    padding: 6px 7px;
+    padding: 5px 6px;
   }
 
   .hero-proof span {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .hero-proof small {
-    font-size: 9.5px;
-    line-height: 1.2;
+    font-size: 8.5px;
+    line-height: 1.15;
   }
 }
 
