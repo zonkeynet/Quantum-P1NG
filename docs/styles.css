@@ -14412,9 +14412,12 @@ body.qmap-modal-open {
 
   .stack-posture,
   .stack-runtime-grid,
-  .stack-flow,
   .stack-alert {
     grid-template-columns: 1fr;
+  }
+
+  .stack-flow {
+    display: none !important;
   }
 
   .stack-bus {
@@ -14491,7 +14494,6 @@ body.qmap-modal-open {
     font-size: 16px;
   }
 
-  .stack-flow,
   .stack-alert {
     padding: 14px;
   }
@@ -19021,12 +19023,76 @@ main section *,
   }
   .ag-cards-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .ag-card {
+    padding: 18px 16px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "badge badge"
+      "icon  title"
+      "p     p"
+      "meta  meta";
+    align-items: center;
+    column-gap: 12px;
+    row-gap: 8px;
+  }
+
+  .ag-card-badge {
+    grid-area: badge;
+    margin-bottom: 2px;
+  }
+
+  .ag-card-icon {
+    grid-area: icon;
+    font-size: 24px;
+    margin-bottom: 0;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ag-card-title {
+    grid-area: title;
+    font-size: 16px;
+    margin-bottom: 0;
+    line-height: 1.25;
+  }
+
+  .ag-card-p {
+    grid-area: p;
+    margin-top: 4px;
+    margin-bottom: 12px;
+    font-size: 12.5px;
+    line-height: 1.5;
+  }
+
+  .ag-card-meta {
+    grid-area: meta;
+    padding-top: 8px;
   }
 }
 
 @media (max-width: 640px) {
   .air-gap-section {
     padding: 64px 0 72px;
+  }
+  .ag-card {
+    padding: 16px 14px;
+    column-gap: 10px;
+    row-gap: 6px;
+  }
+  .ag-card-icon {
+    font-size: 22px;
+  }
+  .ag-card-title {
+    font-size: 15px;
+  }
+  .ag-card-p {
+    font-size: 12px;
   }
   .ag-head {
     text-align: center;
@@ -21509,8 +21575,34 @@ main section *,
     margin-inline: auto;
   }
   .anti-forensic-section .af-badges {
-    justify-content: center;
-    margin-inline: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    width: 100%;
+    max-width: 100%;
+    margin: 14px auto 0;
+    box-sizing: border-box;
+  }
+  .anti-forensic-section .af-badge {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 6px;
+    padding: 6px 9px;
+    font-size: 0.70rem;
+    line-height: 1.25;
+    letter-spacing: 0.02em;
+    border-radius: 6px;
+    background: rgba(4, 9, 16, 0.65);
+    box-sizing: border-box;
+    min-width: 0;
+    text-align: left;
+    white-space: normal;
+  }
+  .anti-forensic-section .af-badge .badge-dot {
+    width: 5px;
+    height: 5px;
+    flex-shrink: 0;
   }
   .anti-forensic-section .af-kicker {
     font-size: 0.68rem;
@@ -21829,6 +21921,14 @@ main section *,
   }
   .anti-forensic-section .af-term-btn {
     flex: 1 1 100%;
+  }
+  .anti-forensic-section .af-badges {
+    gap: 6px;
+    margin-top: 10px;
+  }
+  .anti-forensic-section .af-badge {
+    padding: 5px 7px;
+    font-size: 0.66rem;
   }
 }
 
@@ -22711,6 +22811,36 @@ main section *,
     text-align: center;
     margin-inline: auto;
   }
+  .qsat-badges {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    width: 100%;
+    max-width: 100%;
+    margin: 14px auto 0;
+    box-sizing: border-box;
+  }
+  .qsat-badge {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 6px;
+    padding: 6px 9px;
+    font-size: 0.70rem;
+    line-height: 1.25;
+    letter-spacing: 0.02em;
+    border-radius: 6px;
+    background: rgba(4, 9, 16, 0.65);
+    box-sizing: border-box;
+    min-width: 0;
+    text-align: left;
+    white-space: normal;
+  }
+  .qsat-badge .badge-dot {
+    width: 5px;
+    height: 5px;
+    flex-shrink: 0;
+  }
   .qsat-metrics-deck {
     grid-template-columns: 1fr;
   }
@@ -22730,6 +22860,17 @@ main section *,
   }
   .hw-arrow {
     transform: rotate(90deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .qsat-badges {
+    gap: 6px;
+    margin-top: 10px;
+  }
+  .qsat-badge {
+    padding: 5px 7px;
+    font-size: 0.66rem;
   }
 }
 
@@ -24773,8 +24914,34 @@ body.qgeo-modal-open {
     margin-inline: auto;
   }
   .qgeo-badges {
-    justify-content: center;
-    margin-inline: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    width: 100%;
+    max-width: 100%;
+    margin: 14px auto 0;
+    box-sizing: border-box;
+  }
+  .qgeo-badge {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 6px;
+    padding: 6px 9px;
+    font-size: 0.70rem;
+    line-height: 1.25;
+    letter-spacing: 0.02em;
+    border-radius: 6px;
+    background: rgba(4, 9, 16, 0.65);
+    box-sizing: border-box;
+    min-width: 0;
+    text-align: left;
+    white-space: normal;
+  }
+  .qgeo-badge .badge-dot {
+    width: 5px;
+    height: 5px;
+    flex-shrink: 0;
   }
   .qgeo-metrics-deck {
     grid-template-columns: 1fr;
@@ -24797,6 +24964,17 @@ body.qgeo-modal-open {
   }
   .qhc-name {
     font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .qgeo-badges {
+    gap: 6px;
+    margin-top: 10px;
+  }
+  .qgeo-badge {
+    padding: 5px 7px;
+    font-size: 0.66rem;
   }
 }
 
