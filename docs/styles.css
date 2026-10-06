@@ -23016,6 +23016,9 @@ main section *,
   .hw-arrow {
     transform: rotate(90deg);
   }
+  .qsat-serial-console {
+    display: none !important;
+  }
   .qsat-sat-selector {
     margin-bottom: 14px;
   }
