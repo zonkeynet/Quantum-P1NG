@@ -15888,40 +15888,41 @@ html.perf-lite .stack-scan-band {
 .finance-visual-stage {
   position: relative;
   z-index: 2;
-  margin: 36px 0 44px;
+  width: 100%;
+  max-width: 960px;
+  margin: 28px auto 38px;
+  contain: layout style;
 }
 
 .finance-stage-card {
   position: relative;
-  border-radius: 12px;
-  border: 1px solid rgba(247, 147, 26, 0.35);
+  border-radius: 10px;
+  border: 1px solid rgba(247, 147, 26, 0.25);
   background:
-    linear-gradient(180deg, rgba(14, 12, 10, 0.96), rgba(6, 6, 8, 0.97)),
-    radial-gradient(circle at 50% 0%, rgba(247, 147, 26, 0.12), transparent 60%);
+    linear-gradient(180deg, rgba(12, 11, 10, 0.95), rgba(5, 5, 7, 0.96)),
+    radial-gradient(circle at 50% 0%, rgba(247, 147, 26, 0.08), transparent 60%);
   box-shadow:
-    0 24px 70px rgba(0, 0, 0, 0.65),
-    0 0 50px rgba(247, 147, 26, 0.1),
-    inset 0 0 30px rgba(247, 147, 26, 0.04);
+    0 16px 45px rgba(0, 0, 0, 0.55),
+    0 0 25px rgba(247, 147, 26, 0.05);
   overflow: hidden;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .finance-stage-card:hover {
-  border-color: rgba(247, 147, 26, 0.55);
+  border-color: rgba(247, 147, 26, 0.45);
   box-shadow:
-    0 30px 80px rgba(0, 0, 0, 0.75),
-    0 0 60px rgba(247, 147, 26, 0.16),
-    inset 0 0 40px rgba(247, 147, 26, 0.06);
+    0 20px 55px rgba(0, 0, 0, 0.65),
+    0 0 35px rgba(247, 147, 26, 0.12);
 }
 
 .f-stage-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  padding: 12px 20px;
+  gap: 12px;
+  padding: 9px 16px;
   background: rgba(10, 9, 8, 0.95);
-  border-bottom: 1px solid rgba(247, 147, 26, 0.2);
+  border-bottom: 1px solid rgba(247, 147, 26, 0.18);
   flex-wrap: wrap;
 }
 
@@ -15947,9 +15948,9 @@ html.perf-lite .stack-scan-band {
 
 .f-stage-title {
   color: var(--btc, #f7931a);
-  font-size: 11.5px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
 }
 
 .f-stage-bar-right {
@@ -15960,11 +15961,11 @@ html.perf-lite .stack-scan-band {
 }
 
 .f-chip {
-  font-size: 10px;
+  font-size: 9.5px;
   font-weight: 600;
-  padding: 4px 9px;
+  padding: 3px 8px;
   border-radius: 4px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
 }
 
 .f-chip--btc {
@@ -15990,11 +15991,11 @@ html.perf-lite .stack-scan-band {
   align-items: center;
   gap: 5px;
   background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 4px;
   color: rgba(255, 255, 255, 0.85);
-  padding: 4px 10px;
-  font-size: 10px;
+  padding: 3px 9px;
+  font-size: 9.5px;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -16032,7 +16033,7 @@ html.perf-lite .stack-scan-band {
 }
 
 .f-stage-img-wrap:hover .f-stage-img {
-  transform: scale(1.025);
+  transform: scale(1.015);
 }
 
 .f-stage-scanline {
@@ -16205,34 +16206,34 @@ html.perf-lite .stack-scan-band {
 .f-stage-footer {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
-  padding: 16px 20px;
-  background: rgba(12, 11, 10, 0.95);
-  border-top: 1px solid rgba(247, 147, 26, 0.2);
+  gap: 12px;
+  padding: 11px 16px;
+  background: rgba(10, 9, 8, 0.95);
+  border-top: 1px solid rgba(247, 147, 26, 0.18);
 }
 
 .f-footer-stat {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 3px;
 }
 
 .f-stat-tag {
   color: var(--btc, #f7931a);
-  font-size: 9.5px;
-  letter-spacing: 0.08em;
+  font-size: 9px;
+  letter-spacing: 0.06em;
   font-weight: 700;
 }
 
 .f-footer-stat strong {
   color: #fff;
-  font-size: 13px;
+  font-size: 12px;
   letter-spacing: 0.02em;
 }
 
 .f-footer-stat small {
   color: rgba(210, 220, 230, 0.65);
-  font-size: 10px;
+  font-size: 9.5px;
 }
 
 /* ==========================================================================
