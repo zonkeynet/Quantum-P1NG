@@ -9890,9 +9890,42 @@ if (terminal && gamesGrid) {
     });
   }
 
+  const btcVideo = document.getElementById('f-stage-video');
+  const btcStageBody = document.getElementById('f-stage-body');
+
+  function toggleBtcVideo(e) {
+    if (!btcVideo) return;
+    if (e) e.preventDefault();
+    if (btcVideo.paused) {
+      const playPromise = btcVideo.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {});
+      }
+    } else {
+      btcVideo.pause();
+    }
+  }
+
+  if (btcVideo) {
+    btcVideo.addEventListener('click', toggleBtcVideo);
+  }
+
+  if (btcStageBody) {
+    btcStageBody.addEventListener('click', (e) => {
+      if (e.target === btcVideo) return;
+      toggleBtcVideo(e);
+    });
+
+    btcStageBody.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleBtcVideo(e);
+      }
+    });
+  }
+
   if (imgWrap) {
     imgWrap.addEventListener('click', (e) => {
-      // Ignore if user tapped directly on a hotspot or its popover
       if (e.target.closest('.f-hotspot')) return;
       e.preventDefault();
       openBtcModal();

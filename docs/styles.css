@@ -15745,11 +15745,9 @@ html.perf-lite .stack-scan-band {
 }
 
 .finance-hero {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(360px, 450px);
-  gap: 34px;
-  align-items: end;
-  margin-bottom: 34px;
+  display: block;
+  max-width: 960px;
+  margin-bottom: 26px;
 }
 
 .finance-copy {
@@ -15837,66 +15835,22 @@ html.perf-lite .stack-scan-band {
   text-transform: uppercase;
 }
 
-.finance-status-board {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-
-.finance-status-board div {
-  min-width: 0;
-  padding: 15px 14px;
-  border: 1px solid rgba(247, 147, 26, 0.18);
-  border-radius: 8px;
-  background: rgba(8, 7, 6, 0.64);
-  box-shadow: inset 0 0 28px rgba(247, 147, 26, 0.055);
-}
-
-.finance-status-board span,
-.finance-status-board strong,
-.finance-status-board em {
-  display: block;
-  min-width: 0;
-  letter-spacing: 0;
-}
-
-.finance-status-board span {
-  color: rgba(0, 243, 255, 0.82);
-  font-size: 11px;
-  line-height: 1;
-}
-
-.finance-status-board strong {
-  margin-top: 9px;
-  color: rgba(255, 255, 255, 0.94);
-  font-size: 13px;
-  line-height: 1.15;
-  overflow-wrap: anywhere;
-}
-
-.finance-status-board em {
-  margin-top: 6px;
-  color: rgba(190, 199, 204, 0.72);
-  font-size: 11px;
-  font-style: normal;
-  line-height: 1.35;
-}
-
-/* ==========================================================================
-   FINANCIAL SOVEREIGNTY: ARCHITECTURAL VISUAL STAGE & HOTSPOTS
-   ========================================================================== */
 .finance-visual-stage {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 960px;
+  max-width: 100%;
   margin: 28px auto 38px;
   contain: layout style;
+  display: grid;
+  grid-template-columns: minmax(0, 1.85fr) minmax(320px, 1fr);
+  gap: 24px;
+  align-items: stretch;
 }
 
 .finance-stage-card {
   position: relative;
-  border-radius: 10px;
+  border-radius: 12px;
   border: 1px solid rgba(247, 147, 26, 0.25);
   background:
     linear-gradient(180deg, rgba(12, 11, 10, 0.95), rgba(5, 5, 7, 0.96)),
@@ -15906,6 +15860,8 @@ html.perf-lite .stack-scan-band {
     0 0 25px rgba(247, 147, 26, 0.05);
   overflow: hidden;
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .finance-stage-card:hover {
@@ -15913,6 +15869,67 @@ html.perf-lite .stack-scan-band {
   box-shadow:
     0 20px 55px rgba(0, 0, 0, 0.65),
     0 0 35px rgba(247, 147, 26, 0.12);
+}
+
+.finance-visual-stage .finance-status-board {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+  margin: 0;
+}
+
+.finance-visual-stage .finance-status-board div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  padding: 16px 20px;
+  border: 1px solid rgba(247, 147, 26, 0.22);
+  border-radius: 10px;
+  background:
+    linear-gradient(180deg, rgba(14, 12, 10, 0.94), rgba(7, 6, 8, 0.96)),
+    radial-gradient(circle at 100% 0%, rgba(247, 147, 26, 0.08), transparent 70%);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.45),
+    inset 0 0 24px rgba(247, 147, 26, 0.04);
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.finance-visual-stage .finance-status-board div:hover {
+  border-color: rgba(247, 147, 26, 0.48);
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(247, 147, 26, 0.12);
+  transform: translateY(-2px);
+}
+
+.finance-visual-stage .finance-status-board span {
+  display: block;
+  color: rgba(0, 243, 255, 0.9);
+  font-size: 11px;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+
+.finance-visual-stage .finance-status-board strong {
+  display: block;
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.96);
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+.finance-visual-stage .finance-status-board em {
+  display: block;
+  margin-top: 6px;
+  color: rgba(200, 212, 222, 0.76);
+  font-size: 11.5px;
+  font-style: normal;
+  line-height: 1.4;
 }
 
 .f-stage-bar {
@@ -16013,6 +16030,24 @@ html.perf-lite .stack-scan-band {
   width: 100%;
   overflow: hidden;
   background: #040406;
+  cursor: pointer;
+}
+
+.f-stage-video-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #000;
+  cursor: pointer;
+}
+
+.f-stage-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  cursor: pointer;
 }
 
 .f-stage-img-wrap {
@@ -16719,8 +16754,21 @@ body.btc-modal-open {
     font-size: 70px;
   }
 
-  .finance-status-board {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+  .finance-visual-stage {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .finance-visual-stage .finance-status-board {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    height: auto;
+  }
+
+  .finance-visual-stage .finance-status-board div {
+    flex: none;
+    padding: 14px 16px;
   }
 
   .finance-pro-grid {
@@ -16839,6 +16887,10 @@ body.btc-modal-open {
   }
 
   .f-stage-footer {
+    grid-template-columns: 1fr;
+  }
+
+  .finance-visual-stage .finance-status-board {
     grid-template-columns: 1fr;
   }
 
@@ -24898,7 +24950,7 @@ body.qgeo-modal-open {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 1220px;
+  max-width: 100%;
   margin: 28px auto 44px;
   contain: layout style;
 }

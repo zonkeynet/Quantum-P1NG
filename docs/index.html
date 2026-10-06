@@ -45,10 +45,11 @@
   <meta name="twitter:image" content="https://www.qp1ng.com/assets/img/social-preview.png" />
 
   <link rel="preload" href="assets/fonts/square_dot_digital_qp1ng.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="styles.css?v=2.8.9" as="style" />
+  <link rel="preload" href="styles.css?v=2.9.0" as="style" />
   <link rel="preload" as="image" href="assets/vid/intro_bg_poster.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/intro_mobile_poster.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/qmap_poster.webp">
+  <link rel="preload" as="image" href="assets/vid/btc_vault_poster.webp" type="image/webp">
   <link rel="preload" as="image" href="assets/img/qp1ng_icon.png" fetchpriority="high" />
   <script>
     try {
@@ -59,7 +60,7 @@
       }
     } catch(e){}
   </script>
-  <link rel="stylesheet" href="styles.css?v=2.8.9" />
+  <link rel="stylesheet" href="styles.css?v=2.9.0" />
 
   <!-- Schema.org Comprehensive Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -3616,13 +3617,6 @@ _
           <span>Watch-only export</span>
         </div>
       </div>
-
-      <div class="finance-status-board mono" aria-label="Bitcoin vault status board">
-        <div><span>KEYS</span><strong>LOCAL ONLY</strong><em>Seed and descriptors stay device-side.</em></div>
-        <div><span>ROUTE</span><strong>TOR READY</strong><em>Electrum traffic can use SOCKS isolation.</em></div>
-        <div><span>PROOFS</span><strong>QR + CHAT</strong><em>Receipts can be shared or verified.</em></div>
-        <div><span>CONTROL</span><strong>UTXO + RBF</strong><em>Inspect coins, fees and replacements.</em></div>
-      </div>
     </div>
 
     <!-- ARCHITECTURAL VISUAL CENTERPIECE: BITCOIN VAULT & TOR NETWORK -->
@@ -3645,85 +3639,24 @@ _
           </div>
         </div>
 
-        <!-- Main Image Stage with Hotspots -->
-        <div class="f-stage-body">
-          <div class="f-stage-img-wrap" id="f-stage-img-wrap" role="button" tabindex="0" aria-label="Click to inspect Bitcoin Vault in high resolution">
-            <img src="assets/img/bitcoin_vault.webp?v=1.1" srcset="assets/img/bitcoin_vault.webp?v=1.1 1200w, assets/img/bitcoin_vault_hd.webp?v=1.1 1672w" sizes="(max-width: 960px) 100vw, 960px" alt="Quantum P1NG Bitcoin Hardware Vault, Tor Onion Routing, Carrier Pigeon and Signed Payment Receipts" class="f-stage-img" width="1672" height="941" loading="lazy" decoding="async">
+        <!-- Main Video Stage -->
+        <div class="f-stage-body" id="f-stage-body" role="button" tabindex="0" aria-label="Click to play or pause Bitcoin Vault video">
+          <div class="f-stage-video-wrap">
+            <video
+              id="f-stage-video"
+              class="f-stage-video"
+              poster="assets/vid/btc_vault_poster.webp"
+              preload="metadata"
+              muted
+              playsinline
+              loop
+              aria-label="Quantum P1NG Bitcoin Hardware Vault &amp; Tor Relay Architecture Demo"
+            >
+              <source src="assets/vid/btc_vault.webm" type="video/webm" />
+              <source src="assets/vid/btc_vault.mp4" type="video/mp4" />
+            </video>
             <div class="f-stage-scanline" aria-hidden="true"></div>
             <div class="f-stage-vignette" aria-hidden="true"></div>
-
-            <!-- Interactive Tactical Hotspots pointing to artwork components -->
-            <div class="f-hotspot f-hotspot--pigeon mono" style="left: 20%; top: 40%;" tabindex="0" aria-label="Hotspot: Carrier Pigeon Mesh">
-              <span class="f-hotspot-beacon"></span>
-              <span class="f-hotspot-ping"></span>
-              <div class="f-hotspot-pop">
-                <div class="f-pop-head">
-                  <span class="f-pop-badge txt-cyan">01 // MESH TRANSPORT</span>
-                  <strong>CARRIER PIGEON OPSEC</strong>
-                </div>
-                <p>Ed25519-signed offline payment packets and Nostr receipts carried over zero-cloud radio hops.</p>
-              </div>
-            </div>
-
-            <div class="f-hotspot f-hotspot--vault mono" style="left: 48%; top: 48%;" tabindex="0" aria-label="Hotspot: BDK Hardware Vault">
-              <span class="f-hotspot-beacon"></span>
-              <span class="f-hotspot-ping"></span>
-              <div class="f-hotspot-pop">
-                <div class="f-pop-head">
-                  <span class="f-pop-badge txt-amber">02 // ON-DEVICE VAULT</span>
-                  <strong>BDK HARDWARE VAULT</strong>
-                </div>
-                <p>BIP84 Native SegWit self-custody. Private keys guarded by Android BiometricPrompt &amp; hardware keystore.</p>
-              </div>
-            </div>
-
-            <div class="f-hotspot f-hotspot--tor mono" style="left: 69%; top: 50%;" tabindex="0" aria-label="Hotspot: Tor Onion Isolation">
-              <span class="f-hotspot-beacon"></span>
-              <span class="f-hotspot-ping"></span>
-              <div class="f-hotspot-pop">
-                <div class="f-pop-head">
-                  <span class="f-pop-badge txt-cyan">03 // TOR ISOLATION</span>
-                  <strong>TOR SOCKS5 ONION ROUTING</strong>
-                </div>
-                <p>Electrum blockchain sync and transaction broadcast strictly routed through 3-hop Tor circuits. Zero IP leaks.</p>
-              </div>
-            </div>
-
-            <div class="f-hotspot f-hotspot--receipts mono" style="left: 88%; top: 40%;" tabindex="0" aria-label="Hotspot: Verifiable Proofs">
-              <span class="f-hotspot-beacon"></span>
-              <span class="f-hotspot-ping"></span>
-              <div class="f-hotspot-pop">
-                <div class="f-pop-head">
-                  <span class="f-pop-badge txt-green">04 // VERIFIABLE PROOFS</span>
-                  <strong>SIGNED CHAT RECEIPTS &amp; QR</strong>
-                </div>
-                <p>Proof-of-payment receipts, Nostr event proofs, and air-gapped QR vouchers verified cryptographically.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Mobile Hotspots Telemetry Deck (Clean Cards beneath on narrow screens) -->
-        <div class="f-stage-mobile-cards mono">
-          <div class="f-mobile-card">
-            <span class="txt-cyan">01 // MESH TRANSPORT</span>
-            <strong>Carrier Pigeon OPSEC</strong>
-            <p>Signed payment envelopes hopping radio mesh</p>
-          </div>
-          <div class="f-mobile-card">
-            <span class="txt-amber">02 // ON-DEVICE VAULT</span>
-            <strong>BDK Hardware Vault</strong>
-            <p>BIP84 Native SegWit local biometric custody</p>
-          </div>
-          <div class="f-mobile-card">
-            <span class="txt-cyan">03 // TOR ISOLATION</span>
-            <strong>Tor Onion Routing</strong>
-            <p>Zero IP triangulation over isolated Tor circuits</p>
-          </div>
-          <div class="f-mobile-card">
-            <span class="txt-green">04 // PROOFS &amp; QR</span>
-            <strong>Signed Chat Receipts</strong>
-            <p>Verifiable air-gapped QR and Nostr payment proofs</p>
           </div>
         </div>
 
@@ -3750,6 +3683,14 @@ _
             <small>Verifiable off-chain &amp; on-chain</small>
           </div>
         </div>
+      </div>
+
+      <!-- Right Column: Status Board -->
+      <div class="finance-status-board mono" aria-label="Bitcoin vault status board">
+        <div><span>KEYS</span><strong>LOCAL ONLY</strong><em>Seed and descriptors stay device-side.</em></div>
+        <div><span>ROUTE</span><strong>TOR READY</strong><em>Electrum traffic can use SOCKS isolation.</em></div>
+        <div><span>PROOFS</span><strong>QR + CHAT</strong><em>Receipts can be shared or verified.</em></div>
+        <div><span>CONTROL</span><strong>UTXO + RBF</strong><em>Inspect coins, fees and replacements.</em></div>
       </div>
     </div>
 
@@ -7505,6 +7446,6 @@ _
     </div>
   </div>
 
-  <script src="script.js?v=2.6.14" defer></script>
+  <script src="script.js?v=2.6.15" defer></script>
 </body>
 </html>
