@@ -43,7 +43,7 @@ if (-not (Test-Path $ffmpeg)) {
     $ffmpegCmd = Get-Command ffmpeg -ErrorAction SilentlyContinue
     if ($ffmpegCmd) { $ffmpeg = $ffmpegCmd.Source }
     else {
-        Write-Warning "FFmpeg non trovato in PATH. Verrà salvato solo il file grezzo."
+        Write-Warning "FFmpeg non trovato in PATH. Verra salvato solo il file grezzo."
         $ffmpeg = $null
     }
 }
@@ -51,7 +51,8 @@ if (-not (Test-Path $ffmpeg)) {
 # 3. Richiedi nome clip se non fornito
 if ([string]::IsNullOrWhiteSpace($Name)) {
     $defaultName = "clip_" + (Get-Date -Format "yyyyMMdd_HHmmss")
-    Write-Host "`n>>> Inserisci il nome della feature o scena (es. btc_vault, qgeo, actionforge, chat)" -ForegroundColor Cyan
+    Write-Host ""
+    Write-Host ">>> Inserisci il nome della feature o scena (es. btc_vault, qgeo, actionforge, chat)" -ForegroundColor Cyan
     $inputName = Read-Host "Nome clip [Default: $defaultName]"
     if ([string]::IsNullOrWhiteSpace($inputName)) {
         $Name = $defaultName
@@ -78,11 +79,13 @@ Write-Host " Nome Scena:     $Name" -ForegroundColor White
 Write-Host " Finestra PC:    Attiva a 60fps con feedback tocchi" -ForegroundColor White
 Write-Host " File Grezzo:    $rawVideo" -ForegroundColor Gray
 Write-Host "=================================================================" -ForegroundColor Cyan
-Write-Host "`nISTRUZIONI:" -ForegroundColor Yellow
-Write-Host " 1. Si aprirà una finestra sul monitor con lo schermo del Pixel 10a." -ForegroundColor White
+Write-Host ""
+Write-Host "ISTRUZIONI:" -ForegroundColor Yellow
+Write-Host " 1. Si apre una finestra sul monitor con lo schermo del Pixel 10a." -ForegroundColor White
 Write-Host " 2. Puoi toccare lo schermo del telefono o usare il mouse sul PC." -ForegroundColor White
 Write-Host " 3. Quando hai completato la scena, CHIUDI LA FINESTRA sul PC." -ForegroundColor Yellow
-Write-Host " 4. L'ottimizzazione FFmpeg (MP4, WebM, WebP) partirà in automatico!`n" -ForegroundColor White
+Write-Host " 4. L ottimizzazione FFmpeg (MP4, WebM, WebP) parte in automatico." -ForegroundColor White
+Write-Host ""
 
 Write-Host "Avvio in corso..." -ForegroundColor Cyan
 
@@ -98,19 +101,21 @@ $scrcpyArgs = @(
 
 $proc = Start-Process -FilePath $scrcpy -ArgumentList $scrcpyArgs -PassThru -Wait
 
-Write-Host "`n[✓] Sessione live terminata. Finalizzazione video..." -ForegroundColor Green
+Write-Host ""
+Write-Host "[OK] Sessione live terminata. Finalizzazione video..." -ForegroundColor Green
 
 if (-not (Test-Path $rawVideo)) {
     Write-Warning "Nessun video registrato o registrazione annullata."
     exit 0
 }
 
-$rawSize = (Get-Item $rawVideo).Length / 1MB
-Write-Host "Video grezzo registrato: $('{0:N2}' -f $rawSize) MB" -ForegroundColor Green
+$rawMb = [math]::Round((Get-Item $rawVideo).Length / 1MB, 2)
+Write-Host ("Video grezzo registrato: " + $rawMb + " MB") -ForegroundColor Green
 
 # Ottimizzazione automatica con FFmpeg
 if ($ffmpeg) {
-    Write-Host "`n=================================================================" -ForegroundColor Cyan
+    Write-Host ""
+    Write-Host "=================================================================" -ForegroundColor Cyan
     Write-Host "        OTTIMIZZAZIONE FFMPEG IN CORSO...                       " -ForegroundColor Yellow
     Write-Host "=================================================================" -ForegroundColor Cyan
 
@@ -128,23 +133,24 @@ if ($ffmpeg) {
     Write-Host "[3/3] Generazione Poster WebP ad alta risoluzione..." -ForegroundColor Cyan
     & $ffmpeg -y -ss 00:00:00.600 -i $rawVideo -vframes 1 -vf "$scaleFilter" -c:v libwebp -quality 85 $outPoster 2>&1 | Out-Null
 
-    Write-Host "`n=================================================================" -ForegroundColor Green
+    Write-Host ""
+    Write-Host "=================================================================" -ForegroundColor Green
     Write-Host "      TUTTI I FORMATI SONO STATI GENERATI CON SUCCESSO!         " -ForegroundColor Green
     Write-Host "=================================================================" -ForegroundColor Green
     
     if (Test-Path $outMp4) {
-        $mp4Size = (Get-Item $outMp4).Length / 1KB
-        Write-Host " -> MP4:    $outMp4 ($('{0:N1}' -f $mp4Size) KB)" -ForegroundColor White
+        $mp4Kb = [math]::Round((Get-Item $outMp4).Length / 1KB, 1)
+        Write-Host (" -> MP4:    " + $outMp4 + " [" + $mp4Kb + " KB]") -ForegroundColor White
     }
     if (Test-Path $outWebm) {
-        $webmSize = (Get-Item $outWebm).Length / 1KB
-        Write-Host " -> WebM:   $outWebm ($('{0:N1}' -f $webmSize) KB)" -ForegroundColor White
+        $webmKb = [math]::Round((Get-Item $outWebm).Length / 1KB, 1)
+        Write-Host (" -> WebM:   " + $outWebm + " [" + $webmKb + " KB]") -ForegroundColor White
     }
     if (Test-Path $outPoster) {
-        $pSize = (Get-Item $outPoster).Length / 1KB
-        Write-Host " -> Poster: $outPoster ($('{0:N1}' -f $pSize) KB)" -ForegroundColor White
+        $posterKb = [math]::Round((Get-Item $outPoster).Length / 1KB, 1)
+        Write-Host (" -> Poster: " + $outPoster + " [" + $posterKb + " KB]") -ForegroundColor White
     }
 
-    # Apri la cartella di output in Explorer per l'utente
+    # Apri la cartella di output in Explorer per l utente
     Start-Process "explorer.exe" -ArgumentList $optDir
 }

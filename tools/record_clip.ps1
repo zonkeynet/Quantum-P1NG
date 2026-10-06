@@ -125,8 +125,8 @@ if (-not (Test-Path $localRawPath)) {
     exit 1
 }
 
-$rawSize = (Get-Item $localRawPath).Length / 1MB
-Write-Host "Video grezzo scaricato con successo! Dimensioni: $('{0:N2}' -f $rawSize) MB" -ForegroundColor Green
+$rawMb = [math]::Round((Get-Item $localRawPath).Length / 1MB, 2)
+Write-Host ("Video grezzo scaricato con successo! Dimensioni: " + $rawMb + " MB") -ForegroundColor Green
 
 # 6. Ottimizzazione automatica con FFmpeg
 if ($ffmpeg) {
@@ -156,16 +156,16 @@ if ($ffmpeg) {
     Write-Host "==========================================================" -ForegroundColor Green
     
     if (Test-Path $outMp4) {
-        $mp4Size = (Get-Item $outMp4).Length / 1KB
-        Write-Host "  MP4 Web:    $outMp4 ($('{0:N1}' -f $mp4Size) KB)" -ForegroundColor White
+        $mp4Kb = [math]::Round((Get-Item $outMp4).Length / 1KB, 1)
+        Write-Host ("  MP4 Web:    " + $outMp4 + " [" + $mp4Kb + " KB]") -ForegroundColor White
     }
     if (Test-Path $outWebm) {
-        $webmSize = (Get-Item $outWebm).Length / 1KB
-        Write-Host "  WebM Web:   $outWebm ($('{0:N1}' -f $webmSize) KB)" -ForegroundColor White
+        $webmKb = [math]::Round((Get-Item $outWebm).Length / 1KB, 1)
+        Write-Host ("  WebM Web:   " + $outWebm + " [" + $webmKb + " KB]") -ForegroundColor White
     }
     if (Test-Path $outPoster) {
-        $pSize = (Get-Item $outPoster).Length / 1KB
-        Write-Host "  Poster:     $outPoster ($('{0:N1}' -f $pSize) KB)" -ForegroundColor White
+        $posterKb = [math]::Round((Get-Item $outPoster).Length / 1KB, 1)
+        Write-Host ("  Poster:     " + $outPoster + " [" + $posterKb + " KB]") -ForegroundColor White
     }
 } else {
     Write-Host "`nFile salvato in: $localRawPath" -ForegroundColor Green
