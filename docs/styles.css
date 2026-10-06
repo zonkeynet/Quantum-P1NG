@@ -23095,7 +23095,7 @@ main section *,
 .qgeo-flow-img-box {
   position: relative;
   width: 100%;
-  aspect-ratio: 9 / 16;
+  aspect-ratio: 4 / 3;
   background: #020712;
   overflow: hidden;
 }
@@ -23109,7 +23109,7 @@ main section *,
 }
 
 .qgeo-flow-card:hover .qgeo-flow-img-box img {
-  transform: scale(1.03);
+  transform: scale(1.04);
 }
 
 .qgeo-flow-tag {
@@ -23179,23 +23179,31 @@ main section *,
 }
 
 .qgeo-pillar-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  background: rgba(0, 242, 255, 0.08);
-  border: 1px solid rgba(0, 242, 255, 0.25);
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(0, 242, 255, 0.15) 0%, rgba(10, 22, 40, 0.85) 100%);
+  border: 1px solid rgba(0, 242, 255, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--neon-cyan, #00f2ff);
-  box-shadow: 0 0 14px rgba(0, 242, 255, 0.15);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4), 0 0 16px rgba(0, 242, 255, 0.2);
   flex-shrink: 0;
+  transition: all 0.25s ease;
+}
+
+.qgeo-pillar-card:hover .qgeo-pillar-icon {
+  transform: scale(1.06);
+  border-color: var(--neon-cyan);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5), 0 0 24px rgba(0, 242, 255, 0.35);
 }
 
 .qgeo-pillar-icon img {
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
   display: block;
+  filter: drop-shadow(0 0 8px rgba(0, 242, 255, 0.6));
 }
 
 .qgeo-pillar-card h4 {
@@ -23408,26 +23416,83 @@ main section *,
 }
 
 .qhc-icon-wrap {
-  width: 32px;
-  height: 32px;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(16, 26, 46, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.f-threat .qhc-icon-wrap {
+  background: radial-gradient(circle at center, rgba(255, 51, 102, 0.22) 0%, rgba(18, 22, 34, 0.9) 100%);
+  border-color: rgba(255, 51, 102, 0.45);
+  box-shadow: 0 0 12px rgba(255, 51, 102, 0.25), inset 0 0 8px rgba(255, 51, 102, 0.1);
+}
+
+.f-access .qhc-icon-wrap {
+  background: radial-gradient(circle at center, rgba(255, 184, 0, 0.22) 0%, rgba(22, 24, 34, 0.9) 100%);
+  border-color: rgba(255, 184, 0, 0.45);
+  box-shadow: 0 0 12px rgba(255, 184, 0, 0.25), inset 0 0 8px rgba(255, 184, 0, 0.1);
+}
+
+.f-service .qhc-icon-wrap {
+  background: radial-gradient(circle at center, rgba(0, 242, 255, 0.22) 0%, rgba(14, 26, 42, 0.9) 100%);
+  border-color: rgba(0, 242, 255, 0.45);
+  box-shadow: 0 0 12px rgba(0, 242, 255, 0.25), inset 0 0 8px rgba(0, 242, 255, 0.1);
+}
+
+.f-support .qhc-icon-wrap {
+  background: radial-gradient(circle at center, rgba(0, 255, 157, 0.22) 0%, rgba(14, 28, 38, 0.9) 100%);
+  border-color: rgba(0, 255, 157, 0.45);
+  box-shadow: 0 0 12px rgba(0, 255, 157, 0.25), inset 0 0 8px rgba(0, 255, 157, 0.1);
+}
+
+.f-other .qhc-icon-wrap {
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.15) 0%, rgba(16, 22, 34, 0.9) 100%);
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
 }
 
 .qgeo-hazard-card:hover .qhc-icon-wrap {
-  transform: scale(1.08);
+  transform: scale(1.1);
+}
+
+.f-threat:hover .qhc-icon-wrap {
+  box-shadow: 0 0 18px rgba(255, 51, 102, 0.5), inset 0 0 12px rgba(255, 51, 102, 0.2);
+  border-color: var(--neon-red);
+}
+
+.f-access:hover .qhc-icon-wrap {
+  box-shadow: 0 0 18px rgba(255, 184, 0, 0.5), inset 0 0 12px rgba(255, 184, 0, 0.2);
+  border-color: var(--neon-amber);
+}
+
+.f-service:hover .qhc-icon-wrap {
+  box-shadow: 0 0 18px rgba(0, 242, 255, 0.5), inset 0 0 12px rgba(0, 242, 255, 0.2);
+  border-color: var(--neon-cyan);
+}
+
+.f-support:hover .qhc-icon-wrap {
+  box-shadow: 0 0 18px rgba(0, 255, 157, 0.5), inset 0 0 12px rgba(0, 255, 157, 0.2);
+  border-color: var(--neon-green);
 }
 
 .qhc-icon-wrap img {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   display: block;
 }
+
+.f-threat .qhc-icon-wrap img { filter: drop-shadow(0 0 6px rgba(255, 51, 102, 0.6)); }
+.f-access .qhc-icon-wrap img { filter: drop-shadow(0 0 6px rgba(255, 184, 0, 0.6)); }
+.f-service .qhc-icon-wrap img { filter: drop-shadow(0 0 6px rgba(0, 242, 255, 0.6)); }
+.f-support .qhc-icon-wrap img { filter: drop-shadow(0 0 6px rgba(0, 255, 157, 0.6)); }
+.f-other .qhc-icon-wrap img { filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.6)); }
 
 .qhc-code {
   font-size: 0.72rem;
@@ -23502,24 +23567,36 @@ main section *,
 .icon-legend-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px 12px;
-  background: rgba(14, 24, 40, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  gap: 12px;
+  padding: 12px 14px;
+  background: rgba(10, 18, 34, 0.75);
+  border: 1px solid rgba(0, 242, 255, 0.2);
   border-radius: 8px;
-  transition: border-color 0.2s ease, background 0.2s ease;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
 }
 
 .icon-legend-item:hover {
-  border-color: rgba(0, 242, 255, 0.35);
-  background: rgba(14, 24, 40, 0.85);
+  border-color: rgba(0, 242, 255, 0.5);
+  background: rgba(14, 26, 46, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 16px rgba(0, 242, 255, 0.2);
 }
 
 .icon-legend-item img {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  background: rgba(0, 242, 255, 0.08);
+  border: 1px solid rgba(0, 242, 255, 0.25);
+  border-radius: 8px;
   flex-shrink: 0;
-  filter: drop-shadow(0 0 6px rgba(0, 242, 255, 0.4));
+  filter: drop-shadow(0 0 8px rgba(0, 242, 255, 0.5));
+  transition: transform 0.2s ease;
+}
+
+.icon-legend-item:hover img {
+  transform: scale(1.08);
 }
 
 .icon-legend-item div {

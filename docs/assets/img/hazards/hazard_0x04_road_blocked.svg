@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
-  <path d="M9,26H14V41H9Z" fill="currentColor" fill-rule="evenodd"/>
-  <path d="M38,26H42V41H38Z" fill="currentColor" fill-rule="evenodd"/>
-  <path d="M50,27H1V10H50V27Z M3,25H48V12H3V25Z" fill="currentColor" fill-rule="evenodd"/>
-  <path d="M30.965,13L24.78,24H30.73L36.916,13Z" fill="currentColor" fill-rule="evenodd"/>
-  <path d="M4,13V24H6.527L12.712,13Z" fill="currentColor" fill-rule="evenodd"/>
-  <path d="M18.862,13L12.678,24H18.629L24.815,13Z" fill="currentColor" fill-rule="evenodd"/>
-  <path d="M47,13H43.066L36.883,24H42.814L47,16.036Z" fill="currentColor" fill-rule="evenodd"/>
+  <path d="M9,26H14V41H9Z" fill="#FFB800" fill-rule="evenodd"/>
+  <path d="M38,26H42V41H38Z" fill="#FFB800" fill-rule="evenodd"/>
+  <path d="M50,27H1V10H50V27Z M3,25H48V12H3V25Z" fill="#FFB800" fill-rule="evenodd"/>
+  <path d="M30.965,13L24.78,24H30.73L36.916,13Z" fill="#FFB800" fill-rule="evenodd"/>
+  <path d="M4,13V24H6.527L12.712,13Z" fill="#FFB800" fill-rule="evenodd"/>
+  <path d="M18.862,13L12.678,24H18.629L24.815,13Z" fill="#FFB800" fill-rule="evenodd"/>
+  <path d="M47,13H43.066L36.883,24H42.814L47,16.036Z" fill="#FFB800" fill-rule="evenodd"/>
 </svg>
