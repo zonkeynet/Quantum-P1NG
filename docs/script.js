@@ -8227,6 +8227,13 @@ if (terminal && gamesGrid) {
       src: "assets/img/qgeo_flow_vhf.webp?v=4.3",
       title: "VHF Walkie-Talkie Audio Relay",
       desc: "Connected via 3.5mm TRRS audio cable or AIOC interface to commercial analog VHF/UHF transceivers. Hazards are Ed25519-signed, hardened with Reed-Solomon FEC, and modulated as audio tones."
+    },
+    {
+      index: 5,
+      tag: "FLOW 06 // BROUTER SAFE EGRESS",
+      src: "assets/img/qgeo_flow_egress.webp?v=4.3",
+      title: "Offline BRouter Safe Egress & Geofencing",
+      desc: "Computes on-device turn-by-turn evacuation vectors for foot patrols, bicycles, and 4x4s without cell towers. The routing graph dynamically bends around verified hazard pins (mines, shelling, checkpoints) while haptic geofence alerts warn operators within 500m."
     }
   ];
 
