@@ -8189,6 +8189,228 @@ if (terminal && gamesGrid) {
     }
   });
 
+  // ==========================================================================
+  // Q-GEO TACTICAL FLOW ZOOM & HIGH-RES INSPECTION MODAL
+  // ==========================================================================
+  const QGEO_FLOWS = [
+    {
+      index: 0,
+      tag: "FLOW 01 // RESILIENT MAPPING",
+      src: "assets/img/qgeo_flow_crisis.webp?v=4.3",
+      title: "Offline Vector Cartography",
+      desc: "Protected on-device mascot, zero cloud server dependencies. Vector basemaps (MBTiles/PMTiles) are cached locally and GPU-rendered at 60 FPS alongside mesh radio peers and hazard markers."
+    },
+    {
+      index: 1,
+      tag: "FLOW 02 // TOR FAIL-CLOSED",
+      src: "assets/img/qgeo_flow_tor.webp?v=4.3",
+      title: "Tor Isolation & Clearnet Block",
+      desc: "When internet connectivity is available, all remote tile queries route strictly through an isolated 3-hop Tor circuit. Direct clearnet IP leaks are strictly blocked (fail-closed) to prevent operator triangulation."
+    },
+    {
+      index: 2,
+      tag: "FLOW 03 // P2P MESH BLACKOUT",
+      src: "assets/img/qgeo_flow_mesh.webp?v=4.3",
+      title: "Bluetooth & Wi-Fi Direct Mesh",
+      desc: "During cellular network blackouts, handsets form a zero-infrastructure ad-hoc mesh. Signed hazard events (formatted as compact QG1:Base64... frames) hop peer-to-peer in real time without cellular towers."
+    },
+    {
+      index: 3,
+      tag: "FLOW 04 // LORA MEDIUM-RANGE",
+      src: "assets/img/qgeo_flow_lora.webp?v=4.3",
+      title: "LoRa Mesh Radio Relay (LilyGO T-Deck)",
+      desc: "Bridging the handset via BLE to a LilyGO T-Deck or Meshtastic node allows encrypted QGR1 packets to travel over 868/915 MHz mountain and urban repeaters across multi-kilometer spans."
+    },
+    {
+      index: 4,
+      tag: "FLOW 05 // VHF WALKIE-TALKIE",
+      src: "assets/img/qgeo_flow_vhf.webp?v=4.3",
+      title: "VHF Walkie-Talkie Audio Relay",
+      desc: "Connected via 3.5mm TRRS audio cable or AIOC interface to commercial analog VHF/UHF transceivers. Hazards are Ed25519-signed, hardened with Reed-Solomon FEC, and modulated as audio tones."
+    }
+  ];
+
+  const zoomModal = document.getElementById('qgeo-zoom-modal');
+  const zoomBackdrop = document.getElementById('qgeo-zoom-backdrop');
+  const zoomCloseBtn = document.getElementById('qgeo-zoom-close');
+  const zoomPrevBtn = document.getElementById('qgeo-zoom-prev');
+  const zoomNextBtn = document.getElementById('qgeo-zoom-next');
+  const zoomToggleFitBtn = document.getElementById('qgeo-zoom-toggle-fit');
+  const zoomFitText = document.getElementById('zoom-fit-text');
+  const zoomViewport = document.getElementById('qgeo-zoom-viewport');
+  const zoomImg = document.getElementById('qgeo-zoom-img');
+  const zoomTag = document.getElementById('qgeo-zoom-tag');
+  const zoomCounter = document.getElementById('qgeo-zoom-counter');
+  const zoomTitle = document.getElementById('qgeo-zoom-title');
+  const zoomDesc = document.getElementById('qgeo-zoom-desc');
+  const zoomNavSteps = zoomModal ? zoomModal.querySelectorAll('.zoom-nav-step') : [];
+
+  let currentFlowIndex = 0;
+  let isZoomed100 = false;
+  let isPanning = false;
+  let panStartX = 0, panStartY = 0;
+  let scrollStartX = 0, scrollStartY = 0;
+
+  function renderFlowModal(idx) {
+    if (idx < 0) idx = QGEO_FLOWS.length - 1;
+    if (idx >= QGEO_FLOWS.length) idx = 0;
+    currentFlowIndex = idx;
+    const flow = QGEO_FLOWS[idx];
+    if (!flow) return;
+
+    if (zoomTag) zoomTag.textContent = flow.tag;
+    if (zoomCounter) zoomCounter.textContent = `[${idx + 1} / ${QGEO_FLOWS.length}]`;
+    if (zoomTitle) zoomTitle.textContent = flow.title;
+    if (zoomDesc) zoomDesc.textContent = flow.desc;
+
+    if (zoomImg) {
+      zoomImg.src = flow.src;
+      zoomImg.alt = `${flow.title} - ${flow.tag}`;
+    }
+
+    setZoomMode(false);
+
+    zoomNavSteps.forEach((btn, i) => {
+      btn.classList.toggle('active', i === idx);
+    });
+  }
+
+  function setZoomMode(zoomed) {
+    isZoomed100 = zoomed;
+    if (zoomViewport) {
+      zoomViewport.classList.toggle('is-zoomed', isZoomed100);
+      if (!isZoomed100) {
+        zoomViewport.scrollLeft = 0;
+        zoomViewport.scrollTop = 0;
+      }
+    }
+    if (zoomFitText) {
+      zoomFitText.textContent = isZoomed100 ? 'FIT TO SCREEN' : '1:1 ZOOM';
+    }
+    if (zoomToggleFitBtn) {
+      zoomToggleFitBtn.classList.toggle('active', isZoomed100);
+    }
+  }
+
+  function openZoomModal(idx) {
+    if (!zoomModal) return;
+    renderFlowModal(idx);
+    zoomModal.classList.add('open');
+    zoomModal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('qgeo-modal-open');
+    if (zoomCloseBtn) zoomCloseBtn.focus();
+  }
+
+  function closeZoomModal() {
+    if (!zoomModal) return;
+    zoomModal.classList.remove('open');
+    zoomModal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('qgeo-modal-open');
+    setZoomMode(false);
+  }
+
+  // Bind flow cards click and keyboard events
+  const flowCards = section.querySelectorAll('.qgeo-flow-card');
+  flowCards.forEach((card, idx) => {
+    const rawIndex = card.getAttribute('data-flow-index');
+    const flowIdx = rawIndex !== null ? parseInt(rawIndex, 10) : idx;
+
+    card.addEventListener('click', (e) => {
+      e.preventDefault();
+      openZoomModal(flowIdx);
+    });
+
+    const imgBox = card.querySelector('.qgeo-flow-img-box');
+    if (imgBox) {
+      imgBox.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openZoomModal(flowIdx);
+        }
+      });
+    }
+  });
+
+  if (zoomCloseBtn) {
+    zoomCloseBtn.addEventListener('click', closeZoomModal);
+  }
+  if (zoomBackdrop) {
+    zoomBackdrop.addEventListener('click', closeZoomModal);
+  }
+  if (zoomPrevBtn) {
+    zoomPrevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      renderFlowModal(currentFlowIndex - 1);
+    });
+  }
+  if (zoomNextBtn) {
+    zoomNextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      renderFlowModal(currentFlowIndex + 1);
+    });
+  }
+  if (zoomToggleFitBtn) {
+    zoomToggleFitBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setZoomMode(!isZoomed100);
+    });
+  }
+
+  if (zoomViewport) {
+    zoomViewport.addEventListener('click', (e) => {
+      if (e.target.closest('.zoom-arrow') || e.target.closest('.qgeo-zoom-bar') || e.target.closest('.qgeo-zoom-footer')) return;
+      if (e.target === zoomImg || e.target === zoomViewport || e.target.closest('#qgeo-zoom-container')) {
+        setZoomMode(!isZoomed100);
+      }
+    });
+
+    zoomViewport.addEventListener('mousedown', (e) => {
+      if (!isZoomed100) return;
+      isPanning = true;
+      panStartX = e.pageX;
+      panStartY = e.pageY;
+      scrollStartX = zoomViewport.scrollLeft;
+      scrollStartY = zoomViewport.scrollTop;
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isPanning || !isZoomed100 || !zoomViewport) return;
+      const dx = e.pageX - panStartX;
+      const dy = e.pageY - panStartY;
+      zoomViewport.scrollLeft = scrollStartX - dx;
+      zoomViewport.scrollTop = scrollStartY - dy;
+    });
+
+    window.addEventListener('mouseup', () => {
+      isPanning = false;
+    });
+  }
+
+  zoomNavSteps.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const stepIdx = parseInt(btn.getAttribute('data-step') || '0', 10);
+      renderFlowModal(stepIdx);
+    });
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (!zoomModal || !zoomModal.classList.contains('open')) return;
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      closeZoomModal();
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      renderFlowModal(currentFlowIndex - 1);
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      renderFlowModal(currentFlowIndex + 1);
+    } else if (e.key === 'z' || e.key === 'Z') {
+      e.preventDefault();
+      setZoomMode(!isZoomed100);
+    }
+  });
+
   // Initial setup
   updatePrivacyDisplay();
 })();
