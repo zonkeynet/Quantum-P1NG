@@ -8257,6 +8257,7 @@ if (terminal && gamesGrid) {
   let isPanning = false;
   let panStartX = 0, panStartY = 0;
   let scrollStartX = 0, scrollStartY = 0;
+  let savedScrollY = 0;
 
   function renderFlowModal(idx) {
     if (idx < 0) idx = QGEO_FLOWS.length - 1;
@@ -8289,6 +8290,15 @@ if (terminal && gamesGrid) {
       if (!isZoomed100) {
         zoomViewport.scrollLeft = 0;
         zoomViewport.scrollTop = 0;
+      } else {
+        requestAnimationFrame(() => {
+          if (zoomViewport && zoomImg) {
+            const scrollX = (zoomImg.offsetWidth - zoomViewport.clientWidth) / 2;
+            const scrollY = (zoomImg.offsetHeight - zoomViewport.clientHeight) / 2;
+            zoomViewport.scrollLeft = Math.max(0, scrollX);
+            zoomViewport.scrollTop = Math.max(0, scrollY);
+          }
+        });
       }
     }
     if (zoomFitText) {
@@ -8301,11 +8311,24 @@ if (terminal && gamesGrid) {
 
   function openZoomModal(idx) {
     if (!zoomModal) return;
+    savedScrollY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
     renderFlowModal(idx);
     zoomModal.classList.add('open');
     zoomModal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('qgeo-modal-open');
-    if (zoomCloseBtn) zoomCloseBtn.focus();
+
+    if (zoomViewport) {
+      zoomViewport.scrollLeft = 0;
+      zoomViewport.scrollTop = 0;
+    }
+
+    window.scrollTo(0, savedScrollY);
+
+    if (zoomCloseBtn) {
+      try {
+        zoomCloseBtn.focus({ preventScroll: true });
+      } catch (e) {}
+    }
   }
 
   function closeZoomModal() {
@@ -8314,6 +8337,7 @@ if (terminal && gamesGrid) {
     zoomModal.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('qgeo-modal-open');
     setZoomMode(false);
+    window.scrollTo(0, savedScrollY);
   }
 
   // Bind flow cards click and keyboard events
