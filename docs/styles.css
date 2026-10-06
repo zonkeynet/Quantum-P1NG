@@ -6295,6 +6295,12 @@ body.qmap-modal-open {
     text-align: center;
   }
 
+  .q-sdr-badge {
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .q-sdr-mascot-wrap { justify-content: center; }
 
   .q-sdr-desc { max-width: 560px; }
@@ -6339,6 +6345,12 @@ body.qmap-modal-open {
     flex-wrap: wrap;  /* evita overflow del kicker su schermi stretti */
     justify-content: center;
     gap: 6px;
+  }
+
+  .q-sdr-badge {
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .skyline-svg    { display: none; }
@@ -27133,10 +27145,11 @@ button.cyber-button-sm.txt-red:disabled,
     box-sizing: border-box;
   }
   /* Post Composer */
-  .q-feed-section .qfeed-composer-frame {
-    padding: 14px 12px;
-    width: 100%;
-    box-sizing: border-box;
+  .q-feed-section .qfeed-composer-frame,
+  .qfeed-composer-frame,
+  .q-feed-section .qfeed-composer-col,
+  .qfeed-composer-col {
+    display: none !important;
   }
   .q-feed-section .composer-header {
     flex-wrap: wrap;
