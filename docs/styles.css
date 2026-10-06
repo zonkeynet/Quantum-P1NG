@@ -5717,13 +5717,18 @@ body.qmap-modal-open {
 /* Spectrum */
 .spectrum-canvas-wrap {
   position: relative;
-  height: 150px;
+  height: 180px;
   margin-bottom: 6px;
+  background: radial-gradient(ellipse at 50% 120%, rgba(0, 242, 255, 0.08) 0%, rgba(4, 12, 24, 0.95) 70%, #030812 100%);
+  border: 1px solid rgba(0, 242, 255, 0.22);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.7), 0 0 15px rgba(0, 242, 255, 0.05);
 }
 
 #spectrumCanvas {
-  width: 100%;
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
   max-width: 100%;
   display: block;
 }
@@ -5731,8 +5736,11 @@ body.qmap-modal-open {
 .spectrum-xaxis {
   display: flex;
   justify-content: space-between;
+  font-family: var(--font-mono, monospace);
   font-size: 8.5px;
-  color: rgba(143, 169, 184, 0.45);
+  color: rgba(143, 169, 184, 0.65);
+  padding: 4px 6px 0;
+  user-select: none;
 }
 
 /* Waterfall */
@@ -6308,7 +6316,7 @@ body.qmap-modal-open {
   /* Dashboard */
   .sdr-grid { grid-template-columns: 1fr; }
 
-  .spectrum-canvas-wrap  { height: 180px; }
+  .spectrum-canvas-wrap  { height: 165px; }
   .waterfall-canvas-wrap { height: 100px; }
 }
 
@@ -6374,6 +6382,7 @@ body.qmap-modal-open {
 
   .signal-radar-wrap { display: none; }
   .wf-span-label     { display: none; }
+  .spectrum-canvas-wrap { height: 150px; }
 
   .activity-body { flex-direction: column; gap: 10px; }
   #activityRadar { width: 64px; height: 64px; }
@@ -6397,7 +6406,8 @@ body.qmap-modal-open {
   .ctrl-val-display  { font-size: 12px; }
   .freq-val          { font-size: 15px; }
 
-  .spectrum-canvas-wrap  { height: 140px; }
+  .spectrum-canvas-wrap  { height: 135px; }
+  .spectrum-xaxis        { font-size: 7.5px; padding: 2px 2px 0; }
   .waterfall-canvas-wrap { height: 80px; }
 
   /* Action: 2 colonne */

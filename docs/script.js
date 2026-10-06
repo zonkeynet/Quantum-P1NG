@@ -2712,7 +2712,7 @@ if (terminal && gamesGrid) {
         stopAll();
       }
     });
-  }, { threshold: 0.08 });
+  }, { threshold: 0.01, rootMargin: '100px 0px' });
 
   sdrObserver.observe(sdrSection);
 
@@ -2723,6 +2723,9 @@ if (terminal && gamesGrid) {
       startRadar();
       startActivityRadar();
       startParticles();
+    } else {
+      if (!spectrumInitialized) initSpectrum();
+      renderSpectrumFrame();
     }
     startLiveUpdates();
   }
@@ -2734,143 +2737,301 @@ if (terminal && gamesGrid) {
   }
 
   // --------------------------------------------------
-  // SPECTRUM CANVAS
+  // SPECTRUM CANVAS (High-Precision FFT Analyzer)
   // --------------------------------------------------
-  function startSpectrum() {
-    const canvas = document.getElementById('spectrumCanvas');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d', { alpha: true, desynchronized: true }) || canvas.getContext('2d');
-    let dpr = window.__qpDpr();
+  let spectrumCanvas = null;
+  let spectrumCtx = null;
+  let spectrumDpr = 1;
+  let spectrumInitialized = false;
+  let spectrumT = 0;
 
-    function resize() {
-      dpr = window.__qpDpr();
-      const r = canvas.getBoundingClientRect();
-      if (r.width === 0 || r.height === 0) return;
-      canvas.width  = r.width  * dpr;
-      canvas.height = r.height * dpr;
-      ctx.scale(dpr, dpr);
-    }
-    resize();
-    window.addEventListener('resize', resize, { passive: true });
-
-    // Peaks: [normalised-x, height-fraction, peak-width, colour]
-    const peaks = [
-      { x: 0.18, h: 0.42, w: 0.018, c: '#00f2ff' },  // 433.92 MHz
-      { x: 0.34, h: 0.32, w: 0.016, c: '#00e5c8' },  // 868.35 MHz
-      { x: 0.52, h: 0.80, w: 0.024, c: '#35ff8a' },  // 2.412 GHz (primary)
-      { x: 0.59, h: 0.52, w: 0.022, c: '#35ff8a' },  // 2.4 GHz side-lobe
-      { x: 0.78, h: 0.28, w: 0.020, c: '#1d7cff' },  // 5.795 GHz
-    ];
-
-    const labels = [
-      { x: 0.18, text: '433.92 MHz', color: 'rgba(0,242,255,0.55)' },
-      { x: 0.34, text: '868.35 MHz', color: 'rgba(0,229,200,0.55)' },
-      { x: 0.52, text: '2.412 GHz',  color: 'rgba(53,255,138,0.85)' },
-      { x: 0.78, text: '5.795 GHz',  color: 'rgba(29,124,255,0.55)' },
-    ];
-
-    let t = 0;
-
-    function drawSpectrum() {
-      if (!animating) return;
-      const W = canvas.width / dpr;
-      const H = canvas.height / dpr;
-      ctx.clearRect(0, 0, W, H);
-
-      // Grid
-      ctx.strokeStyle = 'rgba(0,242,255,0.06)';
-      ctx.lineWidth = 0.5;
-      for (let i = 1; i <= 5; i++) {
-        const y = H * 0.05 + (H * 0.88 * i / 5);
-        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
-      }
-      for (let i = 1; i <= 7; i++) {
-        const x = W * i / 8;
-        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
-      }
-
-      // Highlighted 2.4 GHz band
-      const bx = W * 0.465, bw = W * 0.17;
-      ctx.fillStyle = 'rgba(53,255,138,0.04)';
-      ctx.fillRect(bx, 0, bw, H);
-      ctx.strokeStyle = 'rgba(53,255,138,0.2)';
-      ctx.lineWidth = 0.8;
-      ctx.beginPath(); ctx.moveTo(bx,      0); ctx.lineTo(bx,      H); ctx.stroke();
-      ctx.beginPath(); ctx.moveTo(bx + bw, 0); ctx.lineTo(bx + bw, H); ctx.stroke();
-
-      // Build spectrum points — ampiezza scalata dal gain (28 dB = 1.0x)
-      const gainScale  = Math.max(0.3, gainLevel / 28);
-      const floor = H * 0.90;
-      const pts = [];
-      const preset     = PRESETS[activePreset] || PRESETS['2.4 GHz'];
-      for (let px = 0; px <= W; px++) {
-        const nx = px / W;
-        let val = Math.random() * 0.04 * H;
-        for (let pi = 0; pi < peaks.length; pi++) {
-          const p = peaks[pi];
-          const d = nx - p.x;
-          const g = Math.exp(-(d * d) / (2 * p.w * p.w));
-          // Picco del preset attivo risaltato del 30%
-          const presetBoost = preset.highlight.includes(p.x) ? 1.3 : 1.0;
-          val += g * H * p.h * gainScale * presetBoost * (1 + 0.06 * Math.sin(t * (0.4 + pi * 0.25) + pi));
-        }
-        pts.push({ x: px, y: floor - val });
-      }
-
-      // Filled area gradient
-      const grad = ctx.createLinearGradient(0, 0, 0, H);
-      grad.addColorStop(0,   'rgba(53,255,138,0.16)');
-      grad.addColorStop(0.45,'rgba(0,242,255,0.07)');
-      grad.addColorStop(1,   'rgba(0,0,0,0)');
+  function drawTacticalRoundRect(ctx, x, y, w, h, r) {
+    if (ctx.roundRect) {
       ctx.beginPath();
-      ctx.moveTo(0, H);
-      for (const p of pts) ctx.lineTo(p.x, p.y);
-      ctx.lineTo(W, H);
+      ctx.roundRect(x, y, w, h, r);
+    } else {
+      ctx.beginPath();
+      ctx.moveTo(x + r, y);
+      ctx.lineTo(x + w - r, y);
+      ctx.arcTo(x + w, y, x + w, y + r, r);
+      ctx.lineTo(x + w, y + h - r);
+      ctx.arcTo(x + w, y + h, x + w - r, y + h, r);
+      ctx.lineTo(x + r, y + h);
+      ctx.arcTo(x, y + h, x, y + h - r, r);
+      ctx.lineTo(x, y + r);
+      ctx.arcTo(x, y, x + r, y, r);
       ctx.closePath();
-      ctx.fillStyle = grad;
-      ctx.fill();
+    }
+  }
 
-      // Spectrum line
-      ctx.beginPath();
-      for (let i = 0; i < pts.length; i++) {
-        if (i === 0) ctx.moveTo(pts[i].x, pts[i].y);
-        else         ctx.lineTo(pts[i].x, pts[i].y);
+  // Peaks: [x, h, w, c, fullText, shortText]
+  const SPECTRUM_PEAKS = [
+    { x: 0.08, h: 0.38, w: 0.016, c: '#a78bfa', fullText: '156.80 MHz', shortText: '156.8M' }, // Marine VHF
+    { x: 0.18, h: 0.44, w: 0.018, c: '#00f2ff', fullText: '433.92 MHz', shortText: '433.9M' }, // ISM 433
+    { x: 0.34, h: 0.36, w: 0.016, c: '#00e5c8', fullText: '868.35 MHz', shortText: '868.4M' }, // SRD 868
+    { x: 0.52, h: 0.82, w: 0.024, c: '#35ff8a', fullText: '2.412 GHz',  shortText: '2.41G'  }, // 2.4G Ch 1
+    { x: 0.59, h: 0.54, w: 0.022, c: '#35ff8a', fullText: '2.484 GHz',  shortText: '2.48G'  }, // 2.4G Side-lobe
+    { x: 0.78, h: 0.30, w: 0.020, c: '#38bdf8', fullText: '5.795 GHz',  shortText: '5.80G'  }, // UNII 5.8G
+  ];
+
+  const SPECTRUM_LABELS = [
+    { x: 0.08, fullText: '156.80 MHz', shortText: '156.8M', color: '#a78bfa' },
+    { x: 0.18, fullText: '433.92 MHz', shortText: '433.9M', color: '#00f2ff' },
+    { x: 0.34, fullText: '868.35 MHz', shortText: '868.4M', color: '#00e5c8' },
+    { x: 0.52, fullText: '2.412 GHz',  shortText: '2.41G',  color: '#35ff8a' },
+    { x: 0.78, fullText: '5.795 GHz',  shortText: '5.80G',  color: '#38bdf8' },
+  ];
+
+  function resizeSpectrum() {
+    if (!spectrumCanvas || !spectrumCtx) return;
+    spectrumDpr = window.__qpDpr();
+    const r = spectrumCanvas.getBoundingClientRect();
+    if (r.width === 0 || r.height === 0) return;
+    spectrumCanvas.width  = Math.round(r.width * spectrumDpr);
+    spectrumCanvas.height = Math.round(r.height * spectrumDpr);
+    spectrumCtx.setTransform(spectrumDpr, 0, 0, spectrumDpr, 0, 0);
+    if (!animating) renderSpectrumFrame();
+  }
+
+  function initSpectrum() {
+    if (spectrumInitialized) return;
+    spectrumCanvas = document.getElementById('spectrumCanvas');
+    if (!spectrumCanvas) return;
+    spectrumCtx = spectrumCanvas.getContext('2d', { alpha: true, desynchronized: true }) || spectrumCanvas.getContext('2d');
+    resizeSpectrum();
+    window.addEventListener('resize', resizeSpectrum, { passive: true });
+    if (typeof ResizeObserver !== 'undefined' && spectrumCanvas.parentElement) {
+      new ResizeObserver(() => resizeSpectrum()).observe(spectrumCanvas.parentElement);
+    }
+    spectrumInitialized = true;
+    renderSpectrumFrame();
+  }
+
+  function renderSpectrumFrame() {
+    if (!spectrumCanvas || !spectrumCtx) return;
+    const ctx = spectrumCtx;
+    const W = spectrumCanvas.width / spectrumDpr;
+    const H = spectrumCanvas.height / spectrumDpr;
+    if (W <= 0 || H <= 0) return;
+
+    ctx.clearRect(0, 0, W, H);
+
+    const isMobile = W < 540;
+    const isVeryNarrow = W < 390;
+    const t = spectrumT;
+
+    // 1. Grid lines (tactical frequency / dB graticule)
+    ctx.strokeStyle = 'rgba(0, 242, 255, 0.06)';
+    ctx.lineWidth = 0.5;
+    for (let i = 1; i <= 5; i++) {
+      const y = Math.round(H * 0.10 + (H * 0.76 * i / 5));
+      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+    }
+    for (let i = 1; i <= 7; i++) {
+      const x = Math.round(W * i / 8);
+      ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+    }
+
+    // Reference dBm scales on left edge for desktop
+    if (!isMobile) {
+      ctx.fillStyle = 'rgba(143, 169, 184, 0.35)';
+      ctx.font = '600 7.5px monospace';
+      ctx.textAlign = 'left';
+      ctx.textBaseline = 'middle';
+      const dbLabels = ['-20', '-40', '-60', '-80', '-100'];
+      for (let i = 0; i < 5; i++) {
+        const y = Math.round(H * 0.10 + (H * 0.76 * (i + 1) / 5));
+        ctx.fillText(`${dbLabels[i]} dBm`, 4, y - 6);
       }
-      ctx.strokeStyle = '#00f2ff';
-      ctx.lineWidth   = 1.5;
-      ctx.shadowBlur  = 7;
-      ctx.shadowColor = '#00f2ff';
+    }
+
+    // 2. Active Band Highlight Box
+    const preset = PRESETS[activePreset] || PRESETS['2.4 GHz'];
+    const activeHighlights = preset.highlight || [0.52];
+    const minHl = Math.min(...activeHighlights);
+    const maxHl = Math.max(...activeHighlights);
+    const bandPad = (minHl === maxHl) ? 0.05 : 0.06;
+    const bx1 = Math.max(0, (minHl - bandPad) * W);
+    const bx2 = Math.min(W, (maxHl + bandPad) * W);
+    const bw  = bx2 - bx1;
+
+    ctx.fillStyle = 'rgba(53, 255, 138, 0.04)';
+    ctx.fillRect(bx1, 0, bw, H);
+    ctx.strokeStyle = 'rgba(53, 255, 138, 0.22)';
+    ctx.lineWidth = 0.8;
+    ctx.setLineDash([3, 3]);
+    ctx.beginPath();
+    ctx.moveTo(bx1, 0); ctx.lineTo(bx1, H);
+    ctx.moveTo(bx2, 0); ctx.lineTo(bx2, H);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // 3. Spectrum RF wave generation
+    const gainScale = Math.max(0.3, gainLevel / 28);
+    const floor = H * 0.88;
+    const pts = [];
+
+    for (let px = 0; px <= W; px++) {
+      const nx = px / W;
+      // Thermal noise floor with subtle high-freq ripple
+      let val = (Math.random() * 0.032 + 0.01 * Math.sin(px * 0.18 + t * 4)) * H;
+
+      for (let pi = 0; pi < SPECTRUM_PEAKS.length; pi++) {
+        const p = SPECTRUM_PEAKS[pi];
+        const d = nx - p.x;
+        // Scale peak width so it remains visible and smooth on mobile screens
+        const effW = isMobile ? Math.max(0.025, p.w * 1.45) : p.w;
+        const g = Math.exp(-(d * d) / (2 * effW * effW));
+        const presetBoost = activeHighlights.includes(p.x) ? 1.32 : 1.0;
+        const breathing = 1 + 0.05 * Math.sin(t * (0.5 + pi * 0.28) + pi);
+        val += g * (H * p.h * gainScale * presetBoost) * breathing;
+      }
+
+      const y = Math.max(H * 0.06, floor - val);
+      pts.push({ x: px, y });
+    }
+
+    // 4. Area Gradient Fill
+    const grad = ctx.createLinearGradient(0, 0, 0, H);
+    grad.addColorStop(0,    'rgba(53, 255, 138, 0.22)');
+    grad.addColorStop(0.35, 'rgba(0, 242, 255, 0.10)');
+    grad.addColorStop(0.75, 'rgba(0, 242, 255, 0.02)');
+    grad.addColorStop(1,    'rgba(2, 6, 14, 0)');
+    ctx.beginPath();
+    ctx.moveTo(0, H);
+    for (let i = 0; i < pts.length; i++) ctx.lineTo(pts[i].x, pts[i].y);
+    ctx.lineTo(W, H);
+    ctx.closePath();
+    ctx.fillStyle = grad;
+    ctx.fill();
+
+    // 5. RF Trace Line
+    ctx.beginPath();
+    for (let i = 0; i < pts.length; i++) {
+      if (i === 0) ctx.moveTo(pts[i].x, pts[i].y);
+      else         ctx.lineTo(pts[i].x, pts[i].y);
+    }
+    ctx.strokeStyle = '#00f2ff';
+    ctx.lineWidth   = isMobile ? 1.7 : 2.0;
+    ctx.shadowBlur  = isMobile ? 6 : 8;
+    ctx.shadowColor = '#00f2ff';
+    ctx.stroke();
+    ctx.shadowBlur  = 0;
+
+    // 6. Tactical LO Sweep Line
+    const sweepPeriod = W + 60;
+    const sweepX = ((t * 42) % sweepPeriod) - 30;
+    if (sweepX > 0 && sweepX < W) {
+      const beamW = isMobile ? 22 : 36;
+      const sweepGrad = ctx.createLinearGradient(sweepX - beamW, 0, sweepX, 0);
+      sweepGrad.addColorStop(0, 'rgba(0, 242, 255, 0)');
+      sweepGrad.addColorStop(1, 'rgba(0, 242, 255, 0.16)');
+      ctx.fillStyle = sweepGrad;
+      ctx.fillRect(Math.max(0, sweepX - beamW), 0, Math.min(beamW, sweepX), H);
+
+      ctx.strokeStyle = 'rgba(0, 242, 255, 0.55)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(sweepX, 0);
+      ctx.lineTo(sweepX, H);
+      ctx.stroke();
+    }
+
+    // 7. Tactical Peak Markers & Floating Badges
+    const visibleLabels = SPECTRUM_LABELS.filter(lbl => {
+      if (lbl.x === 0.08 && isVeryNarrow && !activeHighlights.includes(0.08)) return false;
+      return true;
+    });
+
+    for (let li = 0; li < visibleLabels.length; li++) {
+      const lbl = visibleLabels[li];
+      const px = lbl.x * W;
+      const ptIdx = Math.min(pts.length - 1, Math.max(0, Math.round(px)));
+      const tipY = pts[ptIdx] ? pts[ptIdx].y : (floor - 30);
+      const isTarget = activeHighlights.includes(lbl.x);
+
+      // Vertical marker trace line
+      ctx.strokeStyle = isTarget ? 'rgba(53, 255, 138, 0.45)' : 'rgba(0, 242, 255, 0.22)';
+      ctx.lineWidth = 0.8;
+      ctx.setLineDash([2, 3]);
+      ctx.beginPath();
+      ctx.moveTo(px, tipY + 4);
+      ctx.lineTo(px, floor);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Tip marker dot
+      const dotColor = isTarget ? '#35ff8a' : lbl.color;
+      ctx.beginPath();
+      ctx.arc(px, tipY, isTarget ? 3.5 : 2.5, 0, Math.PI * 2);
+      ctx.fillStyle = dotColor;
+      ctx.shadowBlur = isTarget ? 10 : 5;
+      ctx.shadowColor = dotColor;
+      ctx.fill();
+      ctx.shadowBlur = 0;
+
+      // Target active pulsing halo
+      if (isTarget) {
+        const pulseR = 4.5 + Math.sin(t * 4) * 2;
+        ctx.beginPath();
+        ctx.arc(px, tipY, Math.max(1, pulseR), 0, Math.PI * 2);
+        ctx.strokeStyle = 'rgba(53, 255, 138, 0.65)';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+
+      // Tactical Badge Pill
+      const text = isMobile ? lbl.shortText : lbl.fullText;
+      ctx.font = isMobile ? '700 8.5px monospace' : '700 9.5px monospace';
+      const tw = ctx.measureText(text).width;
+      const padX = isMobile ? 3.5 : 5;
+      const bw = tw + padX * 2;
+      const bh = isMobile ? 13 : 15;
+
+      const badgeX = Math.max(2, Math.min(W - bw - 2, px - bw / 2));
+      const badgeY = (tipY < 24) ? (tipY + 8) : (tipY - bh - 4);
+
+      // Pill Box
+      ctx.fillStyle = isTarget ? 'rgba(5, 26, 18, 0.94)' : 'rgba(3, 10, 22, 0.90)';
+      ctx.strokeStyle = isTarget ? '#35ff8a' : (isMobile ? 'rgba(0, 242, 255, 0.55)' : 'rgba(0, 242, 255, 0.35)');
+      ctx.lineWidth = isTarget ? 1.2 : 0.8;
+
+      drawTacticalRoundRect(ctx, badgeX, badgeY, bw, bh, 3);
+      ctx.fill();
       ctx.stroke();
 
-      // Peak markers (dots + vertical tick + label)
-      ctx.shadowBlur = 0;
-      for (const lbl of labels) {
-        const px  = lbl.x * W;
-        const py  = floor - (peaks.find(p => p.x === lbl.x)?.h || 0.3) * H;
-        ctx.strokeStyle = lbl.color;
-        ctx.lineWidth   = 0.8;
-        ctx.setLineDash([3, 3]);
-        ctx.beginPath(); ctx.moveTo(px, py + 6); ctx.lineTo(px, H); ctx.stroke();
-        ctx.setLineDash([]);
-        ctx.beginPath();
-        ctx.arc(px, py, 3.5, 0, Math.PI * 2);
-        ctx.fillStyle   = lbl.color;
-        ctx.shadowBlur  = 10;
-        ctx.shadowColor = lbl.color;
-        ctx.fill();
-        ctx.shadowBlur  = 0;
-        ctx.fillStyle   = lbl.color;
-        ctx.font        = `9px var(--font-mono, monospace)`;
-        ctx.textAlign   = 'center';
-        ctx.fillText(lbl.text, px, H - 2);
-      }
-      ctx.textAlign = 'left';
-
-      t += 0.022;
-      rafSpectrum = requestAnimationFrame(drawSpectrum);
+      // Pill Text
+      ctx.fillStyle = isTarget ? '#35ff8a' : (isMobile ? '#ffffff' : lbl.color);
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(text, badgeX + bw / 2, badgeY + bh / 2 + 0.5);
     }
 
-    drawSpectrum();
+    // 8. Top tactical HUD readouts
+    ctx.font = isMobile ? '600 7.5px monospace' : '600 8.5px monospace';
+    ctx.fillStyle = 'rgba(0, 242, 255, 0.5)';
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'top';
+    const leftText = isMobile ? 'RBW: 10k' : 'RBW: 10 kHz  |  SPAN: 3.2 GHz';
+    ctx.fillText(leftText, 6, 5);
+
+    ctx.textAlign = 'right';
+    const rightText = isMobile ? `GAIN: +${gainLevel}dB` : `PK DET: AUTO  |  GAIN: +${gainLevel} dB  |  [${activePreset || '2.4 GHz'}]`;
+    ctx.fillStyle = (preset && activePreset) ? 'rgba(53, 255, 138, 0.7)' : 'rgba(0, 242, 255, 0.5)';
+    ctx.fillText(rightText, W - 6, 5);
+  }
+
+  function startSpectrum() {
+    if (!spectrumInitialized) initSpectrum();
+    if (rafSpectrum) cancelAnimationFrame(rafSpectrum);
+
+    function loop() {
+      if (!animating) return;
+      renderSpectrumFrame();
+      spectrumT += 0.024;
+      rafSpectrum = requestAnimationFrame(loop);
+    }
+    loop();
   }
 
   // --------------------------------------------------
@@ -3217,6 +3378,7 @@ if (terminal && gamesGrid) {
     gainLevel = v;   // aggiorna il gain condiviso → lo spectrum lo legge in tempo reale
     document.getElementById('gainDisplay').textContent = `+${v} dB`;
     gainSlider.setAttribute('aria-valuetext', `${v} dB`);
+    if (!animating && typeof renderSpectrumFrame === 'function') renderSpectrumFrame();
   });
 
   if (squelchSlider) squelchSlider.addEventListener('input', () => {
@@ -3245,6 +3407,7 @@ if (terminal && gamesGrid) {
       // Aggiorna il display della frequenza centrale
       const fEl = document.getElementById('freqValue');
       if (fEl && PRESETS[key]) fEl.textContent = PRESETS[key].freq;
+      if (!animating && typeof renderSpectrumFrame === 'function') renderSpectrumFrame();
     });
   });
 
@@ -3301,6 +3464,8 @@ if (terminal && gamesGrid) {
     sdrSection.classList.add('is-visible');
     animating = true;
     startAll();
+  } else {
+    initSpectrum();
   }
 })();
 
