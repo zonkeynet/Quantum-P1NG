@@ -8247,7 +8247,7 @@ body.qmap-modal-open {
   .qai-console-grid { grid-template-columns: 1fr; }
   .qai-tool-grid { grid-template-columns: 1fr; }
   .qai-tool-card { min-height: 0; }
-  .qai-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .qai-metrics { display: none !important; }
 }
 
 @media (max-width: 440px) {
@@ -8460,7 +8460,7 @@ body.qmap-modal-open {
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 768px) {
   .q-ai-section .qai-module-switcher {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 6px;
@@ -8486,9 +8486,9 @@ body.qmap-modal-open {
     grid-template-columns: 1fr;
   }
 
+  .qai-metrics,
   .q-ai-section .qai-metrics {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
+    display: none !important;
   }
 
   .qai-metric {
@@ -24920,6 +24920,7 @@ body.qgeo-modal-open {
     flex-direction: column;
     align-items: stretch;
   }
+  .qgeo-hazards-catalog,
   .qgeo-generator-frame,
   .qgeo-sim-col {
     display: none !important;
@@ -25036,6 +25037,7 @@ body.qgeo-modal-open {
     box-sizing: border-box;
     overflow-x: hidden;
   }
+  .qgeo-hazards-catalog,
   .qgeo-generator-frame,
   .qgeo-sim-col {
     display: none !important;
