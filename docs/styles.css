@@ -25027,8 +25027,58 @@ body.qgeo-modal-open {
   }
   .qgeo-hazards-catalog,
   .qgeo-generator-frame,
-  .qgeo-sim-col {
+  #qgeo-pane-protocol .qgeo-sim-col,
+  .qgeo-badge-label {
     display: none !important;
+  }
+  .qgeo-sim-col {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+  }
+  .qgeo-map-frame {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 12px 10px !important;
+    border-radius: 12px !important;
+    margin-top: 14px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+  }
+  .qgeo-map-bar {
+    font-size: 0.62rem !important;
+    padding-bottom: 8px !important;
+    margin-bottom: 8px !important;
+    flex-wrap: wrap !important;
+    gap: 4px !important;
+  }
+  .qgeo-canvas-wrap {
+    width: 100% !important;
+    border-radius: 8px !important;
+  }
+  #qgeoMapCanvas {
+    width: 100% !important;
+    height: clamp(230px, 62vw, 290px) !important;
+    max-height: 300px !important;
+  }
+  .qgeo-map-hud {
+    top: 6px !important;
+    left: 6px !important;
+    right: 6px !important;
+    gap: 6px !important;
+  }
+  .hud-coords {
+    font-size: 0.58rem !important;
+    padding: 3px 6px !important;
+  }
+  .hud-zoom {
+    font-size: 0.65rem !important;
+    padding: 2px 5px !important;
+  }
+  .zoom-btn {
+    width: 22px !important;
+    height: 22px !important;
   }
 }
 
@@ -25144,7 +25194,8 @@ body.qgeo-modal-open {
   }
   .qgeo-hazards-catalog,
   .qgeo-generator-frame,
-  .qgeo-sim-col {
+  #qgeo-pane-protocol .qgeo-sim-col,
+  .qgeo-badge-label {
     display: none !important;
   }
   .qgeo-info-col {
