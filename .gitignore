@@ -1,0 +1,10 @@
+# Recordings & temporary media
+recordings/
+*.mp4
+*.webm
+*.tmp
+
+# Third-party standalone binaries
+tools/scrcpy-win64-*/
+tools/scrcpy/
+tools/*.zip
