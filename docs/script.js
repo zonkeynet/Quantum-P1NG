@@ -9801,3 +9801,121 @@ if (terminal && gamesGrid) {
   });
 })();
 
+/* ==========================================================================
+   FINANCIAL SOVEREIGNTY: BITCOIN VAULT SHOWCASE & HD INSPECTION MODAL
+   ========================================================================== */
+(function() {
+  'use strict';
+
+  const zoomBtn = document.getElementById('btn-btc-zoom');
+  const imgWrap = document.getElementById('f-stage-img-wrap');
+  const btcModal = document.getElementById('btc-zoom-modal');
+  const btcClose = document.getElementById('btc-zoom-close');
+  const btcBackdrop = document.getElementById('btc-zoom-backdrop');
+  const hotspots = document.querySelectorAll('.finance-visual-stage .f-hotspot');
+
+  let savedScrollY = 0;
+
+  function openBtcModal() {
+    if (!btcModal) return;
+    savedScrollY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    btcModal.classList.add('open');
+    btcModal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('btc-modal-open');
+    window.scrollTo(0, savedScrollY);
+
+    if (btcClose) {
+      try {
+        btcClose.focus({ preventScroll: true });
+      } catch (e) {}
+    }
+  }
+
+  function closeBtcModal() {
+    if (!btcModal) return;
+    btcModal.classList.remove('open');
+    btcModal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('btc-modal-open');
+    window.scrollTo(0, savedScrollY);
+
+    if (zoomBtn) {
+      try {
+        zoomBtn.focus({ preventScroll: true });
+      } catch (e) {}
+    }
+  }
+
+  if (zoomBtn) {
+    zoomBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openBtcModal();
+    });
+  }
+
+  if (imgWrap) {
+    imgWrap.addEventListener('click', (e) => {
+      // Ignore if user tapped directly on a hotspot or its popover
+      if (e.target.closest('.f-hotspot')) return;
+      e.preventDefault();
+      openBtcModal();
+    });
+
+    imgWrap.addEventListener('keydown', (e) => {
+      if (e.target !== imgWrap) return;
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openBtcModal();
+      }
+    });
+  }
+
+  if (btcClose) {
+    btcClose.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeBtcModal();
+    });
+  }
+
+  if (btcBackdrop) {
+    btcBackdrop.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeBtcModal();
+    });
+  }
+
+  window.addEventListener('keydown', (e) => {
+    if (!btcModal || !btcModal.classList.contains('open')) return;
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      closeBtcModal();
+    }
+  });
+
+  // Hotspot tap/click toggle for touch devices
+  hotspots.forEach(hotspot => {
+    hotspot.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isActive = hotspot.classList.contains('active');
+      hotspots.forEach(h => h.classList.remove('active'));
+      if (!isActive) {
+        hotspot.classList.add('active');
+      }
+    });
+
+    hotspot.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        e.stopPropagation();
+        hotspot.classList.toggle('active');
+      }
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.finance-visual-stage .f-hotspot')) {
+      hotspots.forEach(h => h.classList.remove('active'));
+    }
+  });
+})();
+
+
