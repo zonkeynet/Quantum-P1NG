@@ -24688,6 +24688,12 @@ body.qgeo-modal-open {
   border-bottom: 1px solid rgba(0, 243, 255, 0.2);
 }
 
+.q-feed-section .wrap {
+  position: relative;
+  z-index: 1;
+  max-width: min(1280px, calc(100% - 48px));
+}
+
 .qfeed-bg {
   position: absolute;
   inset: 0;
@@ -24822,10 +24828,13 @@ body.qgeo-modal-open {
   text-align: left;
 }
 
+.q-feed-section .qfeed-header .section-desc,
 .q-feed-section .section-desc {
-  text-align: left;
-  margin: 0 0 36px 0;
-  max-width: 760px;
+  text-align: left !important;
+  margin: 0 0 36px 0 !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+  max-width: 840px;
 }
 
 @media (max-width: 768px) {
@@ -24851,9 +24860,12 @@ body.qgeo-modal-open {
     text-align: center;
   }
 
+  .q-feed-section .qfeed-header .section-desc,
   .q-feed-section .section-desc {
-    text-align: center;
-    margin: 0 auto 28px auto;
+    text-align: center !important;
+    margin: 0 auto 28px auto !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 
   .qfeed-title-icon {
@@ -24886,8 +24898,8 @@ body.qgeo-modal-open {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 1080px;
-  margin: 28px auto 40px;
+  max-width: 1220px;
+  margin: 28px auto 44px;
   contain: layout style;
 }
 
@@ -24914,9 +24926,9 @@ body.qgeo-modal-open {
 
 .qfeed-showcase-body {
   display: grid;
-  grid-template-columns: minmax(300px, 325px) minmax(0, 1fr);
-  gap: 32px;
-  padding: 26px 28px;
+  grid-template-columns: minmax(320px, 350px) minmax(0, 1fr);
+  gap: 36px;
+  padding: 28px 32px;
   align-items: center;
 }
 
@@ -24931,10 +24943,10 @@ body.qgeo-modal-open {
 .qfeed-phone-chassis {
   position: relative;
   width: 100%;
-  max-width: 315px;
-  border-radius: 34px;
+  max-width: 345px;
+  border-radius: 36px;
   background: #080b10;
-  padding: 10px 8px 12px;
+  padding: 11px 9px 13px;
   border: 2px solid rgba(0, 242, 255, 0.35);
   box-shadow:
     0 18px 45px rgba(0, 0, 0, 0.85),
@@ -25060,7 +25072,7 @@ body.qgeo-modal-open {
 .qfeed-features-deck {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
   min-width: 0;
   width: 100%;
 }
@@ -25071,7 +25083,7 @@ body.qgeo-modal-open {
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  padding: 8px 14px;
+  padding: 9px 15px;
   background: rgba(6, 10, 18, 0.85);
   border: 1px solid rgba(0, 242, 255, 0.2);
   border-radius: 8px;
@@ -25147,7 +25159,7 @@ body.qgeo-modal-open {
 }
 
 .qfeed-deck-title {
-  font-size: 1.35rem;
+  font-size: 1.45rem;
   color: #fff;
   font-weight: 700;
   margin: 3px 0 5px 0;
@@ -25157,9 +25169,9 @@ body.qgeo-modal-open {
 }
 
 .qfeed-deck-desc {
-  font-size: 0.83rem;
-  color: rgba(210, 225, 240, 0.78);
-  line-height: 1.48;
+  font-size: 0.88rem;
+  color: rgba(210, 225, 240, 0.82);
+  line-height: 1.52;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
@@ -25168,7 +25180,7 @@ body.qgeo-modal-open {
 .qfeed-features-deck .qfeed-metrics-deck {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
+  gap: 12px;
   margin: 4px 0 8px 0;
   position: relative;
   z-index: 1;
@@ -25178,7 +25190,7 @@ body.qgeo-modal-open {
   background: rgba(10, 15, 26, 0.75);
   border: 1px solid rgba(0, 242, 255, 0.15);
   border-radius: 8px;
-  padding: 10px 13px;
+  padding: 11px 15px;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
@@ -25198,8 +25210,8 @@ body.qgeo-modal-open {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 3px;
-  font-size: 0.68rem;
+  margin-bottom: 4px;
+  font-size: 0.70rem;
   letter-spacing: 0.06em;
   color: rgba(255, 255, 255, 0.6);
 }
@@ -25217,9 +25229,9 @@ body.qgeo-modal-open {
 .metric-dot.purple { background: #c040ff; box-shadow: 0 0 8px #c040ff; }
 
 .qfeed-features-deck .qfeed-metric-card .metric-val {
-  font-size: 1.15rem;
+  font-size: 1.22rem;
   font-weight: 700;
-  margin-bottom: 2px;
+  margin-bottom: 3px;
   letter-spacing: -0.01em;
   white-space: nowrap;
   overflow: hidden;
@@ -25227,9 +25239,9 @@ body.qgeo-modal-open {
 }
 
 .qfeed-features-deck .qfeed-metric-card .metric-label {
-  font-size: 0.71rem;
-  color: rgba(200, 215, 230, 0.72);
-  line-height: 1.35;
+  font-size: 0.75rem;
+  color: rgba(200, 215, 230, 0.75);
+  line-height: 1.38;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
@@ -25249,11 +25261,11 @@ body.qgeo-modal-open {
   letter-spacing: 0.05em;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 960px) {
   .qfeed-showcase-body {
     grid-template-columns: 1fr;
-    gap: 22px;
-    padding: 18px 16px;
+    gap: 24px;
+    padding: 20px 18px;
   }
 
   .qfeed-phone-stage {
@@ -25261,7 +25273,7 @@ body.qgeo-modal-open {
   }
 
   .qfeed-phone-chassis {
-    max-width: 280px;
+    max-width: 290px;
   }
 
   .qfeed-features-deck .qfeed-metrics-deck {
