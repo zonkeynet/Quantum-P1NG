@@ -3753,6 +3753,9 @@ if (terminal && gamesGrid) {
     const tabs = Array.from(section.querySelectorAll('.qai-module-tab'));
     const cards = Array.from(section.querySelectorAll('.qai-tool-card'));
     const counters = Array.from(section.querySelectorAll('[data-qai-count]'));
+    const qaiVideo = document.getElementById('qaiVideo');
+    const qaiVideoBox = document.getElementById('qaiVideoBox');
+    const qaiVideoHudText = document.getElementById('qaiVideoHudText');
 
     const modules = {
       brain: {
@@ -3912,6 +3915,9 @@ if (terminal && gamesGrid) {
       if (scenarioText) scenarioText.textContent = data.text;
       if (terminalLine) terminalLine.textContent = data.cmd;
       if (meterFill) meterFill.style.setProperty('--qai-fill', data.fill);
+      if (qaiVideoHudText) {
+        qaiVideoHudText.textContent = `Q-BRAIN // ${data.title.replace(/\s+/g, '_')}`;
+      }
     }
 
     function animateCounters() {
@@ -3934,6 +3940,9 @@ if (terminal && gamesGrid) {
     function start() {
       section.classList.add('is-visible');
       animateCounters();
+      if (qaiVideo && !reduceMotion.matches && qaiVideo.paused) {
+        qaiVideo.play().catch(() => {});
+      }
       if (visible) return;
       visible = true;
       if (!reduceMotion.matches) {
@@ -3945,6 +3954,9 @@ if (terminal && gamesGrid) {
     function stop() {
       visible = false;
       cancelAnimationFrame(raf);
+      if (qaiVideo && !qaiVideo.paused) {
+        qaiVideo.pause();
+      }
     }
 
     tabs.forEach((tab) => {
@@ -3961,6 +3973,16 @@ if (terminal && gamesGrid) {
         }
       });
     });
+
+    if (qaiVideoBox && qaiVideo) {
+      qaiVideoBox.addEventListener('click', () => {
+        if (qaiVideo.paused) {
+          qaiVideo.play().catch(() => {});
+        } else {
+          qaiVideo.pause();
+        }
+      });
+    }
 
     window.addEventListener('resize', resizeCanvas, { passive: true });
     reduceMotion.addEventListener?.('change', () => {

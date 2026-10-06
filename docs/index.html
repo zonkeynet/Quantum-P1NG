@@ -45,7 +45,7 @@
   <meta name="twitter:image" content="https://www.qp1ng.com/assets/img/social-preview.png" />
 
   <link rel="preload" href="assets/fonts/square_dot_digital_qp1ng.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="styles.css?v=2.7.3" as="style" />
+  <link rel="preload" href="styles.css?v=2.7.4" as="style" />
   <link rel="preload" as="image" href="assets/vid/intro_bg_poster.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/intro_mobile_poster.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/qmap_poster.webp">
@@ -59,7 +59,7 @@
       }
     } catch(e){}
   </script>
-  <link rel="stylesheet" href="styles.css?v=2.7.3" />
+  <link rel="stylesheet" href="styles.css?v=2.7.4" />
 
   <!-- Schema.org Comprehensive Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -5056,7 +5056,10 @@ _
           <!-- PiP self-view -->
           <div class="qcall-pip" aria-label="Your camera preview">
             <div class="pip-avatar" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              <picture>
+                <source srcset="assets/img/call_secure.webp" type="image/webp">
+                <img src="assets/img/call_secure.png" alt="Secure Caller Persona" class="pip-avatar-img" width="40" height="40" loading="lazy" decoding="async">
+              </picture>
             </div>
             <div class="pip-labels">
               <span class="pip-name mono">You</span>
@@ -5322,39 +5325,27 @@ _
           <span class="qai-console-state mono"><span class="qai-live-dot"></span> POLICY READY</span>
         </div>
 
-        <div class="qai-core-stage" aria-hidden="true">
-          <div class="qai-core-ring qai-core-ring--outer"></div>
-          <div class="qai-core-ring qai-core-ring--mid"></div>
-          <div class="qai-core-ring qai-core-ring--inner"></div>
-          <div class="qai-core-node" title="Q-Brain AI Core">
-            <svg class="qai-core-icon" viewBox="0 0 24 24" fill="none" aria-label="Q-Brain Neural Core">
-              <!-- Brain outline — left hemisphere -->
-              <path class="qai-brain-hemi-left" d="M 6,15 Q 5,8 11,6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              <!-- Brain outline — right hemisphere -->
-              <path class="qai-brain-hemi-right" d="M 13,6 Q 19,8 18,15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              <!-- Brain bottom -->
-              <path class="qai-brain-base" d="M 6,15 Q 6,19 12,19 Q 18,19 18,15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              <!-- Brain top connection (corpus callosum line) -->
-              <path class="qai-brain-arch" d="M 11,6 Q 12,5 13,6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-              <!-- Central sulcus divider -->
-              <path class="qai-brain-divider" d="M 12,6 L 12,15" stroke="currentColor" stroke-width="0.8" stroke-linecap="round"/>
-              <!-- Neural circuit inside — horizontal wire -->
-              <path class="qai-brain-circuit" d="M 8,11 L 16,11" stroke="currentColor" stroke-width="1.0" stroke-linecap="round"/>
-              <!-- Neural branches -->
-              <path class="qai-brain-synapses" d="M 9,11 L 8,9 M 9,11 L 8,13 M 15,11 L 16,9 M 15,11 L 16,13" stroke="currentColor" stroke-width="0.8" stroke-linecap="round"/>
-              <!-- Synapse node dots -->
-              <circle class="qai-brain-node" cx="8" cy="11" r="0.9" fill="currentColor"/>
-              <circle class="qai-brain-node qai-brain-node--core" cx="12" cy="11" r="1.1" fill="currentColor"/>
-              <circle class="qai-brain-node" cx="16" cy="11" r="0.9" fill="currentColor"/>
-              <circle class="qai-brain-node" cx="8" cy="9" r="0.6" fill="currentColor"/>
-              <circle class="qai-brain-node" cx="8" cy="13" r="0.6" fill="currentColor"/>
-              <circle class="qai-brain-node" cx="16" cy="9" r="0.6" fill="currentColor"/>
-              <circle class="qai-brain-node" cx="16" cy="13" r="0.6" fill="currentColor"/>
-            </svg>
+        <div class="qai-core-stage" aria-label="Q-Brain neural core intelligence runtime">
+          <div class="qai-video-box" id="qaiVideoBox" title="Click to play / pause Q-Brain neural video">
+            <video id="qaiVideo" class="qai-core-video" width="1280" height="720" poster="assets/vid/q-ai_poster.webp" loop muted playsinline preload="metadata">
+              <source src="assets/vid/q-ai.webm" type="video/webm">
+              <source src="assets/vid/q-ai.mp4" type="video/mp4">
+            </video>
+
+            <!-- Holographic cyber HUD overlays -->
+            <div class="qai-video-vignette" aria-hidden="true"></div>
+            <div class="qai-video-scanline" aria-hidden="true"></div>
+            <div class="qai-video-hud-tag mono" aria-hidden="true">
+              <span class="qai-live-dot"></span>
+              <span id="qaiVideoHudText">Q-BRAIN // NEURAL_CORE_ONLINE</span>
+            </div>
+
+            <!-- Ambient corner brackets -->
+            <div class="qai-video-bracket qai-bracket--tl" aria-hidden="true"></div>
+            <div class="qai-video-bracket qai-bracket--tr" aria-hidden="true"></div>
+            <div class="qai-video-bracket qai-bracket--bl" aria-hidden="true"></div>
+            <div class="qai-video-bracket qai-bracket--br" aria-hidden="true"></div>
           </div>
-          <div class="qai-orbit-node qai-orbit-node--one"></div>
-          <div class="qai-orbit-node qai-orbit-node--two"></div>
-          <div class="qai-orbit-node qai-orbit-node--three"></div>
         </div>
 
         <div class="qai-console-grid">
@@ -6573,6 +6564,6 @@ _
 </footer>
   </main>
 
-  <script src="script.js?v=2.6.5" defer></script>
+  <script src="script.js?v=2.6.6" defer></script>
 </body>
 </html>
