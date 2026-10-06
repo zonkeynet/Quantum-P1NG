@@ -24890,62 +24890,6 @@ body.qgeo-modal-open {
   word-break: normal;
 }
 
-/* Metrics Deck */
-.qfeed-metrics-deck {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  margin: 40px 0 32px 0;
-  position: relative;
-  z-index: 1;
-}
-
-.qfeed-metric-card {
-  background: rgba(10, 14, 24, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 8px;
-  padding: 16px 20px;
-  backdrop-filter: blur(10px);
-  transition: border-color 0.3s ease, transform 0.3s ease;
-}
-
-.qfeed-metric-card:hover {
-  border-color: rgba(180, 0, 255, 0.4);
-  transform: translateY(-2px);
-}
-
-.qfeed-metric-card .metric-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
-  font-size: 0.72rem;
-  letter-spacing: 0.06em;
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.metric-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-}
-
-.metric-dot.green { background: #00ff9d; box-shadow: 0 0 8px #00ff9d; }
-.metric-dot.cyan { background: #00f3ff; box-shadow: 0 0 8px #00f3ff; }
-.metric-dot.amber { background: #ffaa00; box-shadow: 0 0 8px #ffaa00; }
-.metric-dot.purple { background: #c040ff; box-shadow: 0 0 8px #c040ff; }
-
-.qfeed-metric-card .metric-val {
-  font-size: 1.45rem;
-  font-weight: 700;
-  margin-bottom: 4px;
-}
-
-.qfeed-metric-card .metric-label {
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.55);
-}
-
 /* ==========================================================================
    Q-FEED LIVE RUNTIME VIDEO SHOWCASE & SMARTPHONE MOCKUP
    ========================================================================== */
@@ -24953,17 +24897,17 @@ body.qgeo-modal-open {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 980px;
-  margin: 32px auto 40px;
+  max-width: 1080px;
+  margin: 28px auto 40px;
   contain: layout style;
 }
 
 .qfeed-showcase-frame {
   position: relative;
-  border-radius: 12px;
+  border-radius: 14px;
   border: 1px solid rgba(0, 242, 255, 0.25);
   background:
-    linear-gradient(180deg, rgba(8, 12, 18, 0.96), rgba(4, 6, 12, 0.97)),
+    linear-gradient(180deg, rgba(8, 12, 18, 0.96), rgba(4, 6, 12, 0.98)),
     radial-gradient(circle at 50% 0%, rgba(0, 242, 255, 0.08), transparent 60%);
   box-shadow:
     0 20px 50px rgba(0, 0, 0, 0.65),
@@ -24979,103 +24923,33 @@ body.qgeo-modal-open {
     0 0 40px rgba(0, 242, 255, 0.12);
 }
 
-.qfeed-showcase-hud {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 10px 18px;
-  background: rgba(6, 9, 15, 0.96);
-  border-bottom: 1px solid rgba(0, 242, 255, 0.18);
-  flex-wrap: wrap;
-}
-
-.qfeed-hud-left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.qfeed-pulse-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--neon-cyan, #00f2ff);
-  box-shadow: 0 0 12px rgba(0, 242, 255, 0.9);
-  animation: qfeed-dot-pulse 2s infinite ease-in-out;
-}
-
-@keyframes qfeed-dot-pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.35; transform: scale(0.85); }
-}
-
-.qfeed-hud-title {
-  color: var(--neon-cyan, #00f2ff);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-}
-
-.qfeed-hud-right {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.qfeed-chip {
-  font-size: 9.5px;
-  font-weight: 600;
-  padding: 3px 8px;
-  border-radius: 4px;
-  letter-spacing: 0.03em;
-}
-
-.qfeed-chip--live {
-  background: rgba(255, 45, 85, 0.12);
-  border: 1px solid rgba(255, 45, 85, 0.35);
-  color: #ff476f;
-}
-
-.qfeed-chip--nostr {
-  background: rgba(180, 0, 255, 0.12);
-  border: 1px solid rgba(180, 0, 255, 0.35);
-  color: #d166ff;
-}
-
-.qfeed-chip--mesh {
-  background: rgba(10, 255, 132, 0.1);
-  border: 1px solid rgba(10, 255, 132, 0.35);
-  color: var(--neon-green, #35ff8a);
-}
-
 .qfeed-showcase-body {
   display: grid;
-  grid-template-columns: minmax(280px, 320px) minmax(0, 1fr);
-  gap: 28px;
-  padding: 24px;
+  grid-template-columns: minmax(300px, 325px) minmax(0, 1fr);
+  gap: 32px;
+  padding: 26px 28px;
   align-items: center;
 }
 
-/* Smartphone Chassis Mockup */
+/* Smartphone Chassis Mockup (Left Column) */
 .qfeed-phone-stage {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .qfeed-phone-chassis {
   position: relative;
   width: 100%;
-  max-width: 300px;
-  border-radius: 32px;
+  max-width: 315px;
+  border-radius: 34px;
   background: #080b10;
   padding: 10px 8px 12px;
   border: 2px solid rgba(0, 242, 255, 0.35);
   box-shadow:
-    0 16px 40px rgba(0, 0, 0, 0.8),
-    0 0 25px rgba(0, 242, 255, 0.15),
+    0 18px 45px rgba(0, 0, 0, 0.85),
+    0 0 28px rgba(0, 242, 255, 0.16),
     inset 0 0 10px rgba(0, 0, 0, 0.9);
 }
 
@@ -25120,6 +24994,7 @@ body.qgeo-modal-open {
   height: 100%;
   object-fit: cover;
   display: block;
+  cursor: pointer;
 }
 
 .qfeed-phone-glare {
@@ -25192,11 +25067,87 @@ body.qgeo-modal-open {
   margin: 6px auto 0;
 }
 
-/* Features Deck (Right Column) */
+/* Features & Telemetry Deck (Right Column) */
 .qfeed-features-deck {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  min-width: 0;
+  width: 100%;
+}
+
+/* Right-Column HUD Telemetry Bar (Desktop) */
+.qfeed-features-deck .qfeed-showcase-hud {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 14px;
+  background: rgba(6, 10, 18, 0.85);
+  border: 1px solid rgba(0, 242, 255, 0.2);
+  border-radius: 8px;
+  flex-wrap: wrap;
+}
+
+.qfeed-hud-left {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.qfeed-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--neon-cyan, #00f2ff);
+  box-shadow: 0 0 12px rgba(0, 242, 255, 0.9);
+  animation: qfeed-dot-pulse 2s infinite ease-in-out;
+  flex-shrink: 0;
+}
+
+@keyframes qfeed-dot-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.85); }
+}
+
+.qfeed-hud-title {
+  color: var(--neon-cyan, #00f2ff);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.qfeed-hud-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.qfeed-chip {
+  font-size: 9px;
+  font-weight: 600;
+  padding: 2.5px 7px;
+  border-radius: 4px;
+  letter-spacing: 0.03em;
+}
+
+.qfeed-chip--live {
+  background: rgba(255, 45, 85, 0.12);
+  border: 1px solid rgba(255, 45, 85, 0.35);
+  color: #ff476f;
+}
+
+.qfeed-chip--nostr {
+  background: rgba(180, 0, 255, 0.12);
+  border: 1px solid rgba(180, 0, 255, 0.35);
+  color: #d166ff;
+}
+
+.qfeed-chip--mesh {
+  background: rgba(10, 255, 132, 0.1);
+  border: 1px solid rgba(10, 255, 132, 0.35);
+  color: var(--neon-green, #35ff8a);
 }
 
 .qfeed-deck-kicker {
@@ -25210,60 +25161,86 @@ body.qgeo-modal-open {
   font-size: 1.35rem;
   color: #fff;
   font-weight: 700;
-  margin: 0;
+  margin: 3px 0 5px 0;
   line-height: 1.25;
   letter-spacing: -0.01em;
   font-family: inherit;
 }
 
 .qfeed-deck-desc {
-  font-size: 0.85rem;
-  color: rgba(210, 225, 240, 0.75);
-  line-height: 1.5;
+  font-size: 0.83rem;
+  color: rgba(210, 225, 240, 0.78);
+  line-height: 1.48;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-.qfeed-deck-cards {
+/* Integrated Metrics Deck Grid in Right Column (6 Windows) */
+.qfeed-features-deck .qfeed-metrics-deck {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
-  margin-top: 4px;
+  margin: 4px 0 8px 0;
+  position: relative;
+  z-index: 1;
 }
 
-.qfeed-feature-card {
-  background: rgba(12, 18, 28, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+.qfeed-features-deck .qfeed-metric-card {
+  background: rgba(10, 15, 26, 0.75);
+  border: 1px solid rgba(0, 242, 255, 0.15);
   border-radius: 8px;
-  padding: 10px 12px;
+  padding: 10px 13px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  justify-content: space-between;
+  min-width: 0;
 }
 
-.qfeed-feature-card:hover {
-  border-color: rgba(0, 242, 255, 0.3);
+.qfeed-features-deck .qfeed-metric-card:hover {
+  border-color: rgba(0, 242, 255, 0.45);
+  box-shadow: 0 4px 18px rgba(0, 242, 255, 0.12);
   transform: translateY(-2px);
 }
 
-.fcard-badge {
-  font-size: 8.5px;
-  font-weight: 700;
+.qfeed-metric-card .metric-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3px;
+  font-size: 0.68rem;
   letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.6);
 }
 
-.qfeed-feature-card strong {
-  font-size: 11px;
-  color: #fff;
-  line-height: 1.3;
+.metric-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
 }
 
-.qfeed-feature-card p {
-  font-size: 9.5px;
-  color: rgba(200, 215, 230, 0.7);
-  line-height: 1.45;
-  margin: 0;
+.metric-dot.green { background: #00ff9d; box-shadow: 0 0 8px #00ff9d; }
+.metric-dot.cyan { background: #00f3ff; box-shadow: 0 0 8px #00f3ff; }
+.metric-dot.amber { background: #ffaa00; box-shadow: 0 0 8px #ffaa00; }
+.metric-dot.purple { background: #c040ff; box-shadow: 0 0 8px #c040ff; }
+
+.qfeed-features-deck .qfeed-metric-card .metric-val {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.qfeed-features-deck .qfeed-metric-card .metric-label {
+  font-size: 0.71rem;
+  color: rgba(200, 215, 230, 0.72);
+  line-height: 1.35;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
@@ -25272,7 +25249,7 @@ body.qgeo-modal-open {
   align-items: center;
   justify-content: space-between;
   gap: 14px;
-  padding-top: 10px;
+  padding-top: 8px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   flex-wrap: wrap;
 }
@@ -25283,11 +25260,11 @@ body.qgeo-modal-open {
   letter-spacing: 0.05em;
 }
 
-@media (max-width: 860px) {
+@media (max-width: 900px) {
   .qfeed-showcase-body {
     grid-template-columns: 1fr;
     gap: 22px;
-    padding: 16px;
+    padding: 18px 16px;
   }
 
   .qfeed-phone-stage {
@@ -25295,19 +25272,25 @@ body.qgeo-modal-open {
   }
 
   .qfeed-phone-chassis {
-    max-width: 270px;
+    max-width: 280px;
   }
 
-  .qfeed-deck-cards {
-    grid-template-columns: 1fr;
+  .qfeed-features-deck .qfeed-metrics-deck {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 520px) {
-  .qfeed-showcase-hud {
+  .qfeed-features-deck .qfeed-showcase-hud {
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
+  }
+
+  .qfeed-features-deck .qfeed-metrics-deck {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin: 2px 0 6px 0;
   }
 
   .qfeed-deck-title {
@@ -26701,10 +26684,10 @@ button.cyber-button-sm.txt-red:disabled,
     padding: 10px 10px;
     gap: 8px;
   }
-  .q-feed-section .qfeed-metrics-deck {
+  .qfeed-features-deck .qfeed-metrics-deck {
     grid-template-columns: 1fr;
-    gap: 10px;
-    margin: 20px 0;
+    gap: 8px;
+    margin: 4px 0 6px 0;
   }
   .q-feed-section .action-btn {
     flex: 1 1 100%;
