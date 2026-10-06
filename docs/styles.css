@@ -24743,7 +24743,6 @@ body.qgeo-modal-open {
 .q-feed-section .wrap {
   position: relative;
   z-index: 1;
-  max-width: min(1280px, calc(100% - 48px));
 }
 
 .qfeed-bg {
@@ -26420,6 +26419,16 @@ button.cyber-button-sm.txt-red:disabled,
   .q-feed-section {
     padding: 60px 0;
     overflow-x: hidden;
+  }
+  .q-feed-section .wrap {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .q-feed-section .qfeed-video-showcase {
+    width: 100%;
+    max-width: 100%;
+    margin: 20px 0 32px;
   }
   .q-feed-section .qfeed-workspace {
     padding: 16px 12px;
