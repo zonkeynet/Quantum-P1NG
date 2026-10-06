@@ -24777,13 +24777,24 @@ body.qgeo-modal-open {
 }
 
 /* Q-Feed Megaphone Title Header */
+.q-feed-section .qfeed-header {
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+.q-feed-section .cyber-badge {
+  margin-left: 0;
+  margin-right: auto;
+}
+
 .qfeed-section-title {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 12px;
+  justify-content: flex-start;
+  gap: 14px;
   max-width: 100%;
-  margin: 0 auto 16px auto;
+  margin: 0 0 16px 0;
+  text-align: left;
   text-wrap: balance;
 }
 
@@ -24808,15 +24819,41 @@ body.qgeo-modal-open {
 
 .qfeed-title-text {
   display: inline;
+  text-align: left;
+}
+
+.q-feed-section .section-desc {
+  text-align: left;
+  margin: 0 0 36px 0;
+  max-width: 760px;
 }
 
 @media (max-width: 768px) {
+  .q-feed-section .qfeed-header {
+    text-align: center;
+  }
+
+  .q-feed-section .cyber-badge {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .qfeed-section-title {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
     text-align: center;
+    margin: 0 auto 16px auto;
+  }
+
+  .qfeed-title-text {
+    text-align: center;
+  }
+
+  .q-feed-section .section-desc {
+    text-align: center;
+    margin: 0 auto 28px auto;
   }
 
   .qfeed-title-icon {
