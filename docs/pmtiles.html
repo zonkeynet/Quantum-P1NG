@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Q-Geo PMTiles City Extractor — Quantum P1NG (Q-P1NG®)</title>
-  <meta name="description" content="Estrai e scarica mappe vettoriali offline (.pmtiles) per qualsiasi città o regione. Cartografia tattica OpenStreetMap 100% air-gapped per Quantum P1NG.">
+  <meta name="description" content="Extract and download zero-cloud offline vector maps (.pmtiles) for active conflict zones and cities worldwide. 100% air-gapped OpenStreetMap tactical GIS for Quantum P1NG.">
   <link rel="icon" type="image/png" href="assets/img/qp1ng_icon.png">
 
   <!-- OpenGraph / Social Meta -->
   <meta property="og:title" content="Q-Geo PMTiles City Extractor — Quantum P1NG">
-  <meta property="og:description" content="Estrai mappe vettoriali offline (.pmtiles) al volo. Zero cloud, 100% air-gapped.">
+  <meta property="og:description" content="Extract offline vector maps (.pmtiles) on the fly. Zero cloud, 100% air-gapped.">
   <meta property="og:image" content="https://www.qp1ng.com/assets/img/social-preview.png">
   <meta property="og:url" content="https://www.qp1ng.com/pmtiles.html">
 
@@ -17,7 +17,7 @@
   <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
   <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 
-  <!-- Mapbox GL Draw (compatibile MapLibre) -->
+  <!-- Mapbox GL Draw (MapLibre compatible) -->
   <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.4.3/mapbox-gl-draw.css" />
   <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.4.3/mapbox-gl-draw.js"></script>
 
@@ -292,7 +292,7 @@
       border-color: var(--cyan);
     }
 
-    /* QUICK CITY PRESETS */
+    /* CONFLICT & HIGH-RISK ZONE PRESETS */
     .presets-wrap {
       margin-bottom: 14px;
     }
@@ -300,10 +300,22 @@
     .presets-label {
       font-family: var(--font-mono);
       font-size: 0.68rem;
-      color: var(--text-muted);
+      color: var(--red);
       letter-spacing: 0.5px;
       margin-bottom: 6px;
-      display: block;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-weight: 700;
+    }
+
+    .presets-label::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 0 6px var(--red);
     }
 
     .presets-grid {
@@ -329,6 +341,12 @@
       border-color: var(--cyan);
       color: var(--cyan);
       background: rgba(0, 242, 255, 0.08);
+    }
+
+    .preset-chip.active {
+      border-color: var(--red);
+      color: #fff;
+      background: rgba(255, 42, 109, 0.18);
     }
 
     /* ACTION BUTTONS */
@@ -604,7 +622,7 @@
 
   <!-- TOP BAR -->
   <header class="topbar">
-    <a href="index.html#q-geo" class="brand-wrap" title="Torna a Quantum P1NG">
+    <a href="index.html#q-geo" class="brand-wrap" title="Return to Quantum P1NG">
       <img src="assets/img/qp1ng_icon.png" alt="QP1NG Emblem" class="brand-logo" width="32" height="32">
       <span class="brand-title">
         Q-GEO // PMTILES EXTRACTOR
@@ -618,7 +636,7 @@
         <span>OSM GLOBAL VECTOR // PROTOMAPS READY</span>
       </div>
       <a href="index.html#q-geo" class="btn-return">
-        <span>← RITORNA A QP1NG.COM</span>
+        <span>← RETURN TO QP1NG.COM</span>
       </a>
     </div>
   </header>
@@ -627,8 +645,8 @@
   <div class="panel" id="tacticalPanel">
     <div class="panel-header">
       <div>
-        <h1 class="panel-title">ESTRAI MAPPA CITTÀ</h1>
-        <p class="panel-subtitle">Archivio Vettoriale PMTiles (Zoom 0–15)</p>
+        <h1 class="panel-title">EXTRACT CITY MAP</h1>
+        <p class="panel-subtitle">Vector PMTiles Archive (Zoom 0–15)</p>
       </div>
       <button class="panel-toggle-btn" id="togglePanelBtn">MIN</button>
     </div>
@@ -636,81 +654,81 @@
     <div class="panel-body">
       <!-- Search Box -->
       <div class="search-box">
-        <input type="text" id="searchInput" class="search-input" placeholder="Cerca città (es. Roma, Milano, Kyiv)..." aria-label="Cerca città">
-        <button id="searchBtn" class="search-btn">VAI</button>
+        <input type="text" id="searchInput" class="search-input" placeholder="Search city or zone (e.g. Kyiv, Beirut, Khartoum)..." aria-label="Search city">
+        <button id="searchBtn" class="search-btn">GO</button>
       </div>
 
-      <!-- Quick City Presets -->
+      <!-- ACTIVE CONFLICT & HIGH-RISK ZONE PRESETS 2026 -->
       <div class="presets-wrap">
-        <span class="presets-label">PRESET METROPOLITANI RAPIDI:</span>
+        <span class="presets-label">ACTIVE CONFLICT &amp; HIGH-RISK ZONES (2026):</span>
         <div class="presets-grid">
-          <button class="preset-chip" data-city="roma">Roma</button>
-          <button class="preset-chip" data-city="milano">Milano</button>
-          <button class="preset-chip" data-city="napoli">Napoli</button>
-          <button class="preset-chip" data-city="torino">Torino</button>
-          <button class="preset-chip" data-city="berlin">Berlin</button>
-          <button class="preset-chip" data-city="kyiv">Kyiv</button>
-          <button class="preset-chip" data-city="paris">Paris</button>
-          <button class="preset-chip" data-city="london">London</button>
+          <button class="preset-chip" data-city="kyiv" title="Kyiv, Ukraine (Air defense / blackouts)">Kyiv</button>
+          <button class="preset-chip" data-city="kharkiv" title="Kharkiv, Ukraine (Active frontline)">Kharkiv</button>
+          <button class="preset-chip" data-city="gaza" title="Gaza Strip (Severe humanitarian crisis)">Gaza</button>
+          <button class="preset-chip" data-city="beirut" title="Beirut, Lebanon (Cross-border strikes)">Beirut</button>
+          <button class="preset-chip" data-city="khartoum" title="Khartoum, Sudan (Open armed conflict)">Khartoum</button>
+          <button class="preset-chip" data-city="damascus" title="Damascus, Syria (Active strikes / civil war)">Damascus</button>
+          <button class="preset-chip" data-city="sanaa" title="Sanaa, Yemen (Red Sea maritime crisis)">Sanaa</button>
+          <button class="preset-chip" data-city="taipei" title="Taipei, Taiwan Strait (Critical alert corridor)">Taipei</button>
         </div>
       </div>
 
       <!-- Action Buttons -->
       <div class="actions-grid">
-        <button id="drawPolyBtn" class="btn-action" title="Disegna un'area personalizzata sulla mappa">
+        <button id="drawPolyBtn" class="btn-action" title="Draw a custom bounding box or polygon on map">
           <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 6 12 2 21 6 17 18 7 18"/></svg>
-          <span>DISEGNA AREA</span>
+          <span>DRAW AREA</span>
         </button>
-        <button id="currentViewBtn" class="btn-action" title="Usa il bounding box dell'inquadratura visibile attuale">
+        <button id="currentViewBtn" class="btn-action" title="Extract bounding box of current screen viewport">
           <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
-          <span>USA VISTA ATTUALE</span>
+          <span>USE CURRENT VIEW</span>
         </button>
       </div>
 
       <!-- Telemetry Card -->
       <div class="telemetry-card">
         <div class="telemetry-row">
-          <span class="telemetry-label">STATO SELEZIONE</span>
-          <span id="telStatus" class="telemetry-val amber">IN ATTESA</span>
+          <span class="telemetry-label">SELECTION STATUS</span>
+          <span id="telStatus" class="telemetry-val amber">AWAITING SELECTION</span>
         </div>
         <div class="telemetry-row">
-          <span class="telemetry-label">ESTENSIONE AREA</span>
+          <span class="telemetry-label">AREA COVERAGE</span>
           <span id="telArea" class="telemetry-val">-- km²</span>
         </div>
         <div class="telemetry-row">
-          <span class="telemetry-label">PESO STIMATO .PMTILES</span>
+          <span class="telemetry-label">ESTIMATED .PMTILES</span>
           <span id="telSize" class="telemetry-val">-- MB</span>
         </div>
         <div class="telemetry-row">
-          <span class="telemetry-label">LIVELLO DETTAGLIO</span>
-          <span class="telemetry-val cyan">ZOOM 0–15 (EDIFICI &amp; POI)</span>
+          <span class="telemetry-label">DETAIL LEVEL</span>
+          <span class="telemetry-val cyan">ZOOM 0–15 (STREETS &amp; BLDGS)</span>
         </div>
       </div>
 
       <!-- Coordinates Output -->
       <div class="coords-box" id="coordsOutput">
-        <button class="copy-btn" id="copyCoordsBtn" title="Copia Bounding Box">COPIA</button>
-        <div id="coordsText">Nessuna area selezionata.<br>Disegna un'area o clicca "Usa Vista Attuale".</div>
+        <button class="copy-btn" id="copyCoordsBtn" title="Copy Bounding Box">COPY</button>
+        <div id="coordsText">No area selected.<br>Draw a polygon or click "Use Current View".</div>
       </div>
 
       <!-- Download Button -->
       <button id="downloadBtn" class="btn-download" disabled>
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        <span>SCARICA PMTILES DELLA ZONA</span>
+        <span>DOWNLOAD PMTILES EXTRACT</span>
       </button>
 
-      <button id="cliModalBtn" class="btn-cli" disabled>Comando CLI pmtiles (Opzionale / Script)</button>
+      <button id="cliModalBtn" class="btn-cli" disabled>CLI pmtiles Command (Scripting / Server)</button>
 
       <!-- Operational App Guide -->
       <div class="guide-box">
         <div class="guide-title">
-          <span>OPERAZIONALITÀ AIR-GAPPED</span>
+          <span>AIR-GAPPED OPERATIONAL WORKFLOW</span>
         </div>
         <ol class="guide-steps">
-          <li>Scarica il file <code>.pmtiles</code> per la città di interesse.</li>
-          <li>Copia il file nello smartphone (es. tramite cavo o MicroSD).</li>
-          <li>In <strong>Quantum P1NG</strong> → <strong>Q-Geo Tactical</strong> → <strong>Map Pack Manager</strong> tocca <em>Importa PMTiles</em>.</li>
-          <li>Cartografia vettoriale 60 FPS offline al 100%, senza internet né tracce di rete.</li>
+          <li>Download the <code>.pmtiles</code> archive for your theater or city of interest.</li>
+          <li>Transfer the file to your handset (via USB cable or MicroSD card).</li>
+          <li>In <strong>Quantum P1NG</strong> → <strong>Q-Geo Tactical</strong> → <strong>Map Pack Manager</strong> tap <em>Import PMTiles</em>.</li>
+          <li>100% offline 60 FPS vector cartography with zero cellular connectivity or network traces.</li>
         </ol>
       </div>
     </div>
@@ -720,19 +738,19 @@
   <div class="modal-overlay" id="cliModal">
     <div class="modal-card">
       <button class="modal-close" id="modalCloseBtn">&times;</button>
-      <h3 class="modal-title">COMANDO ESTRAZIONE CLI PMTILES</h3>
+      <h3 class="modal-title">PMTILES CLI EXTRACTION COMMAND</h3>
       <p class="modal-desc">
-        Se preferisci estrarre il pacchetto da riga di comando sul tuo computer o server tramite la utility ufficiale Go/C++ <code>pmtiles</code>:
+        To slice this area from the daily global planet archive using the official Go/C++ <code>pmtiles</code> CLI tool on your workstation or air-gapped field laptop:
       </p>
       <div class="modal-code" id="cliCodeText"></div>
       <p class="modal-desc" style="margin-bottom: 0;">
-        Il comando ritaglierà l'archivio planetario mondiale direttamente sulle coordinate della città selezionata fino a zoom 15.
+        This command extracts vector tiles strictly bounded by your coordinates up to zoom level 15.
       </p>
     </div>
   </div>
 
   <!-- Map Theme Toggle Button -->
-  <button id="themeToggleBtn" class="map-theme-btn" title="Alterna stile mappa tattico/giorno">
+  <button id="themeToggleBtn" class="map-theme-btn" title="Toggle Tactical Night / Daylight map mode">
     <span>🌙 TACTICAL DARK</span>
   </button>
 
@@ -742,6 +760,7 @@
   <script>
     // =========================================================================
     // 1. MAPLIBRE GL INITIALIZATION (Raster OSM + Custom Map Style)
+    // Default Center: Kyiv, Ukraine (Active Conflict / Air-Gap Reference)
     // =========================================================================
     const map = new maplibregl.Map({
       container: 'map',
@@ -765,7 +784,7 @@
           maxzoom: 19
         }]
       },
-      center: [12.4964, 41.9028], // Default: Roma
+      center: [30.5234, 50.4501], // Default: Kyiv, Ukraine
       zoom: 12
     });
 
@@ -922,15 +941,15 @@
       telSize.textContent = `~${estSizeMb} MB`;
 
       if (estSizeMb <= 50) {
-        telStatus.textContent = 'OTTIMALE (METRO)';
+        telStatus.textContent = 'OPTIMAL (METRO)';
         telStatus.className = 'telemetry-val green';
         telSize.className = 'telemetry-val green';
       } else if (estSizeMb <= 100) {
-        telStatus.textContent = 'MEDIO (REGIONE)';
+        telStatus.textContent = 'MEDIUM (REGION)';
         telStatus.className = 'telemetry-val amber';
         telSize.className = 'telemetry-val amber';
       } else {
-        telStatus.textContent = 'ELEVATO (>100MB)';
+        telStatus.textContent = 'OVERSIZED (>100MB)';
         telStatus.className = 'telemetry-val red';
         telSize.className = 'telemetry-val red';
       }
@@ -938,20 +957,20 @@
       coordsText.innerHTML = `<strong>BBOX [W,S,E,N]:</strong><br>[${minLon}, ${minLat}, ${maxLon}, ${maxLat}]`;
       downloadBtn.disabled = false;
       cliModalBtn.disabled = false;
-      downloadBtn.querySelector('span').textContent = `SCARICA PMTILES (~${estSizeMb} MB)`;
+      downloadBtn.querySelector('span').textContent = `DOWNLOAD PMTILES (~${estSizeMb} MB)`;
     }
 
     function resetTelemetry() {
       currentBbox = null;
-      telStatus.textContent = 'IN ATTESA';
+      telStatus.textContent = 'AWAITING SELECTION';
       telStatus.className = 'telemetry-val amber';
       telArea.textContent = '-- km²';
       telSize.textContent = '-- MB';
       telSize.className = 'telemetry-val';
-      coordsText.innerHTML = `Nessuna area selezionata.<br>Disegna un'area o clicca "Usa Vista Attuale".`;
+      coordsText.innerHTML = `No area selected.<br>Draw a polygon or click "Use Current View".`;
       downloadBtn.disabled = true;
       cliModalBtn.disabled = true;
-      downloadBtn.querySelector('span').textContent = 'SCARICA PMTILES DELLA ZONA';
+      downloadBtn.querySelector('span').textContent = 'DOWNLOAD PMTILES EXTRACT';
     }
 
     map.on('draw.create', () => updateSelection());
@@ -976,7 +995,7 @@
 
       // Create a rectangle polygon in draw
       draw.deleteAll();
-      const featureId = draw.add({
+      draw.add({
         type: 'Feature',
         properties: {},
         geometry: {
@@ -999,8 +1018,8 @@
       if (!currentBbox) return;
       const str = `${currentBbox.minLon},${currentBbox.minLat},${currentBbox.maxLon},${currentBbox.maxLat}`;
       navigator.clipboard.writeText(str).then(() => {
-        copyCoordsBtn.textContent = 'COPIATO!';
-        setTimeout(() => copyCoordsBtn.textContent = 'COPIA', 1500);
+        copyCoordsBtn.textContent = 'COPIED!';
+        setTimeout(() => copyCoordsBtn.textContent = 'COPY', 1500);
       });
     });
 
@@ -1038,26 +1057,28 @@
     });
 
     // =========================================================================
-    // 8. CITY PRESETS JUMP
+    // 8. CONFLICT & HIGH-RISK CITY PRESETS (2026 Active Theaters)
     // =========================================================================
-    const cityCoords = {
-      roma:   { center: [12.4964, 41.9028], zoom: 12 },
-      milano: { center: [9.1900, 45.4642],  zoom: 12 },
-      napoli: { center: [14.2681, 40.8518], zoom: 12 },
-      torino: { center: [7.6869, 45.0703],  zoom: 12 },
-      berlin: { center: [13.4050, 52.5200], zoom: 12 },
-      kyiv:   { center: [30.5234, 50.4501], zoom: 12 },
-      paris:  { center: [2.3522, 48.8566],  zoom: 12 },
-      london: { center: [-0.1278, 51.5074], zoom: 12 }
+    const conflictCities = {
+      kyiv:     { center: [30.5234, 50.4501], zoom: 12 },
+      kharkiv:  { center: [36.2304, 49.9935], zoom: 12 },
+      gaza:     { center: [34.4667, 31.5000], zoom: 12 },
+      beirut:   { center: [35.5018, 33.8938], zoom: 12 },
+      khartoum: { center: [32.5599, 15.5007], zoom: 12 },
+      damascus: { center: [36.2765, 33.5138], zoom: 12 },
+      sanaa:    { center: [44.2064, 15.3694], zoom: 12 },
+      taipei:   { center: [121.5654, 25.0330], zoom: 12 }
     };
 
     document.querySelectorAll('.preset-chip').forEach(btn => {
       btn.addEventListener('click', () => {
+        document.querySelectorAll('.preset-chip').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
         const key = btn.dataset.city;
-        if (cityCoords[key]) {
+        if (conflictCities[key]) {
           map.flyTo({
-            center: cityCoords[key].center,
-            zoom: cityCoords[key].zoom,
+            center: conflictCities[key].center,
+            zoom: conflictCities[key].zoom,
             essential: true
           });
         }
@@ -1086,12 +1107,12 @@
             essential: true
           });
         } else {
-          alert('Città non trovata. Prova a inserire un nome più specifico.');
+          alert('Location not found. Please try a more specific search query.');
         }
       } catch (e) {
         console.error(e);
       } finally {
-        searchBtn.textContent = 'VAI';
+        searchBtn.textContent = 'GO';
       }
     }
 
