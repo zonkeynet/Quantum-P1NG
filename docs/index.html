@@ -45,7 +45,7 @@
   <meta name="twitter:image" content="https://www.qp1ng.com/assets/img/social-preview.png" />
 
   <link rel="preload" href="assets/fonts/square_dot_digital_qp1ng.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="styles.css?v=3.0.3" as="style" />
+  <link rel="preload" href="styles.css?v=3.0.4" as="style" />
   <link rel="preload" as="image" href="assets/vid/intro_bg_poster.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/intro_mobile_poster.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/qmap_poster.webp">
@@ -60,7 +60,7 @@
       }
     } catch(e){}
   </script>
-  <link rel="stylesheet" href="styles.css?v=3.0.3" />
+  <link rel="stylesheet" href="styles.css?v=3.0.4" />
 
   <!-- Schema.org Comprehensive Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -211,14 +211,14 @@
   <div class="intro-video-wrap" id="introVideoWrap">
     <!-- Desktop Video Engine (Widescreen 1680x720) -->
     <video id="introBgVideoDesktop" class="intro-bg-video intro-bg-video--desktop" poster="assets/vid/intro_bg_poster.webp" muted loop playsinline preload="auto">
-      <source src="assets/vid/intro_bg.mp4" type="video/mp4" media="(min-width: 769px)">
       <source src="assets/vid/intro_bg.webm" type="video/webm" media="(min-width: 769px)">
+      <source src="assets/vid/intro_bg.mp4" type="video/mp4" media="(min-width: 769px)">
     </video>
 
     <!-- Smartphone / Mobile Video Engine (HD Vertical 720x1280) -->
     <video id="introBgVideoMobile" class="intro-bg-video intro-bg-video--mobile" poster="assets/vid/intro_mobile_poster.webp" muted loop playsinline preload="none">
-      <source src="assets/vid/intro_mobile.mp4" type="video/mp4" media="(max-width: 768px)">
       <source src="assets/vid/intro_mobile.webm" type="video/webm" media="(max-width: 768px)">
+      <source src="assets/vid/intro_mobile.mp4" type="video/mp4" media="(max-width: 768px)">
     </video>
 
     <div class="intro-video-overlay"></div>
@@ -980,11 +980,14 @@ _
     <div class="mission-principles" aria-label="Mission principles">
       <article class="mission-principle" data-mission-reveal>
         <div class="mission-principle-media mission-principle-media--video" id="identityMediaContainer" role="button" tabindex="0" aria-label="Toggle Decoupled Identity video animation" title="Click to play / pause animation">
-          <img src="assets/img/no_sim.jpg" alt="Decoupled cryptographic identity visual" class="identity-poster-img" loading="lazy" decoding="async" width="1024" height="572" />
+          <picture>
+            <source srcset="assets/img/no_sim.webp" type="image/webp">
+            <img src="assets/img/no_sim.jpg" alt="Decoupled cryptographic identity visual" class="identity-poster-img" loading="lazy" decoding="async" width="1024" height="572" />
+          </picture>
           
           <video id="identityVideo" class="identity-inline-video" width="640" height="360" muted loop playsinline preload="metadata">
-            <source src="assets/vid/no_sim_identity.mp4" type="video/mp4">
             <source src="assets/vid/no_sim_identity.webm" type="video/webm">
+            <source src="assets/vid/no_sim_identity.mp4" type="video/mp4">
           </video>
 
           <span class="mono identity-badge" id="identityBadge">ID::LOCAL</span>
@@ -1001,11 +1004,14 @@ _
 
       <article class="mission-principle" data-mission-reveal>
         <div class="mission-principle-media mission-principle-media--video" id="torMediaContainer" role="button" tabindex="0" aria-label="Toggle Edge Tunnel video animation" title="Click to play / pause animation">
-          <img src="assets/img/tor_edge.png" alt="Tor edge routing visual" class="tor-poster-img" loading="lazy" decoding="async" width="1024" height="1024" />
+          <picture>
+            <source srcset="assets/img/tor_edge.webp" type="image/webp">
+            <img src="assets/img/tor_edge.png" alt="Tor edge routing visual" class="tor-poster-img" loading="lazy" decoding="async" width="1024" height="1024" />
+          </picture>
           
           <video id="torVideo" class="tor-inline-video" width="640" height="360" muted loop playsinline preload="metadata">
-            <source src="assets/vid/edge_tunnel.mp4" type="video/mp4">
             <source src="assets/vid/edge_tunnel.webm" type="video/webm">
+            <source src="assets/vid/edge_tunnel.mp4" type="video/mp4">
           </video>
 
           <span class="mono tor-badge" id="torBadge">ROUTE::TOR</span>
@@ -1022,11 +1028,14 @@ _
 
       <article class="mission-principle" data-mission-reveal>
         <div class="mission-principle-media mission-principle-media--video" id="vaultMediaContainer" role="button" tabindex="0" aria-label="Toggle Secure Vault video animation" title="Click to play / pause animation">
-          <img src="assets/img/sec_vault.png" alt="Encrypted vault interface visual" class="vault-poster-img" loading="lazy" decoding="async" width="1024" height="1024" />
+          <picture>
+            <source srcset="assets/img/sec_vault.webp" type="image/webp">
+            <img src="assets/img/sec_vault.png" alt="Encrypted vault interface visual" class="vault-poster-img" loading="lazy" decoding="async" width="1024" height="1024" />
+          </picture>
           
           <video id="vaultVideo" class="vault-inline-video" width="640" height="360" muted loop playsinline preload="metadata">
-            <source src="assets/vid/secure_vault.mp4" type="video/mp4">
             <source src="assets/vid/secure_vault.webm" type="video/webm">
+            <source src="assets/vid/secure_vault.mp4" type="video/mp4">
           </video>
           <span class="mono vault-badge" id="vaultBadge">VAULT::LOCKED</span>
         </div>
@@ -1042,11 +1051,14 @@ _
 
       <article class="mission-principle" data-mission-reveal>
         <div class="mission-principle-media mission-principle-media--video" id="whisperMediaContainer" role="button" tabindex="0" aria-label="Toggle Whisper STT video animation" title="Click to play / pause animation">
-          <img src="assets/img/stt.jpg" alt="Secure dictation visual" class="whisper-poster-img" loading="lazy" decoding="async" width="1154" height="769" />
+          <picture>
+            <source srcset="assets/img/stt.webp" type="image/webp">
+            <img src="assets/img/stt.jpg" alt="Secure dictation visual" class="whisper-poster-img" loading="lazy" decoding="async" width="1154" height="769" />
+          </picture>
           
           <video id="whisperVideo" class="whisper-inline-video" width="640" height="360" muted loop playsinline preload="metadata">
-            <source src="assets/vid/voice_audio_whisper.mp4" type="video/mp4">
             <source src="assets/vid/voice_audio_whisper.webm" type="video/webm">
+            <source src="assets/vid/voice_audio_whisper.mp4" type="video/mp4">
           </video>
 
           <span class="mono whisper-badge" id="whisperBadge">AI::GATED</span>
@@ -1063,7 +1075,10 @@ _
 
       <article class="mission-principle" data-mission-reveal>
         <div class="mission-principle-media">
-          <img src="assets/img/radio_lora.jpg" alt="Offline resilience visual" loading="lazy" decoding="async" width="1024" height="686" />
+          <picture>
+            <source srcset="assets/img/radio_lora.webp" type="image/webp">
+            <img src="assets/img/radio_lora.jpg" alt="Offline resilience visual" loading="lazy" decoding="async" width="1024" height="686" />
+          </picture>
           <span class="mono">FALLBACK::FIELD</span>
         </div>
         <div class="mission-principle-body">
@@ -1078,11 +1093,14 @@ _
 
       <article class="mission-principle" data-mission-reveal>
         <div class="mission-principle-media mission-principle-media--video" id="meshMediaContainer" role="button" tabindex="0" aria-label="Toggle Ghost Mesh Radar video animation" title="Click to play / pause animation">
-          <img src="assets/img/mesh.jpeg" alt="Resilient mesh communication visual" class="mesh-poster-img" loading="lazy" decoding="async" width="1024" height="1024" />
+          <picture>
+            <source srcset="assets/img/mesh.webp" type="image/webp">
+            <img src="assets/img/mesh.jpeg" alt="Resilient mesh communication visual" class="mesh-poster-img" loading="lazy" decoding="async" width="1024" height="1024" />
+          </picture>
           
           <video id="meshVideo" class="mesh-inline-video" width="640" height="360" muted loop playsinline preload="metadata">
-            <source src="assets/vid/mesh_radar.mp4" type="video/mp4">
             <source src="assets/vid/mesh_radar.webm" type="video/webm">
+            <source src="assets/vid/mesh_radar.mp4" type="video/mp4">
           </video>
 
           <span class="mono mesh-badge" id="meshBadge">LAB::SAFE</span>
@@ -2250,8 +2268,8 @@ _
             </picture>
 
             <video id="agWifiVideo" class="ag-wifi-video" width="1280" height="720" poster="assets/img/video_local_wifi_poster.webp?v=1" loop muted playsinline preload="metadata" title="Click to play / pause video animation">
-              <source src="assets/vid/video_local_wifi.mp4?v=1" type="video/mp4">
               <source src="assets/vid/video_local_wifi.webm?v=1" type="video/webm">
+              <source src="assets/vid/video_local_wifi.mp4?v=1" type="video/mp4">
             </video>
 
             <div class="ag-wifi-play-pill mono" id="agWifiPlayPill" aria-hidden="true">
@@ -5632,8 +5650,8 @@ _
           </picture>
 
           <video id="rbRadioVideo" class="rb-radio-video" width="1280" height="720" poster="assets/img/radio_collegamento_poster.webp?v=2" loop muted playsinline preload="metadata" title="Click to play / pause video animation">
-            <source src="assets/vid/radio_collegamento.mp4?v=2" type="video/mp4">
             <source src="assets/vid/radio_collegamento.webm?v=2" type="video/webm">
+            <source src="assets/vid/radio_collegamento.mp4?v=2" type="video/mp4">
           </video>
 
           <div class="rb-radio-play-pill mono" aria-hidden="true">
@@ -6827,11 +6845,14 @@ _
           </div>
 
           <div class="qcam-viewfinder" id="qcamMediaContainer" role="button" tabindex="0" aria-label="Toggle Q-CAM video demonstration" title="Click to play / pause video">
-            <img class="qcam-preview-img" decoding="async" loading="lazy" src="assets/img/qcam_manifestation_protected.jpg" alt="Generated Q-CAM example of a peaceful public demonstration with activist and bystander faces protected by privacy overlays" width="1672" height="941">
+            <picture class="qcam-preview-wrap">
+              <source srcset="assets/img/qcam_manifestation_protected.webp" type="image/webp">
+              <img class="qcam-preview-img" decoding="async" loading="lazy" src="assets/img/qcam_manifestation_protected.jpg" alt="Generated Q-CAM example of a peaceful public demonstration with activist and bystander faces protected by privacy overlays" width="1672" height="941">
+            </picture>
             
             <video id="qcamVideo" class="qcam-inline-video" width="1280" height="720" muted loop playsinline preload="metadata">
-              <source src="assets/vid/qcam_manifestation_protected.mp4" type="video/mp4">
               <source src="assets/vid/qcam_manifestation_protected.webm" type="video/webm">
+              <source src="assets/vid/qcam_manifestation_protected.mp4" type="video/mp4">
             </video>
 
             <div class="qcam-generated-badge mono" aria-hidden="true">GENERATED FIELD EXAMPLE // FACES PROTECTED</div>
