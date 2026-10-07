@@ -45,7 +45,7 @@
   <meta name="twitter:image" content="https://www.qp1ng.com/assets/img/social-preview.png" />
 
   <link rel="preload" href="assets/fonts/square_dot_digital_qp1ng.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="styles.css?v=2.9.9" as="style" />
+  <link rel="preload" href="styles.css?v=3.0.3" as="style" />
   <link rel="preload" as="image" href="assets/vid/intro_bg_poster.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/intro_mobile_poster.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/qmap_poster.webp">
@@ -60,7 +60,7 @@
       }
     } catch(e){}
   </script>
-  <link rel="stylesheet" href="styles.css?v=3.0.2" />
+  <link rel="stylesheet" href="styles.css?v=3.0.3" />
 
   <!-- Schema.org Comprehensive Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -6207,52 +6207,95 @@ _
         </div>
       </div>
 
-      <div class="q-ai-console" role="region" aria-label="Q-AI live intelligence console">
-        <div class="qai-console-top">
+      <div class="q-ai-console is-mode-widescreen" role="region" aria-label="Q-AI live intelligence console">
+        <!-- Console Top Bar (Layer & Status) -->
+        <div class="qai-console-top" id="qaiConsoleTop">
           <div>
-            <span class="qai-console-label mono">ACTIVE LAYER</span>
+            <span class="qai-console-label mono">ACTIVE MODULE LAYER</span>
             <strong class="qai-console-title mono" id="qaiActiveModule">Q-BRAIN LOCAL</strong>
           </div>
-          <span class="qai-console-state mono"><span class="qai-live-dot"></span> POLICY READY</span>
+          <span class="qai-console-state mono">
+            <span class="qai-live-dot"></span>
+            <span id="qaiStatusText">POLICY READY</span>
+          </span>
         </div>
 
-        <div class="qai-core-stage" aria-label="Q-Brain neural core intelligence runtime">
-          <div class="qai-video-box" id="qaiVideoBox" title="Click to play / pause Q-Brain neural video">
-            <video id="qaiVideo" class="qai-core-video" width="1280" height="720" poster="assets/vid/q-ai_poster.webp" loop muted playsinline preload="metadata">
-              <source src="assets/vid/q-ai.webm" type="video/webm">
-              <source src="assets/vid/q-ai.mp4" type="video/mp4">
-            </video>
+        <div class="qai-stage-container" id="qaiStageContainer">
+          <!-- Morphing Stage / Smartphone Chassis -->
+          <div class="qai-stage-col" id="qaiStageCol">
+            <div class="qai-phone-chassis" id="qaiPhoneChassis" title="Tocca per riprodurre o mettere in pausa il video dimostrativo">
+              <div class="qai-phone-speaker" aria-hidden="true"></div>
+              <div class="qai-phone-camera" aria-hidden="true"></div>
+              <div class="qai-phone-screen" id="qaiPhoneScreen">
+                <video id="qaiVideo" class="qai-core-video" width="1280" height="720" poster="assets/vid/q-ai_poster.webp" loop muted playsinline autoplay preload="metadata">
+                  <source id="qaiVideoSourceWebm" src="assets/vid/q-ai.webm" type="video/webm">
+                  <source id="qaiVideoSourceMp4" src="assets/vid/q-ai.mp4" type="video/mp4">
+                </video>
+                <div class="qai-phone-glitch" id="qaiPhoneGlitch" aria-hidden="true"></div>
+                <div class="qai-phone-glare" aria-hidden="true"></div>
+                <div class="qai-video-vignette" aria-hidden="true"></div>
+                <div class="qai-video-scanline" aria-hidden="true"></div>
+                <div class="qai-video-hud-tag mono" aria-hidden="true">
+                  <span class="qai-live-dot"></span>
+                  <span id="qaiVideoHudText">Q-BRAIN // NEURAL_CORE_ONLINE</span>
+                </div>
+                <div class="qai-video-bracket qai-bracket--tl" aria-hidden="true"></div>
+                <div class="qai-video-bracket qai-bracket--tr" aria-hidden="true"></div>
+                <div class="qai-video-bracket qai-bracket--bl" aria-hidden="true"></div>
+                <div class="qai-video-bracket qai-bracket--br" aria-hidden="true"></div>
+              </div>
+              <div class="qai-phone-home" aria-hidden="true"></div>
+            </div>
+            <div class="qai-phone-subtext mono" id="qaiPhoneSubtext">
+              <span class="qai-phone-subtext-dot"></span>
+              <span>LIVE DEMO // TAP SCREEN TO TOGGLE</span>
+            </div>
+          </div>
 
-            <!-- Holographic cyber HUD overlays -->
-            <div class="qai-video-vignette" aria-hidden="true"></div>
-            <div class="qai-video-scanline" aria-hidden="true"></div>
-            <div class="qai-video-hud-tag mono" aria-hidden="true">
-              <span class="qai-live-dot"></span>
-              <span id="qaiVideoHudText">Q-BRAIN // NEURAL_CORE_ONLINE</span>
+          <!-- Correlated Information Column / Grid -->
+          <div class="qai-info-col" id="qaiInfoCol">
+            <div class="qai-scenario-panel">
+              <div class="qai-panel-header">
+                <span class="qai-panel-label mono">SYSTEM BRIEF</span>
+                <span class="qai-module-badge mono" id="qaiModuleBadge">LAYER 01 // LOCAL CORE</span>
+              </div>
+              <h3 id="qaiScenarioTitle">Private assistant runtime</h3>
+              <p id="qaiScenarioText">Local Q-Brain generation, memory compression, vision intake and guarded tool calls run as scoped sessions with queue control directly on device.</p>
+
+              <div class="qai-pills-row" id="qaiPillsRow" aria-label="Module feature tags">
+                <span class="qai-feat-pill">Local GGUF</span>
+                <span class="qai-feat-pill">AiPack LLM</span>
+                <span class="qai-feat-pill">Vision Intake</span>
+                <span class="qai-feat-pill">Zero Telemetry</span>
+              </div>
+
+              <div class="qai-meter-block">
+                <div class="qai-meter-header mono">
+                  <span>RUNTIME READINESS</span>
+                  <span id="qaiMeterVal">94%</span>
+                </div>
+                <div class="qai-risk-meter" aria-label="Q-AI readiness meter">
+                  <span id="qaiRiskMeterSpan" style="--qai-fill: 94%"></span>
+                </div>
+              </div>
             </div>
 
-            <!-- Ambient corner brackets -->
-            <div class="qai-video-bracket qai-bracket--tl" aria-hidden="true"></div>
-            <div class="qai-video-bracket qai-bracket--tr" aria-hidden="true"></div>
-            <div class="qai-video-bracket qai-bracket--bl" aria-hidden="true"></div>
-            <div class="qai-video-bracket qai-bracket--br" aria-hidden="true"></div>
-          </div>
-        </div>
-
-        <div class="qai-console-grid">
-          <div class="qai-scenario-panel">
-            <span class="qai-panel-label mono">SYSTEM BRIEF</span>
-            <h3 id="qaiScenarioTitle">Private assistant runtime</h3>
-            <p id="qaiScenarioText">Local Q-Brain generation, memory compression, vision intake and guarded tool calls run as scoped sessions with queue control.</p>
-            <div class="qai-risk-meter" aria-label="Q-AI readiness meter">
-              <span style="--qai-fill: 92%"></span>
+            <div class="qai-terminal mono" aria-label="Q-AI diagnostic terminal">
+              <div class="qai-terminal-head">
+                <div class="qai-term-lights">
+                  <span class="qai-term-dot"></span>
+                  <span class="qai-term-dot"></span>
+                  <span class="qai-term-dot"></span>
+                </div>
+                <span class="qai-term-title">DIAGNOSTIC TELEMETRY</span>
+                <span class="qai-term-chip" id="qaiTermChip">LOCAL_NPU</span>
+              </div>
+              <div class="qai-terminal-body">
+                <div class="qai-terminal-line"><span>&gt;</span><span id="qaiTerminalLine">qbrain.start --runtime local --tools governed</span></div>
+                <div class="qai-terminal-line"><span>&gt;</span><span id="qaiTerminalSubLine1">providers: local llama.cpp, ggml-q4, qwen-2.5b, hermes</span></div>
+                <div class="qai-terminal-line"><span>&gt;</span><span id="qaiTerminalSubLine2">memory bank: 128k context compression, encrypted cache</span></div>
+              </div>
             </div>
-          </div>
-
-          <div class="qai-terminal mono" aria-label="Q-AI diagnostic terminal">
-            <div class="qai-terminal-line"><span>&gt;</span><span id="qaiTerminalLine">qbrain.start --runtime local --tools governed</span></div>
-            <div class="qai-terminal-line"><span>&gt;</span><span>providers: local, openai, gemini, claude, openrouter, custom</span></div>
-            <div class="qai-terminal-line"><span>&gt;</span><span>risk gate: read/write/network/hardware/destructive</span></div>
           </div>
         </div>
       </div>
@@ -7536,6 +7579,6 @@ _
     </div>
   </div>
 
-  <script src="script.js?v=2.6.15" defer></script>
+  <script src="script.js?v=2.6.16" defer></script>
 </body>
 </html>

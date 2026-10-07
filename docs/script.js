@@ -3956,51 +3956,130 @@ if (terminal && gamesGrid) {
     const cards = Array.from(section.querySelectorAll('.qai-tool-card'));
     const counters = Array.from(section.querySelectorAll('[data-qai-count]'));
     const qaiVideo = document.getElementById('qaiVideo');
-    const qaiVideoBox = document.getElementById('qaiVideoBox');
+    const qaiVideoSourceWebm = document.getElementById('qaiVideoSourceWebm');
+    const qaiVideoSourceMp4 = document.getElementById('qaiVideoSourceMp4');
+    const qaiPhoneChassis = document.getElementById('qaiPhoneChassis');
+    const qaiPhoneGlitch = document.getElementById('qaiPhoneGlitch');
+    const qaiInfoCol = document.getElementById('qaiInfoCol');
+    const qaiStatusText = document.getElementById('qaiStatusText');
+    const qaiModuleBadge = document.getElementById('qaiModuleBadge');
+    const qaiPillsRow = document.getElementById('qaiPillsRow');
+    const qaiMeterVal = document.getElementById('qaiMeterVal');
+    const qaiRiskMeterSpan = document.getElementById('qaiRiskMeterSpan');
+    const qaiTermChip = document.getElementById('qaiTermChip');
+    const qaiTerminalSubLine1 = document.getElementById('qaiTerminalSubLine1');
+    const qaiTerminalSubLine2 = document.getElementById('qaiTerminalSubLine2');
     const qaiVideoHudText = document.getElementById('qaiVideoHudText');
+    const qaiVideoBox = document.getElementById('qaiVideoBox') || qaiPhoneChassis;
 
     const modules = {
       brain: {
+        mode: 'widescreen',
         title: 'Q-BRAIN LOCAL',
+        status: 'POLICY READY',
+        badge: 'LAYER 01 // LOCAL CORE',
         brief: 'Private assistant runtime',
-        text: 'Local Q-Brain generation, memory compression, vision intake and guarded tool calls run as scoped sessions with queue control.',
+        text: 'Local Q-Brain generation, memory compression, vision intake and guarded tool calls run as scoped sessions with queue control directly on device.',
+        pills: ['Local GGUF', 'AiPack LLM', 'Vision Intake', 'Zero Telemetry'],
+        meter: '94%',
+        chip: 'LOCAL_NPU',
         cmd: 'qbrain.start --runtime local --tools governed',
-        fill: '92%'
+        sub1: 'providers: local llama.cpp, ggml-q4, qwen-2.5b, hermes',
+        sub2: 'memory bank: 128k context compression, encrypted cache',
+        hud: 'Q-BRAIN // NEURAL_CORE_ONLINE',
+        videoWebm: 'assets/vid/q-ai.webm',
+        videoMp4: 'assets/vid/q-ai.mp4',
+        poster: 'assets/vid/q-ai_poster.webp'
       },
       models: {
+        mode: 'phone',
         title: 'MODEL MATRIX',
+        status: 'COMPUTATION READY',
+        badge: 'LAYER 02 // MULTIMODAL',
         brief: 'AiPack runtime catalog',
-        text: 'LLM, embedding, STT, translation, TTS, multimodal vision and image generation packs expose runtime metadata, integrity checks and acceleration hints.',
-        cmd: 'aipacks.scan --types llm,embedding,stt,tts,image,vision',
-        fill: '88%'
+        text: 'Local image generation diffusion, LLM, embedding, STT whisper, translation and TTS speech packs with on-device acceleration and verified hashes.',
+        pills: ['Image Gen', 'Whisper STT', 'TTS Voice', 'Diffusion', 'Multimodal'],
+        meter: '91%',
+        chip: 'MULTIMODAL_VPU',
+        cmd: 'aipacks.scan --types image,vision,llm,stt,tts,embedding',
+        sub1: 'image engine: local diffusion 384x384 photoreal cyberpunk',
+        sub2: 'acceleration: vulkan / opencl / metal / npu coprocessor',
+        hud: 'MODELS // LOCAL_DIFFUSION_ACTIVE',
+        videoWebm: 'assets/vid/qai_mobile_models.webm',
+        videoMp4: 'assets/vid/qai_mobile_models.mp4',
+        poster: 'assets/vid/qai_mobile_models_poster.webp'
       },
       tools: {
+        mode: 'phone',
         title: 'TOOL ROUTER',
+        status: 'ROUTING READY',
+        badge: 'LAYER 03 // DISPATCH',
         brief: 'Typed actions with audit',
-        text: 'Notes, vault knowledge, app feature controls, image prompt tools, LoRa and sandbox tools are routed through schema validation and risk policy.',
+        text: 'Notes, vault knowledge, app feature controls, image prompt tools, LoRa radio and sandbox tools are routed through schema validation and risk policy.',
+        pills: ['LoRa AI Tools', 'Schema Guard', 'Vault Access', 'Audit Logs'],
+        meter: '88%',
+        chip: 'LORA_RF_CORE',
         cmd: 'tools.dispatch --risk-gate --confirm --audit',
-        fill: '84%'
+        sub1: 'interfaces: lora-mesh, secure-vault, camera, filesystem',
+        sub2: 'safety gate: approval prompt on outbound payload',
+        hud: 'TOOLS // LORA_DISPATCH_ON',
+        videoWebm: 'assets/vid/qai_mobile_tools.webm',
+        videoMp4: 'assets/vid/qai_mobile_tools.mp4',
+        poster: 'assets/vid/qai_mobile_tools_poster.webp'
       },
       sandbox: {
+        mode: 'phone',
         title: 'SANDBOX PRO',
+        status: 'ISOLATION READY',
+        badge: 'LAYER 04 // ISOLATION',
         brief: 'Isolated command execution',
         text: 'Linux sandbox policy checks working directories, host paths, network mode, dangerous patterns and lab-only commands before execution.',
+        pills: ['Linux Enclave', 'Jail Isolation', 'No-Root Chroot', 'Network Filter'],
+        meter: '85%',
+        chip: 'ENCLAVE_JAIL',
         cmd: 'sandbox.validate --mode ask_every_time --network allowlist',
-        fill: '79%'
+        sub1: 'cgroups v2: memory.max=512M cpu.max=50000 100000',
+        sub2: 'seccomp: syscall blacklist active, ptrace blocked',
+        hud: 'SANDBOX // ENCLAVE_SECURED',
+        videoWebm: 'assets/vid/qai_mobile_sandbox.webm',
+        videoMp4: 'assets/vid/qai_mobile_sandbox.mp4',
+        poster: 'assets/vid/qai_mobile_sandbox_poster.webp'
       },
       scenario: {
+        mode: 'phone',
         title: 'Q-SCENARIO ENGINE',
+        status: 'SIMULATION READY',
+        badge: 'LAYER 05 // OSINT & MAP',
         brief: 'Automation with manual review',
-        text: 'Scenario actions can transform QVars, run ActionForge tools, ask Q-Brain, write vault logs, request Tor identity and send LoRa payloads with review gates.',
-        cmd: 'qscenario.run --manual-review risky-actions',
-        fill: '86%'
+        text: 'Scenario actions can transform QVars, run ActionForge tools, ask Q-Brain, inspect mindmaps, request Tor identity and trigger automated workflows.',
+        pills: ['Mindmap OSINT', 'ActionForge', 'QVars Flow', 'Tor Gate'],
+        meter: '89%',
+        chip: 'OSINT_GRAPH',
+        cmd: 'qscenario.run --manual-review risky-actions --graph-sync',
+        sub1: 'pipeline: trigger -> condition -> decision -> action_step',
+        sub2: 'graph nodes: 14 active, memory state persistent',
+        hud: 'SCENARIO // MINDMAP_SYNCED',
+        videoWebm: 'assets/vid/qai_mobile_scenario.webm',
+        videoMp4: 'assets/vid/qai_mobile_scenario.mp4',
+        poster: 'assets/vid/qai_mobile_scenario_poster.webp'
       },
       governance: {
+        mode: 'phone',
         title: 'GOVERNANCE LAYER',
+        status: 'POLICY READY',
+        badge: 'LAYER 06 // AUDIT & GHOST',
         brief: 'Skill policies and Ghost Mode',
         text: 'Skill profiles define allowed tools, blocked tools, confirmation lists and max tool steps. Ghost Mode denies dangerous categories by default.',
-        cmd: 'governance.trace --dry-run --human-in-loop',
-        fill: '96%'
+        pills: ['Ghost Mode', 'Skill Profiles', 'Kill Switch', 'Audit Trail'],
+        meter: '98%',
+        chip: 'GHOST_POLICY',
+        cmd: 'governance.trace --dry-run --human-in-loop --kill-switch',
+        sub1: 'policy level: STRICT_ZERO_TRUST with human confirmation',
+        sub2: 'kill switch: hardware interrupt armed and verified',
+        hud: 'GOVERNANCE // GHOST_MODE_ENGAGED',
+        videoWebm: 'assets/vid/qai_mobile_governance.webm',
+        videoMp4: 'assets/vid/qai_mobile_governance.mp4',
+        poster: 'assets/vid/qai_mobile_governance_poster.webp'
       }
     };
 
@@ -4101,9 +4180,13 @@ if (terminal && gamesGrid) {
       raf = requestAnimationFrame(drawNeural);
     }
 
+    let currentModule = '';
     function setModule(key) {
       const resolvedKey = modules[key] ? key : 'brain';
       const data = modules[resolvedKey];
+      const isSwitch = currentModule && resolvedKey !== currentModule;
+      currentModule = resolvedKey;
+
       tabs.forEach((tab) => {
         const active = tab.dataset.qaiModule === resolvedKey;
         tab.classList.toggle('is-active', active);
@@ -4112,13 +4195,71 @@ if (terminal && gamesGrid) {
       cards.forEach((card) => {
         card.classList.toggle('is-active', card.dataset.qaiCard === resolvedKey);
       });
-      if (activeModule) activeModule.textContent = data.title;
-      if (scenarioTitle) scenarioTitle.textContent = data.brief;
-      if (scenarioText) scenarioText.textContent = data.text;
-      if (terminalLine) terminalLine.textContent = data.cmd;
-      if (meterFill) meterFill.style.setProperty('--qai-fill', data.fill);
+
+      // Toggle morphing mode between 16:9 widescreen (q-brain) and phone chassis
+      const qaiConsoleBox = section.querySelector('.q-ai-console');
+      const isWidescreen = (data.mode || 'widescreen') === 'widescreen';
+      if (qaiConsoleBox) {
+        qaiConsoleBox.classList.toggle('is-mode-widescreen', isWidescreen);
+        qaiConsoleBox.classList.toggle('is-mode-phone', !isWidescreen);
+      }
+
+      // Cyber glitch flash on chassis / video screen during module morph
+      if (qaiPhoneGlitch) {
+        qaiPhoneGlitch.classList.remove('is-active');
+        void qaiPhoneGlitch.offsetWidth;
+        qaiPhoneGlitch.classList.add('is-active');
+      }
+
+      // Smooth transition on correlated info column
+      if (qaiInfoCol && isSwitch) {
+        qaiInfoCol.classList.add('is-transitioning');
+      }
+
+      const updateContent = () => {
+        if (activeModule) activeModule.textContent = data.title;
+        if (qaiStatusText) qaiStatusText.textContent = data.status;
+        if (qaiModuleBadge) qaiModuleBadge.textContent = data.badge;
+        if (scenarioTitle) scenarioTitle.textContent = data.brief;
+        if (scenarioText) scenarioText.textContent = data.text;
+        if (terminalLine) terminalLine.textContent = data.cmd;
+        if (qaiTerminalSubLine1) qaiTerminalSubLine1.textContent = data.sub1;
+        if (qaiTerminalSubLine2) qaiTerminalSubLine2.textContent = data.sub2;
+        if (qaiTermChip) qaiTermChip.textContent = data.chip;
+        if (qaiMeterVal) qaiMeterVal.textContent = data.meter;
+        if (qaiRiskMeterSpan) qaiRiskMeterSpan.style.setProperty('--qai-fill', data.meter);
+        if (meterFill) meterFill.style.setProperty('--qai-fill', data.meter);
+
+        if (qaiPillsRow && Array.isArray(data.pills)) {
+          qaiPillsRow.innerHTML = data.pills.map(p => `<span class="qai-feat-pill">${p}</span>`).join('');
+        }
+
+        if (qaiInfoCol) {
+          qaiInfoCol.classList.remove('is-transitioning');
+        }
+      };
+
+      if (isSwitch) {
+        setTimeout(updateContent, 110);
+      } else {
+        updateContent();
+      }
+
       if (qaiVideoHudText) {
-        qaiVideoHudText.textContent = `Q-BRAIN // ${data.title.replace(/\s+/g, '_')}`;
+        qaiVideoHudText.textContent = data.hud;
+      }
+
+      // Switch video source and adapt dimensions
+      if (qaiVideo) {
+        qaiVideo.width = isWidescreen ? 1280 : 404;
+        qaiVideo.height = 720;
+        if (data.poster) qaiVideo.poster = data.poster;
+        if (qaiVideoSourceWebm) qaiVideoSourceWebm.src = data.videoWebm;
+        if (qaiVideoSourceMp4) qaiVideoSourceMp4.src = data.videoMp4;
+        qaiVideo.load();
+        if (!reduceMotion.matches) {
+          qaiVideo.play().catch(() => {});
+        }
       }
     }
 
