@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Q-Geo PMTiles City Extractor — Quantum P1NG (Q-P1NG®)</title>
+  <meta name="description" content="Estrai e scarica mappe vettoriali offline (.pmtiles) per qualsiasi città o regione. Cartografia tattica OpenStreetMap 100% air-gapped per Quantum P1NG.">
+  <link rel="icon" type="image/png" href="assets/img/qp1ng_icon.png">
+
+  <!-- OpenGraph / Social Meta -->
+  <meta property="og:title" content="Q-Geo PMTiles City Extractor — Quantum P1NG">
+  <meta property="og:description" content="Estrai mappe vettoriali offline (.pmtiles) al volo. Zero cloud, 100% air-gapped.">
+  <meta property="og:image" content="https://www.qp1ng.com/assets/img/social-preview.png">
+  <meta property="og:url" content="https://www.qp1ng.com/pmtiles.html">
+
+  <!-- MapLibre GL JS -->
+  <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+
+  <!-- Mapbox GL Draw (compatibile MapLibre) -->
+  <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.4.3/mapbox-gl-draw.css" />
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.4.3/mapbox-gl-draw.js"></script>
+
+  <style>
+    :root {
+      --bg: #040910;
+      --panel-bg: rgba(6, 14, 24, 0.94);
+      --card-bg: rgba(9, 21, 35, 0.85);
+      --border: rgba(0, 242, 255, 0.22);
+      --border-bright: rgba(0, 242, 255, 0.65);
+      --text: #e6f1fc;
+      --text-dim: #7f9bb8;
+      --text-muted: #4e6782;
+      --cyan: #00f2ff;
+      --cyan-glow: rgba(0, 242, 255, 0.35);
+      --green: #35ff8a;
+      --green-glow: rgba(53, 255, 138, 0.35);
+      --amber: #ffaa00;
+      --red: #ff2a6d;
+      --font-mono: 'Space Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+    }
+
+    /* Scanline cyber overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.22) 50%),
+                  linear-gradient(90deg, rgba(0, 242, 255, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 242, 255, 0.02));
+      background-size: 100% 3px, 3px 100%;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    /* TOP BAR / TACTICAL HUD HEADER */
+    .topbar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 54px;
+      z-index: 20;
+      background: rgba(3, 8, 15, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+    }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      box-shadow: 0 0 10px rgba(0, 242, 255, 0.2);
+    }
+
+    .brand-title {
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: var(--cyan);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-badge {
+      font-size: 0.65rem;
+      padding: 2px 6px;
+      border-radius: 3px;
+      background: rgba(0, 242, 255, 0.12);
+      border: 1px solid rgba(0, 242, 255, 0.35);
+      color: var(--cyan);
+      letter-spacing: 1px;
+    }
+
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .status-pill {
+      display: none;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      background: rgba(0, 0, 0, 0.4);
+      padding: 4px 10px;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    @media (min-width: 820px) {
+      .status-pill { display: flex; }
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 8px var(--green);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    .btn-return {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      color: var(--green);
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      padding: 6px 12px;
+      border: 1px solid rgba(53, 255, 138, 0.35);
+      border-radius: 4px;
+      background: rgba(53, 255, 138, 0.06);
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-return:hover {
+      background: rgba(53, 255, 138, 0.16);
+      box-shadow: 0 0 12px var(--green-glow);
+      border-color: var(--green);
+    }
+
+    /* FULLSCREEN MAP CANVAS */
+    #map {
+      width: 100%;
+      height: 100%;
+      padding-top: 54px;
+    }
+
+    /* Dark mode filter for OSM tiles */
+    .map--dark .maplibregl-canvas {
+      filter: brightness(0.68) invert(1) contrast(2.8) hue-rotate(185deg) saturate(0.35);
+    }
+
+    /* FLOATING TACTICAL CONTROL PANEL */
+    .panel {
+      position: absolute;
+      top: 68px;
+      left: 14px;
+      z-index: 10;
+      background: var(--panel-bg);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.65), 0 0 20px rgba(0, 242, 255, 0.08);
+      max-width: 380px;
+      width: calc(100% - 28px);
+      max-height: calc(100vh - 84px);
+      overflow-y: auto;
+      padding: 18px;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .panel::-webkit-scrollbar { width: 5px; }
+    .panel::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); }
+    .panel::-webkit-scrollbar-thumb { background: rgba(0,242,255,0.25); border-radius: 3px; }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .panel-title {
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--cyan);
+      letter-spacing: 1px;
+    }
+
+    .panel-subtitle {
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+      margin-top: 2px;
+    }
+
+    .panel-toggle-btn {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--cyan);
+      font-size: 0.75rem;
+      padding: 4px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      .panel-toggle-btn { display: block; }
+      .panel.collapsed .panel-body { display: none; }
+    }
+
+    /* SEARCH / GEOLOCATION BAR */
+    .search-box {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .search-input {
+      flex: 1;
+      background: rgba(3, 9, 16, 0.85);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      padding: 8px 10px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .search-input:focus {
+      border-color: var(--cyan);
+      box-shadow: 0 0 8px var(--cyan-glow);
+    }
+
+    .search-btn {
+      background: rgba(0, 242, 255, 0.12);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--cyan);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 0 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .search-btn:hover {
+      background: rgba(0, 242, 255, 0.25);
+      border-color: var(--cyan);
+    }
+
+    /* QUICK CITY PRESETS */
+    .presets-wrap {
+      margin-bottom: 14px;
+    }
+
+    .presets-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .presets-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4px;
+    }
+
+    .preset-chip {
+      background: rgba(9, 21, 35, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 3px;
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      padding: 4px 2px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .preset-chip:hover {
+      border-color: var(--cyan);
+      color: var(--cyan);
+      background: rgba(0, 242, 255, 0.08);
+    }
+
+    /* ACTION BUTTONS */
+    .actions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .btn-action {
+      background: rgba(9, 21, 35, 0.85);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--cyan);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      padding: 8px 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      transition: all 0.2s;
+    }
+
+    .btn-action:hover {
+      background: rgba(0, 242, 255, 0.15);
+      border-color: var(--cyan);
+      box-shadow: 0 0 10px var(--cyan-glow);
+    }
+
+    .btn-action.active {
+      background: rgba(0, 242, 255, 0.25);
+      border-color: var(--cyan);
+      box-shadow: 0 0 12px var(--cyan-glow);
+      color: #fff;
+    }
+
+    /* TELEMETRY / STATS CARD */
+    .telemetry-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 10px 12px;
+      margin-bottom: 12px;
+      font-family: var(--font-mono);
+    }
+
+    .telemetry-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.72rem;
+      padding: 3px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .telemetry-row:last-child { border-bottom: none; }
+    .telemetry-label { color: var(--text-muted); }
+    .telemetry-val { color: var(--text); font-weight: 700; }
+    .telemetry-val.cyan { color: var(--cyan); }
+    .telemetry-val.green { color: var(--green); }
+    .telemetry-val.amber { color: var(--amber); }
+    .telemetry-val.red { color: var(--red); }
+
+    /* COORDINATES BOX */
+    .coords-box {
+      background: rgba(2, 6, 12, 0.85);
+      border: 1px solid rgba(0, 242, 255, 0.2);
+      border-radius: 4px;
+      padding: 8px;
+      margin-bottom: 12px;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      line-height: 1.45;
+      color: var(--cyan);
+      word-break: break-all;
+      position: relative;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      background: rgba(0, 242, 255, 0.1);
+      border: 1px solid rgba(0, 242, 255, 0.3);
+      border-radius: 3px;
+      color: var(--cyan);
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      padding: 2px 6px;
+      cursor: pointer;
+    }
+
+    .copy-btn:hover { background: rgba(0, 242, 255, 0.25); }
+
+    /* DOWNLOAD BUTTON */
+    .btn-download {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, rgba(0, 242, 255, 0.25), rgba(53, 255, 138, 0.2));
+      border: 1px solid var(--cyan);
+      border-radius: 6px;
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      box-shadow: 0 0 16px var(--cyan-glow);
+      transition: all 0.2s ease;
+      margin-bottom: 8px;
+    }
+
+    .btn-download:hover:not(:disabled) {
+      background: linear-gradient(135deg, rgba(0, 242, 255, 0.4), rgba(53, 255, 138, 0.35));
+      box-shadow: 0 0 24px var(--cyan-glow), 0 0 10px var(--green-glow);
+      transform: translateY(-1px);
+    }
+
+    .btn-download:disabled {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(255, 255, 255, 0.1);
+      color: var(--text-muted);
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    .btn-cli {
+      display: block;
+      width: 100%;
+      padding: 6px;
+      background: transparent;
+      border: 1px dashed rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      cursor: pointer;
+      text-align: center;
+      margin-bottom: 12px;
+      transition: all 0.2s;
+    }
+
+    .btn-cli:hover {
+      border-color: var(--cyan);
+      color: var(--cyan);
+    }
+
+    /* GUIDE ACCORDION */
+    .guide-box {
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 4px;
+      padding: 10px;
+      background: rgba(3, 8, 15, 0.6);
+      font-size: 0.72rem;
+      line-height: 1.5;
+      color: var(--text-dim);
+    }
+
+    .guide-title {
+      font-family: var(--font-mono);
+      color: var(--green);
+      font-size: 0.72rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .guide-steps {
+      padding-left: 16px;
+    }
+
+    .guide-steps li { margin-bottom: 4px; }
+    .guide-steps code {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 1px 4px;
+      border-radius: 3px;
+      color: var(--cyan);
+      font-family: var(--font-mono);
+    }
+
+    /* CLI MODAL */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.active { display: flex; }
+
+    .modal-card {
+      background: #060e18;
+      border: 1px solid var(--cyan);
+      box-shadow: 0 0 30px rgba(0, 242, 255, 0.25);
+      border-radius: 8px;
+      max-width: 580px;
+      width: 100%;
+      padding: 22px;
+      font-family: var(--font-mono);
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: transparent;
+      border: none;
+      color: var(--text-dim);
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    .modal-close:hover { color: var(--red); }
+    .modal-title { color: var(--cyan); font-size: 1rem; margin-bottom: 8px; }
+    .modal-desc { font-size: 0.75rem; color: var(--text-dim); line-height: 1.5; margin-bottom: 12px; }
+    .modal-code {
+      background: #020509;
+      border: 1px solid rgba(0, 242, 255, 0.2);
+      border-radius: 4px;
+      padding: 12px;
+      font-size: 0.75rem;
+      color: var(--green);
+      word-break: break-all;
+      margin-bottom: 12px;
+      user-select: all;
+    }
+
+    /* MAP FLOATING CONTROLS */
+    .map-theme-btn {
+      position: absolute;
+      bottom: 24px;
+      left: 14px;
+      z-index: 10;
+      background: rgba(6, 14, 24, 0.9);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--cyan);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      padding: 6px 12px;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .map-theme-btn:hover {
+      border-color: var(--cyan);
+      box-shadow: 0 0 12px var(--cyan-glow);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <a href="index.html#q-geo" class="brand-wrap" title="Torna a Quantum P1NG">
+      <img src="assets/img/qp1ng_icon.png" alt="QP1NG Emblem" class="brand-logo" width="32" height="32">
+      <span class="brand-title">
+        Q-GEO // PMTILES EXTRACTOR
+        <span class="brand-badge">AIR-GAP GIS</span>
+      </span>
+    </a>
+
+    <div class="topbar-right">
+      <div class="status-pill">
+        <span class="status-dot"></span>
+        <span>OSM GLOBAL VECTOR // PROTOMAPS READY</span>
+      </div>
+      <a href="index.html#q-geo" class="btn-return">
+        <span>← RITORNA A QP1NG.COM</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- FLOATING TACTICAL PANEL -->
+  <div class="panel" id="tacticalPanel">
+    <div class="panel-header">
+      <div>
+        <h1 class="panel-title">ESTRAI MAPPA CITTÀ</h1>
+        <p class="panel-subtitle">Archivio Vettoriale PMTiles (Zoom 0–15)</p>
+      </div>
+      <button class="panel-toggle-btn" id="togglePanelBtn">MIN</button>
+    </div>
+
+    <div class="panel-body">
+      <!-- Search Box -->
+      <div class="search-box">
+        <input type="text" id="searchInput" class="search-input" placeholder="Cerca città (es. Roma, Milano, Kyiv)..." aria-label="Cerca città">
+        <button id="searchBtn" class="search-btn">VAI</button>
+      </div>
+
+      <!-- Quick City Presets -->
+      <div class="presets-wrap">
+        <span class="presets-label">PRESET METROPOLITANI RAPIDI:</span>
+        <div class="presets-grid">
+          <button class="preset-chip" data-city="roma">Roma</button>
+          <button class="preset-chip" data-city="milano">Milano</button>
+          <button class="preset-chip" data-city="napoli">Napoli</button>
+          <button class="preset-chip" data-city="torino">Torino</button>
+          <button class="preset-chip" data-city="berlin">Berlin</button>
+          <button class="preset-chip" data-city="kyiv">Kyiv</button>
+          <button class="preset-chip" data-city="paris">Paris</button>
+          <button class="preset-chip" data-city="london">London</button>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="actions-grid">
+        <button id="drawPolyBtn" class="btn-action" title="Disegna un'area personalizzata sulla mappa">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 6 12 2 21 6 17 18 7 18"/></svg>
+          <span>DISEGNA AREA</span>
+        </button>
+        <button id="currentViewBtn" class="btn-action" title="Usa il bounding box dell'inquadratura visibile attuale">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+          <span>USA VISTA ATTUALE</span>
+        </button>
+      </div>
+
+      <!-- Telemetry Card -->
+      <div class="telemetry-card">
+        <div class="telemetry-row">
+          <span class="telemetry-label">STATO SELEZIONE</span>
+          <span id="telStatus" class="telemetry-val amber">IN ATTESA</span>
+        </div>
+        <div class="telemetry-row">
+          <span class="telemetry-label">ESTENSIONE AREA</span>
+          <span id="telArea" class="telemetry-val">-- km²</span>
+        </div>
+        <div class="telemetry-row">
+          <span class="telemetry-label">PESO STIMATO .PMTILES</span>
+          <span id="telSize" class="telemetry-val">-- MB</span>
+        </div>
+        <div class="telemetry-row">
+          <span class="telemetry-label">LIVELLO DETTAGLIO</span>
+          <span class="telemetry-val cyan">ZOOM 0–15 (EDIFICI &amp; POI)</span>
+        </div>
+      </div>
+
+      <!-- Coordinates Output -->
+      <div class="coords-box" id="coordsOutput">
+        <button class="copy-btn" id="copyCoordsBtn" title="Copia Bounding Box">COPIA</button>
+        <div id="coordsText">Nessuna area selezionata.<br>Disegna un'area o clicca "Usa Vista Attuale".</div>
+      </div>
+
+      <!-- Download Button -->
+      <button id="downloadBtn" class="btn-download" disabled>
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <span>SCARICA PMTILES DELLA ZONA</span>
+      </button>
+
+      <button id="cliModalBtn" class="btn-cli" disabled>Comando CLI pmtiles (Opzionale / Script)</button>
+
+      <!-- Operational App Guide -->
+      <div class="guide-box">
+        <div class="guide-title">
+          <span>OPERAZIONALITÀ AIR-GAPPED</span>
+        </div>
+        <ol class="guide-steps">
+          <li>Scarica il file <code>.pmtiles</code> per la città di interesse.</li>
+          <li>Copia il file nello smartphone (es. tramite cavo o MicroSD).</li>
+          <li>In <strong>Quantum P1NG</strong> → <strong>Q-Geo Tactical</strong> → <strong>Map Pack Manager</strong> tocca <em>Importa PMTiles</em>.</li>
+          <li>Cartografia vettoriale 60 FPS offline al 100%, senza internet né tracce di rete.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLI COMMAND MODAL -->
+  <div class="modal-overlay" id="cliModal">
+    <div class="modal-card">
+      <button class="modal-close" id="modalCloseBtn">&times;</button>
+      <h3 class="modal-title">COMANDO ESTRAZIONE CLI PMTILES</h3>
+      <p class="modal-desc">
+        Se preferisci estrarre il pacchetto da riga di comando sul tuo computer o server tramite la utility ufficiale Go/C++ <code>pmtiles</code>:
+      </p>
+      <div class="modal-code" id="cliCodeText"></div>
+      <p class="modal-desc" style="margin-bottom: 0;">
+        Il comando ritaglierà l'archivio planetario mondiale direttamente sulle coordinate della città selezionata fino a zoom 15.
+      </p>
+    </div>
+  </div>
+
+  <!-- Map Theme Toggle Button -->
+  <button id="themeToggleBtn" class="map-theme-btn" title="Alterna stile mappa tattico/giorno">
+    <span>🌙 TACTICAL DARK</span>
+  </button>
+
+  <!-- MAP CONTAINER -->
+  <div id="map"></div>
+
+  <script>
+    // =========================================================================
+    // 1. MAPLIBRE GL INITIALIZATION (Raster OSM + Custom Map Style)
+    // =========================================================================
+    const map = new maplibregl.Map({
+      container: 'map',
+      style: {
+        version: 8,
+        sources: {
+          'osm-raster': {
+            type: 'raster',
+            tiles: [
+              'https://tile.openstreetmap.org/{z}/{x}/{y}.png'
+            ],
+            tileSize: 256,
+            attribution: '© <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'
+          }
+        },
+        layers: [{
+          id: 'osm-tiles',
+          type: 'raster',
+          source: 'osm-raster',
+          minzoom: 0,
+          maxzoom: 19
+        }]
+      },
+      center: [12.4964, 41.9028], // Default: Roma
+      zoom: 12
+    });
+
+    map.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), 'top-right');
+    map.addControl(new maplibregl.ScaleControl({ unit: 'metric' }), 'bottom-right');
+
+    // =========================================================================
+    // 2. THEME TOGGLE (Night Tactical vs Day Standard)
+    // =========================================================================
+    const themeBtn = document.getElementById('themeToggleBtn');
+    let isDarkTheme = true;
+    document.body.classList.add('map--dark');
+
+    themeBtn.addEventListener('click', () => {
+      isDarkTheme = !isDarkTheme;
+      if (isDarkTheme) {
+        document.body.classList.add('map--dark');
+        themeBtn.innerHTML = '<span>🌙 TACTICAL DARK</span>';
+      } else {
+        document.body.classList.remove('map--dark');
+        themeBtn.innerHTML = '<span>☀️ DAYLIGHT OSM</span>';
+      }
+    });
+
+    // =========================================================================
+    // 3. MAPBOX GL DRAW INITIALIZATION
+    // =========================================================================
+    const draw = new MapboxDraw({
+      displayControlsDefault: false,
+      controls: {
+        polygon: true,
+        trash: true
+      },
+      defaultMode: 'simple_select',
+      styles: [
+        // ACTIVE (drawn polygon fill)
+        {
+          'id': 'gl-draw-polygon-fill',
+          'type': 'fill',
+          'filter': ['all', ['==', '$type', 'Polygon'], ['!=', 'mode', 'static']],
+          'paint': {
+            'fill-color': '#00f2ff',
+            'fill-outline-color': '#00f2ff',
+            'fill-opacity': 0.22
+          }
+        },
+        // ACTIVE (stroke line)
+        {
+          'id': 'gl-draw-polygon-stroke-active',
+          'type': 'line',
+          'filter': ['all', ['==', '$type', 'Polygon'], ['!=', 'mode', 'static']],
+          'layout': {
+            'line-cap': 'round',
+            'line-join': 'round'
+          },
+          'paint': {
+            'line-color': '#00f2ff',
+            'line-width': 2.5,
+            'line-dasharray': [2, 2]
+          }
+        },
+        // VERTICES / MIDPOINTS
+        {
+          'id': 'gl-draw-polygon-and-line-vertex-active',
+          'type': 'circle',
+          'filter': ['all', ['==', 'meta', 'vertex'], ['==', '$type', 'Point'], ['!=', 'mode', 'static']],
+          'paint': {
+            'circle-radius': 6,
+            'circle-color': '#35ff8a',
+            'circle-stroke-width': 2,
+            'circle-stroke-color': '#03080f'
+          }
+        }
+      ]
+    });
+
+    map.addControl(draw, 'bottom-right');
+
+    // =========================================================================
+    // 4. SELECTION TELEMETRY & BOUNDING BOX CALCULATION
+    // =========================================================================
+    const telStatus = document.getElementById('telStatus');
+    const telArea = document.getElementById('telArea');
+    const telSize = document.getElementById('telSize');
+    const coordsText = document.getElementById('coordsText');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const cliModalBtn = document.getElementById('cliModalBtn');
+    const copyCoordsBtn = document.getElementById('copyCoordsBtn');
+    const drawPolyBtn = document.getElementById('drawPolyBtn');
+    const currentViewBtn = document.getElementById('currentViewBtn');
+
+    let currentBbox = null;
+
+    // Haversine approximate area calculation in km²
+    function calculateBboxArea(minLon, minLat, maxLon, maxLat) {
+      const R = 6371; // Earth radius in km
+      const dLat = (maxLat - minLat) * Math.PI / 180;
+      const dLon = (maxLon - minLon) * Math.PI / 180;
+      const meanLat = ((minLat + maxLat) / 2) * Math.PI / 180;
+      const widthKm = dLon * Math.cos(meanLat) * R;
+      const heightKm = dLat * R;
+      return Math.abs(widthKm * heightKm);
+    }
+
+    function updateSelection(bboxFromViewport = null) {
+      let minLon, minLat, maxLon, maxLat;
+
+      if (bboxFromViewport) {
+        minLon = bboxFromViewport.minLon;
+        minLat = bboxFromViewport.minLat;
+        maxLon = bboxFromViewport.maxLon;
+        maxLat = bboxFromViewport.maxLat;
+      } else {
+        const data = draw.getAll();
+        if (!data || data.features.length === 0) {
+          resetTelemetry();
+          return;
+        }
+
+        // Keep only newest selection
+        if (data.features.length > 1) {
+          const lastId = data.features[data.features.length - 1].id;
+          const toDelete = data.features.filter(f => f.id !== lastId).map(f => f.id);
+          draw.delete(toDelete);
+        }
+
+        const feature = draw.getAll().features[0];
+        const coordinates = feature.geometry.coordinates[0];
+
+        let w = 180, s = 90, e = -180, n = -90;
+        coordinates.forEach(([lon, lat]) => {
+          if (lon < w) w = lon;
+          if (lat < s) s = lat;
+          if (lon > e) e = lon;
+          if (lat > n) n = lat;
+        });
+
+        minLon = Number(w.toFixed(4));
+        minLat = Number(s.toFixed(4));
+        maxLon = Number(e.toFixed(4));
+        maxLat = Number(n.toFixed(4));
+      }
+
+      currentBbox = { minLon, minLat, maxLon, maxLat };
+
+      // Calculate area & estimated PMTiles size
+      const areaKm2 = calculateBboxArea(minLon, minLat, maxLon, maxLat);
+      // Heuristic: urban PMTiles at z0-15 average approx 0.05 - 0.1 MB per km² for dense areas
+      let estSizeMb = Math.round(areaKm2 * 0.08);
+      if (estSizeMb < 5) estSizeMb = 5;
+
+      // Update UI
+      telArea.textContent = `${Math.round(areaKm2).toLocaleString()} km²`;
+      telSize.textContent = `~${estSizeMb} MB`;
+
+      if (estSizeMb <= 50) {
+        telStatus.textContent = 'OTTIMALE (METRO)';
+        telStatus.className = 'telemetry-val green';
+        telSize.className = 'telemetry-val green';
+      } else if (estSizeMb <= 100) {
+        telStatus.textContent = 'MEDIO (REGIONE)';
+        telStatus.className = 'telemetry-val amber';
+        telSize.className = 'telemetry-val amber';
+      } else {
+        telStatus.textContent = 'ELEVATO (>100MB)';
+        telStatus.className = 'telemetry-val red';
+        telSize.className = 'telemetry-val red';
+      }
+
+      coordsText.innerHTML = `<strong>BBOX [W,S,E,N]:</strong><br>[${minLon}, ${minLat}, ${maxLon}, ${maxLat}]`;
+      downloadBtn.disabled = false;
+      cliModalBtn.disabled = false;
+      downloadBtn.querySelector('span').textContent = `SCARICA PMTILES (~${estSizeMb} MB)`;
+    }
+
+    function resetTelemetry() {
+      currentBbox = null;
+      telStatus.textContent = 'IN ATTESA';
+      telStatus.className = 'telemetry-val amber';
+      telArea.textContent = '-- km²';
+      telSize.textContent = '-- MB';
+      telSize.className = 'telemetry-val';
+      coordsText.innerHTML = `Nessuna area selezionata.<br>Disegna un'area o clicca "Usa Vista Attuale".`;
+      downloadBtn.disabled = true;
+      cliModalBtn.disabled = true;
+      downloadBtn.querySelector('span').textContent = 'SCARICA PMTILES DELLA ZONA';
+    }
+
+    map.on('draw.create', () => updateSelection());
+    map.on('draw.update', () => updateSelection());
+    map.on('draw.delete', () => resetTelemetry());
+
+    // =========================================================================
+    // 5. DRAW BUTTONS & ACTIONS
+    // =========================================================================
+    drawPolyBtn.addEventListener('click', () => {
+      draw.changeMode('draw_polygon');
+      drawPolyBtn.classList.add('active');
+      setTimeout(() => drawPolyBtn.classList.remove('active'), 1200);
+    });
+
+    currentViewBtn.addEventListener('click', () => {
+      const bounds = map.getBounds();
+      const minLon = Number(bounds.getWest().toFixed(4));
+      const minLat = Number(bounds.getSouth().toFixed(4));
+      const maxLon = Number(bounds.getEast().toFixed(4));
+      const maxLat = Number(bounds.getNorth().toFixed(4));
+
+      // Create a rectangle polygon in draw
+      draw.deleteAll();
+      const featureId = draw.add({
+        type: 'Feature',
+        properties: {},
+        geometry: {
+          type: 'Polygon',
+          coordinates: [[
+            [minLon, minLat],
+            [maxLon, minLat],
+            [maxLon, maxLat],
+            [minLon, maxLat],
+            [minLon, minLat]
+          ]]
+        }
+      });
+
+      updateSelection({ minLon, minLat, maxLon, maxLat });
+    });
+
+    // Copy BBox to clipboard
+    copyCoordsBtn.addEventListener('click', () => {
+      if (!currentBbox) return;
+      const str = `${currentBbox.minLon},${currentBbox.minLat},${currentBbox.maxLon},${currentBbox.maxLat}`;
+      navigator.clipboard.writeText(str).then(() => {
+        copyCoordsBtn.textContent = 'COPIATO!';
+        setTimeout(() => copyCoordsBtn.textContent = 'COPIA', 1500);
+      });
+    });
+
+    // =========================================================================
+    // 6. DOWNLOAD TRIGGER (Protomaps Extracts)
+    // =========================================================================
+    downloadBtn.addEventListener('click', () => {
+      if (!currentBbox) return;
+      const { minLon, minLat, maxLon, maxLat } = currentBbox;
+      
+      // Protomaps standard extracts endpoint with BBox
+      const extractUrl = `https://protomaps.com/extracts?bbox=${minLon},${minLat},${maxLon},${maxLat}`;
+      window.open(extractUrl, '_blank');
+    });
+
+    // =========================================================================
+    // 7. CLI COMMAND MODAL
+    // =========================================================================
+    const cliModal = document.getElementById('cliModal');
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
+    const cliCodeText = document.getElementById('cliCodeText');
+
+    cliModalBtn.addEventListener('click', () => {
+      if (!currentBbox) return;
+      const { minLon, minLat, maxLon, maxLat } = currentBbox;
+      const today = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+      const cmd = `pmtiles extract https://build.protomaps.com/${today}.pmtiles city_extract.pmtiles --bbox=${minLon},${minLat},${maxLon},${maxLat} --maxzoom=15`;
+      cliCodeText.textContent = cmd;
+      cliModal.classList.add('active');
+    });
+
+    modalCloseBtn.addEventListener('click', () => cliModal.classList.remove('active'));
+    cliModal.addEventListener('click', (e) => {
+      if (e.target === cliModal) cliModal.classList.remove('active');
+    });
+
+    // =========================================================================
+    // 8. CITY PRESETS JUMP
+    // =========================================================================
+    const cityCoords = {
+      roma:   { center: [12.4964, 41.9028], zoom: 12 },
+      milano: { center: [9.1900, 45.4642],  zoom: 12 },
+      napoli: { center: [14.2681, 40.8518], zoom: 12 },
+      torino: { center: [7.6869, 45.0703],  zoom: 12 },
+      berlin: { center: [13.4050, 52.5200], zoom: 12 },
+      kyiv:   { center: [30.5234, 50.4501], zoom: 12 },
+      paris:  { center: [2.3522, 48.8566],  zoom: 12 },
+      london: { center: [-0.1278, 51.5074], zoom: 12 }
+    };
+
+    document.querySelectorAll('.preset-chip').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const key = btn.dataset.city;
+        if (cityCoords[key]) {
+          map.flyTo({
+            center: cityCoords[key].center,
+            zoom: cityCoords[key].zoom,
+            essential: true
+          });
+        }
+      });
+    });
+
+    // =========================================================================
+    // 9. GEOLOCATION / NOMINATIM SEARCH
+    // =========================================================================
+    const searchInput = document.getElementById('searchInput');
+    const searchBtn = document.getElementById('searchBtn');
+
+    async function executeSearch() {
+      const q = searchInput.value.trim();
+      if (!q) return;
+
+      searchBtn.textContent = '...';
+      try {
+        const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(q)}&limit=1`);
+        const data = await res.json();
+        if (data && data.length > 0) {
+          const item = data[0];
+          map.flyTo({
+            center: [parseFloat(item.lon), parseFloat(item.lat)],
+            zoom: 13,
+            essential: true
+          });
+        } else {
+          alert('Città non trovata. Prova a inserire un nome più specifico.');
+        }
+      } catch (e) {
+        console.error(e);
+      } finally {
+        searchBtn.textContent = 'VAI';
+      }
+    }
+
+    searchBtn.addEventListener('click', executeSearch);
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') executeSearch();
+    });
+
+    // Mobile panel collapse toggle
+    const togglePanelBtn = document.getElementById('togglePanelBtn');
+    const tacticalPanel = document.getElementById('tacticalPanel');
+    togglePanelBtn.addEventListener('click', () => {
+      tacticalPanel.classList.toggle('collapsed');
+      togglePanelBtn.textContent = tacticalPanel.classList.contains('collapsed') ? 'MAX' : 'MIN';
+    });
+  </script>
+</body>
+</html>
