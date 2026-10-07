@@ -1018,6 +1018,176 @@
       user-select: all;
     }
 
+    /* TACTICAL DOWNLOAD HUB STYLES */
+    .modal-card-lg {
+      max-width: 760px;
+      max-height: 88vh;
+      overflow-y: auto;
+    }
+
+    .modal-header-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .modal-subtitle {
+      font-size: 0.74rem;
+      color: var(--text-dim);
+      margin-top: 4px;
+    }
+
+    .dl-options-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    @media (min-width: 640px) {
+      .dl-options-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .dl-option-card.highlight {
+        grid-column: span 2;
+      }
+    }
+
+    .dl-option-card {
+      background: rgba(3, 9, 16, 0.75);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .dl-option-card.highlight {
+      border-color: var(--cyan);
+      box-shadow: 0 0 16px rgba(0, 242, 255, 0.14);
+    }
+
+    .dl-card-badge {
+      font-size: 0.62rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--cyan);
+      letter-spacing: 0.6px;
+      margin-bottom: 6px;
+    }
+
+    .dl-card-badge.green { color: var(--green); }
+    .dl-card-badge.amber { color: var(--amber); }
+
+    .dl-card-title {
+      font-size: 0.82rem;
+      font-family: var(--font-mono);
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .dl-card-desc {
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      line-height: 1.45;
+      margin-bottom: 12px;
+    }
+
+    .dl-card-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+    }
+
+    .btn-dl-act {
+      background: rgba(9, 21, 35, 0.9);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text);
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 8px 10px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s;
+    }
+
+    .btn-dl-act:hover {
+      border-color: var(--cyan);
+      color: var(--cyan);
+      background: rgba(0, 242, 255, 0.12);
+    }
+
+    .btn-dl-act.highlight {
+      background: rgba(0, 242, 255, 0.15);
+      border-color: var(--cyan);
+      color: #fff;
+    }
+
+    .btn-dl-act.highlight:hover {
+      background: rgba(0, 242, 255, 0.3);
+      box-shadow: 0 0 10px var(--cyan-glow);
+    }
+
+    .btn-dl-act.green {
+      background: rgba(53, 255, 138, 0.12);
+      border-color: var(--green);
+      color: #fff;
+    }
+
+    .btn-dl-act.green:hover {
+      background: rgba(53, 255, 138, 0.25);
+      box-shadow: 0 0 10px var(--green-glow);
+    }
+
+    .btn-dl-act.amber {
+      background: rgba(255, 170, 0, 0.12);
+      border-color: var(--amber);
+      color: #fff;
+    }
+
+    .btn-dl-act.amber:hover {
+      background: rgba(255, 170, 0, 0.25);
+      box-shadow: 0 0 10px rgba(255, 170, 0, 0.3);
+    }
+
+    .slice-status-box {
+      margin-bottom: 10px;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 170, 0, 0.3);
+      border-radius: 4px;
+      padding: 8px;
+    }
+
+    .slice-progress-bar {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+      overflow: hidden;
+      margin-bottom: 6px;
+    }
+
+    .slice-progress-fill {
+      width: 0%;
+      height: 100%;
+      background: var(--amber);
+      transition: width 0.3s ease;
+    }
+
+    .slice-status-msg {
+      font-size: 0.65rem;
+      font-family: var(--font-mono);
+      color: var(--amber);
+    }
+
     /* MOBILE PEEK QUICK BAR (Only visible on mobile peek state) */
     .mobile-peek-bar {
       display: none;
@@ -1306,18 +1476,61 @@
     </div>
   </div>
 
-  <!-- CLI COMMAND MODAL -->
-  <div class="modal-overlay" id="cliModal">
-    <div class="modal-card">
-      <button class="modal-close" id="modalCloseBtn">&times;</button>
-      <h3 class="modal-title">PMTILES CLI EXTRACTION COMMAND</h3>
-      <p class="modal-desc">
-        To slice this area from the daily global planet archive using the official Go/C++ <code>pmtiles</code> CLI tool on your workstation or air-gapped field laptop:
-      </p>
-      <div class="modal-code" id="cliCodeText"></div>
-      <p class="modal-desc" style="margin-bottom: 0;">
-        This command extracts vector tiles strictly bounded by your coordinates up to zoom level 15.
-      </p>
+  <!-- TACTICAL DOWNLOAD & EXTRACTION HUB MODAL -->
+  <div class="modal-overlay" id="downloadModal">
+    <div class="modal-card modal-card-lg">
+      <div class="modal-header-flex">
+        <div>
+          <span class="status-dot"></span>
+          <h3 class="modal-title">TACTICAL MAP EXTRACTION &amp; DOWNLOAD HUB</h3>
+          <p class="modal-subtitle">Selected Bounding Box: <span id="dlModalBbox" class="cyan">--</span></p>
+        </div>
+        <button class="modal-close" id="dlModalCloseBtn">&times;</button>
+      </div>
+
+      <!-- Tab / Mode selector inside modal -->
+      <div class="dl-options-grid">
+        
+        <!-- CARD 1: Instant Air-Gapped PMTiles Extraction Script (Recommended) -->
+        <div class="dl-option-card highlight">
+          <div class="dl-card-badge">RECOMMENDED // AIR-GAP SAFE</div>
+          <h4 class="dl-card-title">1. PMTiles Vector Slicing (Protomaps Planet)</h4>
+          <p class="dl-card-desc">Slice vector tiles strictly bounded by your box directly from today's daily global planet build into a standalone <code>.pmtiles</code> archive (Zoom 0–15).</p>
+          <div class="modal-code" id="cliCodeText">pmtiles extract https://build.protomaps.com/...</div>
+          <div class="dl-card-btns">
+            <button id="dlCopyCmdBtn" class="btn-dl-act highlight">📋 COPY COMMAND</button>
+            <button id="dlBatBtn" class="btn-dl-act">💾 WINDOWS .BAT SCRIPT</button>
+            <button id="dlShBtn" class="btn-dl-act">💾 LINUX/MAC .SH SCRIPT</button>
+          </div>
+        </div>
+
+        <!-- CARD 2: Instant Q-Pack Manifest -->
+        <div class="dl-option-card">
+          <div class="dl-card-badge green">100% CLIENT-SIDE // INSTANT</div>
+          <h4 class="dl-card-title">2. Download Q-Pack Manifest &amp; GeoJSON</h4>
+          <p class="dl-card-desc">Instantly download zone definition manifest (bounding box, zoom limits, center coordinate) ready for Quantum P1NG handset import.</p>
+          <div class="dl-card-btns">
+            <button id="dlQpackBtn" class="btn-dl-act green">📦 DOWNLOAD QPACK.JSON</button>
+            <button id="dlGeojsonBtn" class="btn-dl-act">📐 DOWNLOAD .GEOJSON</button>
+          </div>
+        </div>
+
+        <!-- CARD 3: Live Cloud OSM Extractor (SliceOSM Live API) -->
+        <div class="dl-option-card">
+          <div class="dl-card-badge amber">CLOUD SERVER // ASYNC BUILD</div>
+          <h4 class="dl-card-title">3. Live Cloud OSM Slicer (.osm.pbf)</h4>
+          <p class="dl-card-desc">Compile an on-demand OpenStreetMap PBF slice directly from the SliceOSM server with live progress tracking and automatic download.</p>
+          <div id="sliceOsmStatusBox" class="slice-status-box" style="display: none;">
+            <div class="slice-progress-bar"><div id="sliceProgressBar" class="slice-progress-fill"></div></div>
+            <div id="sliceStatusMsg" class="slice-status-msg">Queuing extract...</div>
+          </div>
+          <div class="dl-card-btns">
+            <button id="startSliceBtn" class="btn-dl-act amber">⚡ GENERATE CLOUD SLICE</button>
+            <a href="https://extract.bbbike.org/" target="_blank" rel="noopener" class="btn-dl-act" style="text-decoration:none;">🌐 BBBike GUI</a>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
 
@@ -1764,38 +1977,257 @@
     });
 
     // =========================================================================
-    // 6. DOWNLOAD TRIGGER (Protomaps Extracts)
+    // 6. TACTICAL DOWNLOAD & EXTRACTION HUB
     // =========================================================================
-    function triggerDownload() {
-      if (!currentBbox) return;
-      const { minLon, minLat, maxLon, maxLat } = currentBbox;
-      const extractUrl = `https://protomaps.com/extracts?bbox=${minLon},${minLat},${maxLon},${maxLat}`;
-      window.open(extractUrl, '_blank');
-    }
-
-    downloadBtn.addEventListener('click', triggerDownload);
-    mobileDownloadBtn.addEventListener('click', triggerDownload);
-
-    // =========================================================================
-    // 7. CLI COMMAND MODAL
-    // =========================================================================
-    const cliModal = document.getElementById('cliModal');
-    const modalCloseBtn = document.getElementById('modalCloseBtn');
+    const downloadModal = document.getElementById('downloadModal');
+    const dlModalCloseBtn = document.getElementById('dlModalCloseBtn');
+    const dlModalBbox = document.getElementById('dlModalBbox');
     const cliCodeText = document.getElementById('cliCodeText');
+    const dlCopyCmdBtn = document.getElementById('dlCopyCmdBtn');
+    const dlBatBtn = document.getElementById('dlBatBtn');
+    const dlShBtn = document.getElementById('dlShBtn');
+    const dlQpackBtn = document.getElementById('dlQpackBtn');
+    const dlGeojsonBtn = document.getElementById('dlGeojsonBtn');
+    const startSliceBtn = document.getElementById('startSliceBtn');
+    const sliceOsmStatusBox = document.getElementById('sliceOsmStatusBox');
+    const sliceProgressBar = document.getElementById('sliceProgressBar');
+    const sliceStatusMsg = document.getElementById('sliceStatusMsg');
 
-    cliModalBtn.addEventListener('click', () => {
+    let slicePollInterval = null;
+
+    function openDownloadHub() {
       if (!currentBbox) return;
       const { minLon, minLat, maxLon, maxLat } = currentBbox;
       const today = new Date().toISOString().slice(0, 10).replace(/-/g, '');
       const cmd = `pmtiles extract https://build.protomaps.com/${today}.pmtiles city_extract.pmtiles --bbox=${minLon},${minLat},${maxLon},${maxLat} --maxzoom=15`;
-      cliCodeText.textContent = cmd;
-      cliModal.classList.add('active');
-    });
+      
+      if (dlModalBbox) dlModalBbox.textContent = `[${minLon}, ${minLat}, ${maxLon}, ${maxLat}]`;
+      if (cliCodeText) cliCodeText.textContent = cmd;
+      if (downloadModal) downloadModal.classList.add('active');
+    }
 
-    modalCloseBtn.addEventListener('click', () => cliModal.classList.remove('active'));
-    cliModal.addEventListener('click', (e) => {
-      if (e.target === cliModal) cliModal.classList.remove('active');
-    });
+    downloadBtn.addEventListener('click', openDownloadHub);
+    mobileDownloadBtn.addEventListener('click', openDownloadHub);
+    cliModalBtn.addEventListener('click', openDownloadHub);
+
+    if (dlModalCloseBtn && downloadModal) {
+      dlModalCloseBtn.addEventListener('click', () => {
+        downloadModal.classList.remove('active');
+      });
+
+      downloadModal.addEventListener('click', (e) => {
+        if (e.target === downloadModal) downloadModal.classList.remove('active');
+      });
+    }
+
+    // 1-Click Copy CLI Command
+    if (dlCopyCmdBtn) {
+      dlCopyCmdBtn.addEventListener('click', () => {
+        if (!currentBbox || !cliCodeText) return;
+        const cmd = cliCodeText.textContent;
+        navigator.clipboard.writeText(cmd).then(() => {
+          dlCopyCmdBtn.textContent = 'COPIED!';
+          setTimeout(() => dlCopyCmdBtn.textContent = '📋 COPY COMMAND', 1500);
+        });
+      });
+    }
+
+    // Download Windows .bat Script
+    if (dlBatBtn) {
+      dlBatBtn.addEventListener('click', () => {
+        if (!currentBbox) return;
+        const { minLon, minLat, maxLon, maxLat } = currentBbox;
+        const today = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+        const batContent = `@echo off\r\n` +
+          `title Quantum P1NG - PMTiles Extractor\r\n` +
+          `echo ========================================================\r\n` +
+          `echo  QUANTUM P1NG - PMTILES CITY EXTRACTOR\r\n` +
+          `echo  BBOX: [${minLon}, ${minLat}, ${maxLon}, ${maxLat}]\r\n` +
+          `echo ========================================================\r\n\r\n` +
+          `echo [1/2] Slicing PMTiles vector archive from daily global build...\r\n` +
+          `pmtiles extract https://build.protomaps.com/${today}.pmtiles city_extract.pmtiles --bbox=${minLon},${minLat},${maxLon},${maxLat} --maxzoom=15\r\n` +
+          `if %errorlevel% neq 0 (\r\n` +
+          `    echo [ERROR] Failed to extract. Please ensure 'pmtiles' CLI is installed.\r\n` +
+          `    echo Download from: https://github.com/protomaps/PMTiles/releases\r\n` +
+          `) else (\r\n` +
+          `    echo.\r\n` +
+          `    echo [2/2] SUCCESS: city_extract.pmtiles generated!\r\n` +
+          `    echo Transfer to your handset and import into Quantum P1NG Q-Geo Tactical.\r\n` +
+          `)\r\n` +
+          `echo.\r\n` +
+          `pause\r\n`;
+
+        const blob = new Blob([batContent], { type: 'application/x-bat' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `extract_pmtiles_${minLon}_${minLat}.bat`;
+        a.click();
+        URL.revokeObjectURL(url);
+      });
+    }
+
+    // Download Linux/macOS .sh Script
+    if (dlShBtn) {
+      dlShBtn.addEventListener('click', () => {
+        if (!currentBbox) return;
+        const { minLon, minLat, maxLon, maxLat } = currentBbox;
+        const today = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+        const shContent = `#!/usr/bin/env bash\n` +
+          `set -e\n` +
+          `echo "========================================================"\n` +
+          `echo " QUANTUM P1NG - PMTILES CITY EXTRACTOR"\n` +
+          `echo " BBOX: [${minLon}, ${minLat}, ${maxLon}, ${maxLat}]"\n` +
+          `echo "========================================================"\n\n` +
+          `echo "[1/2] Slicing PMTiles vector archive from daily global build..."\n` +
+          `pmtiles extract "https://build.protomaps.com/${today}.pmtiles" city_extract.pmtiles --bbox="${minLon},${minLat},${maxLon},${maxLat}" --maxzoom=15\n` +
+          `echo ""\n` +
+          `echo "[2/2] SUCCESS: city_extract.pmtiles generated!"\n` +
+          `echo "Transfer to your handset and import into Quantum P1NG Q-Geo Tactical."\n`;
+
+        const blob = new Blob([shContent], { type: 'application/x-sh' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `extract_pmtiles_${minLon}_${minLat}.sh`;
+        a.click();
+        URL.revokeObjectURL(url);
+      });
+    }
+
+    // Download Q-Pack Manifest (.json)
+    if (dlQpackBtn) {
+      dlQpackBtn.addEventListener('click', () => {
+        if (!currentBbox) return;
+        const { minLon, minLat, maxLon, maxLat } = currentBbox;
+        const centerLon = Number(((minLon + maxLon) / 2).toFixed(4));
+        const centerLat = Number(((minLat + maxLat) / 2).toFixed(4));
+        const areaKm2 = calculateBboxArea(minLon, minLat, maxLon, maxLat);
+        const manifest = {
+          name: "QP1NG_Tactical_Extract",
+          format: "qpack-v1",
+          schema: "https://qp1ng.com/schema/qpack.json",
+          created: new Date().toISOString(),
+          bbox: [minLon, minLat, maxLon, maxLat],
+          center: [centerLon, centerLat],
+          zoom: { min: 0, max: 15, default: 12 },
+          areaKm2: Math.round(areaKm2),
+          compression: "gzip",
+          airGapVerified: true
+        };
+        const blob = new Blob([JSON.stringify(manifest, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `qpack_manifest_${centerLon}_${centerLat}.json`;
+        a.click();
+        URL.revokeObjectURL(url);
+      });
+    }
+
+    // Download GeoJSON Boundary
+    if (dlGeojsonBtn) {
+      dlGeojsonBtn.addEventListener('click', () => {
+        if (!currentBbox) return;
+        const { minLon, minLat, maxLon, maxLat } = currentBbox;
+        const geojson = {
+          type: "FeatureCollection",
+          features: [{
+            type: "Feature",
+            properties: {
+              title: "QP1NG Mission Operational Area",
+              created: new Date().toISOString()
+            },
+            geometry: {
+              type: "Polygon",
+              coordinates: [[[minLon, minLat], [maxLon, minLat], [maxLon, maxLat], [minLon, maxLat], [minLon, minLat]]]
+            }
+          }]
+        };
+        const blob = new Blob([JSON.stringify(geojson, null, 2)], { type: 'application/geo+json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `zone_boundary.geojson`;
+        a.click();
+        URL.revokeObjectURL(url);
+      });
+    }
+
+    // Live Cloud Slicer via SliceOSM API
+    if (startSliceBtn) {
+      startSliceBtn.addEventListener('click', async () => {
+        if (!currentBbox) return;
+        const { minLon, minLat, maxLon, maxLat } = currentBbox;
+
+        sliceOsmStatusBox.style.display = 'block';
+        sliceProgressBar.style.width = '10%';
+        sliceStatusMsg.textContent = 'Submitting extract request to SliceOSM cloud...';
+        startSliceBtn.disabled = true;
+
+        try {
+          const payload = {
+            Name: "QP1NG_Tactical_Extract",
+            RegionType: "geojson",
+            RegionData: {
+              type: "Polygon",
+              coordinates: [[[minLon, minLat], [maxLon, minLat], [maxLon, maxLat], [minLon, maxLat], [minLon, minLat]]]
+            }
+          };
+
+          const res = await fetch('https://slice.openstreetmap.us/api/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+
+          if (!res.ok) throw new Error('API returned HTTP ' + res.status);
+          const uuid = (await res.text()).trim();
+
+          sliceStatusMsg.textContent = `Queued task [${uuid.slice(0, 8)}]. Slicing nodes...`;
+          sliceProgressBar.style.width = '25%';
+
+          if (slicePollInterval) clearInterval(slicePollInterval);
+          slicePollInterval = setInterval(async () => {
+            try {
+              const pollRes = await fetch(`https://slice.openstreetmap.us/api/${uuid}`);
+              const data = await pollRes.json();
+
+              if (data.Complete) {
+                clearInterval(slicePollInterval);
+                sliceProgressBar.style.width = '100%';
+                const sizeMb = (data.SizeBytes / (1024 * 1024)).toFixed(1);
+                sliceStatusMsg.textContent = `Complete! Generated ${sizeMb} MB. Starting download...`;
+
+                // Trigger download
+                const fileUrl = `https://slice.openstreetmap.us/files/${uuid}.osm.pbf`;
+                const dlAnchor = document.createElement('a');
+                dlAnchor.href = fileUrl;
+                dlAnchor.download = `extract_${uuid.slice(0, 8)}.osm.pbf`;
+                dlAnchor.click();
+
+                startSliceBtn.disabled = false;
+                startSliceBtn.textContent = `📥 DOWNLOAD AGAIN (${sizeMb} MB)`;
+                startSliceBtn.onclick = () => window.open(fileUrl, '_blank');
+              } else {
+                const nodesTotal = data.NodesTotal || 1;
+                const nodesProg = data.NodesProg || 0;
+                const pct = Math.min(95, Math.max(30, Math.round((nodesProg / nodesTotal) * 100)));
+                sliceProgressBar.style.width = `${pct}%`;
+                sliceStatusMsg.textContent = `Processing nodes: ${nodesProg.toLocaleString()} / ${nodesTotal.toLocaleString()} (${pct}%)...`;
+              }
+            } catch (pollErr) {
+              console.warn('Poll error:', pollErr);
+            }
+          }, 2500);
+
+        } catch (err) {
+          console.error('SliceOSM request failed:', err);
+          sliceStatusMsg.textContent = 'Cloud server busy. Please use the CLI script or BBBike.';
+          startSliceBtn.disabled = false;
+        }
+      });
+    }
 
     // =========================================================================
     // 8. CONFLICT & HIGH-RISK CITY PRESETS (2026 Active Theaters)
