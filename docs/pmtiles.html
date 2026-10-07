@@ -3210,8 +3210,13 @@
     const sheetHandleBar = document.getElementById('sheetHandleBar');
     const tacticalPanel = document.getElementById('tacticalPanel');
 
-    if (window.innerWidth > 768 && togglePanelBtn) {
-      togglePanelBtn.textContent = '▲ PEEK';
+    function updateToggleBtnLabel() {
+      if (!togglePanelBtn) return;
+      if (window.innerWidth <= 768) {
+        togglePanelBtn.textContent = tacticalPanel.classList.contains('is-expanded') ? '▼ HIDE' : '▲ EXPAND';
+      } else {
+        togglePanelBtn.textContent = tacticalPanel.classList.contains('is-peek-desktop') ? '▼ EXPAND' : '▲ PEEK';
+      }
     }
 
     function toggleMobileDrawer() {
@@ -3220,24 +3225,18 @@
         if (isPeek) {
           tacticalPanel.classList.remove('is-peek');
           tacticalPanel.classList.add('is-expanded');
-          togglePanelBtn.textContent = '▼ HIDE';
         } else {
           tacticalPanel.classList.remove('is-expanded');
           tacticalPanel.classList.add('is-peek');
-          togglePanelBtn.textContent = '▲ EXPAND';
         }
       } else {
-        const isPeekDesktop = tacticalPanel.classList.contains('is-peek-desktop');
-        if (isPeekDesktop) {
-          tacticalPanel.classList.remove('is-peek-desktop');
-          togglePanelBtn.textContent = '▲ PEEK';
-        } else {
-          tacticalPanel.classList.add('is-peek-desktop');
-          togglePanelBtn.textContent = '▼ EXPAND';
-        }
+        tacticalPanel.classList.toggle('is-peek-desktop');
       }
+      updateToggleBtnLabel();
     }
 
+    updateToggleBtnLabel();
+    window.addEventListener('resize', updateToggleBtnLabel);
     togglePanelBtn.addEventListener('click', toggleMobileDrawer);
     sheetHandleBar.addEventListener('click', toggleMobileDrawer);
 
