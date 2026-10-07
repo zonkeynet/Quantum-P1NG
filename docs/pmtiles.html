@@ -13,16 +13,19 @@
   <meta property="og:image" content="https://www.qp1ng.com/assets/img/social-preview.png">
   <meta property="og:url" content="https://www.qp1ng.com/pmtiles.html">
 
-  <!-- MapLibre GL JS -->
-  <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
-  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+  <!-- Content Security Policy (Self-hosted & GIS Mapping Enabled) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://github.com https://raw.githubusercontent.com https://*.tile.openstreetmap.org https://tile.openstreetmap.org https://server.arcgisonline.com; font-src 'self' data:; media-src 'self' data: blob:; worker-src 'self' blob:; connect-src 'self' https://api.qp1ng.com wss://api.qp1ng.com https://raw.githubusercontent.com https://zonkeynet.github.io https://*.tile.openstreetmap.org https://tile.openstreetmap.org https://nominatim.openstreetmap.org https://build.protomaps.com https://slice.openstreetmap.us blob:; object-src 'none';" />
 
-  <!-- PMTiles JS Library (Zero-cloud vector tile range reader & inspector) -->
-  <script src="https://unpkg.com/pmtiles@3.2.0/dist/pmtiles.js"></script>
+  <!-- MapLibre GL JS (Self-hosted vendor bundle - CSP compliant) -->
+  <link href="assets/vendor/maplibre-gl.css" rel="stylesheet" />
+  <script src="assets/vendor/maplibre-gl.js"></script>
 
-  <!-- Mapbox GL Draw (MapLibre compatible) -->
-  <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.4.3/mapbox-gl-draw.css" />
-  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.4.3/mapbox-gl-draw.js"></script>
+  <!-- PMTiles JS Library (Zero-cloud vector tile range reader & inspector - CSP compliant) -->
+  <script src="assets/vendor/pmtiles.js"></script>
+
+  <!-- Mapbox GL Draw (MapLibre compatible - CSP compliant) -->
+  <link rel="stylesheet" href="assets/vendor/mapbox-gl-draw.css" />
+  <script src="assets/vendor/mapbox-gl-draw.js"></script>
 
   <style>
     :root {
