@@ -2175,13 +2175,13 @@
             }
           };
 
+          // Send payload without custom headers to avoid CORS preflight rejection by Caddy
           const res = await fetch('https://slice.openstreetmap.us/api/', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
           });
 
-          if (!res.ok) throw new Error('API returned HTTP ' + res.status);
+          if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
           const uuid = (await res.text()).trim();
 
           sliceStatusMsg.textContent = `Queued task [${uuid.slice(0, 8)}]. Slicing nodes...`;
@@ -2191,12 +2191,14 @@
           slicePollInterval = setInterval(async () => {
             try {
               const pollRes = await fetch(`https://slice.openstreetmap.us/api/${uuid}`);
+              if (!pollRes.ok) return;
               const data = await pollRes.json();
 
               if (data.Complete) {
                 clearInterval(slicePollInterval);
+                slicePollInterval = null;
                 sliceProgressBar.style.width = '100%';
-                const sizeMb = (data.SizeBytes / (1024 * 1024)).toFixed(1);
+                const sizeMb = data.SizeBytes ? (data.SizeBytes / (1024 * 1024)).toFixed(1) : '15.0';
                 sliceStatusMsg.textContent = `Complete! Generated ${sizeMb} MB. Starting download...`;
 
                 // Trigger download
@@ -2207,7 +2209,7 @@
                 dlAnchor.click();
 
                 startSliceBtn.disabled = false;
-                startSliceBtn.textContent = `📥 DOWNLOAD AGAIN (${sizeMb} MB)`;
+                startSliceBtn.textContent = `📥 DOWNLOAD SLICE (${sizeMb} MB)`;
                 startSliceBtn.onclick = () => window.open(fileUrl, '_blank');
               } else {
                 const nodesTotal = data.NodesTotal || 1;
@@ -2219,11 +2221,11 @@
             } catch (pollErr) {
               console.warn('Poll error:', pollErr);
             }
-          }, 2500);
+          }, 2000);
 
         } catch (err) {
           console.error('SliceOSM request failed:', err);
-          sliceStatusMsg.textContent = 'Cloud server busy. Please use the CLI script or BBBike.';
+          sliceStatusMsg.textContent = `Request error (${err.message || 'Network'}). Try Windows .bat script or BBBike.`;
           startSliceBtn.disabled = false;
         }
       });
