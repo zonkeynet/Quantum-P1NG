@@ -4158,27 +4158,24 @@ esp-web-install-button {
   left: 0;
   top: 0;
 
-  /* Controlled by JS, but with grand, modern limits */
-  width: 420px;
-  max-width: min(520px, 60vw);
-  min-width: 280px;
+  /* Controlled by JS, targeting authentic phone chassis proportions */
+  width: 350px;
+  max-width: min(440px, 60vw);
+  min-width: 260px;
 
   z-index: 7;
-  border-radius: 16px;
-  border: 1px solid rgba(0, 243, 255, 0.35);
-  background: rgba(7, 10, 18, 0.65);
-  backdrop-filter: blur(14px);
-
-  box-shadow: 0 24px 75px rgba(0, 0, 0, 0.75), 0 0 30px rgba(0, 243, 255, 0.12);
-  overflow: hidden;
+  border: none;
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+  overflow: visible;
 
   transform: translate3d(0, 0, 0);
   will-change: transform, width;
-  contain: layout paint style;
   pointer-events: auto;
 
-  opacity: 0.95;
-  transition: opacity 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  opacity: 0.98;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .qmap-replay.dimmed {
@@ -4188,27 +4185,29 @@ esp-web-install-button {
 .qmap-replay:hover,
 .qmap-replay.is-active {
   opacity: 1;
-  border-color: rgba(10, 255, 132, 0.45);
-  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.85), 0 0 40px rgba(10, 255, 132, 0.2);
 }
 
-/* Drag bar / Header with controls */
+/* Drag bar / Header with controls: cyber capsule docked above phone */
 .qmap-replay__bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  min-height: 40px;
-  padding: 8px 12px;
+  min-height: 32px;
+  padding: 4px 10px;
   font-size: 8.5px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-family: var(--font-mono);
 
-  border-bottom: 1px solid rgba(0, 243, 255, 0.16);
+  border: 1px solid rgba(0, 243, 255, 0.35);
+  border-radius: 8px;
   color: rgba(232, 238, 247, 0.95);
-  background: rgba(7, 12, 22, 0.78);
+  background: rgba(4, 8, 16, 0.92);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6), 0 0 10px rgba(0, 243, 255, 0.1);
+  margin-bottom: 8px;
 
   cursor: grab;
   user-select: none;
@@ -4290,103 +4289,113 @@ esp-web-install-button {
   color: #fff;
 }
 
-/* Phone Frame: authentic device chassis with 540x946 exact native ratio */
-/* Phone Chassis: Perfect seamless bezel wrapping 540x946 display */
+/* Phone Frame: authentic device chassis matching qfeed-phone-chassis */
 .qmap-phone {
-  width: 100%;
-  padding: 10px 8px;
-  background: linear-gradient(160deg, #182236 0%, #090e18 45%, #0f1728 100%);
-  border: 2px solid rgba(0, 243, 255, 0.45);
-  border-radius: 28px;
-  box-shadow: 
-    0 0 0 1px rgba(0, 0, 0, 0.85),
-    0 24px 70px rgba(0, 0, 0, 0.9),
-    0 0 40px rgba(0, 243, 255, 0.22),
-    inset 0 1px 1px rgba(255, 255, 255, 0.25),
-    inset 0 0 16px rgba(0, 243, 255, 0.1);
   position: relative;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 36px;
+  background: #080b10;
+  padding: 12px 10px 14px;
+  border: 2px solid rgba(0, 242, 255, 0.35);
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.85),
+    0 0 28px rgba(0, 242, 255, 0.16),
+    inset 0 0 10px rgba(0, 0, 0, 0.9);
   box-sizing: border-box;
   display: block;
+  margin: 0 auto;
 }
 
-/* Volume rocker button on left bezel */
-.qmap-phone::before {
-  content: "";
+.qmap-phone .qfeed-phone-camera {
   position: absolute;
-  left: -3px;
-  top: 22%;
-  width: 3px;
-  height: 64px;
-  border-radius: 3px 0 0 3px;
-  background: rgba(0, 243, 255, 0.45);
-  box-shadow: 0 0 8px rgba(0, 243, 255, 0.3);
-  pointer-events: none;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  background: #020305;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  z-index: 5;
+  box-shadow: inset 0 0 4px rgba(0, 242, 255, 0.4);
+}
+
+.qmap-phone .qfeed-phone-speaker {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  z-index: 5;
 }
 
 /* Screen: Exact 540x946 native ratio, perfectly flush with chassis */
-.qmap-phone__screen {
+.qmap-phone .qmap-phone__screen,
+.qmap-phone .qfeed-phone-screen {
+  position: relative;
   width: 100%;
   aspect-ratio: 540 / 946;
-  border-radius: 18px;
+  border-radius: 22px;
   overflow: hidden;
-  background: #020408;
-  border: 1px solid rgba(0, 243, 255, 0.22);
-  position: relative;
-  box-shadow: inset 0 0 14px rgba(0, 0, 0, 0.95);
+  background: #000;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
   box-sizing: border-box;
   line-height: 0;
 }
 
 /* Video: 1:1 pixel mapped to screen with zero gap and zero letterboxing */
-.qmap-video {
+.qmap-phone .qmap-video,
+.qmap-phone .qfeed-phone-video {
   width: 100%;
   height: 100%;
   object-fit: fill;
   display: block;
-  filter: contrast(1.05) saturate(1.05);
-  background: #020408;
   cursor: pointer;
-  border-radius: 18px;
+  filter: contrast(1.05) saturate(1.05);
+  background: #000;
+  border-radius: 22px;
 }
 
-/* Subtle glass reflection overlay */
-.qmap-phone__glass {
+.qmap-phone .qfeed-phone-glare {
   position: absolute;
   inset: 0;
-  border-radius: 18px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.02) 28%, transparent 45%);
-  opacity: 0.22;
-  mix-blend-mode: screen;
   pointer-events: none;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, transparent 45%);
+  z-index: 2;
 }
 
-/* Micro speaker slit in top 10px bezel - 3px ABOVE the screen, 100% uncovered controls */
-.qmap-phone__notch {
+.qmap-phone .qfeed-phone-scanline {
   position: absolute;
-  top: 4px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 48px;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.2) 50%);
+  background-size: 100% 4px;
+  opacity: 0.35;
+  z-index: 2;
+}
+
+.qmap-phone .qfeed-video-overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 4;
+  pointer-events: auto;
+}
+
+.qmap-phone .qfeed-phone-home-pill {
+  width: 72px;
   height: 3px;
-  border-radius: 999px;
-  background: #121824;
-  border: 1px solid rgba(0, 243, 255, 0.35);
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.8), 0 0 6px rgba(0, 243, 255, 0.2);
-  pointer-events: none;
-  z-index: 10;
-}
-
-/* Power button on right bezel */
-.qmap-phone__btns {
-  position: absolute;
-  right: -3px;
-  top: 28%;
-  width: 3px;
-  height: 48px;
-  border-radius: 0 3px 3px 0;
-  background: rgba(0, 243, 255, 0.5);
-  box-shadow: 0 0 10px rgba(0, 243, 255, 0.35);
-  pointer-events: none;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 2px;
+  margin: 7px auto 0;
 }
 
 /* Resize handle (bottom-right grip) */
@@ -11618,9 +11627,10 @@ body.qmap-modal-open {
   .secure-dictation-section .sd-title {
     flex-wrap: nowrap;
     white-space: nowrap;
+    width: fit-content;
     max-width: 100%;
-    font-size: clamp(62px, 5vw, 86px);
-    line-height: 0.92;
+    font-size: clamp(44px, 3.6vw, 62px);
+    line-height: 0.94;
   }
 
   .secure-dictation-section .sd-title .crypto-reveal {
@@ -11846,14 +11856,18 @@ body.qmap-modal-open {
 }
 /* Secure Dictation desktop hero title containment */
 @media (min-width: 1181px) {
+  .secure-dictation-section .wrap {
+    max-width: min(1320px, calc(100% - 48px));
+  }
+
   .secure-dictation-section .sd-shell {
-    grid-template-columns: minmax(0, 0.92fr) minmax(340px, 0.78fr);
+    grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.75fr);
     gap: clamp(30px, 3vw, 48px);
   }
 
   .secure-dictation-section .sd-copy {
     min-width: 0;
-    max-width: 650px;
+    max-width: 100%;
   }
 
   .secure-dictation-section .sd-title {
@@ -11861,8 +11875,9 @@ body.qmap-modal-open {
     align-items: center;
     flex-wrap: nowrap;
     white-space: nowrap;
+    width: fit-content;
     max-width: 100%;
-    font-size: clamp(48px, 4.15vw, 68px);
+    font-size: clamp(44px, 3.6vw, 62px);
     line-height: 0.96;
     gap: 14px;
   }
@@ -11871,28 +11886,40 @@ body.qmap-modal-open {
     white-space: nowrap;
     display: inline-flex;
     align-items: center;
+    background: linear-gradient(120deg, var(--sd-violet), var(--sd-cyan) 48%, var(--sd-green));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .secure-dictation-section .sd-title-icon {
-    width: clamp(38px, 3.4vw, 48px);
-    height: clamp(38px, 3.4vw, 48px);
+    width: clamp(36px, 3vw, 44px);
+    height: clamp(36px, 3vw, 44px);
+    flex-shrink: 0;
   }
 }
 
 @media (min-width: 1440px) {
+  .secure-dictation-section .wrap {
+    max-width: min(1380px, calc(100% - 48px));
+  }
+
   .secure-dictation-section .sd-shell {
-    grid-template-columns: minmax(0, 1fr) minmax(360px, 0.72fr);
+    grid-template-columns: minmax(0, 1.1fr) minmax(360px, 0.72fr);
   }
 
   .secure-dictation-section .sd-copy {
-    max-width: 740px;
+    max-width: 100%;
   }
 
   .secure-dictation-section .sd-title {
+    display: inline-flex;
+    align-items: center;
     flex-wrap: nowrap;
     white-space: nowrap;
-    max-width: 740px;
-    font-size: clamp(58px, 4.4vw, 80px);
+    width: fit-content;
+    max-width: 100%;
+    font-size: clamp(48px, 3.5vw, 64px);
   }
 }
 /* ============================================
@@ -15843,28 +15870,43 @@ html.perf-lite .stack-scan-band {
   }
 
   .qmap-pro-section .qmap-replay {
-    width: min(340px, calc(100% - 16px));
-    max-width: min(350px, calc(100% - 16px));
+    width: min(330px, calc(100% - 16px));
+    max-width: min(345px, calc(100% - 16px));
     min-width: 260px;
+    padding: 0 5px 7px;
   }
 
   .qmap-pro-section .qmap-phone {
-    padding: 8px 6px;
-    border-radius: 24px;
+    padding: 10px 8px 12px;
+    border-radius: 30px;
   }
 
-  .qmap-pro-section .qmap-phone__screen {
-    border-radius: 16px;
+  .qmap-pro-section .qmap-phone .qmap-phone__screen,
+  .qmap-pro-section .qmap-phone .qfeed-phone-screen {
+    border-radius: 18px;
   }
 
-  .qmap-pro-section .qmap-video {
-    border-radius: 16px;
+  .qmap-pro-section .qmap-phone .qmap-video,
+  .qmap-pro-section .qmap-phone .qfeed-phone-video {
+    border-radius: 18px;
   }
 
-  .qmap-pro-section .qmap-phone__notch {
-    top: 3px;
-    width: 40px;
+  .qmap-pro-section .qmap-phone .qfeed-phone-camera {
+    top: 13px;
+    width: 8px;
+    height: 8px;
+  }
+
+  .qmap-pro-section .qmap-phone .qfeed-phone-speaker {
+    top: 5px;
+    width: 30px;
     height: 2.5px;
+  }
+
+  .qmap-pro-section .qmap-phone .qfeed-phone-home-pill {
+    width: 58px;
+    height: 2.5px;
+    margin: 5px auto 0;
   }
 
   .qmap-pro-section .qmap-replay__bar {
@@ -19115,8 +19157,27 @@ main section *,
 }
 
 .ag-card-icon {
-  font-size: 26px;
-  margin-bottom: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: #ffffff;
+  margin-bottom: 14px;
+  line-height: 1;
+}
+
+.ag-card-icon-svg {
+  width: 26px;
+  height: 26px;
+  color: #ffffff;
+  stroke: #ffffff;
+  display: block;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.45));
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.ag-card:hover .ag-card-icon-svg {
+  filter: drop-shadow(0 0 14px rgba(255, 255, 255, 0.75));
+  transform: translateY(-1px);
 }
 
 .ag-card-title {
@@ -19176,12 +19237,17 @@ main section *,
 
   .ag-card-icon {
     grid-area: icon;
-    font-size: 24px;
     margin-bottom: 0;
     line-height: 1;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #ffffff;
+  }
+
+  .ag-card-icon-svg {
+    width: 22px;
+    height: 22px;
   }
 
   .ag-card-title {
@@ -19215,7 +19281,11 @@ main section *,
     row-gap: 6px;
   }
   .ag-card-icon {
-    font-size: 22px;
+    color: #ffffff;
+  }
+  .ag-card-icon-svg {
+    width: 20px;
+    height: 20px;
   }
   .ag-card-title {
     font-size: 15px;
@@ -19659,6 +19729,9 @@ main section *,
 }
 
 .sdr-cap-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   font-size: 10px;
   letter-spacing: 0.04em;
   padding: 4px 9px;
@@ -19667,6 +19740,13 @@ main section *,
   border: 1px solid rgba(0, 242, 255, 0.22);
   color: rgba(255, 255, 255, 0.85);
   transition: all 0.2s ease;
+}
+
+.sdr-cap-icon {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  stroke: var(--neon-cyan);
 }
 
 .sdr-cap-pill:hover {
@@ -19891,10 +19971,32 @@ main section *,
 }
 
 .q-sigint-tab-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   font-size: 11px;
   color: #fff;
   font-weight: 600;
   letter-spacing: 0.04em;
+}
+
+.q-sigint-tab-icon {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  stroke: var(--neon-cyan);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.2s ease, filter 0.2s ease;
+}
+
+.q-sigint-tab:hover .q-sigint-tab-icon {
+  transform: scale(1.15);
+  stroke: #ffffff;
+  filter: drop-shadow(0 0 6px rgba(0, 242, 255, 0.8));
+}
+
+.q-sigint-tab.is-active .q-sigint-tab-icon {
+  stroke: var(--neon-cyan);
+  filter: drop-shadow(0 0 6px rgba(0, 242, 255, 0.75));
 }
 
 /* Workspace */
@@ -22195,14 +22297,42 @@ main section *,
 }
 
 .qsat-title {
-  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  text-align: center;
+  font-size: clamp(2.1rem, 4.5vw, 3.2rem);
   font-weight: 800;
-  line-height: 1.15;
+  line-height: 1.2;
   letter-spacing: -0.02em;
   margin-bottom: 14px;
+  text-wrap: balance;
+}
+
+.qsat-title-icon {
+  display: inline-block;
+  vertical-align: -0.2em;
+  width: clamp(40px, 4.4vw, 58px);
+  height: clamp(40px, 4.4vw, 58px);
+  margin-right: 6px;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  flex-shrink: 0;
+  border: none !important;
+  background: none !important;
+  box-shadow: none !important;
+  filter: drop-shadow(0 0 14px rgba(0, 242, 255, 0.45));
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
+}
+
+.qsat-title:hover .qsat-title-icon {
+  transform: rotate(-6deg) scale(1.08);
+  filter: drop-shadow(0 0 22px rgba(0, 242, 255, 0.85));
+}
+
+.qsat-title-text {
   background: linear-gradient(135deg, #ffffff 30%, var(--neon-cyan) 75%, var(--neon-purple) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline;
 }
 
 .qsat-subtitle {
@@ -22304,6 +22434,227 @@ main section *,
 .qsat-metric-sub {
   font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.65);
+}
+
+/* Q-Sat Tactical Video Showcase */
+.qsat-video-showcase {
+  margin: 0 auto 36px;
+  width: 100%;
+  max-width: 960px;
+}
+
+.qsat-video-stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+  background: #000000;
+  border: 1px solid rgba(0, 243, 255, 0.28);
+  box-shadow: inset 0 0 35px rgba(0, 0, 0, 0.95), 0 0 25px rgba(0, 243, 255, 0.08);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.qsat-video-stage:hover {
+  border-color: rgba(0, 243, 255, 0.55);
+  box-shadow: inset 0 0 35px rgba(0, 0, 0, 0.95), 0 0 32px rgba(0, 243, 255, 0.22);
+}
+
+.qsat-poster-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000000;
+  transition: opacity 350ms cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s ease;
+  z-index: 2;
+}
+
+.qsat-poster-img {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  display: block;
+  background: #000000;
+}
+
+.qsat-video-stage.is-playing .qsat-poster-wrap {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.qsat-trace-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+  background: #000000;
+  transition: opacity 350ms cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s ease;
+  z-index: 2;
+}
+
+.qsat-video-stage.is-playing .qsat-trace-video {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.qsat-video-stage:hover .qsat-poster-wrap,
+.qsat-video-stage:hover .qsat-trace-video {
+  transform: scale(1.006);
+}
+
+/* Cyber Overlays */
+.qsat-video-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  background: radial-gradient(circle at 50% 50%, transparent 65%, rgba(1, 4, 10, 0.6) 100%);
+}
+
+.qsat-video-scanline {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  background: repeating-linear-gradient(180deg, rgba(0, 243, 255, 0.02) 0px, rgba(0, 243, 255, 0.02) 1px, transparent 1px, transparent 4px);
+  opacity: 0.7;
+}
+
+.qsat-video-hud-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: rgba(2, 8, 18, 0.85);
+  border: 1px solid rgba(0, 243, 255, 0.35);
+  color: var(--sdr-cyan, #00f2ff);
+  font-size: 8.5px;
+  letter-spacing: 0.1em;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  pointer-events: none;
+}
+
+.qsat-live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #35ff8a;
+  box-shadow: 0 0 8px #35ff8a;
+  animation: pulse-dot 1.8s infinite ease-in-out;
+}
+
+/* Corner Brackets */
+.qsat-video-bracket {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  z-index: 4;
+  pointer-events: none;
+  border-color: rgba(0, 243, 255, 0.55);
+}
+.qsat-bracket--tl { top: 10px; left: 10px; border-top: 2px solid; border-left: 2px solid; }
+.qsat-bracket--tr { top: 10px; right: 10px; border-top: 2px solid; border-right: 2px solid; }
+.qsat-bracket--bl { bottom: 10px; left: 10px; border-bottom: 2px solid; border-left: 2px solid; }
+.qsat-bracket--br { bottom: 10px; right: 10px; border-bottom: 2px solid; border-right: 2px solid; }
+
+/* Play Pill Button */
+.qsat-play-pill {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px;
+  border: 1px solid rgba(0, 243, 255, 0.45);
+  border-radius: 5px;
+  background: rgba(2, 8, 16, 0.88);
+  color: #00f2ff;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  pointer-events: none;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: opacity 300ms ease, background 300ms ease, border-color 300ms ease, color 300ms ease, transform 300ms ease, box-shadow 300ms ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.75);
+}
+
+.qsat-video-stage:hover .qsat-play-pill {
+  border-color: rgba(53, 255, 138, 0.65);
+  color: #35ff8a;
+  background: rgba(2, 14, 20, 0.94);
+  box-shadow: 0 0 16px rgba(53, 255, 138, 0.35);
+  transform: translateY(-1px);
+}
+
+.qsat-video-stage.is-playing .qsat-play-pill {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.qsat-video-stage.is-playing:hover .qsat-play-pill {
+  opacity: 0.92;
+  transform: scale(1);
+  border-color: rgba(255, 42, 109, 0.6);
+  color: #ff2a6d;
+}
+
+/* Bottom HUD Specs Strip */
+.qsat-video-hud-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  padding: 10px 4px 0;
+}
+
+.qsat-hud-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  background: rgba(0, 243, 255, 0.05);
+  border: 1px solid rgba(0, 243, 255, 0.16);
+  border-radius: 4px;
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  color: rgba(180, 220, 240, 0.8);
+}
+
+.qsat-hud-pill .pill-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #00f2ff;
+  box-shadow: 0 0 4px #00f2ff;
+  display: inline-block;
 }
 
 /* Workspace Box & Tabs */
@@ -22981,8 +23332,14 @@ main section *,
   }
   .qsat-title {
     text-align: center;
-    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    font-size: clamp(1.7rem, 5.2vw, 2.25rem);
     margin-inline: auto;
+  }
+  .qsat-title-icon {
+    width: clamp(32px, 7.5vw, 42px);
+    height: clamp(32px, 7.5vw, 42px);
+    margin-right: 4px;
+    vertical-align: -0.18em;
   }
   .qsat-subtitle {
     text-align: center;
@@ -23020,6 +23377,35 @@ main section *,
   }
   .qsat-metrics-deck {
     grid-template-columns: 1fr;
+  }
+  .qsat-video-showcase {
+    margin: 0 auto 24px;
+  }
+  .qsat-video-stage {
+    border-radius: 8px;
+  }
+  .qsat-video-hud-tag {
+    font-size: 7.5px;
+    padding: 3px 7px;
+    top: 8px;
+    left: 8px;
+  }
+  .qsat-play-pill {
+    top: 8px;
+    right: 8px;
+    padding: 4px 8px;
+    font-size: 8px;
+  }
+  .qsat-video-bracket {
+    width: 10px;
+    height: 10px;
+  }
+  .qsat-video-hud-bottom {
+    gap: 5px;
+  }
+  .qsat-hud-pill {
+    font-size: 7px;
+    padding: 2px 6px;
   }
   .qsat-workspace {
     padding: 18px 14px;
@@ -23063,6 +23449,29 @@ main section *,
 }
 
 @media (max-width: 480px) {
+  .qsat-title {
+    font-size: clamp(1.4rem, 6.5vw, 1.85rem);
+  }
+  .qsat-title-icon {
+    width: 28px;
+    height: 28px;
+    margin-right: 3px;
+    vertical-align: -0.16em;
+  }
+  .qsat-video-showcase {
+    margin: 0 auto 20px;
+  }
+  .qsat-video-hud-tag {
+    font-size: 7px;
+    padding: 3px 6px;
+  }
+  .qsat-play-pill {
+    font-size: 7px;
+    padding: 3px 6px;
+  }
+  .qsat-hud-pill:nth-child(n+3) {
+    display: none;
+  }
   .qsat-sat-buttons {
     gap: 4px;
   }

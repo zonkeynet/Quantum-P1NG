@@ -60,7 +60,7 @@
       }
     } catch(e){}
   </script>
-  <link rel="stylesheet" href="styles.css?v=3.0.1" />
+  <link rel="stylesheet" href="styles.css?v=3.0.2" />
 
   <!-- Schema.org Comprehensive Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -2338,7 +2338,11 @@ _
     <div class="ag-cards-grid">
       <div class="ag-card">
         <div class="ag-card-badge mono">ZERO EMISSIONS</div>
-        <div class="ag-card-icon">⚡</div>
+        <div class="ag-card-icon" aria-hidden="true">
+          <svg class="ag-card-icon-svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="currentColor"/>
+          </svg>
+        </div>
         <h4 class="ag-card-title">Optical Fountain Stream</h4>
         <p class="ag-card-p">
           Unidirectional 24-30 FPS QR stream utilizing rateless Luby Transform erasure codes. Allows transferring
@@ -2350,7 +2354,14 @@ _
 
       <div class="ag-card">
         <div class="ag-card-badge mono">NO INTERNET / NO STUN</div>
-        <div class="ag-card-icon">📶</div>
+        <div class="ag-card-icon" aria-hidden="true">
+          <svg class="ag-card-icon-svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+            <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+            <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+            <circle cx="12" cy="20" r="1.5" fill="currentColor"/>
+          </svg>
+        </div>
         <h4 class="ag-card-title">Local Wi-Fi &amp; Hotspot P2P</h4>
         <p class="ag-card-p">
           Peer-to-peer ephemeral pairing via 10-minute QR ticket with pinned TLS 1.3. Supports verified file
@@ -2362,7 +2373,13 @@ _
 
       <div class="ag-card">
         <div class="ag-card-badge mono">FARADAY PROOF</div>
-        <div class="ag-card-icon">🔊</div>
+        <div class="ag-card-icon" aria-hidden="true">
+          <svg class="ag-card-icon-svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor"/>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+          </svg>
+        </div>
         <h4 class="ag-card-title">Acoustic &amp; Ultrasound Link</h4>
         <p class="ag-card-p">
           Audio-frequency and near-ultrasound (18–20 kHz) acoustic FSK modulation. Designed for critical key exchange
@@ -2436,24 +2453,43 @@ _
         <button class="qmap-replay__btn mono" id="qmap-replay-open" type="button">EXPAND</button>
       </div>
 
-      <div class="qmap-phone" id="qmap-phone">
-        <div class="qmap-phone__screen">
+      <div class="qmap-phone qfeed-phone-chassis" id="qmap-phone">
+        <!-- Camera Punch Hole & Top Bezel Sensor -->
+        <div class="qfeed-phone-camera" aria-hidden="true"></div>
+        <div class="qfeed-phone-speaker" aria-hidden="true"></div>
+
+        <!-- Screen Viewport with Video -->
+        <div class="qmap-phone__screen qfeed-phone-screen">
           <video
             id="qmap-demo"
-            class="qmap-video"
+            class="qmap-video qfeed-phone-video"
             playsinline
             muted
             loop
             preload="none"
             poster="assets/vid/qmap_poster.webp"
+            width="540"
+            height="946"
           >
             <source data-src="assets/vid/qmap-demo.webm" type="video/webm">
             <source data-src="assets/vid/qmap-demo.mp4" type="video/mp4">
           </video>
-          <div class="qmap-phone__glass" aria-hidden="true"></div>
+          <div class="qfeed-phone-glare" aria-hidden="true"></div>
+          <div class="qfeed-phone-scanline" aria-hidden="true"></div>
+
+          <!-- Floating Play/Pause Controls Bar -->
+          <div class="qfeed-video-overlay mono">
+            <button type="button" class="qfeed-play-toggle" id="qmap-play-toggle" aria-label="Play or Pause Q-Map demonstration video">
+              <svg class="icon-pause" viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+              <svg class="icon-play" viewBox="0 0 24 24" width="12" height="12" fill="currentColor" style="display:none;"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              <span class="toggle-text">PAUSE</span>
+            </button>
+            <span class="qfeed-video-tag">Q-MAP // ED25519 RUNTIME</span>
+          </div>
         </div>
-        <div class="qmap-phone__notch" aria-hidden="true"></div>
-        <div class="qmap-phone__btns" aria-hidden="true"></div>
+
+        <!-- Bottom Home Indicator -->
+        <div class="qfeed-phone-home-pill" aria-hidden="true"></div>
       </div>
     </div>
     <!-- /Q-MAP REPLAY -->
@@ -4908,7 +4944,7 @@ _
             </div>
 
             <div class="sdr-hw-capabilities">
-              <span class="sdr-cap-pill">ADS-B 1090MHz</span>
+              <span class="sdr-cap-pill"><svg class="sdr-cap-icon" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.6.5-1.1z"/></svg> ADS-B 1090MHz</span>
               <span class="sdr-cap-pill">RF Spectrum Sweep</span>
               <span class="sdr-cap-pill">Sub-GHz Replay</span>
               <span class="sdr-cap-pill">Tactical Jamming Sim</span>
@@ -4981,9 +5017,9 @@ _
             </div>
 
             <div class="sdr-hw-capabilities">
-              <span class="sdr-cap-pill">AIS Marine VHF</span>
-              <span class="sdr-cap-pill">ACARS 131.5MHz</span>
-              <span class="sdr-cap-pill">APRS 144.8MHz</span>
+              <span class="sdr-cap-pill"><svg class="sdr-cap-icon" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l1.5-6h15l1.5 6c-3 1.5-6-1-9 1.5-3-2.5-6 0-9-1.5z"/><path d="M8 11V6h8v5"/><line x1="12" y1="2" x2="12" y2="6"/></svg> AIS Marine VHF</span>
+              <span class="sdr-cap-pill"><svg class="sdr-cap-icon" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><line x1="8" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="13" y2="13"/></svg> ACARS 131.5MHz</span>
+              <span class="sdr-cap-pill"><svg class="sdr-cap-icon" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> APRS 144.8MHz</span>
               <span class="sdr-cap-pill">NOAA Weather APT</span>
               <span class="sdr-cap-pill">Zero Root USB</span>
             </div>
@@ -5011,19 +5047,31 @@ _
         <div class="q-sigint-tabs mono" role="tablist" aria-label="SIGINT Decoder Selection">
           <button class="q-sigint-tab is-active" role="tab" aria-selected="true" data-sigint-tab="adsb">
             <span class="q-sigint-tab-freq">1090 MHz</span>
-            <span class="q-sigint-tab-name">ADS-B FLIGHT RADAR</span>
+            <span class="q-sigint-tab-name">
+              <svg class="q-sigint-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.6.5-1.1z"/></svg>
+              <span>ADS-B FLIGHT RADAR</span>
+            </span>
           </button>
           <button class="q-sigint-tab" role="tab" aria-selected="false" data-sigint-tab="ais">
             <span class="q-sigint-tab-freq">162.0 MHz</span>
-            <span class="q-sigint-tab-name">AIS MARINE TRACKER</span>
+            <span class="q-sigint-tab-name">
+              <svg class="q-sigint-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l1.5-6h15l1.5 6c-3 1.5-6-1-9 1.5-3-2.5-6 0-9-1.5z"/><path d="M8 11V6h8v5"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="10" y1="4" x2="14" y2="4"/></svg>
+              <span>AIS MARINE TRACKER</span>
+            </span>
           </button>
           <button class="q-sigint-tab" role="tab" aria-selected="false" data-sigint-tab="acars">
             <span class="q-sigint-tab-freq">131.5 MHz</span>
-            <span class="q-sigint-tab-name">ACARS AIR TELETYPE</span>
+            <span class="q-sigint-tab-name">
+              <svg class="q-sigint-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><line x1="8" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="13" y2="13"/></svg>
+              <span>ACARS AIR TELETYPE</span>
+            </span>
           </button>
           <button class="q-sigint-tab" role="tab" aria-selected="false" data-sigint-tab="aprs">
             <span class="q-sigint-tab-freq">144.8 MHz</span>
-            <span class="q-sigint-tab-name">APRS TACTICAL PACKET</span>
+            <span class="q-sigint-tab-name">
+              <svg class="q-sigint-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>APRS TACTICAL PACKET</span>
+            </span>
           </button>
         </div>
       </div>
@@ -5115,7 +5163,7 @@ _
         <span class="qsat-kicker-sep">//</span>
         <span>SGP4 TRACKING &amp; AIOC TRANSCEIVER</span>
       </div>
-      <h2 class="qsat-title">Q-Sat Satellite Intelligence &amp; GhostWave Rig</h2>
+      <h2 class="qsat-title"><img src="assets/img/satellite_icon.webp" alt="Q-Sat Parabolic Satellite Dish" class="qsat-title-icon" width="60" height="60" loading="eager" decoding="async" aria-hidden="true"><span class="qsat-title-text">Q-Sat Satellite Intelligence &amp; GhostWave Rig</span></h2>
       <p class="qsat-subtitle mono">Real-Time SGP4 Tracking, Doppler Auto-Tuning, Polar Radar &amp; Hardware AIOC</p>
       <p class="qsat-lead">
         Low Earth Orbit (LEO) satellites orbit at 7.5 km/s, producing extreme Doppler shifts that distort SDR and audio signals. Q-Sat integrates SGP4/TLE orbital mechanics with real-time Doppler auto-retuning for SDRs, polar antenna guidance, and direct transceiver coupling using the GhostWave AIOC (All-In-One-Cable) hardware interface for tactical handheld radios.
@@ -5152,6 +5200,48 @@ _
         <span class="qsat-metric-label">TRANSCEIVER BRIDGE</span>
         <strong class="qsat-metric-val txt-red">AIOC USB-C</strong>
         <span class="qsat-metric-sub">STM32 MCU + CM108 GPIO3 PTT</span>
+      </div>
+    </div>
+
+    <!-- Q-Sat Tactical Video Showcase -->
+    <div class="qsat-video-showcase" id="qsatVideoShowcase">
+      <div class="qsat-video-stage" id="qsatMediaContainer" role="button" tabindex="0" aria-label="Toggle Q-Sat Satellite Intelligence &amp; Telemetry Trace video playback" title="Click to play / pause video animation">
+        <picture class="qsat-poster-wrap">
+          <source srcset="assets/vid/q-sat_trace_poster.webp" type="image/webp">
+          <img src="assets/vid/q-sat_trace_poster.webp" alt="Q-Sat Orbital Satellite Downlink and GhostWave Telemetry Trace" class="qsat-poster-img" width="1280" height="720" loading="lazy" decoding="async">
+        </picture>
+
+        <video id="qsatTraceVideo" class="qsat-trace-video" width="1280" height="720" poster="assets/vid/q-sat_trace_poster.webp" loop muted playsinline preload="metadata" title="Click to play / pause video animation">
+          <source src="assets/vid/q-sat_trace.webm" type="video/webm">
+          <source src="assets/vid/q-sat_trace.mp4" type="video/mp4">
+        </video>
+
+        <!-- Holographic Cyber HUD overlays -->
+        <div class="qsat-video-vignette" aria-hidden="true"></div>
+        <div class="qsat-video-scanline" aria-hidden="true"></div>
+        <div class="qsat-video-hud-tag mono" id="qsatTraceBadge" aria-hidden="true">
+          <span class="qsat-live-dot"></span>
+          <span class="badge-label">ORBITAL TRACE STANDBY</span>
+        </div>
+
+        <!-- Ambient corner brackets -->
+        <div class="qsat-video-bracket qsat-bracket--tl" aria-hidden="true"></div>
+        <div class="qsat-video-bracket qsat-bracket--tr" aria-hidden="true"></div>
+        <div class="qsat-video-bracket qsat-bracket--bl" aria-hidden="true"></div>
+        <div class="qsat-video-bracket qsat-bracket--br" aria-hidden="true"></div>
+
+        <!-- Interactive Play Pill Button -->
+        <div class="qsat-play-pill mono" aria-hidden="true">
+          <span class="qsat-play-icon">▶</span>
+          <span class="qsat-play-text">CLICK TO PLAY</span>
+        </div>
+      </div>
+
+      <div class="qsat-video-hud-bottom mono" aria-hidden="true">
+        <span class="qsat-hud-pill"><i class="pill-dot"></i> LEO SATELLITE DOWNLINK</span>
+        <span class="qsat-hud-pill"><i class="pill-dot"></i> SGP4 REAL-TIME TRACKING</span>
+        <span class="qsat-hud-pill"><i class="pill-dot"></i> POLAR AZ/EL VECTORS</span>
+        <span class="qsat-hud-pill"><i class="pill-dot"></i> GHOSTWAVE AIOC RIG COUPLING</span>
       </div>
     </div>
 

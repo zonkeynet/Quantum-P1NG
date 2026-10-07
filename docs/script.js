@@ -1852,15 +1852,15 @@ if (terminal && gamesGrid) {
   const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const saveData = !!(navigator.connection && navigator.connection.saveData);
 
-  // bump version key to ignore older cramped sizes and initialize enlarged proportions
-  const KEY = 'qmapReplayWidget_v7_perfect';
+  // bump version key to initialize authentic phone chassis proportions
+  const KEY = 'qmapReplayWidget_v8_chassis';
   const PAD = 14;
 
   let loaded = false;
   let isMin = false;
 
   // widget state (px in wrapper coordinates)
-  let x = 0, y = 0, w = 420;
+  let x = 0, y = 0, w = 360;
 
   // drag/resize runtime
   let mode = null; // 'drag' | 'resize'
@@ -1897,13 +1897,13 @@ if (terminal && gamesGrid) {
     const isMobile = vw < 800;
     const isTablet = vw >= 800 && vw < 1180;
     const barH = 40;
-    const padY = 20; // 10px top + 10px bottom bezel
-    const padX = 16; // 8px left + 8px right bezel
+    const padY = 26; // 12px top + 14px bottom bezel
+    const padX = 20; // 10px left + 10px right bezel
     const availH = Math.max(220, wr.height - PAD * 2 - barH - padY);
     const heightCapW = Math.floor(availH * 540 / 946) + padX;
     const widthCapW = Math.floor(wr.width * (isMobile ? 0.94 : isTablet ? 0.68 : 0.55));
-    const hardCapW = isMobile ? 380 : isTablet ? 450 : 500;
-    const minW = isMobile ? 240 : 320;
+    const hardCapW = isMobile ? 350 : isTablet ? 380 : 380;
+    const minW = isMobile ? 240 : 280;
     const maxW = Math.max(minW, Math.min(hardCapW, heightCapW, widthCapW, Math.floor(wr.width - PAD * 2)));
     w = clamp(w, minW, maxW);
   }
@@ -1925,8 +1925,8 @@ if (terminal && gamesGrid) {
 
     // Derived from available canvas HEIGHT using native aspect ratio 540 / 946 and phone bezels
     const BAR_H = 40;
-    const PAD_Y = 20; // 10px top + 10px bottom bezel
-    const PAD_X = 16; // 8px left + 8px right bezel
+    const PAD_Y = 26; // 12px top + 14px bottom bezel
+    const PAD_X = 20; // 10px left + 10px right bezel
     const V_PAD = PAD * 2;
     const availH = Math.max(0, wr.height - V_PAD - BAR_H - PAD_Y);
     const targetW = Math.floor(availH * 540 / 946) + PAD_X;
@@ -1934,8 +1934,8 @@ if (terminal && gamesGrid) {
     const isTablet = vw >= 800 && vw < 1180;
     const heightMax = Math.floor(Math.max(220, wr.height - PAD * 2 - BAR_H - PAD_Y) * 540 / 946) + PAD_X;
     const widthMax = Math.floor(wr.width * (isMobile ? 0.94 : isTablet ? 0.68 : 0.55));
-    const hardMax = isMobile ? 380 : isTablet ? 450 : 500;
-    const minW = isMobile ? 240 : 320;
+    const hardMax = isMobile ? 350 : isTablet ? 380 : 380;
+    const minW = isMobile ? 240 : 280;
     const maxW = Math.max(minW, Math.min(hardMax, heightMax, widthMax, Math.floor(wr.width - PAD * 2)));
 
     w = clamp(targetW, minW, maxW);
@@ -2021,14 +2021,48 @@ if (terminal && gamesGrid) {
     }
   }
 
+  // Floating Play/Pause toggle bar inside phone screen
+  const qmapPlayToggle = document.getElementById('qmap-play-toggle');
+  const iconPause = qmapPlayToggle ? qmapPlayToggle.querySelector('.icon-pause') : null;
+  const iconPlay = qmapPlayToggle ? qmapPlayToggle.querySelector('.icon-play') : null;
+  const toggleText = qmapPlayToggle ? qmapPlayToggle.querySelector('.toggle-text') : null;
+
+  function syncToggleUI(isPlaying) {
+    if (iconPause) iconPause.style.display = isPlaying ? 'block' : 'none';
+    if (iconPlay) iconPlay.style.display = isPlaying ? 'none' : 'block';
+    if (toggleText) toggleText.textContent = isPlaying ? 'PAUSE' : 'PLAY';
+  }
+
+  video.addEventListener('play', () => {
+    syncToggleUI(true);
+    setState('[LIVE]');
+  });
+  video.addEventListener('pause', () => {
+    syncToggleUI(false);
+    setState('[PAUSED]');
+  });
+
+  if (qmapPlayToggle) {
+    qmapPlayToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+      loadVideoSources();
+      if (video.paused) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
+  }
+
   // Tapping/clicking video toggles play / pause with status update
   video.addEventListener('click', (e) => {
     e.stopPropagation();
+    loadVideoSources();
     if (video.paused) {
-      video.play().then(() => setState('[LIVE]')).catch(() => {});
+      video.play().catch(() => {});
     } else {
       video.pause();
-      setState('[PAUSED]');
     }
   });
 
@@ -2371,9 +2405,9 @@ if (terminal && gamesGrid) {
         badgeLabel.textContent = activeText;
         badge.classList.add('is-playing');
       }
-      const pillText = container.querySelector('.qcam-play-text, .rb-play-text');
+      const pillText = container.querySelector('.qcam-play-text, .rb-play-text, .qsat-play-text');
       if (pillText) pillText.textContent = 'PAUSE STREAM';
-      const pillIcon = container.querySelector('.qcam-play-icon, .rb-play-icon');
+      const pillIcon = container.querySelector('.qcam-play-icon, .rb-play-icon, .qsat-play-icon');
       if (pillIcon) pillIcon.textContent = '■';
       video.muted = true;
       try {
@@ -2394,9 +2428,9 @@ if (terminal && gamesGrid) {
         badgeLabel.textContent = defaultText;
         badge.classList.remove('is-playing');
       }
-      const pillText = container.querySelector('.qcam-play-text, .rb-play-text');
+      const pillText = container.querySelector('.qcam-play-text, .rb-play-text, .qsat-play-text');
       if (pillText) pillText.textContent = 'CLICK TO PLAY';
-      const pillIcon = container.querySelector('.qcam-play-icon, .rb-play-icon');
+      const pillIcon = container.querySelector('.qcam-play-icon, .rb-play-icon, .qsat-play-icon');
       if (pillIcon) pillIcon.textContent = '▶';
       video.pause();
       // Reset to beginning after the card fade-out transition completes
@@ -2479,6 +2513,9 @@ if (terminal && gamesGrid) {
 
   // RadioBridge Field Video
   setupVideoCard('rbRadioMediaContainer', 'rbRadioVideo', 'rbRadioLinkBadge', 'RF LINK ACTIVE', 'RF LINK STANDBY');
+
+  // Q-Sat Orbital Satellite Telemetry Video
+  setupVideoCard('qsatMediaContainer', 'qsatTraceVideo', 'qsatTraceBadge', 'ORBITAL TRACE ACTIVE', 'ORBITAL TRACE STANDBY');
 
   // Dynamic Telemetry HUD sync for RadioBridge Dual-Sequence (RF Link -> AIOC Hardware Rig)
   (() => {
