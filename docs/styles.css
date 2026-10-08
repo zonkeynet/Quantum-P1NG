@@ -25276,6 +25276,352 @@ main section *,
   color: var(--neon-cyan);
 }
 
+/* ================================================================
+   Q-GEO MAP STUDIO & PMTILES PROMINENT LAUNCH CTA
+   ================================================================ */
+.qgeo-banner-enter-map {
+  position: relative;
+  margin-bottom: 24px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(4, 20, 32, 0.95) 0%, rgba(2, 10, 18, 0.98) 100%);
+  border: 1.5px solid rgba(0, 242, 255, 0.45);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.7), 0 0 28px rgba(0, 242, 255, 0.2);
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.qgeo-banner-enter-map:hover {
+  border-color: var(--neon-cyan);
+  box-shadow: 0 14px 42px rgba(0, 0, 0, 0.85), 0 0 40px rgba(0, 242, 255, 0.35);
+}
+
+.qgeo-banner-glow {
+  position: absolute;
+  top: -60px;
+  right: -30px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(0, 242, 255, 0.28) 0%, rgba(53, 255, 138, 0.12) 50%, transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.qgeo-banner-content {
+  position: relative;
+  z-index: 1;
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.qgeo-banner-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+  min-width: 280px;
+}
+
+.qgeo-banner-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: rgba(0, 242, 255, 0.12);
+  border: 1px solid rgba(0, 242, 255, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--neon-cyan);
+  flex-shrink: 0;
+  box-shadow: 0 0 16px rgba(0, 242, 255, 0.25);
+}
+
+.qgeo-banner-copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.qgeo-banner-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  color: var(--neon-cyan);
+  margin-bottom: 4px;
+}
+
+.qgeo-dot-live {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--neon-green);
+  box-shadow: 0 0 8px var(--neon-green);
+  animation: agPulseDot 1.4s infinite ease-in-out;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.qgeo-banner-title {
+  font-family: var(--font-cyber, "QP1NG-Digital", monospace);
+  font-size: 17px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.04em;
+  margin: 0 0 4px 0;
+}
+
+.qgeo-banner-sub {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: rgba(220, 235, 250, 0.82);
+  margin: 0;
+}
+
+.qgeo-banner-sub strong {
+  color: var(--neon-cyan);
+}
+
+.qgeo-banner-right {
+  flex-shrink: 0;
+}
+
+.qgeo-btn-enter-map {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 24px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(0, 242, 255, 0.28) 0%, rgba(53, 255, 138, 0.18) 100%);
+  border: 1.5px solid var(--neon-cyan);
+  color: #ffffff;
+  font-family: var(--font-cyber, "QP1NG-Digital", monospace);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 24px rgba(0, 242, 255, 0.35), inset 0 0 12px rgba(0, 242, 255, 0.15);
+  white-space: nowrap;
+}
+
+.qgeo-btn-enter-map:hover {
+  background: linear-gradient(135deg, var(--neon-cyan) 0%, #20e3b2 100%);
+  color: #02070e;
+  border-color: #ffffff;
+  box-shadow: 0 0 35px rgba(0, 242, 255, 0.75), 0 0 50px rgba(53, 255, 138, 0.45);
+  transform: translateY(-2px);
+}
+
+.qgeo-btn-enter-map .btn-radar-icon {
+  font-size: 14px;
+  filter: drop-shadow(0 0 6px var(--neon-cyan));
+}
+
+.qgeo-btn-enter-map .btn-arrow {
+  font-size: 14px;
+  transition: transform 0.2s ease;
+}
+
+.qgeo-btn-enter-map:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+/* Map Bar Left & CTA in Tab 1 */
+.qgeo-map-bar-left {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.qgeo-map-bar-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 11px;
+  border-radius: 4px;
+  background: rgba(0, 242, 255, 0.14);
+  border: 1px solid rgba(0, 242, 255, 0.45);
+  color: var(--neon-cyan);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 12px rgba(0, 242, 255, 0.18);
+  white-space: nowrap;
+}
+
+.qgeo-map-bar-cta:hover {
+  background: var(--neon-cyan);
+  color: #02070e;
+  border-color: #ffffff;
+  box-shadow: 0 0 20px rgba(0, 242, 255, 0.55);
+  transform: translateY(-1px);
+}
+
+/* PMTiles Spotlight Card in Tab 2 */
+.qgeo-pmtiles-spotlight-card {
+  position: relative;
+  margin-top: 14px;
+  border-radius: 12px;
+  background: linear-gradient(145deg, rgba(6, 22, 36, 0.95) 0%, rgba(3, 12, 20, 0.98) 100%);
+  border: 1.5px solid rgba(0, 242, 255, 0.45);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 24px rgba(0, 242, 255, 0.18);
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.qgeo-pmtiles-spotlight-card:hover {
+  border-color: var(--neon-cyan);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.85), 0 0 36px rgba(0, 242, 255, 0.32);
+}
+
+.qgeo-spotlight-glow {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(0, 242, 255, 0.25) 0%, rgba(53, 255, 138, 0.1) 50%, transparent 70%);
+  filter: blur(25px);
+  pointer-events: none;
+}
+
+.qgeo-spotlight-inner {
+  position: relative;
+  z-index: 1;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.qgeo-spotlight-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+}
+
+.spotlight-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--neon-cyan);
+  font-weight: 700;
+}
+
+.spotlight-badge {
+  color: var(--neon-green);
+  font-size: 0.64rem;
+  padding: 2px 7px;
+  border-radius: 3px;
+  background: rgba(53, 255, 138, 0.1);
+  border: 1px solid rgba(53, 255, 138, 0.25);
+}
+
+.qgeo-spotlight-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.spotlight-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(0, 242, 255, 0.1);
+  border: 1px solid rgba(0, 242, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--neon-cyan);
+  flex-shrink: 0;
+  box-shadow: 0 0 14px rgba(0, 242, 255, 0.2);
+}
+
+.spotlight-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.spotlight-title {
+  font-family: var(--font-cyber, "QP1NG-Digital", monospace);
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.04em;
+  margin-bottom: 5px;
+}
+
+.spotlight-desc {
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(220, 235, 250, 0.85);
+  margin: 0;
+}
+
+.spotlight-desc strong {
+  color: var(--neon-cyan);
+}
+
+.qgeo-spotlight-action {
+  margin-top: 4px;
+}
+
+.qgeo-spotlight-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(0, 242, 255, 0.24) 0%, rgba(53, 255, 138, 0.14) 100%);
+  border: 1.5px solid var(--neon-cyan);
+  color: #ffffff;
+  font-family: var(--font-cyber, "QP1NG-Digital", monospace);
+  font-size: 12.5px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 22px rgba(0, 242, 255, 0.3), inset 0 0 12px rgba(0, 242, 255, 0.1);
+  box-sizing: border-box;
+}
+
+.qgeo-spotlight-btn:hover {
+  background: linear-gradient(135deg, var(--neon-cyan) 0%, #20e3b2 100%);
+  color: #02070e;
+  border-color: #ffffff;
+  box-shadow: 0 0 35px rgba(0, 242, 255, 0.7), 0 0 50px rgba(53, 255, 138, 0.4);
+  transform: translateY(-2px);
+}
+
+.qgeo-spotlight-btn .btn-sparkle {
+  font-size: 14px;
+  filter: drop-shadow(0 0 6px var(--neon-cyan));
+}
+
+.qgeo-spotlight-btn .btn-arrow {
+  font-size: 14px;
+  transition: transform 0.2s ease;
+}
+
+.qgeo-spotlight-btn:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
 /* TAB 3: COMPACT EVENT PROTOCOL */
 .qgeo-dissector {
   background: rgba(14, 20, 36, 0.8);
@@ -26489,6 +26835,38 @@ body.qgeo-modal-open {
 }
 
 @media (max-width: 680px) {
+  .qgeo-banner-content {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px 14px;
+    gap: 14px;
+  }
+  .qgeo-banner-left {
+    min-width: 0;
+    gap: 12px;
+  }
+  .qgeo-banner-icon {
+    width: 42px;
+    height: 42px;
+  }
+  .qgeo-btn-enter-map {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 11.5px;
+    padding: 11px 16px;
+    white-space: normal;
+    text-align: center;
+  }
+  .qgeo-spotlight-body {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .qgeo-spotlight-btn {
+    font-size: 11.5px;
+    padding: 11px 14px;
+    white-space: normal;
+    text-align: center;
+  }
   .qgeo-workspace-nav {
     grid-template-columns: 1fr;
   }
