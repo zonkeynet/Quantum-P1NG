@@ -6574,9 +6574,18 @@ body.qmap-modal-open {
   white-space: nowrap;
 }
 
+.q-call-title-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
 .q-call-title-icon {
-  width: 0.88em;
+  width: auto;
   height: 0.88em;
+  max-width: 0.88em;
+  object-fit: contain;
   flex-shrink: 0;
   display: inline-block;
   vertical-align: middle;
