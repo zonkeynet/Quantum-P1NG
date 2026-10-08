@@ -2225,7 +2225,8 @@ _
       <p class="ag-subtitle">
         When hostile networks are monitored, jammed, or severed: transfer encrypted payloads via
         <strong>Animated Fountain QR</strong> (0.00 dBm RF), direct <strong>Local Wi-Fi / Hotspot P2P</strong>
-        (zero internet, no STUN/TURN), and <strong>Acoustic Ultrasound Handshakes</strong> inside Faraday shields.
+        (zero internet, no STUN/TURN), <strong>Acoustic Ultrasound Handshakes</strong> inside Faraday shields,
+        and decentralized <strong>Bluetooth LE Mesh Chat</strong> for multi-hop off-grid messaging.
       </p>
     </div>
 
@@ -2245,6 +2246,11 @@ _
         <span class="ag-tab-num">03</span>
         <span class="ag-tab-label">ACOUSTIC &amp; ULTRASOUND</span>
         <span class="ag-tab-badge">FARADAY PROOF</span>
+      </button>
+      <button class="ag-tab" role="tab" aria-selected="false" data-ag-tab="bluetooth">
+        <span class="ag-tab-num">04</span>
+        <span class="ag-tab-label">BLUETOOTH LE MESH</span>
+        <span class="ag-tab-badge">MULTI-HOP P2P // NO SIM</span>
       </button>
     </div>
 
@@ -2352,7 +2358,7 @@ _
       </div>
     </div>
 
-    <!-- 3 Core Feature Cards Grid -->
+    <!-- 4 Core Feature Cards Grid -->
     <div class="ag-cards-grid">
       <div class="ag-card">
         <div class="ag-card-badge mono">ZERO EMISSIONS</div>
@@ -2404,6 +2410,24 @@ _
           and duress signaling inside RF-shielded rooms, Faraday enclosures, or during total radio jamming.
         </p>
         <span class="ag-card-meta mono">SRC: com.qp1ng.android.offline.acoustic</span>
+      </div>
+
+      <div class="ag-card">
+        <div class="ag-card-badge mono">MULTI-HOP DECENTRALIZED</div>
+        <div class="ag-card-icon" aria-hidden="true">
+          <svg class="ag-card-icon-svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m7 7 10 10-5 5V2l5 5L7 17"/>
+            <circle cx="4" cy="12" r="1.5" fill="currentColor"/>
+            <circle cx="20" cy="8" r="1.5" fill="currentColor"/>
+            <circle cx="20" cy="16" r="1.5" fill="currentColor"/>
+            <path d="M4 12h3M17 7l3 1M17 17l3-1" stroke-dasharray="2 2" stroke-width="1.2"/>
+          </svg>
+        </div>
+        <h4 class="ag-card-title">Bluetooth LE Mesh Chat</h4>
+        <p class="ag-card-p">
+          Decentralized store-and-forward peer-to-peer mesh text and telemetry engine. Routes end-to-end encrypted packets (Double Ratchet + AES-256-GCM) across multi-hop relay nodes without cellular towers, internet access, or pairing prompts. Employs rolling ephemeral MAC addresses and stealth low-duty-cycle bursts to defeat RF direction-finding and metadata interception.
+        </p>
+        <span class="ag-card-meta mono">SRC: com.qp1ng.android.mesh.ble</span>
       </div>
     </div>
   </div>

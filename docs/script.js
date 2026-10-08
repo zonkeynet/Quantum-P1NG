@@ -5392,7 +5392,8 @@ if (terminal && gamesGrid) {
     { label: 'ENCRYPTED_VAULT_BACKUP (1.4 MB)', size: 1468006, parts: 96, classStr: 'OpticalFountain.kt / OpticalQrStream.kt' },
     { label: 'DILITHIUM_IDENTITY_KEYRING (4.8 KB)', size: 4915, parts: 12, classStr: 'NfcIdentityManager.kt / OpticalPrivateFiles.kt' },
     { label: 'OFFLINE_MGRS_TACTICAL_MAP (8.2 MB)', size: 8598322, parts: 260, classStr: 'QGeoOfflineMapPack.kt / LocalLinkTransport.kt' },
-    { label: 'EMERGENCY_FIELD_REPORT (18.5 KB)', size: 18944, parts: 32, classStr: 'QGeoReportWizard.kt / OfflineAcousticHandshakeManager.kt' }
+    { label: 'EMERGENCY_FIELD_REPORT (18.5 KB)', size: 18944, parts: 32, classStr: 'QGeoReportWizard.kt / OfflineAcousticHandshakeManager.kt' },
+    { label: 'TACTICAL_MESH_BURST_CHAT (256 B)', size: 256, parts: 1, classStr: 'BleMeshPacketRouter.kt / StoreAndForwardQueue.kt' }
   ];
   let currentPayloadIdx = 0;
 
@@ -5412,6 +5413,7 @@ if (terminal && gamesGrid) {
       detect: 'Zero RF Footprint (Imperceptible)',
       detectColor: 'var(--neon-green)',
       attack: 'Air-Gapped (No IP Stack, No Drivers)',
+      sourceClass: 'OpticalFountain.kt / OpticalQrStream.kt',
       log: [
         '> FOUNTAIN_PAGE_0: 32768 BYTES [SYSTEMATIC SWEEP: COMPLETE]',
         '> RATELESS_REPAIR_PART: BURST #12 TRANSMITTED (CRC32: 0x514F4631)',
@@ -5432,6 +5434,7 @@ if (terminal && gamesGrid) {
       detect: 'Confined to Local RF Propagation Area',
       detectColor: 'var(--neon-amber)',
       attack: 'Pinned TLS 1.3 Handshake (No Open Ports)',
+      sourceClass: 'LocalLinkTransport.kt / Qp1ngWifiDirectManager.kt',
       log: [
         '> LOCAL_PEER_AUTH: 192.168.49.12 [PIN VALIDATED // 10 MIN LEASE]',
         '> WEBRTC_ICE_CANDIDATE: HOST_ONLY (STUN/TURN: DISABLED)',
@@ -5452,10 +5455,33 @@ if (terminal && gamesGrid) {
       detect: 'Inaudible Near-Ultrasound (Zero RF Emitters)',
       detectColor: 'var(--neon-green)',
       attack: 'Acoustic Line-of-Hearing (Air-gapped)',
+      sourceClass: 'OfflineAcousticHandshakeManager.kt / FskModem.kt',
       log: [
         '> ACOUSTIC_CARRIER_DETECT: 18,500 Hz [SIGNAL LOCKED]',
         '> FSK_DEMODULATOR: SYNC TONES OK // BIT_ERRORS: 0',
         '> IDENTITY_EXCHANGE: ED25519 PUBKEY ACCEPTED IN FARADAY SHIELD'
+      ]
+    },
+    bluetooth: {
+      modeName: 'BLE_MESH_STORE_AND_FORWARD',
+      telemetry: 'PEERS: 6 IN RANGE | HOPS: 3/7 | DTN: ACTIVE',
+      rfStat: '-14 dBm (BURST LE 5.3)',
+      rfColor: 'var(--neon-cyan)',
+      rateStat: '128 B/PACKET // BURST',
+      hashStat: 'BLAKE3::SEALED',
+      intelTag: 'TOPOLOGY: ZERO-CARRIER P2P MESH',
+      title: 'Decentralized Bluetooth LE Multi-Hop Mesh Chat',
+      desc: 'Autonomous store-and-forward delay-tolerant network (DTN). Devices form self-healing peer-to-peer mesh clusters, relaying encrypted messages (Double Ratchet + AES-256-GCM) hop-by-hop across the physical network without cell coverage, SIM cards, or internet access. Employs rolling ephemeral MAC rotation (15m privacy lease) and ultrashort RF bursts to defeat radio direction finding (RDF) and metadata surveillance.',
+      medium: '2.4 GHz Bluetooth LE 5.x Advertising & GATT',
+      detect: 'Low-Duty-Cycle Stealth Bursts (Anti-RDF)',
+      detectColor: 'var(--neon-green)',
+      attack: 'Double Ratchet Sealed Envelope (Zero-Relay-Knowledge)',
+      sourceClass: 'BleMeshPacketRouter.kt / StoreAndForwardQueue.kt',
+      log: [
+        '> BLE_ADVERTISER: ROTATING MAC (PRIVACY LEASE: 15m)',
+        '> MESH_ROUTER: 4 RELAY NODES DISCOVERED // TTL: 7 HOPS',
+        '> PACKET_DISPATCH: BLIND STORE-AND-FORWARD // SHA-256 OK',
+        '> END_TO_END_SECURITY: DOUBLE RATCHET FORWARD SECRECY VALIDATED'
       ]
     }
   };
@@ -5482,7 +5508,7 @@ if (terminal && gamesGrid) {
       specDetectEl.style.color = cfg.detectColor;
     }
     if (specAttackEl) specAttackEl.textContent = cfg.attack;
-    if (specClassEl) specClassEl.textContent = payloads[currentPayloadIdx].classStr;
+    if (specClassEl) specClassEl.textContent = cfg.sourceClass || payloads[currentPayloadIdx].classStr;
 
     if (logTerminalEl) {
       logTerminalEl.innerHTML = cfg.log
@@ -6014,12 +6040,280 @@ if (terminal && gamesGrid) {
     ctx.fillText('HUMAN AUDIBLE CUTOFF: 16 kHz ──────┐', 24, 52);
   }
 
+  function renderBleMesh(time) {
+    const w = canvas.width;
+    const h = canvas.height;
+    const cx = w * 0.5;
+    const cy = h * 0.5;
+
+    // 1. Deep Cybernetic Canvas Background
+    ctx.fillStyle = '#020509';
+    ctx.fillRect(0, 0, w, h);
+
+    // Subtle radial backlight bloom
+    const bgGlow = ctx.createRadialGradient(cx, cy, 10, cx, cy, 230);
+    bgGlow.addColorStop(0, 'rgba(0, 242, 255, 0.09)');
+    bgGlow.addColorStop(0.55, 'rgba(4, 18, 30, 0.45)');
+    bgGlow.addColorStop(1, 'rgba(2, 5, 9, 0.98)');
+    ctx.fillStyle = bgGlow;
+    ctx.fillRect(0, 0, w, h);
+
+    // 2. Tactical Radar Range Rings & Crosshairs
+    const radarRings = [70, 140, 205];
+    const rangeLabels = ['15m', '35m', '60m (BLE RANGE)'];
+    ctx.lineWidth = 1;
+    radarRings.forEach((r, idx) => {
+      ctx.strokeStyle = 'rgba(0, 242, 255, 0.09)';
+      ctx.beginPath();
+      ctx.arc(cx, cy, r, 0, Math.PI * 2);
+      ctx.stroke();
+
+      ctx.fillStyle = 'rgba(0, 242, 255, 0.35)';
+      ctx.font = '8px monospace';
+      ctx.fillText(rangeLabels[idx], cx + r - 26, cy - 4);
+    });
+
+    // Crosshair axes (dashed)
+    ctx.strokeStyle = 'rgba(0, 242, 255, 0.08)';
+    ctx.setLineDash([3, 5]);
+    ctx.beginPath();
+    ctx.moveTo(cx, 36);
+    ctx.lineTo(cx, h - 42);
+    ctx.moveTo(36, cy);
+    ctx.lineTo(w - 36, cy);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Rotating Radar Sweep Cone
+    const sweepAngle = (time * 1.2) % (Math.PI * 2);
+    const sweepGrad = ctx.createRadialGradient(cx, cy, 5, cx, cy, 210);
+    sweepGrad.addColorStop(0, 'rgba(0, 242, 255, 0.15)');
+    sweepGrad.addColorStop(1, 'rgba(0, 242, 255, 0.0)');
+    ctx.save();
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.arc(cx, cy, 210, sweepAngle - 0.35, sweepAngle);
+    ctx.closePath();
+    ctx.fillStyle = sweepGrad;
+    ctx.fill();
+    ctx.restore();
+
+    // 3. Mesh Topology Nodes
+    const nodes = [
+      { id: 'NODE_0', label: 'YOU [ORIGIN]', x: cx, y: cy, type: 'origin', mac: 'ROLLING' },
+      { id: 'NODE_1', label: 'RELAY_A', x: cx - 110, y: cy - 70, type: 'relay', mac: '7F:2B' },
+      { id: 'NODE_2', label: 'RELAY_B', x: cx + 90, y: cy - 75, type: 'relay', mac: 'A4:8C' },
+      { id: 'NODE_3', label: 'RELAY_C', x: cx - 105, y: cy + 85, type: 'relay', mac: '3D:19' },
+      { id: 'NODE_4', label: 'RELAY_D', x: cx + 45, y: cy + 115, type: 'relay', mac: 'E2:51' },
+      { id: 'NODE_5', label: 'TARGET [B9:04]', x: cx + 145, y: cy + 55, type: 'dest', mac: 'B9:04' }
+    ];
+
+    // Static Mesh Links
+    const links = [
+      [0, 1], [0, 2], [0, 3], [0, 4],
+      [1, 2], [2, 5], [3, 4], [4, 5]
+    ];
+
+    links.forEach(([i, j]) => {
+      ctx.strokeStyle = 'rgba(0, 242, 255, 0.14)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(nodes[i].x, nodes[i].y);
+      ctx.lineTo(nodes[j].x, nodes[j].y);
+      ctx.stroke();
+    });
+
+    // 4. Multi-Hop Packet Progression
+    // Path: Node 0 -> Node 2 -> Node 5 (2 hops)
+    const cycleTime = 3.6;
+    const progress = (time % cycleTime);
+    let activeHop = 0;
+    let hopProg = 0;
+    let packetX = 0, packetY = 0;
+
+    if (progress < 1.5) {
+      activeHop = 1;
+      hopProg = progress / 1.5;
+      packetX = nodes[0].x + (nodes[2].x - nodes[0].x) * hopProg;
+      packetY = nodes[0].y + (nodes[2].y - nodes[0].y) * hopProg;
+    } else if (progress < 3.0) {
+      activeHop = 2;
+      hopProg = (progress - 1.5) / 1.5;
+      packetX = nodes[2].x + (nodes[5].x - nodes[2].x) * hopProg;
+      packetY = nodes[2].y + (nodes[5].y - nodes[2].y) * hopProg;
+    } else {
+      activeHop = 3; // ACK received at target
+      packetX = nodes[5].x;
+      packetY = nodes[5].y;
+    }
+
+    // Active Hop Vector Highlight Line
+    ctx.lineWidth = 2;
+    if (activeHop === 1) {
+      ctx.strokeStyle = 'rgba(0, 242, 255, 0.7)';
+      ctx.beginPath();
+      ctx.moveTo(nodes[0].x, nodes[0].y);
+      ctx.lineTo(nodes[2].x, nodes[2].y);
+      ctx.stroke();
+    } else if (activeHop === 2) {
+      ctx.strokeStyle = 'rgba(53, 255, 138, 0.7)';
+      ctx.beginPath();
+      ctx.moveTo(nodes[2].x, nodes[2].y);
+      ctx.lineTo(nodes[5].x, nodes[5].y);
+      ctx.stroke();
+    }
+
+    // 5. Radio Ripple Rings from Active Transmitter
+    const pulseT = time * 3;
+    const rippleRadius = (pulseT % 1) * 36 + 8;
+    const rippleAlpha = 1 - (pulseT % 1);
+
+    const emitterNode = activeHop === 1 ? nodes[0] : (activeHop === 2 ? nodes[2] : nodes[5]);
+    ctx.strokeStyle = activeHop === 2 ? `rgba(53, 255, 138, ${rippleAlpha * 0.8})` : `rgba(0, 242, 255, ${rippleAlpha * 0.8})`;
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.arc(emitterNode.x, emitterNode.y, rippleRadius, 0, Math.PI * 2);
+    ctx.stroke();
+
+    // 6. Draw Mesh Nodes
+    nodes.forEach((n, idx) => {
+      const isOrigin = n.type === 'origin';
+      const isDest = n.type === 'dest';
+      const isRelayActive = idx === 2;
+
+      // Outer glow circle
+      ctx.beginPath();
+      const nodeRad = isOrigin ? 12 : (isDest ? 10 : 8);
+      ctx.arc(n.x, n.y, nodeRad, 0, Math.PI * 2);
+
+      if (isOrigin) {
+        ctx.fillStyle = 'rgba(0, 242, 255, 0.2)';
+        ctx.strokeStyle = '#00f2ff';
+        ctx.lineWidth = 2;
+        ctx.shadowColor = '#00f2ff';
+        ctx.shadowBlur = 8;
+      } else if (isDest) {
+        ctx.fillStyle = activeHop === 3 ? 'rgba(53, 255, 138, 0.4)' : 'rgba(53, 255, 138, 0.18)';
+        ctx.strokeStyle = '#35ff8a';
+        ctx.lineWidth = 2;
+        ctx.shadowColor = '#35ff8a';
+        ctx.shadowBlur = activeHop === 3 ? 12 : 6;
+      } else if (isRelayActive && activeHop === 2) {
+        ctx.fillStyle = 'rgba(255, 184, 0, 0.3)';
+        ctx.strokeStyle = '#ffb800';
+        ctx.lineWidth = 1.8;
+        ctx.shadowColor = '#ffb800';
+        ctx.shadowBlur = 7;
+      } else {
+        ctx.fillStyle = 'rgba(8, 28, 44, 0.8)';
+        ctx.strokeStyle = 'rgba(0, 242, 255, 0.4)';
+        ctx.lineWidth = 1.2;
+        ctx.shadowBlur = 0;
+      }
+
+      ctx.fill();
+      ctx.stroke();
+      ctx.shadowBlur = 0;
+
+      // Inner Core Dot
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, isOrigin ? 4 : 2.5, 0, Math.PI * 2);
+      ctx.fillStyle = isOrigin ? '#ffffff' : (isDest ? '#35ff8a' : (isRelayActive ? '#ffb800' : '#00f2ff'));
+      ctx.fill();
+
+      // Node Label & MAC
+      ctx.font = '8px monospace';
+      ctx.fillStyle = isOrigin ? '#00f2ff' : (isDest ? '#35ff8a' : 'rgba(255, 255, 255, 0.8)');
+      ctx.textAlign = 'center';
+      ctx.fillText(n.label, n.x, n.y - (nodeRad + 4));
+
+      ctx.font = '7px monospace';
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.45)';
+      ctx.fillText(`[${n.mac}]`, n.x, n.y + (nodeRad + 11));
+      ctx.textAlign = 'left';
+    });
+
+    // 7. In-Flight Tactical Packet
+    if (activeHop < 3) {
+      // Glow trail
+      ctx.shadowColor = activeHop === 2 ? '#35ff8a' : '#00f2ff';
+      ctx.shadowBlur = 10;
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath();
+      ctx.arc(packetX, packetY, 4, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.shadowBlur = 0;
+
+      // Packet Pulse Ring
+      ctx.strokeStyle = activeHop === 2 ? '#35ff8a' : '#00f2ff';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.arc(packetX, packetY, 7 + Math.sin(time * 12) * 2, 0, Math.PI * 2);
+      ctx.stroke();
+
+      // Tiny Packet Data Tag
+      ctx.font = '7px monospace';
+      ctx.fillStyle = activeHop === 2 ? '#35ff8a' : '#00f2ff';
+      ctx.fillText('128B E2EE', packetX + 8, packetY - 6);
+    } else {
+      // ACK delivered pulse on destination
+      ctx.font = '8px monospace';
+      ctx.fillStyle = '#35ff8a';
+      ctx.shadowColor = '#35ff8a';
+      ctx.shadowBlur = 6;
+      ctx.fillText('ACK: DELIVERED (0x7F2B)', nodes[5].x - 30, nodes[5].y - 22);
+      ctx.shadowBlur = 0;
+    }
+
+    // 8. Top Tactical HUD Strip (y: 16 to 34)
+    ctx.fillStyle = '#00f2ff';
+    ctx.shadowColor = '#00f2ff';
+    ctx.shadowBlur = 4;
+    ctx.beginPath();
+    ctx.arc(28, 25, 3, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.shadowBlur = 0;
+
+    ctx.font = '10px monospace';
+    ctx.fillStyle = '#00f2ff';
+    ctx.fillText('BLE_MESH_DTN // MULTI-HOP P2P', 38, 29);
+
+    ctx.font = '9px monospace';
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.75)';
+    ctx.textAlign = 'right';
+    const hopLabel = activeHop === 1 ? 'HOP 1/2 [YOU → RELAY_B]' : (activeHop === 2 ? 'HOP 2/2 [RELAY_B → TARGET]' : 'DELIVERED // RATIO: 100%');
+    ctx.fillText(hopLabel, w - 24, 29);
+    ctx.textAlign = 'left';
+
+    // 9. Bottom Tactical Telemetry Bar (y: 442 to 468)
+    const barY = 442;
+    const barW = w - 48;
+    const barH = 26;
+    const barX = 24;
+
+    ctx.fillStyle = 'rgba(4, 14, 24, 0.88)';
+    ctx.strokeStyle = 'rgba(0, 242, 255, 0.3)';
+    ctx.lineWidth = 1;
+    drawRoundedCell(ctx, barX, barY, barW, 4);
+    ctx.stroke();
+
+    ctx.font = '9px monospace';
+    ctx.fillStyle = 'rgba(0, 242, 255, 0.9)';
+    ctx.fillText('ENCRYPT: DOUBLE RATCHET + AES-256', barX + 8, barY + 16);
+
+    ctx.fillStyle = '#35ff8a';
+    ctx.textAlign = 'right';
+    ctx.fillText('PRIVACY LEASE: 14m:22s // NO SIM', barX + barW - 8, barY + 16);
+    ctx.textAlign = 'left';
+  }
+
   function render(timestamp) {
     if (!isRunning || !isVisible || !ctx) return;
     const time = timestamp * 0.001;
 
     if (activeMode === 'optical') renderOpticalQr(time);
     else if (activeMode === 'acoustic') renderAcoustic(time);
+    else if (activeMode === 'bluetooth') renderBleMesh(time);
 
     if (activeMode !== 'wifi') {
       animId = requestAnimationFrame(render);

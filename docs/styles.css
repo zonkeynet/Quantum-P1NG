@@ -19042,9 +19042,9 @@ main section *,
 /* Tabs */
 .ag-tabs {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 12px;
-  max-width: 980px;
+  max-width: 1160px;
   margin: 0 auto 36px;
   position: relative;
   z-index: 1;
@@ -19507,10 +19507,10 @@ main section *,
   color: var(--neon-green);
 }
 
-/* 3 Cards Grid */
+/* 4 Cards Grid */
 .ag-cards-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   max-width: 1160px;
   margin: 0 auto;
@@ -19596,6 +19596,15 @@ main section *,
 }
 
 /* Responsive */
+@media (max-width: 1180px) and (min-width: 981px) {
+  .ag-tabs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ag-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 980px) {
   .ag-tabs {
     grid-template-columns: 1fr;
