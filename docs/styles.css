@@ -6562,13 +6562,38 @@ body.qmap-modal-open {
 .qcall-kicker-mod { color: var(--qcall-cyan); }
 
 .q-call-title {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.22em;
   font-family: var(--font-cyber, "QP1NG-Digital", monospace);
   font-size: clamp(3rem, 7.5vw, 7.5rem);
-  font-weight: 900; line-height: 0.9;
-  letter-spacing: -0.02em; margin: 0;
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
   white-space: nowrap;
+}
+
+.q-call-title-icon {
+  width: 0.88em;
+  height: 0.88em;
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+  filter: drop-shadow(0 0 20px rgba(0, 242, 255, 0.45)) drop-shadow(0 0 35px rgba(29, 124, 255, 0.35));
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.q-call-title:hover .q-call-title-icon {
+  transform: scale(1.06) rotate(-3deg);
+  filter: drop-shadow(0 0 28px rgba(0, 242, 255, 0.75)) drop-shadow(0 0 45px rgba(29, 124, 255, 0.55));
+}
+
+.q-call-title-text {
+  color: transparent;
   background: linear-gradient(135deg, #00f2ff 0%, #00e5c8 45%, #1d7cff 100%);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   background-clip: text;
   filter: drop-shadow(0 0 28px rgba(0, 242, 255, 0.35));
 }
@@ -7532,7 +7557,7 @@ body.qmap-modal-open {
 }
 @media (max-width: 900px) {
   .q-call-shell   { grid-template-columns: 1fr; gap: 32px; }
-  .q-call-title   { font-size: clamp(4rem, 16vw, 7rem); white-space: nowrap; }
+  .q-call-title   { font-size: clamp(4rem, 16vw, 7rem); white-space: nowrap; justify-content: center; }
   .q-call-copy    { align-items: center; text-align: center; }
   .q-call-desc, .q-call-disclaimer { max-width: 100%; }
   .q-call-mascot-wrap { justify-content: center; }
@@ -7758,7 +7783,7 @@ body.qmap-modal-open {
 @media (max-width: 1050px) {
   .q-call-section { padding: 86px 0; }
   .q-call-shell { grid-template-columns: 1fr; }
-  .q-call-title { font-size: 5.6rem; }
+  .q-call-title { font-size: 5.6rem; justify-content: center; }
   .q-call-main { max-width: 760px; width: 100%; margin: 0 auto; }
 }
 
