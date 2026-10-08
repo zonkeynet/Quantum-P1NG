@@ -8005,15 +8005,36 @@ body.qmap-modal-open {
 
 .q-ai-title {
   margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.22em;
   font-family: var(--font-cyber, "QP1NG-Digital", monospace);
   font-size: clamp(4.4rem, 11vw, 8.8rem);
-  line-height: 0.86;
+  line-height: 0.95;
   letter-spacing: 0;
+}
+
+.q-ai-title-brain {
+  width: 0.9em;
+  height: 0.9em;
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+  filter: drop-shadow(0 0 20px rgba(0, 242, 255, 0.45)) drop-shadow(0 0 35px rgba(155, 92, 255, 0.35));
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.q-ai-title:hover .q-ai-title-brain {
+  transform: scale(1.05) rotate(-2deg);
+  filter: drop-shadow(0 0 28px rgba(0, 242, 255, 0.7)) drop-shadow(0 0 45px rgba(155, 92, 255, 0.5));
+}
+
+.q-ai-title-text {
   color: transparent;
   background: linear-gradient(120deg, #35ff8a 0%, #00f2ff 38%, #9b5cff 72%, #ffd166 100%);
   -webkit-background-clip: text;
   background-clip: text;
-  filter: drop-shadow(0 0 28px rgba(0,242,255,0.38));
+  filter: drop-shadow(0 0 28px rgba(0, 242, 255, 0.38));
 }
 
 .q-ai-subtitle {
@@ -8914,6 +8935,7 @@ body.qmap-modal-open {
   .q-ai-section { padding: 86px 0; }
   .q-ai-shell { grid-template-columns: 1fr; }
   .q-ai-copy { align-items: center; text-align: center; }
+  .q-ai-title { justify-content: center; }
   .q-ai-desc { max-width: 720px; }
   .qai-module-switcher { width: 100%; max-width: 640px; }
   .q-ai-console { max-width: 780px; width: 100%; margin: 0 auto; }
