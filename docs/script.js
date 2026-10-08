@@ -3841,6 +3841,93 @@ if (terminal && gamesGrid) {
       timerInterval = 0;
     }
 
+    const callVideo = document.getElementById('qcallVideo');
+    const callVideoWrap = document.getElementById('qcallVideoWrap');
+    const callEndOverlay = document.getElementById('qcallEndOverlay');
+    const callReplayBtn = document.getElementById('qcallReplayBtn');
+    const callPlayPill = document.getElementById('qcallPlayPill');
+    const callPlayIcon = document.getElementById('qcallPlayIcon');
+    const callPlayText = document.getElementById('qcallPlayText');
+
+    let isCallVideoPlaying = false;
+
+    function playCallVideo() {
+      if (!callVideo) return;
+      if (callEndOverlay) callEndOverlay.classList.remove('is-active');
+      callVideo.muted = true;
+      const playPromise = callVideo.play();
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          isCallVideoPlaying = true;
+          if (callPlayIcon) callPlayIcon.textContent = '■';
+          if (callPlayText) callPlayText.textContent = 'PAUSE FEED';
+        }).catch(() => {
+          isCallVideoPlaying = false;
+        });
+      }
+    }
+
+    function pauseCallVideo() {
+      if (!callVideo) return;
+      callVideo.pause();
+      isCallVideoPlaying = false;
+      if (callPlayIcon) callPlayIcon.textContent = '▶';
+      if (callPlayText) callPlayText.textContent = 'LIVE CALL FEED';
+    }
+
+    function replayCallVideo() {
+      if (!callVideo) return;
+      if (callEndOverlay) callEndOverlay.classList.remove('is-active');
+      callVideo.currentTime = 0;
+      playCallVideo();
+    }
+
+    if (callVideo) {
+      callVideo.addEventListener('ended', () => {
+        isCallVideoPlaying = false;
+        if (callEndOverlay) callEndOverlay.classList.add('is-active');
+        if (callPlayIcon) callPlayIcon.textContent = '↻';
+        if (callPlayText) callPlayText.textContent = 'REPLAY FEED';
+      });
+
+      if (callPlayPill) {
+        callPlayPill.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (isCallVideoPlaying) {
+            pauseCallVideo();
+          } else {
+            if (callEndOverlay && callEndOverlay.classList.contains('is-active')) {
+              replayCallVideo();
+            } else {
+              playCallVideo();
+            }
+          }
+        });
+      }
+
+      if (callReplayBtn) {
+        callReplayBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          replayCallVideo();
+        });
+      }
+
+      if (callVideoWrap) {
+        callVideoWrap.addEventListener('click', (e) => {
+          if (e.target.closest('#qcallEndOverlay') || e.target.closest('#qcallReplayBtn')) return;
+          if (isCallVideoPlaying) {
+            pauseCallVideo();
+          } else {
+            if (callEndOverlay && callEndOverlay.classList.contains('is-active')) {
+              replayCallVideo();
+            } else {
+              playCallVideo();
+            }
+          }
+        });
+      }
+    }
+
     function start() {
       section.classList.add('is-visible');
       if (visible) return;
@@ -3851,6 +3938,7 @@ if (terminal && gamesGrid) {
         drawRadar();
       }
       startTimer();
+      playCallVideo();
       checklistItems.forEach((item, index) => {
         window.setTimeout(() => item.classList.add('checked'), 160 + index * 150);
       });
@@ -3862,6 +3950,7 @@ if (terminal && gamesGrid) {
       cancelAnimationFrame(rafWaveform);
       cancelAnimationFrame(rafRadar);
       stopTimer();
+      if (callVideo && !callVideo.paused) pauseCallVideo();
     }
 
     if ('IntersectionObserver' in window) {

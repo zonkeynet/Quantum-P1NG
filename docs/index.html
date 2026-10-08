@@ -5964,12 +5964,46 @@ _
         </div>
 
         <!-- Video stage -->
-        <div class="qcall-video-stage" role="img" aria-label="Secure video session — identity masked, screen capture blocked">
+        <div class="qcall-video-stage" role="region" aria-label="Secure video session — identity masked, screen capture blocked">
           <!-- Realtime encrypted video feed -->
-          <picture class="qcall-video-feed-wrap">
-            <source srcset="assets/img/qcall_video_stage.webp" type="image/webp">
-            <img src="assets/img/qcall_video_stage.jpg" class="qcall-video-feed" alt="Quantum P2P Encrypted Video Feed" loading="lazy" decoding="async" width="1376" height="768">
-          </picture>
+          <div class="qcall-video-feed-wrap" id="qcallVideoWrap">
+            <video id="qcallVideo" class="qcall-video-feed" width="1280" height="720" poster="assets/img/qcall_video_poster.webp" playsinline muted preload="metadata" title="Quantum P2P Encrypted Video Feed">
+              <source src="assets/vid/qcall_video_fastcut.webm" type="video/webm">
+              <source src="assets/vid/qcall_video_fastcut.mp4" type="video/mp4">
+            </video>
+
+            <!-- Video Play / Pause Floating Pill -->
+            <button class="qcall-play-pill mono" id="qcallPlayPill" aria-label="Play or pause secure call video" type="button">
+              <span class="qcall-play-icon" id="qcallPlayIcon">▶</span>
+              <span class="qcall-play-text" id="qcallPlayText">LIVE CALL FEED</span>
+            </button>
+          </div>
+
+          <!-- Glitch Outro Overlay: Source & Journalist Protection -->
+          <div class="qcall-end-overlay mono" id="qcallEndOverlay" aria-hidden="true">
+            <div class="qcall-overlay-noise"></div>
+            <div class="qcall-overlay-card">
+              <div class="qcall-overlay-badge">
+                <span class="qcall-pulse-dot"></span>
+                <span>SECURE CALL TERMINATED // ZERO LOGS</span>
+              </div>
+              <h3 class="qcall-overlay-title glitch-text" data-text="SOURCE &amp; JOURNALIST SHIELD ACTIVE">
+                SOURCE &amp; JOURNALIST SHIELD ACTIVE
+              </h3>
+              <p class="qcall-overlay-desc">
+                All field contacts, investigative sources, and journalist identities are shielded under post-quantum E2EE, hardware anti-forensics, and zero-metadata WebRTC relays.
+              </p>
+              <div class="qcall-overlay-tags">
+                <span class="qcall-overlay-tag">SOURCE ANONYMITY // PRESERVED</span>
+                <span class="qcall-overlay-tag">NO IP LEAKS // E2EE SEALED</span>
+                <span class="qcall-overlay-tag">TOR / MESH ROUTED</span>
+              </div>
+              <button class="qcall-replay-btn mono" id="qcallReplayBtn" type="button">
+                <span class="qcall-replay-icon">↻</span>
+                <span>REPLAY SECURE CALL</span>
+              </button>
+            </div>
+          </div>
 
           <div class="qcall-scanline" aria-hidden="true"></div>
           <div class="qcall-noise" aria-hidden="true"></div>
