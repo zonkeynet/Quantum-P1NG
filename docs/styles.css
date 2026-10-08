@@ -30852,3 +30852,11 @@ html.intro-active body > *:not(#intro-screen):not(script):not(style) {
     align-self: flex-end;
   }
 }
+
+/* Approved editorial group A: compact notices for demonstration panels. */
+.editorial-demo-note { grid-column: 1 / -1; min-width: 0; padding: 12px 14px; margin: 12px 0; border: 1px solid rgba(0,242,255,.24); border-radius: 10px; background: rgba(0,242,255,.045); color: #d4e5ee; font-size: .8rem; line-height: 1.55; overflow-wrap: anywhere; }
+.editorial-demo-note strong { display: block; color: #8de5ef; font-family: var(--font-mono, monospace); font-size: .72rem; letter-spacing: .045em; margin-bottom: 3px; }
+.editorial-demo-note span { display: block; }
+.editorial-copy-note { color: #c2d3df; font-size: .8rem; line-height: 1.6; margin: 10px 0 14px; overflow-wrap: anywhere; }
+.action-forge-section .manifest-footer { flex-wrap: wrap; gap: 10px 12px; }
+.action-forge-section .audit-status { min-width: 0; overflow-wrap: anywhere; }

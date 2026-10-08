@@ -134,7 +134,7 @@
           }
         },
         "featureList": [
-          "Zero-Emission Air-Gap Optical & Acoustic Transports (Luby Transform fountain codes)",
+          "Optical and Acoustic Links (No RF Link Required)",
           "Local Whisper STT speech-to-text dictation and private voice notes without cloud APIs",
           "Post-quantum Kyber/Dilithium & AES-256-GCM encrypted local vault with biometric unlock",
           "Tor onion routing and Nostr signed receipts transport with metadata isolation",
@@ -184,7 +184,7 @@
             "name": "What offline transports are supported when cellular networks fail or are shut down?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Quantum P1NG includes animated optical fountain codes (Luby Transform QR streams), ultrasound acoustic links, local Wi-Fi peer-to-peer tunnels, and sub-GHz LoRa mesh transceivers (868/915/433 MHz), enabling communication even in complete internet blackouts or air-gapped environments."
+              "text": "Quantum P1NG includes animated optical fountain codes (Luby Transform QR streams), speaker-to-microphone contact handshakes, local Wi-Fi peer-to-peer tunnels, and sub-GHz LoRa mesh transceivers (868/915/433 MHz), enabling communication even in complete internet blackouts or air-gapped environments."
             }
           },
           {
@@ -636,7 +636,7 @@
                           <strong>Q-P1NG CORE v2.6.8</strong>
                           <span class="dl-status-chip mono">DISPATCHER ACTIVE</span>
                         </div>
-                        <div class="dl-origin-meta mono">SHA-256 SIGNED • ZERO TELEMETRY • P2P &amp; REPO ROUTING</div>
+                        <div class="dl-origin-meta mono">VERIFY YOUR DOWNLOAD • ZERO TELEMETRY • P2P &amp; REPO ROUTING</div>
                       </div>
                     </div>
                   </div>
@@ -796,7 +796,7 @@
                   <footer class="dl-board-footer">
                     <div class="dl-board-footer__note mono">
                       <span class="dl-shield-ico" aria-hidden="true">🛡</span>
-                      <span>INTEGRITY GUARANTEE: All distribution channels deploy verified binaries built from the same Zonkeynet GPG-signed release tree.</span>
+                      <span>VERIFY YOUR DOWNLOAD: Check the release source, published checksum and signing information before installing.</span>
                     </div>
                     <div class="dl-board-footer__action mono">
                       <a href="https://github.com/zonkeynet/Quantum-P1NG/releases" target="_blank" rel="noopener">VIEW GITHUB RELEASES &amp; SHA-256 HASHES &rarr;</a>
@@ -1322,13 +1322,15 @@ _
         </div>
       </div>
 
-      <div class="sp-console" role="region" aria-label="Security protocol live posture console">
+      <div class="sp-console" role="region" aria-label="Security protocol demonstration">
+<aside class="editorial-demo-note" role="note"><strong>INTERACTIVE DEMO · SAMPLE DATA</strong><span>Illustrative states. This panel does not control the app or verify your device.</span></aside>
+
         <div class="sp-console-top">
           <div>
-            <span class="sp-console-label mono">LOCAL OPSEC READINESS</span>
-            <strong class="sp-console-title mono">FORTIFIED</strong>
+            <span class="sp-console-label mono">SAMPLE OPSEC SETTINGS</span>
+            <strong class="sp-console-title mono">DEMONSTRATION</strong>
           </div>
-          <span class="sp-console-state mono"><span class="sp-live-dot"></span> MONITORING</span>
+          <span class="sp-console-state mono"><span class="sp-live-dot"></span> SAMPLE DATA</span>
         </div>
 
         <div class="sp-posture-ring" aria-hidden="true">
@@ -1351,7 +1353,7 @@ _
 
           <div class="sp-terminal mono" aria-label="Security protocol diagnostics">
             <div><span>&gt;</span><span>screen_guard=enabled secure_window=true</span></div>
-            <div><span>&gt;</span><span>tor_route=optional onion_diagnostics=live</span></div>
+            <div><span>&gt;</span><span>tor_route=optional onion_diagnostics=sample</span></div>
             <div><span>&gt;</span><span>ai_tools=risk_gated sandbox=policy_checked</span></div>
           </div>
         </div>
@@ -1396,8 +1398,8 @@ _
 
       <article class="sp-layer-card">
         <span class="sp-layer-index mono">06</span>
-        <h3>Panic Recovery</h3>
-        <p>Emergency wipe profiles, pending wipe markers and key destruction routines are designed to make sensitive sessions recoverable only by policy.</p>
+        <h3>Emergency Controls</h3>
+        <p>Configure locks and emergency wipe before you need them. Wiping may be irreversible; it does not remove copies already shared or guarantee physical erasure of flash storage.</p>
         <div class="sp-chipline"><span>Panic PIN</span><span>Wipe</span><span>Key Shred</span></div>
       </article>
     </div>
@@ -1410,7 +1412,7 @@ _
           <div><span class="mono">01</span><strong>Capture</strong><p>Secure dictation, notes, vault or file ingress.</p></div>
           <div><span class="mono">02</span><strong>Inspect</strong><p>Q-Brain, metadata scan, link and route awareness.</p></div>
           <div><span class="mono">03</span><strong>Sanitize</strong><p>Strip metadata, redact, compress context and verify target.</p></div>
-          <div><span class="mono">04</span><strong>Transmit</strong><p>Only after route, identity and user approval gates pass.</p></div>
+          <div><span class="mono">04</span><strong>Transmit</strong><p>Review the route, identity and confirmations required by the selected policy.</p></div>
         </div>
       </article>
 
@@ -1428,11 +1430,7 @@ _
 
     <div class="sp-alert" role="note">
       <div class="sp-alert-mark mono">ZERO TRUST</div>
-      <p>
-        OPSEC first does not mean “magic invisibility.” It means every workflow is built to expose less by default,
-        ask before risky actions, keep sensitive state local where possible and make emergency cleanup explicit.
-        The user stays in control; silent destructive automation is not a product feature.
-      </p>
+      <p>Keep sensitive state local where possible and review what each workflow exposes. Tool calls follow the selected policy, with confirmation where required. Configure emergency controls and automation rules deliberately; enabled rules may act without a new prompt.</p>
     </div>
   </div>
 </section>
@@ -1459,7 +1457,7 @@ _
       <h2 class="af-title">Anti-Forensic Armor &amp; Quantum IME</h2>
       <p class="af-subtitle mono">Native System Keyboard, Coercion Decoys, 35-Domain Wipe Matrix &amp; Linux PRoot</p>
       <p class="af-lead">
-        Commercial mobile keyboards leak keystrokes to cloud analytics, OS clipboards expose sensitive keys to third-party apps, and operators face severe coercion at physical border checkpoints. Quantum P1NG hardens the host device with a dedicated zero-telemetry Android Input Method, on-the-fly calculator disguise, plausible deniability decoy applications, and a hardware-verified 35-domain key destruction pipeline.
+        Typing, clipboard use and border checks can expose sensitive information. Quantum P1NG hardens the host device with a dedicated zero-telemetry Android Input Method, on-the-fly calculator disguise, plausible deniability decoy applications, and a hardware-verified 35-domain key destruction pipeline.
       </p>
 
       <div class="af-badges" aria-label="Anti-forensic capabilities">
@@ -1477,7 +1475,7 @@ _
       <div class="af-metric-card">
         <span class="af-metric-label">KEYBOARD TELEMETRY</span>
         <strong class="af-metric-val txt-green">0.00 B / s</strong>
-        <span class="af-metric-sub">Zero network permissions, zero cloud suggestions</span>
+        <span class="af-metric-sub">Local typing; optional network tools</span>
       </div>
       <div class="af-metric-card">
         <span class="af-metric-label">CLIPBOARD EPHEMERAL TTL</span>
@@ -1497,7 +1495,8 @@ _
     </div>
 
     <!-- MAIN INTERACTIVE WORKSPACE (Tabs: Keyboard / Duress Decoys / Wipe Matrix / PRoot Linux) -->
-    <div class="af-workspace" id="af-workspace">
+    <aside class="editorial-demo-note" role="note"><strong>INTERACTIVE DEMO · SAMPLE DATA</strong><span>Illustrative states. This panel does not control the app or verify your device.</span></aside>
+<div class="af-workspace" id="af-workspace">
       <div class="af-workspace-nav" role="tablist" aria-label="Anti-forensic modules">
         <button class="af-tab-btn active" data-tab="keyboard" role="tab" aria-selected="true">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="6" y1="8" x2="6" y2="8.01"/><line x1="10" y1="8" x2="10" y2="8.01"/><line x1="14" y1="8" x2="14" y2="8.01"/><line x1="18" y1="8" x2="18" y2="8.01"/><line x1="6" y1="12" x2="6" y2="12.01"/><line x1="10" y1="12" x2="10" y2="12.01"/><line x1="14" y1="12" x2="14" y2="12.01"/><line x1="18" y1="12" x2="18" y2="12.01"/><line x1="8" y1="16" x2="16" y2="16"/></svg>
@@ -1524,9 +1523,7 @@ _
           <div class="af-info-col">
             <div class="af-badge-label mono">ANDROID INPUTMETHODSERVICE</div>
             <h3 class="af-pane-title">Keystroke Sovereignty &amp; Disguise</h3>
-            <p class="af-text">
-              Standard keyboards (GBoard, SwiftKey, OEM keyboards) are notorious for logging keystrokes, feeding language models in the cloud, and exposing clipboard memory. <strong>QuantumKeyboardService</strong> is an independent Android InputMethod running with zero internet permissions.
-            </p>
+            <p class="af-text">Keyboard input with local dictation and optional tools. Use an installed speech pack for local dictation; network tools depend on the action you choose.</p>
 
             <div class="af-feature-list">
               <div class="af-feature-item">
@@ -2219,13 +2216,13 @@ _
         <span class="ag-kicker-dot" aria-hidden="true"></span>
         <span>AIR-GAP &amp; OFF-GRID TRANSPORTS</span>
         <span class="ag-kicker-sep">//</span>
-        <span>ZERO EMISSION PHYSICAL LAYER</span>
+        <span>NEARBY PHYSICAL LINKS</span>
       </div>
-      <h2 class="ag-title">Zero-Emission Air-Gap &amp; Off-Grid Comms</h2>
+      <h2 class="ag-title">Air-Gap &amp; Off-Grid Comms</h2>
       <p class="ag-subtitle">
         When hostile networks are monitored, jammed, or severed: transfer encrypted payloads via
-        <strong>Animated Fountain QR</strong> (0.00 dBm RF), direct <strong>Local Wi-Fi / Hotspot P2P</strong>
-        (zero internet, no STUN/TURN), <strong>Acoustic Ultrasound Handshakes</strong> inside Faraday shields,
+        <strong>Animated Fountain QR</strong> (no RF link required), direct <strong>Local Wi-Fi / Hotspot P2P</strong>
+        (zero internet, no STUN/TURN), <strong>Acoustic Identity Handshakes</strong> through speaker and microphone,
         and decentralized <strong>Bluetooth LE Mesh Chat</strong> for multi-hop off-grid messaging.
       </p>
     </div>
@@ -2235,7 +2232,7 @@ _
       <button class="ag-tab is-active" role="tab" aria-selected="true" data-ag-tab="optical">
         <span class="ag-tab-num">01</span>
         <span class="ag-tab-label">OPTICAL FOUNTAIN QR</span>
-        <span class="ag-tab-badge">0.00 dBm // EMCON</span>
+        <span class="ag-tab-badge">NO RF LINK REQUIRED</span>
       </button>
       <button class="ag-tab" role="tab" aria-selected="false" data-ag-tab="wifi">
         <span class="ag-tab-num">02</span>
@@ -2244,8 +2241,8 @@ _
       </button>
       <button class="ag-tab" role="tab" aria-selected="false" data-ag-tab="acoustic">
         <span class="ag-tab-num">03</span>
-        <span class="ag-tab-label">ACOUSTIC &amp; ULTRASOUND</span>
-        <span class="ag-tab-badge">FARADAY PROOF</span>
+        <span class="ag-tab-label">ACOUSTIC HANDSHAKE</span>
+        <span class="ag-tab-badge">NEARBY AUDIO PAIRING</span>
       </button>
       <button class="ag-tab" role="tab" aria-selected="false" data-ag-tab="bluetooth">
         <span class="ag-tab-num">04</span>
@@ -2255,11 +2252,12 @@ _
     </div>
 
     <!-- Interactive Tactical Stage -->
-    <div class="ag-stage">
+    <aside class="editorial-demo-note" role="note"><strong>INTERACTIVE DEMO · SAMPLE DATA</strong><span>Illustrative states. This panel does not control the app or verify your device.</span></aside>
+<div class="ag-stage">
       <!-- Left: Interactive Visualizer -->
       <div class="ag-visualizer-deck">
         <div class="ag-deck-header mono">
-          <span class="ag-deck-status"><i class="ag-pulse-dot"></i> LIVE LINK // <span id="ag-deck-mode-name">OPTICAL_FOUNTAIN_STREAM</span></span>
+          <span class="ag-deck-status"><i class="ag-pulse-dot"></i> DEMO LINK // <span id="ag-deck-mode-name">OPTICAL_FOUNTAIN_STREAM</span></span>
           <span class="ag-deck-telemetry" id="ag-deck-telemetry">FPS: 24 | LOSS_REPAIR: ACTIVE</span>
         </div>
 
@@ -2297,7 +2295,7 @@ _
         <div class="ag-deck-footer mono">
           <div class="ag-stat-cell">
             <small>RF SIGNATURE</small>
-            <strong id="ag-rf-stat" style="color:var(--neon-green)">0.00 dBm (SILENT)</strong>
+            <strong id="ag-rf-stat" style="color:var(--neon-green)">NO RF LINK REQUIRED</strong>
           </div>
           <div class="ag-stat-cell">
             <small>BURST RATE</small>
@@ -2313,7 +2311,7 @@ _
       <!-- Right: Technical Intelligence Panel -->
       <div class="ag-intel-panel">
         <div class="ag-intel-header">
-          <span class="ag-intel-tag mono" id="ag-intel-tag">EMCON LEVEL: ABSOLUTE STEALTH</span>
+          <span class="ag-intel-tag mono" id="ag-intel-tag">OPTICAL LINK · CAMERA TO SCREEN</span>
           <h3 class="ag-intel-title" id="ag-intel-title">Animated Fountain Codes (Luby Transform)</h3>
           <p class="ag-intel-desc" id="ag-intel-desc">
             Direct camera-to-screen unidirectional data pipeline. Payloads are divided into 32 KiB pages with
@@ -2328,12 +2326,12 @@ _
             <strong id="ag-spec-medium">Display Photons &rarr; Camera Sensor</strong>
           </div>
           <div class="ag-spec-item">
-            <span>SIGINT DETECTION</span>
-            <strong id="ag-spec-detect" style="color:var(--neon-green)">Zero RF Footprint (Imperceptible)</strong>
+            <span>LINK REQUIREMENTS</span>
+            <strong id="ag-spec-detect" style="color:var(--neon-green)">Line of sight required</strong>
           </div>
           <div class="ag-spec-item">
             <span>ATTACK SURFACE</span>
-            <strong id="ag-spec-attack">Air-Gapped (No IP Stack, No Drivers)</strong>
+            <strong id="ag-spec-attack">Camera and display processing</strong>
           </div>
           <div class="ag-spec-item">
             <span>SOURCE CODE CLASS</span>
@@ -2359,9 +2357,10 @@ _
     </div>
 
     <!-- 4 Core Feature Cards Grid -->
+    <p class="editorial-copy-note">Optical and acoustic transfers can work without an RF link. Other radios on the phone may still be active; Wi-Fi and Bluetooth links use radio.</p>
     <div class="ag-cards-grid">
       <div class="ag-card ag-card--optical">
-        <div class="ag-card-badge mono">ZERO EMISSIONS // 0.00 dBm</div>
+        <div class="ag-card-badge mono">NO RF LINK REQUIRED</div>
         <div class="ag-card-icon" aria-hidden="true">
           <svg class="ag-card-icon-svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M3 7V4a1 1 0 0 1 1-1h3"/>
@@ -2406,7 +2405,7 @@ _
       </div>
 
       <div class="ag-card ag-card--acoustic">
-        <div class="ag-card-badge mono">FARADAY PROOF // 20 kHz</div>
+        <div class="ag-card-badge mono">SPEAKER TO MICROPHONE</div>
         <div class="ag-card-icon" aria-hidden="true">
           <svg class="ag-card-icon-svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polygon points="10 4 5 8 2 8 2 16 5 16 10 20 10 4" fill="currentColor" fill-opacity="0.18"/>
@@ -2415,11 +2414,8 @@ _
             <path d="M21 2.5a14 14 0 0 1 0 19"/>
           </svg>
         </div>
-        <h4 class="ag-card-title">Acoustic &amp; Ultrasound Link</h4>
-        <p class="ag-card-p">
-          Audio-frequency and near-ultrasound (18–20 kHz) acoustic FSK modulation. Designed for critical key exchange
-          and duress signaling inside RF-shielded rooms, Faraday enclosures, or during total radio jamming.
-        </p>
+        <h4 class="ag-card-title">Acoustic Identity Link</h4>
+        <p class="ag-card-p">Exchange contact identity data through the speaker and microphone. Keep both devices nearby and follow the app's pairing steps.</p>
         <span class="ag-card-meta mono">SRC: com.qp1ng.android.offline.acoustic</span>
       </div>
 
@@ -2437,9 +2433,7 @@ _
           </svg>
         </div>
         <h4 class="ag-card-title">Bluetooth LE Mesh Chat</h4>
-        <p class="ag-card-p">
-          Decentralized store-and-forward peer-to-peer mesh text and telemetry engine. Routes end-to-end encrypted packets (Double Ratchet + AES-256-GCM) across multi-hop relay nodes without cellular towers, internet access, or pairing prompts. Employs rolling ephemeral MAC addresses and stealth low-duty-cycle bursts to defeat RF direction-finding and metadata interception.
-        </p>
+        <p class="ag-card-p">Bluetooth peers can relay messages without internet access. Range and delivery depend on nearby devices and conditions. Radio activity can still be detected.</p>
         <span class="ag-card-meta mono">SRC: com.qp1ng.android.mesh.ble</span>
       </div>
     </div>
@@ -2554,7 +2548,7 @@ _
   <!-- RIGHT: SPECS PANEL -->
   <div class="specs-wrapper">
     <div class="spec-card mono qmap-telemetry">
-      <div class="spec-title">LIVE TELEMETRY</div>
+      <div class="spec-title">DEMO TELEMETRY</div>
       <div class="qmap-telemetry-grid">
         <div class="trow"><span class="tkey">ENGINE</span><span class="tval">NEURAL_DISPATCHER</span></div>
         <div class="trow"><span class="tkey">RENDER</span><span class="tval">CANVAS_2D</span></div>
@@ -2662,7 +2656,8 @@ _
     </div>
 
     <!-- MAIN INTERACTIVE WORKSPACE (Tabs: Tactical Map / Map Packs / Event Protocol / Guide) -->
-    <div class="qgeo-workspace" id="qgeo-workspace">
+    <aside class="editorial-demo-note" role="note"><strong>INTERACTIVE DEMO · SAMPLE DATA</strong><span>Illustrative states. This panel does not control the app or verify your device.</span></aside>
+<div class="qgeo-workspace" id="qgeo-workspace">
       <div class="qgeo-workspace-nav" role="tablist" aria-label="Q-Geo modules">
         <button class="qgeo-tab-btn active" data-tab="map" role="tab" aria-selected="true">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
@@ -2689,9 +2684,7 @@ _
           <div class="qgeo-info-col">
             <div class="qgeo-badge-label mono">CARTOGRAPHY CONTROLS // QGEOLAYERSDIALOG.KT</div>
             <h3 class="qgeo-pane-title">Offline Vector Rendering &amp; Layers</h3>
-            <p class="qgeo-text">
-              Zero telemetry. No tile requests leave the phone. All cartography is rendered directly on device from pre-cached vector tiles. Operators can instantly toggle tactical palettes and overlay real-time mesh hazards without exposing location metadata.
-            </p>
+            <p class="qgeo-text">Choose offline maps or an online source. When Tor is required, map requests wait for Tor and do not fall back to a direct connection.</p>
 
             <!-- Theme Palette Switcher -->
             <div class="qgeo-theme-switcher mono">
@@ -2707,7 +2700,7 @@ _
             <div class="qgeo-layers-panel mono">
               <span class="ctrl-label">TACTICAL VECTOR LAYERS:</span>
               <div class="layer-item">
-                <label><input type="checkbox" id="layer-hazards" checked> <span>Active Tactical Hazards (0x01-0x19)</span></label>
+                <label><input type="checkbox" id="layer-hazards" checked> <span>Sample Hazard Reports (0x01-0x19)</span></label>
                 <span class="badge-count">6 Active</span>
               </div>
               <div class="layer-item">
@@ -2719,8 +2712,8 @@ _
                 <span class="badge-count">14 POI</span>
               </div>
               <div class="layer-item">
-                <label><input type="checkbox" id="layer-egress" checked> <span>BRouter Safe Egress Escape Path</span></label>
-                <span class="badge-count txt-green">Active Route</span>
+                <label><input type="checkbox" id="layer-egress" checked> <span>Sample Route Planning</span></label>
+                <span class="badge-count txt-green">Sample Route</span>
               </div>
               <div class="layer-item">
                 <label><input type="checkbox" id="layer-geofence" checked> <span>Danger Geofencing Alarm Perimeter</span></label>
@@ -2734,11 +2727,9 @@ _
                 <span>GEOGRAPHIC PRIVACY OBFUSCATION</span>
                 <span class="privacy-badge" id="qgeo-privacy-badge">MODE: FUZZY (~111m)</span>
               </div>
-              <p class="privacy-desc">
-                When broadcasting hazard events over open radio/mesh links, Q-Geo rounds coordinates to 3 decimal places (~111m) to prevent triangulating operator launch points.
-              </p>
+              <p class="privacy-desc">Approximate coordinates reduce the precision shared in a report. They do not prevent radio direction finding or hide identifying details in the report.</p>
               <div class="privacy-toggle-row">
-                <button class="qgeo-btn-xs" id="btn-toggle-privacy">SWITCH TO EXACT GPS (LOCAL ONLY)</button>
+                <button class="qgeo-btn-xs" id="btn-toggle-privacy">PREVIEW EXACT COORDINATES</button>
               </div>
             </div>
           </div>
@@ -2747,8 +2738,8 @@ _
           <div class="qgeo-sim-col">
             <div class="qgeo-map-frame" id="qgeo-map-frame">
               <div class="qgeo-map-bar mono">
-                <span>Q-GEO VECTOR GIS // OFFLINE TILE PACK: ACTIVE</span>
-                <span class="txt-green" id="qgeo-engine-status">OPENGL 60 FPS</span>
+                <span>Q-GEO DEMO // SAMPLE REPORTS</span>
+                <span class="txt-green" id="qgeo-engine-status">SAMPLE DATA</span>
               </div>
 
               <!-- Map Viewport Container -->
@@ -2774,7 +2765,7 @@ _
                   <h4 id="pop-title">Hostile Paramilitary Vehicle Checkpoint</h4>
                   <div class="popover-grid">
                     <div><span>COORDINATES:</span><strong id="pop-coords">50.1142° N, 8.6890° E</strong></div>
-                    <div><span>CONFIRMATIONS:</span><strong class="txt-green" id="pop-confirms">4 Peer Nodes</strong></div>
+                    <div><span>SAMPLE ACKS:</span><strong class="txt-green" id="pop-confirms">4 Peer Nodes</strong></div>
                     <div><span>RADIO PRIORITY:</span><strong class="txt-amber">PRIORITY 0 (URGENT)</strong></div>
                     <div><span>TTL REMAINING:</span><strong id="pop-ttl">84 MIN</strong></div>
                   </div>
@@ -2786,7 +2777,7 @@ _
               </div>
 
               <div class="qgeo-map-footer mono">
-                <span>CLICK ANY TACTICAL PIN TO INSPECT // DRAG TO PAN // SCROLL TO ZOOM</span>
+                <span>SAMPLE REPORTS · NOT LIVE FIELD DATA // DRAG TO PAN // SCROLL TO ZOOM</span>
               </div>
             </div>
           </div>
@@ -2838,7 +2829,7 @@ _
 
             <!-- Install / Sync Action Button -->
             <div class="qgeo-install-action">
-              <button class="cyber-button-sm txt-cyan" id="btn-install-pack">INSTALL BUNDLE TO SECURE STORAGE</button>
+              <button class="cyber-button-sm txt-cyan" id="btn-install-pack">PREVIEW OFFLINE SETUP</button>
               <div class="install-progress-bar hidden" id="qgeo-install-progress">
                 <div class="bar-fill" id="qgeo-progress-fill" style="width: 0%;"></div>
               </div>
@@ -2849,8 +2840,8 @@ _
           <div class="qgeo-sim-col">
             <div class="qgeo-storage-frame mono">
               <div class="storage-top">
-                <span>ON-DEVICE SPATIAL STORAGE</span>
-                <span class="txt-green">FREE: 14.8 GB</span>
+                <span>SAMPLE SPATIAL STORAGE</span>
+                <span class="txt-green">EXAMPLE: 14.8 GB</span>
               </div>
 
               <!-- Storage Breakdown Bar -->
@@ -2869,7 +2860,7 @@ _
 
               <!-- Installed Packs List -->
               <div class="installed-packs-box">
-                <span class="box-title">INSTALLED AIR-GAPPED PACKS:</span>
+                <span class="box-title">EXAMPLE OFFLINE PACKS:</span>
                 <div class="pack-row">
                   <div class="pack-info">
                     <strong>Kyiv Urban Defense Pack</strong>
@@ -2905,7 +2896,7 @@ _
                 <div style="grid-column: span 3; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
                   <div>
                     <span style="color: var(--cyan); font-weight: 700;">PMTILES CITY EXTRACTOR:</span>
-                    <strong style="font-weight: 400; font-size: 0.72rem; color: var(--text-dim); margin-left: 6px;">Visually select any metropolitan or conflict zone (10–35 MB) and download vector tiles on the fly.</strong>
+                    <strong style="font-weight: 400; font-size: 0.72rem; color: var(--text-dim); margin-left: 6px;">Select an area and prepare a PMTiles extraction command to run on your computer.</strong>
                   </div>
                   <a href="pmtiles.html" target="_blank" class="badge badge--cyan mono" style="text-decoration: none; padding: 4px 10px; font-size: 0.72rem; display: inline-flex; align-items: center; gap: 4px;">
                     <span>⚡ LAUNCH WEB EXTRACTOR</span>
@@ -3072,8 +3063,8 @@ _
               <div class="gen-console" id="qgeo-radio-console">
                 <div class="stream-head">&gt; STANDBY: GENERATING BINARY ENVELOPE...</div>
                 <div class="stream-line txt-cyan">&gt; RAW_HEX: 51 47 01 01 17 40 49 0E AB 40 21 58 12 05 A0 03 9A 4F B1 2C ...</div>
-                <div class="stream-line txt-green">&gt; [LORA_TX] Pkt dispatched: 32 bytes (Airtime: 56ms, Ch: 868.1 MHz, SF7)</div>
-                <div class="stream-line">&gt; Node peer relay quorum: 4/4 ACK received. Map updated.</div>
+                <div class="stream-line txt-green">&gt; [DEMO] Sample radio packet preview; no transmission.</div>
+                <div class="stream-line">&gt; [DEMO] Sample acknowledgements and map update.</div>
               </div>
             </div>
           </div>
@@ -3102,7 +3093,7 @@ _
               </div>
               <div class="qgeo-flow-desc">
                 <h4>Offline Vector Cartography</h4>
-                <p>Protected on-device mascot, zero cloud server dependencies. Vector basemaps (MBTiles/PMTiles) are cached locally and GPU-rendered at 60 FPS alongside mesh radio peers and hazard markers.</p>
+                <p>On-device vector maps, ready for offline use after import. View your saved area alongside supported markers and shared reports.</p>
               </div>
             </article>
 
@@ -3114,7 +3105,7 @@ _
               </div>
               <div class="qgeo-flow-desc">
                 <h4>Tor Isolation &amp; Clearnet Block</h4>
-                <p>When internet connectivity is available, all remote tile queries route strictly through an isolated 3-hop Tor circuit. Direct clearnet IP leaks are strictly blocked (fail-closed) to prevent operator triangulation.</p>
+                <p>Choose offline maps or an online source. When Tor is required, map requests wait for Tor and do not fall back to a direct connection.</p>
               </div>
             </article>
 
@@ -3155,14 +3146,14 @@ _
             </article>
 
             <article class="qgeo-flow-card" data-flow-index="5">
-              <div class="qgeo-flow-img-box" role="button" tabindex="0" aria-label="Inspect 06 // BROUTER SAFE EGRESS in high resolution">
-                <img src="assets/img/qgeo_flow_egress.webp?v=4.3" alt="Q-Geo Offline BRouter Safe Egress &amp; Geofencing" loading="lazy" decoding="async">
-                <span class="qgeo-flow-tag mono">06 // BROUTER SAFE EGRESS</span>
+              <div class="qgeo-flow-img-box" role="button" tabindex="0" aria-label="Inspect 06 // BROUTER ROUTE PLANNING in high resolution">
+                <img src="assets/img/qgeo_flow_egress.webp?v=4.3" alt="Q-Geo Offline BRouter Routes &amp; Geofencing" loading="lazy" decoding="async">
+                <span class="qgeo-flow-tag mono">06 // BROUTER ROUTE PLANNING</span>
                 <span class="qgeo-zoom-badge mono"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg> ZOOM</span>
               </div>
               <div class="qgeo-flow-desc">
-                <h4>Offline BRouter Safe Egress &amp; Geofencing</h4>
-                <p>Computes on-device turn-by-turn evacuation vectors for foot patrols, bicycles, and 4x4s without cell towers. The routing graph dynamically bends around verified hazard pins (mines, shelling, checkpoints) while haptic geofence alerts warn operators within 500m.</p>
+                <h4>Offline BRouter Routes &amp; Geofencing</h4>
+                <p>Plan routes with downloaded routing data and review nearby reports. Reports may be incomplete or outdated; a suggested route is not a guarantee of safe passage.</p>
               </div>
             </article>
           </div>
@@ -3188,10 +3179,10 @@ _
                 <img src="assets/img/qgeo_privacy.svg" alt="Geographic Privacy" width="30" height="30">
               </div>
               <h4>2. Geographic Privacy &amp; Fuzzy Mode (QGeoPrivacy.kt)</h4>
-              <p>To prevent adversaries from triangulating your radio transmitter when broadcasting a threat report:</p>
+              <p>Review the location precision of a report before sharing it:</p>
               <ul>
-                <li><strong>Fuzzy Mode (~111m) [RECOMMENDED]:</strong> Automatically quantizes coordinates to 3 decimal places (flag <code>0x02 APPROXIMATE_LOCATION</code>). Friendly units receive actionable danger boundaries without exposing exact operator coordinates.</li>
-                <li><strong>Exact GPS Mode (Local Only):</strong> Reserved strictly for on-device navigation; never broadcast in plaintext over radio or mesh hops.</li>
+                <li><strong>Fuzzy Mode (~111m) [RECOMMENDED]:</strong> Automatically quantizes coordinates to 3 decimal places (flag <code>0x02 APPROXIMATE_LOCATION</code>). Recipients receive a less precise position; the report may still reveal sensitive location information.</li>
+                <li><strong>Exact Coordinates:</strong> Review the chosen location and audience before sending a report.</li>
               </ul>
             </div>
 
@@ -3214,11 +3205,11 @@ _
               <div class="qgeo-pillar-icon">
                 <img src="assets/img/qgeo_logo.svg" alt="Egress &amp; Geofence" width="30" height="30">
               </div>
-              <h4>4. Geofencing Alarms &amp; BRouter Safe Egress</h4>
+              <h4>4. Geofencing &amp; Route Planning</h4>
               <p>Dynamic on-the-move situational awareness algorithms:</p>
               <ul>
-                <li><strong>Perimeter Geofencing Alarm:</strong> Triggers distinct haptic tactile pulses and high-priority audio alerts whenever the operator approaches within 500m of an active minefield, airstrike, or shelling zone.</li>
-                <li><strong>Offline BRouter Egress Engine:</strong> Computes offline evacuation vectors for on-foot, bicycle, or 4x4 vehicles, dynamically re-routing away from active mesh hazard pins in real time.</li>
+                <li><strong>Perimeter Geofencing Alarm:</strong> Review configured alerts for reported areas. A report or alert does not verify current conditions.</li>
+                <li><strong>Offline BRouter Egress Engine:</strong> Use downloaded routing data for supported profiles. Check the route and reported conditions before travelling.</li>
               </ul>
             </div>
           </div>
@@ -3727,11 +3718,13 @@ _
     <!-- ARCHITECTURAL VISUAL CENTERPIECE: BITCOIN VAULT & TOR NETWORK -->
     <div class="finance-visual-stage" aria-label="Bitcoin Vault &amp; Tor Network Architecture Visual">
       <div class="finance-stage-card">
+<aside class="editorial-demo-note" role="note"><strong>INTERACTIVE DEMO · SAMPLE DATA</strong><span>Architecture illustration and sample values. No wallet is connected and no payment is made here.</span></aside>
+
         <!-- Top HUD Telemetry Bar -->
         <div class="f-stage-bar mono">
           <div class="f-stage-bar-left">
             <span class="f-stage-dot"></span>
-            <span class="f-stage-title">QP1NG AIR-GAP ARCHITECTURE // BDK HARDWARE VAULT &amp; TOR RELAY</span>
+            <span class="f-stage-title">QP1NG WALLET ARCHITECTURE // BDK &amp; TOR</span>
           </div>
           <div class="f-stage-bar-right">
             <span class="f-chip f-chip--btc">₿ BDK NATIVE SEGWIT</span>
@@ -3755,7 +3748,7 @@ _
               muted
               playsinline
               loop
-              aria-label="Quantum P1NG Bitcoin Hardware Vault &amp; Tor Relay Architecture Demo"
+              aria-label="Quantum P1NG Bitcoin wallet and Tor architecture demonstration"
             >
               <source src="assets/vid/btc_vault.webm" type="video/webm" />
               <source src="assets/vid/btc_vault.mp4" type="video/mp4" />
@@ -3779,13 +3772,13 @@ _
           </div>
           <div class="f-footer-stat">
             <span class="f-stat-tag">KEY SECURITY</span>
-            <strong>100% Air-Gapped Seed</strong>
+            <strong>Local Seed Generation</strong>
             <small>Entropy generated on-device</small>
           </div>
           <div class="f-footer-stat">
             <span class="f-stat-tag">RECEIPT PROOFS</span>
             <strong>Signed QR &amp; Chat Payloads</strong>
-            <small>Verifiable off-chain &amp; on-chain</small>
+            <small>Signature and settlement checks are distinct</small>
           </div>
         </div>
       </div>
@@ -3953,7 +3946,7 @@ _
     </div>
 
     <!-- LIVE RUNTIME SHOWCASE: Q-FEED REAL DEMO -->
-    <div class="qfeed-video-showcase" aria-label="Q-Feed Live Operational Runtime">
+    <div class="qfeed-video-showcase" aria-label="Q-Feed demonstration video">
       <div class="qfeed-showcase-frame">
         <div class="qfeed-showcase-body">
           <!-- Left: Smartphone Hardware Mockup Frame -->
@@ -3983,7 +3976,7 @@ _
                     <svg class="icon-play" viewBox="0 0 24 24" width="12" height="12" fill="currentColor" style="display:none;"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                     <span class="toggle-text">PAUSE</span>
                   </button>
-                  <span class="qfeed-video-tag">QP1NG RUNTIME // 60 FPS</span>
+                  <span class="qfeed-video-tag">QP1NG DEMONSTRATION</span>
                 </div>
               </div>
 
@@ -3998,12 +3991,12 @@ _
             <div class="qfeed-showcase-hud mono">
               <div class="qfeed-hud-left">
                 <span class="qfeed-pulse-dot"></span>
-                <span class="qfeed-hud-title">REAL-TIME OPERATIONAL RUNTIME // P2P AIR-GAP FEED</span>
+                <span class="qfeed-hud-title">Q-FEED WALKTHROUGH // SAMPLE CONTENT</span>
               </div>
               <div class="qfeed-hud-right">
-                <span class="qfeed-chip qfeed-chip--live">&#x25CF; LIVE SCREENRECORD</span>
+                <span class="qfeed-chip qfeed-chip--live">&#x25CF; DEMO VIDEO</span>
                 <span class="qfeed-chip qfeed-chip--nostr">NOSTR NIP-01 + TOR</span>
-                <span class="qfeed-chip qfeed-chip--mesh">ED25519 VERIFIED</span>
+                <span class="qfeed-chip qfeed-chip--mesh">SAMPLE SIGNATURE</span>
               </div>
             </div>
 
@@ -4011,29 +4004,27 @@ _
             <div class="qfeed-deck-header">
               <div class="qfeed-deck-kicker">SOVEREIGN ARCHITECTURE &amp; OPERATIONAL FLOW</div>
               <h3 class="qfeed-deck-title">How Q-Feed Operates in the Field</h3>
-              <p class="qfeed-deck-desc">
-                Zero centralized servers, zero corporate social graphs. All posts, reactions and event notes are signed on-device via Ed25519, routed across local LoRa mesh hops or Tor-isolated Nostr relays, and audited off-grid with air-gapped cryptographic vouchers.
-              </p>
+              <p class="qfeed-deck-desc">Q-Feed combines contact sharing with public Nostr distribution through independent relays. Review the audience before publishing; public posts and their metadata can be copied beyond your contacts.</p>
             </div>
 
             <!-- Telemetry & Operational Metrics Windows Deck (6 Cards) -->
-            <div class="qfeed-metrics-deck" aria-label="Q-Feed Real-Time Telemetry and Operational Windows">
+            <div class="qfeed-metrics-deck" aria-label="Q-Feed capabilities and example states">
               <div class="qfeed-metric-card">
                 <div class="metric-top">
                   <span class="metric-tag">TOPOLOGY</span>
                   <span class="metric-dot green"></span>
                 </div>
-                <div class="metric-val txt-green">0 SERVERS</div>
-                <div class="metric-label">100% Serverless P2P &amp; Onion Relays</div>
+                <div class="metric-val txt-green">PEERS + RELAYS</div>
+                <div class="metric-label">No single central feed operator</div>
               </div>
 
               <div class="qfeed-metric-card">
                 <div class="metric-top">
-                  <span class="metric-tag">PROOF-OF-PAYMENT</span>
+                  <span class="metric-tag">RECEIPT CHECK</span>
                   <span class="metric-dot cyan"></span>
                 </div>
-                <div class="metric-val txt-cyan">&lt; 100 ms</div>
-                <div class="metric-label">Air-Gap Ed25519 + UTXO QR Validation</div>
+                <div class="metric-val txt-cyan">SIGNED DATA</div>
+                <div class="metric-label">Receipt signature; network settlement is separate</div>
               </div>
 
               <div class="qfeed-metric-card">
@@ -4050,8 +4041,8 @@ _
                   <span class="metric-tag">METADATA PRIVACY</span>
                   <span class="metric-dot purple"></span>
                 </div>
-                <div class="metric-val txt-purple">ZERO GRAPH</div>
-                <div class="metric-label">Rotated Tor Onions &amp; Sealed Envelopes</div>
+                <div class="metric-val txt-purple">AUDIENCE CHOICE</div>
+                <div class="metric-label">Review public and contact visibility</div>
               </div>
 
               <div class="qfeed-metric-card">
@@ -4075,7 +4066,7 @@ _
 
             <div class="qfeed-deck-footer">
               <a href="#qfeed-workspace" class="cyber-button-sm txt-cyan">EXPLORE INTERACTIVE WORKSPACE &darr;</a>
-              <span class="f-deck-status txt-green">&#x25CF; SECURE RUNTIME VERIFIED</span>
+              <span class="f-deck-status txt-green">&#x25CF; INTERACTIVE DEMONSTRATION</span>
             </div>
           </div>
         </div>
@@ -4083,7 +4074,8 @@ _
     </div>
 
     <!-- Main Workspace -->
-    <div class="qfeed-workspace" id="qfeed-workspace">
+    <aside class="editorial-demo-note" role="note"><strong>INTERACTIVE DEMO · SAMPLE DATA</strong><span>Illustrative states. This panel does not control the app or verify your device.</span></aside>
+<div class="qfeed-workspace" id="qfeed-workspace">
       <!-- Navigation Tabs -->
       <div class="qfeed-workspace-nav" role="tablist">
         <button class="qfeed-tab-btn active mono" data-tab="stream" role="tab" aria-selected="true">
@@ -4129,7 +4121,7 @@ _
                     </div>
                     <div class="post-flags">
                       <span class="badge-audience badge-mesh">CONTACTS (RATCHET CIPHER)</span>
-                      <span class="badge-sig txt-green">✓ ED25519 VERIFIED</span>
+                      <span class="badge-sig txt-green">✓ SAMPLE SIGNATURE</span>
                     </div>
                   </div>
                   <span class="post-time mono muted">14m ago</span>
@@ -4170,7 +4162,7 @@ _
                     <div class="event-grid">
                       <div><span>SCHEDULE:</span><strong>Tomorrow, 20:00 UTC</strong></div>
                       <div><span>LOCATION:</span><strong>Bunker Alpha (Encrypted in Ticket)</strong></div>
-                      <div><span>TICKET COST:</span><strong class="txt-amber">15,000 SATS (~$9.50)</strong></div>
+                      <div><span>TICKET COST:</span><strong class="txt-amber">15,000 SATS (DEMO PRICE)</strong></div>
                       <div><span>PAYMENT ROUTE:</span><strong>Bitcoin On-Chain / Lightning</strong></div>
                     </div>
                   </div>
@@ -4179,7 +4171,7 @@ _
                   </p>
                 </div>
                 <div class="card-footer mono">
-                  <button class="cyber-button-sm txt-amber" id="btn-pay-event">⚡ PAY WITH VAULT &amp; CLAIM TICKET</button>
+                  <button class="cyber-button-sm txt-amber" id="btn-pay-event">PREVIEW PAYMENT &amp; TICKET</button>
                   <span class="ticket-status-label muted" id="ticket-buy-status">UTXO Gated Event</span>
                 </div>
               </article>
@@ -4195,7 +4187,7 @@ _
                     </div>
                     <div class="post-flags">
                       <span class="badge-audience badge-nostr">PUBLIC NOSTR</span>
-                      <span class="badge-sig txt-green">✓ ED25519 VERIFIED</span>
+                      <span class="badge-sig txt-green">✓ SAMPLE SIGNATURE</span>
                     </div>
                   </div>
                   <span class="post-time mono muted">3h ago</span>
@@ -4219,20 +4211,20 @@ _
           <div class="qfeed-composer-col">
             <div class="qfeed-composer-frame mono">
               <div class="composer-header">
-                <span>COMPOSE SIGNED BROADCAST</span>
-                <span class="txt-green">CIPHER READY</span>
+                <span>COMPOSE DEMO POST</span>
+                <span class="txt-green">DEMO READY</span>
               </div>
 
               <div class="composer-form">
                 <!-- Text Area -->
                 <label class="field-label">
                   <span>POST BODY / INTEL BULLETIN:</span>
-                  <textarea id="composer-text" class="qfeed-textarea" rows="4" placeholder="Enter encrypted field report or event announcement..."></textarea>
+                  <textarea id="composer-text" class="qfeed-textarea" rows="4" placeholder="Write a post or event. Check the audience before publishing."></textarea>
                 </label>
 
                 <!-- Audience Mode Selector (NodeAudienceMode) -->
                 <label class="field-label">
-                  <span>AUDIENCE ENCRYPTION SCOPE (QFeedPostUi.kt):</span>
+                  <span>AUDIENCE / VISIBILITY:</span>
                   <select id="composer-audience" class="qfeed-select">
                     <option value="nostr" selected>Public Nostr Relays (NIP-01 + Tor SOCKS5)</option>
                     <option value="contacts">Trusted Contacts (Sealed Group Ratchet)</option>
@@ -4248,29 +4240,30 @@ _
                     <input type="number" id="composer-sats" class="qfeed-input" placeholder="0 = Free Broadcast" value="0">
                   </label>
                   <label class="field-label" style="flex: 1;">
-                    <span>REPOST POLICY:</span>
+                    <span>REPOST PREFERENCE:</span>
                     <select id="composer-repost" class="qfeed-select">
                       <option value="allow" selected>ALLOW REPOST</option>
-                      <option value="deny">NO REPOST</option>
+                      <option value="deny">REQUEST NO REPOST</option>
                     </select>
                   </label>
                 </div>
 
                 <!-- Live Canonical Signature Preview -->
-                <div class="sig-preview-box">
+                <p class="editorial-copy-note">Public posts may be copied or redistributed. Repost preferences and deletion requests cannot guarantee removal of every copy.</p>
+            <div class="sig-preview-box">
                   <span class="sig-title">CANONICAL INPUT (POSTSIGNER.KT):</span>
                   <div class="sig-content" id="composer-sig-preview">QP1NG-FEED-POST-v1|hash|content|author|timestamp</div>
                 </div>
 
                 <!-- Submit Action -->
                 <div class="composer-actions">
-                  <button class="cyber-button-sm txt-green" id="btn-publish-post">SIGN WITH ED25519 &amp; BROADCAST</button>
+                  <button class="cyber-button-sm txt-green" id="btn-publish-post">PREVIEW PUBLICATION</button>
                 </div>
               </div>
 
               <!-- Live Outbox Log -->
               <div class="composer-outbox" id="composer-outbox">
-                <div class="stream-line muted">&gt; Standby: Awaiting cryptographic dispatch...</div>
+                <div class="stream-line muted">&gt; DEMO: Prepare a sample post...</div>
               </div>
             </div>
           </div>
@@ -4283,16 +4276,14 @@ _
           <!-- Left Column: Attendee Payer Ticket Vault -->
           <div class="qfeed-info-col">
             <div class="qfeed-badge-label mono">ATTENDEE TICKET VAULT // NODEEVENTRECEIPT.KT</div>
-            <h3 class="qfeed-pane-title">Verifiable Bitcoin Proof-of-Payment</h3>
-            <p class="qfeed-text">
-              When paying for an operational event or field gathering, the Quantum P1NG Bitcoin Vault generates an Ed25519-signed canonical receipt with the transaction UTXO hash. This ticket can be verified 100% offline without contacting the blockchain.
-            </p>
+            <h3 class="qfeed-pane-title">Signed Bitcoin Receipt</h3>
+            <p class="qfeed-text">A signed receipt can be checked offline. Current Bitcoin confirmation status requires network verification. This demonstration uses sample receipt data and does not make or verify a payment.</p>
 
             <!-- Interactive Ticket Card -->
             <div class="ticket-vault-card mono" id="ticket-vault-card">
               <div class="ticket-header">
                 <span class="txt-cyan">Q-P1NG EVENT PAYMENT RECEIPT</span>
-                <span class="badge-sig txt-green">CONFIRMED (6 BLOCKS)</span>
+                <span class="badge-sig txt-green">DEMO RECEIPT</span>
               </div>
               <div class="ticket-body">
                 <div class="ticket-prop"><span>EVENT:</span><strong>Off-Grid SIGINT &amp; Hardware Workshop</strong></div>
@@ -4307,11 +4298,11 @@ _
               <!-- Animated Air-Gap QR Ticket Canvas -->
               <div class="ticket-qr-wrap">
                 <canvas id="qfeedReceiptQrCanvas" width="180" height="180" class="receipt-qr-canvas"></canvas>
-                <div class="qr-label">AIR-GAP OPTICAL PROOF // V2 ENVELOPE</div>
+                <div class="qr-label">DEMO QR PATTERN // SAMPLE RECEIPT</div>
               </div>
 
               <div class="ticket-actions">
-                <button class="cyber-button-sm txt-cyan" id="btn-copy-receipt">COPY CANONICAL PROOF</button>
+                <button class="cyber-button-sm txt-cyan" id="btn-copy-receipt">COPY SAMPLE RECEIPT</button>
               </div>
             </div>
           </div>
@@ -4320,7 +4311,7 @@ _
           <div class="qfeed-sim-col">
             <div class="scanner-frame mono">
               <div class="scanner-header">
-                <span>GATEKEEPER OPTICAL SCANNER (OFFLINE)</span>
+                <span>OFFLINE RECEIPT CHECK DEMO</span>
                 <span class="txt-green">AIR-GAP READY</span>
               </div>
 
@@ -4333,12 +4324,12 @@ _
                   <div class="reticle-corner br"></div>
                   <div class="scanner-laser-line"></div>
                 </div>
-                <div class="viewfinder-text">CAMERAX 60 FPS // ZERO NETWORK PERMISSION</div>
+                <div class="viewfinder-text">DEMONSTRATION // NO CAMERA SCAN</div>
               </div>
 
               <!-- Scan Action Button -->
               <div class="scanner-controls">
-                <button class="cyber-button-sm txt-green" id="btn-simulate-scan">SCAN ATTENDEE QR RECEIPT</button>
+                <button class="cyber-button-sm txt-green" id="btn-simulate-scan">PREVIEW RECEIPT CHECK</button>
               </div>
 
               <!-- Verification Steps Checklist -->
@@ -4365,8 +4356,8 @@ _
               <div class="scanner-result-banner hidden" id="scanner-result-banner">
                 <div class="result-icon">✓</div>
                 <div class="result-text">
-                  <strong>ADMISSION GRANTED</strong>
-                  <small>VALID OPERATOR TICKET // IDENTITY ANONYMOUS</small>
+                  <strong>DEMO COMPLETE</strong>
+                  <small>SAMPLE RESULT · NO PAYMENT VERIFIED</small>
                 </div>
               </div>
             </div>
@@ -4381,36 +4372,34 @@ _
           <div class="qfeed-info-col">
             <div class="qfeed-badge-label mono">NOSTR RELAYS // QFEEDNOSTRBRIDGE.KT</div>
             <h3 class="qfeed-pane-title">Decentralized Relay Transport via Tor</h3>
-            <p class="qfeed-text">
-              Q-Feed speaks native Nostr (NIP-01, NIP-09, NIP-10) with custom encrypted extensions. All websocket connections are strictly routed through the local Tor SOCKS5 proxy (127.0.0.1:9050), preventing relays from recording operator IP addresses.
-            </p>
+            <p class="qfeed-text">Nostr events use Schnorr signatures on secp256k1. QP1NG payload signatures are a separate layer. Public events carry a public key, timestamp and content. Relay access and privacy depend on the selected route.</p>
 
             <!-- Relay Health List -->
             <div class="nostr-relay-box mono">
               <div class="box-head">
-                <span>CONFIGURED RELAY QUORUM:</span>
-                <button class="cyber-button-xs txt-cyan" id="btn-ping-relays">PING RELAYS</button>
+                <span>EXAMPLE RELAY LIST:</span>
+                <button class="cyber-button-xs txt-cyan" id="btn-ping-relays">PREVIEW RELAY STATUS</button>
               </div>
               <div class="relay-list" id="relay-list">
                 <div class="relay-item">
                   <span class="r-dot green"></span>
                   <span class="r-url">wss://relay.damus.io</span>
-                  <span class="r-status txt-green">ONLINE (42ms)</span>
+                  <span class="r-status txt-green">DEMO (42ms)</span>
                 </div>
                 <div class="relay-item">
                   <span class="r-dot green"></span>
                   <span class="r-url">wss://nos.lol</span>
-                  <span class="r-status txt-green">ONLINE (58ms)</span>
+                  <span class="r-status txt-green">DEMO (58ms)</span>
                 </div>
                 <div class="relay-item">
                   <span class="r-dot green"></span>
                   <span class="r-url">wss://relay.snort.social</span>
-                  <span class="r-status txt-green">ONLINE (64ms)</span>
+                  <span class="r-status txt-green">DEMO (64ms)</span>
                 </div>
                 <div class="relay-item">
                   <span class="r-dot purple"></span>
                   <span class="r-url">onion://qp1ngsocialv4...onion:8443</span>
-                  <span class="r-status txt-purple">TOR HIDDEN RELAY</span>
+                  <span class="r-status txt-purple">TOR RELAY EXAMPLE</span>
                 </div>
               </div>
             </div>
@@ -4419,7 +4408,7 @@ _
             <div class="qfeed-specs-grid mono">
               <div class="spec-card">
                 <strong>NIP-01 NOTES</strong>
-                <small>Standard text posts with tamper-proof Schnorr/Ed25519 signatures.</small>
+                <small>NIP-01 events use Schnorr signatures on secp256k1.</small>
               </div>
               <div class="spec-card">
                 <strong>qevent_payment</strong>
@@ -4430,8 +4419,8 @@ _
                 <small>Inline 32 KiB encrypted preview thumbnails for air-gap cards.</small>
               </div>
               <div class="spec-card">
-                <strong>NIP-09 PURGE</strong>
-                <small>Cryptographic tombstone notices for retracted intel bulletins.</small>
+                <strong>NIP-09 REQUEST</strong>
+                <small>Deletion requests cannot guarantee removal of every public copy.</small>
               </div>
             </div>
           </div>
@@ -4441,7 +4430,7 @@ _
             <div class="dissector-frame mono">
               <div class="dissector-header">
                 <span>NIP-01 + Q-FEED CANONICAL JSON DISSECTOR</span>
-                <span class="txt-cyan">LIVE SPEC</span>
+                <span class="txt-cyan">SAMPLE EVENT</span>
               </div>
 
               <!-- Code Box -->
@@ -4537,7 +4526,7 @@ _
         </div>
 
         <div class="sd-transcript-card">
-          <span class="sd-panel-label mono">LIVE TRANSCRIPT</span>
+          <span class="sd-panel-label mono">SAMPLE TRANSCRIPT</span>
           <p id="sdTranscriptLine">Meet point confirmed. Convert this voice note into a clean secure message.</p>
           <div class="sd-caret-line mono"><span>lang:auto</span><span>partial -> final</span></div>
         </div>
@@ -5169,7 +5158,7 @@ _
           <div class="q-sigint-telemetry-header mono">
             <span class="q-sigint-telem-tab is-active" id="sigintViewTabTable">REALTIME TARGETS</span>
             <span class="q-sigint-telem-tab" id="sigintViewTabRaw">RAW HEX STREAM</span>
-            <span class="q-sigint-live-tag">LIVE DEMOD</span>
+            <span class="q-sigint-live-tag">DEMO DEMOD</span>
           </div>
 
           <!-- Table View -->
@@ -5268,7 +5257,7 @@ _
       <div class="qsat-metric-card">
         <span class="qsat-metric-label">TRANSCEIVER BRIDGE</span>
         <strong class="qsat-metric-val txt-red">AIOC USB-C</strong>
-        <span class="qsat-metric-sub">STM32 MCU + CM108 GPIO3 PTT</span>
+        <span class="qsat-metric-sub">STM32 audio + compatible HID PTT</span>
       </div>
     </div>
 
@@ -5315,7 +5304,8 @@ _
     </div>
 
     <!-- MAIN INTERACTIVE WORKSPACE (Tabs: Polar Radar / Doppler Auto-Tune / AIOC Rig) -->
-    <div class="qsat-workspace" id="qsat-workspace">
+    <aside class="editorial-demo-note" role="note"><strong>INTERACTIVE DEMO · SAMPLE DATA</strong><span>Illustrative states. This panel does not control the app or verify your device.</span></aside>
+<div class="qsat-workspace" id="qsat-workspace">
       <div class="qsat-workspace-nav" role="tablist" aria-label="Q-Sat modules">
         <button class="qsat-tab-btn active" data-tab="radar" role="tab" aria-selected="true">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
@@ -5343,11 +5333,12 @@ _
             </p>
 
             <!-- Satellite Selector Chips -->
-            <div class="qsat-sat-selector mono">
+            <p class="editorial-copy-note">NOAA-18 and NOAA-19 were retired in 2025. The sequences shown here are historical demonstrations.</p>
+              <div class="qsat-sat-selector mono">
               <span class="selector-title">ACTIVE SATELLITE:</span>
               <div class="qsat-sat-buttons">
-                <button class="qsat-sat-btn active" data-sat="noaa19">NOAA-19 (APT)</button>
-                <button class="qsat-sat-btn" data-sat="noaa18">NOAA-18 (APT)</button>
+                <button class="qsat-sat-btn active" data-sat="noaa19">NOAA-19 · HISTORICAL DEMO</button>
+                <button class="qsat-sat-btn" data-sat="noaa18">NOAA-18 · HISTORICAL DEMO</button>
                 <button class="qsat-sat-btn" data-sat="meteor">METEOR-M2 (LRPT)</button>
                 <button class="qsat-sat-btn" data-sat="iss">ISS (APRS/SSTV)</button>
                 <button class="qsat-sat-btn" data-sat="so50">SO-50 (FM VOICE)</button>
@@ -5357,7 +5348,7 @@ _
             <!-- Pass Telemetry Card -->
             <div class="qsat-telemetry-card mono">
               <div class="telemetry-header">
-                <span class="telemetry-name" id="qsat-sat-name">NOAA-19 [NORAD 33591]</span>
+                <span class="telemetry-name" id="qsat-sat-name">NOAA-19 · HISTORICAL DEMO</span>
                 <span class="telemetry-badge" id="qsat-sat-status">LINK: EXCELLENT (74&deg;)</span>
               </div>
               <div class="telemetry-grid">
@@ -5490,9 +5481,7 @@ _
           <div class="qsat-info-col">
             <div class="qsat-badge-label mono">HARDWARE INTERFACE // AIOCHIDCONTROL.KT</div>
             <h3 class="qsat-pane-title">All-In-One-Cable (AIOC) &amp; Rig Control</h3>
-            <p class="qsat-text">
-              The AIOC is an open-hardware USB-C adapter combining an STM32 MCU, CM108B audio codec, and hardware PTT control into the 2-pin Kenwood K1 accessory plug. It turns ordinary analog handheld transceivers (Baofeng, Quansheng, Kenwood) into military-grade encrypted digital communicators.
-            </p>
+            <p class="qsat-text">AIOC connects a compatible K1 radio through USB-C audio and PTT control. Its STM32 firmware provides audio conversion and CM108-compatible HID control; available functions depend on the firmware.</p>
 
             <!-- Hardware Signal Chain Block -->
             <div class="qsat-hw-chain mono">
@@ -5505,7 +5494,7 @@ _
               <div class="hw-node highlight">
                 <span class="node-icon">🔌</span>
                 <strong>AIOC STM32</strong>
-                <small>CM108 Audio + HID</small>
+                <small>STM32 Audio + HID PTT</small>
               </div>
               <div class="hw-arrow">&rarr;</div>
               <div class="hw-node">
@@ -5530,9 +5519,9 @@ _
             <div class="qsat-ptt-test mono">
               <div class="ptt-status-line">
                 <span class="ptt-led" id="qsat-ptt-led"></span>
-                <span class="ptt-label" id="qsat-ptt-label">PTT STATUS: STANDBY (RX MODE)</span>
+                <span class="ptt-label" id="qsat-ptt-label">DEMO PTT: STANDBY</span>
               </div>
-              <button class="cyber-button-sm txt-red" id="btn-trigger-aioc-ptt">TRANSMIT TEST BURST (PTT ENGAGE)</button>
+              <button class="cyber-button-sm txt-red" id="btn-trigger-aioc-ptt">PREVIEW PTT BURST</button>
             </div>
           </div>
 
@@ -5789,7 +5778,7 @@ _
         </div>
 
         <div class="rb-card-visual rb-card-visual--dual" data-dual-rig="combo">
-          <div class="rb-visual-slot rb-slot--usbc" title="Modalità 1: Adattatore USB-C (per smartphone senza jack 3.5mm)">
+          <div class="rb-visual-slot rb-slot--usbc" title="USB-C audio adapter for phones without a 3.5 mm jack">
             <picture>
               <source srcset="assets/img/usbc_audio_adapter.webp" type="image/webp">
               <img src="assets/img/usbc_audio_adapter.png" alt="USB-C to 3.5mm Audio Adapter" class="rb-card-img" width="512" height="369" loading="lazy">
@@ -5797,15 +5786,15 @@ _
             <span class="rb-slot-label mono">USB-C</span>
           </div>
 
-          <div class="rb-visual-connector mono" aria-hidden="true" title="Catena di collegamento: USB-C + K1 oppure Solo K1">
+          <div class="rb-visual-connector mono" aria-hidden="true" title="Connection: USB-C + K1 or direct K1 cable">
             <span class="rb-conn-plus">+</span>
             <span class="rb-conn-or">OR</span>
           </div>
 
-          <div class="rb-visual-slot rb-slot--k1" title="Modalità 1 & 2: Cavo audio Kenwood K1 a doppio pin">
+          <div class="rb-visual-slot rb-slot--k1" title="Kenwood K1 two-pin audio cable">
             <picture>
               <source srcset="assets/img/k1_audio_cable.webp" type="image/webp">
-              <img src="assets/img/k1_audio_cable.png" alt="Cavo audio Kenwood K1 a doppio pin" class="rb-card-img" width="512" height="512" loading="lazy">
+              <img src="assets/img/k1_audio_cable.png" alt="Kenwood K1 two-pin audio cable" class="rb-card-img" width="512" height="512" loading="lazy">
             </picture>
             <span class="rb-slot-label mono">K1 CABLE</span>
           </div>
@@ -5820,19 +5809,19 @@ _
         </div>
 
         <div class="rb-wiring-modes mono" role="tablist" aria-label="Modalità di collegamento radio">
-          <button type="button" class="rb-wiring-chip is-active" data-mode="combo" role="tab" aria-selected="true" title="Smartphone con porta USB-C: richiede adattatore audio USB-C + Cavo K1">
+          <button type="button" class="rb-wiring-chip is-active" data-mode="combo" role="tab" aria-selected="true" title="USB-C phone: compatible audio adapter and K1 cable required">
             <span class="chip-dot"></span>MOD 1: USB-C + K1
           </button>
-          <button type="button" class="rb-wiring-chip" data-mode="direct" role="tab" aria-selected="false" title="Dispositivo con jack 3.5mm: richiede solo il cavo K1 diretto">
+          <button type="button" class="rb-wiring-chip" data-mode="direct" role="tab" aria-selected="false" title="Phone with a 3.5 mm jack: use a compatible K1 cable">
             <span class="chip-dot"></span>MOD 2: SOLO K1 (3.5mm)
           </button>
         </div>
 
         <p>Designed for common analog handhelds and lab receivers using the Kenwood K1 accessory style.</p>
         <ul class="rb-target-modes-list">
-          <li class="rb-mode-item--combo"><strong>USB-C + K1:</strong> Smartphone USB-C &rarr; Adattatore 3.5mm &rarr; Cavo K1 &rarr; Radio</li>
-          <li class="rb-mode-item--direct"><strong>Solo K1:</strong> Jack 3.5mm diretto &rarr; Cavo K1 doppio pin &rarr; Radio</li>
-          <li>Baofeng UV-5R, Quansheng e apparati analogici compatibili K1</li>
+          <li class="rb-mode-item--combo">USB-C + K1: Phone → USB-C audio adapter → K1 cable → Radio</li>
+          <li class="rb-mode-item--direct">Direct K1: Phone 3.5 mm jack → K1 two-pin cable → Radio</li>
+          <li>Baofeng UV-5R, Quansheng and compatible analog radios with K1 connectors</li>
         </ul>
       </article>
     </div>
@@ -5958,12 +5947,14 @@ _
       </div><!-- /q-call-copy -->
 
       <!-- Right: main call dashboard -->
-      <div class="q-call-main" role="region" aria-label="Q-CALL secure session dashboard">
+      <div class="q-call-main" role="region" aria-label="Q-CALL interactive demonstration">
+<aside class="editorial-demo-note" role="note"><strong>INTERACTIVE DEMO · SAMPLE DATA</strong><span>Illustrative states. This panel does not control the app or verify your device.</span></aside>
+
 
         <!-- Session header -->
         <div class="qcall-session-header">
           <div class="qcall-session-left">
-            <span class="qcall-session-label mono">Q-CALL SESSION</span>
+            <span class="qcall-session-label mono">Q-CALL DEMO SESSION</span>
             <div class="qcall-session-status">
               <span class="qcall-status-dot" aria-hidden="true"></span>
               <span>SECURE</span>
@@ -5983,10 +5974,10 @@ _
         </div>
 
         <!-- Video stage -->
-        <div class="qcall-video-stage" role="region" aria-label="Secure video session — identity masked, screen capture blocked">
+        <div class="qcall-video-stage" role="region" aria-label="Demonstration video of a call session">
           <!-- Realtime encrypted video feed -->
           <div class="qcall-video-feed-wrap" id="qcallVideoWrap">
-            <video id="qcallVideo" class="qcall-video-feed" width="1280" height="720" poster="assets/img/qcall_video_poster.webp" playsinline muted preload="metadata" title="Quantum P2P Encrypted Video Feed">
+            <video id="qcallVideo" class="qcall-video-feed" width="1280" height="720" poster="assets/img/qcall_video_poster.webp" playsinline muted preload="metadata" title="Q-Call demonstration video">
               <source src="assets/vid/qcall_video_fastcut.webm" type="video/webm">
               <source src="assets/vid/qcall_video_fastcut.mp4" type="video/mp4">
             </video>
@@ -5994,7 +5985,7 @@ _
             <!-- Video Play / Pause Floating Pill -->
             <button class="qcall-play-pill mono" id="qcallPlayPill" aria-label="Play or pause secure call video" type="button">
               <span class="qcall-play-icon" id="qcallPlayIcon">▶</span>
-              <span class="qcall-play-text" id="qcallPlayText">LIVE CALL FEED</span>
+              <span class="qcall-play-text" id="qcallPlayText">CALL DEMO VIDEO</span>
             </button>
           </div>
 
@@ -6004,18 +5995,16 @@ _
             <div class="qcall-overlay-card">
               <div class="qcall-overlay-badge">
                 <span class="qcall-pulse-dot"></span>
-                <span>SECURE CALL TERMINATED // ZERO LOGS</span>
+                <span>CALL DEMO ENDED // SAMPLE SESSION</span>
               </div>
-              <h3 class="qcall-overlay-title glitch-text" data-text="SOURCE &amp; JOURNALIST SHIELD ACTIVE">
-                SOURCE &amp; JOURNALIST SHIELD ACTIVE
+              <h3 class="qcall-overlay-title glitch-text" data-text="CALL DEMO COMPLETE">
+                CALL DEMO COMPLETE
               </h3>
-              <p class="qcall-overlay-desc">
-                All field contacts, investigative sources, and journalist identities are shielded under post-quantum E2EE, hardware anti-forensics, and zero-metadata WebRTC relays.
-              </p>
+              <p class="qcall-overlay-desc">Keep control of the conversation: verify your contact, review the selected route and end the session when you are done.</p>
               <div class="qcall-overlay-tags">
-                <span class="qcall-overlay-tag">SOURCE ANONYMITY // PRESERVED</span>
-                <span class="qcall-overlay-tag">NO IP LEAKS // E2EE SEALED</span>
-                <span class="qcall-overlay-tag">TOR / MESH ROUTED</span>
+                <span class="qcall-overlay-tag">CONTACT VERIFICATION</span>
+                <span class="qcall-overlay-tag">ROUTE CHOICE</span>
+                <span class="qcall-overlay-tag">SESSION CONTROLS</span>
               </div>
               <button class="qcall-replay-btn mono" id="qcallReplayBtn" type="button">
                 <span class="qcall-replay-icon">↻</span>
@@ -6054,7 +6043,7 @@ _
           </ul>
 
           <!-- PiP self-view -->
-          <div class="qcall-pip" aria-label="Your camera preview">
+          <div class="qcall-pip" aria-label="Sample camera preview">
             <div class="pip-avatar" aria-hidden="true">
               <picture>
                 <source srcset="assets/img/call_secure.webp" type="image/webp">
@@ -6202,8 +6191,8 @@ _
       <!-- Live Risk Signals panel -->
       <article class="qcall-panel qcall-panel--risk" id="qcallRiskPanel">
         <header class="qcall-panel-hd">
-          <span class="qcall-panel-title mono"><span class="hud-sep">//</span> LIVE RISK SIGNALS</span>
-          <span class="qcall-panel-badge qcall-green mono"><i class="ag-pulse-dot"></i> MONITORING</span>
+          <span class="qcall-panel-title mono"><span class="hud-sep">//</span> DEMO RISK INDICATORS</span>
+          <span class="qcall-panel-badge qcall-green mono"><i class="ag-pulse-dot"></i> SAMPLE DATA</span>
         </header>
 
         <div class="qcall-risk-radar-wrap">
@@ -6290,7 +6279,7 @@ _
         <p class="q-ai-desc">
           Q-AI is the intelligence layer behind Quantum P1NG: local GGUF models through Q-Brain,
           optional provider routing, AiPack runtimes for text, vision, speech and image generation,
-          plus a tool system where every risky action is policy checked, audited and confirmed.
+          plus a tool system checked against the selected policy, with confirmation where required.
         </p>
 
         <div class="qai-badges" aria-label="Q-AI capability badges">
@@ -6329,7 +6318,9 @@ _
         </div>
       </div>
 
-      <div class="q-ai-console is-mode-widescreen" role="region" aria-label="Q-AI live intelligence console">
+      <div class="q-ai-console is-mode-widescreen" role="region" aria-label="Q-AI interactive demonstration">
+<aside class="editorial-demo-note" role="note"><strong>INTERACTIVE DEMO · SAMPLE DATA</strong><span>Illustrative states. This panel does not control the app or verify your device.</span></aside>
+
         <!-- Console Top Bar (Layer & Status) -->
         <div class="qai-console-top" id="qaiConsoleTop">
           <div>
@@ -6345,7 +6336,7 @@ _
         <div class="qai-stage-container" id="qaiStageContainer">
           <!-- Morphing Stage / Smartphone Chassis -->
           <div class="qai-stage-col" id="qaiStageCol">
-            <div class="qai-phone-chassis" id="qaiPhoneChassis" title="Tocca per riprodurre o mettere in pausa il video dimostrativo">
+            <div class="qai-phone-chassis" id="qaiPhoneChassis" title="Play or pause the demonstration video">
               <div class="qai-phone-speaker" aria-hidden="true"></div>
               <div class="qai-phone-camera" aria-hidden="true"></div>
               <div class="qai-phone-screen" id="qaiPhoneScreen">
@@ -6393,29 +6384,29 @@ _
 
               <div class="qai-meter-block">
                 <div class="qai-meter-header mono">
-                  <span>RUNTIME READINESS</span>
+                  <span>DEMO METER</span>
                   <span id="qaiMeterVal">94%</span>
                 </div>
-                <div class="qai-risk-meter" aria-label="Q-AI readiness meter">
+                <div class="qai-risk-meter" aria-label="Q-AI demonstration meter; not a device measurement">
                   <span id="qaiRiskMeterSpan" style="--qai-fill: 94%"></span>
                 </div>
               </div>
             </div>
 
-            <div class="qai-terminal mono" aria-label="Q-AI diagnostic terminal">
+            <div class="qai-terminal mono" aria-label="Q-AI example configuration">
               <div class="qai-terminal-head">
                 <div class="qai-term-lights">
                   <span class="qai-term-dot"></span>
                   <span class="qai-term-dot"></span>
                   <span class="qai-term-dot"></span>
                 </div>
-                <span class="qai-term-title">DIAGNOSTIC TELEMETRY</span>
-                <span class="qai-term-chip" id="qaiTermChip">LOCAL_NPU</span>
+                <span class="qai-term-title">EXAMPLE CONFIGURATION</span>
+                <span class="qai-term-chip" id="qaiTermChip">LOCAL_RUNTIME</span>
               </div>
               <div class="qai-terminal-body">
                 <div class="qai-terminal-line"><span>&gt;</span><span id="qaiTerminalLine">qbrain.start --runtime local --tools governed</span></div>
-                <div class="qai-terminal-line"><span>&gt;</span><span id="qaiTerminalSubLine1">providers: local llama.cpp, ggml-q4, qwen-2.5b, hermes</span></div>
-                <div class="qai-terminal-line"><span>&gt;</span><span id="qaiTerminalSubLine2">memory bank: 128k context compression, encrypted cache</span></div>
+                <div class="qai-terminal-line"><span>&gt;</span><span id="qaiTerminalSubLine1">runtime: selected local model and pack</span></div>
+                <div class="qai-terminal-line"><span>&gt;</span><span id="qaiTerminalSubLine2">Model, context size and acceleration depend on the selected pack, runtime and device.</span></div>
               </div>
             </div>
           </div>
@@ -6520,7 +6511,7 @@ _
       <article class="qai-arch-card">
         <span class="qai-arch-label mono">TOOL SAFETY</span>
         <h3>Risk before execution</h3>
-        <p>Each tool call is resolved, validated, policy checked, optionally confirmed, timed, audited and normalized before the assistant can use the result.</p>
+        <p>Tool calls are checked against the selected policy, with confirmation where required. Review permissions and automation rules before enabling them.</p>
         <div class="qai-chipline"><span>read</span><span>write</span><span>network</span><span>hardware</span><span>destructive</span></div>
       </article>
 
@@ -6551,7 +6542,7 @@ _
       <div class="qai-metric"><strong class="mono" data-qai-count="6">0</strong><span>Provider Routes</span></div>
       <div class="qai-metric"><strong class="mono" data-qai-count="6">0</strong><span>AiPack Families</span></div>
       <div class="qai-metric"><strong class="mono" data-qai-count="5">0</strong><span>Risk Levels</span></div>
-      <div class="qai-metric"><strong class="mono" data-qai-count="0">0</strong><span>Silent Auto-actions</span></div>
+      <div class="qai-metric"><strong class="mono" data-qai-count="0">0</strong><span>Sample Auto-actions</span></div>
     </div>
   </div>
 </section>
@@ -6616,13 +6607,14 @@ _
           <span class="metric-tag">EXECUTION POLICY</span>
           <span class="metric-dot purple"></span>
         </div>
-        <div class="metric-val txt-purple">ZERO SILENT AUTO</div>
+        <div class="metric-val txt-purple">CONFIGURED RULES</div>
         <div class="metric-label">Sandboxed PRoot Userspace &amp; Scoped Quorum</div>
       </div>
     </div>
 
     <!-- Main Workspace -->
-    <div class="af-workspace" id="af-workspace">
+    <aside class="editorial-demo-note" role="note"><strong>INTERACTIVE DEMO · SAMPLE DATA</strong><span>Illustrative states. This panel does not control the app or verify your device.</span></aside>
+<div class="af-workspace" id="af-workspace">
       <!-- Navigation Tabs -->
       <div class="af-workspace-nav" role="tablist">
         <button class="af-tab-btn active mono" data-tab="studio" role="tab" aria-selected="true">
@@ -6688,7 +6680,7 @@ _
                   <div class="node-port in" data-port="in"></div>
                   <div class="node-badge">03 // ACTION</div>
                   <div class="node-title" id="node-3-title">ACTIVATE_GHOST_MODE</div>
-                  <div class="node-sub" id="node-3-sub">RF Kill switch: 0.00 dBm EMCON</div>
+                  <div class="node-sub" id="node-3-sub">Configured radio controls · example</div>
                 </div>
 
                 <!-- Node 4: Secondary Dispatch Action -->
@@ -6702,8 +6694,8 @@ _
 
               <!-- Node Studio Controls -->
               <div class="node-canvas-footer">
-                <button class="cyber-button-sm txt-cyan" id="btn-simulate-flow">EXECUTE GRAPH FLOW</button>
-                <div class="flow-status mono" id="flow-execution-status">ENGINE READY // QP1NG.FLOW.V1</div>
+                <button class="cyber-button-sm txt-cyan" id="btn-simulate-flow">PREVIEW GRAPH FLOW</button>
+                <div class="flow-status mono" id="flow-execution-status">DEMO READY // QP1NG.FLOW.V1</div>
               </div>
             </div>
           </div>
@@ -6786,29 +6778,29 @@ _
             <div class="deadman-frame mono">
               <div class="deadman-header">
                 <span>TACTICAL DEAD-MAN SAFETY TRIPWIRE</span>
-                <span class="badge-sig txt-green">WATCHDOG ARMED</span>
+                <span class="badge-sig txt-green">DEMO WATCHDOG</span>
               </div>
 
               <!-- Big Countdown Clock -->
               <div class="deadman-clock">
                 <div class="clock-display" id="deadman-timer">23:59:59</div>
-                <div class="clock-label">INACTIVITY EXPIRATION COUNTDOWN</div>
+                <div class="clock-label">DEMO INACTIVITY COUNTDOWN</div>
               </div>
 
               <!-- Actions -->
               <div class="deadman-controls">
-                <button class="cyber-button-sm txt-green" id="btn-canary-checkin">CANARY CHECK-IN (RESET 24H)</button>
+                <button class="cyber-button-sm txt-green" id="btn-canary-checkin">RESET DEMO TIMER (24H)</button>
                 <button class="cyber-button-sm txt-red" id="btn-test-tripwire">SIMULATE TIMEOUT TRIPWIRE</button>
               </div>
 
               <!-- Emergency Broadcast Preview -->
               <div class="tripwire-alert-box hidden" id="tripwire-alert-box">
-                <div class="alert-head txt-red">⚠ TRIPWIRE TRIPPED // EXECUTING FAILSAFE SEQUENCE</div>
+                <div class="alert-head txt-red">⚠ DEMO TIMEOUT // SAMPLE SEQUENCE</div>
                 <div class="alert-body">
-                  <div>1. Operator unresponsive past 24-hour canary threshold.</div>
-                  <div>2. Sealed Dead-Man key bundle decrypted for trusted mesh squad.</div>
-                  <div>3. Cryptographic shredding of master Bitcoin Vault private descriptors.</div>
-                  <div>4. Radio broadcast dispatched: 868.1 MHz LoRa [DISTRESS_CANARY_EXPIRED].</div>
+                  <div>1. Demo timer reaches the configured threshold.</div>
+                  <div>2. Example notification step is highlighted.</div>
+                  <div>3. Example cleanup step is highlighted; no keys are removed.</div>
+                  <div>4. Example radio step is highlighted; no message is transmitted.</div>
                 </div>
               </div>
             </div>
@@ -6871,7 +6863,7 @@ _
           <div class="af-sim-col">
             <div class="manifest-frame mono">
               <div class="manifest-header">
-                <span>QPTOOLMANIFEST.KT // VERIFIED METADATA</span>
+                <span>QPTOOLMANIFEST.KT // SAMPLE MANIFEST</span>
                 <span class="txt-cyan" id="manifest-id-badge">starter.yara_scan</span>
               </div>
 
@@ -6899,8 +6891,8 @@ _
 }</code></pre>
 
               <div class="manifest-footer">
-                <button class="cyber-button-sm txt-green" id="btn-audit-tool">VERIFY MINISIGN SIGNATURE</button>
-                <span class="audit-status txt-green" id="audit-signature-status">✓ SHA-256 &amp; Minisign Verified</span>
+                <button class="cyber-button-sm txt-green" id="btn-audit-tool">PREVIEW SIGNATURE CHECK</button>
+                <span class="audit-status txt-green" id="audit-signature-status">DEMO · NO SIGNATURE VERIFIED</span>
               </div>
             </div>
           </div>
@@ -6945,7 +6937,7 @@ _
         <div class="qcam-device">
           <div class="qcam-device-top mono">
             <span>Q-CAM // PROTECTED PREVIEW</span>
-            <span id="qcamBadge">LIVE_DETECT</span>
+            <span id="qcamBadge">DEMO_PREVIEW</span>
           </div>
 
           <div class="qcam-viewfinder" id="qcamMediaContainer" role="button" tabindex="0" aria-label="Toggle Q-CAM video demonstration" title="Click to play / pause video">
@@ -6995,11 +6987,11 @@ _
       </article>
       <article class="qcam-mode-card">
         <img decoding="async" loading="lazy" src="assets/img/qcam_thumb_void.webp" alt="Q-CAM void mask example" width="96" height="96">
-        <div><span class="mono">VOID</span><strong>Maximum identity removal for high-risk public footage.</strong></div>
+        <div><span class="mono">VOID</span><strong>Cover detected faces and review the full image before sharing.</strong></div>
       </article>
       <article class="qcam-mode-card">
         <img decoding="async" loading="lazy" src="assets/img/qcam_thumb_anonymous.webp" alt="Q-CAM anonymous overlay example" width="96" height="96">
-        <div><span class="mono">MASK</span><strong>Readable visual proof with protected faces and source anonymity.</strong></div>
+        <div><span class="mono">MASK</span><strong>Apply a face overlay, then review the complete image.</strong></div>
       </article>
       <article class="qcam-mode-card">
         <img decoding="async" loading="lazy" src="assets/img/qcam_thumb_gasmask.webp" alt="Q-CAM identity mask example" width="96" height="96">
@@ -7051,7 +7043,7 @@ _
 
     <div class="qcam-safety-note">
       <span class="mono">FIELD NOTE</span>
-      <p>Q-CAM supports privacy-preserving documentation. It does not replace consent, legal review or source-protection process. Use it to minimize collateral exposure while preserving truthful, accountable evidence.</p>
+      <p>Q-CAM supports privacy-preserving documentation. It does not replace consent, legal review or source-protection process. Faces, clothing and surroundings may still identify people. Review the exported copy.</p>
     </div>
   </div>
 </section>
@@ -7068,12 +7060,7 @@ _
 
         <h2 class="scrubber-h2">Payload<br><span class="scrubber-h2-accent">Scrubbing.</span></h2>
 
-        <p class="scrubber-lead">
-          Every uploaded file hides digital footprints — GPS coordinates, timestamps,
-          device IDs, EXIF and ID3 metadata. Our protocol dismantles the file at
-          binary level, destroys the traceable wrapper and rebuilds a pure,
-          encrypted payload.
-        </p>
+        <p class="scrubber-lead">Inspect supported files, remove supported metadata and review a clean copy before sharing. Visible details can still identify people; metadata cleanup is not a guarantee that a file is harmless.</p>
 
         <!-- Vertical pipeline -->
         <div class="scrubber-pipeline" role="list">
@@ -7081,58 +7068,58 @@ _
           <div class="scrub-step" data-col="warn" role="listitem">
             <div class="ss-num mono" aria-hidden="true">01</div>
             <div class="ss-body">
-              <span class="ss-title mono">INGESTION</span>
-              <p class="ss-desc">Raw file acquisition and binary validation.</p>
+              <span class="ss-title mono">SOURCE FILE</span>
+              <p class="ss-desc">Choose a supported file and review the input.</p>
             </div>
           </div>
 
           <div class="scrub-step" data-col="btc" role="listitem">
             <div class="ss-num mono" aria-hidden="true">02</div>
             <div class="ss-body">
-              <span class="ss-title mono">STRIPPING</span>
-              <p class="ss-desc">EXIF / ID3 / GPS metadata complete destruction.</p>
+              <span class="ss-title mono">INSPECT</span>
+              <p class="ss-desc">Inspect supported metadata before cleanup.</p>
             </div>
           </div>
 
           <div class="scrub-step" data-col="blue" role="listitem">
             <div class="ss-num mono" aria-hidden="true">03</div>
             <div class="ss-body">
-              <span class="ss-title mono">EXTRACTION</span>
-              <p class="ss-desc">Clean content isolation from the corrupted container.</p>
+              <span class="ss-title mono">CLEAN</span>
+              <p class="ss-desc">Remove supported metadata or rebuild a supported copy.</p>
             </div>
           </div>
 
           <div class="scrub-step" data-col="acc" role="listitem">
             <div class="ss-num mono" aria-hidden="true">04</div>
             <div class="ss-body">
-              <span class="ss-title mono">REBUILD</span>
-              <p class="ss-desc">Neutral, encrypted output container assembly.</p>
+              <span class="ss-title mono">EXPORT</span>
+              <p class="ss-desc">Review the resulting copy and choose how to share it.</p>
             </div>
           </div>
 
         </div><!-- /pipeline -->
 
         <!-- Stats bar -->
-        <div class="scrubber-stats" aria-label="Data sanitizer statistics">
+        <div class="scrubber-stats" aria-label="Data sanitizer workflow overview">
           <div class="scrub-stat">
             <div class="scrub-stat-val">
-              <span class="stat-val mono" data-target="99">0</span><span class="stat-unit mono">%</span>
+              <span class="mono">4</span>
             </div>
-            <span class="stat-label mono">METADATA STRIPPED</span>
+            <span class="stat-label mono">WORKFLOW STEPS</span>
           </div>
           <div class="scrub-stat-divider" aria-hidden="true"></div>
           <div class="scrub-stat">
             <div class="scrub-stat-val">
-              <span class="stat-val mono" data-target="0">0</span>
+              <span class="mono">DEMO</span>
             </div>
-            <span class="stat-label mono">TRACES LEFT</span>
+            <span class="stat-label mono">SAMPLE WORKFLOW</span>
           </div>
           <div class="scrub-stat-divider" aria-hidden="true"></div>
           <div class="scrub-stat">
             <div class="scrub-stat-val">
-              <span class="stat-val mono" data-target="12">0</span><span class="stat-unit mono">+</span>
+              <span class="mono">REVIEW</span>
             </div>
-            <span class="stat-label mono">FILE TYPES</span>
+            <span class="stat-label mono">BEFORE SHARING</span>
           </div>
         </div>
       </div><!-- /scrubber-info -->
@@ -7152,7 +7139,7 @@ _
               <div class="layer-content mono">
                 <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                 <span>CLEAN.BIN</span>
-                <span class="layer-sub">SECURE OUTPUT</span>
+                <span class="layer-sub">REVIEW OUTPUT</span>
               </div>
             </div>
 
@@ -7176,7 +7163,7 @@ _
               <div class="layer-content mono">
                 <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
                 <span>SOURCE.JPG</span>
-                <span class="layer-sub">INFECTED UPLOAD</span>
+                <span class="layer-sub">SOURCE FILE</span>
               </div>
             </div>
 
@@ -7185,19 +7172,19 @@ _
           <div class="file-labels" aria-hidden="true">
             <div class="label-row row-4">
               <div class="label-line line-4"></div>
-              <div class="label-text text-4 mono">04. SECURE REBUILD</div>
+              <div class="label-text text-4 mono">04. REVIEW EXPORT</div>
             </div>
             <div class="label-row row-3">
               <div class="label-line line-3"></div>
-              <div class="label-text text-3 mono">03. CONTENT EXTRACTION</div>
+              <div class="label-text text-3 mono">03. SUPPORTED CLEANUP</div>
             </div>
             <div class="label-row row-2">
               <div class="label-line line-2"></div>
-              <div class="label-text text-2 mono">02. METADATA DESTRUCTION</div>
+              <div class="label-text text-2 mono">02. METADATA INSPECTION</div>
             </div>
             <div class="label-row row-1">
               <div class="label-line line-1"></div>
-              <div class="label-text text-1 mono">01. INFECTED UPLOAD</div>
+              <div class="label-text text-1 mono">01. SOURCE FILE</div>
             </div>
           </div>
 
@@ -7532,9 +7519,9 @@ _
 
     <!-- PGP header -->
     <div class="mf-pgp mf-pgp-top mono" aria-hidden="true">
-      <span class="mf-pgp-line">-----BEGIN PGP SIGNED MESSAGE-----</span>
-      <span class="mf-pgp-meta">Hash: SHA512 &nbsp;|&nbsp; Version: GnuPG v2.4.1 &nbsp;|&nbsp; KeyID: 0x4D5A9000</span>
-      <span class="mf-pgp-fp">iQIzBAABCAAdFiEEP7mKa1RZ3MQ0fXS4D9wKj4DQAFAl7dAcgkQ4D...</span>
+      <span class="mf-pgp-line">-----BEGIN QP1NG MANIFESTO-----</span>
+      <span class="mf-pgp-meta">A statement of purpose &nbsp;|&nbsp; Quantum P1NG</span>
+      <span class="mf-pgp-fp">Privacy · Free expression · Access to information</span>
     </div>
 
     <!-- Manifesto text -->
@@ -7552,7 +7539,7 @@ _
 
     <!-- PGP footer -->
     <div class="mf-pgp mf-pgp-bottom mono" aria-hidden="true">
-      <span class="mf-pgp-line">-----END PGP SIGNED MESSAGE-----</span>
+      <span class="mf-pgp-line">-----END QP1NG MANIFESTO-----</span>
     </div>
 
     <!-- Status -->
@@ -7579,10 +7566,10 @@ _
 
     <div class="f-col f-center">
       <div class="status-badge mono">
-        <span class="status-light green"></span> SYSTEM: ONLINE
+        <span class="status-light green"></span> SITE: QP1NG
       </div>
       <div class="status-badge mono">
-        <span class="status-light green"></span> ONION_NODE: ACTIVE
+        <span class="status-light green"></span> MODULE DEMONSTRATIONS
       </div>
       <button id="btn-replay-intro" class="mono tiny" style="background:transparent; border:1px solid rgba(0,255,157,0.3); color:#00ff9d; padding:3px 8px; border-radius:4px; margin-top:8px; cursor:pointer;" title="Replay Cinematic Intro">
         ▶ REPLAY INTRO
@@ -7666,7 +7653,7 @@ _
       <div class="qgeo-zoom-footer">
         <div class="zoom-footer-info">
           <h4 id="qgeo-zoom-title">Offline Vector Cartography</h4>
-          <p id="qgeo-zoom-desc">Protected on-device mascot, zero cloud server dependencies...</p>
+          <p id="qgeo-zoom-desc">On-device vector maps, ready for offline use after import. View your saved area alongside supported markers and shared reports.</p>
         </div>
         <div class="zoom-footer-nav mono">
           <button type="button" class="zoom-nav-step active" data-step="0">01</button>
@@ -7687,7 +7674,7 @@ _
       <div class="btc-zoom-bar mono">
         <div class="btc-zoom-bar-left">
           <span class="blink-dot" style="background-color: var(--btc); box-shadow: 0 0 10px rgba(247,147,26,0.85);"></span>
-          <span class="btc-zoom-tag">QP1NG BITCOIN VAULT // BDK &amp; TOR AIR-GAP ARCHITECTURE</span>
+          <span class="btc-zoom-tag">QP1NG BITCOIN VAULT // BDK &amp; TOR WALLET ARCHITECTURE</span>
         </div>
         <div class="btc-zoom-bar-actions">
           <button type="button" class="btc-zoom-close mono" id="btc-zoom-close" aria-label="Close Inspection Modal">CLOSE [ESC]</button>
@@ -7695,7 +7682,7 @@ _
       </div>
       <div class="btc-zoom-body">
         <div class="btc-zoom-viewport" id="btc-zoom-viewport">
-          <img src="assets/img/bitcoin_vault_hd.webp?v=1.1" alt="Quantum P1NG Bitcoin Hardware Vault High Resolution" class="btc-zoom-img" id="btc-zoom-img" width="1672" height="941" loading="lazy" decoding="async">
+          <img src="assets/img/bitcoin_vault_hd.webp?v=1.1" alt="Quantum P1NG Bitcoin wallet architecture illustration" class="btc-zoom-img" id="btc-zoom-img" width="1672" height="941" loading="lazy" decoding="async">
         </div>
       </div>
       <div class="btc-zoom-footer mono">

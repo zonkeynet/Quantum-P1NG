@@ -2543,8 +2543,8 @@ if (terminal && gamesGrid) {
         rbBottom.innerHTML = `
           <span class="rb-radio-spec-pill"><i class="pill-dot"></i> BAOFENG UV-5R TRANSCEIVER</span>
           <span class="rb-radio-spec-pill"><i class="pill-dot"></i> AIOC ALL-IN-ONE CABLE</span>
-          <span class="rb-radio-spec-pill"><i class="pill-dot"></i> USB AUDIO CODEC + CM108</span>
-          <span class="rb-radio-spec-pill"><i class="pill-dot"></i> OPTO-ISOLATED DIGITAL PTT</span>
+          <span class="rb-radio-spec-pill"><i class="pill-dot"></i> STM32 USB AUDIO · CM108-COMPATIBLE HID</span>
+          <span class="rb-radio-spec-pill"><i class="pill-dot"></i> FIRMWARE-CONTROLLED PTT</span>
         `;
       } else {
         // Wireless RF Link Phase
@@ -2577,7 +2577,7 @@ if (terminal && gamesGrid) {
   })();
 
   // Q-CAM Field Video
-  setupVideoCard('qcamMediaContainer', 'qcamVideo', 'qcamBadge', 'FEED::LIVE_STREAM', 'LIVE_DETECT');
+  setupVideoCard('qcamMediaContainer', 'qcamVideo', 'qcamBadge', 'DEMO::VIDEO_PLAYING', 'DEMO_PREVIEW');
 })();
 
 // =========================================
@@ -3872,7 +3872,7 @@ if (terminal && gamesGrid) {
       callVideo.pause();
       isCallVideoPlaying = false;
       if (callPlayIcon) callPlayIcon.textContent = '▶';
-      if (callPlayText) callPlayText.textContent = 'LIVE CALL FEED';
+      if (callPlayText) callPlayText.textContent = 'CALL DEMO VIDEO';
     }
 
     function replayCallVideo() {
@@ -4071,10 +4071,10 @@ if (terminal && gamesGrid) {
         text: 'Local Q-Brain generation, memory compression, vision intake and guarded tool calls run as scoped sessions with queue control directly on device.',
         pills: ['Local GGUF', 'AiPack LLM', 'Vision Intake', 'Zero Telemetry'],
         meter: '94%',
-        chip: 'LOCAL_NPU',
+        chip: 'LOCAL_RUNTIME',
         cmd: 'qbrain.start --runtime local --tools governed',
-        sub1: 'providers: local llama.cpp, ggml-q4, qwen-2.5b, hermes',
-        sub2: 'memory bank: 128k context compression, encrypted cache',
+        sub1: 'runtime: selected local model and pack',
+        sub2: 'Model, context size and acceleration depend on the selected pack, runtime and device.',
         hud: 'Q-BRAIN // NEURAL_CORE_ONLINE',
         videoWebm: 'assets/vid/q-ai.webm',
         videoMp4: 'assets/vid/q-ai.mp4',
@@ -4091,8 +4091,8 @@ if (terminal && gamesGrid) {
         meter: '91%',
         chip: 'MULTIMODAL_VPU',
         cmd: 'aipacks.scan --types image,vision,llm,stt,tts,embedding',
-        sub1: 'image engine: local diffusion 384x384 photoreal cyberpunk',
-        sub2: 'acceleration: vulkan / opencl / metal / npu coprocessor',
+        sub1: 'image size and memory use depend on the selected model',
+        sub2: 'Model, context size and acceleration depend on the selected pack, runtime and device.',
         hud: 'MODELS // LOCAL_DIFFUSION_ACTIVE',
         videoWebm: 'assets/vid/qai_mobile_models.webm',
         videoMp4: 'assets/vid/qai_mobile_models.mp4',
@@ -4110,7 +4110,7 @@ if (terminal && gamesGrid) {
         chip: 'LORA_RF_CORE',
         cmd: 'tools.dispatch --risk-gate --confirm --audit',
         sub1: 'interfaces: lora-mesh, secure-vault, camera, filesystem',
-        sub2: 'safety gate: approval prompt on outbound payload',
+        sub2: 'confirmation: where required by the selected policy',
         hud: 'TOOLS // LORA_DISPATCH_ON',
         videoWebm: 'assets/vid/qai_mobile_tools.webm',
         videoMp4: 'assets/vid/qai_mobile_tools.mp4',
@@ -4123,13 +4123,13 @@ if (terminal && gamesGrid) {
         badge: 'LAYER 04 // ISOLATION',
         brief: 'Isolated command execution',
         text: 'Linux sandbox policy checks working directories, host paths, network mode, dangerous patterns and lab-only commands before execution.',
-        pills: ['Linux Enclave', 'Jail Isolation', 'No-Root Chroot', 'Network Filter'],
+        pills: ['Linux Userspace', 'Path Checks', 'No Root Required', 'Network Policy'],
         meter: '85%',
-        chip: 'ENCLAVE_JAIL',
+        chip: 'APP_POLICY',
         cmd: 'sandbox.validate --mode ask_every_time --network allowlist',
-        sub1: 'cgroups v2: memory.max=512M cpu.max=50000 100000',
-        sub2: 'seccomp: syscall blacklist active, ptrace blocked',
-        hud: 'SANDBOX // ENCLAVE_SECURED',
+        sub1: 'limits: selected runtime and app policy',
+        sub2: 'PRoot userspace and app checks; not a hardware enclave',
+        hud: 'SANDBOX // POLICY EXAMPLE',
         videoWebm: 'assets/vid/qai_mobile_sandbox.webm',
         videoMp4: 'assets/vid/qai_mobile_sandbox.mp4',
         poster: 'assets/vid/qai_mobile_sandbox_poster.webp'
@@ -4163,8 +4163,8 @@ if (terminal && gamesGrid) {
         meter: '98%',
         chip: 'GHOST_POLICY',
         cmd: 'governance.trace --dry-run --human-in-loop --kill-switch',
-        sub1: 'policy level: STRICT_ZERO_TRUST with human confirmation',
-        sub2: 'kill switch: hardware interrupt armed and verified',
+        sub1: 'policy: review allowed tools and required confirmations',
+        sub2: 'session controls: app-managed stop and cleanup',
         hud: 'GOVERNANCE // GHOST_MODE_ENGAGED',
         videoWebm: 'assets/vid/qai_mobile_governance.webm',
         videoMp4: 'assets/vid/qai_mobile_governance.mp4',
@@ -5491,17 +5491,17 @@ if (terminal && gamesGrid) {
     optical: {
       modeName: 'OPTICAL_FOUNTAIN_STREAM',
       telemetry: 'FPS: 24 | LOSS_REPAIR: ACTIVE',
-      rfStat: '0.00 dBm (SILENT)',
+      rfStat: 'NO RF LINK REQUIRED',
       rfColor: 'var(--neon-green)',
       rateStat: '24 FRAMES/SEC',
       hashStat: 'SHA256::VERIFIED',
-      intelTag: 'EMCON LEVEL: ABSOLUTE STEALTH',
+      intelTag: 'OPTICAL LINK · CAMERA TO SCREEN',
       title: 'Animated Fountain Codes (Luby Transform)',
       desc: 'Direct camera-to-screen unidirectional data pipeline. Payloads are divided into 32 KiB pages with rateless erasure coding (Hummingbird core). The receiving device captures the stream with CameraX, reconstructing the encrypted file even with dropped or occluded frames without any backchannel RF handshake.',
       medium: 'Display Photons → Camera Sensor',
-      detect: 'Zero RF Footprint (Imperceptible)',
+      detect: 'Line of sight required',
       detectColor: 'var(--neon-green)',
-      attack: 'Air-Gapped (No IP Stack, No Drivers)',
+      attack: 'Camera and display processing',
       sourceClass: 'OpticalFountain.kt / OpticalQrStream.kt',
       log: [
         '> FOUNTAIN_PAGE_0: 32768 BYTES [SYSTEMATIC SWEEP: COMPLETE]',
@@ -5531,24 +5531,24 @@ if (terminal && gamesGrid) {
       ]
     },
     acoustic: {
-      modeName: 'ACOUSTIC_ULTRASOUND_LINK',
-      telemetry: 'CARRIER: 18.5 kHz - 19.8 kHz | SNR: +18 dB',
-      rfStat: '0.00 dBm (ACOUSTIC SPEECH/MIC)',
+      modeName: 'ACOUSTIC_IDENTITY_LINK',
+      telemetry: 'DEMO AUDIO LINK | DEVICE / ROUTE DEPENDENT',
+      rfStat: 'NO RF LINK REQUIRED',
       rfColor: 'var(--neon-green)',
-      rateStat: '300 BPS (TACTICAL FSK)',
+      rateStat: 'RATE DEPENDS ON MODE',
       hashStat: 'CRC16::VALIDATED',
-      intelTag: 'ENVIRONMENT: FARADAY CAGE PROOF',
-      title: 'Near-Ultrasound Acoustic Carrier (Faraday Fallback)',
-      desc: 'Audio-frequency and near-ultrasonic acoustic FSK modulation. Designed for ultra-secure key exchanges and tactical emergency beacons inside RF-shielded rooms, Faraday bags, or during hostile electronic warfare when all wireless spectrum is jammed.',
+      intelTag: 'NEARBY SPEAKER / MICROPHONE LINK',
+      title: 'Acoustic Identity Handshake',
+      desc: 'Exchange contact identity data through the speaker and microphone. Keep both devices nearby and follow the app\'s pairing steps.',
       medium: 'Acoustic Sound Pressure (Speaker → Mic)',
-      detect: 'Inaudible Near-Ultrasound (Zero RF Emitters)',
+      detect: 'Audio route and environment dependent',
       detectColor: 'var(--neon-green)',
       attack: 'Acoustic Line-of-Hearing (Air-gapped)',
-      sourceClass: 'OfflineAcousticHandshakeManager.kt / FskModem.kt',
+      sourceClass: 'Acoustic contact identity handshake',
       log: [
-        '> ACOUSTIC_CARRIER_DETECT: 18,500 Hz [SIGNAL LOCKED]',
-        '> FSK_DEMODULATOR: SYNC TONES OK // BIT_ERRORS: 0',
-        '> IDENTITY_EXCHANGE: ED25519 PUBKEY ACCEPTED IN FARADAY SHIELD'
+        '> DEMO AUDIO LINK: SPEAKER TO MICROPHONE',
+        '> DEMO PAIRING: SAMPLE IDENTITY DATA',
+        '> DEMO COMPLETE: NO CONTACT EXCHANGED'
       ]
     },
     bluetooth: {
@@ -5558,11 +5558,11 @@ if (terminal && gamesGrid) {
       rfColor: 'var(--neon-cyan)',
       rateStat: '128 B/PACKET // BURST',
       hashStat: 'BLAKE3::SEALED',
-      intelTag: 'TOPOLOGY: ZERO-CARRIER P2P MESH',
+      intelTag: 'TOPOLOGY: BLUETOOTH RADIO MESH',
       title: 'Decentralized Bluetooth LE Multi-Hop Mesh Chat',
-      desc: 'Autonomous store-and-forward delay-tolerant network (DTN). Devices form self-healing peer-to-peer mesh clusters, relaying encrypted messages (Double Ratchet + AES-256-GCM) hop-by-hop across the physical network without cell coverage, SIM cards, or internet access. Employs rolling ephemeral MAC rotation (15m privacy lease) and ultrashort RF bursts to defeat radio direction finding (RDF) and metadata surveillance.',
+      desc: 'Bluetooth peers can relay messages without mobile data or internet access. Range, delivery and supported modes depend on the devices and nearby peers. Radio activity can still be detected.',
       medium: '2.4 GHz Bluetooth LE 5.x Advertising & GATT',
-      detect: 'Low-Duty-Cycle Stealth Bursts (Anti-RDF)',
+      detect: 'Range and device dependent',
       detectColor: 'var(--neon-green)',
       attack: 'Double Ratchet Sealed Envelope (Zero-Relay-Knowledge)',
       sourceClass: 'BleMeshPacketRouter.kt / StoreAndForwardQueue.kt',
@@ -6033,7 +6033,7 @@ if (terminal && gamesGrid) {
 
     ctx.fillStyle = '#35ff8a';
     ctx.textAlign = 'right';
-    ctx.fillText('EMCON: 0.00 dBm // ZERO_RF', ox + barW - 8, barY + 16);
+    ctx.fillText('OPTICAL LINK // NO RF REQUIRED', ox + barW - 8, barY + 16);
     ctx.textAlign = 'left';
   }
 
@@ -6124,9 +6124,9 @@ if (terminal && gamesGrid) {
     // Carrier text label
     ctx.fillStyle = '#35ff8a';
     ctx.font = '10px monospace';
-    ctx.fillText('ULTRASONIC CARRIER: 18,500 Hz (FSK MODULATED)', 24, 30);
+    ctx.fillText('ACOUSTIC CARRIER: ILLUSTRATIVE WAVEFORM', 24, 30);
     ctx.fillStyle = 'rgba(255,255,255,0.5)';
-    ctx.fillText('HUMAN AUDIBLE CUTOFF: 16 kHz ──────┐', 24, 52);
+    ctx.fillText('SPEAKER / MICROPHONE RESPONSE VARIES ──────┐', 24, 52);
   }
 
   function renderBleMesh(time) {
@@ -7372,7 +7372,7 @@ if (terminal && gamesGrid) {
   // 2. SATELLITE DATA DATABASE
   const satelliteData = {
     'noaa19': {
-      name: 'NOAA-19 [NORAD 33591]',
+      name: 'NOAA-19 · HISTORICAL DEMO',
       status: 'LINK: EXCELLENT (74°)',
       freq: '137.100 MHz',
       freqHz: 137100000,
@@ -7395,7 +7395,7 @@ if (terminal && gamesGrid) {
       ]
     },
     'noaa18': {
-      name: 'NOAA-18 [NORAD 28654]',
+      name: 'NOAA-18 · HISTORICAL DEMO',
       status: 'LINK: GOOD (58°)',
       freq: '137.9125 MHz',
       freqHz: 137912500,
@@ -7846,10 +7846,10 @@ if (terminal && gamesGrid) {
   if (btnPtt) {
     btnPtt.addEventListener('click', () => {
       btnPtt.disabled = true;
-      btnPtt.textContent = 'TRANSMITTING [PTT ACTIVE]...';
+      btnPtt.textContent = 'DEMO · PTT BURST...';
       if (pttLed) pttLed.classList.add('ptt-active');
       if (pttLabel) {
-        pttLabel.textContent = 'PTT STATUS: ACTIVE (TX 5W RF BURST)';
+        pttLabel.textContent = 'DEMO PTT: NO RF TRANSMISSION';
         pttLabel.style.color = 'var(--neon-red)';
       }
 
@@ -7867,15 +7867,15 @@ if (terminal && gamesGrid) {
       setTimeout(() => {
         if (pttLed) pttLed.classList.remove('ptt-active');
         if (pttLabel) {
-          pttLabel.textContent = 'PTT STATUS: TAIL SQUELCH (HANG 300ms)';
+          pttLabel.textContent = 'DEMO PTT: TAIL PREVIEW';
           pttLabel.style.color = 'var(--neon-amber)';
         }
 
         setTimeout(() => {
           btnPtt.disabled = false;
-          btnPtt.textContent = 'TRANSMIT TEST BURST (PTT ENGAGE)';
+          btnPtt.textContent = 'PREVIEW PTT BURST';
           if (pttLabel) {
-            pttLabel.textContent = 'PTT STATUS: STANDBY (RX MODE)';
+            pttLabel.textContent = 'DEMO PTT: STANDBY';
             pttLabel.style.color = '#fff';
           }
           if (serialConsole) {
@@ -7959,19 +7959,19 @@ if (terminal && gamesGrid) {
   function updatePrivacyDisplay() {
     if (!privacyBadge || !btnTogglePrivacy) return;
     if (isFuzzy) {
-      privacyBadge.textContent = 'PRIVACY: ~111m FUZZY QUANTIZED';
+      privacyBadge.textContent = 'DEMO: APPROXIMATE COORDINATES';
       privacyBadge.style.borderColor = 'var(--cyan)';
       privacyBadge.style.color = 'var(--cyan)';
       privacyBadge.style.background = 'rgba(0, 243, 255, 0.08)';
-      btnTogglePrivacy.textContent = 'SWITCH TO EXACT GPS (LOCAL ONLY)';
+      btnTogglePrivacy.textContent = 'PREVIEW EXACT COORDINATES';
       btnTogglePrivacy.classList.remove('txt-amber');
       btnTogglePrivacy.classList.add('txt-cyan');
     } else {
-      privacyBadge.textContent = 'WARNING: EXACT RAW GPS (TRIANGULATABLE)';
+      privacyBadge.textContent = 'DEMO: EXACT COORDINATES';
       privacyBadge.style.borderColor = 'var(--neon-amber)';
       privacyBadge.style.color = 'var(--neon-amber)';
       privacyBadge.style.background = 'rgba(255, 170, 0, 0.12)';
-      btnTogglePrivacy.textContent = 'SWITCH TO FUZZY MASK (~111m)';
+      btnTogglePrivacy.textContent = 'PREVIEW APPROXIMATE COORDINATES';
       btnTogglePrivacy.classList.remove('txt-cyan');
       btnTogglePrivacy.classList.add('txt-amber');
     }
@@ -8086,8 +8086,8 @@ if (terminal && gamesGrid) {
       id: 'pin-h2o-0f',
       code: '0x0F',
       type: 'POTABLE WATER',
-      title: 'Tested Deep Artesian Well',
-      desc: 'Clean gravity-fed spring. Zero chemical or biological contamination.',
+      title: 'Water point · sample report',
+      desc: 'Availability and water quality have not been verified.',
       lat: 50.4435,
       lon: 30.5360,
       relX: 85,
@@ -8182,7 +8182,7 @@ if (terminal && gamesGrid) {
       if (!selectedPin) return;
       selectedPin.confirms += 1;
       updatePopover(selectedPin);
-      logRadioEvent(`[ACK_TX] Verified hazard ${selectedPin.code}: Quorum updated to ${selectedPin.confirms} ACKs`);
+      logRadioEvent(`[DEMO ACK] Sample report ${selectedPin.code}: Quorum updated to ${selectedPin.confirms} ACKs`);
       btnPopConfirm.textContent = 'VERIFIED (+1 ACK)';
       setTimeout(() => {
         if (btnPopConfirm) btnPopConfirm.textContent = 'CONFIRM (+1)';
@@ -8193,7 +8193,7 @@ if (terminal && gamesGrid) {
   if (btnPopClear) {
     btnPopClear.addEventListener('click', () => {
       if (!selectedPin) return;
-      logRadioEvent(`[CLEAR_TX] Operation 0x04 (CLEAR) dispatched for ${selectedPin.code} [${selectedPin.title}]`);
+      logRadioEvent(`[DEMO CLEAR] Operation 0x04 (CLEAR) previewed for ${selectedPin.code} [${selectedPin.title}]`);
       const idx = mapPins.indexOf(selectedPin);
       if (idx > -1 && selectedPin.category !== 'node') {
         mapPins.splice(idx, 1);
@@ -8570,7 +8570,7 @@ if (terminal && gamesGrid) {
       ctx.fillStyle = pal.friendly;
       ctx.font = 'bold 10px "JetBrains Mono", monospace';
       ctx.textAlign = 'left';
-      ctx.fillText('➔ SECURE EXTRACTION WAYPOINT', dest.x + 10, dest.y + 4);
+      ctx.fillText('➔ SAMPLE ROUTE WAYPOINT', dest.x + 10, dest.y + 4);
     }
 
     // 8. Tactical Map Pins (Hazards, Nodes, POI)
@@ -8710,11 +8710,11 @@ if (terminal && gamesGrid) {
 
       let progress = 0;
       const steps = [
-        { pct: 20, label: 'TOR TUNNEL CONNECTED (127.0.0.1:9050)...' },
-        { pct: 50, label: 'STREAMING VECTOR MBTILES BLOCKS...' },
-        { pct: 80, label: 'VALIDATING ED25519 METADATA SIGNATURE...' },
-        { pct: 95, label: 'VERIFYING SHA-256 INTEGRITY DIGEST...' },
-        { pct: 100, label: '✓ BUNDLE MOUNTED TO OFFLINE STORAGE' }
+        { pct: 20, label: 'DEMO · SELECTING A MAP SOURCE...' },
+        { pct: 50, label: 'DEMO · PREVIEWING MAP DOWNLOAD...' },
+        { pct: 80, label: 'DEMO · PREVIEWING CATALOG CHECK...' },
+        { pct: 95, label: 'DEMO · PREVIEWING INTEGRITY CHECK...' },
+        { pct: 100, label: 'DEMO COMPLETE · NO MAP INSTALLED' }
       ];
 
       let stepIdx = 0;
@@ -8726,13 +8726,13 @@ if (terminal && gamesGrid) {
           stepIdx++;
         } else {
           clearInterval(interval);
-          btnInstallPack.textContent = `✓ ${packName.toUpperCase()} ACTIVE`;
+          btnInstallPack.textContent = `DEMO COMPLETE · NO MAP INSTALLED`;
           btnInstallPack.style.borderColor = 'var(--neon-green)';
           btnInstallPack.style.color = 'var(--neon-green)';
           setTimeout(() => {
             if (installProgress) installProgress.classList.add('hidden');
             btnInstallPack.disabled = false;
-            btnInstallPack.textContent = 'INSTALL BUNDLE TO SECURE STORAGE';
+            btnInstallPack.textContent = 'PREVIEW OFFLINE SETUP';
             btnInstallPack.style.borderColor = '';
             btnInstallPack.style.color = '';
           }, 3500);
@@ -8842,7 +8842,7 @@ if (terminal && gamesGrid) {
 
       logRadioEvent(`RAW_HEX: ${fullPacket}`, 'txt-cyan');
       logRadioEvent(`[LORA_TX] Dispatched: 32 bytes | SF7/125kHz | Ch: 868.1 MHz | Airtime: 56ms`, 'txt-green');
-      logRadioEvent(`Relay ACK quorum received from 4/4 mesh nodes. Event pinned.`, '');
+      logRadioEvent(`DEMO · sample acknowledgements shown; no radio event sent.`, '');
 
       // Add dynamic pin to map
       const hazardName = genHazardSelect ? genHazardSelect.options[genHazardSelect.selectedIndex].text.split(' - ')[1] : 'Dynamic Hazard';
@@ -8869,7 +8869,7 @@ if (terminal && gamesGrid) {
       updatePopover(newPin);
 
       // Button feedback
-      btnBroadcastEvent.textContent = 'PACKET BROADCASTED OK';
+      btnBroadcastEvent.textContent = 'DEMO PACKET PREVIEWED OK';
       setTimeout(() => {
         if (btnBroadcastEvent) btnBroadcastEvent.textContent = 'TRANSMIT COMPACT RADIO DELTA';
       }, 1500);
@@ -8924,14 +8924,14 @@ if (terminal && gamesGrid) {
       tag: "FLOW 01 // RESILIENT MAPPING",
       src: "assets/img/qgeo_flow_crisis.webp?v=4.3",
       title: "Offline Vector Cartography",
-      desc: "Protected on-device mascot, zero cloud server dependencies. Vector basemaps (MBTiles/PMTiles) are cached locally and GPU-rendered at 60 FPS alongside mesh radio peers and hazard markers."
+      desc: "On-device vector maps, ready for offline use after import. View your saved area alongside supported markers and shared reports."
     },
     {
       index: 1,
       tag: "FLOW 02 // TOR FAIL-CLOSED",
       src: "assets/img/qgeo_flow_tor.webp?v=4.3",
       title: "Tor Isolation & Clearnet Block",
-      desc: "When internet connectivity is available, all remote tile queries route strictly through an isolated 3-hop Tor circuit. Direct clearnet IP leaks are strictly blocked (fail-closed) to prevent operator triangulation."
+      desc: "Choose offline maps or an online source. When Tor is required, map requests wait for Tor and do not fall back to a direct connection."
     },
     {
       index: 2,
@@ -8956,10 +8956,10 @@ if (terminal && gamesGrid) {
     },
     {
       index: 5,
-      tag: "FLOW 06 // BROUTER SAFE EGRESS",
+      tag: "FLOW 06 // BROUTER ROUTE PLANNING",
       src: "assets/img/qgeo_flow_egress.webp?v=4.3",
-      title: "Offline BRouter Safe Egress & Geofencing",
-      desc: "Computes on-device turn-by-turn evacuation vectors for foot patrols, bicycles, and 4x4s without cell towers. The routing graph dynamically bends around verified hazard pins (mines, shelling, checkpoints) while haptic geofence alerts warn operators within 500m."
+      title: "Offline BRouter Routes & Geofencing",
+      desc: "Plan routes with downloaded routing data and review nearby reports. Reports may be incomplete or outdated; a suggested route is not a guarantee of safe passage."
     }
   ];
 
@@ -9324,7 +9324,7 @@ if (terminal && gamesGrid) {
               </div>
               <div class="post-flags">
                 <span class="badge-audience ${audienceClass}">${audienceLabel}</span>
-                <span class="badge-sig txt-green">✓ ED25519 VERIFIED</span>
+                <span class="badge-sig txt-green">✓ SAMPLE SIGNATURE</span>
                 ${satsVal > 0 ? `<span class="badge-sig txt-amber">⚡ ${satsVal} SATS TICKET</span>` : ''}
               </div>
             </div>
@@ -9349,22 +9349,22 @@ if (terminal && gamesGrid) {
         const timeStr = new Date().toISOString().substring(11, 19);
         const l1 = document.createElement('div');
         l1.className = 'stream-line txt-green';
-        l1.innerHTML = `&gt; [${timeStr}] [ED25519_SIGN] Post canonicalized. Sig: 9a4f...3b12`;
+        l1.innerHTML = `&gt; [${timeStr}] [DEMO] EVENT PREPARED · sample signature`;
         const l2 = document.createElement('div');
         l2.className = 'stream-line txt-cyan';
-        l2.innerHTML = `&gt; [${timeStr}] [TOR_SOCKS5] Dispatched to 3/3 relays + LoRa mesh queue. ACK received.`;
+        l2.innerHTML = `&gt; [${timeStr}] [DEMO] DELIVERY PREVIEW · no post sent`;
         composerOutbox.prepend(l2);
         composerOutbox.prepend(l1);
       }
 
       // Reset
       if (composerText) composerText.value = '';
-      btnPublishPost.textContent = '✓ BROADCAST DISPATCHED';
+      btnPublishPost.textContent = 'DEMO · EVENT PREPARED';
       btnPublishPost.style.borderColor = '#00ff9d';
       btnPublishPost.style.color = '#00ff9d';
       setTimeout(() => {
         if (btnPublishPost) {
-          btnPublishPost.textContent = 'SIGN WITH ED25519 & BROADCAST';
+          btnPublishPost.textContent = 'PREVIEW PUBLICATION';
           btnPublishPost.style.borderColor = '';
           btnPublishPost.style.color = '';
         }
@@ -9380,14 +9380,14 @@ if (terminal && gamesGrid) {
   if (btnPayEvent) {
     btnPayEvent.addEventListener('click', () => {
       btnPayEvent.disabled = true;
-      btnPayEvent.textContent = 'AUTHORIZING VAULT PAYMENT...';
+      btnPayEvent.textContent = 'DEMO · PAYMENT PREVIEW...';
 
       setTimeout(() => {
-        btnPayEvent.textContent = '✓ 15,000 SATS PAID (TXID: 8F4C...)';
+        btnPayEvent.textContent = 'DEMO COMPLETE · NO PAYMENT SENT';
         btnPayEvent.classList.remove('txt-amber');
         btnPayEvent.classList.add('txt-green');
         if (ticketBuyStatus) {
-          ticketBuyStatus.textContent = '✓ TICKET ISSUED TO LOCAL VAULT';
+          ticketBuyStatus.textContent = 'DEMO · SAMPLE TICKET';
           ticketBuyStatus.style.color = 'var(--neon-green)';
         }
 
@@ -9477,7 +9477,7 @@ if (terminal && gamesGrid) {
       navigator.clipboard.writeText(canonicalProof).catch(() => {});
       btnCopyReceipt.textContent = '✓ COPIED TO CLIPBOARD';
       setTimeout(() => {
-        if (btnCopyReceipt) btnCopyReceipt.textContent = 'COPY CANONICAL PROOF';
+        if (btnCopyReceipt) btnCopyReceipt.textContent = 'COPY SAMPLE RECEIPT';
       }, 2000);
     });
   }
@@ -9493,14 +9493,14 @@ if (terminal && gamesGrid) {
   if (btnSimulateScan) {
     btnSimulateScan.addEventListener('click', () => {
       btnSimulateScan.disabled = true;
-      btnSimulateScan.textContent = 'DECODING OPTICAL ENVELOPE...';
+      btnSimulateScan.textContent = 'DEMO · RECEIPT CHECK...';
       if (scannerResultBanner) scannerResultBanner.classList.add('hidden');
 
       const steps = [
-        { el: auditStep1, text: '1. Envelope format: QP1NG_EVENT_RECEIPT|v2 (MATCH)' },
-        { el: auditStep2, text: '2. Cryptographic Ed25519 signature validity (VERIFIED)' },
-        { el: auditStep3, text: '3. Bitcoin UTXO output index & 15,000 SATS (MATCH)' },
-        { el: auditStep4, text: '4. Replay check: SQLite store query (UNIQUE: ADMITTED)' }
+        { el: auditStep1, text: '1. DEMO · Sample envelope format' },
+        { el: auditStep2, text: '2. DEMO · Signature-check step' },
+        { el: auditStep3, text: '3. DEMO · Receipt amount; settlement not checked' },
+        { el: auditStep4, text: '4. DEMO · Duplicate-receipt check step' }
       ];
 
       // Reset steps
@@ -9525,7 +9525,7 @@ if (terminal && gamesGrid) {
           clearInterval(stepTimer);
           if (scannerResultBanner) scannerResultBanner.classList.remove('hidden');
           btnSimulateScan.disabled = false;
-          btnSimulateScan.textContent = 'SCAN ATTENDEE QR RECEIPT';
+          btnSimulateScan.textContent = 'PREVIEW RECEIPT CHECK';
         }
       }, 350);
     });
@@ -9538,7 +9538,7 @@ if (terminal && gamesGrid) {
   if (btnPingRelays) {
     btnPingRelays.addEventListener('click', () => {
       btnPingRelays.disabled = true;
-      btnPingRelays.textContent = 'PINGING...';
+      btnPingRelays.textContent = 'DEMO · RELAY STATUS...';
 
       setTimeout(() => {
         if (relayList) {
@@ -9548,13 +9548,13 @@ if (terminal && gamesGrid) {
             Math.floor(50 + Math.random() * 25)
           ];
           const items = relayList.querySelectorAll('.relay-item');
-          if (items[0]) items[0].querySelector('.r-status').textContent = `ONLINE (${pings[0]}ms)`;
-          if (items[1]) items[1].querySelector('.r-status').textContent = `ONLINE (${pings[1]}ms)`;
-          if (items[2]) items[2].querySelector('.r-status').textContent = `ONLINE (${pings[2]}ms)`;
-          if (items[3]) items[3].querySelector('.r-status').textContent = `TOR ONION (3 HOPS - 180ms)`;
+          if (items[0]) items[0].querySelector('.r-status').textContent = `DEMO (${pings[0]}ms)`;
+          if (items[1]) items[1].querySelector('.r-status').textContent = `DEMO (${pings[1]}ms)`;
+          if (items[2]) items[2].querySelector('.r-status').textContent = `DEMO (${pings[2]}ms)`;
+          if (items[3]) items[3].querySelector('.r-status').textContent = `DEMO TOR ROUTE (180ms)`;
         }
         btnPingRelays.disabled = false;
-        btnPingRelays.textContent = 'PING RELAYS';
+        btnPingRelays.textContent = 'PREVIEW RELAY STATUS';
       }, 500);
     });
   }
@@ -9650,7 +9650,7 @@ if (terminal && gamesGrid) {
       n2Title: 'GHOST_MODE_INACTIVE',
       n2Sub: 'Check transmitter state',
       n3Title: 'ACTIVATE_GHOST_MODE',
-      n3Sub: 'RF Kill switch: 0.00 dBm EMCON',
+      n3Sub: 'Configured radio controls · example',
       n4Title: 'SEND_LORA_MESSAGE',
       n4Sub: 'Ch 868.1 MHz: 32B Coded Alert'
     },
@@ -9728,8 +9728,8 @@ if (terminal && gamesGrid) {
   if (btnSimulateFlow) {
     btnSimulateFlow.addEventListener('click', () => {
       btnSimulateFlow.disabled = true;
-      btnSimulateFlow.textContent = 'EXECUTING FLOW GRAPH...';
-      if (flowStatus) flowStatus.textContent = 'EXECUTING: DISPATCHING EVENT NODE 01';
+      btnSimulateFlow.textContent = 'PREVIEWING FLOW GRAPH...';
+      if (flowStatus) flowStatus.textContent = 'DEMO: EVENT NODE 01';
 
       // Clear existing active styles
       [node1, node2, node3, node4].forEach(n => n && n.classList.remove('active-node'));
@@ -9746,7 +9746,7 @@ if (terminal && gamesGrid) {
         // Stage 2: Condition Gate
         if (wire12) wire12.classList.add('active-wire');
         if (node2) node2.classList.add('active-node');
-        if (flowStatus) flowStatus.textContent = 'EVALUATING: CONDITION NODE 02';
+        if (flowStatus) flowStatus.textContent = 'DEMO: CONDITION NODE 02';
         logTerminal(`[COND_EVAL] Condition check: ${r.n2Title} -> TRUE`, 'txt-purple');
 
         setTimeout(() => {
@@ -9755,16 +9755,16 @@ if (terminal && gamesGrid) {
           if (wire24) wire24.classList.add('active-wire');
           if (node3) node3.classList.add('active-node');
           if (node4) node4.classList.add('active-node');
-          if (flowStatus) flowStatus.textContent = 'EXECUTING: ACTIONS 03 & 04 (PARALLEL)';
+          if (flowStatus) flowStatus.textContent = 'DEMO: ACTIONS 03 & 04';
 
-          logTerminal(`[ACTION_EXEC] Action 01: ${r.n3Title} [PRoot sandbox bound: OK]`, 'txt-cyan');
-          logTerminal(`[DISPATCH_EXEC] Action 02: ${r.n4Title} [Broadcast ACK: OK]`, 'txt-green');
+          logTerminal(`[DEMO ACTION] Action 01: ${r.n3Title} [example step]`, 'txt-cyan');
+          logTerminal(`[DEMO DISPATCH] Action 02: ${r.n4Title} [no broadcast sent]`, 'txt-green');
 
           setTimeout(() => {
-            if (flowStatus) flowStatus.textContent = 'EXECUTION COMPLETED // 0 ERRORS (38ms)';
+            if (flowStatus) flowStatus.textContent = 'DEMO COMPLETE · NO ACTIONS EXECUTED';
             btnSimulateFlow.disabled = false;
-            btnSimulateFlow.textContent = 'EXECUTE GRAPH FLOW';
-            logTerminal(`[FLOW_COMPLETE] Sequence finished in 38ms. State persisted to vault.`, '');
+            btnSimulateFlow.textContent = 'PREVIEW GRAPH FLOW';
+            logTerminal(`[DEMO COMPLETE] No app action executed or vault state changed.`, '');
           }, 600);
         }, 600);
       }, 500);
@@ -9810,7 +9810,7 @@ if (terminal && gamesGrid) {
       deadmanTimerDisplay.style.color = '#ff2244';
     }
     if (tripwireAlertBox) tripwireAlertBox.classList.remove('hidden');
-    logTerminal(`[DEAD_MAN_TRIPWIRE] Canary expired! Stage 1-4 panic sequence engaged.`, 'txt-red');
+    logTerminal(`[DEMO TIMEOUT] Example sequence displayed; no panic action executed.`, 'txt-red');
   }
 
   if (btnCanaryCheckin) {
@@ -9820,14 +9820,14 @@ if (terminal && gamesGrid) {
       if (deadmanTimerDisplay) deadmanTimerDisplay.style.color = '#ff2244';
       if (tripwireAlertBox) tripwireAlertBox.classList.add('hidden');
 
-      btnCanaryCheckin.textContent = '✓ CHECK-IN LOGGED (RESET 24H)';
+      btnCanaryCheckin.textContent = '✓ DEMO TIMER RESET (24H)';
       btnCanaryCheckin.style.borderColor = '#00ff9d';
       btnCanaryCheckin.style.color = '#00ff9d';
-      logTerminal(`[CANARY_CHECKIN] Operator presence verified. Watchdog deadline extended +24h.`, 'txt-green');
+      logTerminal(`[DEMO CHECK-IN] Sample timer extended +24h.`, 'txt-green');
 
       setTimeout(() => {
         if (btnCanaryCheckin) {
-          btnCanaryCheckin.textContent = 'CANARY CHECK-IN (RESET 24H)';
+          btnCanaryCheckin.textContent = 'RESET DEMO TIMER (24H)';
           btnCanaryCheckin.style.borderColor = '';
           btnCanaryCheckin.style.color = '';
         }
@@ -9885,13 +9885,13 @@ if (terminal && gamesGrid) {
   if (btnAuditTool) {
     btnAuditTool.addEventListener('click', () => {
       btnAuditTool.disabled = true;
-      btnAuditTool.textContent = 'AUDITING MINISIGN...';
+      btnAuditTool.textContent = 'DEMO · SIGNATURE CHECK...';
 
       setTimeout(() => {
         btnAuditTool.disabled = false;
-        btnAuditTool.textContent = 'VERIFY MINISIGN SIGNATURE';
+        btnAuditTool.textContent = 'PREVIEW SIGNATURE CHECK';
         if (auditSignatureStatus) {
-          auditSignatureStatus.textContent = '✓ SIGNATURE VERIFIED (KEY #01 ED25519)';
+          auditSignatureStatus.textContent = 'DEMO COMPLETE · NO SIGNATURE VERIFIED';
           auditSignatureStatus.style.color = 'var(--neon-green)';
         }
       }, 400);
