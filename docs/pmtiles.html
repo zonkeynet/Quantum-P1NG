@@ -2,19 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Q-Geo PMTiles City Extractor — Quantum P1NG (Q-P1NG®)</title>
-  <meta name="description" content="Extract and download zero-cloud offline vector maps (.pmtiles) for active conflict zones and cities worldwide. 100% air-gapped OpenStreetMap tactical GIS for Quantum P1NG.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Q-Geo Map Studio — Quantum P1NG</title>
+  <meta name="description" content="Prepare offline vector map regions (.pmtiles) for Quantum P1NG. Explore online street and satellite maps, then extract a local map for offline use.">
   <link rel="icon" type="image/png" href="assets/img/qp1ng_icon.png">
 
   <!-- OpenGraph / Social Meta -->
-  <meta property="og:title" content="Q-Geo PMTiles City Extractor — Quantum P1NG">
-  <meta property="og:description" content="Extract offline vector maps (.pmtiles) on the fly. Zero cloud, 100% air-gapped.">
+  <meta property="og:title" content="Q-Geo Map Studio — Quantum P1NG">
+  <meta property="og:description" content="Explore online maps and prepare PMTiles vector regions for offline use in Quantum P1NG.">
   <meta property="og:image" content="https://www.qp1ng.com/assets/img/social-preview.png">
   <meta property="og:url" content="https://www.qp1ng.com/pmtiles.html">
 
   <!-- Content Security Policy (Self-hosted & GIS Mapping Enabled) -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://github.com https://raw.githubusercontent.com https://*.tile.openstreetmap.org https://tile.openstreetmap.org https://*.arcgisonline.com https://server.arcgisonline.com https://services.arcgisonline.com; font-src 'self' data:; media-src 'self' data: blob:; worker-src 'self' blob:; connect-src 'self' https://api.qp1ng.com wss://api.qp1ng.com https://raw.githubusercontent.com https://zonkeynet.github.io https://*.tile.openstreetmap.org https://tile.openstreetmap.org https://*.arcgisonline.com https://server.arcgisonline.com https://services.arcgisonline.com https://nominatim.openstreetmap.org https://build.protomaps.com https://slice.openstreetmap.us blob:; object-src 'none';" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://github.com https://raw.githubusercontent.com https://*.tile.openstreetmap.org https://tile.openstreetmap.org https://*.arcgisonline.com https://server.arcgisonline.com https://services.arcgisonline.com; font-src 'self' data:; media-src 'self' data: blob:; worker-src 'self' blob:; connect-src 'self' https://api.qp1ng.com wss://api.qp1ng.com https://raw.githubusercontent.com https://zonkeynet.github.io https://*.tile.openstreetmap.org https://tile.openstreetmap.org https://*.arcgisonline.com https://server.arcgisonline.com https://services.arcgisonline.com https://nominatim.openstreetmap.org https://build.protomaps.com https://build-metadata.protomaps.dev https://slice.openstreetmap.us blob:; object-src 'none';" />
 
   <!-- MapLibre GL JS (Self-hosted vendor bundle - CSP compliant) -->
   <link href="assets/vendor/maplibre-gl.css" rel="stylesheet" />
@@ -30,21 +30,22 @@
   <style>
     :root {
       --bg: #040910;
-      --panel-bg: rgba(6, 14, 24, 0.94);
-      --card-bg: rgba(9, 21, 35, 0.85);
-      --border: rgba(0, 242, 255, 0.22);
-      --border-bright: rgba(0, 242, 255, 0.65);
-      --text: #e6f1fc;
-      --text-dim: #7f9bb8;
-      --text-muted: #4e6782;
-      --cyan: #00f2ff;
-      --cyan-glow: rgba(0, 242, 255, 0.35);
-      --green: #35ff8a;
-      --green-glow: rgba(53, 255, 138, 0.35);
       --amber: #ffaa00;
       --red: #ff2a6d;
       --font-mono: 'Space Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --header-height: 64px;
+      --panel-bg: rgba(12, 22, 35, 0.97);
+      --card-bg: #111e2d;
+      --border: rgba(166, 197, 219, 0.18);
+      --border-bright: rgba(102, 222, 234, 0.5);
+      --text: #edf5fb;
+      --text-dim: #b0c2d2;
+      --text-muted: #91a9bd;
+      --cyan: #66deea;
+      --green: #7de1b2;
+      --cyan-glow: rgba(102, 222, 234, 0.1);
+      --green-glow: rgba(125, 225, 178, 0.1);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
@@ -57,18 +58,6 @@
       font-family: var(--font-sans);
     }
 
-    /* Cyber scanline overlay */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.22) 50%),
-                  linear-gradient(90deg, rgba(0, 242, 255, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 242, 255, 0.02));
-      background-size: 100% 3px, 3px 100%;
-      pointer-events: none;
-      z-index: 1000;
-    }
-
     /* =========================================================================
        TOP BAR / HEADER
        ========================================================================= */
@@ -77,15 +66,16 @@
       top: 0;
       left: 0;
       right: 0;
-      height: 52px;
       z-index: 30;
-      background: rgba(3, 8, 15, 0.94);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 16px;
+      height: var(--header-height);
+      background: #09131f;
+      padding: 0 20px;
+      gap: 16px;
     }
 
     .brand-wrap {
@@ -93,35 +83,38 @@
       align-items: center;
       gap: 10px;
       text-decoration: none;
+      min-width: 0;
+      flex-shrink: 0;
     }
 
     .brand-logo {
-      width: 30px;
-      height: 30px;
-      border-radius: 6px;
       border: 1px solid var(--border);
-      box-shadow: 0 0 10px rgba(0, 242, 255, 0.2);
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      box-shadow: none;
     }
 
     .brand-title {
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
       font-weight: 700;
-      letter-spacing: 1.2px;
-      color: var(--cyan);
       display: flex;
       align-items: center;
-      gap: 8px;
+      font-family: var(--font-sans);
+      font-size: 1.05rem;
+      letter-spacing: 0.06em;
+      color: var(--text);
+      gap: 12px;
     }
 
     .brand-badge {
-      font-size: 0.62rem;
-      padding: 2px 6px;
-      border-radius: 3px;
       background: rgba(0, 242, 255, 0.12);
       border: 1px solid rgba(0, 242, 255, 0.35);
       color: var(--cyan);
       letter-spacing: 0.5px;
+      font-size: 0.65rem;
+      padding: 5px 8px;
+      border-radius: 6px;
+      font-weight: 500;
     }
 
     .topbar-right {
@@ -134,13 +127,13 @@
       display: none;
       align-items: center;
       gap: 6px;
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
       color: var(--text-dim);
-      background: rgba(0, 0, 0, 0.45);
       padding: 4px 10px;
       border-radius: 4px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      border: none;
+      background: transparent;
     }
 
     @media (min-width: 860px) {
@@ -152,8 +145,9 @@
       height: 7px;
       border-radius: 50%;
       background: var(--green);
-      box-shadow: 0 0 8px var(--green);
-      animation: pulse 2s infinite;
+      animation: none;
+      box-shadow: none;
+      flex-shrink: 0;
     }
 
     @keyframes pulse {
@@ -162,20 +156,22 @@
     }
 
     .btn-return {
-      font-family: var(--font-mono);
-      font-size: 0.74rem;
-      color: var(--green);
       text-decoration: none;
       letter-spacing: 0.5px;
       padding: 5px 10px;
       border: 1px solid rgba(53, 255, 138, 0.35);
-      border-radius: 4px;
-      background: rgba(53, 255, 138, 0.06);
       transition: all 0.2s ease;
       display: flex;
       align-items: center;
       gap: 5px;
       white-space: nowrap;
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      min-height: 38px;
+      border-color: var(--border);
+      color: var(--text-dim);
+      background: transparent;
+      border-radius: 8px;
     }
 
     .btn-return:hover {
@@ -189,8 +185,10 @@
        ========================================================================= */
     #map {
       width: 100%;
-      height: 100%;
-      padding-top: 52px;
+      position: absolute;
+      inset: var(--header-height) 0 0;
+      height: auto;
+      padding-top: 0;
     }
 
     /* Tactical Dark mode filter for OSM tiles (100% key-free & watermark-free) */
@@ -198,14 +196,14 @@
       filter: brightness(0.68) invert(1) contrast(2.8) hue-rotate(185deg) saturate(0.35);
     }
 
-    /* NVG P43 Green Phosphor Night Vision filter */
+    /* Monochrome green palette: remove source hues before tinting. */
     .map--nvg .maplibregl-canvas {
-      filter: brightness(0.8) invert(1) contrast(3.4) hue-rotate(85deg) saturate(4.8);
+      filter: grayscale(1) invert(1) contrast(1.6) sepia(1) saturate(4) hue-rotate(75deg) brightness(0.85);
     }
 
-    /* Tactical Red Night Shield filter (preserves scotopic human night vision) */
+    /* Monochrome red palette. This is a display style, not a sensor mode. */
     .map--redlight .maplibregl-canvas {
-      filter: brightness(0.75) invert(1) contrast(3.2) hue-rotate(330deg) saturate(5.5);
+      filter: grayscale(1) invert(1) contrast(1.6) sepia(1) saturate(8) hue-rotate(315deg) brightness(0.75);
     }
 
     /* =========================================================================
@@ -214,28 +212,29 @@
     .basemap-group {
       display: flex;
       align-items: center;
-      background: rgba(4, 10, 18, 0.88);
       border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 2px;
       gap: 2px;
+      border-radius: 12px;
+      padding: 4px;
+      background: #101e2c;
     }
 
     .basemap-btn {
       background: transparent;
       border: 1px solid transparent;
       color: var(--text-dim);
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      font-weight: 700;
-      padding: 4px 8px;
-      border-radius: 4px;
       cursor: pointer;
       display: flex;
       align-items: center;
       gap: 5px;
       transition: all 0.18s ease;
       white-space: nowrap;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 600;
+      min-height: 36px;
+      border-radius: 8px;
+      padding: 6px 10px;
     }
 
     .basemap-btn:hover {
@@ -244,10 +243,10 @@
     }
 
     .basemap-btn.active {
-      background: rgba(0, 242, 255, 0.2);
-      color: #fff;
-      border-color: var(--cyan);
-      box-shadow: 0 0 10px var(--cyan-glow);
+      background: rgba(102, 222, 234, 0.15);
+      border-color: rgba(102, 222, 234, 0.45);
+      box-shadow: none;
+      color: var(--cyan);
     }
 
     /* INSPECT LOCAL ARCHIVE BUTTON */
@@ -352,21 +351,21 @@
     /* PMTILES ARCHIVE INSPECTOR MODAL */
     .inspector-modal {
       position: fixed;
-      top: 66px;
       right: 14px;
       width: 380px;
       max-width: calc(100% - 28px);
-      max-height: calc(100vh - 86px);
       overflow-y: auto;
       background: var(--panel-bg);
       backdrop-filter: blur(16px);
-      border: 1px solid var(--green);
-      border-radius: 8px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 25px var(--green-glow);
-      z-index: 45;
       display: none;
-      padding: 16px;
       animation: slideInRight 0.25s ease-out;
+      top: calc(var(--header-height) + 16px);
+      max-height: calc(100% - var(--header-height) - 32px);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 18px;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+      z-index: 60;
     }
 
     .inspector-modal.active {
@@ -572,9 +571,9 @@
        MAPLIBRE CONTROLS (ZOOM / COMPASS / DRAW / SCALE) TACTICAL STYLING
        ========================================================================= */
     .maplibregl-ctrl-top-right {
-      top: 64px !important;
-      right: 14px !important;
       z-index: 24 !important;
+      top: 16px !important;
+      right: 16px !important;
     }
 
     .maplibregl-ctrl-group {
@@ -588,11 +587,11 @@
     }
 
     .maplibregl-ctrl-group button {
-      width: 36px !important;
-      height: 36px !important;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
       background-color: transparent !important;
       transition: all 0.2s ease !important;
+      width: 40px !important;
+      height: 40px !important;
     }
 
     .maplibregl-ctrl-group button:last-child {
@@ -624,7 +623,10 @@
       gap: 6px;
     }
 
+
     .mapboxgl-ctrl-group {
+      /* Mapbox Draw uses a different class from MapLibre's pointer-events reset. */
+      pointer-events: auto;
       background: rgba(6, 14, 24, 0.92) !important;
       border: 1px solid var(--border) !important;
       border-radius: 8px !important;
@@ -635,8 +637,6 @@
     }
 
     .mapboxgl-ctrl-group button {
-      width: 36px !important;
-      height: 36px !important;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
       background-color: transparent !important;
       background-repeat: no-repeat !important;
@@ -645,6 +645,8 @@
       align-items: center !important;
       justify-content: center !important;
       transition: all 0.2s ease !important;
+      width: 40px !important;
+      height: 40px !important;
     }
 
     .mapboxgl-ctrl-group button:last-child {
@@ -674,9 +676,9 @@
       border-top: none !important;
       color: var(--cyan) !important;
       font-family: var(--font-mono) !important;
-      font-size: 0.62rem !important;
       padding: 2px 5px !important;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5) !important;
+      font-size: 0.7rem !important;
     }
 
     /* =========================================================================
@@ -684,20 +686,17 @@
        ========================================================================= */
     .map-fab-group {
       position: absolute;
-      top: 182px;
-      right: 14px;
       z-index: 25;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      top: calc(var(--header-height) + 150px);
+      right: 16px;
+      gap: 8px;
     }
 
     .map-fab {
-      width: 36px;
-      height: 36px;
       background: rgba(6, 14, 24, 0.92);
       border: 1px solid var(--border);
-      border-radius: 8px;
       color: var(--cyan);
       display: flex;
       align-items: center;
@@ -707,6 +706,9 @@
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
       transition: all 0.2s ease;
       font-size: 0.95rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
     }
 
     .map-fab:hover, .map-fab:active {
@@ -728,20 +730,22 @@
        ========================================================================= */
     .panel {
       position: absolute;
-      top: 64px;
-      left: 14px;
       z-index: 20;
       background: var(--panel-bg);
       backdrop-filter: blur(16px);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 242, 255, 0.08);
-      max-width: 338px;
       width: calc(100% - 28px);
-      max-height: calc(100vh - 78px);
       overflow-y: auto;
-      padding: 10px 12px;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      top: calc(var(--header-height) + 16px);
+      left: 16px;
+      max-width: 372px;
+      max-height: calc(100% - var(--header-height) - 32px);
+      padding: 18px;
+      border-radius: 18px;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+      transition: max-height 0.2s ease;
+      scrollbar-width: thin;
+      scrollbar-color: #334e65 transparent;
     }
 
     .panel::-webkit-scrollbar { width: 4px; }
@@ -751,7 +755,7 @@
     /* Desktop Peek Mode (Compact collapsed bar) */
     @media (min-width: 769px) {
       .panel.is-peek-desktop {
-        max-height: 44px;
+        max-height: 100px;
         overflow: hidden;
         padding-bottom: 6px;
       }
@@ -780,26 +784,28 @@
     .panel-header {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      margin-bottom: 8px;
-      padding-bottom: 6px;
       border-bottom: 1px solid var(--border);
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      gap: 10px;
+      align-items: flex-start;
     }
 
     .panel-title {
-      font-family: var(--font-mono);
-      font-size: 0.88rem;
       font-weight: 700;
-      color: var(--cyan);
-      letter-spacing: 0.8px;
-      line-height: 1.2;
+      font-family: var(--font-sans);
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      color: var(--text);
     }
 
     .panel-subtitle {
-      font-size: 0.64rem;
       color: var(--text-dim);
-      font-family: var(--font-mono);
-      margin-top: 1px;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      line-height: 1.5;
+      margin-top: 5px;
     }
 
     .panel-toggle-btn {
@@ -807,13 +813,15 @@
       background: rgba(0, 242, 255, 0.08);
       border: 1px solid var(--border);
       color: var(--cyan);
-      font-family: var(--font-mono);
-      font-size: 0.62rem;
-      padding: 2px 7px;
-      border-radius: 4px;
       cursor: pointer;
       transition: all 0.15s ease;
       white-space: nowrap;
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      min-height: 36px;
+      padding: 6px 9px;
+      border-radius: 8px;
+      flex-shrink: 0;
     }
 
     .panel-toggle-btn:hover {
@@ -826,7 +834,6 @@
        ========================================================================= */
     .tactical-hud-overlay {
       position: absolute;
-      inset: 0;
       pointer-events: none;
       z-index: 15;
       display: flex;
@@ -834,6 +841,7 @@
       justify-content: space-between;
       align-items: center;
       transition: opacity 0.2s ease;
+      inset: var(--header-height) 0 0;
     }
 
     .tactical-hud-overlay.hidden {
@@ -848,6 +856,7 @@
       width: 48px;
       height: 48px;
       pointer-events: none;
+      opacity: 0.65;
     }
 
     .reticle-circle {
@@ -900,17 +909,17 @@
       background: rgba(4, 10, 18, 0.9);
       border: 1px solid var(--border);
       backdrop-filter: blur(12px);
-      border-radius: 6px;
-      padding: 6px 14px;
       display: flex;
       align-items: center;
       gap: 14px;
       font-family: var(--font-mono);
-      font-size: 0.7rem;
       color: var(--text-dim);
       white-space: nowrap;
       box-shadow: 0 4px 18px rgba(0,0,0,0.65);
       pointer-events: auto;
+      font-size: 0.7rem;
+      border-radius: 10px;
+      padding: 10px 14px;
     }
 
     .hud-lbl {
@@ -938,27 +947,28 @@
     .panel-tabs {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 4px;
       margin-bottom: 12px;
-      background: rgba(2, 6, 12, 0.8);
-      padding: 3px;
-      border-radius: 6px;
       border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      gap: 2px;
+      background: #081421;
+      padding: 4px;
     }
 
     .panel-tab {
       background: transparent;
       border: 1px solid transparent;
-      border-radius: 4px;
       color: var(--text-dim);
-      font-family: var(--font-mono);
-      font-size: 0.66rem;
-      font-weight: 700;
-      padding: 6px 2px;
       cursor: pointer;
       text-align: center;
       transition: all 0.2s ease;
       white-space: nowrap;
+      font-family: var(--font-sans);
+      font-size: 0.76rem;
+      font-weight: 600;
+      padding: 9px 2px;
+      min-height: 38px;
+      border-radius: 7px;
     }
 
     .panel-tab:hover {
@@ -967,10 +977,10 @@
     }
 
     .panel-tab.active {
-      color: #fff;
-      background: rgba(0, 242, 255, 0.22);
-      border-color: var(--cyan);
-      box-shadow: 0 0 10px var(--cyan-glow);
+      color: var(--cyan);
+      border-color: rgba(102, 222, 234, 0.25);
+      background: #1a3442;
+      box-shadow: none;
     }
 
     .tab-pane {
@@ -999,23 +1009,25 @@
     }
 
     .rf-legend-title {
-      font-family: var(--font-mono);
-      font-size: 0.66rem;
       color: var(--cyan);
       font-weight: 700;
       margin-bottom: 6px;
       display: flex;
       justify-content: space-between;
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      flex-wrap: wrap;
+      gap: 8px;
     }
 
     .rf-legend-row {
       display: flex;
       align-items: center;
       gap: 6px;
-      font-family: var(--font-mono);
-      font-size: 0.64rem;
       color: var(--text-dim);
-      padding: 2px 0;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      padding: 6px 0;
     }
 
     .rf-ring-dot {
@@ -1035,14 +1047,15 @@
     .rf-freq-btn {
       background: rgba(9, 21, 35, 0.7);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 4px;
       color: var(--text-dim);
-      font-family: var(--font-mono);
-      font-size: 0.64rem;
       padding: 6px 2px;
       cursor: pointer;
       text-align: center;
       transition: all 0.15s;
+      font-family: var(--font-sans);
+      font-size: 0.74rem;
+      min-height: 40px;
+      border-radius: 8px;
     }
 
     .rf-freq-btn.active {
@@ -1065,10 +1078,7 @@
     .wpt-type-chip {
       background: rgba(9, 21, 35, 0.7);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 4px;
       color: var(--text-dim);
-      font-family: var(--font-mono);
-      font-size: 0.64rem;
       padding: 6px 2px;
       cursor: pointer;
       text-align: center;
@@ -1077,6 +1087,10 @@
       align-items: center;
       gap: 2px;
       transition: all 0.15s;
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      min-height: 48px;
+      border-radius: 8px;
     }
 
     .wpt-type-chip.active {
@@ -1096,12 +1110,14 @@
       flex: 1;
       background: rgba(3, 9, 16, 0.85);
       border: 1px solid var(--border);
-      border-radius: 4px;
       color: var(--text);
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
       padding: 6px 8px;
       outline: none;
+      min-width: 0;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      min-height: 40px;
+      border-radius: 8px;
     }
 
     .wpt-input:focus {
@@ -1109,23 +1125,24 @@
     }
 
     .wpt-list-box {
-      max-height: 130px;
       overflow-y: auto;
       background: rgba(2, 6, 12, 0.7);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 4px;
       padding: 6px;
       margin-bottom: 10px;
       font-family: var(--font-mono);
-      font-size: 0.65rem;
+      font-size: 0.75rem;
+      border-radius: 10px;
+      max-height: 190px;
     }
 
     .wpt-item {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 4px 6px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 8px 4px;
+      gap: 8px;
     }
 
     .wpt-item:last-child { border-bottom: none; }
@@ -1137,6 +1154,9 @@
       cursor: pointer;
       font-size: 0.85rem;
       padding: 0 4px;
+      min-width: 36px;
+      min-height: 36px;
+      flex-shrink: 0;
     }
 
     .wpt-del-btn:hover {
@@ -1179,13 +1199,15 @@
       flex: 1;
       background: rgba(3, 9, 16, 0.85);
       border: 1px solid var(--border);
-      border-radius: 4px;
       color: var(--text);
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      padding: 8px 10px;
       outline: none;
       transition: border-color 0.2s;
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      min-width: 0;
+      min-height: 44px;
+      border-radius: 10px;
+      padding: 10px 12px;
     }
 
     .search-input:focus {
@@ -1196,13 +1218,14 @@
     .search-btn {
       background: rgba(0, 242, 255, 0.12);
       border: 1px solid var(--border);
-      border-radius: 4px;
       color: var(--cyan);
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
       padding: 0 12px;
       cursor: pointer;
       transition: all 0.2s;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      border-radius: 10px;
+      min-width: 44px;
     }
 
     .search-btn:hover {
@@ -1216,16 +1239,15 @@
     }
 
     .presets-label {
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      color: var(--red);
-      letter-spacing: 0.5px;
-      margin-bottom: 4px;
       display: flex;
       align-items: center;
       gap: 5px;
-      font-weight: 700;
-      font-size: 0.58rem;
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--text-dim);
+      letter-spacing: 0.02em;
+      margin-bottom: 8px;
     }
 
     .presets-label::before {
@@ -1235,25 +1257,27 @@
       border-radius: 50%;
       background: var(--red);
       box-shadow: 0 0 5px var(--red);
+      display: none;
     }
 
     .presets-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 3px;
+      gap: 6px;
     }
 
     .preset-chip {
       background: rgba(9, 21, 35, 0.7);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 3px;
       color: var(--text-dim);
-      font-family: var(--font-mono);
-      font-size: 0.62rem;
-      padding: 3px 2px;
       text-align: center;
       cursor: pointer;
       transition: all 0.15s;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      padding: 7px 3px;
+      border-radius: 7px;
+      min-height: 32px;
     }
 
     .preset-chip:hover {
@@ -1263,10 +1287,10 @@
     }
 
     .preset-chip.active {
-      border-color: var(--red);
-      color: #fff;
-      background: rgba(255, 42, 109, 0.2);
-      box-shadow: 0 0 8px rgba(255, 42, 109, 0.3);
+      color: var(--cyan);
+      background: rgba(102, 222, 234, 0.12);
+      border-color: rgba(102, 222, 234, 0.35);
+      box-shadow: none;
     }
 
     /* ACTION BUTTONS (3-COLUMN TACTICAL STRIP) */
@@ -1280,18 +1304,19 @@
     .btn-action {
       background: rgba(9, 21, 35, 0.85);
       border: 1px solid var(--border);
-      border-radius: 4px;
       color: var(--cyan);
-      font-family: var(--font-mono);
-      font-size: 0.64rem;
       padding: 6px 3px;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 4px;
       transition: all 0.2s;
       white-space: nowrap;
+      font-family: var(--font-sans);
+      font-size: 0.74rem;
+      min-height: 40px;
+      border-radius: 8px;
+      gap: 6px;
     }
 
     .btn-action:hover, .btn-action:active {
@@ -1309,15 +1334,15 @@
 
     /* TELEMETRY MATRIX (2-COLUMN COMPACT GRID) */
     .telemetry-card {
-      background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 6px 8px;
       margin-bottom: 6px;
       font-family: var(--font-mono);
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 3px 8px;
+      border-radius: 12px;
+      padding: 12px;
+      gap: 12px 8px;
+      background: #091725;
     }
 
     .telemetry-row {
@@ -1328,20 +1353,23 @@
     }
 
     .telemetry-label {
-      font-size: 0.55rem;
-      color: var(--text-muted);
-      letter-spacing: 0.4px;
       line-height: 1.1;
+      font-family: var(--font-sans);
+      font-size: 0.62rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
     }
 
     .telemetry-val {
       color: var(--text);
       font-weight: 700;
-      font-size: 0.66rem;
       line-height: 1.25;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      font-size: 0.75rem;
+      overflow-wrap: anywhere;
     }
 
     .telemetry-val.cyan { color: var(--cyan); }
@@ -1353,29 +1381,30 @@
     .coords-box {
       background: rgba(2, 6, 12, 0.85);
       border: 1px solid rgba(0, 242, 255, 0.2);
-      border-radius: 4px;
-      padding: 5px 8px;
       margin-bottom: 6px;
       font-family: var(--font-mono);
-      font-size: 0.62rem;
-      line-height: 1.35;
       color: var(--cyan);
       word-break: break-all;
       position: relative;
+      border-radius: 10px;
+      padding: 12px 56px 12px 12px;
+      font-size: 0.7rem;
+      line-height: 1.6;
     }
 
     .copy-btn {
       position: absolute;
-      top: 4px;
-      right: 4px;
       background: rgba(0, 242, 255, 0.1);
       border: 1px solid rgba(0, 242, 255, 0.3);
-      border-radius: 3px;
       color: var(--cyan);
       font-family: var(--font-mono);
       font-size: 0.58rem;
       padding: 2px 5px;
       cursor: pointer;
+      min-height: 32px;
+      border-radius: 6px;
+      right: 7px;
+      top: 7px;
     }
 
     .copy-btn:hover { background: rgba(0, 242, 255, 0.25); }
@@ -1388,21 +1417,22 @@
       gap: 6px;
       width: 100%;
       padding: 8px 10px;
-      background: linear-gradient(135deg, rgba(0, 242, 255, 0.25), rgba(53, 255, 138, 0.2));
       border: 1px solid var(--cyan);
-      border-radius: 6px;
-      color: #fff;
-      font-family: var(--font-mono);
-      font-size: 0.74rem;
-      font-weight: 700;
-      letter-spacing: 0.5px;
       cursor: pointer;
       text-align: center;
       text-decoration: none;
-      box-shadow: 0 0 14px var(--cyan-glow);
       transition: all 0.2s ease;
       margin-bottom: 4px;
       height: 36px;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      border-radius: 10px;
+      min-height: 46px;
+      background: var(--cyan);
+      color: #071b25;
+      font-weight: 700;
+      box-shadow: none;
+      letter-spacing: 0;
     }
 
     .btn-download:hover:not(:disabled) {
@@ -1412,11 +1442,12 @@
     }
 
     .btn-download:disabled {
-      background: rgba(255, 255, 255, 0.04);
-      border-color: rgba(255, 255, 255, 0.1);
-      color: var(--text-muted);
       cursor: not-allowed;
       box-shadow: none;
+      background: #132433;
+      color: #a4b9c9;
+      border-color: var(--border);
+      opacity: 1;
     }
 
     .btn-cli {
@@ -1425,15 +1456,16 @@
       padding: 3px 6px;
       background: transparent;
       border: 1px dashed rgba(255, 255, 255, 0.15);
-      border-radius: 4px;
       color: var(--text-dim);
-      font-family: var(--font-mono);
-      font-size: 0.60rem;
       cursor: pointer;
       text-align: center;
       margin-bottom: 6px;
       transition: all 0.2s;
       height: 22px;
+      font-family: var(--font-sans);
+      font-size: 0.74rem;
+      min-height: 34px;
+      border-radius: 8px;
     }
 
     .btn-cli:hover {
@@ -1444,25 +1476,26 @@
     /* GUIDE ACCORDION (COLLAPSIBLE DETAILS) */
     .guide-box {
       border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 4px;
-      padding: 5px 8px;
       background: rgba(3, 8, 15, 0.6);
-      font-size: 0.64rem;
-      line-height: 1.4;
       color: var(--text-dim);
+      border-radius: 10px;
+      font-size: 0.78rem;
+      line-height: 1.65;
+      padding: 10px 12px;
     }
 
     .guide-box summary {
       cursor: pointer;
       list-style: none;
-      font-family: var(--font-mono);
-      color: var(--green);
-      font-size: 0.64rem;
       font-weight: 700;
       display: flex;
       justify-content: space-between;
       align-items: center;
       user-select: none;
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      min-height: 24px;
+      color: var(--text-dim);
     }
 
     .guide-box summary::-webkit-details-marker {
@@ -1498,38 +1531,41 @@
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.75);
       backdrop-filter: blur(8px);
       z-index: 2000;
       display: none;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 24px;
+      background: rgba(2, 8, 15, 0.75);
     }
 
     .modal-overlay.active { display: flex; }
 
     .modal-card {
-      background: #060e18;
-      border: 1px solid var(--cyan);
-      box-shadow: 0 0 30px rgba(0, 242, 255, 0.25);
-      border-radius: 8px;
       max-width: 580px;
       width: 100%;
-      padding: 20px;
-      font-family: var(--font-mono);
       position: relative;
+      background: #0c1825;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      font-family: var(--font-sans);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
     }
 
     .modal-close {
       position: absolute;
-      top: 12px;
-      right: 12px;
-      background: transparent;
       border: none;
       color: var(--text-dim);
-      font-size: 1.1rem;
       cursor: pointer;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: #192b3b;
+      font-size: 1.4rem;
+      top: 18px;
+      right: 18px;
     }
 
     .modal-close:hover { color: var(--red); }
@@ -1538,35 +1574,40 @@
     .modal-code {
       background: #020509;
       border: 1px solid rgba(0, 242, 255, 0.2);
-      border-radius: 4px;
-      padding: 10px;
-      font-size: 0.72rem;
       color: var(--green);
       word-break: break-all;
       margin-bottom: 12px;
       user-select: all;
+      font-family: var(--font-mono);
+      line-height: 1.65;
+      border-radius: 10px;
+      padding: 14px;
+      font-size: 0.75rem;
     }
 
     /* TACTICAL DOWNLOAD HUB STYLES */
     .modal-card-lg {
-      max-width: 760px;
-      max-height: 88vh;
       overflow-y: auto;
+      max-width: 800px;
+      max-height: calc(100% - 48px);
     }
 
     .modal-header-flex {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      margin-bottom: 14px;
-      padding-bottom: 10px;
       border-bottom: 1px solid var(--border);
+      padding-right: 40px;
+      margin-bottom: 20px;
+      padding-bottom: 18px;
     }
 
     .modal-subtitle {
-      font-size: 0.74rem;
       color: var(--text-dim);
       margin-top: 4px;
+      font-size: 0.78rem;
+      line-height: 1.6;
+      overflow-wrap: anywhere;
     }
 
     .dl-options-grid {
@@ -1585,44 +1626,45 @@
     }
 
     .dl-option-card {
-      background: rgba(3, 9, 16, 0.75);
       border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 14px;
       display: flex;
       flex-direction: column;
       position: relative;
+      border-radius: 14px;
+      padding: 18px;
+      background: #0c1d2c;
     }
 
     .dl-option-card.highlight {
-      border-color: var(--cyan);
-      box-shadow: 0 0 16px rgba(0, 242, 255, 0.14);
+      border-color: rgba(102, 222, 234, 0.5);
+      box-shadow: none;
+      background: #102936;
     }
 
     .dl-card-badge {
-      font-size: 0.62rem;
-      font-family: var(--font-mono);
       font-weight: 700;
       color: var(--cyan);
-      letter-spacing: 0.6px;
-      margin-bottom: 6px;
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      letter-spacing: 0.07em;
+      margin-bottom: 9px;
     }
 
     .dl-card-badge.green { color: var(--green); }
     .dl-card-badge.amber { color: var(--amber); }
 
     .dl-card-title {
-      font-size: 0.82rem;
-      font-family: var(--font-mono);
       color: var(--text);
-      margin-bottom: 6px;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      margin-bottom: 9px;
     }
 
     .dl-card-desc {
-      font-size: 0.72rem;
       color: var(--text-dim);
-      line-height: 1.45;
       margin-bottom: 12px;
+      font-size: 0.8rem;
+      line-height: 1.65;
     }
 
     .dl-card-btns {
@@ -1635,17 +1677,18 @@
     .btn-dl-act {
       background: rgba(9, 21, 35, 0.9);
       border: 1px solid var(--border);
-      border-radius: 4px;
       color: var(--text);
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
       font-weight: 700;
-      padding: 8px 10px;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 5px;
       transition: all 0.2s;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      border-radius: 8px;
+      min-height: 40px;
+      padding: 9px 12px;
     }
 
     .btn-dl-act:hover {
@@ -1653,6 +1696,8 @@
       color: var(--cyan);
       background: rgba(0, 242, 255, 0.12);
     }
+    .btn-dl-act[hidden] { display: none; }
+    .btn-dl-act:disabled { opacity: 0.5; cursor: wait; }
 
     .btn-dl-act.highlight {
       background: rgba(0, 242, 255, 0.15);
@@ -1728,15 +1773,32 @@
        RESPONSIVE MOBILE STYLES (< 768px)
        ========================================================================= */
     @media (max-width: 768px) {
+      :root { --header-height: 60px; }
       .topbar {
-        height: 48px;
+        height: var(--header-height);
         padding: 0 10px;
+        gap: 8px;
       }
 
       .brand-title {
-        font-size: 0.76rem;
+        font-size: 0.85rem;
         letter-spacing: 0.8px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
       }
+
+      .brand-wrap { min-width: 0; flex: 1; overflow: hidden; }
+      .brand-logo { flex-shrink: 0; }
+      .topbar-right { flex-shrink: 0; gap: 0; }
+      .topbar-right .btn-return, .basemap-label { display: none; }
+      .basemap-btn { min-width: 36px; min-height: 40px; padding: 4px 7px; }
+      .maplibregl-ctrl-bottom-right, .maplibregl-ctrl-bottom-left {
+        bottom: calc(var(--map-panel-height, 145px) + 8px) !important;
+        max-width: calc(100% - 24px);
+      }
+      .maplibregl-ctrl-attrib { max-width: 100%; white-space: normal; }
+      .hud-bar-bottom { bottom: calc(var(--map-panel-height, 145px) + 40px); }
 
       .brand-badge { display: none; }
       .brand-logo { width: 26px; height: 26px; }
@@ -1747,26 +1809,26 @@
       }
 
       #map {
-        padding-top: 48px;
+        padding-top: 0;
       }
 
       /* Move MapLibre controls to upper right below topbar */
       .maplibregl-ctrl-top-right {
-        top: 56px !important;
-        right: 8px !important;
+        top: 12px !important;
+        right: 10px !important;
       }
 
       /* Floating FABs on mobile */
       .map-fab-group {
-        top: 56px;
+        top: calc(var(--header-height) + 12px);
         left: 10px;
         right: auto;
       }
 
       .map-fab {
-        width: 36px;
-        height: 36px;
-        border-radius: 6px;
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
       }
 
       /* Bottom Drawer panel on mobile */
@@ -1777,13 +1839,13 @@
         right: 0;
         width: 100%;
         max-width: 100%;
-        border-radius: 16px 16px 0 0;
+        border-radius: 20px 20px 0 0;
         border-left: none;
         border-right: none;
         border-bottom: none;
         border-top: 1px solid var(--border-bright);
-        box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.85), 0 0 20px rgba(0, 242, 255, 0.15);
-        padding: 10px 14px 18px;
+        box-shadow: 0 -12px 36px rgba(0, 0, 0, 0.35);
+        padding: 10px 14px max(14px, env(safe-area-inset-bottom));
         z-index: 50;
       }
 
@@ -1797,7 +1859,7 @@
 
       /* MOBILE STATE 1: PEEK MODE (Leaves 75% of screen for map) */
       .panel.is-peek {
-        max-height: 145px;
+        max-height: none;
         overflow: hidden;
       }
 
@@ -1811,7 +1873,7 @@
 
       /* MOBILE STATE 2: EXPANDED MODE (Full controls drawer) */
       .panel.is-expanded {
-        max-height: 80vh;
+        max-height: min(65%, calc(100% - 320px));
         overflow-y: auto;
       }
 
@@ -1830,12 +1892,90 @@
       }
 
       .panel-title {
-        font-size: 0.88rem;
+        font-size: 1rem;
       }
 
       .panel-subtitle {
-        font-size: 0.68rem;
+        font-size: 0.74rem;
       }
+    }
+
+    /* Shared studio details, with no remote fonts or UI dependencies. */
+    button, a, input, summary { touch-action: manipulation; }
+    button svg { flex-shrink: 0; }
+    button:focus-visible, a:focus-visible, input:focus-visible, summary:focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 3px;
+    }
+    a { color: var(--cyan); }
+    input::placeholder { color: var(--text-muted); opacity: 1; }
+    .basemap-icon { display: inline-flex; align-items: center; justify-content: center; }
+    .basemap-icon svg, .map-fab svg { width: 18px; height: 18px; }
+    .map-fab-group { max-height: calc(100% - var(--header-height) - 210px); overflow-y: auto; scrollbar-width: none; }
+    .map-fab { flex-shrink: 0; }
+    .maplibregl-ctrl-attrib, .maplibregl-ctrl-attrib.maplibregl-compact { background: rgba(8,20,33,0.96) !important; color: var(--text-dim); border: 1px solid var(--border); border-radius: 8px; margin: 0; }
+    .maplibregl-ctrl-scale { margin: 0 !important; }
+    .maplibregl-ctrl-attrib a { color: var(--text-dim); }
+    .maplibregl-ctrl-attrib-button { filter: invert(1); }
+    .hud-bar-bottom { max-width: calc(100% - 140px); }
+    .modal-title { font: 700 1.4rem/1.25 var(--font-sans); letter-spacing: -0.03em; color: var(--text); }
+    .modal-header-flex > div { min-width: 0; }
+    .modal-header-flex .status-dot { display: none; }
+    .dl-card-btns { gap: 8px; }
+    .build-choice { margin-bottom: 14px; padding: 12px; border: 1px solid var(--border); border-radius: 10px; background: #091925; }
+    .build-choice p { color: var(--text-dim); font-size: 0.8rem; line-height: 1.6; margin-bottom: 10px; }
+    .build-choice label { display: block; margin-bottom: 6px; font-size: 0.75rem; }
+    .build-choice-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .build-choice input { flex: 1; min-width: 140px; color-scheme: dark; background: #071420; border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; color: var(--text); font: 0.85rem var(--font-sans); }
+    #buildChoiceError { color: #ffc283; margin: 8px 0 0; }
+    .guide-steps { margin-top: 12px; padding-left: 18px; }
+    .guide-steps li { margin-bottom: 8px; }
+    .wpt-item > div { min-width: 0; overflow-wrap: anywhere; }
+    .wpt-marker-wrap strong { max-width: 180px; overflow: hidden; text-overflow: ellipsis; }
+    .insp-label { font-size: 0.66rem; }
+    .insp-val { font-size: 0.78rem; }
+    .inspector-close { min-width: 36px; min-height: 36px; }
+    .btn-insp-action { font: 600 0.7rem var(--font-sans); min-height: 40px; border-radius: 8px; }
+    .drop-card { animation: none; border-radius: 20px; box-shadow: 0 24px 60px rgba(0,0,0,0.5); }
+    @media (max-width: 1240px) { .status-pill { display: none; } }
+    @media (max-width: 1024px) { .brand-badge { display: none; } .hud-center-pos { display: none; } }
+    @media (max-width: 768px) {
+      .brand-wrap { gap: 6px; }
+      .brand-title { letter-spacing: 0; }
+      .basemap-group { gap: 0; padding: 2px; border-radius: 10px; }
+      .hud-bar-bottom { left: 10px; transform: none; gap: 8px; padding: 7px 9px; max-width: calc(100% - 110px); font-size: 0.64rem; bottom: calc(var(--map-panel-height, 145px) + 80px); }
+      .map-fab-group { max-height: calc(100% - var(--header-height) - var(--map-panel-height, 145px) - 130px); }
+      .maplibregl-ctrl-bottom-right { right: 10px !important; }
+      .maplibregl-ctrl-bottom-left { left: 10px !important; }
+      .maplibregl-ctrl-bottom-right .mapboxgl-ctrl-group { display: flex; }
+      .mobile-peek-bar { gap: 6px; }
+      .mobile-peek-bar .btn-action { font-size: 0.72rem; }
+      .mobile-peek-bar .btn-download { min-height: 40px; }
+      .modal-overlay { padding: 12px; }
+      .modal-card { padding: 18px; border-radius: 16px; }
+      .modal-card-lg { max-height: calc(100% - 24px); }
+      .modal-title { font-size: 1.2rem; }
+      .modal-close { top: 12px; right: 12px; }
+      .dl-option-card { padding: 14px; }
+      .btn-dl-act { min-height: 44px; }
+      .inspector-modal { inset: calc(var(--header-height) + 10px) 10px auto; width: auto; max-width: none; }
+    }
+    @media (max-width: 360px) {
+      .topbar { padding: 0 8px; gap: 4px; }
+      .brand-logo { width: 22px; height: 22px; }
+      .basemap-btn { min-width: 34px; padding: 4px 6px; }
+      .panel { padding-left: 12px; padding-right: 12px; }
+      .panel-subtitle { font-size: 0.68rem; }
+      .panel.is-expanded { max-height: min(65%, calc(100% - 336px)); }
+    }
+    @media (min-width: 769px) and (max-height: 600px) {
+      .map-fab-group { right: 114px; top: calc(var(--header-height) + 16px); max-height: calc(100% - var(--header-height) - 90px); }
+      .maplibregl-ctrl-bottom-right .mapboxgl-ctrl-group { display: flex; }
+      .hud-bar-bottom { left: 405px; bottom: 52px; transform: none; max-width: calc(100% - 500px); gap: 8px; }
+      .hud-center-pos { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
     }
   </style>
 </head>
@@ -1846,49 +1986,49 @@
     <a href="index.html#q-geo" class="brand-wrap" title="Return to Quantum P1NG">
       <img src="assets/img/qp1ng_icon.png" alt="QP1NG Emblem" class="brand-logo" width="30" height="30">
       <span class="brand-title">
-        Q-GEO // PMTILES EXTRACTOR
-        <span class="brand-badge">AIR-GAP GIS</span>
+        Q-GEO
+        <span class="brand-badge">MAP STUDIO</span>
       </span>
     </a>
 
     <div class="topbar-right">
       <!-- BASEMAP SELECTOR (DARK / NVG / RED / SATELLITE / LIGHT) -->
-      <div class="basemap-group" id="basemapGroup" title="Select Basemap Cartography">
-        <button class="basemap-btn active" data-theme="dark" title="Tactical Night Cartography">
-          <span class="basemap-icon">🌙</span><span class="basemap-label">DARK</span>
+      <div class="basemap-group" id="basemapGroup" role="group" aria-label="Map appearance">
+        <button class="basemap-btn active" data-theme="dark" title="Dark map">
+          <span class="basemap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 13.2A9 9 0 0 1 10.8 3.2 9 9 0 1 0 20.8 13.2Z"/></svg></span><span class="basemap-label">Dark</span>
         </button>
-        <button class="basemap-btn" data-theme="nvg" title="NVG P43 Green Phosphor Night Vision">
-          <span class="basemap-icon">🟢</span><span class="basemap-label">NVG</span>
+        <button class="basemap-btn" data-theme="nvg" title="Green monochrome map style">
+          <span class="basemap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 2v2m10 8h-2M12 22v-2M2 12h2"/></svg></span><span class="basemap-label">Green</span>
         </button>
-        <button class="basemap-btn" data-theme="redlight" title="Tactical Red Night Shield">
-          <span class="basemap-icon">🔴</span><span class="basemap-label">RED</span>
+        <button class="basemap-btn" data-theme="redlight" title="Red monochrome map style">
+          <span class="basemap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M8 12h8"/></svg></span><span class="basemap-label">Red</span>
         </button>
-        <button class="basemap-btn" data-theme="satellite" title="High-Resolution Real Satellite Imagery">
-          <span class="basemap-icon">🛰️</span><span class="basemap-label">SAT</span>
+        <button class="basemap-btn" data-theme="satellite" title="Satellite imagery · Esri">
+          <span class="basemap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14 4 6 6-6 6-6-6 6-6ZM8 10 3 5l2-2 5 5m6 6 5 5-2 2-5-5M3 14a7 7 0 0 0 7 7M3 18a3 3 0 0 0 3 3"/></svg></span><span class="basemap-label">Satellite</span>
         </button>
-        <button class="basemap-btn" data-theme="light" title="Standard Daytime OpenStreetMap">
-          <span class="basemap-icon">☀️</span><span class="basemap-label">DAY</span>
+        <button class="basemap-btn" data-theme="light" title="Day map · OpenStreetMap">
+          <span class="basemap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg></span><span class="basemap-label">Day</span>
         </button>
       </div>
 
       <div class="status-pill">
         <span class="status-dot"></span>
-        <span>OSM GLOBAL VECTOR // PROTOMAPS READY</span>
+        <span>Online map preview</span>
       </div>
       <a href="index.html#q-geo" class="btn-return">
-        <span>← QP1NG.COM</span>
+        <span>← Back to QP1NG</span>
       </a>
     </div>
   </header>
 
   <!-- FLOATING MAP ACTION BUTTONS (FABS) -->
   <div class="map-fab-group">
-    <button id="themeFab" class="map-fab" title="Cycle Vision Mode (Dark / NVG / Red / Sat / Day)">🌙</button>
-    <button id="tilt3dFab" class="map-fab" title="Toggle 3D Terrain Tilt (60° / 0°)">⛰️</button>
-    <button id="gpsFab" class="map-fab" title="GPS Live Field Locator">🛰️</button>
-    <button id="hudToggleFab" class="map-fab active" title="Toggle Tactical Reticle HUD">🎯</button>
-    <button id="recenterFab" class="map-fab" title="Recenter on Kyiv (Default Frontline)">📍</button>
-    <button id="clearFab" class="map-fab" title="Clear Drawn Area &amp; Overlays">🗑️</button>
+    <button id="themeFab" class="map-fab" title="Change map appearance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 13.2A9 9 0 0 1 10.8 3.2 9 9 0 1 0 20.8 13.2Z"/></svg></button>
+    <button id="tilt3dFab" class="map-fab" title="Tilt map perspective (60° / 0°)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 15 9-10 9 10-9 5-9-5Zm0 4 9 4 9-4"/></svg></button>
+    <button id="gpsFab" class="map-fab" title="Locate my position once"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3"/></svg></button>
+    <button id="hudToggleFab" class="map-fab active" title="Show or hide map coordinates"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5M9 12h6m-3-3v6"/></svg></button>
+    <button id="recenterFab" class="map-fab" title="Return to the starting view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></button>
+    <button id="clearFab" class="map-fab" title="Clear Drawn Area &amp; Overlays"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M5 6l1 15h12l1-15M9 6V3h6v3M10 10v7m4-7v7"/></svg></button>
   </div>
 
   <!-- TACTICAL RETICLE & CROSSHAIR HUD OVERLAY -->
@@ -1915,57 +2055,57 @@
 
     <div class="panel-header">
       <div>
-        <h1 class="panel-title">EXTRACT CITY MAP</h1>
-        <p class="panel-subtitle">Vector PMTiles Archive (Zoom 0–15)</p>
+        <h1 class="panel-title">Your offline map</h1>
+        <p class="panel-subtitle">Choose an area. Take it into Q‑Geo.</p>
       </div>
-      <button class="panel-toggle-btn" id="togglePanelBtn">▲ EXPAND</button>
+      <button class="panel-toggle-btn" id="togglePanelBtn" aria-controls="panelDetails">▲ Tools</button>
     </div>
 
     <!-- MOBILE PEEK QUICK BAR (Always reachable on smartphones without obscuring the map) -->
     <div class="mobile-peek-bar">
       <button id="mobileViewBtn" class="btn-action" style="flex: 1;" title="Use visible screen viewport">
         <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
-        <span>USE VIEW</span>
+        <span>Use view</span>
       </button>
       <button id="mobileDrawBtn" class="btn-action" style="flex: 1;" title="Draw custom polygon area">
         <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 6 12 2 21 6 17 18 7 18"/></svg>
-        <span>DRAW</span>
+        <span>Draw area</span>
       </button>
       <button id="mobileDownloadBtn" class="btn-download" style="flex: 1.4; padding: 8px 6px; font-size: 0.72rem; margin-bottom: 0;" disabled>
-        <span>DOWNLOAD</span>
+        <span>Export</span>
       </button>
     </div>
 
     <!-- DETAILED PANEL BODY (Visible on Desktop always, and on Mobile when Expanded) -->
-    <div class="panel-body-detailed">
+    <div class="panel-body-detailed" id="panelDetails">
       <!-- Navigation Tabs -->
-      <div class="panel-tabs" id="panelTabs">
-        <button class="panel-tab active" data-tab="paneExtract">EXTRACT</button>
-        <button class="panel-tab" data-tab="paneRf">RF MESH</button>
-        <button class="panel-tab" data-tab="paneMeasure">MEASURE</button>
-        <button class="panel-tab" data-tab="paneWaypoints">WAYPOINTS</button>
+      <div class="panel-tabs" id="panelTabs" role="group" aria-label="Map tools">
+        <button class="panel-tab active" data-tab="paneExtract">Map area</button>
+        <button class="panel-tab" data-tab="paneRf">Rings</button>
+        <button class="panel-tab" data-tab="paneMeasure">Measure</button>
+        <button class="panel-tab" data-tab="paneWaypoints">Points</button>
       </div>
 
       <!-- PANE 1: EXTRACT PMTILES -->
       <div id="paneExtract" class="tab-pane active">
         <!-- Search Box -->
         <div class="search-box">
-          <input type="text" id="searchInput" class="search-input" placeholder="Search city or zone (e.g. Kyiv, Beirut, Khartoum)..." aria-label="Search city">
-          <button id="searchBtn" class="search-btn">GO</button>
+          <input type="text" id="searchInput" class="search-input" placeholder="Search a city or place…" aria-label="Search city">
+          <button id="searchBtn" class="search-btn" aria-label="Search">↗</button>
         </div>
 
-        <!-- ACTIVE CONFLICT & HIGH-RISK ZONE PRESETS 2026 -->
+        <!-- Quick location presets -->
         <div class="presets-wrap">
-          <span class="presets-label">ACTIVE CONFLICT &amp; HIGH-RISK ZONES (2026):</span>
+          <span class="presets-label">QUICK LOCATIONS</span>
           <div class="presets-grid">
-            <button class="preset-chip active" data-city="kyiv" title="Kyiv, Ukraine (Air defense / blackouts)">Kyiv</button>
-            <button class="preset-chip" data-city="kharkiv" title="Kharkiv, Ukraine (Active frontline)">Kharkiv</button>
-            <button class="preset-chip" data-city="gaza" title="Gaza Strip (Severe crisis)">Gaza</button>
-            <button class="preset-chip" data-city="beirut" title="Beirut, Lebanon (Cross-border corridor)">Beirut</button>
-            <button class="preset-chip" data-city="khartoum" title="Khartoum, Sudan (Armed conflict)">Khartoum</button>
-            <button class="preset-chip" data-city="damascus" title="Damascus, Syria (Active strikes)">Damascus</button>
-            <button class="preset-chip" data-city="sanaa" title="Sanaa, Yemen (Maritime crisis)">Sanaa</button>
-            <button class="preset-chip" data-city="taipei" title="Taipei, Taiwan Strait (Alert corridor)">Taipei</button>
+            <button class="preset-chip active" data-city="kyiv" title="Kyiv, Ukraine">Kyiv</button>
+            <button class="preset-chip" data-city="kharkiv" title="Kharkiv, Ukraine">Kharkiv</button>
+            <button class="preset-chip" data-city="gaza" title="Gaza Strip">Gaza</button>
+            <button class="preset-chip" data-city="beirut" title="Beirut, Lebanon">Beirut</button>
+            <button class="preset-chip" data-city="khartoum" title="Khartoum, Sudan">Khartoum</button>
+            <button class="preset-chip" data-city="damascus" title="Damascus, Syria">Damascus</button>
+            <button class="preset-chip" data-city="sanaa" title="Sanaa, Yemen">Sanaa</button>
+            <button class="preset-chip" data-city="taipei" title="Taipei, Taiwan Strait">Taipei</button>
           </div>
         </div>
 
@@ -1973,15 +2113,15 @@
         <div class="actions-grid">
           <button id="drawPolyBtn" class="btn-action" title="Draw a custom bounding box or polygon on map">
             <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 6 12 2 21 6 17 18 7 18"/></svg>
-            <span>DRAW</span>
+            <span>Draw area</span>
           </button>
           <button id="currentViewBtn" class="btn-action" title="Extract bounding box of current screen viewport">
             <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
-            <span>VIEWPORT</span>
+            <span>Use view</span>
           </button>
           <button id="inspectLocalBtn" class="btn-action" title="Drop or load a local .pmtiles archive or .gpx/.kml track">
             <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-            <span>LOAD FILE</span>
+            <span>Open file</span>
           </button>
           <input type="file" id="pmtilesFileInput" accept=".pmtiles,.gpx,.kml,.geojson" style="display:none;">
         </div>
@@ -1990,7 +2130,7 @@
         <div class="telemetry-card">
           <div class="telemetry-row">
             <span class="telemetry-label">SELECTION STATUS</span>
-            <span id="telStatus" class="telemetry-val amber">AWAITING SELECTION</span>
+            <span id="telStatus" class="telemetry-val amber">Choose an area</span>
           </div>
           <div class="telemetry-row">
             <span class="telemetry-label">DETAIL LEVEL</span>
@@ -2017,28 +2157,28 @@
         <!-- Coordinates Output -->
         <div class="coords-box" id="coordsOutput">
           <button class="copy-btn" id="copyCoordsBtn" title="Copy Coordinates">COPY</button>
-          <div id="coordsText">No area selected.<br>Draw a polygon or click "Viewport".</div>
+          <div id="coordsText">No area selected.<br>Draw an area or choose "Use view".</div>
         </div>
 
         <!-- Download Button -->
         <button id="downloadBtn" class="btn-download" disabled>
           <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          <span>DOWNLOAD PMTILES EXTRACT</span>
+          <span>Prepare offline map</span>
         </button>
 
-        <button id="cliModalBtn" class="btn-cli" disabled>CLI pmtiles Command (Scripting / Server)</button>
+        <button id="cliModalBtn" class="btn-cli" disabled>Command &amp; export options</button>
 
         <!-- Operational App Guide (Collapsible Details) -->
         <details class="guide-box">
           <summary class="guide-title">
-            <span>AIR-GAPPED OPERATIONAL WORKFLOW</span>
+            <span>How to use your map in Q‑Geo</span>
             <span class="guide-toggle-icon">▾</span>
           </summary>
           <ol class="guide-steps">
-            <li>Download the <code>.pmtiles</code> archive for your mission area.</li>
-            <li>Transfer the file to your handset via USB cable or MicroSD card.</li>
-            <li>In <strong>Quantum P1NG</strong> → <strong>Q-Geo Tactical</strong> → <strong>Map Pack Manager</strong> tap <em>Import PMTiles</em>.</li>
-            <li>100% offline 60 FPS vector cartography with zero cellular connectivity or network traces.</li>
+            <li>Select an area and choose <strong>Prepare offline map</strong>.</li>
+            <li>Run the generated command on a computer with the <a href="https://docs.protomaps.com/pmtiles/cli" target="_blank" rel="noopener noreferrer">PMTiles tool</a> installed and internet access.</li>
+            <li>Transfer the <code>.pmtiles</code> file to your phone and import it from <strong>Q‑Geo → Offline maps</strong>.</li>
+            <li>Choose the offline map source in Q‑Geo. Vector maps work without downloading tiles; this preview’s satellite imagery is not included.</li>
           </ol>
         </details>
       </div>
@@ -2047,27 +2187,28 @@
       <div id="paneRf" class="tab-pane">
         <div class="rf-legend-box">
           <div class="rf-legend-title">
-            <span>RF LINE-OF-SIGHT PROPAGATION</span>
+            <span>DISTANCE RINGS · PLANNING</span>
             <span class="cyan">LORA 868/915 MHz</span>
           </div>
           <div class="rf-legend-row">
             <span class="rf-ring-dot" style="background:#ff2a6d;"></span>
-            <span><strong>1 km</strong> &bull; Urban Dense / Indoor (SF7 / 14dBm)</span>
+            <span><strong>1 km</strong> &bull; Reference radius</span>
           </div>
           <div class="rf-legend-row">
             <span class="rf-ring-dot" style="background:#ffaa00;"></span>
-            <span><strong>5 km</strong> &bull; Ground Obstacle Standard (SF9 / 20dBm)</span>
+            <span><strong>5 km</strong> &bull; Reference radius</span>
           </div>
           <div class="rf-legend-row">
             <span class="rf-ring-dot" style="background:#00f2ff;"></span>
-            <span><strong>15 km</strong> &bull; Base / Mast Antenna (+15m / SF10)</span>
+            <span><strong>15 km</strong> &bull; Reference radius</span>
           </div>
           <div class="rf-legend-row">
             <span class="rf-ring-dot" style="background:#35ff8a;"></span>
-            <span><strong>30 km</strong> &bull; Airborne / Peak LoS (SF12 / 30dBm)</span>
+            <span><strong>30 km</strong> &bull; Reference radius</span>
           </div>
         </div>
 
+        <p class="dl-card-desc">Planning distances only. Terrain, antennas and measured signal strength are not modelled. Frequency selects a label for the planned node.</p>
         <div class="rf-freq-group">
           <button class="rf-freq-btn active" data-freq="868">868 MHz (EU)</button>
           <button class="rf-freq-btn" data-freq="915">915 MHz (US)</button>
@@ -2097,7 +2238,7 @@
             <span id="rfNodeMgrs" class="telemetry-val cyan">--</span>
           </div>
           <div class="telemetry-row">
-            <span class="telemetry-label">MAX FRESNEL COVERAGE</span>
+            <span class="telemetry-label">AREA INSIDE 30 KM RING</span>
             <span id="rfCoverageArea" class="telemetry-val green">-- km²</span>
           </div>
         </div>
@@ -2113,7 +2254,7 @@
           <div class="rf-legend-title">
             <span>TACTICAL RULER &amp; COMPASS BEARING</span>
           </div>
-          <p style="font-size:0.68rem; color:var(--text-dim); line-height:1.4;">Click 2 or more points on the map to compute ballistic distance, geodesic leg length, and magnetic azimuth.</p>
+          <p style="font-size:0.68rem; color:var(--text-dim); line-height:1.4;">Click 2 or more points to estimate surface distance and the initial bearing of the last leg relative to true north.</p>
         </div>
 
         <div class="actions-grid">
@@ -2135,7 +2276,7 @@
             <span id="measureDist" class="telemetry-val green">0.00 km</span>
           </div>
           <div class="telemetry-row">
-            <span class="telemetry-label">COMPASS AZIMUTH</span>
+            <span class="telemetry-label">TRUE-NORTH BEARING</span>
             <span id="measureBearing" class="telemetry-val cyan">--°</span>
           </div>
           <div class="telemetry-row">
@@ -2168,7 +2309,7 @@
         </div>
 
         <div class="wpt-input-row">
-          <input type="text" id="wptCallsignInput" class="wpt-input" placeholder="Call sign / Name (e.g. ALPHA-1)...">
+          <input type="text" id="wptCallsignInput" class="wpt-input" placeholder="Point name…" aria-label="Point name" maxlength="120">
           <button id="wptDropCenterBtn" class="btn-action" style="flex:0.6;">📍 ADD CTR</button>
         </div>
 
@@ -2197,15 +2338,15 @@
   </div>
 
   <!-- TACTICAL DOWNLOAD & EXTRACTION HUB MODAL -->
-  <div class="modal-overlay" id="downloadModal">
+  <div class="modal-overlay" id="downloadModal" role="dialog" aria-modal="true" aria-labelledby="exportTitle">
     <div class="modal-card modal-card-lg">
       <div class="modal-header-flex">
         <div>
           <span class="status-dot"></span>
-          <h3 class="modal-title">TACTICAL MAP EXTRACTION &amp; DOWNLOAD HUB</h3>
-          <p class="modal-subtitle">Selected Bounding Box: <span id="dlModalBbox" class="cyan">--</span></p>
+          <h2 class="modal-title" id="exportTitle">Take your map offline</h2>
+          <p class="modal-subtitle">Your area: <span id="dlModalBbox" class="cyan">--</span></p>
         </div>
-        <button class="modal-close" id="dlModalCloseBtn">&times;</button>
+        <button class="modal-close" id="dlModalCloseBtn" aria-label="Close export options">&times;</button>
       </div>
 
       <!-- Tab / Mode selector inside modal -->
@@ -2213,39 +2354,50 @@
         
         <!-- CARD 1: Instant Air-Gapped PMTiles Extraction Script (Recommended) -->
         <div class="dl-option-card highlight">
-          <div class="dl-card-badge">RECOMMENDED // AIR-GAP SAFE</div>
-          <h4 class="dl-card-title">1. PMTiles Vector Slicing (Protomaps Planet)</h4>
-          <p class="dl-card-desc">Slice vector tiles strictly bounded by your box directly from today's daily global planet build into a standalone <code>.pmtiles</code> archive (Zoom 0–15).</p>
+          <div class="dl-card-badge">01 / RECOMMENDED FOR Q‑GEO</div>
+          <h4 class="dl-card-title">Create your PMTiles map</h4>
+          <p class="dl-card-desc">Extract your area from a published Protomaps version 4 build into a standalone <code>.pmtiles</code> vector map (Zoom 0–15). Satellite imagery and the selected display theme are not included. Run the command on a computer with the <a href="https://docs.protomaps.com/pmtiles/cli" target="_blank" rel="noopener noreferrer">PMTiles tool</a> installed.</p>
           <div class="modal-code" id="cliCodeText">pmtiles extract https://build.protomaps.com/...</div>
+          <div class="build-choice" id="buildChoice" hidden>
+            <p>Open <a href="https://maps.protomaps.com/builds/" target="_blank" rel="noopener noreferrer">Protomaps published maps</a> and choose a <strong>version 4</strong> build date. The publisher limits automatic lookups from other websites.</p>
+            <label for="buildDateInput">Published build date</label>
+            <div class="build-choice-row">
+              <input id="buildDateInput" type="date" aria-describedby="buildChoiceError">
+              <button id="applyBuildDateBtn" class="btn-dl-act">Use this date</button>
+            </div>
+            <p id="buildChoiceError" role="status"></p>
+          </div>
           <div class="dl-card-btns">
-            <button id="dlCopyCmdBtn" class="btn-dl-act highlight">📋 COPY COMMAND</button>
-            <button id="dlBatBtn" class="btn-dl-act">💾 WINDOWS .BAT SCRIPT</button>
-            <button id="dlShBtn" class="btn-dl-act">💾 LINUX/MAC .SH SCRIPT</button>
+            <button id="dlCopyCmdBtn" class="btn-dl-act highlight">Copy command</button>
+            <button id="dlBatBtn" class="btn-dl-act">Windows .bat</button>
+            <button id="dlShBtn" class="btn-dl-act">macOS / Linux .sh</button>
+            <button id="dlRetryBuildBtn" class="btn-dl-act" hidden>Try automatic lookup</button>
+            <button id="dlChooseBuildBtn" class="btn-dl-act" hidden>Change build</button>
           </div>
         </div>
 
         <!-- CARD 2: Instant Q-Pack Manifest -->
         <div class="dl-option-card">
-          <div class="dl-card-badge green">100% CLIENT-SIDE // INSTANT</div>
-          <h4 class="dl-card-title">2. Download Q-Pack Manifest &amp; GeoJSON</h4>
-          <p class="dl-card-desc">Instantly download zone definition manifest (bounding box, zoom limits, center coordinate) ready for Quantum P1NG handset import.</p>
+          <div class="dl-card-badge green">02 / AREA DEFINITION</div>
+          <h4 class="dl-card-title">Save the selected boundary</h4>
+          <p class="dl-card-desc">Save the area definition for planning and GIS tools. This JSON contains no map tiles; import the generated <code>.pmtiles</code> file into Q-Geo.</p>
           <div class="dl-card-btns">
-            <button id="dlQpackBtn" class="btn-dl-act green">📦 DOWNLOAD QPACK.JSON</button>
-            <button id="dlGeojsonBtn" class="btn-dl-act">📐 DOWNLOAD .GEOJSON</button>
+            <button id="dlQpackBtn" class="btn-dl-act green">Area .json</button>
+            <button id="dlGeojsonBtn" class="btn-dl-act">Boundary .geojson</button>
           </div>
         </div>
 
         <!-- CARD 3: Live Cloud OSM Extractor (SliceOSM Live API) -->
         <div class="dl-option-card">
-          <div class="dl-card-badge amber">CLOUD SERVER // ASYNC BUILD</div>
-          <h4 class="dl-card-title">3. Live Cloud OSM Slicer (.osm.pbf)</h4>
-          <p class="dl-card-desc">Compile an on-demand OpenStreetMap PBF slice directly from the SliceOSM server with live progress tracking and automatic download.</p>
+          <div class="dl-card-badge amber">03 / ADVANCED · ONLINE SERVICE</div>
+          <h4 class="dl-card-title">Request raw OpenStreetMap data</h4>
+          <p class="dl-card-desc">Send this area to SliceOSM to prepare an OSM PBF file for GIS tools. This format needs conversion before use as a map in Q‑Geo.</p>
           <div id="sliceOsmStatusBox" class="slice-status-box" style="display: none;">
             <div class="slice-progress-bar"><div id="sliceProgressBar" class="slice-progress-fill"></div></div>
             <div id="sliceStatusMsg" class="slice-status-msg">Queuing extract...</div>
           </div>
           <div class="dl-card-btns">
-            <button id="startSliceBtn" class="btn-dl-act amber">⚡ GENERATE CLOUD SLICE</button>
+            <button id="startSliceBtn" class="btn-dl-act amber">Request OSM file</button>
             <a href="https://extract.bbbike.org/" target="_blank" rel="noopener" class="btn-dl-act" style="text-decoration:none;">🌐 BBBike GUI</a>
           </div>
         </div>
@@ -2258,9 +2410,9 @@
   <div class="drop-overlay" id="dropOverlay">
     <div class="drop-card">
       <div class="drop-icon">📦</div>
-      <div class="drop-title">DROP .PMTILES ARCHIVE TO INSPECT</div>
-      <p class="drop-desc">Release archive to analyze vector layers, zoom levels, bounding box and view tiles offline.</p>
-      <span class="drop-badge">100% AIR-GAPPED &bull; ZERO SERVER UPLOAD &bull; BROWSER DECODE</span>
+      <div class="drop-title">Open a local map or track</div>
+      <p class="drop-desc">Drop a PMTiles archive to inspect it, or a GPX, KML or GeoJSON file to view its features.</p>
+      <span class="drop-badge">Files are read locally in your browser</span>
     </div>
   </div>
 
@@ -2377,7 +2529,7 @@
             type: 'raster',
             source: 'satellite-raster',
             minzoom: 0,
-            maxzoom: 19,
+            maxzoom: 24,
             layout: { visibility: 'none' }
           },
           {
@@ -2385,7 +2537,7 @@
             type: 'raster',
             source: 'osm-raster',
             minzoom: 0,
-            maxzoom: 19,
+            maxzoom: 24,
             layout: { visibility: 'visible' }
           }
         ]
@@ -2401,6 +2553,7 @@
     // 2. BASEMAP SWITCHER (Dark Tactical / NVG / Red / Satellite / Day Light)
     // =========================================================================
     const themeFab = document.getElementById('themeFab');
+    document.querySelectorAll('.map-fab').forEach(button => button.setAttribute('aria-label', button.title));
     const tilt3dFab = document.getElementById('tilt3dFab');
     const gpsFab = document.getElementById('gpsFab');
     const hudToggleFab = document.getElementById('hudToggleFab');
@@ -2442,32 +2595,25 @@
       // Update basemap selector buttons in topbar
       document.querySelectorAll('.basemap-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.theme === style);
+        btn.setAttribute('aria-pressed', String(btn.dataset.theme === style));
       });
 
       // Update FAB Icon & Tooltip
-      if (themeFab) {
-        if (style === 'dark') {
-          themeFab.textContent = '🌙';
-          themeFab.title = 'Current: Dark Tactical (Tap for NVG)';
-        } else if (style === 'nvg') {
-          themeFab.textContent = '🟢';
-          themeFab.title = 'Current: NVG Phosphor (Tap for Red Light)';
-        } else if (style === 'redlight') {
-          themeFab.textContent = '🔴';
-          themeFab.title = 'Current: Red Light Shield (Tap for Satellite)';
-        } else if (style === 'satellite') {
-          themeFab.textContent = '🛰️';
-          themeFab.title = 'Current: Real Satellite (Tap for Day Light)';
-        } else {
-          themeFab.textContent = '☀️';
-          themeFab.title = 'Current: Day Light (Tap for Dark Tactical)';
-        }
+      const selectedButton = document.querySelector(`.basemap-btn[data-theme="${style}"]`);
+      if (themeFab && selectedButton) {
+        themeFab.replaceChildren(selectedButton.querySelector('.basemap-icon').cloneNode(true));
+        themeFab.title = `${selectedButton.title} · Change appearance`;
+        themeFab.setAttribute('aria-label', themeFab.title);
       }
     }
 
     document.querySelectorAll('.basemap-btn').forEach(btn => {
+      btn.setAttribute('aria-label', btn.title);
+      btn.setAttribute('aria-pressed', String(btn.dataset.theme === currentBasemap));
       btn.addEventListener('click', () => setBasemap(btn.dataset.theme));
     });
+    // Honour a selection made while the style was still loading.
+    map.on('load', () => setBasemap(currentBasemap));
 
     themeFab.addEventListener('click', () => {
       const nextIdx = (basemapCycle.indexOf(currentBasemap) + 1) % basemapCycle.length;
@@ -2481,6 +2627,11 @@
         const targetPitch = currentPitch > 25 ? 0 : 60;
         map.easeTo({ pitch: targetPitch, duration: 800 });
         tilt3dFab.classList.toggle('active', targetPitch > 0);
+      });
+      map.on('pitchend', () => {
+        const tilted = map.getPitch() > 10;
+        tilt3dFab.classList.toggle('active', tilted);
+        tilt3dFab.setAttribute('aria-pressed', String(tilted));
       });
     }
 
@@ -2545,6 +2696,10 @@
     // 2.1 PURE JS UTM & MGRS CONVERTER
     // =========================================================================
     function latlon_to_utm_mgrs(lat, lon) {
+      if (!Number.isFinite(lat) || !Number.isFinite(lon) || lat < -90 || lat > 90) {
+        return { utm: '--', mgrs: '--' };
+      }
+      lon = normalizedLongitude(lon);
       if (lat < -80 || lat > 84) return { utm: 'Polar', mgrs: 'POLAR' };
       const a = 6378137.0;
       const f = 1 / 298.257223563;
@@ -2553,7 +2708,11 @@
       const e_prime2 = (a*a - b*b) / (b*b);
       const k0 = 0.9996;
 
-      const zone = Math.floor((lon + 180) / 6) + 1;
+      let zone = Math.min(60, Math.floor((lon + 180) / 6) + 1);
+      if (lat >= 56 && lat < 64 && lon >= 3 && lon < 12) zone = 32;
+      if (lat >= 72 && lat < 84 && lon >= 0 && lon < 42) {
+        zone = lon < 9 ? 31 : lon < 21 ? 33 : lon < 33 ? 35 : 37;
+      }
       const lon_origin = (zone - 1) * 6 - 180 + 3;
       const lon_rad = lon * Math.PI / 180;
       const lat_rad = lat * Math.PI / 180;
@@ -2598,10 +2757,20 @@
       };
     }
 
+    function normalizedLongitude(lon) {
+      if (lon >= -180 && lon <= 180) return lon;
+      return ((lon + 180) % 360 + 360) % 360 - 180;
+    }
+
+    function formatLatLon(lat, lon) {
+      lon = normalizedLongitude(lon);
+      return `${Math.abs(lat).toFixed(4)}°${lat < 0 ? 'S' : 'N'}, ${Math.abs(lon).toFixed(4)}°${lon < 0 ? 'W' : 'E'}`;
+    }
+
     // Dynamic HUD Telemetry Updater
     function updateHud() {
       const center = map.getCenter();
-      const brg = Math.round((map.getBearing() + 360) % 360);
+      const brg = Math.round((map.getBearing() + 360) % 360) % 360;
       const pitch = Math.round(map.getPitch());
       const zoom = map.getZoom().toFixed(1);
 
@@ -2612,9 +2781,7 @@
       if (hudPitch) hudPitch.textContent = `${pitch}°`;
       if (hudZoom) hudZoom.textContent = zoom;
 
-      const cLat = center.lat.toFixed(4);
-      const cLon = center.lng.toFixed(4);
-      if (hudLatLon) hudLatLon.textContent = `${cLat}°N, ${cLon}°E`;
+      if (hudLatLon) hudLatLon.textContent = formatLatLon(center.lat, center.lng);
 
       const grid = latlon_to_utm_mgrs(center.lat, center.lng);
       if (hudMgrs) hudMgrs.textContent = `[${grid.mgrs}]`;
@@ -2762,6 +2929,13 @@
         maxLat = Number(n.toFixed(4));
       }
 
+      if (![minLon, minLat, maxLon, maxLat].every(Number.isFinite) ||
+          minLon < -180 || maxLon > 180 || minLat < -85.051129 || maxLat > 85.051129 ||
+          minLon >= maxLon || minLat >= maxLat) {
+        resetTelemetry();
+        coordsText.textContent = 'Select a valid area within one world view. For the date line, select each side separately.';
+        return;
+      }
       currentBbox = { minLon, minLat, maxLon, maxLat };
 
       // Calculate area & estimated PMTiles size
@@ -2803,13 +2977,13 @@
       mobileDownloadBtn.disabled = false;
       cliModalBtn.disabled = false;
       
-      downloadBtn.querySelector('span').textContent = `DOWNLOAD PMTILES (~${estSizeMb} MB)`;
-      mobileDownloadBtn.querySelector('span').textContent = `DL (~${estSizeMb}MB)`;
+      downloadBtn.querySelector('span').textContent = `Prepare map · ~${estSizeMb} MB`;
+      mobileDownloadBtn.querySelector('span').textContent = `Export`;
     }
 
     function resetTelemetry() {
       currentBbox = null;
-      telStatus.textContent = 'AWAITING SELECTION';
+      telStatus.textContent = 'Choose an area';
       telStatus.className = 'telemetry-val amber';
       telArea.textContent = '-- km²';
       telSize.textContent = '-- MB';
@@ -2818,12 +2992,12 @@
       const telUtm = document.getElementById('telUtm');
       if (telMgrs) telMgrs.textContent = '--';
       if (telUtm) telUtm.textContent = '--';
-      coordsText.innerHTML = `No area selected.<br>Draw a polygon or click "Use Current View".`;
+      coordsText.innerHTML = `No area selected.<br>Draw an area or choose "Use view".`;
       downloadBtn.disabled = true;
       mobileDownloadBtn.disabled = true;
       cliModalBtn.disabled = true;
-      downloadBtn.querySelector('span').textContent = 'DOWNLOAD PMTILES EXTRACT';
-      mobileDownloadBtn.querySelector('span').textContent = 'DOWNLOAD';
+      downloadBtn.querySelector('span').textContent = 'Prepare offline map';
+      mobileDownloadBtn.querySelector('span').textContent = 'Export';
     }
 
     map.on('draw.create', () => updateSelection());
@@ -2876,14 +3050,28 @@
     currentViewBtn.addEventListener('click', triggerCurrentView);
     mobileViewBtn.addEventListener('click', triggerCurrentView);
 
+    // Keep a selectable fallback when the browser denies clipboard access.
+    async function copyMapText(text, button, label, textNode) {
+      try {
+        if (!navigator.clipboard) throw new Error('Clipboard unavailable');
+        await navigator.clipboard.writeText(text);
+        button.textContent = 'COPIED';
+      } catch {
+        const selection = window.getSelection();
+        const range = document.createRange();
+        range.selectNodeContents(textNode);
+        selection.removeAllRanges();
+        selection.addRange(range);
+        button.textContent = 'SELECTED';
+      }
+      setTimeout(() => { button.textContent = label; }, 1500);
+    }
+
     // Copy BBox to clipboard
     copyCoordsBtn.addEventListener('click', () => {
       if (!currentBbox) return;
       const str = `${currentBbox.minLon},${currentBbox.minLat},${currentBbox.maxLon},${currentBbox.maxLat}`;
-      navigator.clipboard.writeText(str).then(() => {
-        copyCoordsBtn.textContent = 'COPIED!';
-        setTimeout(() => copyCoordsBtn.textContent = 'COPY', 1500);
-      });
+      copyMapText(str, copyCoordsBtn, 'COPY', coordsText);
     });
 
     // =========================================================================
@@ -2896,6 +3084,7 @@
     const dlCopyCmdBtn = document.getElementById('dlCopyCmdBtn');
     const dlBatBtn = document.getElementById('dlBatBtn');
     const dlShBtn = document.getElementById('dlShBtn');
+    const dlRetryBuildBtn = document.getElementById('dlRetryBuildBtn');
     const dlQpackBtn = document.getElementById('dlQpackBtn');
     const dlGeojsonBtn = document.getElementById('dlGeojsonBtn');
     const startSliceBtn = document.getElementById('startSliceBtn');
@@ -2904,50 +3093,168 @@
     const sliceStatusMsg = document.getElementById('sliceStatusMsg');
 
     let slicePollInterval = null;
+    let publishedBuild = null;
+    let publishedBuildPromise = null;
+    let exportTrigger = null;
+    const buildChoice = document.getElementById('buildChoice');
+    const buildDateInput = document.getElementById('buildDateInput');
+    const buildChoiceError = document.getElementById('buildChoiceError');
 
-    function openDownloadHub() {
+    function buildKeyFromDate(value) {
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return null;
+      const date = new Date(`${value}T00:00:00Z`);
+      if (!Number.isFinite(date.getTime()) || date.toISOString().slice(0, 10) !== value) return null;
+      return value.replace(/-/g, '') + '.pmtiles';
+    }
+    document.getElementById('applyBuildDateBtn').addEventListener('click', () => {
+      const key = buildKeyFromDate(buildDateInput.value);
+      buildChoiceError.textContent = key ? '' : 'Choose a valid date from the Protomaps version 4 list.';
+      buildDateInput.setAttribute('aria-invalid', String(!key));
+      if (!key) return;
+      // Explicit user selection: a well-formed date is not proof of publication.
+      publishedBuild = { key, source: 'user-selected' };
+      openDownloadHub();
+    });
+
+    function selectPublishedBuild(entries) {
+      if (!Array.isArray(entries) || entries.length > 4096) throw new Error('Invalid map build index');
+      const compatible = entries.filter(entry => {
+        if (!entry || typeof entry.key !== 'string' || !/^\d{8}\.pmtiles$/.test(entry.key) ||
+            !/^4\.\d{1,6}\.\d{1,6}$/.test(entry.version) ||
+            !Number.isSafeInteger(entry.size) || entry.size < 127 || entry.size > 2 * 1024 ** 4) return false;
+        const date = entry.key.slice(0, 8);
+        const parsed = new Date(`${date.slice(0, 4)}-${date.slice(4, 6)}-${date.slice(6, 8)}T00:00:00Z`);
+        return Number.isFinite(parsed.getTime()) && parsed.toISOString().slice(0, 10).replace(/-/g, '') === date;
+      }).sort((a, b) => b.key.localeCompare(a.key));
+      if (!compatible.length) throw new Error('No compatible published vector map');
+      return compatible[0];
+    }
+
+    function loadPublishedBuild() {
+      if (publishedBuild) return Promise.resolve(publishedBuild);
+      if (!publishedBuildPromise) {
+        publishedBuildPromise = (async () => {
+          const controller = new AbortController();
+          const timeout = setTimeout(() => controller.abort(), 10000);
+          try {
+            const response = await fetch('https://build-metadata.protomaps.dev/builds.json', {
+              signal: controller.signal, credentials: 'omit', referrerPolicy: 'no-referrer'
+            });
+            if (!response.ok) throw new Error('Map build index unavailable');
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder();
+            let text = '', bytes = 0;
+            try {
+              while (true) {
+                const { value, done } = await reader.read();
+                if (done) break;
+                bytes += value.byteLength;
+                if (bytes > 1024 * 1024) { await reader.cancel(); throw new Error('Map build index too large'); }
+                text += decoder.decode(value, { stream: true });
+              }
+              text += decoder.decode();
+            } finally { reader.releaseLock(); }
+            publishedBuild = selectPublishedBuild(JSON.parse(text));
+            return publishedBuild;
+          } finally { clearTimeout(timeout); }
+        })().catch(error => { publishedBuildPromise = null; throw error; });
+      }
+      return publishedBuildPromise;
+    }
+
+    function extractCommand() {
+      if (!currentBbox || !publishedBuild) return null;
+      const { minLon, minLat, maxLon, maxLat } = currentBbox;
+      return `pmtiles extract https://build.protomaps.com/${publishedBuild.key} city_extract.pmtiles --bbox=${minLon},${minLat},${maxLon},${maxLat} --maxzoom=15`;
+    }
+
+    async function openDownloadHub(attemptLookup = false) {
       if (!currentBbox) return;
       const { minLon, minLat, maxLon, maxLat } = currentBbox;
-      const today = new Date().toISOString().slice(0, 10).replace(/-/g, '');
-      const cmd = `pmtiles extract https://build.protomaps.com/${today}.pmtiles city_extract.pmtiles --bbox=${minLon},${minLat},${maxLon},${maxLat} --maxzoom=15`;
-      
+      const buttons = [dlCopyCmdBtn, dlBatBtn, dlShBtn];
+      buttons.forEach(button => { button.disabled = true; });
+      dlRetryBuildBtn.hidden = true;
+      buildChoice.hidden = true;
+      document.getElementById('dlChooseBuildBtn').hidden = true;
       if (dlModalBbox) dlModalBbox.textContent = `[${minLon}, ${minLat}, ${maxLon}, ${maxLat}]`;
-      if (cliCodeText) cliCodeText.textContent = cmd;
-      if (downloadModal) downloadModal.classList.add('active');
+      if (cliCodeText) cliCodeText.textContent = 'Checking the latest published vector map…';
+      if (!downloadModal.classList.contains('active')) {
+        exportTrigger = document.activeElement;
+        downloadModal.classList.add('active');
+        dlModalCloseBtn.focus({ preventScroll: true });
+      }
+      // Protomaps currently permits browser metadata requests only from its own origin.
+      // Keep this static site usable without a proxy or a guessed daily URL.
+      if (!publishedBuild && attemptLookup !== true) {
+        cliCodeText.textContent = 'Choose a published build date below to prepare your map command.';
+        dlRetryBuildBtn.hidden = false;
+        buildChoice.hidden = false;
+        return;
+      }
+      try {
+        await loadPublishedBuild();
+        const cmd = extractCommand();
+        if (!cmd) return;
+        cliCodeText.textContent = cmd;
+        buttons.forEach(button => { button.disabled = false; });
+        document.getElementById('dlChooseBuildBtn').hidden = false;
+      } catch {
+        cliCodeText.textContent = 'Select a published build below to prepare the command, or retry the automatic lookup.';
+        dlRetryBuildBtn.hidden = false;
+        buildChoice.hidden = false;
+      }
     }
+    dlRetryBuildBtn.addEventListener('click', () => openDownloadHub(true));
+    document.getElementById('dlChooseBuildBtn').addEventListener('click', () => {
+      publishedBuild = null;
+      publishedBuildPromise = null;
+      openDownloadHub();
+      buildDateInput.focus();
+    });
 
     downloadBtn.addEventListener('click', openDownloadHub);
     mobileDownloadBtn.addEventListener('click', openDownloadHub);
     cliModalBtn.addEventListener('click', openDownloadHub);
 
     if (dlModalCloseBtn && downloadModal) {
-      dlModalCloseBtn.addEventListener('click', () => {
+      const closeExport = () => {
         downloadModal.classList.remove('active');
-      });
+        if (exportTrigger && exportTrigger.isConnected) exportTrigger.focus({ preventScroll: true });
+      };
+      dlModalCloseBtn.addEventListener('click', closeExport);
 
       downloadModal.addEventListener('click', (e) => {
-        if (e.target === downloadModal) downloadModal.classList.remove('active');
+        if (e.target === downloadModal) closeExport();
+      });
+      document.addEventListener('keydown', (event) => {
+        if (!downloadModal.classList.contains('active')) return;
+        if (event.key === 'Escape') { event.preventDefault(); closeExport(); return; }
+        if (event.key !== 'Tab') return;
+        const controls = Array.from(downloadModal.querySelectorAll('button:not(:disabled), input:not(:disabled), a[href]'))
+          .filter(element => element.getClientRects().length > 0);
+        const current = controls.indexOf(document.activeElement);
+        if (current < 0 || (!event.shiftKey && current === controls.length - 1) || (event.shiftKey && current === 0)) {
+          event.preventDefault();
+          controls[event.shiftKey ? controls.length - 1 : 0]?.focus();
+        }
       });
     }
 
     // 1-Click Copy CLI Command
     if (dlCopyCmdBtn) {
       dlCopyCmdBtn.addEventListener('click', () => {
-        if (!currentBbox || !cliCodeText) return;
-        const cmd = cliCodeText.textContent;
-        navigator.clipboard.writeText(cmd).then(() => {
-          dlCopyCmdBtn.textContent = 'COPIED!';
-          setTimeout(() => dlCopyCmdBtn.textContent = '📋 COPY COMMAND', 1500);
-        });
+        const cmd = extractCommand();
+        if (!cmd) return;
+        copyMapText(cmd, dlCopyCmdBtn, 'Copy command', cliCodeText);
       });
     }
 
     // Download Windows .bat Script
     if (dlBatBtn) {
       dlBatBtn.addEventListener('click', () => {
-        if (!currentBbox) return;
+        const cmd = extractCommand();
+        if (!cmd) return;
         const { minLon, minLat, maxLon, maxLat } = currentBbox;
-        const today = new Date().toISOString().slice(0, 10).replace(/-/g, '');
         const batContent = `@echo off\r\n` +
           `title Quantum P1NG - PMTiles Extractor\r\n` +
           `echo ========================================================\r\n` +
@@ -2955,14 +3262,14 @@
           `echo  BBOX: [${minLon}, ${minLat}, ${maxLon}, ${maxLat}]\r\n` +
           `echo ========================================================\r\n\r\n` +
           `echo [1/2] Slicing PMTiles vector archive from daily global build...\r\n` +
-          `pmtiles extract https://build.protomaps.com/${today}.pmtiles city_extract.pmtiles --bbox=${minLon},${minLat},${maxLon},${maxLat} --maxzoom=15\r\n` +
+          `${cmd}\r\n` +
           `if %errorlevel% neq 0 (\r\n` +
           `    echo [ERROR] Failed to extract. Please ensure 'pmtiles' CLI is installed.\r\n` +
           `    echo Download from: https://github.com/protomaps/PMTiles/releases\r\n` +
           `) else (\r\n` +
           `    echo.\r\n` +
           `    echo [2/2] SUCCESS: city_extract.pmtiles generated!\r\n` +
-          `    echo Transfer to your handset and import into Quantum P1NG Q-Geo Tactical.\r\n` +
+          `    echo Transfer to your handset and import into Quantum P1NG Q-Geo.\r\n` +
           `)\r\n` +
           `echo.\r\n` +
           `pause\r\n`;
@@ -2980,9 +3287,9 @@
     // Download Linux/macOS .sh Script
     if (dlShBtn) {
       dlShBtn.addEventListener('click', () => {
-        if (!currentBbox) return;
+        const cmd = extractCommand();
+        if (!cmd) return;
         const { minLon, minLat, maxLon, maxLat } = currentBbox;
-        const today = new Date().toISOString().slice(0, 10).replace(/-/g, '');
         const shContent = `#!/usr/bin/env bash\n` +
           `set -e\n` +
           `echo "========================================================"\n` +
@@ -2990,10 +3297,10 @@
           `echo " BBOX: [${minLon}, ${minLat}, ${maxLon}, ${maxLat}]"\n` +
           `echo "========================================================"\n\n` +
           `echo "[1/2] Slicing PMTiles vector archive from daily global build..."\n` +
-          `pmtiles extract "https://build.protomaps.com/${today}.pmtiles" city_extract.pmtiles --bbox="${minLon},${minLat},${maxLon},${maxLat}" --maxzoom=15\n` +
+          `${cmd}\n` +
           `echo ""\n` +
           `echo "[2/2] SUCCESS: city_extract.pmtiles generated!"\n` +
-          `echo "Transfer to your handset and import into Quantum P1NG Q-Geo Tactical."\n`;
+          `echo "Transfer to your handset and import into Quantum P1NG Q-Geo."\n`;
 
         const blob = new Blob([shContent], { type: 'application/x-sh' });
         const url = URL.createObjectURL(blob);
@@ -3023,7 +3330,7 @@
           zoom: { min: 0, max: 15, default: 12 },
           areaKm2: Math.round(areaKm2),
           compression: "gzip",
-          airGapVerified: true
+          airGapVerified: false
         };
         const blob = new Blob([JSON.stringify(manifest, null, 2)], { type: 'application/json' });
         const url = URL.createObjectURL(blob);
@@ -3213,13 +3520,21 @@
     const sheetHandleBar = document.getElementById('sheetHandleBar');
     const tacticalPanel = document.getElementById('tacticalPanel');
 
+    function updateMapPanelSpace() {
+      const height = window.innerWidth <= 768 ? Math.ceil(tacticalPanel.getBoundingClientRect().height) : 0;
+      document.documentElement.style.setProperty('--map-panel-height', `${height}px`);
+    }
+    if (typeof ResizeObserver !== 'undefined') new ResizeObserver(updateMapPanelSpace).observe(tacticalPanel);
+    window.addEventListener('resize', updateMapPanelSpace);
+    updateMapPanelSpace();
+
     function updateToggleBtnLabel() {
       if (!togglePanelBtn) return;
-      if (window.innerWidth <= 768) {
-        togglePanelBtn.textContent = tacticalPanel.classList.contains('is-expanded') ? '▼ HIDE' : '▲ EXPAND';
-      } else {
-        togglePanelBtn.textContent = tacticalPanel.classList.contains('is-peek-desktop') ? '▼ EXPAND' : '▲ PEEK';
-      }
+      const mobile = window.innerWidth <= 768;
+      const expanded = mobile ? tacticalPanel.classList.contains('is-expanded') : !tacticalPanel.classList.contains('is-peek-desktop');
+      togglePanelBtn.textContent = expanded ? '⌄ Hide' : '⌃ Tools';
+      togglePanelBtn.setAttribute('aria-expanded', String(expanded));
+      togglePanelBtn.setAttribute('aria-label', expanded ? 'Collapse map tools' : 'Expand map tools');
     }
 
     function toggleMobileDrawer() {
@@ -3236,6 +3551,7 @@
         tacticalPanel.classList.toggle('is-peek-desktop');
       }
       updateToggleBtnLabel();
+      updateMapPanelSpace();
     }
 
     updateToggleBtnLabel();
@@ -3251,9 +3567,12 @@
     let activeTool = 'extract'; // 'extract' | 'rf' | 'measure' | 'waypoints'
 
     panelTabs.forEach(tab => {
+      tab.setAttribute('aria-controls', tab.dataset.tab);
+      tab.setAttribute('aria-pressed', String(tab.classList.contains('active')));
       tab.addEventListener('click', () => {
-        panelTabs.forEach(t => t.classList.remove('active'));
+        panelTabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-pressed', 'false'); });
         tab.classList.add('active');
+        tab.setAttribute('aria-pressed', 'true');
         const targetId = tab.dataset.tab;
         tabPanes.forEach(p => p.classList.remove('active'));
         const targetPane = document.getElementById(targetId);
@@ -3427,14 +3746,15 @@
       const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
                 Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
                 Math.sin(dLon/2) * Math.sin(dLon/2);
-      return R * (2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)));
+      const bounded = Math.max(0, Math.min(1, a));
+      return R * (2 * Math.atan2(Math.sqrt(bounded), Math.sqrt(1-bounded)));
     }
 
     function calcBearing(lon1, lat1, lon2, lat2) {
       const y = Math.sin((lon2 - lon1) * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180);
       const x = Math.cos(lat1 * Math.PI / 180) * Math.sin(lat2 * Math.PI / 180) -
                 Math.sin(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * Math.cos((lon2 - lon1) * Math.PI / 180);
-      return Math.round((Math.atan2(y, x) * 180 / Math.PI + 360) % 360);
+      return Math.round((Math.atan2(y, x) * 180 / Math.PI + 360) % 360) % 360;
     }
 
     function updateMeasure() {
@@ -3505,7 +3825,7 @@
         const p1 = measurePoints[measurePoints.length - 2];
         const p2 = measurePoints[measurePoints.length - 1];
         const brg = calcBearing(p1.lon, p1.lat, p2.lon, p2.lat);
-        const backBrg = (brg + 180) % 360;
+        const backBrg = calcBearing(p2.lon, p2.lat, p1.lon, p1.lat);
 
         const cardinals = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW', 'N'];
         const card = cardinals[Math.round(brg / 45) % 8];
@@ -3557,6 +3877,7 @@
     // 10.4 TACTICAL WAYPOINTS & LZ MANAGER
     // -------------------------------------------------------------------------
     let tacticalWaypoints = [];
+    let waypointSequence = 0;
     let currentWptType = 'RELAY';
     let wptPlaceMode = false;
 
@@ -3576,20 +3897,24 @@
     });
 
     function addWaypoint(lat, lon, customName = null) {
+      if (!Number.isFinite(lat) || !Number.isFinite(lon) || lat < -90 || lat > 90) return;
+      lon = normalizedLongitude(lon);
       const inputEl = document.getElementById('wptCallsignInput');
-      const callsign = customName || (inputEl && inputEl.value.trim()) || `${currentWptType}-${tacticalWaypoints.length + 1}`;
+      const callsign = String(customName || (inputEl && inputEl.value.trim()) || `${currentWptType}-${tacticalWaypoints.length + 1}`)
+        .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\uFFFE\uFFFF]/g, '').slice(0, 120);
       const grid = latlon_to_utm_mgrs(lat, lon);
 
       const el = document.createElement('div');
       el.className = 'wpt-marker-wrap';
-      el.innerHTML = `<div style="background:rgba(4,10,18,0.92);border:1px solid #00f2ff;border-radius:4px;padding:3px 6px;color:#fff;font-family:monospace;font-size:10px;display:flex;align-items:center;gap:4px;box-shadow:0 0 10px rgba(0,242,255,0.4);white-space:nowrap;cursor:pointer;"><span>${wptIcons[currentWptType] || '📍'}</span><strong>${callsign}</strong></div>`;
+      el.innerHTML = `<div style="background:rgba(4,10,18,0.92);border:1px solid #00f2ff;border-radius:4px;padding:3px 6px;color:#fff;font-family:monospace;font-size:10px;display:flex;align-items:center;gap:4px;box-shadow:0 0 10px rgba(0,242,255,0.4);white-space:nowrap;cursor:pointer;"><span>${wptIcons[currentWptType] || '📍'}</span><strong></strong></div>`;
+      el.querySelector('strong').textContent = callsign;
 
       const marker = new maplibregl.Marker({ element: el })
         .setLngLat([lon, lat])
         .addTo(map);
 
       const wpt = {
-        id: Date.now(),
+        id: ++waypointSequence,
         type: currentWptType,
         name: callsign,
         lat: Number(lat.toFixed(5)),
@@ -3619,11 +3944,13 @@
         item.innerHTML = `
           <div>
             <span>${wptIcons[w.type] || '📍'}</span>
-            <strong style="color:var(--cyan); margin-left:4px;">${w.name}</strong>
-            <span style="color:var(--text-muted); font-size:0.6rem; margin-left:6px;">${w.mgrs}</span>
+            <strong class="wpt-name" style="color:var(--cyan); margin-left:4px;"></strong>
+            <span class="wpt-grid" style="color:var(--text-muted); font-size:0.6rem; margin-left:6px;"></span>
           </div>
           <button class="wpt-del-btn" data-id="${w.id}" title="Remove waypoint">&times;</button>
         `;
+        item.querySelector('.wpt-name').textContent = w.name;
+        item.querySelector('.wpt-grid').textContent = w.mgrs;
         item.querySelector('.wpt-del-btn').addEventListener('click', () => {
           w.marker.remove();
           tacticalWaypoints = tacticalWaypoints.filter(item => item.id !== w.id);
@@ -3638,6 +3965,23 @@
     const wptExportGpxBtn = document.getElementById('wptExportGpxBtn');
     const wptExportGeojsonBtn = document.getElementById('wptExportGeojsonBtn');
     const wptClearAllBtn = document.getElementById('wptClearAllBtn');
+
+    function escapeXml(value) {
+      return String(value).replace(/[&<>"']/g, char => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;'
+      })[char]);
+    }
+
+    function waypointGpx(waypoints) {
+      let xml = '<?xml version="1.0" encoding="UTF-8"?>\n<gpx version="1.1" creator="Quantum-P1NG Q-Geo" xmlns="http://www.topografix.com/GPX/1/1">\n';
+      waypoints.forEach(w => {
+        xml += `  <wpt lat="${w.lat}" lon="${w.lon}">\n` +
+          `    <name>${escapeXml(w.name)}</name>\n` +
+          `    <desc>${escapeXml(`Type: ${w.type} | MGRS: ${w.mgrs}`)}</desc>\n` +
+          `    <type>${escapeXml(w.type)}</type>\n  </wpt>\n`;
+      });
+      return xml + '</gpx>';
+    }
 
     if (wptDropCenterBtn) {
       wptDropCenterBtn.addEventListener('click', () => {
@@ -3660,15 +4004,7 @@
           return;
         }
 
-        let xml = `<?xml version="1.0" encoding="UTF-8"?>\n<gpx version="1.1" creator="Quantum-P1NG Q-Geo Tactical" xmlns="http://www.topografix.com/GPX/1/1">\n`;
-        tacticalWaypoints.forEach(w => {
-          xml += `  <wpt lat="${w.lat}" lon="${w.lon}">\n`;
-          xml += `    <name>${w.name}</name>\n`;
-          xml += `    <desc>Type: ${w.type} | MGRS: ${w.mgrs}</desc>\n`;
-          xml += `    <type>${w.type}</type>\n`;
-          xml += `  </wpt>\n`;
-        });
-        xml += `</gpx>`;
+        const xml = waypointGpx(tacticalWaypoints);
 
         const blob = new Blob([xml], { type: 'application/gpx+xml' });
         const url = URL.createObjectURL(blob);
@@ -3973,10 +4309,7 @@
         document.getElementById('inspAddressedTiles').textContent = tilesCount > 0 ? tilesCount.toLocaleString() : 'Optimized Pyramid';
 
         // Compression
-        let compStr = 'None';
-        if (header.tileCompression === 1) compStr = 'gzip';
-        else if (header.tileCompression === 2) compStr = 'brotli';
-        else if (header.tileCompression === 3) compStr = 'zstd';
+        const compStr = ({ 0: 'Unknown', 1: 'None', 2: 'gzip', 3: 'brotli', 4: 'zstd' })[header.tileCompression] || 'Unknown';
         document.getElementById('inspCompression').textContent = compStr;
 
         // BBox & Center
