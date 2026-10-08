@@ -5415,7 +5415,7 @@ if (terminal && gamesGrid) {
     if (wifiPlayPillIcon) wifiPlayPillIcon.textContent = '▶';
     if (toggleBtn) {
       const g = toggleBtn.querySelector('.ag-btn-glitch');
-      if (g) g.textContent = '[ RESUME STREAM ]';
+      if (g) g.textContent = (wifiVideo && wifiVideo.currentTime > 0) ? '[ RESUME STREAM ]' : '[ PLAY STREAM ]';
     }
     wifiVideo.pause();
   }
@@ -5607,9 +5607,7 @@ if (terminal && gamesGrid) {
 
     if (mode === 'wifi') {
       if (canvasBox) canvasBox.classList.add('is-wifi-mode');
-      if (isVisible) {
-        playWifiVideo();
-      }
+      pauseWifiVideo();
     } else {
       if (canvasBox) canvasBox.classList.remove('is-wifi-mode');
       pauseWifiVideo();
@@ -6415,7 +6413,9 @@ if (terminal && gamesGrid) {
     if (isVisible) return;
     isVisible = true;
     if (activeMode === 'wifi') {
-      playWifiVideo();
+      if (isWifiVideoPlaying) {
+        playWifiVideo();
+      }
     } else if (isRunning) {
       animId = requestAnimationFrame(render);
     }

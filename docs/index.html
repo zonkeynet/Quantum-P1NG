@@ -2267,14 +2267,22 @@ _
           <!-- Local Wi-Fi & Hotspot P2P Tactical Video -->
           <div class="ag-wifi-video-wrap" id="agWifiVideoWrap" role="button" tabindex="0" aria-label="Toggle Local Wi-Fi P2P video playback" title="Click to play / pause video animation">
             <picture class="ag-wifi-poster-wrap" id="agWifiPosterWrap">
-              <source srcset="assets/img/video_local_wifi_poster.webp?v=1" type="image/webp">
-              <img src="assets/img/video_local_wifi_poster.jpg?v=1" alt="Local Wi-Fi and Hotspot P2P Carrier Diagram" class="ag-wifi-poster-img" width="1280" height="720" loading="lazy" decoding="async">
+              <source srcset="assets/img/video_local_wifi_poster.webp?v=2" type="image/webp">
+              <img src="assets/img/video_local_wifi_poster.jpg?v=2" alt="Local Wi-Fi and Hotspot P2P Carrier Diagram" class="ag-wifi-poster-img" width="960" height="540" loading="lazy" decoding="async">
             </picture>
 
-            <video id="agWifiVideo" class="ag-wifi-video" width="1280" height="720" poster="assets/img/video_local_wifi_poster.webp?v=1" loop muted playsinline preload="metadata" title="Click to play / pause video animation">
-              <source src="assets/vid/video_local_wifi.webm?v=1" type="video/webm">
-              <source src="assets/vid/video_local_wifi.mp4?v=1" type="video/mp4">
+            <video id="agWifiVideo" class="ag-wifi-video" width="960" height="540" poster="assets/img/video_local_wifi_poster.webp?v=2" loop muted playsinline preload="metadata" title="Click to play / pause video animation">
+              <source src="assets/vid/video_local_wifi.webm?v=2" type="video/webm">
+              <source src="assets/vid/video_local_wifi.mp4?v=2" type="video/mp4">
             </video>
+
+            <!-- Center Tactical Play Trigger Overlay -->
+            <div class="ag-wifi-play-center" id="agWifiPlayCenter" aria-hidden="true">
+              <div class="ag-wifi-play-disc">
+                <span class="ag-play-triangle">▶</span>
+              </div>
+              <span class="ag-wifi-play-label mono">CLICK TO PLAY STREAM</span>
+            </div>
 
             <div class="ag-wifi-play-pill mono" id="agWifiPlayPill" aria-hidden="true">
               <span class="ag-play-icon">▶</span>
