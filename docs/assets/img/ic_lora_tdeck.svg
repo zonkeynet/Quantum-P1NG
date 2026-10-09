@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Top SMA Antenna on Left -->
+    <path d="M 29 7 L 35 7 C 36 7 37 8 37 9 L 37 21 L 27 21 L 27 9 C 27 8 28 7 29 7 Z" fill="currentColor" stroke="none" />
+    <path d="M 25 18 L 39 18 C 40 18 40.5 18.5 40.5 19.5 L 40.5 22 L 23.5 22 L 23.5 19.5 C 23.5 18.5 24 18 25 18 Z" fill="currentColor" stroke="none" />
+
+    <!-- LoRa Radiating RF Waves from Antenna -->
+    <path d="M 42 8 C 47.5 8 52.5 10.5 56 14.5" stroke="currentColor" stroke-width="3.6" />
+    <path d="M 46 2 C 54 2 61 5.5 65.5 11" stroke="currentColor" stroke-width="3.6" />
+
+    <!-- T-Deck Handheld Chassis -->
+    <path d="M 33 22 L 75 22 C 82 22 87 26.5 87 33.5 L 87 82.5 C 87 89.5 81.5 95 73.5 95 L 34.5 95 C 26.5 95 21 89.5 21 82.5 L 21 33.5 C 21 26.5 26 22 33 22 Z" 
+          stroke="currentColor" stroke-width="4.2" />
+
+    <!-- Speaker Slit -->
+    <line x1="48" y1="27" x2="60" y2="27" stroke="currentColor" stroke-width="2.6" />
+
+    <!-- Screen Bezel -->
+    <rect x="27.5" y="32" width="53" height="23" rx="2.5" stroke="currentColor" stroke-width="3.2" />
+
+    <!-- Screen Telemetry: TX & RX Badges -->
+    <rect x="31.5" y="35.5" width="7" height="4" rx="1" fill="currentColor" stroke="none" />
+    <rect x="40" y="35.5" width="7" height="4" rx="1" fill="currentColor" stroke="none" />
+    
+    <!-- Screen Telemetry: Signal Bars -->
+    <rect x="69" y="37.5" width="2" height="2" fill="currentColor" stroke="none" />
+    <rect x="72" y="36" width="2" height="3.5" fill="currentColor" stroke="none" />
+    <rect x="75" y="34.5" width="2" height="5" fill="currentColor" stroke="none" />
+
+    <!-- Screen Telemetry: Chirp Pulse Waveform -->
+    <path d="M 31.5 48.5 L 40 48.5 L 43.5 43 L 47.5 51 L 51.5 45 L 55 48.5 L 75 48.5" 
+          stroke="currentColor" stroke-width="2.2" />
+
+    <!-- Center Trackball (Jogball) -->
+    <circle cx="54" cy="61" r="3.6" fill="currentColor" stroke="none" />
+    
+    <!-- Trackball Chevrons Left (>>>) & Right (<<<) -->
+    <path d="M 33 59 L 35 61 L 33 63 M 38 59 L 40 61 L 38 63 M 43 59 L 45 61 L 43 63" stroke="currentColor" stroke-width="2.2" />
+    <path d="M 75 59 L 73 61 L 75 63 M 70 59 L 68 61 L 70 63 M 65 59 L 63 61 L 65 63" stroke="currentColor" stroke-width="2.2" />
+
+    <!-- Keypad Keys (4 Rows with Tactile Pill Shapes) -->
+    <!-- Row 1 -->
+    <rect x="28.5" y="67" width="5.2" height="3.6" rx="1.2" fill="currentColor" stroke="none" />
+    <rect x="35.5" y="67" width="5.2" height="3.6" rx="1.2" fill="currentColor" stroke="none" />
+    <rect x="42.5" y="67" width="5.2" height="3.6" rx="1.2" fill="currentColor" stroke="none" />
+    <rect x="49.5" y="67" width="5.2" height="3.6" rx="1.2" fill="currentColor" stroke="none" />
+    <rect x="56.5" y="67" width="5.2" height="3.6" rx="1.2" fill="currentColor" stroke="none" />
+    <rect x="63.5" y="67" width="5.2" height="3.6" rx="1.2" fill="currentColor" stroke="none" />
+    <rect x="70.5" y="67" width="5.2" height="3.6" rx="1.2" fill="currentColor" stroke="none" />
+
+    <!-- Row 2 -->
+    <rect x="28.5" y="73" width="5.2" height="3.6" rx="1.2" fill="currentColor" stroke="none" />
+    <rect x="35.5" y="73" width="5.2" height="3.6" rx="1.2" fill="currentColor" stroke="none" />
+    <rect x="42.5" y="73" width="5.2" height="3.6" rx="1.2" fill="currentColor" stroke="none" />
+    <rect x="49.5" y="73" width="5.2" height="3.6" rx="1.2" fill="currentColor" stroke="none" />
+    <rect x="56.5" y="73" width="5.2" height="3.6" rx="1.2" fill="currentColor" stroke="none" />
+    <rect x="63.5" y="73" width="5.2" height="3.6" rx="1.2" fill="currentColor" stroke="none" />
+    <rect x="70.5" y="73" width="5.2" height="3.6" rx="1.2" fill="currentColor" stroke="none" />
+
+    <!-- Row 3 -->
+    <rect x="31" y="79" width="5.6" height="3.6" rx="1.2" fill="currentColor" stroke="none" />
+    <rect x="38.5" y="79" width="5.6" height="3.6" rx="1.2" fill="currentColor" stroke="none" />
+    <rect x="46" y="79" width="5.6" height="3.6" rx="1.2" fill="currentColor" stroke="none" />
+    <rect x="53.5" y="79" width="5.6" height="3.6" rx="1.2" fill="currentColor" stroke="none" />
+    <rect x="61" y="79" width="5.6" height="3.6" rx="1.2" fill="currentColor" stroke="none" />
+    <rect x="68.5" y="79" width="5.6" height="3.6" rx="1.2" fill="currentColor" stroke="none" />
+
+    <!-- Row 4: Side Keys + Centered Spacebar -->
+    <rect x="31" y="85" width="7" height="3.8" rx="1.2" fill="currentColor" stroke="none" />
+    <rect x="41" y="85" width="22" height="3.8" rx="1.5" fill="currentColor" stroke="none" />
+    <rect x="66" y="85" width="7" height="3.8" rx="1.2" fill="currentColor" stroke="none" />
+  </g>
+</svg>
