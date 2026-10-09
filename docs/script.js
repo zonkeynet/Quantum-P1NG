@@ -2508,6 +2508,9 @@ if (terminal && gamesGrid) {
   // Principle 04: Whisper STT Video
   setupVideoCard('whisperMediaContainer', 'whisperVideo', 'whisperBadge', 'AI::ANIMATED', 'AI::GATED');
 
+  // Principle 05: LoRa Radio VHF Video
+  setupVideoCard('loraMediaContainer', 'loraVideo', 'loraBadge', 'LORA::ACTIVE', 'FALLBACK::FIELD');
+
   // Principle 06: Ghost Mesh Radar Video
   setupVideoCard('meshMediaContainer', 'meshVideo', 'meshBadge', 'RADAR::ACTIVE', 'LAB::SAFE');
 

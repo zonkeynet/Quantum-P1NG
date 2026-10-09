@@ -14381,7 +14381,8 @@ body.qmap-modal-open {
 .mission-principle-media--video .vault-poster-img,
 .mission-principle-media--video .mesh-poster-img,
 .mission-principle-media--video .tor-poster-img,
-.mission-principle-media--video .identity-poster-img {
+.mission-principle-media--video .identity-poster-img,
+.mission-principle-media--video .lora-poster-img {
   width: 100%;
   height: 100%;
   display: block;
@@ -14395,7 +14396,8 @@ body.qmap-modal-open {
 .mission-principle-media--video.is-playing .vault-poster-img,
 .mission-principle-media--video.is-playing .mesh-poster-img,
 .mission-principle-media--video.is-playing .tor-poster-img,
-.mission-principle-media--video.is-playing .identity-poster-img {
+.mission-principle-media--video.is-playing .identity-poster-img,
+.mission-principle-media--video.is-playing .lora-poster-img {
   opacity: 0;
   pointer-events: none;
 }
@@ -14404,7 +14406,8 @@ body.qmap-modal-open {
 .vault-inline-video,
 .mesh-inline-video,
 .tor-inline-video,
-.identity-inline-video {
+.identity-inline-video,
+.lora-inline-video {
   position: absolute;
   top: 0;
   left: 0;
@@ -14427,7 +14430,8 @@ body.qmap-modal-open {
 .mission-principle-media--video.is-playing .vault-inline-video,
 .mission-principle-media--video.is-playing .mesh-inline-video,
 .mission-principle-media--video.is-playing .tor-inline-video,
-.mission-principle-media--video.is-playing .identity-inline-video {
+.mission-principle-media--video.is-playing .identity-inline-video,
+.mission-principle-media--video.is-playing .lora-inline-video {
   opacity: 1;
   pointer-events: auto;
 }
@@ -14440,7 +14444,8 @@ body.qmap-modal-open {
 .mission-principle-media--video .vault-badge,
 .mission-principle-media--video .mesh-badge,
 .mission-principle-media--video .tor-badge,
-.mission-principle-media--video .identity-badge {
+.mission-principle-media--video .identity-badge,
+.mission-principle-media--video .lora-badge {
   transition: background 300ms ease, border-color 300ms ease, color 300ms ease, box-shadow 300ms ease;
   z-index: 3;
 }
@@ -14449,7 +14454,8 @@ body.qmap-modal-open {
 .mission-principle-media--video.is-playing .vault-badge,
 .mission-principle-media--video.is-playing .mesh-badge,
 .mission-principle-media--video.is-playing .tor-badge,
-.mission-principle-media--video.is-playing .identity-badge {
+.mission-principle-media--video.is-playing .identity-badge,
+.mission-principle-media--video.is-playing .lora-badge {
   background: rgba(0, 20, 14, 0.90);
   border-color: rgba(0, 255, 157, 0.55);
   color: #00ff9d;
