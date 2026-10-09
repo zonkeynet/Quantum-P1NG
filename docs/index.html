@@ -7679,6 +7679,62 @@ _
   </div>
 </section>
 
+<!-- ===================================================================== -->
+<!-- PEACE NODE DONATION BANNER: BTC MAINNET PRIVACY TOOLS                 -->
+<!-- ===================================================================== -->
+<section id="peace-node-donate" class="donation-section" aria-label="Support the Peace Node">
+  <div class="wrap">
+    <div class="donation-card">
+      <div class="donation-card__glow" aria-hidden="true"></div>
+      
+      <div class="donation-card__content">
+        <div class="donation-card__header">
+          <div class="donation-badge mono">
+            <span class="donation-badge__dot"></span>
+            <span>SUPPORT THE PEACE NODE</span>
+            <span class="donation-badge__sep">//</span>
+            <span>BTC MAINNET</span>
+          </div>
+          <h2 class="donation-card__title">
+            Keep Privacy Quiet When the World Gets Loud
+          </h2>
+          <p class="donation-card__quote mono">
+            &ldquo;Love and peace to the people building quiet tools for loud moments. For activists, journalists and every human protecting truth under pressure.&rdquo;
+          </p>
+        </div>
+
+        <div class="donation-card__body">
+          <div class="donation-address-box mono">
+            <span class="donation-address-label">DONATION ADDRESS [BTC MAINNET]:</span>
+            <div class="donation-address-row">
+              <code class="donation-address-code" id="btc-address-val">374KXiCjuvSr5aWXf1tzCB8fUzXhHanngi</code>
+              <button type="button" class="donation-btn-copy mono" id="btn-copy-btc-direct" title="Copy BTC Address">
+                <span class="copy-icon">⧉</span>
+                <span class="copy-text">COPY</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="donation-card__actions">
+            <button type="button" class="btn-donate-main mono" id="btn-open-donation-modal">
+              <svg class="btc-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M23.638 14.904c-1.602 6.43-8.08 10.34-14.51 8.736C2.698 22.038-1.211 15.56.393 9.13 1.996 2.7 8.473-1.21 14.903.394c6.43 1.604 10.339 8.08 8.735 14.51zm-6.322-4.186c.234-1.566-.96-2.408-2.593-2.97l.53-2.124-1.293-.323-.516 2.07c-.34-.085-.69-.165-1.039-.245l.52-2.083-1.293-.323-.53 2.125c-.282-.064-.557-.128-.823-.195l.002-.008-1.785-.446-.344 1.382s.96.22.94.234c.524.13.619.477.603.752l-.604 2.42c.036.01.083.023.134.043l-.138-.035-.846 3.39c-.064.159-.227.397-.593.306.013.018-.94-.235-.94-.235l-.643 1.482 1.684.42c.313.078.62.16.922.238l-.535 2.15 1.292.322.53-2.126c.353.096.696.185 1.032.27l-.528 2.115 1.294.323.535-2.146c2.207.418 3.867.249 4.566-1.748.563-1.608-.028-2.536-1.19-3.14.846-.195 1.483-.752 1.653-1.902zm-2.956 4.152c-.4 1.61-3.11.74-3.99.52l.712-2.854c.88.22 3.693.655 3.278 2.334zm.4-4.173c-.366 1.465-2.62.72-3.35.538l.645-2.587c.73.182 3.085.522 2.705 2.05z"/>
+              </svg>
+              <span>DONATE BTC</span>
+              <span class="heart-icon">♥</span>
+            </button>
+
+            <a href="bitcoin:374KXiCjuvSr5aWXf1tzCB8fUzXhHanngi?label=Q-P1NG%20Peace%20Node&message=Privacy%20tools%20for%20activists%20and%20journalists" class="btn-donate-wallet mono" title="Open Bitcoin URI">
+              <span>OPEN IN WALLET</span>
+              <span class="arrow">&rarr;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer class="footer">
   <div class="wrap footer__grid">
 
@@ -7702,6 +7758,9 @@ _
       <button id="btn-replay-intro" class="mono tiny" style="background:transparent; border:1px solid rgba(0,255,157,0.3); color:#00ff9d; padding:3px 8px; border-radius:4px; margin-top:8px; cursor:pointer;" title="Replay Cinematic Intro">
         ▶ REPLAY INTRO
       </button>
+      <button id="btn-footer-donate" class="btn-footer-donate mono" type="button" title="Support the Peace Node with Bitcoin">
+        <span class="btc-badge">₿</span> DONATE BTC <span class="heart-badge">♥</span>
+      </button>
     </div>
 
     <div class="f-col f-right">
@@ -7709,6 +7768,8 @@ _
         <div style="margin-bottom: 8px;">
             <span style="color:var(--muted); font-size:10px;">[TOOLS]</span>
             <a href="pmtiles.html" style="color:var(--cyan);">PMTILES MAPS</a>
+            <span class="sep">::</span>
+            <a href="#peace-node-donate" id="btn-footer-link-donate" style="color:var(--btc, #f7931a); font-weight:700;">DONATE BTC</a>
             <span class="sep">::</span>
             <a href="license.html">LICENSE</a>
             <span class="sep">::</span>
@@ -7817,6 +7878,74 @@ _
         <div><span class="txt-amber">BDK CORE:</span><strong>BIP84 NATIVE SEGWIT</strong></div>
         <div><span class="txt-cyan">TOR CIRCUIT:</span><strong>ISOLATED SOCKS5</strong></div>
         <div><span class="txt-green">SETTLEMENT:</span><strong>SIGNED QR PROOFS</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QP1NG PEACE NODE BTC DONATION INTERACTIVE MODAL -->
+  <div class="donation-modal" id="qp1ng-donation-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Support the Peace Node - Bitcoin Donation">
+    <div class="donation-modal__backdrop" id="donation-modal-backdrop"></div>
+    <div class="donation-modal__dialog">
+      <!-- Modal Top Bar -->
+      <div class="donation-modal__bar mono">
+        <div class="donation-modal__bar-left">
+          <span class="blink-dot" style="background-color: #f7931a; box-shadow: 0 0 10px rgba(247,147,26,0.85);"></span>
+          <span class="modal-tag">BTC MAINNET // PEACE NODE</span>
+        </div>
+        <button type="button" class="donation-modal__close mono" id="donation-modal-close" aria-label="Close Donation Modal">CLOSE [ESC]</button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="donation-modal__body">
+        <div class="donation-modal__hero">
+          <div class="donation-modal__icon-wrap">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="#f7931a" aria-hidden="true">
+              <path d="M23.638 14.904c-1.602 6.43-8.08 10.34-14.51 8.736C2.698 22.038-1.211 15.56.393 9.13 1.996 2.7 8.473-1.21 14.903.394c6.43 1.604 10.339 8.08 8.735 14.51zm-6.322-4.186c.234-1.566-.96-2.408-2.593-2.97l.53-2.124-1.293-.323-.516 2.07c-.34-.085-.69-.165-1.039-.245l.52-2.083-1.293-.323-.53 2.125c-.282-.064-.557-.128-.823-.195l.002-.008-1.785-.446-.344 1.382s.96.22.94.234c.524.13.619.477.603.752l-.604 2.42c.036.01.083.023.134.043l-.138-.035-.846 3.39c-.064.159-.227.397-.593.306.013.018-.94-.235-.94-.235l-.643 1.482 1.684.42c.313.078.62.16.922.238l-.535 2.15 1.292.322.53-2.126c.353.096.696.185 1.032.27l-.528 2.115 1.294.323.535-2.146c2.207.418 3.867.249 4.566-1.748.563-1.608-.028-2.536-1.19-3.14.846-.195 1.483-.752 1.653-1.902zm-2.956 4.152c-.4 1.61-3.11.74-3.99.52l.712-2.854c.88.22 3.693.655 3.278 2.334zm.4-4.173c-.366 1.465-2.62.72-3.35.538l.645-2.587c.73.182 3.085.522 2.705 2.05z"/>
+            </svg>
+            <span class="heart-badge">♥</span>
+          </div>
+          <div>
+            <h3 class="modal-title">SUPPORT THE PEACE NODE</h3>
+            <span class="modal-sub mono">BTC MAINNET // PRIVACY TOOLS FOR THE FIELD</span>
+          </div>
+        </div>
+
+        <div class="donation-modal__quote mono">
+          &ldquo;Love and peace to the people building quiet tools for loud moments. For activists, journalists and every human protecting truth under pressure.&rdquo;
+        </div>
+
+        <!-- QR Code Stage -->
+        <div class="donation-modal__qr-stage">
+          <div class="donation-qr-frame">
+            <img src="assets/img/btc_donation_qr.svg" alt="Bitcoin Donation QR Code" width="180" height="180" class="donation-qr-img">
+          </div>
+          <span class="donation-qr-hint mono">SCAN WITH ANY BITCOIN WALLET (BLUEWALLET, PHOENIX, ELECTRUM)</span>
+        </div>
+
+        <!-- Address Box -->
+        <div class="donation-modal__address mono">
+          <span class="addr-label">DONATION ADDRESS [BTC MAINNET]</span>
+          <div class="addr-field">
+            <code id="modal-btc-address">374KXiCjuvSr5aWXf1tzCB8fUzXhHanngi</code>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="donation-modal__buttons mono">
+          <button type="button" class="btn-modal-copy" id="btn-modal-copy-btc">
+            <span class="copy-icon">⧉</span>
+            <span class="copy-text">COPY ADDRESS</span>
+          </button>
+
+          <a href="bitcoin:374KXiCjuvSr5aWXf1tzCB8fUzXhHanngi?label=Q-P1NG%20Peace%20Node&message=Privacy%20tools%20for%20activists%20and%20journalists" class="btn-modal-open" target="_blank" rel="noopener">
+            <span>OPEN IN WALLET</span>
+            <span class="arrow">&rarr;</span>
+          </a>
+        </div>
+
+        <div class="donation-modal__footer mono">
+          <span>Love, peace, privacy, signal over noise.</span>
+        </div>
       </div>
     </div>
   </div>
