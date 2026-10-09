@@ -2290,6 +2290,32 @@ _
             </div>
           </div>
 
+          <!-- Acoustic Identity Handshake Tactical Video -->
+          <div class="ag-acoustic-video-wrap" id="agAcousticVideoWrap" role="button" tabindex="0" aria-label="Toggle Acoustic Identity video playback" title="Click to play / pause video animation">
+            <picture class="ag-acoustic-poster-wrap" id="agAcousticPosterWrap">
+              <source srcset="assets/img/video_acoustic_identity_poster.webp?v=1" type="image/webp">
+              <img src="assets/img/video_acoustic_identity_poster.jpg?v=1" alt="Acoustic Identity Handshake Ultrasonic Carrier Diagram" class="ag-acoustic-poster-img" width="960" height="540" loading="lazy" decoding="async">
+            </picture>
+
+            <video id="agAcousticVideo" class="ag-acoustic-video" width="960" height="540" poster="assets/img/video_acoustic_identity_poster.webp?v=1" loop muted playsinline preload="metadata" title="Click to play / pause video animation">
+              <source src="assets/vid/video_acoustic_identity.webm?v=1" type="video/webm">
+              <source src="assets/vid/video_acoustic_identity.mp4?v=1" type="video/mp4">
+            </video>
+
+            <!-- Center Tactical Play Trigger Overlay -->
+            <div class="ag-acoustic-play-center" id="agAcousticPlayCenter" aria-hidden="true">
+              <div class="ag-acoustic-play-disc">
+                <span class="ag-play-triangle">▶</span>
+              </div>
+              <span class="ag-acoustic-play-label mono">CLICK TO PLAY STREAM</span>
+            </div>
+
+            <div class="ag-acoustic-play-pill mono" id="agAcousticPlayPill" aria-hidden="true">
+              <span class="ag-play-icon">▶</span>
+              <span class="ag-play-text">CLICK TO PLAY STREAM</span>
+            </div>
+          </div>
+
           <!-- Overlay Reticle & HUD markers -->
           <div class="ag-reticle" aria-hidden="true">
             <span class="ag-reticle-corner ag-corner-tl"></span>

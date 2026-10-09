@@ -5452,6 +5452,74 @@ if (terminal && gamesGrid) {
       }
     });
   }
+
+  const acousticVideoWrap = document.getElementById('agAcousticVideoWrap');
+  const acousticVideo = document.getElementById('agAcousticVideo');
+  const acousticPlayPill = document.getElementById('agAcousticPlayPill');
+  const acousticPlayPillText = acousticPlayPill ? acousticPlayPill.querySelector('.ag-play-text') : null;
+  const acousticPlayPillIcon = acousticPlayPill ? acousticPlayPill.querySelector('.ag-play-icon') : null;
+
+  let isAcousticVideoPlaying = false;
+
+  function playAcousticVideo() {
+    if (!acousticVideo || !acousticVideoWrap) return;
+    isAcousticVideoPlaying = true;
+    acousticVideoWrap.classList.add('is-playing');
+    if (acousticPlayPillText) acousticPlayPillText.textContent = 'PAUSE STREAM';
+    if (acousticPlayPillIcon) acousticPlayPillIcon.textContent = '■';
+    if (toggleBtn) {
+      const g = toggleBtn.querySelector('.ag-btn-glitch');
+      if (g) g.textContent = '[ PAUSE STREAM ]';
+    }
+    acousticVideo.muted = true;
+    acousticVideo.play().catch(() => {});
+  }
+
+  function pauseAcousticVideo() {
+    if (!acousticVideo || !acousticVideoWrap) return;
+    isAcousticVideoPlaying = false;
+    acousticVideoWrap.classList.remove('is-playing');
+    if (acousticPlayPillText) acousticPlayPillText.textContent = 'CLICK TO PLAY';
+    if (acousticPlayPillIcon) acousticPlayPillIcon.textContent = '▶';
+    if (toggleBtn) {
+      const g = toggleBtn.querySelector('.ag-btn-glitch');
+      if (g) g.textContent = (acousticVideo && acousticVideo.currentTime > 0) ? '[ RESUME STREAM ]' : '[ PLAY STREAM ]';
+    }
+    acousticVideo.pause();
+  }
+
+  function toggleAcousticVideo(e) {
+    if (e) e.preventDefault();
+    if (isAcousticVideoPlaying && !acousticVideo.paused) {
+      pauseAcousticVideo();
+    } else {
+      playAcousticVideo();
+    }
+  }
+
+  if (acousticVideoWrap) {
+    acousticVideoWrap.addEventListener('click', toggleAcousticVideo);
+    acousticVideoWrap.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        toggleAcousticVideo(e);
+      }
+    });
+  }
+
+  if (acousticVideo) {
+    acousticVideo.addEventListener('timeupdate', () => {
+      if (activeMode !== 'acoustic' || acousticVideo.paused) return;
+      const t = acousticVideo.currentTime;
+      const freq = (18.4 + Math.sin(t * 3.2) * 1.8).toFixed(1);
+      const snr = (24 + Math.floor(Math.sin(t * 2.5) * 6));
+      if (telemetryEl) {
+        telemetryEl.textContent = `ULTRASONIC: ${freq} kHz | SNR: +${snr} dB`;
+      }
+      if (rateStatEl) {
+        rateStatEl.textContent = `${(1.2 + Math.sin(t * 1.5) * 0.4).toFixed(1)} kB/s (FSK)`;
+      }
+    });
+  }
   
   const modeNameEl = document.getElementById('ag-deck-mode-name');
   const telemetryEl = document.getElementById('ag-deck-telemetry');
@@ -5606,11 +5674,26 @@ if (terminal && gamesGrid) {
     }
 
     if (mode === 'wifi') {
-      if (canvasBox) canvasBox.classList.add('is-wifi-mode');
+      if (canvasBox) {
+        canvasBox.classList.add('is-wifi-mode');
+        canvasBox.classList.remove('is-acoustic-mode');
+      }
       pauseWifiVideo();
+      pauseAcousticVideo();
+    } else if (mode === 'acoustic') {
+      if (canvasBox) {
+        canvasBox.classList.add('is-acoustic-mode');
+        canvasBox.classList.remove('is-wifi-mode');
+      }
+      pauseWifiVideo();
+      pauseAcousticVideo();
     } else {
-      if (canvasBox) canvasBox.classList.remove('is-wifi-mode');
+      if (canvasBox) {
+        canvasBox.classList.remove('is-wifi-mode');
+        canvasBox.classList.remove('is-acoustic-mode');
+      }
       pauseWifiVideo();
+      pauseAcousticVideo();
       if (isRunning && isVisible && !animId) {
         lastFrameTime = performance.now();
         animId = requestAnimationFrame(render);
@@ -5637,6 +5720,10 @@ if (terminal && gamesGrid) {
     toggleBtn.addEventListener('click', () => {
       if (activeMode === 'wifi') {
         toggleWifiVideo();
+        return;
+      }
+      if (activeMode === 'acoustic') {
+        toggleAcousticVideo();
         return;
       }
       isRunning = !isRunning;
@@ -6399,10 +6486,9 @@ if (terminal && gamesGrid) {
     const time = timestamp * 0.001;
 
     if (activeMode === 'optical') renderOpticalQr(time);
-    else if (activeMode === 'acoustic') renderAcoustic(time);
     else if (activeMode === 'bluetooth') renderBleMesh(time);
 
-    if (activeMode !== 'wifi') {
+    if (activeMode !== 'wifi' && activeMode !== 'acoustic') {
       animId = requestAnimationFrame(render);
     } else {
       animId = 0;
@@ -6415,6 +6501,10 @@ if (terminal && gamesGrid) {
     if (activeMode === 'wifi') {
       if (isWifiVideoPlaying) {
         playWifiVideo();
+      }
+    } else if (activeMode === 'acoustic') {
+      if (isAcousticVideoPlaying) {
+        playAcousticVideo();
       }
     } else if (isRunning) {
       animId = requestAnimationFrame(render);
@@ -6429,6 +6519,9 @@ if (terminal && gamesGrid) {
     }
     if (wifiVideo && !wifiVideo.paused) {
       wifiVideo.pause();
+    }
+    if (acousticVideo && !acousticVideo.paused) {
+      acousticVideo.pause();
     }
   }
 
