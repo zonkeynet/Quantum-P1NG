@@ -5381,6 +5381,8 @@ if (terminal && gamesGrid) {
 
   const canvas = document.getElementById('agStreamCanvas');
   const canvasBox = document.getElementById('agCanvasBox');
+  const stageEl = section.querySelector('.ag-stage');
+  const deckEl = section.querySelector('.ag-visualizer-deck');
   const wifiVideoWrap = document.getElementById('agWifiVideoWrap');
   const wifiVideo = document.getElementById('agWifiVideo');
   const wifiPlayPill = document.getElementById('agWifiPlayPill');
@@ -5671,6 +5673,16 @@ if (terminal && gamesGrid) {
       logTerminalEl.innerHTML = cfg.log
         .map(l => `<div class="ag-log-line ${l.includes('OK') || l.includes('COMPLETE') || l.includes('VALIDATED') ? 'ok' : ''}">${l}</div>`)
         .join('');
+    }
+
+    const isVideoMode = (mode === 'wifi' || mode === 'acoustic');
+    if (stageEl) {
+      if (isVideoMode) stageEl.classList.add('is-video-mode');
+      else stageEl.classList.remove('is-video-mode');
+    }
+    if (deckEl) {
+      if (isVideoMode) deckEl.classList.add('is-video-mode');
+      else deckEl.classList.remove('is-video-mode');
     }
 
     if (mode === 'wifi') {
