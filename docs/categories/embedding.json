@@ -1,0 +1,40 @@
+{
+  "version": 32,
+  "updatedAt": "2026-10-09",
+  "schemaVersion": "2.4",
+  "appId": "com.qp1ng.android",
+  "minAppVersion": 213,
+  "category": "embedding",
+  "section": "text",
+  "categoryInfo": {
+    "title": "Embeddings & Retrieval",
+    "description": "Sentence embedding packs for semantic search, RAG, indexing and vault retrieval."
+  },
+  "packs": [
+    {
+      "id": "embedding-minilm-l6-v2-q8",
+      "type": "EMBEDDING",
+      "category": "embedding",
+      "section": "text",
+      "name": "Q-Brain Embedding (all-MiniLM-L6-v2 Q8_0)",
+      "description": "Local sentence embedding model for Hybrid RAG retrieval, knowledge vault indexing and semantic search.",
+      "engine": "llama.cpp",
+      "runtimeBackend": "LLAMA_CPP",
+      "storageKind": "SINGLE_FILE",
+      "language": "en",
+      "sizeBytes": 25008064,
+      "sha256": "e5ec722e8c82dc4ffaf965175ca472f5da3f97b695590b5b0780bdbfa29bcaf3",
+      "downloadUrl": "https://huggingface.co/leliuga/all-MiniLM-L6-v2-GGUF/resolve/ddf2e25d5b8530422e7b14aa39f33a657ff9aec0/all-MiniLM-L6-v2.Q8_0.gguf",
+      "fileName": "all-MiniLM-L6-v2.Q8_0.gguf",
+      "engineLicense": "MIT",
+      "weightsLicense": "Apache-2.0",
+      "commercialOk": true,
+      "recommended": true,
+      "catalogFeatured": true,
+      "quantTier": "Q8",
+      "recommendedContextSize": 2048,
+      "minRamMb": 2048,
+      "recommendedRamMb": 4096
+    }
+  ]
+}

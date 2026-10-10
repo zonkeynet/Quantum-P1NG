@@ -1,0 +1,398 @@
+{
+  "version": 32,
+  "updatedAt": "2026-10-09",
+  "schemaVersion": "2.4",
+  "appId": "com.qp1ng.android",
+  "minAppVersion": 213,
+  "sandboxRootfs": [
+    {
+      "id": "sandbox-alpine-minirootfs-3-23-4-aarch64",
+      "type": "SANDBOX_ROOTFS",
+      "name": "Alpine Linux Mini RootFS 3.23.4 aarch64",
+      "description": "Official Alpine Linux minimal root filesystem for the optional Q-P1NG Linux Sandbox.",
+      "engine": "alpine",
+      "storageKind": "TAR_GZ",
+      "abi": "arm64-v8a",
+      "upstreamArch": "aarch64",
+      "alpineVersion": "3.23.4",
+      "releasedAt": "2026-04-15",
+      "sizeBytes": 4041810,
+      "sha256": "9250667a8affac8f1e98086392f80f43f086626701e9bce33398eb9b6c0bd64c",
+      "downloadUrl": "https://dl-cdn.alpinelinux.org/alpine/v3.23/releases/aarch64/alpine-minirootfs-3.23.4-aarch64.tar.gz",
+      "sha256Url": "https://dl-cdn.alpinelinux.org/alpine/v3.23/releases/aarch64/alpine-minirootfs-3.23.4-aarch64.tar.gz.sha256",
+      "gpgSignatureUrl": "https://dl-cdn.alpinelinux.org/alpine/v3.23/releases/aarch64/alpine-minirootfs-3.23.4-aarch64.tar.gz.asc",
+      "fileName": "alpine-minirootfs-3.23.4-aarch64.tar.gz",
+      "installPath": "alpine/rootfs",
+      "extractionMode": "ROOTFS_TAR_GZ",
+      "commercialOk": true,
+      "minAppVersion": 1,
+      "recommended": true,
+      "featureLevel": "PRO",
+      "requiresUserConsent": true,
+      "defaultEnabled": false,
+      "networkDefault": false
+    }
+  ],
+  "sandboxProot": [
+    {
+      "id": "sandbox-proot-arm64-v8a",
+      "type": "SANDBOX_PROOT",
+      "name": "Q-P1NG proot arm64-v8a",
+      "description": "Embedded native runtime for Q-P1NG Linux Sandbox Pro module.",
+      "engine": "proot",
+      "storageKind": "NATIVE_LIB",
+      "abi": "arm64-v8a",
+      "libraryName": "libqpsandbox_proot.so",
+      "loaderLibraryName": "libqpsandbox_proot_loader.so",
+      "installPath": "nativeLibraryDir/libqpsandbox_proot.so",
+      "sizeBytes": 231496,
+      "sha256": "f2f012d0c185d2e8c6a5bc542b88b834a945d9d092fb45ade058c3cca48f48f5",
+      "loaderSizeBytes": 18136,
+      "loaderSha256": "44ef39c1e1a18c09f6e4c4b5d6f8bba82d30596598bd155ec162d05c5122ff04",
+      "downloadUrl": null,
+      "executable": true,
+      "neededLibraries": [
+        "libc.so"
+      ],
+      "commercialOk": true,
+      "minAppVersion": 1,
+      "recommended": true,
+      "featureLevel": "PRO",
+      "requiresUserConsent": true,
+      "defaultEnabled": false
+    }
+  ],
+  "featurePacks": [
+    {
+      "id": "secure-voice-pocket-v2-it-q8",
+      "type": "VOICE_CONVERSION",
+      "name": "Secure Voice · Clone · IT",
+      "description": "Offline text-to-speech conditioned on a recorded reference. Compact model for lower memory use.",
+      "engine": "secure_voice_pocket_v2",
+      "runtimeBackend": "GENERIC",
+      "storageKind": "DIRECTORY_BUNDLE",
+      "language": "it",
+      "sizeBytes": 165042255,
+      "sha256": "",
+      "downloadUrl": "",
+      "fileName": "flow_lm_main_int8.onnx",
+      "bundleEntryPoint": "flow_lm_main_int8.onnx",
+      "remoteArtifacts": [
+        {
+          "path": "bos_before_voice.npy",
+          "url": "https://huggingface.co/lookbe/pocket-tts-onnx-v2/resolve/b291531fa4d9a036679d6b5176308fb613687aa7/italian/bos_before_voice.npy",
+          "sha256": "ebfe9f3b8f5f12f9d9de85848c48cacc3cdb7b1c2890cdded77544b3f4d79577",
+          "sizeBytes": 4224
+        },
+        {
+          "path": "flow_lm_flow_int8.onnx",
+          "url": "https://huggingface.co/lookbe/pocket-tts-onnx-v2/resolve/b291531fa4d9a036679d6b5176308fb613687aa7/italian/flow_lm_flow_int8.onnx",
+          "sha256": "47f7c2dac8ac4d9dcd890dccf09d2d91100183df0bb8f53f8d6df0f09bf9517b",
+          "sizeBytes": 10059521
+        },
+        {
+          "path": "flow_lm_main_int8.onnx",
+          "url": "https://huggingface.co/lookbe/pocket-tts-onnx-v2/resolve/b291531fa4d9a036679d6b5176308fb613687aa7/italian/flow_lm_main_int8.onnx",
+          "sha256": "a127f34a07da299c2db5f4388bcaceccac6af4c328c1638ad973739176f6da48",
+          "sizeBytes": 76573815
+        },
+        {
+          "path": "mimi_decoder_int8.onnx",
+          "url": "https://huggingface.co/lookbe/pocket-tts-onnx-v2/resolve/b291531fa4d9a036679d6b5176308fb613687aa7/italian/mimi_decoder_int8.onnx",
+          "sha256": "81b1f89d6737ceb8058877a74d4557b89cf8c7326d04921a6ec85d5908b7753a",
+          "sizeBytes": 22671881
+        },
+        {
+          "path": "mimi_encoder.onnx",
+          "url": "https://huggingface.co/lookbe/pocket-tts-onnx-v2/resolve/b291531fa4d9a036679d6b5176308fb613687aa7/italian/mimi_encoder.onnx",
+          "sha256": "e3af6f839369135157675b7fe5cd6a3593ed633f57bcce0a5dc1d5b40d021770",
+          "sizeBytes": 39284392
+        },
+        {
+          "path": "text_conditioner.onnx",
+          "url": "https://huggingface.co/lookbe/pocket-tts-onnx-v2/resolve/b291531fa4d9a036679d6b5176308fb613687aa7/italian/text_conditioner.onnx",
+          "sha256": "824e34322cb603f2042b87cfd5d1833a07397dd96f885db74506d4d8cfb8ad43",
+          "sizeBytes": 16388344
+        },
+        {
+          "path": "tokenizer.model",
+          "url": "https://huggingface.co/lookbe/pocket-tts-onnx-v2/resolve/b291531fa4d9a036679d6b5176308fb613687aa7/italian/tokenizer.model",
+          "sha256": "6583b974a11b90e14d8a4c8e9c43f06c3861b9ede6e5023a4c27ab5a3a7d4c39",
+          "sizeBytes": 60078
+        }
+      ],
+      "engineLicense": "Apache-2.0",
+      "weightsLicense": "CC-BY-4.0",
+      "commercialOk": true,
+      "catalogFeatured": false,
+      "hardwareProfile": "CPU · 2 threads / 2 synthesis steps by default",
+      "sourceOrg": "Kyutai · lookbe ONNX export",
+      "sourceTrust": "COMMUNITY_VERIFIED",
+      "upstreamModelCardUrl": "https://huggingface.co/lookbe/pocket-tts-onnx-v2",
+      "variant": "STANDARD",
+      "catalogListed": false,
+      "minAppVersion": 242
+    },
+    {
+      "id": "secure-voice-pocket-v2-en-q8",
+      "type": "VOICE_CONVERSION",
+      "name": "Secure Voice · Clone · EN",
+      "description": "Offline text-to-speech conditioned on a recorded reference. Compact model for lower memory use.",
+      "engine": "secure_voice_pocket_v2",
+      "runtimeBackend": "GENERIC",
+      "storageKind": "DIRECTORY_BUNDLE",
+      "language": "en",
+      "sizeBytes": 165041516,
+      "sha256": "",
+      "downloadUrl": "",
+      "fileName": "flow_lm_main_int8.onnx",
+      "bundleEntryPoint": "flow_lm_main_int8.onnx",
+      "remoteArtifacts": [
+        {
+          "path": "bos_before_voice.npy",
+          "url": "https://huggingface.co/lookbe/pocket-tts-onnx-v2/resolve/b291531fa4d9a036679d6b5176308fb613687aa7/english/bos_before_voice.npy",
+          "sha256": "f46edf4f7007b7ba4ea58831f49d003e59e167b4641c44bb3addfe9231a780b1",
+          "sizeBytes": 4224
+        },
+        {
+          "path": "flow_lm_flow_int8.onnx",
+          "url": "https://huggingface.co/lookbe/pocket-tts-onnx-v2/resolve/b291531fa4d9a036679d6b5176308fb613687aa7/english/flow_lm_flow_int8.onnx",
+          "sha256": "56520801306e84d33153d4510226cff07cf55271fe5da4170a064d8eefb89e59",
+          "sizeBytes": 10059521
+        },
+        {
+          "path": "flow_lm_main_int8.onnx",
+          "url": "https://huggingface.co/lookbe/pocket-tts-onnx-v2/resolve/b291531fa4d9a036679d6b5176308fb613687aa7/english/flow_lm_main_int8.onnx",
+          "sha256": "fe08a1d4132d549f726ac8ed197b240ec0a19a48859ec0558ad2f3d8ce659020",
+          "sizeBytes": 76573815
+        },
+        {
+          "path": "mimi_decoder_int8.onnx",
+          "url": "https://huggingface.co/lookbe/pocket-tts-onnx-v2/resolve/b291531fa4d9a036679d6b5176308fb613687aa7/english/mimi_decoder_int8.onnx",
+          "sha256": "2ab9e276ab9f30559beef41edf1049916cfbc5cefeb908f6039afbea33caa73c",
+          "sizeBytes": 22671881
+        },
+        {
+          "path": "mimi_encoder.onnx",
+          "url": "https://huggingface.co/lookbe/pocket-tts-onnx-v2/resolve/b291531fa4d9a036679d6b5176308fb613687aa7/english/mimi_encoder.onnx",
+          "sha256": "e65ba4eaf68d3813dc7b095ae3c319da2b019254d813a087c93232073bff2dad",
+          "sizeBytes": 39284392
+        },
+        {
+          "path": "text_conditioner.onnx",
+          "url": "https://huggingface.co/lookbe/pocket-tts-onnx-v2/resolve/b291531fa4d9a036679d6b5176308fb613687aa7/english/text_conditioner.onnx",
+          "sha256": "c2dbc15bc9c771532624d0e4469aa810d226af7563cb8549756ba8e2b0ea0a1f",
+          "sizeBytes": 16388344
+        },
+        {
+          "path": "tokenizer.model",
+          "url": "https://huggingface.co/lookbe/pocket-tts-onnx-v2/resolve/b291531fa4d9a036679d6b5176308fb613687aa7/english/tokenizer.model",
+          "sha256": "d461765ae179566678c93091c5fa6f2984c31bbe990bf1aa62d92c64d91bc3f6",
+          "sizeBytes": 59339
+        }
+      ],
+      "engineLicense": "Apache-2.0",
+      "weightsLicense": "CC-BY-4.0",
+      "commercialOk": true,
+      "catalogFeatured": false,
+      "hardwareProfile": "CPU · 2 threads / 2 synthesis steps by default",
+      "sourceOrg": "Kyutai · lookbe ONNX export",
+      "sourceTrust": "COMMUNITY_VERIFIED",
+      "upstreamModelCardUrl": "https://huggingface.co/lookbe/pocket-tts-onnx-v2",
+      "variant": "STANDARD",
+      "catalogListed": false,
+      "minAppVersion": 242
+    },
+    {
+      "id": "secure-voice-pocket-v2-it-24l-q8",
+      "type": "VOICE_CONVERSION",
+      "name": "Secure Voice · Clone · Italiano 24L",
+      "description": "Larger Italian text-to-speech model for closer reference-voice similarity. More RAM and processing time; results vary by speaker.",
+      "engine": "secure_voice_pocket_v2",
+      "runtimeBackend": "GENERIC",
+      "storageKind": "DIRECTORY_BUNDLE",
+      "language": "it",
+      "sizeBytes": 391631659,
+      "sha256": "",
+      "downloadUrl": "",
+      "fileName": "flow_lm_main_int8.onnx",
+      "bundleEntryPoint": "flow_lm_main_int8.onnx",
+      "remoteArtifacts": [
+        {
+          "path": "bos_before_voice.npy",
+          "url": "https://huggingface.co/stephvax/pocket-tts-onnx/resolve/68487948d7f0faae84ac4c11ad566239ef98e667/onnx/italian_24l/bos_before_voice.npy",
+          "sha256": "deced13188657a3543766500639e33271fd368b0f324bded9f9e615d42a23407",
+          "sizeBytes": 4224
+        },
+        {
+          "path": "flow_lm_flow_int8.onnx",
+          "url": "https://huggingface.co/stephvax/pocket-tts-onnx/resolve/68487948d7f0faae84ac4c11ad566239ef98e667/onnx/italian_24l/flow_lm_flow_int8.onnx",
+          "sha256": "d0b9936a41a192eb63ef77f8af83c0884330b3ec9ff2d92f05e522f10b1feef8",
+          "sizeBytes": 9935594
+        },
+        {
+          "path": "flow_lm_main_int8.onnx",
+          "url": "https://huggingface.co/stephvax/pocket-tts-onnx/resolve/68487948d7f0faae84ac4c11ad566239ef98e667/onnx/italian_24l/flow_lm_main_int8.onnx",
+          "sha256": "dbb88959311c99a56db7a36c7c9c59dd1337cb5a168f334e2c95b3ac71d23efa",
+          "sizeBytes": 303347168
+        },
+        {
+          "path": "mimi_decoder_int8.onnx",
+          "url": "https://huggingface.co/stephvax/pocket-tts-onnx/resolve/68487948d7f0faae84ac4c11ad566239ef98e667/onnx/italian_24l/mimi_decoder_int8.onnx",
+          "sha256": "c21defb1d24a5afd492c94f393d0f07bb544128fc0c102994e1dc463c30b44f0",
+          "sizeBytes": 22616918
+        },
+        {
+          "path": "mimi_encoder.onnx",
+          "url": "https://huggingface.co/stephvax/pocket-tts-onnx/resolve/68487948d7f0faae84ac4c11ad566239ef98e667/onnx/italian_24l/mimi_encoder.onnx",
+          "sha256": "9d5c62843390199cf3894f7278b73f212b07ab065c134fe0f34d0ea9cf790219",
+          "sizeBytes": 39279367
+        },
+        {
+          "path": "text_conditioner.onnx",
+          "url": "https://huggingface.co/stephvax/pocket-tts-onnx/resolve/68487948d7f0faae84ac4c11ad566239ef98e667/onnx/italian_24l/text_conditioner.onnx",
+          "sha256": "cb8a5f7aeb7f09032aac5ca0db0a06fb6638188dae479f4afed130ee1c001e4a",
+          "sizeBytes": 16388310
+        },
+        {
+          "path": "tokenizer.model",
+          "url": "https://huggingface.co/stephvax/pocket-tts-onnx/resolve/68487948d7f0faae84ac4c11ad566239ef98e667/onnx/italian_24l/tokenizer.model",
+          "sha256": "6583b974a11b90e14d8a4c8e9c43f06c3861b9ede6e5023a4c27ab5a3a7d4c39",
+          "sizeBytes": 60078
+        }
+      ],
+      "engineLicense": "Apache-2.0",
+      "weightsLicense": "CC-BY-4.0",
+      "commercialOk": true,
+      "catalogFeatured": false,
+      "hardwareProfile": "CPU · 2 threads / 2 synthesis steps by default",
+      "sourceOrg": "Kyutai · stephvax ONNX export",
+      "sourceTrust": "COMMUNITY_VERIFIED",
+      "upstreamModelCardUrl": "https://huggingface.co/stephvax/pocket-tts-onnx",
+      "variant": "HIGH_QUALITY",
+      "catalogListed": false,
+      "minAppVersion": 242
+    },
+    {
+      "id": "qcam-mobilefaceswap-224-v1",
+      "type": "FACE_SWAP",
+      "name": "Q-Cam Face Swap (experimental)",
+      "description": "Optional local face replacement for Q-Cam photos, videos and live streams. Experimental community export; does not guarantee anonymity.",
+      "engine": "qcam_faceswap",
+      "runtimeBackend": "GENERIC",
+      "storageKind": "DIRECTORY_BUNDLE",
+      "sizeBytes": 292401300,
+      "sha256": "",
+      "downloadUrl": "",
+      "fileName": "mobilefaceswap_generator.onnx",
+      "bundleEntryPoint": "mobilefaceswap_generator.onnx",
+      "remoteArtifacts": [
+        {
+          "path": "mobilefaceswap_identity.onnx",
+          "url": "https://huggingface.co/haixin/timeline-studio-onnx-models/resolve/64f590200ea7d6142a5e58cbf069025e44c84dbe/mobilefaceswap-224/mobilefaceswap_identity.onnx",
+          "sizeBytes": 209144485,
+          "sha256": "c5816ccc0df3c56d730dc780d134e6fd8a538aa867f85c8be907f3193b8adcde"
+        },
+        {
+          "path": "mobilefaceswap_conditioner.onnx",
+          "url": "https://huggingface.co/haixin/timeline-studio-onnx-models/resolve/64f590200ea7d6142a5e58cbf069025e44c84dbe/mobilefaceswap-224/mobilefaceswap_conditioner.onnx",
+          "sizeBytes": 82888707,
+          "sha256": "c2696687f44067ed07c886ccc2dcdaccb648f61ae64a965c2d4cc4c846f611cf"
+        },
+        {
+          "path": "mobilefaceswap_generator.onnx",
+          "url": "https://huggingface.co/haixin/timeline-studio-onnx-models/resolve/64f590200ea7d6142a5e58cbf069025e44c84dbe/mobilefaceswap-224/mobilefaceswap_generator.onnx",
+          "sizeBytes": 368108,
+          "sha256": "94a7f283de05d07795b565e7657d8fa78c823eb0c9762d66e939d4a2314968ea"
+        }
+      ],
+      "engineLicense": "Apache-2.0",
+      "weightsLicense": "Upstream checkpoint: commercial redistribution unverified",
+      "commercialOk": false,
+      "catalogFeatured": false,
+      "hardwareProfile": "ARM64 CPU · 224 px neural face crop · preview resolution / FPS configurable",
+      "sourceOrg": "MobileFaceSwap · haixin ONNX export",
+      "sourceTrust": "EXPERIMENTAL",
+      "upstreamModelCardUrl": "https://huggingface.co/haixin/timeline-studio-onnx-models/tree/64f590200ea7d6142a5e58cbf069025e44c84dbe/mobilefaceswap-224",
+      "catalogListed": false,
+      "minAppVersion": 242
+    },
+    {
+      "id": "secure-voice-openvoice-v2-q8",
+      "type": "VOICE_CONVERSION",
+      "name": "Secure Voice · OpenVoice v2 Compact",
+      "description": "Local reference-voice conversion of a recorded message. This pack converts audio; it does not synthesize typed text.",
+      "engine": "secure_voice_openvoice_v2",
+      "runtimeBackend": "GENERIC",
+      "storageKind": "DIRECTORY_BUNDLE",
+      "sizeBytes": 43119929,
+      "sha256": "",
+      "downloadUrl": "",
+      "fileName": "tone_converter_q8.onnx",
+      "bundleEntryPoint": "tone_converter_q8.onnx",
+      "remoteArtifacts": [
+        {
+          "path": "tone_converter_q8.onnx",
+          "url": "https://huggingface.co/TigreGotico/voiceclonnx-openvoice-v2/resolve/34d010c192c97f763207f488f6057fd07fee42ad/tone_converter_q8.onnx",
+          "sha256": "54ea73764c46cdbb74af2124e30cce42007045f1f5a60bd7520472f155eb6f4c",
+          "sizeBytes": 40804625
+        },
+        {
+          "path": "tone_ref_encoder_q8.onnx",
+          "url": "https://huggingface.co/TigreGotico/voiceclonnx-openvoice-v2/resolve/34d010c192c97f763207f488f6057fd07fee42ad/tone_ref_encoder_q8.onnx",
+          "sha256": "8e46097e46a68a2137acf105b58bc67cf686ec0d811c1c45ada28557a608c0e3",
+          "sizeBytes": 2315304
+        }
+      ],
+      "engineLicense": "MIT",
+      "weightsLicense": "MIT",
+      "commercialOk": true,
+      "catalogFeatured": false,
+      "sourceOrg": "MyShell · voiceclonnx ONNX export",
+      "sourceTrust": "COMMUNITY_VERIFIED",
+      "upstreamModelCardUrl": "https://huggingface.co/TigreGotico/voiceclonnx-openvoice-v2",
+      "variant": "COMPACT",
+      "catalogListed": false,
+      "minAppVersion": 242
+    },
+    {
+      "id": "secure-voice-openvoice-v2-standard",
+      "type": "VOICE_CONVERSION",
+      "name": "Secure Voice · OpenVoice v2 Standard",
+      "description": "Local reference-voice conversion of a recorded message. This pack converts audio; it does not synthesize typed text.",
+      "engine": "secure_voice_openvoice_v2",
+      "runtimeBackend": "GENERIC",
+      "storageKind": "DIRECTORY_BUNDLE",
+      "sizeBytes": 130366592,
+      "sha256": "",
+      "downloadUrl": "",
+      "fileName": "tone_converter.onnx",
+      "bundleEntryPoint": "tone_converter.onnx",
+      "remoteArtifacts": [
+        {
+          "path": "tone_converter.onnx",
+          "url": "https://huggingface.co/TigreGotico/voiceclonnx-openvoice-v2/resolve/34d010c192c97f763207f488f6057fd07fee42ad/tone_converter.onnx",
+          "sha256": "7d7ee834c230037ead5cd6b64d44fcd842fbab5cd4cf6fe3ab381fad763325e9",
+          "sizeBytes": 128051288
+        },
+        {
+          "path": "tone_ref_encoder_q8.onnx",
+          "url": "https://huggingface.co/TigreGotico/voiceclonnx-openvoice-v2/resolve/34d010c192c97f763207f488f6057fd07fee42ad/tone_ref_encoder_q8.onnx",
+          "sha256": "8e46097e46a68a2137acf105b58bc67cf686ec0d811c1c45ada28557a608c0e3",
+          "sizeBytes": 2315304
+        }
+      ],
+      "engineLicense": "MIT",
+      "weightsLicense": "MIT",
+      "commercialOk": true,
+      "catalogFeatured": false,
+      "sourceOrg": "MyShell · voiceclonnx ONNX export",
+      "sourceTrust": "COMMUNITY_VERIFIED",
+      "upstreamModelCardUrl": "https://huggingface.co/TigreGotico/voiceclonnx-openvoice-v2",
+      "variant": "STANDARD",
+      "catalogListed": false,
+      "minAppVersion": 242
+    }
+  ],
+  "packs": []
+}

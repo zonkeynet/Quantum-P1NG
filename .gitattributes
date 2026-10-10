@@ -1,0 +1,5 @@
+# catalog_index.json hashes the exact bytes served to clients.
+# Keep catalog bytes unchanged across Windows/Linux checkouts and publication.
+docs/manifest.json -text
+docs/manifest.min.json -text
+docs/categories/*.json -text
