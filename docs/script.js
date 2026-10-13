@@ -10034,7 +10034,7 @@ if (terminal && gamesGrid) {
   const btnEnter = document.getElementById('btn-enter-site');
   const btnSkip = document.getElementById('btn-skip-intro');
   const btnReplay = document.getElementById('btn-replay-intro');
-  const ambientStage = document.getElementById('introMultilingualStage');
+  const ambientStage = document.getElementById('introPressStage');
 
   function hasSeenIntro() {
     try {
@@ -10140,141 +10140,260 @@ if (terminal && gamesGrid) {
     { text: "QUANTUM P1NG // WELCOME TO THE RESISTANCE.", type: "brand" }
   ];
 
-  // Multilingual Ambient Quotes Pool
-  const multilingualPool = [
-    {
-      lang: "ZH",
-      meta: "BEIJING // TOR EXIT MESH",
-      text: "当你无法再相信巨头与体制，隐私即防线。自由是一个协议。"
-    },
-    {
-      lang: "JA",
-      meta: "TOKYO // AIR-GAP RELAY",
-      text: "監視に屈するな。暗号化は自己防衛である。デジタル主権を取り戻せ。"
-    },
-    {
-      lang: "UK",
-      meta: "KYIV // SECURE NODE",
-      text: "Коли довіри до влади більше немає. Свобода — це протокол."
-    },
-    {
-      lang: "MY",
-      meta: "YANGON // MESH CELL 04",
-      text: "အာဏာရှင်စနစ်နှင့် စောင့်ကြည့်ခြင်းကို တွန်းလှန်ပါ။ လွတ်လပ်မှုသည် ပရိုတိုကောဖြစ်သည်"
-    },
-    {
-      lang: "FA",
-      rtl: true,
-      meta: "TEHRAN // GHOST RELAY",
-      text: "وقتی دیگر اعتمادی به نظارت نیست. رمزنگاری تنها سپر دفاعی شماست."
-    },
-    {
-      lang: "AR",
-      rtl: true,
-      meta: "CAIRO // ENCRYPTED PROXY",
-      text: "التشفير هو دفاع عن النفس. الحرية بروتوكول غير قابل للمساومة."
-    },
-    {
-      lang: "IT",
-      meta: "ROMA // P2P AIRGAP",
-      text: "Non piegarti alla sorveglianza di massa. La sovranità è un diritto inalienabile."
-    },
-    {
-      lang: "DE",
-      meta: "BERLIN // NOSTR HOP",
-      text: "Kryptographie ist Selbstverteidigung. Freiheit ist ein Protokoll."
-    },
-    {
-      lang: "ES",
-      meta: "MADRID // LO-RA DIRECT",
-      text: "La privacidad no se negocia. La libertad es un protocolo criptográfico."
-    },
-    {
-      lang: "FR",
-      meta: "PARIS // FARADAY ONION",
-      text: "Ne cédez pas à la surveillance d'État. La souveraineté numérique est inviolable."
-    },
-    {
-      lang: "RU",
-      meta: "MOSCOW // SATELLITE TUNNEL",
-      text: "Шифрование — это самооборона. Никаких компромиссов с приватностью."
+  // Press clippings: real reporting on state spyware, Big Tech and the data trade, shown around the manifesto.
+  // Headlines and standfirsts are the outlets' own words (each checked against its source on 2026-10-13); the
+  // source sits bottom-left. Wide screens get two columns beside the text, smaller ones one clipping above it.
+  const pressArchive = [
+    { group: 'spyware', kicker: 'Spyware · Graphite', outlet: 'The Guardian', domain: 'theguardian.com', date: '2025-06-12',
+      title: 'European journalists targeted with Paragon Solutions spyware, say researchers',
+      dek: 'Citizen Lab says it found ‘digital fingerprints’ of military-grade spyware that Italy has admitted using against activists',
+      url: 'https://www.theguardian.com/media/2025/jun/12/european-journalists-targeted-with-paragon-solutions-spyware-say-researchers' },
+    { group: 'spyware', kicker: 'Spyware · Italy', outlet: 'The Guardian', domain: 'theguardian.com', date: '2025-02-19',
+      title: 'Journalists launch legal action against Italian government over spyware claims',
+      dek: 'Union submits criminal complaint to prosecutors as ministers refuse to answer questions about alleged hacks',
+      url: 'https://www.theguardian.com/world/2025/feb/19/journalists-launch-legal-action-against-italian-government-over-spyware-claims' },
+    { group: 'spyware', kicker: 'Spyware · Pegasus', outlet: 'PBS Frontline', domain: 'pbs.org', date: '2021-12-21',
+      title: 'Pegasus Spyware Put on Phone of Khashoggi’s Wife: Washington Post',
+      dek: 'Spyware was placed on the phone of journalist Jamal Khashoggi’s wife, Hanan Elatr, before Khashoggi was murdered in 2018, The Washington Post reports.',
+      url: 'https://www.pbs.org/wgbh/frontline/article/pegasus-spyware-jamal-khashoggi-wife-phone-washington-post/' },
+    { group: 'spyware', kicker: 'Spyware · Pegasus Project', outlet: 'The Guardian', domain: 'theguardian.com', date: '2021-07-18',
+      title: 'Revealed: leak uncovers global abuse of cyber-surveillance weapon',
+      dek: 'Spyware sold to authoritarian regimes used to target activists, politicians and journalists, data suggests',
+      url: 'https://www.theguardian.com/world/2021/jul/18/revealed-leak-uncovers-global-abuse-of-cyber-surveillance-weapon-nso-group-pegasus' },
+    { group: 'spyware', kicker: 'Spyware · Pegasus', outlet: 'The Guardian', domain: 'theguardian.com', date: '2022-01-13',
+      title: 'Pegasus spyware used in ‘jaw-dropping’ phone hacks on El Salvador journalists',
+      dek: 'Citizen Lab finds that hacking of 35 journalists and civil society activists coincided with their investigations into allegations that President Nayib Bukele was negotiating a pact with gangs',
+      url: 'https://www.theguardian.com/news/2022/jan/13/pegasus-spyware-target-journalists-activists-el-salvador' },
+    { group: 'spyware', kicker: 'Spyware · Pegasus', outlet: 'The Guardian', domain: 'theguardian.com', date: '2023-09-13',
+      title: 'Exiled Russian journalist hacked using NSO Group spyware',
+      dek: 'Galina Timchenko, head of media outlet declared ‘undesirable’ by Moscow, targeted in February while living in Berlin',
+      url: 'https://www.theguardian.com/technology/2023/sep/13/exiled-russian-journalist-galina-timchenko-reportedly-hacked-using-nso-group-spyware' },
+    { group: 'spyware', kicker: 'Spyware · Predator', outlet: 'Committee to Protect Journalists', domain: 'cpj.org', date: '2022-04-12',
+      title: 'Greek journalist Thanasis Koukakis targeted by Predator spyware',
+      dek: 'Greek authorities should conduct a swift and thorough investigation into the surveillance of journalist Thanasis Koukakis, determine who orchestrated that monitoring, and hold them to account, the Committee to Protect Journalists said Tuesday.',
+      url: 'https://cpj.org/2022/04/greek-journalist-thanasis-koukakis-targeted-by-predator-spyware/' },
+    { group: 'spyware', kicker: 'Spyware · Predator Files', outlet: 'Amnesty International', domain: 'amnesty.eu', date: '2023-10-09',
+      title: 'Global: ‘Predator Files’ spyware scandal reveals brazen targeting of civil society, politicians and officials',
+      dek: 'Shocking spyware attacks have been attempted against civil society, journalists, politicians and academics in the European Union (EU), USA and Asia, according to a major new investigation by Amnesty International.',
+      url: 'https://www.amnesty.eu/news/global-predator-files-spyware-scandal-reveals-brazen-targeting-of-civil-society-politicians-and-officials/' },
+    { group: 'spyware', kicker: 'Spyware · Hermit', outlet: 'The Guardian', domain: 'theguardian.com', date: '2022-06-23',
+      title: 'Apple and Android phones hacked by Italian spyware, says Google',
+      dek: 'Report claims Milan-based RCS Lab developed tools to spy on private messages and contacts of targeted devices',
+      url: 'https://www.theguardian.com/technology/2022/jun/23/apple-and-android-phones-hacked-by-italian-spyware-says-google' },
+    { group: 'bigtech', kicker: 'Data harvest · Facebook', outlet: 'The Guardian', domain: 'theguardian.com', date: '2018-03-17',
+      title: 'Revealed: 50 million Facebook profiles harvested for Cambridge Analytica in major data breach',
+      dek: 'Whistleblower describes how firm linked to former Trump adviser Steve Bannon compiled user data to target American voters',
+      url: 'https://www.theguardian.com/news/2018/mar/17/cambridge-analytica-facebook-influence-us-election' },
+    { group: 'bigtech', kicker: 'Location tracking · Google', outlet: 'Associated Press', domain: 'apnews.com', date: '2018-08-13',
+      title: 'Google tracks your movements, like it or not',
+      dek: 'Google wants to know where you go so badly that it records your movements even when you explicitly tell it not to.',
+      url: 'https://apnews.com/article/828da5054d41430b802604e638204313' },
+    { group: 'bigtech', kicker: 'Private browsing · Google', outlet: 'ABC7 News', domain: 'abc7news.com', date: '2024-04-02',
+      title: 'Google to delete billions of browser records to settle ‘Incognito’ lawsuit',
+      dek: 'Google has pledged to destroy the private browsing history of millions of people who used Chrome’s “incognito” mode.',
+      url: 'https://abc7news.com/post/google-lawsuit-incognito-searching-browsing-history-third-party-cookies/14606586/' },
+    { group: 'bigtech', kicker: 'Voice recordings · Amazon', outlet: 'Bloomberg', domain: 'bloomberg.com', date: '2019-04-10',
+      title: 'Amazon Workers Are Listening to What You Tell Alexa',
+      dek: '“You don’t necessarily think of another human listening to what you’re telling your smart speaker in the intimacy of your home.” — Florian Schaub, University of Michigan' },
+    { group: 'bigtech', kicker: 'Voice recordings · Apple', outlet: 'The Guardian', domain: 'theguardian.com', date: '2019-07-26',
+      title: 'Apple contractors ‘regularly hear confidential details’ on Siri recordings',
+      dek: 'Workers hear drug deals, medical details and people having sex, says whistleblower',
+      url: 'https://www.theguardian.com/technology/2019/jul/26/apple-contractors-regularly-hear-confidential-details-on-siri-recordings' },
+    { group: 'bigtech', kicker: 'Device analytics · Apple', outlet: 'Gizmodo', domain: 'gizmodo.com', date: '2022-11-08',
+      title: 'Apple Is Tracking You Even When Its Own Privacy Settings Say It’s Not, New Research Says',
+      dek: 'An independent test suggests Apple collects data about you and your phone when its own settings promise to “disable the sharing of Device Analytics altogether.”',
+      url: 'https://gizmodo.com/apple-iphone-analytics-tracking-even-when-off-app-store-1849757558' },
+    { group: 'bigtech', kicker: 'Voice recordings · Microsoft', outlet: 'Motherboard (Vice)', domain: 'vice.com', date: '2019-08-07',
+      title: 'Revealed: Microsoft Contractors Are Listening to Some Skype Calls',
+      dek: 'Documents, screenshots, and audio obtained by Motherboard show that humans listen to Skype calls made using the app’s translation function.',
+      url: 'https://www.vice.com/en/article/microsoft-contractors-listen-to-skype-calls/' },
+    { group: 'bigtech', kicker: 'Data brokers · Location', outlet: 'TechCrunch', domain: 'techcrunch.com', date: '2024-01-09',
+      title: 'FTC bans X-Mode from selling phone location data, and orders firm to delete collected data',
+      dek: 'The first of its kind settlement prohibits X-Mode, now known as Outlogic, from sharing and selling users’ sensitive information to others.',
+      url: 'https://techcrunch.com/2024/01/09/ftc-x-mode-ban-delete-location-data/' },
+    { group: 'social', kicker: 'Network spying · Meta', outlet: 'The Independent', domain: 'independent.co.uk', date: '2024-03-27',
+      title: 'Facebook’s top secret ‘Project Ghostbusters’ revealed in new documents',
+      dek: 'Spying tool ordered by Mark Zuckerberg provided ‘detailed in-app activity’ of rivals',
+      url: 'https://www.independent.co.uk/tech/facebook-spy-snapchat-zuckerberg-meta-b2519458.html' },
+    { group: 'social', kicker: 'Location tracking · ByteDance', outlet: 'Forbes', domain: 'forbes.com', date: '2022-10-20',
+      title: 'TikTok Parent ByteDance Planned To Use TikTok To Monitor The Physical Location Of Specific American Citizens',
+      dek: '“…the material reviewed by Forbes indicates that ByteDance’s Internal Audit team was planning to use this location information to surveil individual American citizens, not to target ads or any of these other purposes.”',
+      url: 'https://www.forbes.com/sites/emilybaker-white/2022/10/20/tiktok-bytedance-surveillance-american-users/' },
+    { group: 'social', kicker: 'In-app browsers · TikTok', outlet: 'Felix Krause (research)', domain: 'krausefx.com', date: '2022-08-18',
+      title: 'iOS Privacy: Announcing InAppBrowser.com - see what JavaScript commands get injected through an in-app browser',
+      dek: 'TikTok iOS subscribes to every keystroke (text inputs) happening on third party websites rendered inside the TikTok app.',
+      url: 'https://krausefx.com/blog/announcing-inappbrowsercom-see-what-javascript-commands-get-executed-in-an-in-app-browser' },
+    { group: 'social', kicker: 'Ad targeting · Twitter', outlet: 'BleepingComputer', domain: 'bleepingcomputer.com', date: '2022-05-25',
+      title: 'FTC fines Twitter $150M for using 2FA info for targeted advertising',
+      dek: 'The Federal Trade Commission has fined Twitter $150 million for using phone numbers and email addresses collected to enable two-factor authentication for targeted advertising.',
+      url: 'https://www.bleepingcomputer.com/news/technology/ftc-fines-twitter-150m-for-using-2fa-info-for-targeted-advertising/' },
+    { group: 'social', kicker: 'Data brokers · Grindr', outlet: 'The Wall Street Journal', domain: 'wsj.com', date: '2022-05-02',
+      title: 'Grindr User Data Was Sold Through Ad Networks',
+      dek: 'The information was available for sale since at least 2017, and historical data may still be obtainable.' },
+    { group: 'social', kicker: 'Device tracking · TikTok', outlet: 'The Wall Street Journal', domain: 'wsj.com', date: '2020-08-11',
+      title: 'TikTok Tracked User Data Using Tactic Banned by Google',
+      dek: 'TikTok skirted a privacy safeguard in Google’s Android operating system to collect unique identifiers from millions of mobile devices, data that allows the app to track users online without allowing them to opt out, a Wall Street Journal analysis has found.',
+      url: 'https://www.wsj.com/articles/tiktok-tracked-user-data-using-tactic-banned-by-google-11597176738' },
+    { group: 'social', kicker: 'Health data · Meta Pixel', outlet: 'The Markup', domain: 'themarkup.org', date: '2022-06-16',
+      title: 'Facebook Is Receiving Sensitive Medical Information from Hospital Websites',
+      dek: 'Experts say some hospitals’ use of an ad tracking tool may violate a federal law protecting health information',
+      url: 'https://themarkup.org/pixel-hunt/2022/06/16/facebook-is-receiving-sensitive-medical-information-from-hospital-websites' },
+    { group: 'social', kicker: 'Whistleblower · Twitter', outlet: 'CNN', domain: 'cnn.com', date: '2022-08-23',
+      title: 'Ex-Twitter exec blows the whistle, alleging reckless and negligent cybersecurity policies',
+      dek: 'Twitter has major security problems that pose a threat to its own users’ personal information, to company shareholders, to national security, and to democracy, according to an explosive whistleblower disclosure obtained exclusively by CNN and The Washington Post.',
+      url: 'https://edition.cnn.com/2022/08/23/tech/twitter-whistleblower-peiter-zatko-security/index.html' },
+    { group: 'social', kicker: 'Whistleblower · Cambridge Analytica', outlet: 'The Guardian', domain: 'theguardian.com', date: '2018-03-18',
+      title: '‘I made Steve Bannon’s psychological warfare tool’: meet the data war whistleblower',
+      dek: 'Christopher Wylie goes on the record to discuss his role in hijacking the profiles of millions of Facebook users in order to target the US electorate',
+      url: 'https://www.theguardian.com/news/2018/mar/17/data-war-whistleblower-christopher-wylie-faceook-nix-bannon-trump' },
+    { group: 'social', kicker: 'Data harvesting · Onavo', outlet: 'Gizmodo', domain: 'gizmodo.com', date: '2018-08-22',
+      title: 'Facebook Pulls Its Data-Harvesting Onavo VPN From App Store After Apple Says It Violates Rules',
+      dek: 'Facebook has yanked its vampiric Onavo Protect service—which purports to be a privacy-enhancing Virtual Private Network (VPN) but is by all indications data-harvesting Facebook spyware—from Apple’s App Store.',
+      url: 'https://gizmodo.com/facebook-pulls-its-data-harvesting-onavo-vpn-from-app-s-1828541718' }
+  ];
+
+  const PRESS_MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  // columns: a new clipping every 3.4 s, each read for 8 s; single: one at a time, then a 1.4 s pause.
+  const PRESS_TIMING = { columns: { every: 3400, life: 8000 }, single: { every: 7800, life: 6400 } };
+  let pressQueue = [];
+  let pressCards = [];
+  let pressTimer = null;
+  let pressMode = null;
+  let pressSide = 0;
+  let nextPressAt = 0;
+
+  const pressShuffle = list => {
+    for (let i = list.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [list[i], list[j]] = [list[j], list[i]];
     }
-  ];
+    return list;
+  };
 
-  // Screen slot positions avoiding center typewriter
-  const screenSlots = [
-    { top: "14%", left: "6%" },
-    { top: "16%", right: "8%" },
-    { bottom: "22%", left: "7%" },
-    { bottom: "18%", right: "7%" },
-    { top: "48%", left: "5%" },
-    { top: "44%", right: "6%" },
-    { top: "9%", left: "32%" },
-    { bottom: "14%", right: "28%" }
-  ];
+  // A new random order on every visit, alternating spyware, Big Tech and social media.
+  function pressOrder() {
+    const groups = {};
+    pressArchive.forEach(item => { (groups[item.group] = groups[item.group] || []).push(item); });
+    const lists = pressShuffle(Object.values(groups).map(pressShuffle));
+    const order = [];
+    for (let i = 0; order.length < pressArchive.length; i++) {
+      lists.forEach(list => { if (list[i]) order.push(list[i]); });
+    }
+    return order;
+  }
 
-  let occupiedSlots = new Set();
-  let ambientInterval = null;
-  let poolIdx = 0;
+  // Columns when the gutters beside the manifesto can hold a clipping; otherwise one clipping under the top bar.
+  // The gutters come from the manifesto column at its final width: it starts narrow while the first words appear.
+  function pressLayout() {
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    const stage = document.querySelector('.intro-manifesto-stage');
+    const topBar = document.querySelector('.intro-topbar');
+    const bottomBar = document.querySelector('.intro-bottom-bar');
+    const column = Math.min(stage ? parseFloat(getComputedStyle(stage).maxWidth) || 880 : 880, vw - 40);
+    const gutter = (vw - column) / 2;
+    const top = (topBar ? topBar.getBoundingClientRect().bottom : 56) + 22;
+    const bottom = (bottomBar ? bottomBar.getBoundingClientRect().top : vh - 48) - 22;
+    if (gutter >= 250) return { mode: 'columns', width: Math.min(340, Math.floor(gutter - 36)), gutter, top, bottom, vw };
+    return { mode: 'single', width: Math.min(520, vw - 24), top: top - 10, vw };
+  }
 
-  function spawnAmbientEcho() {
+  function pressDate(iso) {
+    const [y, m, d] = iso.split('-').map(Number);
+    return d + ' ' + PRESS_MONTHS[m - 1] + ' ' + y;
+  }
+
+  function pressElement(item, layout) {
+    const node = (tag, className, text) => {
+      const el = document.createElement(tag);
+      el.className = className;
+      if (text) el.textContent = text;
+      return el;
+    };
+    const kind = layout.mode === 'single' ? 'press-compact' : layout.width < 290 ? 'press-column press-narrow' : 'press-column';
+    const card = node('article', 'press-card ' + kind);
+    const source = node('footer', 'press-source');
+    source.append(node('span', 'press-outlet', item.outlet), node('span', 'press-date', pressDate(item.date)), node('span', 'press-domain', item.domain));
+    card.append(node('p', 'press-kicker', item.kicker), node('h3', 'press-title', item.title), node('p', 'press-dek', item.dek), source);
+    card.style.width = layout.width + 'px';
+    return card;
+  }
+
+  function retirePress(entry, fast) {
+    if (entry.leaving) return;
+    entry.leaving = true;
+    clearTimeout(entry.timer);
+    entry.el.classList.remove('press-visible');
+    entry.el.classList.add('press-out');
+    setTimeout(() => {
+      entry.el.remove();
+      pressCards = pressCards.filter(e => e !== entry);
+    }, fast ? 450 : 900);
+  }
+
+  // Places the next clipping if there is room for it; returns whether it did.
+  function spawnPress(layout, textTop) {
+    if (layout.mode === 'single' && (pressCards.length || textTop - layout.top < 120)) return false;
+    if (!pressQueue.length) pressQueue = pressOrder();
+    const card = pressElement(pressQueue[0], layout);
+    ambientStage.appendChild(card);
+    const h = card.offsetHeight;
+    let spot = null;
+    if (layout.mode === 'single') {
+      if (textTop - layout.top >= h + 16) spot = { x: Math.round((layout.vw - layout.width) / 2), y: Math.round(layout.top) };
+    } else {
+      // Alternate sides; on each side the upper or the lower place, never over another clipping.
+      const sides = pressSide % 2 ? ['right', 'left'] : ['left', 'right'];
+      const candidates = [];
+      sides.forEach(side => {
+        const x = side === 'left' ? Math.round((layout.gutter - layout.width) / 2) : Math.round(layout.vw - layout.gutter + (layout.gutter - layout.width) / 2);
+        candidates.push({ x, y: Math.round(layout.top) }, { x, y: Math.round(layout.bottom - h) });
+      });
+      spot = candidates.find(c => c.y >= layout.top - 1 && c.y + h <= layout.bottom + 1 &&
+        pressCards.every(e => c.x + layout.width + 12 <= e.x || e.x + e.w + 12 <= c.x || c.y + h + 16 <= e.y || e.y + e.h + 16 <= c.y));
+    }
+    if (!spot) { card.remove(); return false; }
+    pressSide++;
+    pressQueue.shift();
+    card.style.left = spot.x + 'px';
+    card.style.top = spot.y + 'px';
+    const entry = { el: card, x: spot.x, y: spot.y, w: layout.width, h };
+    pressCards.push(entry);
+    requestAnimationFrame(() => card.classList.add('press-visible'));
+    entry.timer = setTimeout(() => retirePress(entry), PRESS_TIMING[layout.mode].life);
+    return true;
+  }
+
+  function pressTick() {
     if (isDismissed || !ambientStage) return;
-
-    const availableSlots = screenSlots
-      .map((slot, idx) => ({ slot, idx }))
-      .filter(item => !occupiedSlots.has(item.idx));
-
-    if (availableSlots.length === 0) return;
-
-    const chosen = availableSlots[Math.floor(Math.random() * availableSlots.length)];
-    occupiedSlots.add(chosen.idx);
-
-    const item = multilingualPool[poolIdx % multilingualPool.length];
-    poolIdx++;
-
-    const echoEl = document.createElement('div');
-    echoEl.className = 'intro-ambient-echo';
-    if (item.rtl) echoEl.classList.add('echo-rtl');
-
-    Object.assign(echoEl.style, chosen.slot);
-
-    echoEl.innerHTML = `
-      <div class="echo-head">
-        <span class="echo-tag">${item.lang}</span>
-        <span class="echo-meta">${item.meta}</span>
-      </div>
-      <div class="echo-text">${item.text}</div>
-    `;
-
-    ambientStage.appendChild(echoEl);
-
-    requestAnimationFrame(() => {
-      echoEl.classList.add('echo-visible');
-    });
-
-    setTimeout(() => {
-      if (echoEl.parentNode) {
-        echoEl.classList.remove('echo-visible');
-        echoEl.classList.add('echo-fading');
-      }
-    }, 3800);
-
-    setTimeout(() => {
-      if (echoEl.parentNode) {
-        echoEl.remove();
-      }
-      occupiedSlots.delete(chosen.idx);
-    }, 5000);
+    const layout = pressLayout();
+    if (layout.mode !== pressMode) { startPress(); return; }
+    const textTop = typewriterText ? typewriterText.getBoundingClientRect().top : window.innerHeight;
+    // The manifesto grows upwards as it is typed: on small screens a clipping in its way leaves early.
+    if (layout.mode === 'single') pressCards.forEach(e => { if (e.y + e.h + 10 > textTop) retirePress(e, true); });
+    if (Date.now() >= nextPressAt && spawnPress(layout, textTop)) nextPressAt = Date.now() + PRESS_TIMING[layout.mode].every;
   }
 
-  function startAmbientOrchestration() {
-    spawnAmbientEcho();
-    ambientInterval = setInterval(() => {
-      if (!isDismissed) {
-        spawnAmbientEcho();
-      }
-    }, 1800);
+  function stopPress() {
+    clearInterval(pressTimer);
+    pressTimer = null;
+    pressCards.forEach(entry => clearTimeout(entry.timer));
+    pressCards = [];
+    if (ambientStage) ambientStage.innerHTML = '';
   }
+
+  function startPress() {
+    stopPress();
+    pressMode = pressLayout().mode;
+    if (ambientStage) ambientStage.classList.toggle('press-front', pressMode === 'single');
+    nextPressAt = Date.now() + 600;
+    pressTimer = setInterval(pressTick, 400);
+  }
+
+  // A new size starts the clippings over in the right places.
+  window.addEventListener('resize', () => {
+    if (!isDismissed && pressTimer) startPress();
+  });
 
   let isDismissed = false;
   let isAnimationComplete = false;
@@ -10304,7 +10423,7 @@ if (terminal && gamesGrid) {
     clearTimeout(failsafeTimer);
     clearTimeout(cursorBlinkTimer);
     if (cursor) cursor.classList.remove('cursor-solid');
-    if (ambientInterval) clearInterval(ambientInterval);
+    stopPress();
 
     setSeenIntro();
     document.documentElement.classList.remove('intro-active');
@@ -10477,7 +10596,7 @@ if (terminal && gamesGrid) {
     clearTimeout(typingTimeout);
     clearTimeout(failsafeTimer);
     clearTimeout(cursorBlinkTimer);
-    if (ambientInterval) clearInterval(ambientInterval);
+    stopPress();
 
     document.documentElement.classList.add('intro-active');
     document.documentElement.classList.remove('intro-dismissed-early');
@@ -10499,9 +10618,7 @@ if (terminal && gamesGrid) {
     if (actionContainer) actionContainer.classList.add('hidden');
     if (initialDot) initialDot.classList.remove('hidden');
 
-    if (ambientStage) ambientStage.innerHTML = '';
-    occupiedSlots.clear();
-    poolIdx = 0;
+    stopPress();
 
     segmentIdx = 0;
     charIdx = 0;
@@ -10524,7 +10641,7 @@ if (terminal && gamesGrid) {
           typewriterText.appendChild(cursor);
         }
       }
-      startAmbientOrchestration();
+      startPress();
       typeNextCharacter();
     }, 1200);
   }

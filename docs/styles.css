@@ -30463,8 +30463,9 @@ html.intro-active body > *:not(#intro-screen):not(script):not(style) {
   transform: translateZ(0);
 }
 
-/* Multilingual Ambient Echoes Stage */
-.intro-multilingual-stage {
+/* Press clippings around the intro manifesto (script.js: pressArchive): newsprint cards with the outlet's own
+   headline and standfirst, the source bottom-left. Behind the text in the gutters; in front of it on small screens. */
+.intro-press-stage {
   position: absolute;
   inset: 0;
   z-index: 1;
@@ -30473,72 +30474,143 @@ html.intro-active body > *:not(#intro-screen):not(script):not(style) {
   transform: translateZ(0);
 }
 
-.intro-ambient-echo {
+.intro-press-stage.press-front {
+  z-index: 3;
+}
+
+.press-card {
   position: absolute;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  max-width: 340px;
-  padding: 10px 14px;
-  background: rgba(4, 8, 14, 0.85);
-  border: 1px solid rgba(0, 243, 255, 0.25);
-  border-radius: 6px;
-  pointer-events: none;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 15px 17px 11px;
+  border-top: 3px solid #141518;
+  border-radius: 2px;
+  background-color: #f3efe5;
+  background-image: repeating-linear-gradient(0deg, rgba(20, 21, 24, 0.022) 0 1px, transparent 1px 4px);
+  color: #141518;
+  font-family: Georgia, "Times New Roman", "Noto Serif", serif;
+  text-align: left;
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(0, 0, 0, 0.35);
   opacity: 0;
-  transform: translate3d(0, 8px, 0) scale(0.93);
-  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 4.8s cubic-bezier(0.1, 0.9, 0.2, 1);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  transform: translate3d(0, 12px, 0);
+  transition: opacity 0.7s ease, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
-  backface-visibility: hidden;
 }
 
-.intro-ambient-echo.echo-visible {
-  opacity: 0.88;
-  transform: translate3d(0, 0, 0) scale(1.03);
+.press-card.press-visible {
+  opacity: 0.97;
+  transform: translate3d(0, 0, 0);
 }
 
-.intro-ambient-echo.echo-fading {
+.press-card.press-out {
   opacity: 0;
-  transform: translate3d(0, -8px, 0) scale(1.08);
+  transform: translate3d(0, -10px, 0);
+  transition-duration: 0.8s;
 }
 
-.echo-head {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.65rem;
-  letter-spacing: 0.08em;
-  font-family: var(--font-cyber, "QP1NG-Digital", monospace);
+.press-kicker {
+  margin: 0 0 7px;
+  color: #b0241b;
+  font: 700 10.5px/1.25 "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
 }
 
-.echo-tag {
-  background: rgba(0, 255, 157, 0.15);
-  color: #00ff9d;
-  border: 1px solid rgba(0, 255, 157, 0.35);
-  padding: 1px 5px;
-  border-radius: 3px;
+.press-title {
+  margin: 0;
+  color: #0f1013;
+  font-family: Georgia, "Times New Roman", "Noto Serif", serif; /* not the site's display font for headings */
+  text-transform: none;
+  font-size: 18px;
   font-weight: 700;
-  font-family: var(--font-cyber, "QP1NG-Digital", monospace);
+  line-height: 1.22;
+  letter-spacing: -0.005em;
 }
 
-.echo-meta {
-  color: rgba(255, 255, 255, 0.45);
-  font-size: 0.62rem;
-  font-family: var(--font-cyber, "QP1NG-Digital", monospace);
-}
-
-.echo-text {
-  font-size: 0.84rem;
+.press-dek {
+  margin: 9px 0 0;
+  padding-top: 8px;
+  border-top: 1px solid rgba(20, 21, 24, 0.16);
+  color: #3a3c42;
+  font-size: 13.5px;
   line-height: 1.45;
-  color: #e2e8f0;
-  text-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
-  font-family: var(--font-cyber, "QP1NG-Digital", "JetBrains Mono", system-ui, sans-serif);
 }
 
-.echo-rtl {
-  direction: rtl;
-  text-align: right;
-  font-family: "Noto Sans Arabic", "Tahoma", sans-serif;
+.press-source {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  gap: 2px 10px;
+  margin-top: 11px;
+  padding-top: 7px;
+  border-top: 1px solid #141518;
+  color: #141518;
+  font: 600 10px/1.35 "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.press-outlet {
+  grid-column: 1 / -1;
+  font-weight: 800;
+}
+
+.press-date {
+  color: #5b574e;
+}
+
+.press-domain {
+  justify-self: end;
+  color: #6f6a5f;
+  font: 500 10px/1.35 ui-monospace, "SFMono-Regular", Consolas, monospace;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* Narrow gutters (laptops around 1440 px): a tighter column */
+.press-narrow {
+  padding: 13px 14px 10px;
+}
+
+.press-narrow .press-title {
+  font-size: 16.5px;
+}
+
+.press-narrow .press-dek {
+  font-size: 13px;
+}
+
+/* One clipping at a time on small screens: shorter, clamped */
+.press-compact {
+  padding: 12px 14px 9px;
+}
+
+.press-compact .press-title,
+.press-compact .press-dek {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.press-compact .press-title {
+  font-size: 16px;
+  -webkit-line-clamp: 3;
+}
+
+.press-compact .press-dek {
+  margin-top: 7px;
+  padding-top: 6px;
+  font-size: 12.5px;
+  line-height: 1.4;
+  -webkit-line-clamp: 2;
+}
+
+@media (max-height: 700px) {
+  .press-compact .press-dek {
+    display: none;
+  }
 }
 
 /* Foreground Stage */
@@ -30830,13 +30902,6 @@ html.intro-active body > *:not(#intro-screen):not(script):not(style) {
   }
   .intro-sys-status {
     font-size: 0.68rem;
-  }
-  .intro-ambient-echo {
-    max-width: 240px;
-    padding: 8px 10px;
-  }
-  .echo-text {
-    font-size: 0.75rem;
   }
 }
 
