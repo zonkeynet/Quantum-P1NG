@@ -32161,7 +32161,7 @@ body.donation-modal-open {
 
 
 /* ================================================================
-   Q-Radio Globe links (a separate site: https://zonkeynet.github.io/Q-Radio-Geo/)
+   Q-Radio Globe links (a separate site: https://globe.qp1ng.com/)
    ================================================================ */
 .nav-link--globe {
   display: flex;
@@ -32231,7 +32231,7 @@ body.donation-modal-open {
   .nav-badge--live::before { animation: none; }
 }
 
-/* Its address contains "github", which the mobile menu styles as the GitHub button: keep the menu look instead. */
+/* The globe link keeps the mobile menu look, in green (not the cyan GitHub button). */
 .topbar .mobilemenu a.mobilemenu-globe {
   margin-top: 0;
   padding: 9px 16px;
