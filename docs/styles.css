@@ -30582,7 +30582,7 @@ html.intro-active body > *:not(#intro-screen):not(script):not(style) {
   opacity: 0;
   transform: translate3d(0, 14px, 0) scale(0.97);
   clip-path: inset(0 0 100% 0);
-  transition: opacity 0.3s ease, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), clip-path 0.75s cubic-bezier(0.65, 0, 0.35, 1);
+  transition: opacity 0.25s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), clip-path 0.55s cubic-bezier(0.65, 0, 0.35, 1);
   will-change: opacity, transform, clip-path;
 }
 
@@ -30597,6 +30597,10 @@ html.intro-active body > *:not(#intro-screen):not(script):not(style) {
 
 .press-card[data-from="top"] {
   transform: translate3d(0, -14px, 0) scale(0.98);
+}
+
+.press-card[data-from="bottom"] {
+  transform: translate3d(0, 14px, 0) scale(0.98);
 }
 
 .press-card.press-visible {
@@ -30621,7 +30625,7 @@ html.intro-active body > *:not(#intro-screen):not(script):not(style) {
 }
 
 .press-card.press-visible::before {
-  animation: pressPrintHead 0.75s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  animation: pressPrintHead 0.55s cubic-bezier(0.65, 0, 0.35, 1) forwards;
 }
 
 @keyframes pressPrintHead {
@@ -30692,7 +30696,7 @@ html.intro-active body > *:not(#intro-screen):not(script):not(style) {
 }
 
 .press-card.press-visible .press-title::after {
-  animation: pressDeclassify 0.6s cubic-bezier(0.7, 0, 0.3, 1) 0.65s forwards;
+  animation: pressDeclassify 0.42s cubic-bezier(0.7, 0, 0.3, 1) 0.42s forwards;
 }
 
 @keyframes pressDeclassify {
@@ -30721,13 +30725,30 @@ html.intro-active body > *:not(#intro-screen):not(script):not(style) {
 .press-card.press-visible .press-dek {
   opacity: 1;
   transform: none;
-  transition-delay: 1.05s;
+  transition-delay: 0.7s;
 }
 
 .press-card.press-visible .press-source {
   opacity: 1;
   transform: none;
-  transition-delay: 1.3s;
+  transition-delay: 0.85s;
+}
+
+/* Where only a shorter clipping fits: kicker, headline and a one-line source */
+.press-mini .press-dek,
+.press-mini .press-domain {
+  display: none;
+}
+
+.press-mini .press-source {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 8px;
+  margin-top: 9px;
+}
+
+.press-compact.press-mini .press-title {
+  -webkit-line-clamp: 2;
 }
 
 .press-dek {

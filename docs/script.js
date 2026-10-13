@@ -10253,8 +10253,8 @@ if (terminal && gamesGrid) {
   ];
 
   const PRESS_MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  // columns: a new clipping every 3.4 s, each read for 8 s; single: one at a time, then a 1.4 s pause.
-  const PRESS_TIMING = { columns: { every: 3400, life: 8000 }, single: { every: 7800, life: 6400 } };
+  // columns: a new clipping every 1.7 s, each read for 7 s; single: up to two (above and below the text), every 2.6 s.
+  const PRESS_TIMING = { columns: { every: 1700, life: 7000 }, single: { every: 2600, life: 5200 } };
   let pressQueue = [];
   let pressCards = [];
   let pressTimer = null;
@@ -10295,7 +10295,7 @@ if (terminal && gamesGrid) {
     const top = (topBar ? topBar.getBoundingClientRect().bottom : 56) + 22;
     const bottom = (bottomBar ? bottomBar.getBoundingClientRect().top : vh - 48) - 22;
     if (gutter >= 250) return { mode: 'columns', width: Math.min(340, Math.floor(gutter - 36)), gutter, top, bottom, vw };
-    return { mode: 'single', width: Math.min(520, vw - 24), top: top - 10, vw };
+    return { mode: 'single', width: Math.min(520, vw - 24), top: top - 10, bottom: vh - 10, vw };
   }
 
   function pressDate(iso) {
@@ -10331,35 +10331,59 @@ if (terminal && gamesGrid) {
     }, 520); // the pressOut animation (styles.css)
   }
 
-  // Places the next clipping if there is room for it; returns whether it did.
-  function spawnPress(layout, textTop) {
-    if (layout.mode === 'single' && (pressCards.length || textTop - layout.top < 120)) return false;
+  // What the clippings must not cover on small screens: the manifesto, and the Enter button once it shows.
+  function pressObstacles() {
+    const text = typewriterText ? typewriterText.getBoundingClientRect() : null;
+    const action = actionContainer && !actionContainer.classList.contains('hidden') ? actionContainer.getBoundingClientRect() : null;
+    return { top: text ? text.top : window.innerHeight, bottom: Math.max(text ? text.bottom : 0, action && action.height ? action.bottom : 0) };
+  }
+
+  // Where a clipping of height h fits now. Columns: alternate sides, and on each side the first free gap from the
+  // top, so clippings stack as others leave. Single: above the manifesto or below it, whichever is free and roomier.
+  function pressSpot(layout, obs, h) {
+    if (layout.mode === 'single') {
+      const x = Math.round((layout.vw - layout.width) / 2);
+      // 48 px to spare, so a clipping is not placed just to leave again (it leaves within 30 px of the text).
+      const roomTop = pressCards.some(e => e.slot === 'top') ? -1 : obs.top - layout.top - h - 48;
+      const roomBottom = pressCards.some(e => e.slot === 'bottom') ? -1 : layout.bottom - obs.bottom - h - 48;
+      if (roomTop < 0 && roomBottom < 0) return null;
+      return roomTop >= roomBottom ? { x, y: Math.round(layout.top), slot: 'top' } : { x, y: Math.round(layout.bottom - h), slot: 'bottom' };
+    }
+    const sides = pressSide % 2 ? ['right', 'left'] : ['left', 'right'];
+    for (const side of sides) {
+      const x = side === 'left' ? Math.round((layout.gutter - layout.width) / 2) : Math.round(layout.vw - layout.gutter + (layout.gutter - layout.width) / 2);
+      const taken = pressCards.filter(e => e.x === x).sort((p, q) => p.y - q.y);
+      let y = layout.top;
+      for (const e of taken) {
+        if (e.y - 16 - y >= h) break;
+        y = Math.max(y, e.y + e.h + 16);
+      }
+      if (y + h <= layout.bottom) return { x, y: Math.round(y) };
+    }
+    return null;
+  }
+
+  // Places the next clipping if there is room for it, without its standfirst if that is what fits; returns whether it did.
+  function spawnPress(layout, obs) {
+    if (layout.mode === 'single' && (pressCards.length >= 2 || Math.max(obs.top - layout.top, layout.bottom - obs.bottom) < 100)) return false;
     if (!pressQueue.length) pressQueue = pressOrder();
     const card = pressElement(pressQueue[0], layout);
     ambientStage.appendChild(card);
-    const h = card.offsetHeight;
-    let spot = null;
-    if (layout.mode === 'single') {
-      if (textTop - layout.top >= h + 16) spot = { x: Math.round((layout.vw - layout.width) / 2), y: Math.round(layout.top) };
-    } else {
-      // Alternate sides; on each side the upper or the lower place, never over another clipping.
-      const sides = pressSide % 2 ? ['right', 'left'] : ['left', 'right'];
-      const candidates = [];
-      sides.forEach(side => {
-        const x = side === 'left' ? Math.round((layout.gutter - layout.width) / 2) : Math.round(layout.vw - layout.gutter + (layout.gutter - layout.width) / 2);
-        candidates.push({ x, y: Math.round(layout.top) }, { x, y: Math.round(layout.bottom - h) });
-      });
-      spot = candidates.find(c => c.y >= layout.top - 1 && c.y + h <= layout.bottom + 1 &&
-        pressCards.every(e => c.x + layout.width + 12 <= e.x || e.x + e.w + 12 <= c.x || c.y + h + 16 <= e.y || e.y + e.h + 16 <= c.y));
+    let h = card.offsetHeight;
+    let spot = pressSpot(layout, obs, h);
+    if (!spot) {
+      card.classList.add('press-mini');
+      h = card.offsetHeight;
+      spot = pressSpot(layout, obs, h);
     }
     if (!spot) { card.remove(); return false; }
     pressSide++;
     pressQueue.shift();
     card.style.left = spot.x + 'px';
     card.style.top = spot.y + 'px';
-    card.dataset.from = layout.mode === 'single' ? 'top' : spot.x < layout.vw / 2 ? 'left' : 'right';
+    card.dataset.from = spot.slot || (spot.x < layout.vw / 2 ? 'left' : 'right');
     void card.offsetWidth; // start the entrance from that side
-    const entry = { el: card, x: spot.x, y: spot.y, w: layout.width, h };
+    const entry = { el: card, x: spot.x, y: spot.y, w: layout.width, h, slot: spot.slot };
     pressCards.push(entry);
     requestAnimationFrame(() => card.classList.add('press-visible'));
     entry.timer = setTimeout(() => retirePress(entry), PRESS_TIMING[layout.mode].life);
@@ -10370,10 +10394,14 @@ if (terminal && gamesGrid) {
     if (isDismissed || !ambientStage) return;
     const layout = pressLayout();
     if (layout.mode !== pressMode) { startPress(); return; }
-    const textTop = typewriterText ? typewriterText.getBoundingClientRect().top : window.innerHeight;
-    // The manifesto grows upwards as it is typed: on small screens a clipping in its way leaves early.
-    if (layout.mode === 'single') pressCards.forEach(e => { if (e.y + e.h + 10 > textTop) retirePress(e, true); });
-    if (Date.now() >= nextPressAt && spawnPress(layout, textTop)) nextPressAt = Date.now() + PRESS_TIMING[layout.mode].every;
+    const obs = pressObstacles();
+    // The manifesto grows both ways as it is typed: on small screens a clipping in its way leaves early.
+    if (layout.mode === 'single') {
+      pressCards.forEach(e => {
+        if (e.slot === 'top' ? e.y + e.h + 30 > obs.top : e.y - 30 < obs.bottom) retirePress(e, true);
+      });
+    }
+    if (Date.now() >= nextPressAt && spawnPress(layout, obs)) nextPressAt = Date.now() + PRESS_TIMING[layout.mode].every;
   }
 
   function stopPress() {
@@ -10388,8 +10416,8 @@ if (terminal && gamesGrid) {
     stopPress();
     pressMode = pressLayout().mode;
     if (ambientStage) ambientStage.classList.toggle('press-front', pressMode === 'single');
-    nextPressAt = Date.now() + 600;
-    pressTimer = setInterval(pressTick, 400);
+    nextPressAt = Date.now() + 250;
+    pressTimer = setInterval(pressTick, 250);
   }
 
   // A new size starts the clippings over in the right places.
