@@ -11,3 +11,18 @@ desktop.ini
 scratch/
 recordings/
 *.log
+
+# Python caches and environments
+__pycache__/
+*.pyc
+.venv/
+
+# Windows shortcuts (they hold paths on this PC)
+*.lnk
+
+# Local AI work: Q-Brain training data, local launchers and the local model test (paths on this PC), model files
+training/
+chat_qbrain.bat
+chat_qbrain.ps1
+scripts/test_model_inference.py
+*.gguf
