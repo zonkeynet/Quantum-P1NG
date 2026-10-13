@@ -10252,6 +10252,8 @@ if (terminal && gamesGrid) {
       url: 'https://gizmodo.com/facebook-pulls-its-data-harvesting-onavo-vpn-from-app-s-1828541718' }
   ];
 
+  // The clippings' look: 'glass' (dark glass, light text) or 'paper' (frosted newsprint, dark ink).
+  const PRESS_LOOK = 'glass';
   const PRESS_MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   // columns: a new clipping every 1.7 s, each read for 7 s; single: up to two (above and below the text), every 2.6 s.
   const PRESS_TIMING = { columns: { every: 1700, life: 7000 }, single: { every: 2600, life: 5200 } };
@@ -10415,7 +10417,10 @@ if (terminal && gamesGrid) {
   function startPress() {
     stopPress();
     pressMode = pressLayout().mode;
-    if (ambientStage) ambientStage.classList.toggle('press-front', pressMode === 'single');
+    if (ambientStage) {
+      ambientStage.classList.toggle('press-front', pressMode === 'single');
+      ambientStage.classList.toggle('press-paper', PRESS_LOOK === 'paper');
+    }
     nextPressAt = Date.now() + 250;
     pressTimer = setInterval(pressTick, 250);
   }
