@@ -1,6 +1,6 @@
 {
   "name": "Q-P1NG Field Deck 433 MHz",
-  "version": "15.8",
+  "version": "15.9",
   "new_install_prompt_erase": false,
   "new_install_improv_wait_time": 0,
   "builds": [
@@ -8,7 +8,7 @@
       "chipFamily": "ESP32-S3",
       "parts": [
         {
-          "path": "tdeck-15.8-433-full.bin",
+          "path": "tdeck-15.9-433-full.bin",
           "offset": 0
         }
       ]

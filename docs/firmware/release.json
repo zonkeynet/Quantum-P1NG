@@ -1,5 +1,5 @@
 {
-  "version": "15.8",
+  "version": "15.9",
   "testHooks": false,
   "board": "LILYGO T-Deck / T-Deck Plus, ESP32-S3, 16 MB flash, 8 MB OPI PSRAM",
   "radio": {
@@ -58,27 +58,29 @@
       "sha256": "1051ac3e564bb9368a635af94a219d01c6263dc7a89a5e132bd01fef925026a2"
     },
     "firmware.bin": {
-      "bytes": 1048464,
-      "sha256": "f96476d95dc5806db3da38ef76133d57729a04eeab124a2b0cfe7d825f043988"
+      "bytes": 1050288,
+      "sha256": "d865a92d4670d024df51949fbf3e5c4aaa3b1002bfbbb8c66818816a4bb81073"
     },
     "partitions.bin": {
       "bytes": 3072,
       "sha256": "4dee98bfccab048344ca8cecc0a11c9209007925a5d5fe4f439fba3459801006"
     },
-    "tdeck-15.8-433-full.bin": {
-      "bytes": 1114000,
-      "sha256": "8903efabdf0d4194b0e2f16ccaba8c9c0dd3ce930c0737d1bd2a96a4c3df1285"
+    "tdeck-15.9-433-full.bin": {
+      "bytes": 1115824,
+      "sha256": "46f31f7c522146b0920145c0075bb6fab30aff632564a644c3157b199fd3104b"
     }
   },
   "source": {
     "LoRaProtocol.h": "b885e4f624c0cfb85b07a8b81f39c1d93bde960572d05ae6d2aeec5cfd7f14a1",
     "partitions.csv": "0e15e6fe0daae1e32d873331df1c35fc41f54e9156e91f0a20c1799b07b85b9a",
-    "qp1ng_tdeck.ino": "27d5730e5a3eb154bb0ae1c6caadbf0e5e8a09990ec90f96b83bd5ae107cbf0e",
-    "README.md": "d0e2b3c10d9a95fc0e4904ac693968cbe9de90e23cb25a0e9ec83796fb4fb962",
+    "qp1ng_tdeck.ino": "cee86374e5e993067e9845778b01809388a5c7300e690df802cb0714480246da",
+    "RadioAccess.h": "f2ef74ec8ea6e1f616d6e69ddf8b504b73cdec7a84f4877a69ceb5e17f80ae99",
+    "README.md": "06f86aba4ce93e9997908bc6fbd23d153b92f466f2cd9dd8c319fcf50ba0d48b",
     "TDeckDisplay.h": "a214f8ed599398128f9055e7b53115efb4a48424b23f1441d6e83ae683b3f343",
-    "TDeckExperience.h": "1c7830d91e151be4df7e2a019d09ce714b5e4b008825fa4e7bc8c7a56e12c57c",
+    "TDeckExperience.h": "6e49b181084c310fce17f0c26d64aea7fd00756783642fb9d766c3962ef23f12",
     "TDeckModel.h": "6bc3c0a754928e3e47b0af15616d9e33ba80b4f34058a12ada9f13cd33092149",
-    "TDeckRoom.h": "980cae0189176c45d377744c7dde22f210fcd9eeeef5d64d81b19969a7d50f2a"
+    "TDeckRoom.h": "980cae0189176c45d377744c7dde22f210fcd9eeeef5d64d81b19969a7d50f2a",
+    "UsbOutput.h": "3c4a049946ac29040bd42a76dd16176a51633e092b697b6ebfd7c3d7faaad232"
   },
   "toolchain": {
     "esp32Arduino": "2.0.14",
