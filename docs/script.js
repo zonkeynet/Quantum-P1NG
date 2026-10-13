@@ -10328,7 +10328,7 @@ if (terminal && gamesGrid) {
     setTimeout(() => {
       entry.el.remove();
       pressCards = pressCards.filter(e => e !== entry);
-    }, fast ? 450 : 900);
+    }, 520); // the pressOut animation (styles.css)
   }
 
   // Places the next clipping if there is room for it; returns whether it did.
@@ -10357,6 +10357,8 @@ if (terminal && gamesGrid) {
     pressQueue.shift();
     card.style.left = spot.x + 'px';
     card.style.top = spot.y + 'px';
+    card.dataset.from = layout.mode === 'single' ? 'top' : spot.x < layout.vw / 2 ? 'left' : 'right';
+    void card.offsetWidth; // start the entrance from that side
     const entry = { el: card, x: spot.x, y: spot.y, w: layout.width, h };
     pressCards.push(entry);
     requestAnimationFrame(() => card.classList.add('press-visible'));
@@ -10397,6 +10399,7 @@ if (terminal && gamesGrid) {
 
   let isDismissed = false;
   let isAnimationComplete = false;
+  const introEndTimers = {};
   let autoDismissTimer = null;
   let typingTimeout = null;
   let failsafeTimer = null;
@@ -10423,15 +10426,28 @@ if (terminal && gamesGrid) {
     clearTimeout(failsafeTimer);
     clearTimeout(cursorBlinkTimer);
     if (cursor) cursor.classList.remove('cursor-solid');
-    stopPress();
-
     setSeenIntro();
-    document.documentElement.classList.remove('intro-active');
-    introScreen.classList.add('intro-dismissed');
-    document.body.style.overflow = '';
 
-    setTimeout(() => {
+    // End like an old TV: a short signal glitch, then the picture collapses to a line and a dot while the site
+    // appears behind it (styles.css: intro-glitch, intro-crt-off). Reduced motion: straight to the site.
+    const calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const glitchMs = calm ? 0 : 420;
+    const offMs = calm ? 0 : 650;
+    clearTimeout(introEndTimers.crt);
+    clearTimeout(introEndTimers.done);
+    if (!calm) introScreen.classList.add('intro-glitch');
+    introEndTimers.crt = setTimeout(() => {
+      document.documentElement.classList.remove('intro-active');
+      document.body.style.overflow = '';
+      introScreen.classList.remove('intro-glitch');
+      if (!calm) introScreen.classList.add('intro-crt-off');
+    }, glitchMs);
+
+    introEndTimers.done = setTimeout(() => {
+      stopPress();
       introScreen.style.display = 'none';
+      introScreen.classList.remove('intro-glitch', 'intro-crt-off');
+      introScreen.classList.add('intro-dismissed');
       if (videoWrap) videoWrap.classList.remove('video-visible');
       if (activeVideo) {
         activeVideo.pause();
@@ -10446,7 +10462,7 @@ if (terminal && gamesGrid) {
         try { bgVideoMobile.currentTime = 0; } catch(e){}
       }
       window.dispatchEvent(new CustomEvent('qp1ng:intro-dismissed'));
-    }, 900);
+    }, glitchMs + offMs);
   }
 
   // Tap or click anywhere on the intro screen: ONLY dismisses after the full animation is complete
@@ -10600,7 +10616,9 @@ if (terminal && gamesGrid) {
 
     document.documentElement.classList.add('intro-active');
     document.documentElement.classList.remove('intro-dismissed-early');
-    introScreen.classList.remove('intro-dismissed', 'is-complete');
+    clearTimeout(introEndTimers.crt);
+    clearTimeout(introEndTimers.done);
+    introScreen.classList.remove('intro-dismissed', 'is-complete', 'intro-glitch', 'intro-crt-off');
     introScreen.style.display = 'flex';
     introScreen.style.opacity = '1';
     introScreen.style.visibility = 'visible';

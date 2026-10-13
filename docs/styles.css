@@ -30396,6 +30396,92 @@ html.intro-active body > *:not(#intro-screen):not(script):not(style) {
   visibility: hidden;
 }
 
+/* The end of the intro, like an old TV: a short signal glitch (RGB split, jumps, noise bars), then the picture
+   collapses to a bright line, then to a dot, and the site appears behind it (script.js: dismissIntro). */
+.intro-screen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.intro-screen.intro-glitch {
+  pointer-events: none;
+  animation: introGlitch 0.42s steps(1, end) both;
+}
+
+.intro-screen.intro-glitch .intro-content,
+.intro-screen.intro-glitch .intro-press-stage {
+  animation: introSignalSplit 0.42s steps(1, end) both;
+}
+
+.intro-screen.intro-glitch::after {
+  background: repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.1) 0 2px, transparent 2px 7px),
+              linear-gradient(90deg, rgba(255, 0, 60, 0.08), rgba(0, 243, 255, 0.08));
+  animation: introNoise 0.42s steps(1, end) both;
+}
+
+.intro-screen.intro-crt-off {
+  pointer-events: none;
+  transition: none;
+  animation: introCrtOff 0.65s cubic-bezier(0.55, 0, 0.45, 1) forwards;
+}
+
+.intro-screen.intro-crt-off::after {
+  background: radial-gradient(ellipse at center, #ffffff 0%, #eafcff 55%, #9feeff 100%);
+  animation: introCrtFlash 0.65s ease-out forwards;
+}
+
+@keyframes introGlitch {
+  0% { filter: none; }
+  14% { filter: contrast(1.6) saturate(2) hue-rotate(-25deg); }
+  28% { filter: brightness(1.8) contrast(1.8); }
+  42% { filter: invert(0.1) contrast(1.4); }
+  57% { filter: brightness(0.55); }
+  71% { filter: contrast(1.9) saturate(0.4); }
+  85% { filter: brightness(1.4) hue-rotate(20deg); }
+  100% { filter: none; }
+}
+
+@keyframes introSignalSplit {
+  0% { transform: none; clip-path: none; filter: none; }
+  12% { transform: translate3d(-7px, 1px, 0); filter: drop-shadow(3px 0 rgba(255, 0, 60, 0.85)) drop-shadow(-3px 0 rgba(0, 243, 255, 0.85)); }
+  24% { transform: translate3d(6px, -2px, 0) skewX(-5deg); clip-path: inset(8% 0 52% 0); }
+  36% { transform: translate3d(-3px, 0, 0); clip-path: inset(46% 0 18% 0); filter: drop-shadow(-5px 0 rgba(255, 0, 60, 0.9)) drop-shadow(5px 0 rgba(0, 243, 255, 0.9)); }
+  48% { transform: translate3d(9px, 2px, 0); clip-path: none; }
+  60% { transform: translate3d(-5px, -1px, 0) skewX(4deg); clip-path: inset(0 0 64% 0); }
+  72% { transform: translate3d(3px, 0, 0); clip-path: none; filter: drop-shadow(2px 0 rgba(255, 0, 60, 0.7)) drop-shadow(-2px 0 rgba(0, 243, 255, 0.7)); }
+  86% { transform: translate3d(-1px, 1px, 0); filter: none; }
+  100% { transform: none; clip-path: none; filter: none; }
+}
+
+@keyframes introNoise {
+  0% { opacity: 0; background-position: 0 0, 0 0; }
+  10% { opacity: 0.9; background-position: 0 13px, 0 0; }
+  30% { opacity: 0.35; background-position: 0 -21px, 0 0; }
+  50% { opacity: 1; background-position: 0 37px, 0 0; }
+  70% { opacity: 0.5; background-position: 0 -9px, 0 0; }
+  90% { opacity: 0.8; background-position: 0 25px, 0 0; }
+  100% { opacity: 0; }
+}
+
+@keyframes introCrtOff {
+  0% { transform: scale(1, 1); opacity: 1; }
+  42% { transform: scale(1.03, 0.006); opacity: 1; }
+  70% { transform: scale(0.22, 0.006); opacity: 1; }
+  88% { transform: scale(0.004, 0.004); opacity: 1; }
+  100% { transform: scale(0, 0); opacity: 0; }
+}
+
+@keyframes introCrtFlash {
+  0% { opacity: 0; }
+  32% { opacity: 0.9; }
+  42% { opacity: 1; }
+  100% { opacity: 1; }
+}
+
 /* Background Fullscreen Video Wrap */
 .intro-video-wrap {
   position: absolute;
@@ -30494,20 +30580,67 @@ html.intro-active body > *:not(#intro-screen):not(script):not(style) {
   text-align: left;
   box-shadow: 0 22px 48px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(0, 0, 0, 0.35);
   opacity: 0;
-  transform: translate3d(0, 12px, 0);
-  transition: opacity 0.7s ease, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
+  transform: translate3d(0, 14px, 0) scale(0.97);
+  clip-path: inset(0 0 100% 0);
+  transition: opacity 0.3s ease, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), clip-path 0.75s cubic-bezier(0.65, 0, 0.35, 1);
+  will-change: opacity, transform, clip-path;
+}
+
+/* Each clipping arrives from its side, slightly tilted, and settles straight */
+.press-card[data-from="left"] {
+  transform: translate3d(-18px, 10px, 0) rotate(-1.6deg) scale(0.97);
+}
+
+.press-card[data-from="right"] {
+  transform: translate3d(18px, 10px, 0) rotate(1.6deg) scale(0.97);
+}
+
+.press-card[data-from="top"] {
+  transform: translate3d(0, -14px, 0) scale(0.98);
 }
 
 .press-card.press-visible {
   opacity: 0.97;
-  transform: translate3d(0, 0, 0);
+  transform: none;
+  clip-path: inset(0 0 0 0);
 }
 
-.press-card.press-out {
+/* The print head: a bright line running down with the reveal */
+.press-card::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.95) 12%, #ffffff 50%, rgba(0, 243, 255, 0.95) 88%, transparent);
+  box-shadow: 0 0 12px 2px rgba(0, 243, 255, 0.65);
   opacity: 0;
-  transform: translate3d(0, -10px, 0);
-  transition-duration: 0.8s;
+  pointer-events: none;
+}
+
+.press-card.press-visible::before {
+  animation: pressPrintHead 0.75s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes pressPrintHead {
+  0% { top: 0; opacity: 1; }
+  92% { top: calc(100% - 2px); opacity: 1; }
+  100% { top: calc(100% - 2px); opacity: 0; }
+}
+
+/* Leaving: a short glitch, then the clipping collapses to a line, like the intro's end */
+.press-card.press-out {
+  animation: pressOut 0.5s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
+
+@keyframes pressOut {
+  0% { opacity: 0.97; clip-path: inset(0 0 0 0); transform: none; }
+  18% { transform: translate3d(-4px, 0, 0); }
+  32% { transform: translate3d(5px, 0, 0); clip-path: inset(28% 0 22% 0); }
+  60% { opacity: 0.9; clip-path: inset(49.5% 0 49.5% 0); transform: scaleX(1.03); }
+  100% { opacity: 0; clip-path: inset(49.5% 50% 49.5% 50%); transform: none; }
 }
 
 .press-kicker {
@@ -30516,6 +30649,25 @@ html.intro-active body > *:not(#intro-screen):not(script):not(style) {
   font: 700 10.5px/1.25 "Helvetica Neue", Arial, sans-serif;
   letter-spacing: 0.13em;
   text-transform: uppercase;
+}
+
+.press-kicker::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin: 0 7px 1px 0;
+  border-radius: 50%;
+  background: #b0241b;
+  vertical-align: middle;
+}
+
+.press-card.press-visible .press-kicker::before {
+  animation: pressRec 0.9s steps(2, jump-none) 3;
+}
+
+@keyframes pressRec {
+  50% { opacity: 0.15; }
 }
 
 .press-title {
@@ -30527,6 +30679,55 @@ html.intro-active body > *:not(#intro-screen):not(script):not(style) {
   font-weight: 700;
   line-height: 1.22;
   letter-spacing: -0.005em;
+  position: relative;
+}
+
+.press-title::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 0.14em, #141518 0.14em, #141518 1.1em, transparent 1.1em) 0 0 / 100% 1.22em repeat-y;
+  transform-origin: right center;
+  pointer-events: none;
+}
+
+.press-card.press-visible .press-title::after {
+  animation: pressDeclassify 0.6s cubic-bezier(0.7, 0, 0.3, 1) 0.65s forwards;
+}
+
+@keyframes pressDeclassify {
+  to { transform: scaleX(0); }
+}
+
+/* Leaving, the headline is redacted again, then the clipping collapses */
+.press-card.press-out .press-title::after {
+  transform-origin: left center;
+  animation: pressReclassify 0.16s ease-in forwards;
+}
+
+@keyframes pressReclassify {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* Standfirst and byline follow the headline */
+.press-dek,
+.press-source {
+  opacity: 0;
+  transform: translate3d(0, 6px, 0);
+  transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.press-card.press-visible .press-dek {
+  opacity: 1;
+  transform: none;
+  transition-delay: 1.05s;
+}
+
+.press-card.press-visible .press-source {
+  opacity: 1;
+  transform: none;
+  transition-delay: 1.3s;
 }
 
 .press-dek {
