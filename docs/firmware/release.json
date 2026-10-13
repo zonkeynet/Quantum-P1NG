@@ -1,0 +1,89 @@
+{
+  "version": "15.8",
+  "testHooks": false,
+  "board": "LILYGO T-Deck / T-Deck Plus, ESP32-S3, 16 MB flash, 8 MB OPI PSRAM",
+  "radio": {
+    "frequencyMHz": 433,
+    "bandwidthKHz": 250,
+    "spreadingFactor": 9,
+    "codingRate": "4/5",
+    "syncWord": "0x14"
+  },
+  "freshInstallErasesAllData": true,
+  "persistentCoreDumpPartition": false,
+  "partitions": [
+    {
+      "type": 1,
+      "subtype": 2,
+      "offset": 36864,
+      "size": 20480,
+      "label": "nvs"
+    },
+    {
+      "type": 1,
+      "subtype": 0,
+      "offset": 57344,
+      "size": 8192,
+      "label": "otadata"
+    },
+    {
+      "type": 0,
+      "subtype": 16,
+      "offset": 65536,
+      "size": 3145728,
+      "label": "app0"
+    },
+    {
+      "type": 0,
+      "subtype": 17,
+      "offset": 3211264,
+      "size": 3145728,
+      "label": "app1"
+    },
+    {
+      "type": 1,
+      "subtype": 129,
+      "offset": 6356992,
+      "size": 10354688,
+      "label": "ffat"
+    }
+  ],
+  "files": {
+    "boot_app0.bin": {
+      "bytes": 8192,
+      "sha256": "f94c5d786a7a8fab06ac5d10e33bf37711a6697636dc037559ea19cc410a17f0"
+    },
+    "bootloader.bin": {
+      "bytes": 15104,
+      "sha256": "1051ac3e564bb9368a635af94a219d01c6263dc7a89a5e132bd01fef925026a2"
+    },
+    "firmware.bin": {
+      "bytes": 1048464,
+      "sha256": "f96476d95dc5806db3da38ef76133d57729a04eeab124a2b0cfe7d825f043988"
+    },
+    "partitions.bin": {
+      "bytes": 3072,
+      "sha256": "4dee98bfccab048344ca8cecc0a11c9209007925a5d5fe4f439fba3459801006"
+    },
+    "tdeck-15.8-433-full.bin": {
+      "bytes": 1114000,
+      "sha256": "8903efabdf0d4194b0e2f16ccaba8c9c0dd3ce930c0737d1bd2a96a4c3df1285"
+    }
+  },
+  "source": {
+    "LoRaProtocol.h": "b885e4f624c0cfb85b07a8b81f39c1d93bde960572d05ae6d2aeec5cfd7f14a1",
+    "partitions.csv": "0e15e6fe0daae1e32d873331df1c35fc41f54e9156e91f0a20c1799b07b85b9a",
+    "qp1ng_tdeck.ino": "27d5730e5a3eb154bb0ae1c6caadbf0e5e8a09990ec90f96b83bd5ae107cbf0e",
+    "README.md": "d0e2b3c10d9a95fc0e4904ac693968cbe9de90e23cb25a0e9ec83796fb4fb962",
+    "TDeckDisplay.h": "a214f8ed599398128f9055e7b53115efb4a48424b23f1441d6e83ae683b3f343",
+    "TDeckExperience.h": "1c7830d91e151be4df7e2a019d09ce714b5e4b008825fa4e7bc8c7a56e12c57c",
+    "TDeckModel.h": "6bc3c0a754928e3e47b0af15616d9e33ba80b4f34058a12ada9f13cd33092149",
+    "TDeckRoom.h": "980cae0189176c45d377744c7dde22f210fcd9eeeef5d64d81b19969a7d50f2a"
+  },
+  "toolchain": {
+    "esp32Arduino": "2.0.14",
+    "RadioLib": "7.1.2",
+    "TFT_eSPI": "2.5.43",
+    "esptool": "4.5.1"
+  }
+}

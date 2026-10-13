@@ -1059,151 +1059,142 @@ if (terminal && gamesGrid) {
 (() => {
     const flasher = document.getElementById('esp-flasher');
     const flashConsole = document.getElementById('flash-console');
-    const eraseToggle = document.getElementById('erase-toggle');
     const serialBtn = document.getElementById('open-serial-btn');
-
     if (!flasher || !flashConsole) return;
 
-    // Funzione di utility per stampare nel terminale nero
+    let session = null;
+    let busy = false;
+
     function logTerminal(msg, type = 'cmd') {
         const line = document.createElement('div');
         line.className = `term-line ${type}`;
         line.innerText = msg;
         flashConsole.appendChild(line);
-        flashConsole.scrollTop = flashConsole.scrollHeight;
         while (flashConsole.childNodes.length > 150) flashConsole.removeChild(flashConsole.firstChild);
+        flashConsole.scrollTop = flashConsole.scrollHeight;
     }
 
-    // --- GESTIONE FLASH & ERASE ---
-    if (eraseToggle) {
-        eraseToggle.addEventListener('change', (e) => {
-            // Nota: esp-web-tools permette di passare 'eraseFirst' programmaticamente
-            flasher.eraseFirst = e.target.checked;
-            if (e.target.checked) {
-                logTerminal('> ERASE POLICY: STRICT (Device will be wiped completely)', 'warn');
-            } else {
-                logTerminal('> ERASE POLICY: UPDATE ONLY (Existing NVS data preserved)', 'info');
+    function updateButton() {
+        if (!serialBtn) return;
+        serialBtn.disabled = busy;
+        serialBtn.innerText = session ? '> DISCONNECT SERIAL' : '> OPEN_LIVE_SERIAL_LINK';
+        serialBtn.style.color = session ? 'var(--warn)' : 'var(--cyber-blue)';
+        serialBtn.style.borderColor = serialBtn.style.color;
+    }
+
+    // Only this function closes a port. All stream locks are released first,
+    // including on unplug, failed handshake and an installer transition.
+    function closeSerial(current = session) {
+        if (!current) return Promise.resolve();
+        if (current.closeTask) return current.closeTask;
+        current.closing = true;
+        current.closeTask = (async () => {
+            if (current.reader) {
+                try { await current.reader.cancel(); } catch (_) { /* already disconnected */ }
             }
-        });
+            if (current.readTask) await current.readTask;
+            if (current.opened) {
+                try { await current.port.close(); }
+                catch (err) { logTerminal(`> [SERIAL CLOSE]: ${err.message}`, 'error'); }
+            }
+            if (session === current) session = null;
+            updateButton();
+        })();
+        return current.closeTask;
     }
 
-    flasher.addEventListener('state-changed', (e) => {
-        const state = e.detail.state;
-        flashConsole.classList.remove('hidden');
-
-        switch (state) {
-            case 'CONNECTING': logTerminal('> Opening Web Serial descriptor...', 'cmd'); break;
-            case 'CONNECTED': logTerminal('> SERIAL LINK ESTABLISHED.', 'success'); break;
-            case 'INITIALIZING': logTerminal('> Injecting flasher stub...', 'info'); break;
-            case 'ERASING': logTerminal('> [WARNING] WIPING FLASH MEMORY...', 'critical'); break;
-            case 'WRITING': logTerminal('> STREAMING UNIVERSAL BINARY PAYLOAD...', 'info'); break;
-            case 'FINISHED': 
-                logTerminal('> PAYLOAD COMMITTED TO SILICON.', 'success'); 
-                logTerminal('> HARDWARE REBOOTING...', 'warn');
-                logTerminal('> Click [OPEN LIVE SERIAL LINK] to monitor tactical telemetry.', 'info');
-                break;
-            case 'ERROR':
-                logTerminal(`> [FATAL] OPERATION ABORTED: ${e.detail.message || "Hardware disconnect"}`, 'critical');
-                break;
+    async function readLoop(current) {
+        const decoder = new TextDecoder();
+        let lineBuffer = '';
+        const input = current.reader;
+        try {
+            while (!current.closing) {
+                const { value, done } = await input.read();
+                if (done) break;
+                if (!value) continue;
+                lineBuffer += decoder.decode(value, { stream: true });
+                const lines = lineBuffer.split('\n');
+                lineBuffer = lines.pop().slice(-4096);
+                for (const raw of lines) {
+                    const line = raw.replace(/\r/g, '').trim().slice(0, 1024);
+                    if (line) logTerminal(`[T-DECK] ${line}`, line.startsWith('>') ? 'hw' : 'info');
+                }
+            }
+        } catch (err) {
+            if (!current.closing) logTerminal(`> [SERIAL DISCONNECTED]: ${err.message}`, 'error');
+        } finally {
+            input.releaseLock();
+            current.reader = null;
         }
-    });
-
-    // --- MONITOR SERIALE DAL VIVO (RAW USB-C) ---
-    let port;
-    let reader;
-    let inputDone;
+    }
 
     async function openLiveSerial() {
+        if (busy) return;
+        flashConsole.classList.remove('hidden');
         if (!('serial' in navigator)) {
             logTerminal('> [ERR] Web Serial API not supported by this browser.', 'critical');
             return;
         }
-
+        busy = true;
+        updateButton();
+        let current = null;
         try {
-            flashConsole.classList.remove('hidden');
-            
-            if (port) {
+            if (session) {
                 await closeSerial();
+                logTerminal('> SERIAL LINK SEVERED.', 'warn');
                 return;
             }
-
-            port = await navigator.serial.requestPort();
-            // Il T-Deck usa i 115200 baud standard
+            const port = await navigator.serial.requestPort();
+            current = { port, opened: false, closing: false, reader: null, readTask: null, closeTask: null };
+            session = current;
             await port.open({ baudRate: 115200 });
-
-            logTerminal('> ---------------------------------------', 'cmd');
-            logTerminal('> LIVE SERIAL LINK ACTIVE @ 115200 BAUD', 'success');
-            logTerminal('> ---------------------------------------', 'cmd');
-
-            const decoder = new TextDecoderStream();
-            inputDone = port.readable.pipeTo(decoder.writable);
-            reader = decoder.readable.getReader();
-
-            serialBtn.innerText = "> DISCONNECT SERIAL";
-            serialBtn.style.color = "var(--warn)";
-            serialBtn.style.borderColor = "var(--warn)";
-
-            readLoop();
-
-        } catch (err) {
-            logTerminal(`> [SERIAL ERR]: ${err.message}`, 'error');
-        }
-    }
-
-    async function readLoop() {
-        let lineBuffer = '';
-        while (true) {
+            current.opened = true;
+            await port.setSignals({ dataTerminalReady: true, requestToSend: false });
+            const writer = port.writable.getWriter();
             try {
-                const { value, done } = await reader.read();
-                if (value) {
-                    lineBuffer += value;
-                    const lines = lineBuffer.split('\n');
-                    lineBuffer = lines.pop(); // Mantieni la riga incompleta nel buffer
-                    
-                    for (let line of lines) {
-                        line = line.replace('\r', '').trim();
-                        if (line.length > 0) {
-                            // Colora in arancione i log che provengono dal tuo codice C++ (che iniziano con "> ")
-                            if (line.startsWith('>')) {
-                                logTerminal(`[T-DECK] ${line}`, 'hw');
-                            } else {
-                                logTerminal(`[T-DECK] ${line}`, 'info');
-                            }
-                        }
-                    }
-                }
-                if (done) {
-                    reader.releaseLock();
-                    break;
-                }
-            } catch (err) {
-                logTerminal(`> [SERIAL DISCONNECTED]: ${err.message}`, 'error');
-                break;
+                await writer.write(new TextEncoder().encode('QP1NG_USB_HELLO\nQP1NG_USB_PING\nQP1NG_USB_DIAG\n'));
+            } finally { writer.releaseLock(); }
+            current.reader = port.readable.getReader();
+            current.readTask = readLoop(current);
+            // Keep the cleanup continuation separate: closeSerial awaits the
+            // reader task, never a promise that would await itself.
+            current.readTask.then(() => closeSerial(current)).catch((err) => {
+                logTerminal(`> [SERIAL ERR]: ${err.message}`, 'error');
+            });
+            logTerminal('> LIVE SERIAL LINK ACTIVE @ 115200 BAUD', 'success');
+        } catch (err) {
+            if (current) await closeSerial(current);
+            if (err.name !== 'NotFoundError') logTerminal(`> [SERIAL ERR]: ${err.message}`, 'error');
+        } finally {
+            busy = false;
+            updateButton();
+        }
+    }
+
+    // ESP Web Tools owns erase confirmation and real progress. install-button
+    // has no eraseFirst property or state-changed event in the bundled version.
+    flasher.addEventListener('click', (event) => {
+        flashConsole.classList.remove('hidden');
+        if (busy || session) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            if (busy) {
+                logTerminal('> Finish the serial connection operation before installing.', 'warn');
+                return;
             }
+            busy = true;
+            updateButton();
+            closeSerial().then(() => logTerminal('> Serial monitor closed. Click flash again to install.', 'info'))
+                .finally(() => { busy = false; updateButton(); })
+                .catch((err) => logTerminal(`> [SERIAL ERR]: ${err.message}`, 'error'));
+            return;
         }
-    }
+        logTerminal('> Fresh install: device data is erased. Follow the installer confirmation and progress.', 'warn');
+    }, true);
 
-    async function closeSerial() {
-        if (reader) {
-            await reader.cancel();
-            await inputDone.catch(() => {});
-            reader = null;
-            inputDone = null;
-        }
-        if (port) {
-            await port.close();
-            port = null;
-        }
-        logTerminal('> SERIAL LINK SEVERED.', 'warn');
-        serialBtn.innerText = "> OPEN_LIVE_SERIAL_LINK";
-        serialBtn.style.color = "var(--cyber-blue)";
-        serialBtn.style.borderColor = "var(--cyber-blue)";
-    }
-
-    if (serialBtn) {
-        serialBtn.addEventListener('click', openLiveSerial);
-    }
+    if (serialBtn) serialBtn.addEventListener('click', openLiveSerial);
 })();
+
 // 9. Q-MAP NEURAL DISPATCHER - CYBERPUNK ENGINE (v2)
 // =========================================================================
 (() => {

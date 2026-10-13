@@ -1,14 +1,16 @@
 {
-  "name": "Quantum P1NG - Apex Predator",
-  "version": "15.1",
-  "new_install_prompt_erase": true,
+  "name": "Q-P1NG Field Deck 433 MHz",
+  "version": "15.8",
+  "new_install_prompt_erase": false,
+  "new_install_improv_wait_time": 0,
   "builds": [
     {
       "chipFamily": "ESP32-S3",
       "parts": [
-        { "path": "bootloader.bin", "offset": 0 },
-        { "path": "partitions.bin", "offset": 32768 },
-        { "path": "firmware.bin", "offset": 65536 }
+        {
+          "path": "tdeck-15.8-433-full.bin",
+          "offset": 0
+        }
       ]
     }
   ]

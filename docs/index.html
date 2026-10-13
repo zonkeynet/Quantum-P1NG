@@ -415,6 +415,13 @@
                 <span class="drop-sub">Encrypted WebRTC voice mesh</span>
               </div>
             </a>
+            <a href="https://zonkeynet.github.io/Q-Radio-Geo/" class="nav-drop-item" role="menuitem" target="_blank" rel="noopener">
+              <span class="drop-idx mono">06</span>
+              <div class="drop-text">
+                <span class="drop-title">Q-Radio Globe &#8599;</span>
+                <span class="drop-sub">Live radio, SDR, news &amp; OSINT on a 3D globe</span>
+              </div>
+            </a>
           </div>
         </div>
 
@@ -471,6 +478,12 @@
           </div>
         </div>
 
+        <!-- Q-Radio Globe: a separate site, opens in a new tab -->
+        <a href="https://zonkeynet.github.io/Q-Radio-Geo/" class="nav-link nav-link--globe" target="_blank" rel="noopener" aria-label="Q-Radio Globe: live radio, SDR, news and OSINT on a 3D globe (opens in a new tab)">
+          <span>Globe</span>
+          <span class="nav-badge nav-badge--live mono">LIVE</span>
+        </a>
+
         <!-- Direct Arcade Link -->
         <a href="#games" class="nav-link nav-link--games" aria-label="Offline Games Hub">
           <span>Games</span>
@@ -518,6 +531,10 @@
         <a href="#q-geo">Q-Geo Tactical</a>
         <a href="#q-feed">Q-Feed</a>
         <a href="#q-cam">Q-CAM Privacy</a>
+      </div>
+      <div class="mobilemenu-section">
+        <span class="mobilemenu-label mono">[ 06 // LIVE GLOBE ]</span>
+        <a href="https://zonkeynet.github.io/Q-Radio-Geo/" target="_blank" rel="noopener" class="mobilemenu-globe">Q-Radio Globe &#8599;</a>
       </div>
       <div class="mobilemenu-section">
         <span class="mobilemenu-label mono">[ 05 // ARCADE ]</span>
@@ -2079,14 +2096,14 @@ _
 <div class="flasher-panel">
       <div class="panel-header mono" style="border-bottom-color: var(--warn); color: var(--warn); background: linear-gradient(90deg, rgba(255, 0, 85, 0.15), transparent);">
         <span class="blink-dot" style="background-color:var(--warn); box-shadow:0 0 8px var(--warn);"></span>
-        [SYS.FLASH] // ANONYMOUS_HARDWARE_INJECTION
+        [SYS.FLASH] // FIELD_DECK_INSTALLER
       </div>
 
       <div class="flasher-content">
         <div class="flasher-text">
-          <h3 style="color: #fff; margin-top:0; font-size:18px;">Apex Predator v15.1 (Universal Build)</h3>
+          <h3 style="color: #fff; margin-top:0; font-size:18px;">Q-P1NG Field Deck v15.8 · T-Deck / Plus · 433 MHz</h3>
           <p class="muted" style="font-size: 13px; line-height: 1.6; max-width: 600px;">
-            To enforce uncompromising Operational Security (OPSEC), Quantum P1NG hardware nodes are engineered to be <strong>strictly anonymous and entirely disposable</strong>. Zero tracking keys, unique identifiers, or cryptographic fingerprints are injected into the silicon. The T-Deck operates exclusively as a stateless air-gap for stochastic routing. If the physical hardware is seized by hostile forces, it yields zero intelligence. It acts as a blind, untraceable relay for AES-256-GCM ciphertexts, neutralizing any attempt at device-level surveillance or supply-chain tracking.
+            Keep Q-P1NG’s phone-encrypted LoRa bridge, or use a separate encrypted room between T-Decks. Navigate with the trackball and compose with the physical keyboard. Room codes and recent messages stay in RAM; Bluetooth pairing records remain in device storage. Share a fresh random room code privately for each session. This build targets the 433 MHz T-Deck/Plus and uses the existing SF9/BW250 radio profile.
           </p>
 
           <div class="crypto-box mono">
@@ -2096,7 +2113,7 @@ _
             </div>
             <div class="crypto-line">
               <span class="crypto-label">PAYLOAD_SHA256:</span>
-              <span style="color:var(--acc2)">8f434346648f6b96df89dda901c5176b10a6d83961dd3c1ac88b59b2dc327aa4</span>
+              <span style="color:var(--acc2)"><a href="firmware/SHA256SUMS.txt">Verified release checksums</a></span>
             </div>
           </div>
 
@@ -2144,7 +2161,7 @@ _
                 <span class="chip-dot"></span> AIR-GAP LORA
               </div>
               <div class="tdeck-chip tdeck-chip--freq mono" aria-hidden="true">
-                868 / 915 MHz
+                433 MHz
               </div>
             </div>
 
@@ -2183,13 +2200,12 @@ _
           <script type="module" src="./esp-web-tools/install-button.js?module"></script>
 
           <div class="flash-controls">
-            <label class="cyber-checkbox mono">
-              <input type="checkbox" id="erase-toggle" checked aria-label="Enforce full erase before flashing">
-              <span class="checkmark"></span>
-              [ENFORCE_FULL_ERASE] <span class="tiny muted" style="margin-left:5px;">(Destroys existing data)</span>
-            </label>
+            <p class="mono tiny" id="firmware-install-policy" style="font-size:12px; line-height:1.6;">
+              FRESH INSTALL · Erases device data and Bluetooth pairings. Back up first.
+              <a href="firmware/guide.html" style="display:block; margin-top:10px; text-decoration:underline; color:var(--cyber-blue);">Setup, controls &amp; recovery guide</a>
+            </p>
 
-            <esp-web-install-button manifest="./firmware/manifest.json" id="esp-flasher">
+            <esp-web-install-button manifest="./firmware/manifest.json?v=15.8" id="esp-flasher">
               <button slot="activate" class="cyber-button warn-btn mono">
                 <span class="glitch-input">INIT_SECURE_FLASH</span>
               </button>
@@ -2712,6 +2728,11 @@ _
               <span class="btn-radar-icon">⚡</span>
               <span class="btn-text">ENTER MAP (WEB STUDIO)</span>
               <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+            <a href="https://zonkeynet.github.io/Q-Radio-Geo/" target="_blank" rel="noopener" class="qgeo-btn-enter-map qgeo-btn-globe mono" id="btnOpenRadioGlobe" title="Live radio, SDR, news and OSINT layers on a 3D globe">
+              <span class="btn-radar-icon">&#127760;</span>
+              <span class="btn-text">RADIO &amp; OSINT GLOBE</span>
+              <span class="btn-arrow" aria-hidden="true">&#8599;</span>
             </a>
           </div>
         </div>
@@ -7775,6 +7796,8 @@ _
             <span style="color:var(--muted); font-size:10px;">[TOOLS]</span>
             <a href="pmtiles.html" style="color:var(--cyan);">PMTILES MAPS</a>
             <span class="sep">::</span>
+            <a href="https://zonkeynet.github.io/Q-Radio-Geo/" target="_blank" rel="noopener" style="color:var(--acc);">RADIO GLOBE</a>
+            <span class="sep">::</span>
             <a href="#peace-node-donate" id="btn-footer-link-donate" style="color:var(--btc, #f7931a); font-weight:700;">DONATE BTC</a>
             <span class="sep">::</span>
             <a href="license.html">LICENSE</a>
@@ -7956,6 +7979,6 @@ _
     </div>
   </div>
 
-  <script src="script.js?v=2.6.16" defer></script>
+  <script src="script.js?v=2.6.16-field-deck-15.8" defer></script>
 </body>
 </html>
