@@ -11069,9 +11069,10 @@ if (terminal && gamesGrid) {
 
 // ==========================================================================
 // HERO LOGO GLITCH
-// Every 4 to 7.5 s a burst of about half a second: the window flickers (class is-glitching, styles.css) and the logo
-// splits into red and cyan slices, copies of the image clipped to random bands that follow its float. Skipped while
-// the page or the stage is hidden or off screen, during the intro, and with reduced motion.
+// Every 1.8 to 3.6 s a burst of about 0.3 s: the window flickers (class is-glitching, styles.css) and the logo splits
+// into red and cyan slices, copies of the image clipped to random bands that follow its float. Light by design: the
+// logo is measured once per burst, frames only move the slices (transform, opacity), and the bands are picked twice
+// per burst. Skipped while the page or the stage is hidden or off screen, during the intro, and with reduced motion.
 // ==========================================================================
 (() => {
   'use strict';
@@ -11085,15 +11086,26 @@ if (terminal && gamesGrid) {
   const noise = document.createElement('div');
   noise.className = 'hero-stage-noise';
   noise.setAttribute('aria-hidden', 'true');
+  const edge = document.createElement('div');
+  edge.className = 'hero-stage-frame';
+  edge.setAttribute('aria-hidden', 'true');
   // The logo image (already loaded) drives every slice: as a picture, or as a mask for the colour channels.
   layer.style.setProperty('--hero-logo-img', 'url("' + (logo.currentSrc || logo.src) + '")');
-  const slices = ['is-red', 'is-copy', 'is-cyan', 'is-red', 'is-copy', 'is-cyan'].map(kind => {
+  const piece = kind => {
     const slice = document.createElement('div');
     slice.className = 'hero-logo-slice ' + kind;
     layer.appendChild(slice);
     return slice;
-  });
-  stage.append(layer, noise);
+  };
+  // Behind the logo, a second layer with the whole logo in red and in cyan: the RGB split.
+  const split = document.createElement('div');
+  split.className = 'hero-logo-glitch hero-logo-split';
+  split.setAttribute('aria-hidden', 'true');
+  split.style.setProperty('--hero-logo-img', layer.style.getPropertyValue('--hero-logo-img'));
+  ['is-red is-full', 'is-cyan is-full'].forEach(kind => split.appendChild(piece(kind)));
+  const slices = ['is-red', 'is-copy', 'is-cyan', 'is-red', 'is-copy', 'is-cyan'].map(piece);
+  stage.append(split, layer, noise, edge);
+  stage.classList.add('has-glitch');
 
   let onScreen = false;
   if ('IntersectionObserver' in window) {
@@ -11103,40 +11115,48 @@ if (terminal && gamesGrid) {
   }
   const rand = (min, max) => min + Math.random() * (max - min);
 
-  // One frame of the burst: the slices jump to new bands and offsets, the layer follows the logo (float included).
-  function frame() {
-    layer.style.left = logo.offsetLeft + 'px';
-    layer.style.top = logo.offsetTop + 'px';
-    layer.style.width = logo.offsetWidth + 'px';
-    layer.style.height = logo.offsetHeight + 'px';
-    layer.style.transform = getComputedStyle(logo).transform;
+  // Once per burst: the layer takes the logo's place (its float included).
+  function place() {
+    const box = { left: logo.offsetLeft + 'px', top: logo.offsetTop + 'px', width: logo.offsetWidth + 'px', height: logo.offsetHeight + 'px', transform: getComputedStyle(logo).transform };
+    Object.assign(layer.style, box);
+    Object.assign(split.style, box);
+  }
+
+  // New bands for the slices (a repaint of the small slices), done twice per burst.
+  function bands() {
     slices.forEach(slice => {
       const top = rand(0, 88);
       const height = rand(3, 15);
       slice.style.clipPath = 'inset(' + top.toFixed(1) + '% 0 ' + Math.max(0, 100 - top - height).toFixed(1) + '% 0)';
-      slice.style.translate = rand(-16, 16).toFixed(1) + 'px ' + rand(-2, 2).toFixed(1) + 'px';
+    });
+  }
+
+  // Every frame: the slices only move and blink (composited, no repaint).
+  function jolt() {
+    slices.forEach(slice => {
+      slice.style.transform = 'translate3d(' + rand(-16, 16).toFixed(1) + 'px, ' + rand(-2, 2).toFixed(1) + 'px, 0)';
       slice.style.opacity = Math.random() < 0.82 ? '1' : '0';
     });
   }
 
   function burst() {
     if (document.hidden || !onScreen || stage.offsetParent === null || document.documentElement.classList.contains('intro-active')) return;
-    frame();
-    stage.classList.remove('is-glitching');
-    void stage.offsetWidth; // restart the CSS animations
-    stage.classList.add('is-glitching');
+    place();
+    bands();
+    jolt();
+    stage.classList.add('is-glitching'); // bursts never overlap (at least 1.8 s apart, 0.3 s long)
     let frames = 0;
-    const timer = setInterval(() => {
-      if (++frames >= 8) {
-        clearInterval(timer);
-        stage.classList.remove('is-glitching');
-      } else {
-        frame();
-      }
-    }, 70);
+    const step = () => {
+      frames++;
+      if (frames >= 5) { stage.classList.remove('is-glitching'); return; }
+      if (frames === 3) bands();
+      jolt();
+      setTimeout(step, 64);
+    };
+    setTimeout(step, 64);
   }
 
   (function schedule() {
-    setTimeout(() => { burst(); schedule(); }, rand(4000, 7500));
+    setTimeout(() => { burst(); schedule(); }, rand(1800, 3600));
   })();
 })();
