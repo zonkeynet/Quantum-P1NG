@@ -11067,5 +11067,76 @@ if (terminal && gamesGrid) {
   }
 })();
 
+// ==========================================================================
+// HERO LOGO GLITCH
+// Every 4 to 7.5 s a burst of about half a second: the window flickers (class is-glitching, styles.css) and the logo
+// splits into red and cyan slices, copies of the image clipped to random bands that follow its float. Skipped while
+// the page or the stage is hidden or off screen, during the intro, and with reduced motion.
+// ==========================================================================
+(() => {
+  'use strict';
+  const stage = document.querySelector('.hero-logo-stage');
+  const logo = stage && stage.querySelector('.hero-logo');
+  if (!stage || !logo || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
 
+  const layer = document.createElement('div');
+  layer.className = 'hero-logo-glitch';
+  layer.setAttribute('aria-hidden', 'true');
+  const noise = document.createElement('div');
+  noise.className = 'hero-stage-noise';
+  noise.setAttribute('aria-hidden', 'true');
+  // The logo image (already loaded) drives every slice: as a picture, or as a mask for the colour channels.
+  layer.style.setProperty('--hero-logo-img', 'url("' + (logo.currentSrc || logo.src) + '")');
+  const slices = ['is-red', 'is-copy', 'is-cyan', 'is-red', 'is-copy', 'is-cyan'].map(kind => {
+    const slice = document.createElement('div');
+    slice.className = 'hero-logo-slice ' + kind;
+    layer.appendChild(slice);
+    return slice;
+  });
+  stage.append(layer, noise);
 
+  let onScreen = false;
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(entries => { onScreen = entries[0].isIntersecting; }).observe(stage);
+  } else {
+    onScreen = true;
+  }
+  const rand = (min, max) => min + Math.random() * (max - min);
+
+  // One frame of the burst: the slices jump to new bands and offsets, the layer follows the logo (float included).
+  function frame() {
+    layer.style.left = logo.offsetLeft + 'px';
+    layer.style.top = logo.offsetTop + 'px';
+    layer.style.width = logo.offsetWidth + 'px';
+    layer.style.height = logo.offsetHeight + 'px';
+    layer.style.transform = getComputedStyle(logo).transform;
+    slices.forEach(slice => {
+      const top = rand(0, 88);
+      const height = rand(3, 15);
+      slice.style.clipPath = 'inset(' + top.toFixed(1) + '% 0 ' + Math.max(0, 100 - top - height).toFixed(1) + '% 0)';
+      slice.style.translate = rand(-16, 16).toFixed(1) + 'px ' + rand(-2, 2).toFixed(1) + 'px';
+      slice.style.opacity = Math.random() < 0.82 ? '1' : '0';
+    });
+  }
+
+  function burst() {
+    if (document.hidden || !onScreen || stage.offsetParent === null || document.documentElement.classList.contains('intro-active')) return;
+    frame();
+    stage.classList.remove('is-glitching');
+    void stage.offsetWidth; // restart the CSS animations
+    stage.classList.add('is-glitching');
+    let frames = 0;
+    const timer = setInterval(() => {
+      if (++frames >= 8) {
+        clearInterval(timer);
+        stage.classList.remove('is-glitching');
+      } else {
+        frame();
+      }
+    }, 70);
+  }
+
+  (function schedule() {
+    setTimeout(() => { burst(); schedule(); }, rand(4000, 7500));
+  })();
+})();
