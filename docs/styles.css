@@ -339,6 +339,75 @@ a:hover { color: var(--acc); }
     }
 }
 
+/* The same pulse, lighter (script.js puts the label in data-glow). An animated text-shadow makes the browser lay out
+   the whole page every frame. Instead, the text glow is drawn twice behind the label, at its two extremes, and
+   cross-faded (opacity only), while the button animates only its box-shadow (paint, no layout). Same timing, same
+   start and end; without data-glow the original animation stays. */
+.nav__cta[data-glow] {
+    position: relative;
+    z-index: 0;
+    text-shadow: none;
+    animation-name: neonBoxPulse;
+}
+
+.nav__cta[data-glow]:hover {
+    animation-name: neonBoxPulseHover;
+}
+
+.nav__cta[data-glow]::before,
+.nav__cta[data-glow]::after {
+    content: attr(data-glow);
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    padding: inherit;
+    color: transparent;
+    pointer-events: none;
+    animation: neonGlowFadeOut 1.5s infinite alternate;
+}
+
+.nav__cta[data-glow]::before {
+    text-shadow: 0 0 5px var(--acc), 0 0 10px var(--acc-dim);
+}
+
+.nav__cta[data-glow]::after {
+    text-shadow: 0 0 10px var(--acc), 0 0 20px var(--acc-dim);
+    animation-name: neonGlowFadeIn;
+}
+
+.nav__cta[data-glow]:hover::before,
+.nav__cta[data-glow]:hover::after {
+    animation-duration: 1s;
+}
+
+.nav__cta[data-glow]:hover::before {
+    text-shadow: 0 0 8px var(--acc), 0 0 16px var(--acc-dim);
+}
+
+.nav__cta[data-glow]:hover::after {
+    text-shadow: 0 0 15px var(--acc), 0 0 30px var(--acc-dim);
+}
+
+@keyframes neonBoxPulse {
+    0% { box-shadow: 0 0 10px var(--acc), 0 0 20px var(--acc-dim); }
+    100% { box-shadow: 0 0 20px var(--acc), 0 0 40px var(--acc-dim); }
+}
+
+@keyframes neonBoxPulseHover {
+    0% { box-shadow: 0 0 15px var(--acc), 0 0 30px var(--acc-dim); }
+    100% { box-shadow: 0 0 25px var(--acc), 0 0 50px var(--acc-dim); }
+}
+
+@keyframes neonGlowFadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes neonGlowFadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
 
 .mobilemenu {
   display: none;
@@ -388,7 +457,7 @@ a:hover { color: var(--acc); }
 .glitch::before {
   left: 2px;
   text-shadow: -1px 0 #ff00c1;
-  clip: rect(44px, 9999px, 56px, 0);
+  clip-path: inset(44px -9999px calc(100% - 56px) 0); /* = clip: rect(44px, 9999px, 56px, 0), without a layout per frame */
   animation: glitch-anim 5s infinite linear alternate-reverse;
 }
 
@@ -396,19 +465,21 @@ a:hover { color: var(--acc); }
 .glitch::after {
   left: -2px;
   text-shadow: -1px 0 #00fff9;
-  clip: rect(44px, 9999px, 56px, 0);
+  clip-path: inset(44px -9999px calc(100% - 56px) 0);
   animation: glitch-anim2 5s infinite linear alternate-reverse;
 }
 
 /* === ANIMATIONS === */
+/* clip-path inset(top -9999px calc(100% - bottom) 0) is the band that clip: rect(top, 9999px, bottom, 0) showed, at
+   every moment of the animation, but it does not make the browser lay out the page every frame. */
 @keyframes glitch-anim {
-  0%   { clip: rect(38px, 9999px, 81px, 0); }
-  100% { clip: rect(30px, 9999px, 7px, 0); }
+  0%   { clip-path: inset(38px -9999px calc(100% - 81px) 0); }
+  100% { clip-path: inset(30px -9999px calc(100% - 7px) 0); }
 }
 
 @keyframes glitch-anim2 {
-  0%   { clip: rect(10px, 9999px, 2px, 0); }
-  100% { clip: rect(6px, 9999px, 96px, 0); }
+  0%   { clip-path: inset(10px -9999px calc(100% - 2px) 0); }
+  100% { clip-path: inset(6px -9999px calc(100% - 96px) 0); }
 }
 
 
@@ -471,16 +542,18 @@ a:hover { color: var(--acc); }
 .btn--download::after {
   content: '';
   position: absolute;
-  top: 0; left: -100%;
+  top: 0; left: 0;
   width: 100%; height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-  transform: skewX(-20deg);
+  transform: translateX(-100%) skewX(-20deg);
   animation: shine 3s infinite;
 }
+/* translateX(%) is of the shine's own width, which is the button's: the same path as left -100% → 200%, without a
+   layout every frame */
 @keyframes shine {
-  0% { left: -100%; }
-  20% { left: 200%; }
-  100% { left: 200%; }
+  0% { transform: translateX(-100%) skewX(-20deg); }
+  20% { transform: translateX(200%) skewX(-20deg); }
+  100% { transform: translateX(200%) skewX(-20deg); }
 }
 
 /* --- TERMINAL & CARDS --- */
@@ -7532,6 +7605,22 @@ body.qmap-modal-open {
   to   { left: 100%; opacity: 0; }
 }
 
+/* The same two movements with transform, so the browser does not lay out the page at every frame: script.js puts the
+   parent's height (scan line) or width (packet) in --travel and marks the element with data-travel. */
+.qcall-scanline[data-travel] { top: 0; animation-name: qcallScanlineGpu; }
+.pipe-packet[data-travel] { left: 0; animation-name: qcallPacketGpu; }
+
+@keyframes qcallScanlineGpu {
+  from { transform: translate3d(0, -2px, 0); } to { transform: translate3d(0, var(--travel), 0); }
+}
+
+@keyframes qcallPacketGpu {
+  from { transform: translate3d(-6px, -50%, 0); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  to   { transform: translate3d(var(--travel), -50%, 0); opacity: 0; }
+}
+
 @keyframes qcallFadeUp {
   from { opacity: 0; transform: translateY(22px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -13638,6 +13727,23 @@ body.qmap-modal-open {
   45% { translate: 2px 0; }
   70% { translate: -1px 0; }
   100% { translate: 0 0; }
+}
+
+/* The logo window's scan line moves with a transform: the same path as top 18% → 78% of the window's inner height
+   (kept in --scan-h by script.js; 328px, inside the 1px borders, wherever the window shows), without a layout every
+   frame. */
+.hero-logo-stage {
+  --scan-h: 328px;
+}
+
+.hero-logo-stage::after {
+  top: 0;
+  animation-name: heroModuleScanGpu;
+}
+
+@keyframes heroModuleScanGpu {
+  0%, 100% { transform: translate3d(0, calc(var(--scan-h) * 0.18), 0); opacity: 0.18; }
+  50% { transform: translate3d(0, calc(var(--scan-h) * 0.78), 0); opacity: 0.82; }
 }
 
 @keyframes heroModuleScan {
@@ -21859,10 +21965,14 @@ main section *,
   overflow: hidden;
 }
 
+/* The fill shrinks with scaleX from the left edge (script.js), which looks the same as a narrower bar, gradient
+   included, but does not make the browser lay out the page at every frame of the transition. */
 .af-clip-bar {
+  width: 100%;
   height: 100%;
   background: linear-gradient(to right, var(--neon-green), var(--neon-amber));
-  transition: width 1s linear;
+  transform-origin: left center;
+  transition: transform 1s linear;
 }
 
 .af-clip-footer {

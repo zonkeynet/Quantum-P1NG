@@ -4855,12 +4855,18 @@ if (terminal && gamesGrid) {
     let visible = false;
     let dpr = window.__qpDpr();
     let nodes = [];
+    // The canvas size, kept up to date by a ResizeObserver: reading it in every frame forced a layout per frame.
+    let cssWidth = 0;
+    let cssHeight = 0;
+    const readSize = () => { cssWidth = canvas.clientWidth; cssHeight = canvas.clientHeight; };
+    if (canvas && 'ResizeObserver' in window) new ResizeObserver(readSize).observe(canvas);
 
     function resizeCanvas() {
       if (!canvas) return;
       ctx = canvas.getContext('2d');
       if (!ctx) return;
       dpr = window.__qpDpr();
+      readSize();
       const rect = canvas.getBoundingClientRect();
       if (!rect.width || !rect.height) return;
       canvas.width = Math.floor(rect.width * dpr);
@@ -4885,22 +4891,16 @@ if (terminal && gamesGrid) {
       }));
     }
 
-    function colorFor(index, alpha = 1) {
-      const palette = [
-        `rgba(0, 242, 255, ${alpha})`,
-        `rgba(53, 255, 138, ${alpha})`,
-        `rgba(155, 92, 255, ${alpha})`,
-        `rgba(255, 77, 109, ${alpha})`,
-        `rgba(255, 209, 102, ${alpha})`
-      ];
-      return palette[index % palette.length];
-    }
+    // Solid colours, with the transparency given by globalAlpha: the same pixels as rgba() strings, without building
+    // new strings for every line and dot of every frame.
+    const palette = ['0, 242, 255', '53, 255, 138', '155, 92, 255', '255, 77, 109', '255, 209, 102'];
+    const solid = palette.map(rgb => 'rgb(' + rgb + ')');
+    const glow = palette.map(rgb => 'rgba(' + rgb + ', 0.76)');
 
     function draw() {
       if (!visible || reduceMotion.matches || !ctx || !canvas) return;
-      const rect = canvas.getBoundingClientRect();
-      const w = rect.width;
-      const h = rect.height;
+      const w = cssWidth;
+      const h = cssHeight;
       const now = performance.now() * 0.001;
       ctx.clearRect(0, 0, w, h);
 
@@ -4913,17 +4913,18 @@ if (terminal && gamesGrid) {
         if (n.y > h + 20) n.y = -20;
       }
 
+      ctx.lineWidth = 0.65;
       for (let i = 0; i < nodes.length; i += 1) {
         for (let j = i + 1; j < nodes.length; j += 1) {
           const a = nodes[i];
           const b = nodes[j];
           const dx = a.x - b.x;
           const dy = a.y - b.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 120) {
-            const alpha = (1 - dist / 120) * 0.18;
-            ctx.strokeStyle = colorFor(a.hue + b.hue, alpha);
-            ctx.lineWidth = 0.65;
+          const dist2 = dx * dx + dy * dy;
+          if (dist2 < 14400) {
+            const dist = Math.sqrt(dist2);
+            ctx.globalAlpha = (1 - dist / 120) * 0.18;
+            ctx.strokeStyle = solid[(a.hue + b.hue) % 5];
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
@@ -4934,14 +4935,16 @@ if (terminal && gamesGrid) {
 
       for (const n of nodes) {
         const pulse = 0.55 + 0.45 * Math.sin(now * 1.6 + n.phase);
-        ctx.fillStyle = colorFor(n.hue, 0.38 + pulse * 0.42);
+        ctx.globalAlpha = 0.38 + pulse * 0.42;
+        ctx.fillStyle = solid[n.hue % 5];
         ctx.shadowBlur = 10;
-        ctx.shadowColor = colorFor(n.hue, 0.76);
+        ctx.shadowColor = glow[n.hue % 5];
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.r + pulse * 0.7, 0, Math.PI * 2);
         ctx.fill();
         ctx.shadowBlur = 0;
       }
+      ctx.globalAlpha = 1;
 
       raf = requestAnimationFrame(draw);
     }
@@ -5003,10 +5006,13 @@ if (terminal && gamesGrid) {
     '255,0,85',
     '255,204,102'
   ];
-
-  function color(index, alpha) {
-    return `rgba(${palette[index % palette.length]}, ${alpha})`;
-  }
+  // Opaque colours, parsed once; each shape's transparency goes through globalAlpha (same result as rgba()).
+  const solid = palette.map(rgb => 'rgb(' + rgb + ')');
+  // The canvas size in CSS pixels, read on resize instead of every frame (a read there forces a layout).
+  let cssWidth = 0;
+  let cssHeight = 0;
+  const readSize = () => { cssWidth = canvas.clientWidth; cssHeight = canvas.clientHeight; };
+  if ('ResizeObserver' in window) new ResizeObserver(readSize).observe(canvas);
 
   function buildNodes(width, height) {
     const count = document.documentElement.classList.contains('perf-lite') ? 18 : (width < 760 ? 22 : 34);
@@ -5033,14 +5039,15 @@ if (terminal && gamesGrid) {
     canvas.width = Math.round(rect.width * dpr);
     canvas.height = Math.round(rect.height * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    readSize();
     buildNodes(rect.width, rect.height);
   }
 
   function draw(timestamp) {
     if (!running) return;
 
-    const width = canvas.clientWidth;
-    const height = canvas.clientHeight;
+    const width = cssWidth;
+    const height = cssHeight;
     const time = timestamp * 0.001;
 
     ctx.clearRect(0, 0, width, height);
@@ -5048,7 +5055,8 @@ if (terminal && gamesGrid) {
 
     for (let i = 0; i < 5; i++) {
       const y = ((time * (28 + i * 9)) + i * height * 0.22) % height;
-      ctx.strokeStyle = color(i, 0.10);
+      ctx.strokeStyle = solid[i % solid.length];
+      ctx.globalAlpha = 0.10;
       ctx.lineWidth = i === 0 ? 1.2 : 0.7;
       ctx.beginPath();
       ctx.moveTo(0, y);
@@ -5064,17 +5072,19 @@ if (terminal && gamesGrid) {
     }
 
     const maxDistance = width < 760 ? 104 : 138;
+    const maxDistance2 = maxDistance * maxDistance;
+    ctx.lineWidth = 0.7;
     for (let i = 0; i < nodes.length; i++) {
       for (let j = i + 1; j < nodes.length; j++) {
         const a = nodes[i];
         const b = nodes[j];
         const dx = a.x - b.x;
         const dy = a.y - b.y;
-        const distance = Math.hypot(dx, dy);
-        if (distance < maxDistance) {
-          const alpha = (1 - distance / maxDistance) * 0.16;
-          ctx.strokeStyle = color(a.tone + b.tone, alpha);
-          ctx.lineWidth = 0.7;
+        const distance2 = dx * dx + dy * dy;
+        if (distance2 < maxDistance2) {
+          const distance = Math.sqrt(distance2);
+          ctx.strokeStyle = solid[(a.tone + b.tone) % solid.length];
+          ctx.globalAlpha = (1 - distance / maxDistance) * 0.16;
           ctx.beginPath();
           ctx.moveTo(a.x, a.y);
           ctx.lineTo(b.x, b.y);
@@ -5087,16 +5097,18 @@ if (terminal && gamesGrid) {
       const pulse = 0.45 + 0.55 * Math.sin(time * 1.8 + node.phase);
       const r = node.radius + pulse * 0.8;
       // High-performance dual halo (eliminates expensive shadowBlur)
-      ctx.fillStyle = color(node.tone, 0.12 + pulse * 0.16);
+      ctx.fillStyle = solid[node.tone % solid.length];
+      ctx.globalAlpha = 0.12 + pulse * 0.16;
       ctx.beginPath();
       ctx.arc(node.x, node.y, r * 2.2, 0, Math.PI * 2);
       ctx.fill();
-      ctx.fillStyle = color(node.tone, 0.55 + pulse * 0.35);
+      ctx.globalAlpha = 0.55 + pulse * 0.35;
       ctx.beginPath();
       ctx.arc(node.x, node.y, r, 0, Math.PI * 2);
       ctx.fill();
     }
 
+    ctx.globalAlpha = 1;
     ctx.globalCompositeOperation = 'source-over';
     raf = requestAnimationFrame(draw);
   }
@@ -7012,7 +7024,7 @@ if (terminal && gamesGrid) {
       clipBadge.textContent = 'BUFFER: ZEROIZED';
       clipBadge.style.color = 'var(--neon-red)';
     }
-    if (clipBar) clipBar.style.width = '0%';
+    if (clipBar) clipBar.style.transform = 'scaleX(0)';
     if (clipTimer) clipTimer.textContent = '0s';
 
     setTimeout(() => {
@@ -7036,7 +7048,7 @@ if (terminal && gamesGrid) {
     if (clipSeconds > 0) {
       clipSeconds--;
       if (clipTimer) clipTimer.textContent = clipSeconds + 's';
-      if (clipBar) clipBar.style.width = ((clipSeconds / 30) * 100) + '%';
+      if (clipBar) clipBar.style.transform = 'scaleX(' + (clipSeconds / 30) + ')';
     } else {
       flushClipboard();
     }
@@ -11159,4 +11171,91 @@ if (terminal && gamesGrid) {
   (function schedule() {
     setTimeout(() => { burst(); schedule(); }, rand(1800, 3600));
   })();
+})();
+
+// ==========================================================================
+// OFF-SCREEN ANIMATION PAUSE
+// About 130 endless CSS animations run on this page. Those in sections of <main> far from the viewport are paused,
+// and resume where they stood when the section comes within 300 px, so nothing looks different while the browser
+// stops recomputing them every frame. One-off animations are left alone.
+// ==========================================================================
+(() => {
+  'use strict';
+  const main = document.querySelector('main');
+  if (!main || !('IntersectionObserver' in window) || typeof document.getAnimations !== 'function') return;
+  const away = new Set(); // sections out of view
+  const pausedHere = new Map(); // section -> the animations this script paused in it
+  const endless = a => a.playState === 'running' && a.effect && a.effect.target && a.effect.getTiming().iterations === Infinity;
+
+  // Pauses the endless animations running in sections out of view, including ones that started after the section
+  // left (scripts that switch on their section later).
+  function rest() {
+    if (!away.size) return;
+    document.getAnimations().forEach(a => {
+      if (!endless(a)) return;
+      const section = a.effect.target.closest ? a.effect.target.closest('main > *') : null;
+      if (!section || !away.has(section)) return;
+      a.pause();
+      if (!pausedHere.has(section)) pausedHere.set(section, []);
+      pausedHere.get(section).push(a);
+    });
+  }
+
+  function wake(section) {
+    away.delete(section);
+    // Only what this script paused, and only if it still exists (a replaced CSS animation is 'idle').
+    (pausedHere.get(section) || []).forEach(a => { if (a.playState === 'paused') a.play(); });
+    pausedHere.delete(section);
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => { if (entry.isIntersecting) wake(entry.target); else away.add(entry.target); });
+    rest();
+  }, { rootMargin: '300px 0px' });
+  Array.from(main.children).forEach(section => observer.observe(section));
+  setInterval(() => { if (!document.hidden) rest(); }, 2000);
+})();
+
+// Percentages of top and left are of the padding box, fractions of a pixel included (clientWidth/clientHeight round
+// them): the size that transform-based movements must travel to match.
+window.__qpPaddingBox = (entry, axis) => {
+  const r = entry.contentRect;
+  const cs = getComputedStyle(entry.target);
+  return axis === 'x'
+    ? r.width + parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight)
+    : r.height + parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom);
+};
+
+// The logo window's scan line travels a share of the window's inner height, which percentages of top used
+// (styles.css: heroModuleScanGpu, --scan-h).
+(() => {
+  const stage = document.querySelector('.hero-logo-stage');
+  if (!stage || !('ResizeObserver' in window)) return;
+  new ResizeObserver(entries => {
+    const height = window.__qpPaddingBox(entries[0], 'y');
+    if (height) stage.style.setProperty('--scan-h', height + 'px');
+  }).observe(stage);
+})();
+
+// The GitHub button's text glow is drawn by two copies of its label (styles.css: .nav__cta[data-glow]).
+document.querySelectorAll('.nav__cta').forEach(link => {
+  if (!link.dataset.glow && !link.children.length) link.dataset.glow = link.textContent.trim();
+});
+
+// Q-Call's scan line and packets move with transform (styles.css: [data-travel]); their distance is the size of the
+// box they cross, kept up to date here.
+(() => {
+  if (!('ResizeObserver' in window)) return;
+  const travel = (selector, axis) => document.querySelectorAll(selector).forEach(el => {
+    const box = el.parentElement;
+    if (!box) return;
+    new ResizeObserver(entries => {
+      const size = window.__qpPaddingBox(entries[0], axis);
+      if (!size) return;
+      el.style.setProperty('--travel', size + 'px');
+      if (!el.hasAttribute('data-travel')) el.setAttribute('data-travel', '');
+    }).observe(box);
+  });
+  travel('.qcall-scanline', 'y');
+  travel('.pipe-packet', 'x');
 })();
