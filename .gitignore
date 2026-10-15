@@ -24,5 +24,5 @@ __pycache__/
 training/
 chat_qbrain.bat
 chat_qbrain.ps1
-scripts/test_model_inference.py
+scripts/
 *.gguf
