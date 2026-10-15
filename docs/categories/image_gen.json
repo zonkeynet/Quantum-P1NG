@@ -1,5 +1,5 @@
 {
-  "version": 35,
+  "version": 36,
   "updatedAt": "2026-10-15",
   "schemaVersion": "2.4",
   "appId": "com.qp1ng.android",
@@ -1725,37 +1725,6 @@
       "recommendedHeight": 1024,
       "recommendedSteps": 25,
       "recommendedCfgScale": 6.0,
-      "supportsTxt2Img": true
-    },
-    {
-      "id": "img-pony-diffusion-v6-gguf",
-      "type": "IMAGE_GEN",
-      "category": "image_gen",
-      "section": "image",
-      "name": "Pony Diffusion V6 (SDXL Q4_K)",
-      "description": "The standard for stylized, anime, and illustration generation on mobile. Highly responsive to detailed prompts.",
-      "engine": "stable-diffusion.cpp",
-      "runtimeBackend": "STABLE_DIFFUSION_CPP",
-      "storageKind": "SINGLE_FILE",
-      "language": "multi",
-      "sizeBytes": 2797752960,
-      "sha256": "f25f621cc552b35a0340b7915093ecbb7d02acc7963f89a86fa3e7c3baaf26e4",
-      "downloadUrl": "https://huggingface.co/offgrid-ai/pony-diffusion-v6-xl-GGUF/resolve/b952fe9fad7fe6f6973c6f74a9d179a6fe4f77eb/pony-diffusion-v6-xl-Q4_K.gguf",
-      "fileName": "pony-diffusion-v6-xl-Q4_K.gguf",
-      "engineLicense": "MIT",
-      "weightsLicense": "OpenRAIL",
-      "commercialOk": false,
-      "catalogFeatured": false,
-      "minRamMb": 8000,
-      "recommendedRamMb": 10000,
-      "accelerationTargets": [
-        "CPU",
-        "VULKAN"
-      ],
-      "recommendedWidth": 1024,
-      "recommendedHeight": 1024,
-      "recommendedSteps": 25,
-      "recommendedCfgScale": 7.0,
       "supportsTxt2Img": true
     }
   ]
