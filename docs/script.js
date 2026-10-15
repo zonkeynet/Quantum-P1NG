@@ -10142,19 +10142,20 @@ if (terminal && gamesGrid) {
     doPlay();
   }
 
-  // Main English Manifesto sequence
+  // Main English Manifesto: one phrase at a time in the centre of the screen. Each one is typed, held long enough
+  // to read and erased backwards before the next; the last stays with the Enter button.
   const manifestoSegments = [
-    { text: "When you can no longer trust governments and institutions.\n\n", type: "normal" },
-    { text: "When tech monopolies monetize your existence and sell your privacy to the highest bidder.\n\n", type: "danger" },
-    { text: "When dissent is monitored, intercepted, and weaponized.\n\n", type: "normal" },
-    { text: "Do not submit to mass surveillance.\n", type: "highlight" },
-    { text: "Cryptography is self-defense. Freedom is a protocol.\n\n", type: "highlight" },
+    { text: "When you can no longer trust governments and institutions.", type: "normal" },
+    { text: "When tech monopolies monetize your existence and sell your privacy to the highest bidder.", type: "danger" },
+    { text: "When dissent is monitored, intercepted, and weaponized.", type: "normal" },
+    { text: "Do not submit to mass surveillance.", type: "highlight" },
+    { text: "Cryptography is self-defense. Freedom is a protocol.", type: "highlight" },
     { text: "QUANTUM P1NG // WELCOME TO THE RESISTANCE.", type: "brand" }
   ];
-
   // Press clippings: real reporting on state spyware, Big Tech and the data trade, shown around the manifesto.
   // Headlines and standfirsts are the outlets' own words (each checked against its source on 2026-10-13); the
-  // source sits bottom-left. Wide screens get two columns beside the text, smaller ones one clipping above it.
+  // source sits bottom-left. They appear in lanes around the manifesto: beside it on wide screens, above and below it
+  // everywhere (see pressLayout).
   const pressArchive = [
     { group: 'spyware', kicker: 'Spyware · Graphite', outlet: 'The Guardian', domain: 'theguardian.com', date: '2025-06-12',
       title: 'European journalists targeted with Paragon Solutions spyware, say researchers',
@@ -10267,13 +10268,14 @@ if (terminal && gamesGrid) {
   // The clippings' look: 'glass' (dark glass, light text) or 'paper' (frosted newsprint, dark ink).
   const PRESS_LOOK = 'glass';
   const PRESS_MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  // columns: a new clipping every 1.7 s, each read for 7 s; single: up to two (above and below the text), every 2.6 s.
-  const PRESS_TIMING = { columns: { every: 1700, life: 7000 }, single: { every: 2600, life: 5200 } };
+  // Wide screens: a new clipping every 1.3 s, each read for 7 s. Phones: every 1.8 s, read for 6 s.
+  const PRESS_TIMING = { lanes: { every: 1300, life: 7000 }, compact: { every: 1800, life: 6000 } };
   let pressQueue = [];
   let pressCards = [];
   let pressTimer = null;
   let pressMode = null;
   let pressSide = 0;
+  let pressFlip = 0;
   let nextPressAt = 0;
 
   const pressShuffle = list => {
@@ -10296,40 +10298,54 @@ if (terminal && gamesGrid) {
     return order;
   }
 
-  // Columns when the gutters beside the manifesto can hold a clipping; otherwise one clipping under the top bar.
-  // The gutters come from the manifesto column at its final width: it starts narrow while the first words appear.
+  // Lanes for the clippings around the manifesto, which keeps a fixed band in the middle of the screen: full-height
+  // lanes in the gutters beside it when they are wide enough, and lanes above and below it across its width.
+  // Phones get one full-width lane, with clippings stacked above and below the text.
   function pressLayout() {
     const vw = window.innerWidth;
     const vh = window.innerHeight;
+    const phone = vw < 760;
     const stage = document.querySelector('.intro-manifesto-stage');
     const topBar = document.querySelector('.intro-topbar');
     const bottomBar = document.querySelector('.intro-bottom-bar');
-    const column = Math.min(stage ? parseFloat(getComputedStyle(stage).maxWidth) || 880 : 880, vw - 40);
-    const gutter = (vw - column) / 2;
-    const top = (topBar ? topBar.getBoundingClientRect().bottom : 56) + 22;
-    const bottom = (bottomBar ? bottomBar.getBoundingClientRect().top : vh - 48) - 22;
-    if (gutter >= 250) return { mode: 'columns', width: Math.min(340, Math.floor(gutter - 36)), gutter, top, bottom, vw };
-    return { mode: 'single', width: Math.min(520, vw - 24), top: top - 10, bottom: vh - 10, vw };
+    const top = (topBar ? topBar.getBoundingClientRect().bottom : 56) + (phone ? 12 : 22);
+    const bottom = (bottomBar ? bottomBar.getBoundingClientRect().top : vh - 48) - (phone ? 12 : 22);
+    if (phone) {
+      const w = Math.min(520, vw - 24);
+      return { mode: 'compact', lanes: [{ x: Math.round((vw - w) / 2), w }], top, bottom, vw };
+    }
+    const band = Math.min(stage ? parseFloat(getComputedStyle(stage).maxWidth) || 880 : 880, vw - 40);
+    const gutter = (vw - band) / 2;
+    const lanes = [];
+    if (gutter >= 250) {
+      const w = Math.min(340, Math.floor(gutter - 36));
+      lanes.push({ x: Math.round((gutter - w) / 2), w }, { x: Math.round(vw - gutter + (gutter - w) / 2), w });
+    }
+    const w = 280;
+    const gap = 20;
+    const n = Math.max(1, Math.floor((band + gap) / (w + gap)));
+    const start = (vw - (n * w + (n - 1) * gap)) / 2;
+    for (let i = 0; i < n; i++) lanes.push({ x: Math.round(start + i * (w + gap)), w });
+    return { mode: 'lanes', lanes, top, bottom, vw };
   }
-
   function pressDate(iso) {
     const [y, m, d] = iso.split('-').map(Number);
     return d + ' ' + PRESS_MONTHS[m - 1] + ' ' + y;
   }
 
-  function pressElement(item, layout) {
+  function pressElement(item, width, compact) {
     const node = (tag, className, text) => {
       const el = document.createElement(tag);
       el.className = className;
       if (text) el.textContent = text;
       return el;
     };
-    const kind = layout.mode === 'single' ? 'press-compact' : layout.width < 290 ? 'press-column press-narrow' : 'press-column';
+    const kind = compact ? 'press-compact' : width < 290 ? 'press-column press-narrow' : 'press-column';
     const card = node('article', 'press-card ' + kind);
     const source = node('footer', 'press-source');
     source.append(node('span', 'press-outlet', item.outlet), node('span', 'press-date', pressDate(item.date)), node('span', 'press-domain', item.domain));
     card.append(node('p', 'press-kicker', item.kicker), node('h3', 'press-title', item.title), node('p', 'press-dek', item.dek), source);
-    card.style.width = layout.width + 'px';
+    card.style.width = width + 'px';
     return card;
   }
 
@@ -10345,61 +10361,84 @@ if (terminal && gamesGrid) {
     }, 520); // the pressOut animation (styles.css)
   }
 
-  // What the clippings must not cover on small screens: the manifesto, and the Enter button once it shows.
+  // What the clippings must not cover: the manifesto band, and the Enter button once it shows.
   function pressObstacles() {
-    const text = typewriterText ? typewriterText.getBoundingClientRect() : null;
+    const box = document.querySelector('.intro-terminal-box');
+    const r = box ? box.getBoundingClientRect()
+      : { left: 0, right: window.innerWidth, top: window.innerHeight / 2 - 90, bottom: window.innerHeight / 2 + 90 };
+    const ob = { left: r.left, right: r.right, top: r.top, bottom: r.bottom };
     const action = actionContainer && !actionContainer.classList.contains('hidden') ? actionContainer.getBoundingClientRect() : null;
-    return { top: text ? text.top : window.innerHeight, bottom: Math.max(text ? text.bottom : 0, action && action.height ? action.bottom : 0) };
+    if (action && action.height) {
+      ob.left = Math.min(ob.left, action.left);
+      ob.right = Math.max(ob.right, action.right);
+      ob.top = Math.min(ob.top, action.top);
+      ob.bottom = Math.max(ob.bottom, action.bottom);
+    }
+    return ob;
   }
 
-  // Where a clipping of height h fits now. Columns: alternate sides, and on each side the first free gap from the
-  // top, so clippings stack as others leave. Single: above the manifesto or below it, whichever is free and roomier.
-  function pressSpot(layout, obs, h) {
-    if (layout.mode === 'single') {
-      const x = Math.round((layout.vw - layout.width) / 2);
-      // 48 px to spare, so a clipping is not placed just to leave again (it leaves within 30 px of the text).
-      const roomTop = pressCards.some(e => e.slot === 'top') ? -1 : obs.top - layout.top - h - 48;
-      const roomBottom = pressCards.some(e => e.slot === 'bottom') ? -1 : layout.bottom - obs.bottom - h - 48;
-      if (roomTop < 0 && roomBottom < 0) return null;
-      return roomTop >= roomBottom ? { x, y: Math.round(layout.top), slot: 'top' } : { x, y: Math.round(layout.bottom - h), slot: 'bottom' };
-    }
-    const sides = pressSide % 2 ? ['right', 'left'] : ['left', 'right'];
-    for (const side of sides) {
-      const x = side === 'left' ? Math.round((layout.gutter - layout.width) / 2) : Math.round(layout.vw - layout.gutter + (layout.gutter - layout.width) / 2);
-      const taken = pressCards.filter(e => e.x === x).sort((p, q) => p.y - q.y);
-      let y = layout.top;
+  // Where a clipping of height h fits in this lane: beside the manifesto the whole height, otherwise the stretches
+  // above and below it (alternating which comes first); in each, the first free gap from its start.
+  function laneSpot(layout, ob, lane, h) {
+    const compact = layout.mode === 'compact';
+    const margin = compact ? 12 : 24;
+    const gap = compact ? 10 : 16;
+    const beside = lane.x + lane.w <= ob.left - 8 || lane.x >= ob.right + 8;
+    const stretches = beside ? [[layout.top, layout.bottom, lane.x < layout.vw / 2 ? 'left' : 'right']]
+      : [[layout.top, ob.top - margin, 'top'], [ob.bottom + margin, layout.bottom, 'bottom']];
+    if (!beside && pressFlip % 2) stretches.reverse();
+    const taken = pressCards.filter(e => e.x === lane.x).sort((p, q) => p.y - q.y);
+    for (const [from, to, side] of stretches) {
+      let y = from;
       for (const e of taken) {
-        if (e.y - 16 - y >= h) break;
-        y = Math.max(y, e.y + e.h + 16);
+        if (e.y + e.h + gap <= y || e.y >= to) continue;
+        if (e.y - gap - y >= h) break;
+        y = Math.max(y, e.y + e.h + gap);
       }
-      if (y + h <= layout.bottom) return { x, y: Math.round(y) };
+      if (y + h <= to) return { x: lane.x, y: Math.round(y), side };
     }
     return null;
   }
 
-  // Places the next clipping if there is room for it, without its standfirst if that is what fits; returns whether it did.
-  function spawnPress(layout, obs) {
-    if (layout.mode === 'single' && (pressCards.length >= 2 || Math.max(obs.top - layout.top, layout.bottom - obs.bottom) < 100)) return false;
+  // Places the next clipping where it fits, starting from a different lane each time: the full clipping first, then
+  // without its standfirst. Phones always use the short form, so more clippings fit around the text.
+  function spawnPress(layout, ob) {
     if (!pressQueue.length) pressQueue = pressOrder();
-    const card = pressElement(pressQueue[0], layout);
-    ambientStage.appendChild(card);
-    let h = card.offsetHeight;
-    let spot = pressSpot(layout, obs, h);
-    if (!spot) {
-      card.classList.add('press-mini');
-      h = card.offsetHeight;
-      spot = pressSpot(layout, obs, h);
+    const compact = layout.mode === 'compact';
+    const cards = {};
+    const measure = (w, mini) => {
+      const key = w + (mini ? 'm' : '');
+      if (!cards[key]) {
+        const el = pressElement(pressQueue[0], w, compact);
+        if (mini) el.classList.add('press-mini');
+        ambientStage.appendChild(el);
+        cards[key] = { el, h: el.offsetHeight };
+      }
+      return cards[key];
+    };
+    let chosen = null;
+    for (const mini of compact ? [true] : [false, true]) {
+      for (let k = 0; k < layout.lanes.length && !chosen; k++) {
+        const lane = layout.lanes[(pressSide + k) % layout.lanes.length];
+        const card = measure(lane.w, mini);
+        const spot = laneSpot(layout, ob, lane, card.h);
+        if (spot) chosen = { card, spot, lane };
+      }
+      if (chosen) break;
     }
-    if (!spot) { card.remove(); return false; }
+    Object.values(cards).forEach(c => { if (!chosen || c !== chosen.card) c.el.remove(); });
+    if (!chosen) return false;
     pressSide++;
+    pressFlip++;
     pressQueue.shift();
-    card.style.left = spot.x + 'px';
-    card.style.top = spot.y + 'px';
-    card.dataset.from = spot.slot || (spot.x < layout.vw / 2 ? 'left' : 'right');
-    void card.offsetWidth; // start the entrance from that side
-    const entry = { el: card, x: spot.x, y: spot.y, w: layout.width, h, slot: spot.slot };
+    const { el, h } = chosen.card;
+    el.style.left = chosen.spot.x + 'px';
+    el.style.top = chosen.spot.y + 'px';
+    el.dataset.from = chosen.spot.side;
+    void el.offsetWidth; // start the entrance from that side
+    const entry = { el, x: chosen.spot.x, y: chosen.spot.y, w: chosen.lane.w, h };
     pressCards.push(entry);
-    requestAnimationFrame(() => card.classList.add('press-visible'));
+    requestAnimationFrame(() => el.classList.add('press-visible'));
     entry.timer = setTimeout(() => retirePress(entry), PRESS_TIMING[layout.mode].life);
     return true;
   }
@@ -10408,14 +10447,12 @@ if (terminal && gamesGrid) {
     if (isDismissed || !ambientStage) return;
     const layout = pressLayout();
     if (layout.mode !== pressMode) { startPress(); return; }
-    const obs = pressObstacles();
-    // The manifesto grows both ways as it is typed: on small screens a clipping in its way leaves early.
-    if (layout.mode === 'single') {
-      pressCards.forEach(e => {
-        if (e.slot === 'top' ? e.y + e.h + 30 > obs.top : e.y - 30 < obs.bottom) retirePress(e, true);
-      });
-    }
-    if (Date.now() >= nextPressAt && spawnPress(layout, obs)) nextPressAt = Date.now() + PRESS_TIMING[layout.mode].every;
+    const ob = pressObstacles();
+    // The Enter button appears under the manifesto at the end: a clipping in its way leaves early.
+    pressCards.forEach(e => {
+      if (e.x < ob.right + 8 && e.x + e.w > ob.left - 8 && e.y < ob.bottom + 12 && e.y + e.h > ob.top - 12) retirePress(e, true);
+    });
+    if (Date.now() >= nextPressAt && spawnPress(layout, ob)) nextPressAt = Date.now() + PRESS_TIMING[layout.mode].every;
   }
 
   function stopPress() {
@@ -10430,7 +10467,7 @@ if (terminal && gamesGrid) {
     stopPress();
     pressMode = pressLayout().mode;
     if (ambientStage) {
-      ambientStage.classList.toggle('press-front', pressMode === 'single');
+      ambientStage.classList.toggle('press-front', pressMode === 'compact');
       ambientStage.classList.toggle('press-paper', PRESS_LOOK === 'paper');
     }
     nextPressAt = Date.now() + 250;
@@ -10549,19 +10586,32 @@ if (terminal && gamesGrid) {
     });
   }
 
-  // Typewriter Engine
+  // Typewriter Engine: types the current phrase, holds it, then erases it backwards (see manifestoSegments).
   let segmentIdx = 0;
   let charIdx = 0;
   let currentSpan = null;
+  let erasing = false;
+
+  // The cursor stays solid while characters change and blinks again when the text rests.
+  function cursorAtWork() {
+    if (!cursor || !typewriterText) return;
+    if (cursor.parentNode !== typewriterText) typewriterText.appendChild(cursor);
+    cursor.style.display = 'inline-block';
+    cursor.classList.add('cursor-solid');
+    clearTimeout(cursorBlinkTimer);
+    cursorBlinkTimer = setTimeout(() => {
+      if (cursor) cursor.classList.remove('cursor-solid');
+    }, 85);
+  }
 
   function typeNextCharacter() {
     if (isDismissed) return;
 
-    // Reset watchdog on each character typed so it never terminates an active typewriter
+    // Reset watchdog on each step so it never terminates an active typewriter
     resetWatchdog();
 
     if (segmentIdx >= manifestoSegments.length) {
-      // 100% COMPLETE! All segments typed and verified
+      // 100% COMPLETE! All phrases shown; the last one stays on screen
       isAnimationComplete = true;
       clearTimeout(failsafeTimer);
       clearTimeout(cursorBlinkTimer);
@@ -10576,7 +10626,7 @@ if (terminal && gamesGrid) {
       if (actionContainer) actionContainer.classList.remove('hidden');
       introScreen.classList.add('is-complete');
 
-      // Hold dramatically for 6.5s so the user can read the manifesto before site auto-reveals
+      // Hold dramatically for 6.5s so the user can read the last line before site auto-reveals
       autoDismissTimer = setTimeout(() => {
         dismissIntro(true);
       }, 6500);
@@ -10593,7 +10643,25 @@ if (terminal && gamesGrid) {
       videoWrap.classList.add('video-visible');
     }
 
-    // Create span for new segment
+    // Erase backwards, one character at a time, then move on to the next phrase
+    if (erasing) {
+      const text = currentSpan ? currentSpan.textContent : '';
+      if (text.length > 0) {
+        currentSpan.textContent = text.slice(0, -1);
+        cursorAtWork();
+        typingTimeout = setTimeout(typeNextCharacter, 11);
+      } else {
+        if (currentSpan) currentSpan.remove();
+        currentSpan = null;
+        erasing = false;
+        segmentIdx++;
+        charIdx = 0;
+        typingTimeout = setTimeout(typeNextCharacter, 280);
+      }
+      return;
+    }
+
+    // Create span for new phrase
     if (charIdx === 0) {
       currentSpan = document.createElement('span');
       if (seg.type === 'highlight') currentSpan.className = 'txt-highlight';
@@ -10610,43 +10678,24 @@ if (terminal && gamesGrid) {
     }
 
     const char = seg.text.charAt(charIdx);
-    if (char === '\n') {
-      currentSpan.appendChild(document.createElement('br'));
-    } else {
-      currentSpan.appendChild(document.createTextNode(char));
-    }
-
-    // Keep cursor following the active writing position immediately
-    if (cursor && typewriterText) {
-      if (cursor.parentNode !== typewriterText) {
-        typewriterText.appendChild(cursor);
-      }
-      cursor.style.display = 'inline-block';
-      cursor.classList.add('cursor-solid');
-      clearTimeout(cursorBlinkTimer);
-      cursorBlinkTimer = setTimeout(() => {
-        if (cursor) cursor.classList.remove('cursor-solid');
-      }, 85);
-    }
-
+    currentSpan.appendChild(document.createTextNode(char));
+    cursorAtWork();
     charIdx++;
 
-    // Calculate cadence: smooth, natural, and impactful
-    let delay = 22; // base typing speed
-    if (char === '.' || char === '!' || char === '?') {
-      delay = 360;
-    } else if (char === ',') {
-      delay = 140;
-    } else if (char === '\n') {
-      delay = 200;
-    }
-
     if (charIdx < seg.text.length) {
+      // Cadence: smooth, natural, and impactful
+      let delay = 22; // base typing speed
+      if (char === '.' || char === '!' || char === '?') delay = 360;
+      else if (char === ',') delay = 140;
       typingTimeout = setTimeout(typeNextCharacter, delay);
-    } else {
+    } else if (segmentIdx === manifestoSegments.length - 1) {
       segmentIdx++;
       charIdx = 0;
       typingTimeout = setTimeout(typeNextCharacter, 200);
+    } else {
+      // Hold the phrase long enough to read it, then erase it
+      erasing = true;
+      typingTimeout = setTimeout(typeNextCharacter, Math.min(2400, 900 + 16 * seg.text.length));
     }
   }
 
@@ -10686,6 +10735,7 @@ if (terminal && gamesGrid) {
     segmentIdx = 0;
     charIdx = 0;
     currentSpan = null;
+    erasing = false;
 
     if (videoWrap) videoWrap.classList.remove('video-visible');
     if (activeVideo) {

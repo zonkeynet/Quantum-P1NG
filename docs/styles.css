@@ -31060,6 +31060,11 @@ html.intro-active body > *:not(#intro-screen):not(script):not(style) {
   -webkit-line-clamp: 2;
 }
 
+/* The compact rules below show the standfirst as a clamped box: the short form keeps it hidden. */
+.press-compact.press-mini .press-dek {
+  display: none;
+}
+
 .press-dek {
   margin: 9px 0 0;
   padding-top: 8px;
@@ -31113,7 +31118,7 @@ html.intro-active body > *:not(#intro-screen):not(script):not(style) {
   font-size: 13px;
 }
 
-/* One clipping at a time on small screens: shorter, clamped */
+/* Phones: short clippings stacked above and below the manifesto, clamped */
 .press-compact {
   padding: 12px 14px 9px;
 }
@@ -31229,7 +31234,8 @@ html.intro-active body > *:not(#intro-screen):not(script):not(style) {
 }
 
 .intro-terminal-box {
-  min-height: 240px;
+  /* A fixed band for up to three lines: the phrase changes, the clippings around it stay put. */
+  min-height: calc(3 * 1.7 * clamp(1.15rem, 2.5vw, 1.85rem) + 40px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -31433,6 +31439,37 @@ html.intro-active body > *:not(#intro-screen):not(script):not(style) {
   }
   .intro-sys-status {
     font-size: 0.68rem;
+  }
+}
+
+/* Intro on phones: a lower manifesto band and tighter short clippings, so two fit above and two below the text */
+@media (max-width: 759.98px) {
+  .intro-terminal-box {
+    min-height: calc(3 * 1.5 * 1.05rem + 16px);
+    padding: 8px 4px;
+  }
+
+  .intro-typewriter-text,
+  .intro-cursor {
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+
+  .press-compact.press-mini {
+    padding: 10px 12px 8px;
+  }
+
+  .press-compact.press-mini .press-kicker {
+    margin-bottom: 5px;
+  }
+
+  .press-compact.press-mini .press-title {
+    font-size: 15px;
+  }
+
+  .press-compact.press-mini .press-source {
+    margin-top: 7px;
+    padding-top: 5px;
   }
 }
 
