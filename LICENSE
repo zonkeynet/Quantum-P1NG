@@ -1,5 +1,6 @@
 QUANTUM P1NG (Q-P1NG®) COMMERCIAL SOFTWARE LICENSE AGREEMENT
 END USER LICENSE AGREEMENT (EULA) & INTELLECTUAL PROPERTY NOTICE
+Version 2.7 - October 2026
 
 Copyright (C) 2026 ZonkeyNet / Quantum P1NG Team. All rights reserved.
 Official Website: https://www.qp1ng.com
@@ -14,14 +15,15 @@ APPLICATION AND ASSOCIATED SOFTWARE COMPONENTS.
 1. TRADEMARK & INTELLECTUAL PROPERTY PROTECTION
 --------------------------------------------------------------------------------
 "Q-P1NG", "Q-P1NG®", "QUANTUM P1NG", "QUANTUM P1NG®", the Quantum P1NG emblem,
-GhostWave, Q-Brain, Q-CAM, Q-Scenario, and all related logos, product names,
-and slogans are REGISTERED TRADEMARKS and intellectual property of ZonkeyNet
-and the Quantum P1NG Team.
+GhostWave, Q-Brain, Q-CAM, Q-Scenario, Q-Dream, and all related logos, product
+names, and slogans are REGISTERED TRADEMARKS and intellectual property of
+ZonkeyNet and the Quantum P1NG Team.
 
 All title, ownership rights, trade secrets, proprietary algorithms, zero-telemetry
 architectures, user interface designs, visual assets, icons, audio branding,
 sound engineering profiles, firmware communication bridges, and compiled binary
-distributions are and remain the exclusive intellectual property of ZonkeyNet.
+distributions are and remain the exclusive intellectual property of ZonkeyNet,
+except for the Third-Party Components described in Section 4.
 
 This Agreement does NOT grant you any rights to use any trademarks, trade names,
 service marks, logos, or domain names belonging to ZonkeyNet without prior
@@ -49,7 +51,9 @@ constitutes a material breach of this Agreement and copyright infringement.
 3. RESTRICTIONS AND RESERVATION OF RIGHTS
 --------------------------------------------------------------------------------
 Except as expressly permitted by applicable mandatory law that cannot be
-contractually waived, you SHALL NOT:
+contractually waived (including the decompilation for interoperability allowed
+by Article 6 of Directive 2009/24/EC), or by the license of a Third-Party
+Component as described in Section 4, you SHALL NOT:
 
   a) Copy, distribute, rent, lease, lend, sell, resell, sublicense, assign,
      time-share, or publicly host the Q-P1NG® software or any portion thereof;
@@ -67,31 +71,59 @@ contractually waived, you SHALL NOT:
 All rights not expressly granted to you in this Agreement are strictly reserved
 by ZonkeyNet.
 
-4. THIRD-PARTY OPEN-SOURCE COMPONENTS & COMPLIANCE
+4. THIRD-PARTY AND OPEN-SOURCE COMPONENTS
 --------------------------------------------------------------------------------
-Quantum P1NG (Q-P1NG®) is engineered with a strict "Commercial License-Safe"
-architecture. The application may bundle, link with, or orchestrate certain
-third-party open-source runtime engines, libraries, or permissive AI model
-weights (collectively, "Third-Party Components").
+The application includes, links to, or runs third-party software components
+and data, including open-source components (collectively, "Third-Party
+Components"). The complete list, with the applicable licenses, copyright
+notices, and full license texts, is available in the application under
+Info > Open-source licenses.
 
-Such Third-Party Components are licensed to you under their respective upstream
-permissive licenses (including, but not limited to, Apache License 2.0, MIT
-License, BSD Licenses, and SIL Open Font License). Nothing in this Agreement
-restricts your rights under, or grants you rights that supersede, the terms and
-conditions of any applicable permissive open-source license for such Third-Party
-Components.
+Each Third-Party Component is licensed to you under its own license, not under
+this Agreement, and nothing in this Agreement restricts the rights that those
+licenses grant you. In particular:
 
-Crucially, the use, bundling, or execution of permissively licensed runtimes
-does NOT convey or extend any open-source license rights, copyleft obligations,
-or source code availability requirements to the proprietary core, unique
-architectures, custom modules, UI/UX, or registered trademarks of Q-P1NG®.
-Any optional external drivers requiring copyleft compliance (e.g., GPL-licensed
-SDR drivers) are decoupled and isolated from the core commercial application.
+  a) Most Third-Party Components are distributed under permissive licenses
+     (including the Apache License 2.0, MIT, BSD, and SIL Open Font License);
+  b) Some components are distributed under copyleft licenses: Tor (GNU GPL
+     version 3) and PRoot linked with talloc (GNU GPL version 3), which run as
+     separate programs, and Codec 2 (GNU LGPL version 2.1). You may copy, modify, and
+     redistribute these components under the terms of their licenses. For
+     Codec 2, which is a separate shared library, you may also modify the
+     library and reverse engineer the application to the extent needed to
+     debug such modifications, as provided by Section 6 of the LGPL;
+  c) The complete corresponding source code of the GPL and LGPL components is
+     available at the addresses listed in Info > Open-source licenses, or on
+     written request to legal@qp1ng.com, for at least three years after you
+     received the application;
+  d) The Qualcomm AI Engine Direct runtime is redistributed in object code
+     form solely as part of the application and remains subject to the notices
+     and terms of Qualcomm Technologies, Inc.
 
-A list of third-party open-source components and their corresponding licenses
-is maintained within the application documentation and legal resources.
+Except for Third-Party Components, the application, including the Q-Dream image
+engine, its models packaging, and all Q-P1NG® modules, is proprietary to
+ZonkeyNet and licensed to you only under this Agreement.
 
-5. ZERO-TELEMETRY & PRIVACY COMMITMENT
+5. AI MODELS AND GENERATED CONTENT
+--------------------------------------------------------------------------------
+The application can download and run AI models (language, speech, and image
+models) published by third parties or by ZonkeyNet. Each model is licensed
+under its own terms, indicated in the application before download. In
+particular:
+
+  a) Image models are licensed under the CreativeML Open RAIL-M license (Q-Dream
+     models under the Q-P1NG Q-Dream Model License, which incorporates it).
+     Before downloading them you must accept, and you agree to comply with, the
+     use restrictions set out in Attachment A of that license, which apply to
+     the models and to the content you generate with them;
+  b) Llama models are licensed under the Llama 3.2 Community License and are
+     subject to Meta's Acceptable Use Policy. Built with Llama;
+  c) You are solely responsible for your prompts, the content you generate, and
+     its use, including compliance with applicable law and third-party rights.
+
+ZonkeyNet claims no ownership of the content you generate.
+
+6. ZERO-TELEMETRY & PRIVACY COMMITMENT
 --------------------------------------------------------------------------------
 Q-P1NG® is designed with an uncompromising OPSEC-first architecture:
   - ZERO TELEMETRY: The application does NOT embed cloud analytics, advertising
@@ -103,7 +135,7 @@ Q-P1NG® is designed with an uncompromising OPSEC-first architecture:
     generated and stored exclusively on your device. ZonkeyNet possesses no
     technical backdoors or private key escrows.
 
-6. USER OPERATIONAL RESPONSIBILITY & COMPLIANCE
+7. USER OPERATIONAL RESPONSIBILITY & COMPLIANCE
 --------------------------------------------------------------------------------
 You are solely responsible for:
   a) Maintaining secure custody, backup, and password/PIN protection of your
@@ -115,15 +147,16 @@ You are solely responsible for:
   c) Ensuring that your use of the software complies with all applicable local,
      national, and international laws, regulations, and export controls.
 
-7. TERMINATION
+8. TERMINATION
 --------------------------------------------------------------------------------
 This license is effective until terminated. Your rights under this license will
 terminate automatically and without notice from ZonkeyNet if you fail to comply
 with any term or condition of this Agreement. Upon termination, you must cease
 all use of the software and permanently delete all copies of the software from
-all devices in your possession or control.
+all devices in your possession or control. Termination does not affect the
+rights granted to you by the licenses of Third-Party Components.
 
-8. DISCLAIMER OF WARRANTY
+9. DISCLAIMER OF WARRANTY
 --------------------------------------------------------------------------------
 TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE QUANTUM P1NG (Q-P1NG®)
 SOFTWARE AND SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE", WITH ALL FAULTS
@@ -136,7 +169,7 @@ ZONKEYNET DOES NOT WARRANT THAT THE FUNCTIONS CONTAINED IN THE SOFTWARE WILL
 MEET YOUR REQUIREMENTS, THAT THE OPERATION OF THE SOFTWARE WILL BE UNINTERRUPTED
 OR ERROR-FREE, OR THAT DEFECTS IN THE SOFTWARE WILL BE CORRECTED.
 
-9. LIMITATION OF LIABILITY
+10. LIMITATION OF LIABILITY
 --------------------------------------------------------------------------------
 TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT SHALL ZONKEYNET, ITS
 FOUNDERS, DEVELOPERS, AFFILIATES, OR LICENSORS BE LIABLE FOR ANY DIRECT,
@@ -149,14 +182,20 @@ TO USE THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 IN NO EVENT SHALL ZONKEYNET'S TOTAL AGGREGATE LIABILITY TO YOU FOR ALL DAMAGES
 EXCEED THE AMOUNT ACTUALLY PAID BY YOU FOR THE PURCHASE OF THE SOFTWARE LICENSE.
 
-10. GOVERNING LAW & SEVERABILITY
+Nothing in this Agreement excludes or limits the rights that consumers have
+under mandatory law, including the legal guarantee of conformity for digital
+content, or any liability that cannot be excluded or limited by law, such as
+liability for willful misconduct or gross negligence.
+
+11. GOVERNING LAW & SEVERABILITY
 --------------------------------------------------------------------------------
 This Agreement shall be governed by and construed in accordance with the laws
 of the jurisdiction in which ZonkeyNet operates, without giving effect to any
-choice of law principles. If any provision of this Agreement is held to be
-unenforceable or invalid by a court of competent jurisdiction, such provision
-shall be enforced to the maximum extent permissible, and the remaining
-provisions shall remain in full force and effect.
+choice of law principles, and without prejudice to the mandatory consumer
+protection rules of your country of residence. If any provision of this
+Agreement is held to be unenforceable or invalid by a court of competent
+jurisdiction, such provision shall be enforced to the maximum extent
+permissible, and the remaining provisions shall remain in full force and effect.
 
 --------------------------------------------------------------------------------
 For commercial licensing, enterprise volume agreements, or trademark inquiries:

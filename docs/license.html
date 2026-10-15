@@ -226,7 +226,7 @@
         </header>
 
         <h1>Commercial Software License Agreement</h1>
-        <p class="subtitle mono">END USER LICENSE AGREEMENT (EULA) &bull; VERSION 2.6 &bull; OCTOBER 2026</p>
+        <p class="subtitle mono">END USER LICENSE AGREEMENT (EULA) &bull; VERSION 2.7 &bull; OCTOBER 2026</p>
 
         <div class="tm-badge">
             <span>&reg;</span>
@@ -256,17 +256,24 @@
         <p>To defend our intellectual property, security model, and commercial software integrity, you expressly agree NOT to:</p>
         <ul>
             <li>Distribute, resell, rent, lease, sublicense, time-share, or publicly host the Q-P1NG&reg; application binaries or activation assets;</li>
-            <li>Reverse engineer, decompile, disassemble, unpack, or attempt to derive the source code of the compiled application or proprietary native libraries, except to the extent permitted by mandatory statutory law;</li>
+            <li>Reverse engineer, decompile, disassemble, unpack, or attempt to derive the source code of the compiled application or proprietary native libraries, except to the extent permitted by mandatory statutory law (including Article 6 of Directive 2009/24/EC) or by the license of a third-party component (Section 5);</li>
             <li>Modify, adapt, patch, or create derivative works based upon the software, its user interface, or proprietary communication protocols;</li>
             <li>Bypass, alter, or tamper with any integrity verification, digital signatures, or security features embedded in the application;</li>
             <li>Remove, obscure, or alter any registered trademark (&reg;), copyright notices, or legal legends displayed in the application or documentation.</li>
         </ul>
 
-        <h2>5. Commercial License Safety & Permissive Open-Source Components</h2>
+        <h2>5. Third-Party and Open-Source Components</h2>
         <div class="highlight-box highlight-box--green">
-            <strong>Clean Architecture & License Isolation:</strong> Q-P1NG&reg; is developed under strict "Commercial License-Safe" standards. Any auxiliary open-source components utilized are strictly governed by permissive licenses (Apache 2.0, MIT, SIL OFL).
+            <strong>Third-party components keep their own licenses:</strong> the application includes, links to or runs third-party software and data, including open-source components. The complete list, with licenses, copyright notices and full license texts, is available in the app under <strong>Info &rsaquo; Open-source licenses</strong>. Nothing in this Agreement restricts the rights those licenses grant you.
         </div>
-        <p>Certain auxiliary runtimes and models (such as permissively licensed inference runtimes or AI model weights verified as commercial-safe) remain subject to their respective permissive upstream licenses. Crucially, the utilization of these permissive libraries does NOT subject the proprietary core, unique cryptographic architectures, UI/UX, or registered trademarks of Q-P1NG&reg; to copyleft or source-disclosure requirements. Any optional external copyleft modules (e.g. GPL SDR drivers) are decoupled and isolated from the commercial release build.</p>
+        <ul>
+            <li>Most components are under permissive licenses (Apache 2.0, MIT, BSD, SIL OFL).</li>
+            <li>Some components are under copyleft licenses: Tor (GNU GPL v3) and PRoot linked with talloc (GNU GPL v3), which run as separate programs, and Codec 2 (GNU LGPL v2.1). You may copy, modify and redistribute them under their licenses; for Codec 2, a separate shared library, you may also modify it and reverse engineer the application to debug such modifications (LGPL v2.1, Section 6).</li>
+            <li>The complete corresponding source code of the GPL and LGPL components is available at the addresses listed in the app, or on written request to legal@qp1ng.com, for at least three years after you received the application.</li>
+            <li>The Qualcomm AI Engine Direct runtime is redistributed in object code form solely as part of the application, subject to the notices and terms of Qualcomm Technologies, Inc.</li>
+        </ul>
+        <p>Except for third-party components, the application, including the Q-Dream image engine and all Q-P1NG&reg; modules, is proprietary to ZonkeyNet and licensed to you only under this Agreement.</p>
+        <p><strong>AI models and generated content.</strong> Downloadable AI models are licensed under their own terms, shown in the app before download. Image models are licensed under the CreativeML Open RAIL-M (Q-Dream models under the Q-P1NG Q-Dream Model License, which incorporates it): before downloading them you must accept, and you agree to comply with, the use restrictions of its Attachment A, which apply to the models and to the content you generate. Llama models are licensed under the Llama 3.2 Community License and Meta's Acceptable Use Policy (Built with Llama). You are solely responsible for your prompts, the content you generate and its use; ZonkeyNet claims no ownership of it.</p>
 
         <h2>6. Zero-Telemetry & User Privacy Guarantee</h2>
         <p>Unlike standard commercial software, Q-P1NG&reg; does NOT monetize user data or implement surveillance:</p>
