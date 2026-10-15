@@ -7,13 +7,13 @@
   "totalVisionCandidates": 8,
   "fullCatalog": {
     "manifest": "../manifest.json",
-    "sha256": "1eaaa34a97abf4b7226e9fd1c179a136a5aa60863a244a587b5d75a0b30a3655",
-    "sizeBytes": 164327
+    "sha256": "3e2724f594d74b00c46f9ae26be64ae82433975521fa34085ce60d94ed2f9435",
+    "sizeBytes": 164253
   },
   "compactCatalog": {
     "manifest": "../manifest.min.json",
-    "sha256": "1eaaa34a97abf4b7226e9fd1c179a136a5aa60863a244a587b5d75a0b30a3655",
-    "sizeBytes": 164327
+    "sha256": "3e2724f594d74b00c46f9ae26be64ae82433975521fa34085ce60d94ed2f9435",
+    "sizeBytes": 164253
   },
   "sections": {
     "text": {
@@ -31,8 +31,8 @@
     "voice": {
       "title": "Speech & Voice",
       "manifest": "manifest_voice.json",
-      "sha256": "71b8c383cca5772916f1a4d640b7ccd31e638a708f3987cff7d2ed0444cdb779",
-      "sizeBytes": 24540,
+      "sha256": "849b133f6ce2d2920668a04ab0c72b7e5a77bf8758f6fc8509f332eb050b83d2",
+      "sizeBytes": 24466,
       "packsCount": 21,
       "categories": [
         "speech"
@@ -74,8 +74,8 @@
     "speech": {
       "title": "Speech & Voice",
       "manifest": "speech.json",
-      "sha256": "58b6505c0e39ee7afa20a8110d0d79dacccf67c4535e789e6c6435be1fe6ba00",
-      "sizeBytes": 23628,
+      "sha256": "c2d5dfc32ba4b01e0026ba01955ca195681bb07839602b58b839dc4702611652",
+      "sizeBytes": 23554,
       "packsCount": 21
     },
     "image_gen": {
