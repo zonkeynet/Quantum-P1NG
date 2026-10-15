@@ -1,5 +1,5 @@
 {
-  "version": 33,
+  "version": 35,
   "updatedAt": "2026-10-15",
   "schemaVersion": "2.4",
   "appId": "com.qp1ng.android",
@@ -23,321 +23,6 @@
     }
   },
   "packs": [
-    {
-      "id": "tts-en-lessac-base",
-      "type": "TTS",
-      "category": "speech",
-      "section": "voice",
-      "name": "English Base Voice",
-      "family": "sherpa",
-      "description": "Offline English speech synthesis for reading text aloud.",
-      "engine": "sherpa-onnx",
-      "runtimeBackend": "SHERPA_ONNX",
-      "storageKind": "DIRECTORY_BUNDLE",
-      "language": "en",
-      "sizeBytes": 63207582,
-      "sha256": "ea793a648ce0370665f99fbf891eae3b3a973565c72b08534bb5b2c04e8f2332",
-      "downloadUrl": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-medium/resolve/83f7470750b36549037551ef7007fa3b4b8697e0/en_US-lessac-medium.onnx",
-      "fileName": "en_US-lessac-medium.onnx",
-      "bundleEntryPoint": "en_US-lessac-medium.onnx",
-      "remoteArtifacts": [
-        {
-          "path": "en_US-lessac-medium.onnx",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-medium/resolve/83f7470750b36549037551ef7007fa3b4b8697e0/en_US-lessac-medium.onnx",
-          "sha256": "ea793a648ce0370665f99fbf891eae3b3a973565c72b08534bb5b2c04e8f2332",
-          "sizeBytes": 63201425
-        },
-        {
-          "path": "en_US-lessac-medium.onnx.json",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-medium/resolve/83f7470750b36549037551ef7007fa3b4b8697e0/en_US-lessac-medium.onnx.json",
-          "sha256": "efe19c417bed055f2d69908248c6ba650fa135bc868b0e6abb3da181dab690a0",
-          "sizeBytes": 4885
-        },
-        {
-          "path": "tokens.txt",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-medium/resolve/83f7470750b36549037551ef7007fa3b4b8697e0/tokens.txt",
-          "sha256": "87c8ef66eae5473ed0cc0366b3964c736ca6c5f676c979522ea31234e47430b9",
-          "sizeBytes": 921
-        },
-        {
-          "path": "MODEL_CARD",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-medium/resolve/83f7470750b36549037551ef7007fa3b4b8697e0/MODEL_CARD",
-          "required": false,
-          "sha256": "ce49eb457742208166d399a40cdec2c7fa9db77960930031564ab56f12882645",
-          "sizeBytes": 351
-        }
-      ],
-      "engineLicense": "Apache-2.0",
-      "weightsLicense": "VERIFY_BEFORE_COMMERCIAL_SHIP",
-      "commercialOk": false,
-      "recommended": true,
-      "catalogFeatured": true,
-      "dependencyPackIds": [
-        "tts-espeak-ng-data"
-      ],
-      "additionalArtifacts": [
-        "en_US-lessac-medium.onnx.json",
-        "tokens.txt",
-        "MODEL_CARD"
-      ],
-      "variant": "medium"
-    },
-    {
-      "id": "tts-fr-siwis-medium",
-      "type": "TTS",
-      "category": "speech",
-      "section": "voice",
-      "name": "French Voice Siwis",
-      "family": "sherpa",
-      "description": "Offline French speech synthesis for reading text aloud.",
-      "engine": "sherpa-onnx",
-      "runtimeBackend": "SHERPA_ONNX",
-      "storageKind": "DIRECTORY_BUNDLE",
-      "language": "fr",
-      "sizeBytes": 63207501,
-      "sha256": "830f55d861ce7c8a442fd5593890ff5ee50c9d5efd4c4f42d24d537fe46d2d52",
-      "downloadUrl": "https://huggingface.co/csukuangfj/vits-piper-fr_FR-siwis-medium/resolve/6b956227093bc8f9c05e5549508c4a510e97ef26/fr_FR-siwis-medium.onnx",
-      "fileName": "fr_FR-siwis-medium.onnx",
-      "bundleEntryPoint": "fr_FR-siwis-medium.onnx",
-      "remoteArtifacts": [
-        {
-          "path": "fr_FR-siwis-medium.onnx",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-fr_FR-siwis-medium/resolve/6b956227093bc8f9c05e5549508c4a510e97ef26/fr_FR-siwis-medium.onnx",
-          "sha256": "830f55d861ce7c8a442fd5593890ff5ee50c9d5efd4c4f42d24d537fe46d2d52",
-          "sizeBytes": 63201421
-        },
-        {
-          "path": "fr_FR-siwis-medium.onnx.json",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-fr_FR-siwis-medium/resolve/6b956227093bc8f9c05e5549508c4a510e97ef26/fr_FR-siwis-medium.onnx.json",
-          "sha256": "39479916c2db192b5ac9764daddd0c744d83e023ad890c6976c0633ae4df8959",
-          "sizeBytes": 4875
-        },
-        {
-          "path": "tokens.txt",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-fr_FR-siwis-medium/resolve/6b956227093bc8f9c05e5549508c4a510e97ef26/tokens.txt",
-          "sha256": "87c8ef66eae5473ed0cc0366b3964c736ca6c5f676c979522ea31234e47430b9",
-          "sizeBytes": 921
-        },
-        {
-          "path": "MODEL_CARD",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-fr_FR-siwis-medium/resolve/6b956227093bc8f9c05e5549508c4a510e97ef26/MODEL_CARD",
-          "required": false,
-          "sha256": "bd8b8d079d4d3d2c4cc20345889bbcd586d72f021a132f93357a763eb5232cce",
-          "sizeBytes": 284
-        }
-      ],
-      "engineLicense": "Apache-2.0",
-      "weightsLicense": "VERIFY_BEFORE_COMMERCIAL_SHIP",
-      "commercialOk": false,
-      "catalogFeatured": true,
-      "dependencyPackIds": [
-        "tts-espeak-ng-data"
-      ],
-      "additionalArtifacts": [
-        "fr_FR-siwis-medium.onnx.json",
-        "tokens.txt",
-        "MODEL_CARD"
-      ],
-      "variant": "medium"
-    },
-    {
-      "id": "tts-de-thorsten-medium",
-      "type": "TTS",
-      "category": "speech",
-      "section": "voice",
-      "name": "German Voice Thorsten",
-      "family": "sherpa",
-      "description": "Offline German speech synthesis for reading text aloud.",
-      "engine": "sherpa-onnx",
-      "runtimeBackend": "SHERPA_ONNX",
-      "storageKind": "DIRECTORY_BUNDLE",
-      "language": "de",
-      "sizeBytes": 63207432,
-      "sha256": "1c305abe13dda2f50a9783da3e7645396833cdf2d09f24fa9a823c91293d65a6",
-      "downloadUrl": "https://huggingface.co/csukuangfj/vits-piper-de_DE-thorsten-medium/resolve/da8bed7888b27d17e1aa8fbd53e6703ab939583a/de_DE-thorsten-medium.onnx",
-      "fileName": "de_DE-thorsten-medium.onnx",
-      "bundleEntryPoint": "de_DE-thorsten-medium.onnx",
-      "remoteArtifacts": [
-        {
-          "path": "de_DE-thorsten-medium.onnx",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-de_DE-thorsten-medium/resolve/da8bed7888b27d17e1aa8fbd53e6703ab939583a/de_DE-thorsten-medium.onnx",
-          "sha256": "1c305abe13dda2f50a9783da3e7645396833cdf2d09f24fa9a823c91293d65a6",
-          "sizeBytes": 63201421
-        },
-        {
-          "path": "de_DE-thorsten-medium.onnx.json",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-de_DE-thorsten-medium/resolve/da8bed7888b27d17e1aa8fbd53e6703ab939583a/de_DE-thorsten-medium.onnx.json",
-          "sha256": "974adee790533adb273a1ac88f49027d2a1b8f0f2cf4905954a4791e79264e85",
-          "sizeBytes": 4819
-        },
-        {
-          "path": "tokens.txt",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-de_DE-thorsten-medium/resolve/da8bed7888b27d17e1aa8fbd53e6703ab939583a/tokens.txt",
-          "sha256": "2619c1a9de1bcf928162f40c583caf39368cfd6b2340c7bcad51dc634411ec36",
-          "sizeBytes": 907
-        },
-        {
-          "path": "MODEL_CARD",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-de_DE-thorsten-medium/resolve/da8bed7888b27d17e1aa8fbd53e6703ab939583a/MODEL_CARD",
-          "required": false,
-          "sha256": "5196b5ab0794e6056263a1f37c18bec407b61ac187529bee29d1c366871e5c9e",
-          "sizeBytes": 285
-        }
-      ],
-      "engineLicense": "Apache-2.0",
-      "weightsLicense": "VERIFY_BEFORE_COMMERCIAL_SHIP",
-      "commercialOk": false,
-      "catalogFeatured": true,
-      "dependencyPackIds": [
-        "tts-espeak-ng-data"
-      ],
-      "additionalArtifacts": [
-        "de_DE-thorsten-medium.onnx.json",
-        "tokens.txt",
-        "MODEL_CARD"
-      ],
-      "variant": "medium"
-    },
-    {
-      "id": "tts-it-paola-medium",
-      "type": "TTS",
-      "category": "speech",
-      "section": "voice",
-      "name": "Italian Voice Paola",
-      "family": "sherpa",
-      "description": "Offline Italian speech synthesis for reading text aloud.",
-      "engine": "sherpa-onnx",
-      "runtimeBackend": "SHERPA_ONNX",
-      "storageKind": "DIRECTORY_BUNDLE",
-      "language": "it",
-      "sizeBytes": 63519489,
-      "sha256": "cbe315465f8a0be7db8b40f922fe906cf202996b0e15d388c540e9ac3d4b7fd7",
-      "downloadUrl": "https://huggingface.co/csukuangfj/vits-piper-it_IT-paola-medium/resolve/b2d11ae8ce81120ba05f39fb43ecbff2d6d634ea/it_IT-paola-medium.onnx",
-      "fileName": "it_IT-paola-medium.onnx",
-      "bundleEntryPoint": "it_IT-paola-medium.onnx",
-      "remoteArtifacts": [
-        {
-          "path": "it_IT-paola-medium.onnx",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-it_IT-paola-medium/resolve/b2d11ae8ce81120ba05f39fb43ecbff2d6d634ea/it_IT-paola-medium.onnx",
-          "sha256": "cbe315465f8a0be7db8b40f922fe906cf202996b0e15d388c540e9ac3d4b7fd7",
-          "sizeBytes": 63511166
-        },
-        {
-          "path": "it_IT-paola-medium.onnx.json",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-it_IT-paola-medium/resolve/b2d11ae8ce81120ba05f39fb43ecbff2d6d634ea/it_IT-paola-medium.onnx.json",
-          "sha256": "aea19c0a7fce29fbc359b93f10e7902854401e4c95ae2ea328ae516b15d296cf",
-          "sizeBytes": 7099
-        },
-        {
-          "path": "tokens.txt",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-it_IT-paola-medium/resolve/b2d11ae8ce81120ba05f39fb43ecbff2d6d634ea/tokens.txt",
-          "sha256": "95064d2a5d6b029c6710f9c83062a4401cbcee9678e419f381ca3b18a690983d",
-          "sizeBytes": 921
-        },
-        {
-          "path": "MODEL_CARD",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-it_IT-paola-medium/resolve/b2d11ae8ce81120ba05f39fb43ecbff2d6d634ea/MODEL_CARD",
-          "required": false,
-          "sha256": "c53fd0070dc93b438edbce06728eb83759ba030fff0cce523209ee4a0a6363c0",
-          "sizeBytes": 303
-        }
-      ],
-      "engineLicense": "Apache-2.0",
-      "weightsLicense": "VERIFY_BEFORE_COMMERCIAL_SHIP",
-      "commercialOk": false,
-      "catalogFeatured": true,
-      "dependencyPackIds": [
-        "tts-espeak-ng-data"
-      ],
-      "additionalArtifacts": [
-        "it_IT-paola-medium.onnx.json",
-        "tokens.txt",
-        "MODEL_CARD"
-      ],
-      "variant": "medium"
-    },
-    {
-      "id": "tts-espeak-ng-data",
-      "type": "TTS",
-      "category": "speech",
-      "section": "voice",
-      "name": "Sherpa eSpeak Data",
-      "family": "sherpa",
-      "description": "Shared phoneme data required by sherpa-onnx Piper/VITS voices.",
-      "engine": "sherpa-onnx",
-      "runtimeBackend": "SHERPA_ONNX",
-      "storageKind": "DIRECTORY_BUNDLE",
-      "language": "multi",
-      "sizeBytes": 7252012,
-      "sha256": "4135ccf82e1f40613491c0874d4945ae9e9c7840933d8e25a6f9e003d9ebf533",
-      "downloadUrl": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/espeak-ng-data.tar.bz2",
-      "fileName": "espeak-ng-data.tar.bz2",
-      "bundleEntryPoint": "espeak-ng-data",
-      "engineLicense": "Apache-2.0",
-      "weightsLicense": "Apache-2.0",
-      "commercialOk": true,
-      "recommended": true,
-      "catalogFeatured": true,
-      "variant": "shared-data"
-    },
-    {
-      "id": "tts-es-sharvard-medium",
-      "type": "TTS",
-      "category": "speech",
-      "section": "voice",
-      "name": "Spanish Voice Sharvard",
-      "family": "sherpa",
-      "description": "Offline Spanish speech synthesis for reading text aloud.",
-      "engine": "sherpa-onnx",
-      "runtimeBackend": "SHERPA_ONNX",
-      "storageKind": "DIRECTORY_BUNDLE",
-      "language": "es",
-      "sizeBytes": 76739959,
-      "sha256": "f26006cd03e2d558966fa3c49cfa9361dfa22d72197d74b6b50437cb02b8faaf",
-      "downloadUrl": "https://huggingface.co/csukuangfj/vits-piper-es_ES-sharvard-medium/resolve/2306b73bae558eddfdaee0a7ef3048a966a291d4/es_ES-sharvard-medium.onnx",
-      "fileName": "es_ES-sharvard-medium.onnx",
-      "bundleEntryPoint": "es_ES-sharvard-medium.onnx",
-      "remoteArtifacts": [
-        {
-          "path": "es_ES-sharvard-medium.onnx",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-es_ES-sharvard-medium/resolve/2306b73bae558eddfdaee0a7ef3048a966a291d4/es_ES-sharvard-medium.onnx",
-          "sha256": "f26006cd03e2d558966fa3c49cfa9361dfa22d72197d74b6b50437cb02b8faaf",
-          "sizeBytes": 76733743
-        },
-        {
-          "path": "es_ES-sharvard-medium.onnx.json",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-es_ES-sharvard-medium/resolve/2306b73bae558eddfdaee0a7ef3048a966a291d4/es_ES-sharvard-medium.onnx.json",
-          "sha256": "7438c9b699c72b0c3388dae1b68d3f364dc66a2150fe554a1c11f03372957b2c",
-          "sizeBytes": 4903
-        },
-        {
-          "path": "tokens.txt",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-es_ES-sharvard-medium/resolve/2306b73bae558eddfdaee0a7ef3048a966a291d4/tokens.txt",
-          "sha256": "87c8ef66eae5473ed0cc0366b3964c736ca6c5f676c979522ea31234e47430b9",
-          "sizeBytes": 921
-        },
-        {
-          "path": "MODEL_CARD",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-es_ES-sharvard-medium/resolve/2306b73bae558eddfdaee0a7ef3048a966a291d4/MODEL_CARD",
-          "required": false,
-          "sha256": "37655314d08fe8a0900abc628d3bcbee48ffbdd8fad9306b89525a0ada20fefc",
-          "sizeBytes": 392
-        }
-      ],
-      "engineLicense": "Apache-2.0",
-      "weightsLicense": "VERIFY_BEFORE_COMMERCIAL_SHIP",
-      "commercialOk": false,
-      "catalogFeatured": true,
-      "dependencyPackIds": [
-        "tts-espeak-ng-data"
-      ],
-      "additionalArtifacts": [
-        "es_ES-sharvard-medium.onnx.json",
-        "tokens.txt",
-        "MODEL_CARD"
-      ],
-      "variant": "medium"
-    },
     {
       "id": "stt-base-multi-q5-1",
       "type": "STT",
@@ -676,122 +361,6 @@
       "minAppVersion": 117
     },
     {
-      "id": "tts-en-gb-alan-medium",
-      "type": "TTS",
-      "category": "speech",
-      "section": "voice",
-      "name": "English UK Voice Alan",
-      "family": "sherpa",
-      "description": "Offline English UK TTS using sherpa-onnx.",
-      "engine": "sherpa-onnx",
-      "runtimeBackend": "SHERPA_ONNX",
-      "storageKind": "DIRECTORY_BUNDLE",
-      "language": "en-GB",
-      "sizeBytes": 63207559,
-      "sha256": "d907c48857000940104a9ad3248a94617df917d1a525c9495490fdbf87fd54b2",
-      "downloadUrl": "https://huggingface.co/csukuangfj/vits-piper-en_GB-alan-medium/resolve/a449faf03a5e8e2eed012793ce95441d0738b605/en_GB-alan-medium.onnx",
-      "fileName": "en_GB-alan-medium.onnx",
-      "bundleEntryPoint": "en_GB-alan-medium.onnx",
-      "remoteArtifacts": [
-        {
-          "path": "en_GB-alan-medium.onnx",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-en_GB-alan-medium/resolve/a449faf03a5e8e2eed012793ce95441d0738b605/en_GB-alan-medium.onnx",
-          "sha256": "d907c48857000940104a9ad3248a94617df917d1a525c9495490fdbf87fd54b2",
-          "sizeBytes": 63201430
-        },
-        {
-          "path": "en_GB-alan-medium.onnx.json",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-en_GB-alan-medium/resolve/a449faf03a5e8e2eed012793ce95441d0738b605/en_GB-alan-medium.onnx.json",
-          "sha256": "c0f0d124e5895c00e7c03b35dcc8287f319a6998a365b182deb5c8e752ee8c1e",
-          "sizeBytes": 4888
-        },
-        {
-          "path": "tokens.txt",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-en_GB-alan-medium/resolve/a449faf03a5e8e2eed012793ce95441d0738b605/tokens.txt",
-          "sha256": "87c8ef66eae5473ed0cc0366b3964c736ca6c5f676c979522ea31234e47430b9",
-          "sizeBytes": 921
-        },
-        {
-          "path": "MODEL_CARD",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-en_GB-alan-medium/resolve/a449faf03a5e8e2eed012793ce95441d0738b605/MODEL_CARD",
-          "required": false,
-          "sha256": "abcbc3e961124398911436acd9eaaa0ab167cdf221d5a24146aa08732c52630f",
-          "sizeBytes": 320
-        }
-      ],
-      "engineLicense": "Apache-2.0",
-      "weightsLicense": "VERIFY_BEFORE_COMMERCIAL_SHIP",
-      "commercialOk": false,
-      "catalogFeatured": false,
-      "dependencyPackIds": [
-        "tts-espeak-ng-data"
-      ],
-      "additionalArtifacts": [
-        "en_GB-alan-medium.onnx.json",
-        "tokens.txt",
-        "MODEL_CARD"
-      ],
-      "variant": "medium"
-    },
-    {
-      "id": "tts-en-lessac-high",
-      "type": "TTS",
-      "category": "speech",
-      "section": "voice",
-      "name": "English Voice HD (Lessac High)",
-      "family": "sherpa",
-      "description": "Higher-quality offline English US TTS for Q-News using sherpa-onnx.",
-      "engine": "sherpa-onnx",
-      "runtimeBackend": "SHERPA_ONNX",
-      "storageKind": "DIRECTORY_BUNDLE",
-      "language": "en",
-      "sizeBytes": 113901483,
-      "sha256": "1315b0b3746e9ff52f8ccc88d3d9eaa6c289001fc58951ed88c0fb3a0befe635",
-      "downloadUrl": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-high/resolve/a3cffbe82b4df3b9edefa73189f4443ed638d9a1/en_US-lessac-high.onnx",
-      "fileName": "en_US-lessac-high.onnx",
-      "bundleEntryPoint": "en_US-lessac-high.onnx",
-      "remoteArtifacts": [
-        {
-          "path": "en_US-lessac-high.onnx",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-high/resolve/a3cffbe82b4df3b9edefa73189f4443ed638d9a1/en_US-lessac-high.onnx",
-          "sha256": "1315b0b3746e9ff52f8ccc88d3d9eaa6c289001fc58951ed88c0fb3a0befe635",
-          "sizeBytes": 113895332
-        },
-        {
-          "path": "en_US-lessac-high.onnx.json",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-high/resolve/a3cffbe82b4df3b9edefa73189f4443ed638d9a1/en_US-lessac-high.onnx.json",
-          "sha256": "db42b97d9859f257bc1561b8ed980e7fb2398402050a74ddd6cbec931a92412f",
-          "sizeBytes": 4883
-        },
-        {
-          "path": "tokens.txt",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-high/resolve/a3cffbe82b4df3b9edefa73189f4443ed638d9a1/tokens.txt",
-          "sha256": "87c8ef66eae5473ed0cc0366b3964c736ca6c5f676c979522ea31234e47430b9",
-          "sizeBytes": 921
-        },
-        {
-          "path": "MODEL_CARD",
-          "url": "https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-high/resolve/a3cffbe82b4df3b9edefa73189f4443ed638d9a1/MODEL_CARD",
-          "required": false,
-          "sha256": "7671826d947a0ffc11dd76af0bd890d93e956b00358696ad71348f21aa827100",
-          "sizeBytes": 347
-        }
-      ],
-      "engineLicense": "Apache-2.0",
-      "weightsLicense": "VERIFY_BEFORE_COMMERCIAL_SHIP",
-      "commercialOk": false,
-      "catalogFeatured": false,
-      "dependencyPackIds": [
-        "tts-espeak-ng-data"
-      ],
-      "additionalArtifacts": [
-        "en_US-lessac-high.onnx.json",
-        "tokens.txt",
-        "MODEL_CARD"
-      ],
-      "variant": "high"
-    },
-    {
       "id": "stt-medium-multi-q5-0",
       "type": "STT",
       "category": "speech",
@@ -820,6 +389,201 @@
       "ggufRepoUrl": "https://huggingface.co/ggerganov/whisper.cpp",
       "runtimeTier": "ANDROID_HIGH_RAM",
       "minAppVersion": 212
+    },
+    {
+      "type": "TTS",
+      "category": "speech",
+      "section": "voice",
+      "family": "kokoro",
+      "engine": "kokoro",
+      "runtimeBackend": "KOKORO",
+      "storageKind": "SINGLE_FILE",
+      "engineLicense": "Apache-2.0",
+      "weightsLicense": "Apache-2.0",
+      "commercialOk": true,
+      "sourceOrg": "hexgrad",
+      "sourceTrust": "COMMUNITY_VERIFIED",
+      "upstreamModelCardUrl": "https://huggingface.co/hexgrad/Kokoro-82M",
+      "runtimeTier": "ANDROID_LOCAL",
+      "minRamMb": 2048,
+      "recommendedRamMb": 3072,
+      "minAppVersion": 262,
+      "id": "tts-kokoro-82m",
+      "name": "Kokoro 82M voice model",
+      "description": "Neural speech model shared by all Kokoro reading voices (8-bit weights, computed in full precision). It is installed automatically with the first Kokoro voice; remove it only after removing every Kokoro voice.",
+      "variant": "shared-data",
+      "language": "multi",
+      "sizeBytes": 83091229,
+      "sha256": "b85d4f618907ebcf5720fdba54c52b4d75bbe96fd8223f6e5692ad6791081027",
+      "downloadUrl": "https://huggingface.co/Q-P1NG/qdream-models/resolve/4b49403aa057e0db5af7bfa1522fb62dba6b311d/kokoro/kokoro-82m-w8.onnx",
+      "fileName": "kokoro-82m-w8.onnx",
+      "quantTier": "Q8",
+      "recommended": false,
+      "catalogFeatured": false
+    },
+    {
+      "type": "TTS",
+      "category": "speech",
+      "section": "voice",
+      "family": "kokoro",
+      "engine": "kokoro",
+      "runtimeBackend": "KOKORO",
+      "storageKind": "SINGLE_FILE",
+      "engineLicense": "Apache-2.0",
+      "weightsLicense": "Apache-2.0",
+      "commercialOk": true,
+      "sourceOrg": "hexgrad",
+      "sourceTrust": "COMMUNITY_VERIFIED",
+      "upstreamModelCardUrl": "https://huggingface.co/hexgrad/Kokoro-82M",
+      "runtimeTier": "ANDROID_LOCAL",
+      "minRamMb": 2048,
+      "recommendedRamMb": 3072,
+      "minAppVersion": 262,
+      "id": "tts-kokoro-it-sara",
+      "name": "Sara (Italian, Kokoro)",
+      "description": "Natural female Italian voice. Reads the news aloud offline. The first Kokoro voice also downloads the shared 92 MB model.",
+      "variant": "if_sara",
+      "language": "it",
+      "sizeBytes": 522240,
+      "sha256": "409b69248798fcdc2542330c76953d230710f19b057e59cb82fdc3c4cf71265c",
+      "downloadUrl": "https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX/resolve/1939ad2a8e416c0acfeecc08a694d14ef25f2231/voices/if_sara.bin",
+      "fileName": "if_sara.bin",
+      "dependencyPackIds": [
+        "tts-kokoro-82m"
+      ],
+      "recommended": true,
+      "catalogFeatured": true
+    },
+    {
+      "type": "TTS",
+      "category": "speech",
+      "section": "voice",
+      "family": "kokoro",
+      "engine": "kokoro",
+      "runtimeBackend": "KOKORO",
+      "storageKind": "SINGLE_FILE",
+      "engineLicense": "Apache-2.0",
+      "weightsLicense": "Apache-2.0",
+      "commercialOk": true,
+      "sourceOrg": "hexgrad",
+      "sourceTrust": "COMMUNITY_VERIFIED",
+      "upstreamModelCardUrl": "https://huggingface.co/hexgrad/Kokoro-82M",
+      "runtimeTier": "ANDROID_LOCAL",
+      "minRamMb": 2048,
+      "recommendedRamMb": 3072,
+      "minAppVersion": 262,
+      "id": "tts-kokoro-it-nicola",
+      "name": "Nicola (Italian, Kokoro)",
+      "description": "Natural male Italian voice. Reads the news aloud offline. The first Kokoro voice also downloads the shared 92 MB model.",
+      "variant": "im_nicola",
+      "language": "it",
+      "sizeBytes": 522240,
+      "sha256": "bc578e510d52a96d6940d46f12e96d7b3df00905dbea075113226d100e6e1ab0",
+      "downloadUrl": "https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX/resolve/1939ad2a8e416c0acfeecc08a694d14ef25f2231/voices/im_nicola.bin",
+      "fileName": "im_nicola.bin",
+      "dependencyPackIds": [
+        "tts-kokoro-82m"
+      ],
+      "recommended": false,
+      "catalogFeatured": false
+    },
+    {
+      "type": "TTS",
+      "category": "speech",
+      "section": "voice",
+      "family": "kokoro",
+      "engine": "kokoro",
+      "runtimeBackend": "KOKORO",
+      "storageKind": "SINGLE_FILE",
+      "engineLicense": "Apache-2.0",
+      "weightsLicense": "Apache-2.0",
+      "commercialOk": true,
+      "sourceOrg": "hexgrad",
+      "sourceTrust": "COMMUNITY_VERIFIED",
+      "upstreamModelCardUrl": "https://github.com/hexgrad/misaki",
+      "runtimeTier": "ANDROID_LOCAL",
+      "minRamMb": 2048,
+      "recommendedRamMb": 3072,
+      "minAppVersion": 262,
+      "id": "tts-kokoro-en-lexicon",
+      "name": "Kokoro English pronunciation dictionary",
+      "description": "American English pronunciations for the Kokoro voices, from misaki's gold and silver dictionaries (Apache-2.0). Installed automatically with the English Kokoro voices.",
+      "variant": "shared-data",
+      "language": "en",
+      "sizeBytes": 8959128,
+      "sha256": "87dfdbf11e27ca2c991ac3716f814b4c8e04a38e56b42033b857ec2b218ed72d",
+      "downloadUrl": "https://huggingface.co/Q-P1NG/qdream-models/resolve/983c526ee6797877c18bab873ea35133c7dc669f/kokoro/en_us_lexicon.tsv",
+      "fileName": "en_us_lexicon.tsv",
+      "recommended": false,
+      "catalogFeatured": false
+    },
+    {
+      "type": "TTS",
+      "category": "speech",
+      "section": "voice",
+      "family": "kokoro",
+      "engine": "kokoro",
+      "runtimeBackend": "KOKORO",
+      "storageKind": "SINGLE_FILE",
+      "engineLicense": "Apache-2.0",
+      "weightsLicense": "Apache-2.0",
+      "commercialOk": true,
+      "sourceOrg": "hexgrad",
+      "sourceTrust": "COMMUNITY_VERIFIED",
+      "upstreamModelCardUrl": "https://huggingface.co/hexgrad/Kokoro-82M",
+      "runtimeTier": "ANDROID_LOCAL",
+      "minRamMb": 2048,
+      "recommendedRamMb": 3072,
+      "minAppVersion": 262,
+      "id": "tts-kokoro-en-heart",
+      "name": "Heart (English US, Kokoro)",
+      "description": "Natural female American English voice. Reads the news aloud offline. The first Kokoro voice also downloads the shared 92 MB model.",
+      "variant": "af_heart",
+      "language": "en",
+      "sizeBytes": 522240,
+      "sha256": "d583ccff3cdca2f7fae535cb998ac07e9fcb90f09737b9a41fa2734ec44a8f0b",
+      "downloadUrl": "https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX/resolve/1939ad2a8e416c0acfeecc08a694d14ef25f2231/voices/af_heart.bin",
+      "fileName": "af_heart.bin",
+      "dependencyPackIds": [
+        "tts-kokoro-82m",
+        "tts-kokoro-en-lexicon"
+      ],
+      "recommended": true,
+      "catalogFeatured": true
+    },
+    {
+      "type": "TTS",
+      "category": "speech",
+      "section": "voice",
+      "family": "kokoro",
+      "engine": "kokoro",
+      "runtimeBackend": "KOKORO",
+      "storageKind": "SINGLE_FILE",
+      "engineLicense": "Apache-2.0",
+      "weightsLicense": "Apache-2.0",
+      "commercialOk": true,
+      "sourceOrg": "hexgrad",
+      "sourceTrust": "COMMUNITY_VERIFIED",
+      "upstreamModelCardUrl": "https://huggingface.co/hexgrad/Kokoro-82M",
+      "runtimeTier": "ANDROID_LOCAL",
+      "minRamMb": 2048,
+      "recommendedRamMb": 3072,
+      "minAppVersion": 262,
+      "id": "tts-kokoro-en-michael",
+      "name": "Michael (English US, Kokoro)",
+      "description": "Natural male American English voice. Reads the news aloud offline. The first Kokoro voice also downloads the shared 92 MB model.",
+      "variant": "am_michael",
+      "language": "en",
+      "sizeBytes": 522240,
+      "sha256": "1d1f21dd8da39c30705cd4c75d039d265e9bc4a2a93ed09bc9e1b1225eb95ba1",
+      "downloadUrl": "https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX/resolve/1939ad2a8e416c0acfeecc08a694d14ef25f2231/voices/am_michael.bin",
+      "fileName": "am_michael.bin",
+      "dependencyPackIds": [
+        "tts-kokoro-82m",
+        "tts-kokoro-en-lexicon"
+      ],
+      "recommended": false,
+      "catalogFeatured": false
     }
   ]
 }
