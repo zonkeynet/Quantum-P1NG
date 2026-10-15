@@ -31445,7 +31445,7 @@ html.intro-active body > *:not(#intro-screen):not(script):not(style) {
 /* Intro on phones: a lower manifesto band and tighter short clippings, so two fit above and two below the text */
 @media (max-width: 759.98px) {
   .intro-terminal-box {
-    min-height: calc(3 * 1.5 * 1.05rem + 16px);
+    min-height: calc(4.5 * 1.5 * 1.05rem + 16px);
     padding: 8px 4px;
   }
 

@@ -10364,9 +10364,22 @@ if (terminal && gamesGrid) {
   // What the clippings must not cover: the manifesto band, and the Enter button once it shows.
   function pressObstacles() {
     const box = document.querySelector('.intro-terminal-box');
-    const r = box ? box.getBoundingClientRect()
-      : { left: 0, right: window.innerWidth, top: window.innerHeight / 2 - 90, bottom: window.innerHeight / 2 + 90 };
-    const ob = { left: r.left, right: r.right, top: r.top, bottom: r.bottom };
+    const phone = window.innerWidth < 760;
+    let ob;
+    if (box) {
+      const r = box.getBoundingClientRect();
+      if (phone) {
+        // Phones: reserve a stable band so typing 1 to 5 lines never expands into clippings
+        const centerY = (r.top + r.bottom) / 2;
+        const halfH = Math.max(r.height / 2, 65);
+        ob = { left: r.left, right: r.right, top: centerY - halfH, bottom: centerY + halfH };
+      } else {
+        ob = { left: r.left, right: r.right, top: r.top, bottom: r.bottom };
+      }
+    } else {
+      const mid = window.innerHeight / 2;
+      ob = { left: 0, right: window.innerWidth, top: mid - 90, bottom: mid + 90 };
+    }
     const action = actionContainer && !actionContainer.classList.contains('hidden') ? actionContainer.getBoundingClientRect() : null;
     if (action && action.height) {
       ob.left = Math.min(ob.left, action.left);
@@ -10381,7 +10394,7 @@ if (terminal && gamesGrid) {
   // above and below it (alternating which comes first); in each, the first free gap from its start.
   function laneSpot(layout, ob, lane, h) {
     const compact = layout.mode === 'compact';
-    const margin = compact ? 12 : 24;
+    const margin = compact ? 14 : 24;
     const gap = compact ? 10 : 16;
     const beside = lane.x + lane.w <= ob.left - 8 || lane.x >= ob.right + 8;
     const stretches = beside ? [[layout.top, layout.bottom, lane.x < layout.vw / 2 ? 'left' : 'right']]
@@ -10448,10 +10461,17 @@ if (terminal && gamesGrid) {
     const layout = pressLayout();
     if (layout.mode !== pressMode) { startPress(); return; }
     const ob = pressObstacles();
-    // The Enter button appears under the manifesto at the end: a clipping in its way leaves early.
-    pressCards.forEach(e => {
-      if (e.x < ob.right + 8 && e.x + e.w > ob.left - 8 && e.y < ob.bottom + 12 && e.y + e.h > ob.top - 12) retirePress(e, true);
-    });
+    // The Enter button appears under the manifesto at the end: only retire clippings that collide with the visible button
+    if (actionContainer && !actionContainer.classList.contains('hidden')) {
+      const act = actionContainer.getBoundingClientRect();
+      if (act && act.height > 0) {
+        pressCards.forEach(e => {
+          if (e.x < act.right + 8 && e.x + e.w > act.left - 8 && e.y < act.bottom + 8 && e.y + e.h > act.top - 8) {
+            retirePress(e, true);
+          }
+        });
+      }
+    }
     if (Date.now() >= nextPressAt && spawnPress(layout, ob)) nextPressAt = Date.now() + PRESS_TIMING[layout.mode].every;
   }
 
