@@ -32844,3 +32844,388 @@ body.donation-modal-open {
   background: rgba(0, 255, 157, 0.14);
   box-shadow: 0 0 18px rgba(0, 255, 157, 0.3);
 }
+
+/* Feature modules (2026-10): Q-Torrent, Encrypted Suite, Secure Voice, Q-Dream.
+   One shared layout in the Q-CAM visual language; each section sets its accent colours. */
+.qx-section {
+  --qx-a: 0, 243, 255;
+  --qx-b: 10, 255, 132;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 96px 0 108px;
+  background: #020509;
+  font-family: var(--font-sans);
+}
+
+.qx-section--dream { --qx-a: 155, 92, 255; --qx-b: 0, 243, 255; }
+.qx-section--voice { --qx-a: 255, 77, 109; --qx-b: 255, 209, 102; }
+.qx-section--suite { --qx-a: 10, 255, 132; --qx-b: 0, 243, 255; }
+.qx-section--torrent { --qx-a: 0, 229, 200; --qx-b: 155, 92, 255; }
+
+.qx-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(118deg, rgba(var(--qx-a), 0.09), transparent 32%, rgba(var(--qx-b), 0.05) 74%, transparent),
+    linear-gradient(180deg, rgba(3, 7, 12, 0.96), rgba(1, 3, 6, 0.99));
+}
+
+.qx-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.22;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 12%, #000 86%, transparent);
+  mask-image: linear-gradient(180deg, transparent, #000 12%, #000 86%, transparent);
+}
+
+.qx-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.62fr);
+  gap: 36px;
+  align-items: center;
+}
+
+.qx-copy { min-width: 0; }
+
+.qx-kicker,
+.qx-badges,
+.qx-spec,
+.qx-card-index,
+.qx-flow span,
+.qx-note span,
+.qx-credit {
+  font-family: var(--font-mono);
+  letter-spacing: 0;
+}
+
+.qx-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  color: rgba(var(--qx-a), 0.86);
+  font-size: 11px;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.qx-kicker-dot {
+  width: 9px;
+  height: 9px;
+  border: 1px solid rgba(var(--qx-a), 0.8);
+  background: rgba(var(--qx-a), 0.22);
+  box-shadow: 0 0 16px rgba(var(--qx-a), 0.3);
+}
+
+.qx-title {
+  display: grid;
+  gap: 6px;
+  margin: 14px 0 16px;
+  color: #f7fcff;
+  font-family: var(--font-cyber, "QP1NG-Digital", var(--font-mono));
+  font-size: 64px;
+  font-weight: 900;
+  line-height: 0.94;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  text-shadow: 0 0 28px rgba(var(--qx-a), 0.2);
+}
+
+.qx-title span {
+  display: block;
+  min-width: 0;
+}
+
+.qx-title span + span {
+  color: rgba(var(--qx-a), 0.94);
+  font-size: 0.5em;
+  line-height: 1.1;
+}
+
+.qx-subtitle {
+  margin: 0 0 12px;
+  color: rgba(var(--qx-b), 0.86);
+  font-size: 13px;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.qx-desc {
+  max-width: 760px;
+  margin: 0;
+  color: rgba(211, 222, 230, 0.8);
+  font-size: 17px;
+  line-height: 1.68;
+}
+
+.qx-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+.qx-badges span,
+.qx-spec,
+.qx-card,
+.qx-flow div,
+.qx-note {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(8, 14, 18, 0.78), rgba(3, 5, 8, 0.92));
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.022), 0 18px 44px rgba(0, 0, 0, 0.32);
+}
+
+.qx-badges span {
+  padding: 7px 10px;
+  color: rgba(225, 246, 255, 0.86);
+  font-size: 10px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.qx-spec {
+  min-width: 0;
+  padding: 18px;
+  border-color: rgba(var(--qx-a), 0.26);
+}
+
+.qx-spec-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+  color: rgba(var(--qx-a), 0.92);
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.qx-spec dl {
+  display: grid;
+  margin: 0;
+}
+
+.qx-spec dl div {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 12px;
+  padding: 10px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.qx-spec dt {
+  color: rgba(176, 196, 208, 0.8);
+  font-size: 11px;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.qx-spec dd {
+  margin: 0;
+  color: rgba(240, 248, 252, 0.92);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.qx-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.qx-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+.qx-card {
+  min-width: 0;
+  padding: 18px;
+}
+
+.qx-card-index {
+  display: inline-flex;
+  color: rgba(var(--qx-a), 0.88);
+  font-size: 11px;
+}
+
+.qx-card h3 {
+  margin: 11px 0 8px;
+  color: rgba(247, 252, 255, 0.95);
+  font-family: var(--font-cyber, "QP1NG-Digital", var(--font-mono));
+  font-size: 21px;
+  line-height: 1.12;
+  letter-spacing: 0;
+}
+
+.qx-card p {
+  margin: 0;
+  color: rgba(203, 214, 221, 0.78);
+  font-size: 13px;
+  line-height: 1.58;
+}
+
+.qx-card ul {
+  margin: 12px 0 0;
+  padding-left: 16px;
+  color: rgba(203, 214, 221, 0.78);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.qx-flow {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.qx-flow div {
+  min-width: 0;
+  padding: 15px;
+}
+
+.qx-flow span {
+  display: block;
+  margin-bottom: 8px;
+  color: rgba(var(--qx-b), 0.88);
+  font-size: 10px;
+}
+
+.qx-flow strong {
+  display: block;
+  color: rgba(225, 246, 255, 0.84);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.qx-note {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+  margin-top: 18px;
+  padding: 18px;
+  border-color: rgba(255, 185, 72, 0.18);
+  background: rgba(255, 185, 72, 0.045);
+}
+
+.qx-note span {
+  color: rgba(255, 185, 72, 0.92);
+  font-size: 11px;
+}
+
+.qx-note p {
+  margin: 0;
+  color: rgba(225, 230, 232, 0.78);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.qx-credit {
+  margin: 14px 0 0;
+  color: rgba(150, 168, 180, 0.74);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.qx-credit a { color: rgba(var(--qx-a, 0, 243, 255), 0.9); }
+
+/* Q-CAM face swap block */
+.qcam-swap {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+  margin-top: 18px;
+  padding: 20px;
+  border: 1px solid rgba(255, 42, 109, 0.22);
+  border-radius: 8px;
+  background: linear-gradient(120deg, rgba(255, 42, 109, 0.07), rgba(3, 5, 8, 0.92) 46%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.022), 0 18px 44px rgba(0, 0, 0, 0.32);
+}
+
+.qcam-swap-copy { min-width: 0; }
+
+.qcam-swap-copy > span {
+  color: rgba(255, 42, 109, 0.9);
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.qcam-swap h3 {
+  margin: 10px 0 8px;
+  color: rgba(247, 252, 255, 0.95);
+  font-family: var(--font-cyber, "QP1NG-Digital", var(--font-mono));
+  font-size: 24px;
+  line-height: 1.12;
+  letter-spacing: 0;
+}
+
+.qcam-swap p {
+  margin: 0;
+  color: rgba(211, 222, 230, 0.8);
+  font-size: 14px;
+  line-height: 1.62;
+}
+
+.qcam-swap-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.qcam-swap-facts li {
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  background: rgba(3, 5, 8, 0.6);
+  color: rgba(225, 246, 255, 0.82);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.qcam-swap-facts strong {
+  display: block;
+  margin-bottom: 4px;
+  color: rgba(10, 255, 132, 0.86);
+  font-size: 10px;
+}
+
+@media (max-width: 1180px) {
+  .qx-hero { grid-template-columns: 1fr; }
+  .qx-spec { max-width: 760px; }
+  .qx-grid,
+  .qx-grid--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .qx-flow { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .qcam-swap { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .qx-section { padding: 72px 0 80px; }
+  .qx-title { font-size: 44px; }
+  .qx-desc { font-size: 15px; }
+  .qx-grid,
+  .qx-grid--3,
+  .qx-flow { grid-template-columns: 1fr; }
+  .qx-note { grid-template-columns: 1fr; gap: 8px; }
+}
+
+@media (max-width: 520px) {
+  .qx-title { font-size: 34px; }
+  .qx-spec dl div { grid-template-columns: 1fr; gap: 4px; }
+  .qcam-swap-facts { grid-template-columns: 1fr; }
+}

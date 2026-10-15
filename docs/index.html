@@ -310,7 +310,7 @@
                 <span class="drop-sub">C++, Rust & Cryptography</span>
               </div>
             </a>
-            <a href="#protocols" class="nav-drop-item" role="menuitem">
+            <a href="docs/" class="nav-drop-item" role="menuitem">
               <span class="drop-idx mono">03</span>
               <div class="drop-text">
                 <span class="drop-title">Protocols Mirror</span>
@@ -356,18 +356,32 @@
                 <span class="drop-sub">Off-grid physical links</span>
               </div>
             </a>
-            <a href="#data-sanitizer" class="nav-drop-item" role="menuitem">
+            <a href="#q-torrent" class="nav-drop-item" role="menuitem">
               <span class="drop-idx mono">04</span>
+              <div class="drop-text">
+                <span class="drop-title">Q-Torrent</span>
+                <span class="drop-sub">Private file swarm over Tor</span>
+              </div>
+            </a>
+            <a href="#data-sanitizer" class="nav-drop-item" role="menuitem">
+              <span class="drop-idx mono">05</span>
               <div class="drop-text">
                 <span class="drop-title">Data Sanitizer</span>
                 <span class="drop-sub">EXIF & metadata stripper</span>
               </div>
             </a>
             <a href="#finance" class="nav-drop-item" role="menuitem">
-              <span class="drop-idx mono">05</span>
+              <span class="drop-idx mono">06</span>
               <div class="drop-text">
                 <span class="drop-title">Bitcoin Vault</span>
                 <span class="drop-sub">Sovereign cold storage</span>
+              </div>
+            </a>
+            <a href="#q-suite" class="nav-drop-item" role="menuitem">
+              <span class="drop-idx mono">07</span>
+              <div class="drop-text">
+                <span class="drop-title">Encrypted Suite</span>
+                <span class="drop-sub">Q-Pass, Q-Notes &amp; Q-Agenda</span>
               </div>
             </a>
           </div>
@@ -441,39 +455,53 @@
                 <span class="drop-sub">Local Whisper STT on-device</span>
               </div>
             </a>
-            <a href="#q-ai" class="nav-drop-item" role="menuitem">
+            <a href="#q-voice" class="nav-drop-item" role="menuitem">
               <span class="drop-idx mono">02</span>
+              <div class="drop-text">
+                <span class="drop-title">Secure Voice</span>
+                <span class="drop-sub">Voice clone &amp; conversion</span>
+              </div>
+            </a>
+            <a href="#q-ai" class="nav-drop-item" role="menuitem">
+              <span class="drop-idx mono">03</span>
               <div class="drop-text">
                 <span class="drop-title">Q-AI Engine</span>
                 <span class="drop-sub">Offline neural assistant</span>
               </div>
             </a>
+            <a href="#q-dream" class="nav-drop-item" role="menuitem">
+              <span class="drop-idx mono">04</span>
+              <div class="drop-text">
+                <span class="drop-title">Q-Dream</span>
+                <span class="drop-sub">On-device image engine</span>
+              </div>
+            </a>
             <a href="#action-forge" class="nav-drop-item" role="menuitem">
-              <span class="drop-idx mono">03</span>
+              <span class="drop-idx mono">05</span>
               <div class="drop-text">
                 <span class="drop-title">ActionForge</span>
                 <span class="drop-sub">Tactical scenario automation</span>
               </div>
             </a>
             <a href="#q-geo" class="nav-drop-item" role="menuitem">
-              <span class="drop-idx mono">04</span>
+              <span class="drop-idx mono">06</span>
               <div class="drop-text">
                 <span class="drop-title">Q-Geo Tactical</span>
                 <span class="drop-sub">Vector maps & offline tiles</span>
               </div>
             </a>
             <a href="#q-feed" class="nav-drop-item" role="menuitem">
-              <span class="drop-idx mono">05</span>
+              <span class="drop-idx mono">07</span>
               <div class="drop-text">
                 <span class="drop-title">Q-Feed</span>
                 <span class="drop-sub">Decentralized P2P dispatch</span>
               </div>
             </a>
             <a href="#q-cam" class="nav-drop-item" role="menuitem">
-              <span class="drop-idx mono">06</span>
+              <span class="drop-idx mono">08</span>
               <div class="drop-text">
                 <span class="drop-title">Q-CAM</span>
-                <span class="drop-sub">Biometric facial shielding</span>
+                <span class="drop-sub">Facial shielding &amp; face swap</span>
               </div>
             </a>
           </div>
@@ -505,7 +533,7 @@
         <span class="mobilemenu-label mono">[ 01 // ARCHITECTURE ]</span>
         <a href="#mission">Mission & Manifesto</a>
         <a href="#stack">Tech Stack</a>
-        <a href="#protocols">Protocols Mirror</a>
+        <a href="docs/">Protocols Mirror</a>
         <a href="#roadmap">Roadmap</a>
       </div>
       <div class="mobilemenu-section">
@@ -513,8 +541,10 @@
         <a href="#security">Security Core</a>
         <a href="#anti-forensic">Anti-Forensic</a>
         <a href="#air-gap">Air-Gap Transports</a>
+        <a href="#q-torrent">Q-Torrent</a>
         <a href="#data-sanitizer">Data Sanitizer</a>
         <a href="#finance">Bitcoin Vault</a>
+        <a href="#q-suite">Encrypted Suite</a>
       </div>
       <div class="mobilemenu-section">
         <span class="mobilemenu-label mono">[ 03 // RF & COMMS ]</span>
@@ -527,7 +557,9 @@
       <div class="mobilemenu-section">
         <span class="mobilemenu-label mono">[ 04 // TOOLS & AI ]</span>
         <a href="#stt">Secure Dictation (STT)</a>
+        <a href="#q-voice">Secure Voice</a>
         <a href="#q-ai">Q-AI Engine</a>
+        <a href="#q-dream">Q-Dream Images</a>
         <a href="#action-forge">ActionForge</a>
         <a href="#q-geo">Q-Geo Tactical</a>
         <a href="#q-feed">Q-Feed</a>
@@ -2480,6 +2512,82 @@ _
     </div>
   </div>
 </section>
+<!-- ===================================================================== -->
+<!-- Q-TORRENT: PRIVATE ONION-ONLY FILE TRANSFER                           -->
+<!-- ===================================================================== -->
+<section id="q-torrent" class="section qx-section qx-section--torrent" aria-labelledby="q-torrent-title">
+  <div class="qx-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="qx-hero">
+      <div class="qx-copy">
+        <div class="qx-kicker mono">
+          <span class="qx-kicker-dot" aria-hidden="true"></span>
+          <span>MODULE: Q-TORRENT_PRIVATE_SWARM</span>
+          <span>//</span>
+          <span>ONION-ONLY FILE TRANSFER</span>
+        </div>
+        <h2 class="qx-title" id="q-torrent-title"><span>Q-Torrent</span><span>Private File Transfer</span></h2>
+        <p class="qx-subtitle mono">Large files between trusted contacts. No trackers. No cloud.</p>
+        <p class="qx-desc">
+          Some files are too heavy for a chat message: video evidence, document archives, map packs. Q-Torrent moves them between verified contacts as a private swarm that exists only inside Tor. The sender publishes a short-lived, encrypted onion share; the receiver pulls it through Tor, checks every piece and decrypts it on the phone. There is no public tracker, no peer discovery and no upload server in between.
+        </p>
+        <div class="qx-badges" aria-label="Q-Torrent properties">
+          <span>Onion-only</span>
+          <span>AES-256-GCM</span>
+          <span>SHA-256 per chunk</span>
+          <span>Verified contacts</span>
+          <span>12 h invites</span>
+        </div>
+      </div>
+      <aside class="qx-spec mono" aria-label="Q-Torrent transfer profile">
+        <div class="qx-spec-head"><span>Transfer profile</span><span>Private</span></div>
+        <dl>
+          <div><dt>Transport</dt><dd>The sender's Tor onion service</dd></div>
+          <div><dt>Encryption</dt><dd>AES-256-GCM before the file leaves the phone</dd></div>
+          <div><dt>Chunks</dt><dd>4 MB, each verified with SHA-256</dd></div>
+          <div><dt>Discovery</dt><dd>None: public trackers and peer discovery are disabled</dd></div>
+          <div><dt>Invitations</dt><dd>Expire after 12 hours</dd></div>
+        </dl>
+      </aside>
+    </div>
+
+    <div class="qx-grid" aria-label="Q-Torrent capabilities">
+      <article class="qx-card">
+        <span class="qx-card-index mono">01</span>
+        <h3>Sealed invitations</h3>
+        <p>A transfer starts with an encrypted invitation to a verified contact. Every download needs the receiver's confirmation, and Q-Torrent requests can be blocked per contact.</p>
+      </article>
+      <article class="qx-card">
+        <span class="qx-card-index mono">02</span>
+        <h3>Encrypted before sharing</h3>
+        <p>The file is encrypted with AES-256-GCM and split into 4 MB chunks before anything is served, so the swarm only ever carries ciphertext.</p>
+      </article>
+      <article class="qx-card">
+        <span class="qx-card-index mono">03</span>
+        <h3>Pulled through Tor</h3>
+        <p>Chunks travel only through Tor. The receiver verifies the SHA-256 of each chunk, decrypts on the device and checks the hash of the complete file.</p>
+      </article>
+      <article class="qx-card">
+        <span class="qx-card-index mono">04</span>
+        <h3>You control the share</h3>
+        <p>Q-File lists active transfers, the queue and the files you are sharing. Stop sharing at any moment; unused invitations expire on their own.</p>
+      </article>
+    </div>
+
+    <div class="qx-flow" aria-label="Q-Torrent transfer workflow">
+      <div><span class="mono">SELECT</span><strong>file from Q-File or the chat</strong></div>
+      <div><span class="mono">SEAL</span><strong>AES-256-GCM, 4 MB chunks</strong></div>
+      <div><span class="mono">INVITE</span><strong>encrypted invitation to a verified contact</strong></div>
+      <div><span class="mono">PULL</span><strong>chunks over Tor, SHA-256 checked</strong></div>
+      <div><span class="mono">OPEN</span><strong>local decryption, final hash verified</strong></div>
+    </div>
+
+    <div class="qx-note">
+      <span class="mono">FIELD NOTE</span>
+      <p>Tor keeps the transfer private but makes it slower than a direct link. Both phones need to be online with Q-P1NG open while the file moves, and anyone who receives a file can pass it on.</p>
+    </div>
+  </div>
+</section>
 <section id="q-map-engine" class="section section--alt qmap-pro-section">
   <div class="wrap qmap-pro-wrap">
     <div class="qmap-pro-head">
@@ -4029,6 +4137,84 @@ _
   </div>
 </section>
 <!-- ===================================================================== -->
+<!-- ENCRYPTED SUITE: Q-PASS, Q-NOTES & Q-AGENDA                           -->
+<!-- ===================================================================== -->
+<section id="q-suite" class="section qx-section qx-section--suite" aria-labelledby="q-suite-title">
+  <div class="qx-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="qx-hero">
+      <div class="qx-copy">
+        <div class="qx-kicker mono">
+          <span class="qx-kicker-dot" aria-hidden="true"></span>
+          <span>MODULE: ENCRYPTED_LOCAL_SUITE</span>
+          <span>//</span>
+          <span>NO CLOUD SYNC</span>
+        </div>
+        <h2 class="qx-title" id="q-suite-title"><span>Encrypted Suite</span><span>Q-Pass · Q-Notes · Q-Agenda</span></h2>
+        <p class="qx-subtitle mono">Passwords, notes and appointments that stay on your phone.</p>
+        <p class="qx-desc">
+          Everyday tools usually live in someone else's cloud. The encrypted suite keeps them on the device: a password manager, private notes with voice capture and a calendar for sensitive appointments. Everything is stored in the app's encrypted database and works offline; when you share, it goes to a contact you chose, through Tor.
+        </p>
+        <div class="qx-badges" aria-label="Encrypted suite properties">
+          <span>Encrypted database</span>
+          <span>Biometric unlock</span>
+          <span>No cloud sync</span>
+          <span>Works offline</span>
+          <span>Tor sharing</span>
+        </div>
+      </div>
+      <aside class="qx-spec mono" aria-label="Encrypted suite storage profile">
+        <div class="qx-spec-head"><span>Storage profile</span><span>Local</span></div>
+        <dl>
+          <div><dt>Storage</dt><dd>Encrypted on the device (SQLCipher)</dd></div>
+          <div><dt>Sync</dt><dd>None: no accounts, no servers</dd></div>
+          <div><dt>Unlock</dt><dd>App lock and biometrics</dd></div>
+          <div><dt>Emergency wipe</dt><dd>Passwords and Notes are separate wipe domains</dd></div>
+          <div><dt>Sharing</dt><dd>Notes and invitations to your contacts over Tor</dd></div>
+        </dl>
+      </aside>
+    </div>
+
+    <div class="qx-grid qx-grid--3" aria-label="Encrypted suite modules">
+      <article class="qx-card">
+        <span class="qx-card-index mono">Q-PASS</span>
+        <h3>Password manager</h3>
+        <p>A credential vault with biometric protection. Services, usernames and passwords are not loaded until you unlock it.</p>
+        <ul>
+          <li>Password and temporary-email generator</li>
+          <li>Full-text search by service, user or category</li>
+          <li>Copied secrets clear from the clipboard after 30 seconds</li>
+        </ul>
+      </article>
+      <article class="qx-card">
+        <span class="qx-card-index mono">Q-NOTES</span>
+        <h3>Secure notes and voice</h3>
+        <p>Encrypted text notes and voice notes for field reports, sources and ideas you do not want in a cloud notebook.</p>
+        <ul>
+          <li>Voice notes transcribed on the device with Whisper</li>
+          <li>Send a note straight to a contact over Tor</li>
+          <li>Covered by the emergency wipe</li>
+        </ul>
+      </article>
+      <article class="qx-card">
+        <span class="qx-card-index mono">Q-AGENDA</span>
+        <h3>Private calendar</h3>
+        <p>An encrypted calendar kept apart from the Android calendar, so sensitive appointments never reach a synced account.</p>
+        <ul>
+          <li>Event invitations from your P2P contacts</li>
+          <li>Link an event to a Bitcoin payment request</li>
+          <li>Works fully offline</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="qx-note">
+      <span class="mono">LOCAL ONLY</span>
+      <p>No cloud sync also means no cloud copy. Keep your own backup of what you cannot afford to lose; an emergency wipe of Passwords or Notes cannot be undone.</p>
+    </div>
+  </div>
+</section>
+<!-- ===================================================================== -->
 <!-- Q-FEED: DECENTRALIZED MESH SOCIAL & P2P SIGNED RECEIPTS               -->
 <!-- ===================================================================== -->
 <section id="q-feed" class="section q-feed-section">
@@ -4738,6 +4924,83 @@ _
         </ul>
       </article>
     </div>
+  </div>
+</section>
+<!-- ===================================================================== -->
+<!-- SECURE VOICE: CLONE, CONVERT & REVIEW                                 -->
+<!-- ===================================================================== -->
+<section id="q-voice" class="section qx-section qx-section--voice" aria-labelledby="q-voice-title">
+  <div class="qx-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="qx-hero">
+      <div class="qx-copy">
+        <div class="qx-kicker mono">
+          <span class="qx-kicker-dot" aria-hidden="true"></span>
+          <span>MODULE: SECURE_VOICE</span>
+          <span>//</span>
+          <span>ON-DEVICE VOICE SYNTHESIS</span>
+        </div>
+        <h2 class="qx-title" id="q-voice-title"><span>Secure Voice</span><span>Clone · Convert · Review</span></h2>
+        <p class="qx-subtitle mono">Voice messages shaped on the phone. No audio is uploaded.</p>
+        <p class="qx-desc">
+          The chat recorder is also a private voice studio. Send your own voice, apply the Ghost effect, convert a recording into a reference voice, or type a message and hear it spoken in a voice you are allowed to use. The models run offline on the device, and every result is played back for your review before it is sent.
+        </p>
+        <div class="qx-badges" aria-label="Secure Voice capabilities">
+          <span>On-device</span>
+          <span>Clone from text</span>
+          <span>Voice conversion</span>
+          <span>Ghost effect</span>
+          <span>Review before send</span>
+        </div>
+      </div>
+      <aside class="qx-spec mono" aria-label="Secure Voice models">
+        <div class="qx-spec-head"><span>Voice models</span><span>Optional</span></div>
+        <dl>
+          <div><dt>Clone from text</dt><dd>Pocket TTS, Italian and English, from 165 MB</dd></div>
+          <div><dt>High fidelity</dt><dd>Italian, 392 MB</dd></div>
+          <div><dt>Voice conversion</dt><dd>OpenVoice v2: Standard 130 MB, Compact 43 MB</dd></div>
+          <div><dt>Reference</dt><dd>5 to 10 s of clear speech, or WAV, MP3, M4A, OGG, FLAC</dd></div>
+          <div><dt>Download</dt><dd>Directly or over Tor; no recordings are uploaded</dd></div>
+        </dl>
+      </aside>
+    </div>
+
+    <div class="qx-grid" aria-label="Secure Voice modes">
+      <article class="qx-card">
+        <span class="qx-card-index mono">01</span>
+        <h3>Clone from text</h3>
+        <p>Record a short reference or import an audio file, type the message and generate a preview. Synthesis runs on the phone; the reference stays temporary and only the generated message reaches the preview.</p>
+      </article>
+      <article class="qx-card">
+        <span class="qx-card-index mono">02</span>
+        <h3>Voice conversion</h3>
+        <p>Turn a recorded message into the timbre of a reference voice. Only the converted audio is saved; the reference stays in memory until the window closes.</p>
+      </article>
+      <article class="qx-card">
+        <span class="qx-card-index mono">03</span>
+        <h3>Ghost effect</h3>
+        <p>A voice effect for messages where your natural voice is not needed. It fails closed: if the effect cannot be applied, the original is never sent in its place.</p>
+      </article>
+      <article class="qx-card">
+        <span class="qx-card-index mono">04</span>
+        <h3>Review gate</h3>
+        <p>Original, Ghost, converted or cloned: every message is played back before sending, with an optional on-device Whisper transcript you can edit or delete.</p>
+      </article>
+    </div>
+
+    <div class="qx-flow" aria-label="Secure Voice workflow">
+      <div><span class="mono">CAPTURE</span><strong>record or import audio</strong></div>
+      <div><span class="mono">SHAPE</span><strong>Ghost, conversion or clone from text</strong></div>
+      <div><span class="mono">LISTEN</span><strong>preview on the phone</strong></div>
+      <div><span class="mono">CHECK</span><strong>optional local transcript</strong></div>
+      <div><span class="mono">SEND</span><strong>to your contact, end-to-end encrypted</strong></div>
+    </div>
+
+    <div class="qx-note">
+      <span class="mono">CONSENT</span>
+      <p>Use your own voice or one you have permission to use. Synthetic speech is not a guarantee of anonymity: wording, background sounds and context can still identify you, and imitating a person without consent can be unlawful.</p>
+    </div>
+    <p class="qx-credit">Clone from text uses Pocket TTS by Kyutai (CC BY 4.0). Voice conversion uses OpenVoice v2 by MyShell (MIT).</p>
   </div>
 </section>
 <!-- ================================================
@@ -6565,7 +6828,7 @@ _
         <ul>
           <li>GGUF, quant tiers and prompt formats</li>
           <li>CPU, GPU, NPU, MNN, QNN targets</li>
-          <li>Whisper, Sherpa, LocalDream and SD backends</li>
+          <li>Whisper, Q-Dream and SD backends</li>
         </ul>
       </article>
 
@@ -6658,6 +6921,85 @@ _
       <div class="qai-metric"><strong class="mono" data-qai-count="5">0</strong><span>Risk Levels</span></div>
       <div class="qai-metric"><strong class="mono" data-qai-count="0">0</strong><span>Sample Auto-actions</span></div>
     </div>
+  <p class="qx-credit">Built with Llama. Llama 3.2 is licensed under the Llama 3.2 Community License, Copyright &copy; Meta Platforms, Inc. All Rights Reserved.</p>
+  </div>
+</section>
+<!-- ===================================================================== -->
+<!-- Q-DREAM: ON-DEVICE IMAGE GENERATION                                   -->
+<!-- ===================================================================== -->
+<section id="q-dream" class="section qx-section qx-section--dream" aria-labelledby="q-dream-title">
+  <div class="qx-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="qx-hero">
+      <div class="qx-copy">
+        <div class="qx-kicker mono">
+          <span class="qx-kicker-dot" aria-hidden="true"></span>
+          <span>MODULE: Q-DREAM_IMAGE_ENGINE</span>
+          <span>//</span>
+          <span>ON-DEVICE DIFFUSION</span>
+        </div>
+        <h2 class="qx-title" id="q-dream-title"><span>Q-Dream</span><span>Image Engine on the Phone</span></h2>
+        <p class="qx-subtitle mono">Text to image without a server. NPU in under a second, CPU on any recent phone.</p>
+        <p class="qx-desc">
+          Q-Dream is the image engine behind Q-Brain chat. Describe a picture and it is generated on the device by Stable Diffusion 1.5 models with latent-consistency sampling: on the Hexagon NPU of recent Snapdragon phones, or on the CPU of any arm64 phone with enough memory. Prompts and images stay on the phone until you decide to share them.
+        </p>
+        <div class="qx-badges" aria-label="Q-Dream properties">
+          <span>On-device</span>
+          <span>Snapdragon NPU</span>
+          <span>CPU int8</span>
+          <span>6-step LCM</span>
+          <span>No image server</span>
+          <span>Open RAIL-M</span>
+        </div>
+      </div>
+      <aside class="qx-spec mono" aria-label="Q-Dream measured performance">
+        <div class="qx-spec-head"><span>Measured in the app</span><span>6 steps</span></div>
+        <dl>
+          <div><dt>Snapdragon 8 Elite (NPU)</dt><dd>512 px in 0.9 s per image</dd></div>
+          <div><dt>Pixel 10a (CPU)</dt><dd>384 px in 12 to 13 s</dd></div>
+          <div><dt>NPU bundles</dt><dd>Snapdragon 8 Gen 2, 7 Gen 4, 8 Gen 3, 8 Elite, 8 Elite Gen 5</dd></div>
+          <div><dt>CPU bundles</dt><dd>Any arm64 phone with 6 GB of RAM</dd></div>
+          <div><dt>Download</dt><dd>About 1 GB per model, every file SHA-256 checked</dd></div>
+        </dl>
+      </aside>
+    </div>
+
+    <div class="qx-grid" aria-label="Q-Dream capabilities">
+      <article class="qx-card">
+        <span class="qx-card-index mono">01</span>
+        <h3>Three models</h3>
+        <p>DreamShaper 8 LCM, Realistic Vision V6 and CyberRealistic, converted and quantized by Q-P1NG for phones and published on Hugging Face.</p>
+      </article>
+      <article class="qx-card">
+        <span class="qx-card-index mono">02</span>
+        <h3>The right build per phone</h3>
+        <p>The app picks the bundle compiled for your Snapdragon's Hexagon NPU. Snapdragon 8 Gen 1 and older, and other chips, use the int8 CPU bundle.</p>
+      </article>
+      <article class="qx-card">
+        <span class="qx-card-index mono">03</span>
+        <h3>Verified, on demand</h3>
+        <p>Models are downloaded only when you choose them, directly or over Tor, and every file is checked against its SHA-256 before use.</p>
+      </article>
+      <article class="qx-card">
+        <span class="qx-card-index mono">04</span>
+        <h3>Clear terms</h3>
+        <p>Before the first download you accept the Open RAIL-M use restrictions. Q-P1NG claims no rights over the images you create.</p>
+      </article>
+    </div>
+
+    <div class="qx-flow" aria-label="Q-Dream generation pipeline">
+      <div><span class="mono">PROMPT</span><strong>written in Q-Brain chat</strong></div>
+      <div><span class="mono">ENCODE</span><strong>CLIP text encoder</strong></div>
+      <div><span class="mono">DENOISE</span><strong>6 LCM steps on NPU or CPU</strong></div>
+      <div><span class="mono">DECODE</span><strong>TAESD or full VAE</strong></div>
+      <div><span class="mono">KEEP</span><strong>on the phone until you share it</strong></div>
+    </div>
+
+    <div class="qx-note">
+      <span class="mono">RESPONSIBLE USE</span>
+      <p>Generated images can look real. Use them lawfully and within the Open RAIL-M restrictions, and label synthetic images when you share them.</p>
+    </div>
+    <p class="qx-credit">Models: DreamShaper 8 LCM (Lykon), Realistic Vision V6.0 B1 (SG161222), CyberRealistic (cyberdelia), LCM-LoRA and TAESD. Bundles: <a href="https://huggingface.co/Q-P1NG/qdream-models" target="_blank" rel="noopener">Q-P1NG/qdream-models</a>, under the Q-P1NG Q-Dream Model License (CreativeML Open RAIL-M).</p>
   </div>
 </section>
 <!-- ===================================================================== -->
@@ -7090,6 +7432,7 @@ _
           <span>IDENTITY MASKS</span>
           <span>EXIF STRIP</span>
           <span>SECURE ROUTING</span>
+          <span>FACE SWAP</span>
         </div>
       </div>
 
@@ -7193,10 +7536,24 @@ _
       </article>
     </div>
 
+    <div class="qcam-swap" aria-label="Q-CAM face swap">
+      <div class="qcam-swap-copy">
+        <span>FACE SWAP</span>
+        <h3>Replace a face instead of covering it</h3>
+        <p>Choose a source face once and Q-CAM swaps it into photos, videos and live streams, entirely on the device. The preview shows the time per frame; if the face is lost or memory runs short, the swap pauses and no original frame is sent.</p>
+      </div>
+      <ul class="qcam-swap-facts">
+        <li><strong>ON-DEVICE</strong>ONNX Runtime, nothing uploaded</li>
+        <li><strong>MODES</strong>photo, video and live</li>
+        <li><strong>FAIL-SAFE</strong>pauses, never sends the original</li>
+        <li><strong>MODEL</strong>optional download, 292 MB</li>
+      </ul>
+    </div>
+
     <div class="qcam-flow" aria-label="Q-CAM protected capture workflow">
       <div><span class="mono">CAPTURE</span><strong>camera permission gate + mode selection</strong></div>
       <div><span class="mono">DETECT</span><strong>on-device face lock + preview brackets</strong></div>
-      <div><span class="mono">DEFACE</span><strong>pixel, void, random or mask overlay</strong></div>
+      <div><span class="mono">DEFACE</span><strong>pixel, void, random, mask or face swap</strong></div>
       <div><span class="mono">CLEAN</span><strong>EXIF and embedded metadata stripped</strong></div>
       <div><span class="mono">ROUTE</span><strong>vault, Q-NET, burn or external share</strong></div>
     </div>
@@ -7547,7 +7904,7 @@ _
             <span>Llama runtime</span>
             <span>AI packs</span>
             <span>Tool governance</span>
-            <span>LocalDream / SD</span>
+            <span>Q-Dream / SD</span>
           </div>
         </div>
       </div>
