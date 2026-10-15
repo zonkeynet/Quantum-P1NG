@@ -211,7 +211,15 @@
     <h2>4. Offline Local AI & Media Privacy</h2>
     <p>All AI capabilities (Q-Brain text inference, Whisper speech-to-text dictation, and Stable Diffusion generation) run 100% locally on your device hardware using local weights. No audio recordings, text prompts, or generated imagery are ever transmitted to any third-party AI cloud API.</p>
 
-    <h2>5. Inquiries & Contact</h2>
+    <h2>5. Q-Globe (In-App Globe, Radio & Live TV)</h2>
+    <ul>
+        <li><strong>Isolated Viewer:</strong> Q-Globe opens the public page <a href="https://globe.qp1ng.com/" target="_blank" rel="noopener" style="color: var(--cyan); text-decoration: none;">globe.qp1ng.com</a> in a separate process with its own browsing storage. It receives no account, contact, chat identity or device identifier, sets no cookies and contains no analytics. Its browsing data is erased when Q-Globe closes.</li>
+        <li><strong>Network Mode:</strong> Q-Globe follows the app's connection mode. In Tor mode its requests travel through Tor and never fall back to a direct connection; in direct mode they use your normal internet connection.</li>
+        <li><strong>Third-Party Services:</strong> The globe shows public data and imagery from third-party sources, and radio stations and TV channels are streamed from their broadcasters. These services receive ordinary network requests: through Tor they see a Tor exit address, in direct mode they see your IP address. Q-P1NG asks before any playback, warns before a direct stream during a Tor session, and does not control the logging policies of these services.</li>
+        <li><strong>Sharing:</strong> A place, event or station is shared only when you choose to, either through Q-P1NG's encrypted chat or with another app you select. Only the public globe link is shared.</li>
+    </ul>
+
+    <h2>6. Inquiries & Contact</h2>
     <p>For support or privacy inquiries:</p>
     <ul>
         <li>Support: <strong><a href="mailto:support@qp1ng.com" style="color: var(--cyan); text-decoration: none;">support@qp1ng.com</a></strong></li>
