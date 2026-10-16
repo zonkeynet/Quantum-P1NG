@@ -3,3 +3,5 @@
 docs/manifest.json -text
 docs/manifest.min.json -text
 docs/categories/*.json -text
+# Map files are installed only if their SHA-256 matches the app: never convert them.
+docs/maps/** binary

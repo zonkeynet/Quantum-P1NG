@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
+# Large map files: downloaded by the app, not useful to index.
+Disallow: /maps/
 
 # Host
 Host: https://www.qp1ng.com
