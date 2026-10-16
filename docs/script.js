@@ -10506,6 +10506,16 @@ if (terminal && gamesGrid) {
   let typingTimeout = null;
   let failsafeTimer = null;
   let cursorBlinkTimer = null;
+  let cipherTimeout = null;
+  let cipherInterval = null;
+
+  function stopCipherTransformation() {
+    clearTimeout(cipherTimeout);
+    clearInterval(cipherInterval);
+    cipherTimeout = null;
+    cipherInterval = null;
+  }
+
 
   // Active Watchdog: only triggers if no characters or progress occur for 25 seconds
   function resetWatchdog() {
@@ -10527,6 +10537,7 @@ if (terminal && gamesGrid) {
     clearTimeout(typingTimeout);
     clearTimeout(failsafeTimer);
     clearTimeout(cursorBlinkTimer);
+    stopCipherTransformation();
     if (cursor) cursor.classList.remove('cursor-solid');
     setSeenIntro();
 
@@ -10624,6 +10635,73 @@ if (terminal && gamesGrid) {
     }, 85);
   }
 
+  // Cyber cipher typewriter scramble: converts "QUANTUM P1NG" into "Q-P1NG" with code matrix effect
+  function scheduleCipherTransformation() {
+    stopCipherTransformation();
+    if (!currentSpan || isDismissed) return;
+
+    cipherTimeout = setTimeout(() => {
+      if (isDismissed || !currentSpan) return;
+
+      const fullText = currentSpan.textContent || '';
+      const sourceBrand = 'QUANTUM P1NG';
+      const targetBrand = 'Q-P1NG';
+
+      if (!fullText.startsWith(sourceBrand)) return;
+
+      const suffix = fullText.slice(sourceBrand.length);
+
+      currentSpan.innerHTML = '';
+      const brandEl = document.createElement('span');
+      brandEl.className = 'brand-word txt-cipher-scramble';
+      brandEl.textContent = sourceBrand;
+
+      const suffixEl = document.createElement('span');
+      suffixEl.className = 'brand-suffix';
+      suffixEl.textContent = suffix;
+
+      currentSpan.appendChild(brandEl);
+      currentSpan.appendChild(suffixEl);
+
+      const GLYPHS = '01#_@$[]<>/*-!?~+^&%X89';
+      const totalSteps = 24;
+      const intervalMs = 32;
+      let step = 0;
+
+      cipherInterval = setInterval(() => {
+        if (isDismissed) {
+          stopCipherTransformation();
+          return;
+        }
+
+        step++;
+
+        // Start locking characters from left to right into 'Q-P1NG' after step 6
+        const lockProgress = Math.max(0, Math.min(1, (step - 6) / 16));
+        const lockedChars = Math.floor(lockProgress * targetBrand.length);
+
+        // Gradually interpolate length from source (12) down to target (6)
+        const progress = step / totalSteps;
+        const currentLen = Math.max(targetBrand.length, Math.round(sourceBrand.length - (sourceBrand.length - targetBrand.length) * progress));
+
+        let out = targetBrand.slice(0, lockedChars);
+        const remaining = currentLen - lockedChars;
+        for (let i = 0; i < remaining; i++) {
+          out += GLYPHS.charAt(Math.floor(Math.random() * GLYPHS.length));
+        }
+
+        brandEl.textContent = out;
+
+        if (step >= totalSteps) {
+          stopCipherTransformation();
+          brandEl.textContent = targetBrand;
+          brandEl.classList.remove('txt-cipher-scramble');
+          brandEl.classList.add('txt-cipher-resolved');
+        }
+      }, intervalMs);
+    }, 1800);
+  }
+
   function typeNextCharacter() {
     if (isDismissed) return;
 
@@ -10646,10 +10724,12 @@ if (terminal && gamesGrid) {
       if (actionContainer) actionContainer.classList.remove('hidden');
       introScreen.classList.add('is-complete');
 
-      // Hold dramatically for 6.5s so the user can read the last line before site auto-reveals
+      scheduleCipherTransformation();
+
+      // Hold dramatically for 8.5s so the user can read the last line, witness cipher morph to Q-P1NG, and enter
       autoDismissTimer = setTimeout(() => {
         dismissIntro(true);
-      }, 6500);
+      }, 8500);
       return;
     }
 
@@ -10726,6 +10806,7 @@ if (terminal && gamesGrid) {
     clearTimeout(typingTimeout);
     clearTimeout(failsafeTimer);
     clearTimeout(cursorBlinkTimer);
+    stopCipherTransformation();
     stopPress();
 
     document.documentElement.classList.add('intro-active');

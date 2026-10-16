@@ -31385,6 +31385,52 @@ html.intro-active body > *:not(#intro-screen):not(script):not(style) {
   letter-spacing: 0.06em;
 }
 
+.intro-typewriter-text .txt-brand .brand-word.txt-cipher-scramble {
+  display: inline-block;
+  color: #00ff9d;
+  text-shadow: 0 0 24px rgba(0, 255, 157, 0.95), 0 0 8px #00f3ff, 0 0 2px #ffffff;
+  letter-spacing: 0.1em;
+  font-family: var(--font-cyber, "QP1NG-Digital", monospace);
+  filter: drop-shadow(0 0 8px rgba(0, 255, 157, 0.7));
+  animation: cipherTextGlitch 0.07s infinite alternate;
+}
+
+.intro-typewriter-text .txt-brand .brand-word.txt-cipher-resolved {
+  display: inline-block;
+  color: #00ff9d;
+  text-shadow: 0 0 32px rgba(0, 255, 157, 0.95), 0 0 12px #00f3ff, 0 0 4px #ffffff;
+  letter-spacing: 0.08em;
+  font-weight: 900;
+  animation: brandDecryptedPulse 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cipherTextGlitch {
+  0% { transform: translate(0, 0); opacity: 0.90; }
+  50% { transform: translate(-0.6px, 0.6px); opacity: 1; }
+  100% { transform: translate(0.6px, -0.6px); opacity: 0.95; }
+}
+
+@keyframes brandDecryptedPulse {
+  0% {
+    transform: scale(1.18);
+    filter: brightness(2.2) drop-shadow(0 0 18px #00ff9d);
+    color: #ffffff;
+    text-shadow: 0 0 40px #ffffff, 0 0 22px #00ff9d;
+  }
+  35% {
+    transform: scale(0.96);
+    filter: brightness(1.4);
+    color: #00ff9d;
+  }
+  100% {
+    transform: scale(1);
+    filter: brightness(1);
+    color: #00f3ff;
+    text-shadow: 0 0 22px rgba(0, 243, 255, 0.95), 0 0 3px #00f3ff;
+  }
+}
+
+
 .intro-cursor {
   font-family: var(--font-cyber, "QP1NG-Digital", monospace);
   font-size: clamp(1.15rem, 2.5vw, 1.85rem);
