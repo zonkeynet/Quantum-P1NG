@@ -1,6 +1,6 @@
 {
-  "version": 36,
-  "updatedAt": "2026-10-15",
+  "version": 37,
+  "updatedAt": "2026-10-17",
   "schemaVersion": "2.4",
   "appId": "com.qp1ng.android",
   "minAppVersion": 213,
@@ -135,7 +135,7 @@
         }
       ],
       "engineLicense": "Proprietary",
-      "weightsLicense": "Q-Dream Model License (CreativeML OpenRAIL-M)",
+      "weightsLicense": "CreativeML OpenRAIL-M · CyberRealistic by Cyberdelia",
       "commercialOk": true,
       "recommended": true,
       "catalogFeatured": true,
@@ -280,7 +280,7 @@
         }
       ],
       "engineLicense": "Proprietary",
-      "weightsLicense": "Q-Dream Model License (CreativeML OpenRAIL-M)",
+      "weightsLicense": "CreativeML OpenRAIL-M · CyberRealistic by Cyberdelia",
       "commercialOk": true,
       "recommended": true,
       "catalogFeatured": true,
@@ -425,7 +425,7 @@
         }
       ],
       "engineLicense": "Proprietary",
-      "weightsLicense": "Q-Dream Model License (CreativeML OpenRAIL-M)",
+      "weightsLicense": "CreativeML OpenRAIL-M · CyberRealistic by Cyberdelia",
       "commercialOk": true,
       "recommended": true,
       "catalogFeatured": true,
@@ -570,7 +570,7 @@
         }
       ],
       "engineLicense": "Proprietary",
-      "weightsLicense": "Q-Dream Model License (CreativeML OpenRAIL-M)",
+      "weightsLicense": "CreativeML OpenRAIL-M · CyberRealistic by Cyberdelia",
       "commercialOk": true,
       "recommended": true,
       "catalogFeatured": true,
@@ -715,7 +715,7 @@
         }
       ],
       "engineLicense": "Proprietary",
-      "weightsLicense": "Q-Dream Model License (CreativeML OpenRAIL-M)",
+      "weightsLicense": "CreativeML OpenRAIL-M · CyberRealistic by Cyberdelia",
       "commercialOk": true,
       "recommended": true,
       "catalogFeatured": true,
@@ -853,7 +853,7 @@
         }
       ],
       "engineLicense": "Proprietary",
-      "weightsLicense": "Q-Dream Model License (CreativeML OpenRAIL-M)",
+      "weightsLicense": "CreativeML OpenRAIL-M · DreamShaper by Lykon",
       "commercialOk": true,
       "recommended": true,
       "catalogFeatured": true,
@@ -991,7 +991,7 @@
         }
       ],
       "engineLicense": "Proprietary",
-      "weightsLicense": "Q-Dream Model License (CreativeML OpenRAIL-M)",
+      "weightsLicense": "CreativeML OpenRAIL-M · DreamShaper by Lykon",
       "commercialOk": true,
       "recommended": true,
       "catalogFeatured": true,
@@ -1129,7 +1129,7 @@
         }
       ],
       "engineLicense": "Proprietary",
-      "weightsLicense": "Q-Dream Model License (CreativeML OpenRAIL-M)",
+      "weightsLicense": "CreativeML OpenRAIL-M · DreamShaper by Lykon",
       "commercialOk": true,
       "recommended": true,
       "catalogFeatured": true,
@@ -1267,7 +1267,7 @@
         }
       ],
       "engineLicense": "Proprietary",
-      "weightsLicense": "Q-Dream Model License (CreativeML OpenRAIL-M)",
+      "weightsLicense": "CreativeML OpenRAIL-M · DreamShaper by Lykon",
       "commercialOk": true,
       "recommended": true,
       "catalogFeatured": true,
@@ -1405,7 +1405,7 @@
         }
       ],
       "engineLicense": "Proprietary",
-      "weightsLicense": "Q-Dream Model License (CreativeML OpenRAIL-M)",
+      "weightsLicense": "CreativeML OpenRAIL-M · DreamShaper by Lykon",
       "commercialOk": true,
       "recommended": true,
       "catalogFeatured": true,
@@ -1550,7 +1550,7 @@
         }
       ],
       "engineLicense": "Proprietary",
-      "weightsLicense": "Q-Dream Model License (CreativeML OpenRAIL-M)",
+      "weightsLicense": "CreativeML OpenRAIL-M · Realistic Vision by SG161222",
       "commercialOk": true,
       "recommended": true,
       "catalogFeatured": true,
@@ -1634,37 +1634,6 @@
       "supportsTxt2Img": true
     },
     {
-      "id": "img-anything-v5",
-      "type": "IMAGE_GEN",
-      "category": "image_gen",
-      "section": "image",
-      "name": "Anything V5 (SD.cpp)",
-      "description": "Anime-oriented SD1.5 checkpoint for offline image generation via sd.cpp.",
-      "engine": "stable-diffusion.cpp",
-      "runtimeBackend": "STABLE_DIFFUSION_CPP",
-      "storageKind": "SINGLE_FILE",
-      "language": "multi",
-      "sizeBytes": 2132626102,
-      "sha256": "7f96a1a9ca9b3a3242a9ae95d19284f0d2da8d5282b42d2d974398bf7663a252",
-      "downloadUrl": "https://huggingface.co/genai-archive/anything-v5/resolve/5a5d7ab51adda6ae5d0cfee9ac625cc2a8fa91bc/anything-v5.safetensors",
-      "fileName": "anything-v5.safetensors",
-      "engineLicense": "MIT",
-      "weightsLicense": "creativeml-openrail-m",
-      "commercialOk": false,
-      "catalogFeatured": false,
-      "minRamMb": 6000,
-      "recommendedRamMb": 8000,
-      "accelerationTargets": [
-        "CPU",
-        "VULKAN"
-      ],
-      "recommendedWidth": 512,
-      "recommendedHeight": 512,
-      "recommendedSteps": 15,
-      "recommendedCfgScale": 7.0,
-      "supportsTxt2Img": true
-    },
-    {
       "id": "img-dreamshaper-8",
       "type": "IMAGE_GEN",
       "category": "image_gen",
@@ -1713,7 +1682,7 @@
       "engineLicense": "MIT",
       "weightsLicense": "OpenRAIL",
       "commercialOk": false,
-      "recommended": true,
+      "recommended": false,
       "catalogFeatured": false,
       "minRamMb": 8000,
       "recommendedRamMb": 10000,

@@ -186,33 +186,43 @@
 
     <p>Quantum P1NG (Q-P1NG&reg;) is engineered from the ground up on the principle of <strong>Zero-Telemetry and Absolute Data Minimization</strong>. As a commercial security suite, our business model relies strictly on selling software licenses, never on monetizing, tracking, profiling, or aggregating user data.</p>
 
-    <h2>1. Zero Data Collection</h2>
+    <h2>1. Who Is Responsible</h2>
+    <p>Q-P1NG&reg; is published by ZonkeyNet (Quantum P1NG), the controller of the limited personal data described below. For any privacy question or request write to <strong><a href="mailto:legal@qp1ng.com" style="color: var(--cyan); text-decoration: none;">legal@qp1ng.com</a></strong>.</p>
+
+    <h2>2. What We Collect</h2>
     <ul>
-        <li><strong>No Personal Identifiers:</strong> We do not require, collect, or store your phone number, email address, legal name, contacts, or location.</li>
-        <li><strong>No Telemetry or Tracking SDKs:</strong> The commercial software binary contains zero cloud analytics, zero advertising frameworks, and zero background telemetry reporting.</li>
-        <li><strong>Anonymous Mailbox Hashes:</strong> For network routing, the only identifier utilized is a transient cryptographic SHA-256 hash that cannot be reverse-engineered to identify your real identity or device.</li>
+        <li><strong>No Account, No Personal Identifiers:</strong> Q-P1NG needs no account. We do not require, collect, or store your phone number, email address, legal name, contacts, or location.</li>
+        <li><strong>No Telemetry or Tracking SDKs:</strong> The app contains no analytics, no advertising frameworks, no crash reporting services and no background telemetry.</li>
+        <li><strong>Pseudonymous Keys:</strong> Your identity in Q-P1NG is a set of keys created on your phone. Contacts, and the relays that carry Q-FEED posts and offline messages, see the public keys involved, never your name or phone number.</li>
         <li><strong>Local Cryptographic Keys:</strong> All cryptographic keypairs (RSA-4096, AES-256-GCM, Kyber/Dilithium) are generated locally on your hardware. Private keys never leave your device.</li>
+        <li><strong>What Reaches Us:</strong> only what you choose to send us (for example a support email or a Q-FEED report sent by email) and, if you buy Q-P1NG Pro, the order details Google Play shares with developers (see section 9).</li>
     </ul>
 
-    <h2>2. Message Handling & Zero-Knowledge Architecture</h2>
+    <h2>3. Message Handling & Zero-Knowledge Architecture</h2>
     <ul>
         <li><strong>End-to-End Cryptography:</strong> Every communication is encrypted on the sender's device and can only be decrypted by the intended recipient.</li>
         <li><strong>Zero-Knowledge:</strong> We have no mathematical or architectural capability to decrypt, inspect, or reconstruct your messages, voice notes, or file attachments.</li>
-        <li><strong>Ephemeral Dead Drops:</strong> Server nodes operate strictly as temporary transit relays. Transmitted packets are erased immediately upon delivery.</li>
+        <li><strong>Direct Delivery, No Message Servers:</strong> Messages travel directly between phones over Tor onion services, the Bluetooth/Wi-Fi mesh or LoRa radio. Q-P1NG runs no server that stores or routes your messages.</li>
+        <li><strong>Offline Mailboxes:</strong> When a trusted contact is offline, an encrypted envelope can wait on public Nostr relays run by third parties, reached through Tor. The relays cannot read it, but they see the sender's and recipient's public keys, the time and the size, and keep the envelope according to their own policies.</li>
     </ul>
 
-    <h2>3. Anonymity & Network Connectivity</h2>
+    <h2>4. Anonymity & Network Connectivity</h2>
     <ul>
-        <li><strong>Zero Server Logs:</strong> Gateway nodes operate in memory and do not log client IP addresses, timestamps, or routing metadata.</li>
-        <li><strong>Native Tor Integration:</strong> Q-P1NG&reg; natively supports connections through the Tor network to obscure geographical location and physical network origins.</li>
-        <li><strong>Offline Map Downloads:</strong> Only when you tap Download, example maps come from GitHub (raw.githubusercontent.com, files published in the Quantum-P1NG repository), or from a GitLab mirror (gitlab.com) if GitHub cannot be reached, and map areas you choose are extracted from Protomaps' public builds (build.protomaps.com), through Tor when Tor is active. These hosts see a Tor exit address or, in direct mode, your IP address, and can tell which area is requested. Example maps are installed only if their size and SHA-256 fingerprint match the values built into the app. The online map view loads tiles from OpenStreetMap and OpenFreeMap servers.</li>
+        <li><strong>Native Tor Integration:</strong> Q-P1NG&reg; natively supports connections through the Tor network to obscure geographical location and physical network origins. Services reached through Tor see a Tor exit address, not your IP address; services reached directly see your IP address.</li>
         <li><strong>Onion Routing:</strong> Users can communicate exclusively via .onion hidden service addresses, completely bypassing standard internet gateways.</li>
+        <li><strong>Our Online Services:</strong> Q-P1NG operates two small services on Cloudflare Workers: the news feed, always reached through Tor, which receives only the language and topics requested, and the optional temporary email tool, reached through Tor by default, which holds a temporary address and the messages it receives until it expires (24 hours by default, at most 7 days) or you delete it. Only the phone that created a temporary address can open its mailbox, and at most 3 addresses can be created every 24 hours. Cloudflare processes these requests as our hosting provider.</li>
+        <li><strong>Offline Map Downloads:</strong> Only when you tap Download, example maps come from GitHub (raw.githubusercontent.com, files published in the Quantum-P1NG repository), or from a GitLab mirror (gitlab.com) if GitHub cannot be reached, and map areas you choose are extracted from Protomaps' public builds (build.protomaps.com), through Tor when Tor is active. These hosts see a Tor exit address or, in direct mode, your IP address, and can tell which area is requested. Example maps are installed only if their size and SHA-256 fingerprint match the values built into the app. The online map view loads tiles from OpenStreetMap and OpenFreeMap servers.</li>
     </ul>
 
-    <h2>4. Offline Local AI & Media Privacy</h2>
-    <p>All AI capabilities (Q-Brain text inference, Whisper speech-to-text dictation, and Stable Diffusion generation) run 100% locally on your device hardware using local weights. No audio recordings, text prompts, or generated imagery are ever transmitted to any third-party AI cloud API.</p>
+    <h2>5. AI Features</h2>
+    <ul>
+        <li><strong>On-Device by Default:</strong> Q-Brain text models, Whisper dictation and Q-Dream image generation run on your phone with models you download. Prompts, recordings and images handled by on-device models never leave the phone.</li>
+        <li><strong>Model Downloads:</strong> Models come from <a href="https://huggingface.co/" target="_blank" rel="noopener" style="color: var(--cyan); text-decoration: none;">Hugging Face</a> and from catalogs published by Q-P1NG on GitHub, through Tor unless you choose a direct download. These services see which files are requested.</li>
+        <li><strong>Optional Online Providers:</strong> Only if you add an online AI provider yourself (for example OpenAI, Anthropic, Google Gemini, Mistral, Groq, DeepSeek, xAI, OpenRouter, or your own server) with your own API key, the prompts and conversation context you send to it go from your phone directly to that provider (through Tor for .onion endpoints). The provider sees your IP address and that content and handles them under its own privacy policy and your account terms. Your API keys are stored encrypted on your phone.</li>
+        <li><strong>Web Search:</strong> When you or the assistant search the web, the query goes to DuckDuckGo or Brave Search, through Tor and their onion services by default.</li>
+    </ul>
 
-    <h2>5. Q-Globe (In-App Globe, Radio & Live TV)</h2>
+    <h2>6. Q-Globe (In-App Globe, Radio & Live TV)</h2>
     <ul>
         <li><strong>Isolated Viewer:</strong> Q-Globe opens the public page <a href="https://globe.qp1ng.com/" target="_blank" rel="noopener" style="color: var(--cyan); text-decoration: none;">globe.qp1ng.com</a> in a separate process with its own browsing storage. It receives no account, contact, chat identity or device identifier, sets no cookies and contains no analytics. Its browsing data is erased when Q-Globe closes. To open faster, it keeps a copy of the globe's public files (the page, places and stations, the same for every user, at most 24 MB) and checks them for updates at every opening; the layers you open, map tiles, searches and playback are not kept. The copy shows that Q-Globe was used, not what you looked at, and the panic wipe erases it.</li>
         <li><strong>Network Mode:</strong> Q-Globe follows the app's connection mode. In Tor mode its requests travel through Tor and never fall back to a direct connection; in direct mode they use your normal internet connection.</li>
@@ -220,7 +230,7 @@
         <li><strong>Sharing:</strong> A place, event or station is shared only when you choose to, either through Q-P1NG's encrypted chat or with another app you select. Only the public globe link is shared.</li>
     </ul>
 
-    <h2>6. Q-SWEEP (Counter-Surveillance & Tracker Guard)</h2>
+    <h2>7. Q-SWEEP (Counter-Surveillance & Tracker Guard)</h2>
     <ul>
         <li><strong>On-Device Sensors:</strong> The magnetic probe, Bluetooth and Wi-Fi scans and the local network check run on your phone. Their results stay in the current session unless you export a summary yourself. The local network check runs only after you confirm it and only inside your own Wi-Fi network.</li>
         <li><strong>Background Tracker Guard (optional, off by default):</strong> When you turn it on, Q-SWEEP listens for a few seconds about every 15 minutes for Bluetooth trackers that announce they are away from their owner. Only when such a tracker is nearby does it read your phone's location, to tell places apart. This is why Android asks for location &ldquo;Allow all the time&rdquo;.</li>
@@ -228,7 +238,36 @@
         <li><strong>Play Sound:</strong> Only when you tap it, Q-P1NG connects to that one tracker to send the standard sound command its maker provides for people who find it. Nothing is read from the tracker or stored.</li>
     </ul>
 
-    <h2>7. Inquiries & Contact</h2>
+    <h2>8. Other Services the App Contacts</h2>
+    <p>These requests happen only when you use the feature, through Tor when Tor is running and otherwise with a direct connection, except where marked Tor only. Each service receives an ordinary network request and handles it under its own policy.</p>
+    <ul>
+        <li><strong>Q-FEED:</strong> posts you make public, and your public reactions and reports, are published to public Nostr relays and can be read by anyone; the app reaches relays through Tor when you prefer Tor.</li>
+        <li><strong>Radio Information Commands:</strong> weather (<a href="https://open-meteo.com/" target="_blank" rel="noopener" style="color: var(--cyan); text-decoration: none;">Open-Meteo</a>), Wikipedia, earthquakes (USGS), disasters (GDACS), space weather (NOAA SWPC), security advisories (CISA) and BBC news feeds.</li>
+        <li><strong>Satellites:</strong> orbital data from CelesTrak and SatNOGS and the ISS position from Open Notify.</li>
+        <li><strong>Bitcoin Prices:</strong> CoinGecko, Kraken, Binance or CryptoCompare. Transaction links open mempool.space in your browser only when you tap them.</li>
+        <li><strong>Linux Shell:</strong> packages come from the Alpine Linux mirror (dl-cdn.alpinelinux.org) always with a direct connection, only when you install or update the shell or its packages.</li>
+        <li><strong>Automations and Link Previews:</strong> automation templates from GitHub and previews of links in your chats (Tor only).</li>
+        <li><strong>Tor Status:</strong> check.torproject.org and public IP echo services (ipify, icanhazip, ifconfig.me, ipapi.co, ipwho.is), to show the Tor exit address (Tor only).</li>
+    </ul>
+
+    <h2>9. Purchases</h2>
+    <p>If you buy Q-P1NG Pro through Google Play, Google processes the payment under its own privacy policy; we never see your card or bank details. Google shares with us the order details needed to provide and support the purchase (order number, product, date, country and refund status). The app checks your purchase with Google Play on your phone. We keep order records as long as tax and accounting law requires.</p>
+
+    <h2>10. Your Rights</h2>
+    <ul>
+        <li><strong>Data on Your Phone:</strong> almost everything Q-P1NG handles stays on your phone, under your control. You can erase it with the panic wipe or by uninstalling the app.</li>
+        <li><strong>Data We Hold:</strong> for support emails and purchase records you can ask for access, correction, deletion, restriction, objection and a portable copy at <strong><a href="mailto:legal@qp1ng.com" style="color: var(--cyan); text-decoration: none;">legal@qp1ng.com</a></strong>. We answer within one month. We process them to provide what you asked for and bought (contract), to keep the records the law requires (legal obligation) and to protect the service from abuse (legitimate interest).</li>
+        <li><strong>Complaints:</strong> you can complain to your data protection authority; in Italy, the <a href="https://www.garanteprivacy.it/" target="_blank" rel="noopener" style="color: var(--cyan); text-decoration: none;">Garante per la protezione dei dati personali</a>.</li>
+        <li><strong>International Transfers:</strong> some of the providers named here are based outside the European Union (for example Cloudflare and Google); transfers rely on the safeguards those providers offer under the GDPR.</li>
+    </ul>
+
+    <h2>11. Children</h2>
+    <p>Q-P1NG is intended for adults (18+) and is not directed at children.</p>
+
+    <h2>12. Changes to This Policy</h2>
+    <p>When this policy changes we update this page and its date; significant changes are also noted in the app's release notes.</p>
+
+    <h2>13. Inquiries & Contact</h2>
     <p>For support or privacy inquiries:</p>
     <ul>
         <li>Support: <strong><a href="mailto:support@qp1ng.com" style="color: var(--cyan); text-decoration: none;">support@qp1ng.com</a></strong></li>
