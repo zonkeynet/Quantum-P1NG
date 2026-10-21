@@ -10045,7 +10045,125 @@ if (terminal && gamesGrid) {
   const actionContainer = document.getElementById('intro-action-container');
   const btnEnter = document.getElementById('btn-enter-site');
   const btnSkip = document.getElementById('btn-skip-intro');
+  const btnAudio = document.getElementById('btn-intro-audio');
   const btnReplay = document.getElementById('btn-replay-intro');
+
+  let introAudio = null;
+  let outroAudio = null;
+  let cipherGlitchAudio = null;
+  let isAudioMuted = false;
+
+  function initIntroAudio() {
+    if (!introAudio) {
+      introAudio = new Audio();
+      const canOgg = introAudio.canPlayType('audio/ogg; codecs="vorbis"');
+      introAudio.src = (canOgg === 'probably' || canOgg === 'maybe') ? 'assets/audio/intro.ogg' : 'assets/audio/intro.mp3';
+      introAudio.preload = 'auto';
+      introAudio.volume = 0.85;
+      introAudio.load();
+    }
+    if (!outroAudio) {
+      outroAudio = new Audio();
+      const canOgg = outroAudio.canPlayType('audio/ogg; codecs="vorbis"');
+      outroAudio.src = (canOgg === 'probably' || canOgg === 'maybe') ? 'assets/audio/intro_outro_glitch.ogg' : 'assets/audio/intro_outro_glitch.mp3';
+      outroAudio.preload = 'auto';
+      outroAudio.volume = 0.95;
+      outroAudio.load();
+    }
+    if (!cipherGlitchAudio) {
+      cipherGlitchAudio = new Audio();
+      const canOgg = cipherGlitchAudio.canPlayType('audio/ogg; codecs="vorbis"');
+      cipherGlitchAudio.src = (canOgg === 'probably' || canOgg === 'maybe') ? 'assets/audio/cipher_glitch.ogg' : 'assets/audio/cipher_glitch.mp3';
+      cipherGlitchAudio.preload = 'auto';
+      cipherGlitchAudio.volume = 0.88;
+      cipherGlitchAudio.load();
+    }
+  }
+
+  function playIntroAudio() {
+    if (isDismissed || isAudioMuted) return;
+    initIntroAudio();
+    try {
+      introAudio.currentTime = 0;
+      const playPromise = introAudio.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          const onUnlockAudio = () => {
+            if (!isDismissed && !isAudioMuted && introAudio && introAudio.paused) {
+              introAudio.play().catch(() => {});
+            }
+            window.removeEventListener('pointerdown', onUnlockAudio);
+            window.removeEventListener('keydown', onUnlockAudio);
+            window.removeEventListener('touchstart', onUnlockAudio);
+          };
+          window.addEventListener('pointerdown', onUnlockAudio, { once: true });
+          window.addEventListener('keydown', onUnlockAudio, { once: true });
+          window.addEventListener('touchstart', onUnlockAudio, { once: true });
+        });
+      }
+    } catch(e) {}
+  }
+
+  function playIntroOutroSound() {
+    if (isAudioMuted) return;
+    initIntroAudio();
+    if (!outroAudio) return;
+    try {
+      outroAudio.currentTime = 0;
+      const playPromise = outroAudio.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {});
+      }
+    } catch(e) {}
+  }
+
+  function playCipherGlitchSound() {
+    if (isDismissed || isAudioMuted) return;
+    initIntroAudio();
+    if (!cipherGlitchAudio) return;
+    try {
+      cipherGlitchAudio.currentTime = 0;
+      const playPromise = cipherGlitchAudio.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {});
+      }
+    } catch(e) {}
+  }
+
+  function stopCipherGlitchSound() {
+    if (cipherGlitchAudio) {
+      try {
+        cipherGlitchAudio.pause();
+        cipherGlitchAudio.currentTime = 0;
+      } catch(e) {}
+    }
+  }
+
+  function stopIntroAudio(fast = false) {
+    if (!introAudio) return;
+    try {
+      if (fast) {
+        introAudio.pause();
+        introAudio.currentTime = 0;
+      } else {
+        let vol = introAudio.volume;
+        const fadeInterval = setInterval(() => {
+          vol = Math.max(0, vol - 0.15);
+          if (introAudio) introAudio.volume = vol;
+          if (vol <= 0.05) {
+            clearInterval(fadeInterval);
+            if (introAudio) {
+              introAudio.pause();
+              introAudio.currentTime = 0;
+              introAudio.volume = 0.85;
+            }
+          }
+        }, 30);
+      }
+    } catch(e) {
+      if (introAudio) introAudio.pause();
+    }
+  }
   const ambientStage = document.getElementById('introPressStage');
 
   function hasSeenIntro() {
@@ -10514,6 +10632,7 @@ if (terminal && gamesGrid) {
     clearInterval(cipherInterval);
     cipherTimeout = null;
     cipherInterval = null;
+    stopCipherGlitchSound();
   }
 
 
@@ -10548,7 +10667,12 @@ if (terminal && gamesGrid) {
     const offMs = calm ? 0 : 650;
     clearTimeout(introEndTimers.crt);
     clearTimeout(introEndTimers.done);
-    if (!calm) introScreen.classList.add('intro-glitch');
+    // Cut the main soundtrack immediately and fire the closing glitch & CRT collapse sound synchronously
+    stopIntroAudio(true);
+    if (!calm) {
+      playIntroOutroSound();
+      introScreen.classList.add('intro-glitch');
+    }
     introEndTimers.crt = setTimeout(() => {
       document.documentElement.classList.remove('intro-active');
       document.body.style.overflow = '';
@@ -10574,6 +10698,7 @@ if (terminal && gamesGrid) {
         bgVideoMobile.pause();
         try { bgVideoMobile.currentTime = 0; } catch(e){}
       }
+      stopIntroAudio();
       window.dispatchEvent(new CustomEvent('qp1ng:intro-dismissed'));
     }, glitchMs + offMs);
   }
@@ -10581,7 +10706,7 @@ if (terminal && gamesGrid) {
   // Tap or click anywhere on the intro screen: ONLY dismisses after the full animation is complete
   introScreen.addEventListener('click', (e) => {
     // If the click was directly on buttons (Skip, Enter), their own listeners will handle it
-    if (e.target.closest('#btn-skip-intro') || e.target.closest('#btn-enter-site')) return;
+    if (e.target.closest('#btn-skip-intro') || e.target.closest('#btn-enter-site') || e.target.closest('#btn-intro-audio')) return;
     if (isAnimationComplete) {
       dismissIntro(true);
     }
@@ -10600,6 +10725,34 @@ if (terminal && gamesGrid) {
       }
     }
   });
+
+  if (btnAudio) {
+    btnAudio.addEventListener('click', (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+      initIntroAudio();
+      isAudioMuted = !isAudioMuted;
+      if (isAudioMuted) {
+        if (introAudio) introAudio.pause();
+        if (outroAudio) outroAudio.pause();
+        stopCipherGlitchSound();
+        btnAudio.classList.add('is-muted');
+        const icon = btnAudio.querySelector('.intro-audio-icon');
+        const text = btnAudio.querySelector('.intro-audio-text');
+        if (icon) icon.textContent = '🔇';
+        if (text) text.textContent = 'MUTED';
+      } else {
+        btnAudio.classList.remove('is-muted');
+        const icon = btnAudio.querySelector('.intro-audio-icon');
+        const text = btnAudio.querySelector('.intro-audio-text');
+        if (icon) icon.textContent = '🔊';
+        if (text) text.textContent = 'AUDIO';
+        if (introAudio && !isDismissed) {
+          introAudio.play().catch(() => {});
+        }
+      }
+    });
+  }
 
   if (btnSkip) {
     btnSkip.addEventListener('click', (e) => {
@@ -10648,6 +10801,8 @@ if (terminal && gamesGrid) {
       const targetBrand = 'Q-P1NG';
 
       if (!fullText.startsWith(sourceBrand)) return;
+
+      playCipherGlitchSound();
 
       const suffix = fullText.slice(sourceBrand.length);
 
@@ -10839,9 +10994,15 @@ if (terminal && gamesGrid) {
     erasing = false;
 
     if (videoWrap) videoWrap.classList.remove('video-visible');
+    if (outroAudio) {
+      outroAudio.pause();
+      outroAudio.currentTime = 0;
+    }
+    stopCipherGlitchSound();
     if (activeVideo) {
       playActiveVideo();
     }
+    playIntroAudio();
 
     resetWatchdog();
 

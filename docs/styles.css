@@ -31269,6 +31269,46 @@ html.intro-active body > *:not(#intro-screen):not(script):not(style) {
   50% { transform: scale(1.2); opacity: 1; }
 }
 
+.intro-topbar-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  z-index: 12;
+}
+
+.intro-audio-btn {
+  position: relative;
+  z-index: 12;
+  background: rgba(15, 22, 38, 0.6);
+  border: 1px solid rgba(0, 255, 157, 0.35);
+  color: #00ff9d;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-family: var(--font-cyber, "QP1NG-Digital", monospace);
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  backdrop-filter: blur(8px);
+  transition: all 0.25s ease;
+}
+
+.intro-audio-btn:hover {
+  background: rgba(0, 255, 157, 0.15);
+  border-color: #00ff9d;
+  box-shadow: 0 0 10px rgba(0, 255, 157, 0.3);
+  transform: translateY(-1px);
+}
+
+.intro-audio-btn.is-muted {
+  border-color: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.45);
+  background: rgba(15, 22, 38, 0.4);
+}
+
 .intro-skip-btn {
   position: relative;
   z-index: 12;
