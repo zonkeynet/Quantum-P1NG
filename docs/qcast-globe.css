@@ -57,6 +57,38 @@
   transform: scale(1.08) rotate(-3deg);
   filter: drop-shadow(0 0 24px rgba(0, 242, 255, 0.95)) drop-shadow(0 0 42px rgba(0, 242, 255, 0.65));
 }
+
+.qglobe-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.22em;
+  max-width: 100%;
+}
+
+.qglobe-title-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.qglobe-title-icon {
+  width: auto;
+  height: 0.88em;
+  max-width: 0.9em;
+  aspect-ratio: 512 / 501;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+  filter: drop-shadow(0 0 16px rgba(181, 160, 255, 0.75)) drop-shadow(0 0 28px rgba(155, 92, 255, 0.45));
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
+}
+
+.qglobe-title:hover .qglobe-title-icon {
+  transform: scale(1.08) rotate(3deg);
+  filter: drop-shadow(0 0 24px rgba(181, 160, 255, 0.95)) drop-shadow(0 0 42px rgba(155, 92, 255, 0.75));
+}
 .qbroadcast .qbroadcast-slogan { font-family: var(--font-cyber, "QP1NG-Digital", monospace); font-synthesis: weight; font-size: clamp(28px, 2.6vw, 36px); font-weight: 700; letter-spacing: 0; line-height: 1.3; color: #f0f5fb; margin-bottom: 18px; }
 .qbroadcast-slogan span { display: block; color: var(--qb-accent); }
 .qbroadcast .qbroadcast-lead { font-size: 17px; max-width: 54ch; }

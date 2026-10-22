@@ -45,7 +45,7 @@
   <meta name="twitter:image" content="https://www.qp1ng.com/assets/img/social-preview.png" />
 
   <link rel="preload" href="assets/fonts/square_dot_digital_qp1ng.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="styles.css?v=3.0.9" as="style" />
+  <link rel="preload" href="styles.css?v=3.1.4" as="style" />
   <link rel="preload" as="image" href="assets/vid/intro_bg_poster.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/intro_mobile_poster.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/qmap_poster.webp">
@@ -60,8 +60,8 @@
       }
     } catch(e){}
   </script>
-  <link rel="stylesheet" href="styles.css?v=3.0.9" />
-  <link rel="stylesheet" href="qcast-globe.css?v=1.0.7" />
+  <link rel="stylesheet" href="styles.css?v=3.1.4" />
+  <link rel="stylesheet" href="qcast-globe.css?v=1.0.8" />
 
   <!-- Schema.org Comprehensive Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -2837,7 +2837,13 @@ _
         <span class="qgeo-kicker-sep">//</span>
         <span>OFFLINE MBTILES &amp; COMPACT EVENT PROTOCOL</span>
       </div>
-      <h2 class="qgeo-title">Q-Geo Tactical Vector GIS &amp; Map Packs</h2>
+      <h2 class="qgeo-title">
+        <picture class="qgeo-title-icon-wrap">
+          <source srcset="assets/icons/q-geo_icon.webp?v=1" type="image/webp">
+          <img src="assets/icons/q-geo_icon.png?v=1" alt="Q-Geo Tactical Vector GIS Map Icon" class="qgeo-title-icon" width="60" height="57" loading="eager" decoding="async" aria-hidden="true">
+        </picture>
+        <span class="qgeo-title-text">Q-Geo Tactical Vector GIS &amp; Map Packs</span>
+      </h2>
       <p class="qgeo-subtitle mono">Zero-Cloud Vector Cartography, Compact Radio Hazard Protocol &amp; Offline Routing</p>
       <p class="qgeo-lead">
         The basemap never travels over the wire: only the signed event model does. Q-Geo delivers 100% offline tactical GIS with GPU-rendered vector tiles (MBTiles/PMTiles), offline turn-by-turn escape routing, fuzzy coordinate privacy obfuscation, and a binary radio envelope for disseminating hostile checkpoints, landmines, and medical points over LoRa mesh and walkie-talkies without internet or cellular connectivity.
@@ -5013,7 +5019,16 @@ _
           <span>//</span>
           <span>ON-DEVICE VOICE SYNTHESIS</span>
         </div>
-        <h2 class="qx-title" id="q-voice-title"><span>Secure Voice</span><span>Clone · Convert · Review</span></h2>
+        <h2 class="qx-title" id="q-voice-title">
+          <span class="qx-title-main">
+            <picture class="qx-title-icon-wrap">
+              <source srcset="assets/icons/voice_icon.webp?v=1" type="image/webp">
+              <img src="assets/icons/voice_icon.png?v=1" alt="Secure Voice Audio Spectrum Icon" class="qx-title-icon" width="80" height="54" loading="eager" decoding="async">
+            </picture>
+            <span class="qx-title-text">Secure Voice</span>
+          </span>
+          <span>Clone · Convert · Review</span>
+        </h2>
         <p class="qx-subtitle mono">Voice messages shaped on the phone. No audio is uploaded.</p>
         <p class="qx-desc">
           The chat recorder is also a private voice studio. Send your own voice, apply the Ghost effect, convert a recording into a reference voice, or type a message and hear it spoken in a voice you are allowed to use. The models run offline on the device, and every result is played back for your review before it is sent.
@@ -5096,7 +5111,13 @@ _
         <span style="color:var(--sdr-cyan);">MODULE: Q-SDR</span>
       </div>
 
-      <h2 class="q-sdr-title">Q-SDR</h2>
+      <h2 class="q-sdr-title">
+        <picture class="q-sdr-title-icon-wrap">
+          <source srcset="assets/icons/q-sdr_icon.webp?v=1" type="image/webp">
+          <img src="assets/icons/q-sdr_icon.png?v=1" alt="Q-SDR Radio Frequency Analysis Icon" class="q-sdr-title-icon" width="100" height="58" loading="eager" decoding="async">
+        </picture>
+        <span class="q-sdr-title-text">Q-SDR</span>
+      </h2>
       <p class="q-sdr-subtitle mono">Radio Frequency Analysis</p>
       <div class="q-sdr-badge" aria-label="Feature in preview">
         <span class="q-sdr-badge-dot" aria-hidden="true"></span>
@@ -5218,84 +5239,6 @@ _
           </header>
           <div class="waterfall-canvas-wrap">
             <canvas id="waterfallCanvas" role="img" aria-label="Waterfall display showing radio signal history over time"></canvas>
-          </div>
-        </article>
-
-        <article class="sdr-panel signal-card">
-          <header class="sdr-panel-header">
-            <span class="sdr-panel-title mono">SIGNAL DETECTION</span>
-          </header>
-          <div class="signal-card-body">
-            <div class="signal-radar-wrap" aria-hidden="true">
-              <canvas id="radarCanvas"></canvas>
-            </div>
-            <ul class="signal-list" aria-label="Detected signals">
-              <li class="signal-item">
-                <div class="signal-info">
-                  <span class="signal-name mono">Wi-Fi 2.4G</span>
-                  <span class="signal-strength-text mono sdr-green">Strong</span>
-                </div>
-                <div class="signal-bars" role="img" aria-label="Signal strength: Strong, 5 of 5 bars">
-                  <span class="signal-bar sb-on sdr-green"></span><span class="signal-bar sb-on sdr-green"></span><span class="signal-bar sb-on sdr-green"></span><span class="signal-bar sb-on sdr-green"></span><span class="signal-bar sb-on sdr-green"></span>
-                </div>
-              </li>
-              <li class="signal-item">
-                <div class="signal-info">
-                  <span class="signal-name mono">Bluetooth LE</span>
-                  <span class="signal-strength-text mono sdr-yellow">Medium</span>
-                </div>
-                <div class="signal-bars" role="img" aria-label="Signal strength: Medium, 3 of 5 bars">
-                  <span class="signal-bar sb-on sdr-yellow"></span><span class="signal-bar sb-on sdr-yellow"></span><span class="signal-bar sb-on sdr-yellow"></span><span class="signal-bar"></span><span class="signal-bar"></span>
-                </div>
-              </li>
-              <li class="signal-item">
-                <div class="signal-info">
-                  <span class="signal-name mono">RC Controller</span>
-                  <span class="signal-strength-text mono sdr-green">Strong</span>
-                </div>
-                <div class="signal-bars" role="img" aria-label="Signal strength: Strong, 5 of 5 bars">
-                  <span class="signal-bar sb-on sdr-green"></span><span class="signal-bar sb-on sdr-green"></span><span class="signal-bar sb-on sdr-green"></span><span class="signal-bar sb-on sdr-green"></span><span class="signal-bar sb-on sdr-green"></span>
-                </div>
-              </li>
-              <li class="signal-item">
-                <div class="signal-info">
-                  <span class="signal-name mono">Video TX</span>
-                  <span class="signal-strength-text mono sdr-orange">Weak</span>
-                </div>
-                <div class="signal-bars" role="img" aria-label="Signal strength: Weak, 2 of 5 bars">
-                  <span class="signal-bar sb-on sdr-orange"></span><span class="signal-bar sb-on sdr-orange"></span><span class="signal-bar"></span><span class="signal-bar"></span><span class="signal-bar"></span>
-                </div>
-              </li>
-              <li class="signal-item">
-                <div class="signal-info">
-                  <span class="signal-name mono">Unknown</span>
-                  <span class="signal-strength-text mono sdr-purple">--</span>
-                </div>
-                <div class="signal-bars" role="img" aria-label="Signal strength: Unknown">
-                  <span class="signal-bar sb-unknown"></span><span class="signal-bar"></span><span class="signal-bar"></span><span class="signal-bar"></span><span class="signal-bar"></span>
-                </div>
-              </li>
-            </ul>
-            <div class="signal-count" aria-live="polite">
-              <span class="signal-count-num" id="signalCount">7</span>
-              <span class="signal-count-label mono">SIGNALS ACTIVE</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="sdr-panel activity-card">
-          <header class="sdr-panel-header">
-            <span class="sdr-panel-title mono">ACTIVITY MONITOR</span>
-            <span class="sdr-panel-status mono" id="activityStatus" aria-live="polite">7 ACTIVE</span>
-          </header>
-          <div class="activity-body">
-            <canvas id="activityRadar" aria-hidden="true"></canvas>
-            <ul class="activity-lines mono" aria-label="Active channels">
-              <li class="act-line"><span class="act-dot sdr-green" aria-hidden="true"></span>CH 1 — 2.412 GHz — ACTIVE</li>
-              <li class="act-line"><span class="act-dot sdr-cyan" aria-hidden="true"></span>CH 2 — 433.92 MHz — ACTIVE</li>
-              <li class="act-line"><span class="act-dot sdr-yellow" aria-hidden="true"></span>CH 3 — 868.35 MHz — IDLE</li>
-              <li class="act-line"><span class="act-dot sdr-purple" aria-hidden="true"></span>CH 4 — UNKNOWN — SCAN</li>
-            </ul>
           </div>
         </article>
 
@@ -5667,7 +5610,13 @@ _
         <span class="qsat-kicker-sep">//</span>
         <span>SGP4 TRACKING &amp; AIOC TRANSCEIVER</span>
       </div>
-      <h2 class="qsat-title"><img src="assets/img/satellite_icon.webp" alt="Q-Sat Parabolic Satellite Dish" class="qsat-title-icon" width="60" height="60" loading="eager" decoding="async" aria-hidden="true"><span class="qsat-title-text">Q-Sat Satellite Intelligence &amp; GhostWave Rig</span></h2>
+      <h2 class="qsat-title">
+        <picture class="qsat-title-icon-wrap">
+          <source srcset="assets/icons/qsat_satellite_icon.webp?v=1" type="image/webp">
+          <img src="assets/icons/qsat_satellite_icon.png?v=1" alt="Q-Sat Parabolic Satellite Dish Tracking Icon" class="qsat-title-icon" width="56" height="64" loading="eager" decoding="async" aria-hidden="true">
+        </picture>
+        <span class="qsat-title-text">Q-Sat Satellite Intelligence &amp; GhostWave Rig</span>
+      </h2>
       <p class="qsat-subtitle mono">Real-Time SGP4 Tracking, Doppler Auto-Tuning, Polar Radar &amp; Hardware AIOC</p>
       <p class="qsat-lead">
         Low Earth Orbit (LEO) satellites orbit at 7.5 km/s, producing extreme Doppler shifts that distort SDR and audio signals. Q-Sat integrates SGP4/TLE orbital mechanics with real-time Doppler auto-retuning for SDRs, polar antenna guidance, and direct transceiver coupling using the GhostWave AIOC (All-In-One-Cable) hardware interface for tactical handheld radios.
@@ -5683,71 +5632,74 @@ _
       </div>
     </div>
 
-    <!-- Metrics Deck -->
-    <div class="qsat-metrics-deck mono" aria-label="Q-Sat orbital metrics">
-      <div class="qsat-metric-card">
-        <span class="qsat-metric-label">ORBITAL VELOCITY</span>
-        <strong class="qsat-metric-val txt-cyan">7.52 km / s</strong>
-        <span class="qsat-metric-sub">LEO trajectory (~820 km altitude)</span>
-      </div>
-      <div class="qsat-metric-card">
-        <span class="qsat-metric-label">DOPPLER FREQUENCY SHIFT</span>
-        <strong class="qsat-metric-val txt-amber">&plusmn;4.2 kHz</strong>
-        <span class="qsat-metric-sub">Continuous SDR carrier tracking</span>
-      </div>
-      <div class="qsat-metric-card">
-        <span class="qsat-metric-label">ORBITAL FLEET</span>
-        <strong class="qsat-metric-val txt-green">50+ BIRDS</strong>
-        <span class="qsat-metric-sub">Weather, amateur, science &amp; ISS</span>
-      </div>
-      <div class="qsat-metric-card">
-        <span class="qsat-metric-label">TRANSCEIVER BRIDGE</span>
-        <strong class="qsat-metric-val txt-red">AIOC USB-C</strong>
-        <span class="qsat-metric-sub">STM32 audio + compatible HID PTT</span>
-      </div>
-    </div>
-
-    <!-- Q-Sat Tactical Video Showcase -->
-    <div class="qsat-video-showcase" id="qsatVideoShowcase">
-      <div class="qsat-video-stage" id="qsatMediaContainer" role="button" tabindex="0" aria-label="Toggle Q-Sat Satellite Intelligence &amp; Telemetry Trace video playback" title="Click to play / pause video animation">
-        <picture class="qsat-poster-wrap">
-          <source srcset="assets/vid/q-sat_trace_poster.webp" type="image/webp">
-          <img src="assets/vid/q-sat_trace_poster.webp" alt="Q-Sat Orbital Satellite Downlink and GhostWave Telemetry Trace" class="qsat-poster-img" width="1280" height="720" loading="lazy" decoding="async">
-        </picture>
-
-        <video id="qsatTraceVideo" class="qsat-trace-video" width="1280" height="720" poster="assets/vid/q-sat_trace_poster.webp" loop muted playsinline preload="metadata" title="Click to play / pause video animation">
-          <source src="assets/vid/q-sat_trace.webm" type="video/webm">
-          <source src="assets/vid/q-sat_trace.mp4" type="video/mp4">
-        </video>
-
-        <!-- Holographic Cyber HUD overlays -->
-        <div class="qsat-video-vignette" aria-hidden="true"></div>
-        <div class="qsat-video-scanline" aria-hidden="true"></div>
-        <div class="qsat-video-hud-tag mono" id="qsatTraceBadge" aria-hidden="true">
-          <span class="qsat-live-dot"></span>
-          <span class="badge-label">ORBITAL TRACE STANDBY</span>
+    <!-- Q-Sat Tactical Overview Row (Metrics stacked left, Video right on desktop) -->
+    <div class="qsat-overview-row">
+      <!-- Metrics Deck (Left Column) -->
+      <div class="qsat-metrics-deck mono" aria-label="Q-Sat orbital metrics">
+        <div class="qsat-metric-card">
+          <span class="qsat-metric-label">ORBITAL VELOCITY</span>
+          <strong class="qsat-metric-val txt-cyan">7.52 km / s</strong>
+          <span class="qsat-metric-sub">LEO trajectory (~820 km altitude)</span>
         </div>
-
-        <!-- Ambient corner brackets -->
-        <div class="qsat-video-bracket qsat-bracket--tl" aria-hidden="true"></div>
-        <div class="qsat-video-bracket qsat-bracket--tr" aria-hidden="true"></div>
-        <div class="qsat-video-bracket qsat-bracket--bl" aria-hidden="true"></div>
-        <div class="qsat-video-bracket qsat-bracket--br" aria-hidden="true"></div>
-
-        <!-- Interactive Play Pill Button -->
-        <div class="qsat-play-pill mono" aria-hidden="true">
-          <span class="qsat-play-icon">▶</span>
-          <span class="qsat-play-text">CLICK TO PLAY</span>
+        <div class="qsat-metric-card">
+          <span class="qsat-metric-label">DOPPLER FREQUENCY SHIFT</span>
+          <strong class="qsat-metric-val txt-amber">&plusmn;4.2 kHz</strong>
+          <span class="qsat-metric-sub">Continuous SDR carrier tracking</span>
+        </div>
+        <div class="qsat-metric-card">
+          <span class="qsat-metric-label">ORBITAL FLEET</span>
+          <strong class="qsat-metric-val txt-green">50+ BIRDS</strong>
+          <span class="qsat-metric-sub">Weather, amateur, science &amp; ISS</span>
+        </div>
+        <div class="qsat-metric-card">
+          <span class="qsat-metric-label">TRANSCEIVER BRIDGE</span>
+          <strong class="qsat-metric-val txt-red">AIOC USB-C</strong>
+          <span class="qsat-metric-sub">STM32 audio + compatible HID PTT</span>
         </div>
       </div>
 
-      <div class="qsat-video-hud-bottom mono" aria-hidden="true">
-        <span class="qsat-hud-pill"><i class="pill-dot"></i> LEO SATELLITE DOWNLINK</span>
-        <span class="qsat-hud-pill"><i class="pill-dot"></i> SGP4 REAL-TIME TRACKING</span>
-        <span class="qsat-hud-pill"><i class="pill-dot"></i> POLAR AZ/EL VECTORS</span>
-        <span class="qsat-hud-pill"><i class="pill-dot"></i> GHOSTWAVE AIOC RIG COUPLING</span>
+      <!-- Q-Sat Tactical Video Showcase (Right Column) -->
+      <div class="qsat-video-showcase" id="qsatVideoShowcase">
+        <div class="qsat-video-stage" id="qsatMediaContainer" role="button" tabindex="0" aria-label="Toggle Q-Sat Satellite Intelligence &amp; Telemetry Trace video playback" title="Click to play / pause video animation">
+          <picture class="qsat-poster-wrap">
+            <source srcset="assets/vid/q-sat_trace_poster.webp" type="image/webp">
+            <img src="assets/vid/q-sat_trace_poster.webp" alt="Q-Sat Orbital Satellite Downlink and GhostWave Telemetry Trace" class="qsat-poster-img" width="1280" height="720" loading="lazy" decoding="async">
+          </picture>
+
+          <video id="qsatTraceVideo" class="qsat-trace-video" width="1280" height="720" poster="assets/vid/q-sat_trace_poster.webp" loop muted playsinline preload="metadata" title="Click to play / pause video animation">
+            <source src="assets/vid/q-sat_trace.webm" type="video/webm">
+            <source src="assets/vid/q-sat_trace.mp4" type="video/mp4">
+          </video>
+
+          <!-- Holographic Cyber HUD overlays -->
+          <div class="qsat-video-vignette" aria-hidden="true"></div>
+          <div class="qsat-video-scanline" aria-hidden="true"></div>
+          <div class="qsat-video-hud-tag mono" id="qsatTraceBadge" aria-hidden="true">
+            <span class="qsat-live-dot"></span>
+            <span class="badge-label">ORBITAL TRACE STANDBY</span>
+          </div>
+
+          <!-- Ambient corner brackets -->
+          <div class="qsat-video-bracket qsat-bracket--tl" aria-hidden="true"></div>
+          <div class="qsat-video-bracket qsat-bracket--tr" aria-hidden="true"></div>
+          <div class="qsat-video-bracket qsat-bracket--bl" aria-hidden="true"></div>
+          <div class="qsat-video-bracket qsat-bracket--br" aria-hidden="true"></div>
+
+          <!-- Interactive Play Pill Button -->
+          <div class="qsat-play-pill mono" aria-hidden="true">
+            <span class="qsat-play-icon">▶</span>
+            <span class="qsat-play-text">CLICK TO PLAY</span>
+          </div>
+        </div>
+
+        <div class="qsat-video-hud-bottom mono" aria-hidden="true">
+          <span class="qsat-hud-pill"><i class="pill-dot"></i> LEO SATELLITE DOWNLINK</span>
+          <span class="qsat-hud-pill"><i class="pill-dot"></i> SGP4 REAL-TIME TRACKING</span>
+          <span class="qsat-hud-pill"><i class="pill-dot"></i> POLAR AZ/EL VECTORS</span>
+          <span class="qsat-hud-pill"><i class="pill-dot"></i> GHOSTWAVE AIOC RIG COUPLING</span>
+        </div>
       </div>
-    </div>
+    </div><!-- /qsat-overview-row -->
 
     <!-- MAIN INTERACTIVE WORKSPACE (Tabs: Polar Radar / Doppler Auto-Tune / AIOC Rig) -->
     <aside class="editorial-demo-note" role="note"><strong>INTERACTIVE DEMO · SAMPLE DATA</strong><span>Illustrative states. This panel does not control the app or verify your device.</span></aside>
@@ -6754,7 +6706,13 @@ _
     <div class="qbroadcast-hero qbroadcast-hero--reverse">
       <div class="qbroadcast-copy">
         <p class="qbroadcast-kicker"><span class="qbroadcast-mark" aria-hidden="true"></span> Q-GLOBE <span>// DISCOVER &amp; LISTEN</span></p>
-        <h2 id="qglobe-title"><span>Q-GLOBE</span></h2>
+        <h2 id="qglobe-title" class="qglobe-title">
+          <picture class="qglobe-title-icon-wrap">
+            <source srcset="assets/icons/q-globe_icon.webp?v=1" type="image/webp">
+            <img src="assets/icons/q-globe_icon.png?v=1" alt="Q-Globe World Radio Grid Icon" class="qglobe-title-icon" width="82" height="80" loading="eager" decoding="async">
+          </picture>
+          <span>Q-GLOBE</span>
+        </h2>
         <p class="qbroadcast-slogan">A world of voices. <span>Ready to explore.</span></p>
         <p class="qbroadcast-lead">Spin the globe. Find a place. Hear a different perspective. Explore world radio, discover Q-Cast stations and move between information layers, in the app or on the web.</p>
         <ul class="qbroadcast-tags" aria-label="Q-Globe highlights"><li>Interactive 3D globe</li><li>User radio</li><li>Open on the web</li></ul>
@@ -7288,7 +7246,16 @@ _
           <span>//</span>
           <span>ON-DEVICE DIFFUSION</span>
         </div>
-        <h2 class="qx-title" id="q-dream-title"><span>Q-Dream</span><span>Image Engine on the Phone</span></h2>
+        <h2 class="qx-title" id="q-dream-title">
+          <span class="qx-title-main">
+            <picture class="qx-title-icon-wrap">
+              <source srcset="assets/icons/q-dream_icon.webp?v=1" type="image/webp">
+              <img src="assets/icons/q-dream_icon.png?v=1" alt="Q-Dream AI Diffusion Image Engine Icon" class="qx-title-icon" width="76" height="70" loading="eager" decoding="async">
+            </picture>
+            <span class="qx-title-text">Q-Dream</span>
+          </span>
+          <span>Image Engine on the Phone</span>
+        </h2>
         <p class="qx-subtitle mono">Text to image without a server. NPU in under a second, CPU on any recent phone.</p>
         <p class="qx-desc">
           Q-Dream is the image engine behind Q-Brain chat. Describe a picture and it is generated on the device by Stable Diffusion 1.5 models with latent-consistency sampling: on the Hexagon NPU of recent Snapdragon phones, or on the CPU of any arm64 phone with enough memory. Prompts and images stay on the phone until you decide to share them.
@@ -7771,7 +7738,16 @@ _
           <span>ON-DEVICE DEFACE</span>
         </div>
 
-        <h2 class="qcam-title"><span>Q-CAM</span><span>Privacy Capture</span></h2>
+        <h2 class="qcam-title">
+          <span class="qcam-title-main">
+            <picture class="qcam-title-icon-wrap">
+              <source srcset="assets/icons/cam_icon.webp?v=1" type="image/webp">
+              <img src="assets/icons/cam_icon.png?v=1" alt="Q-CAM Privacy Capture Camera Icon" class="qcam-title-icon" width="86" height="67" loading="eager" decoding="async">
+            </picture>
+            <span class="qcam-title-text">Q-CAM</span>
+          </span>
+          <span>Privacy Capture</span>
+        </h2>
         <p class="qcam-subtitle mono">Face protection. EXIF stripping. Vault-aware routing.</p>
         <p class="qcam-desc">
           Q-CAM is the field camera layer for sensitive photos, documents and public-space evidence. It is designed for activists, journalists, sources, legal observers and community safety teams who need to document reality without exposing bystanders, contacts or device metadata.
