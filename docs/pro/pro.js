@@ -2,6 +2,11 @@
 // The licence API (Q-P1NG/tools/license-worker) says which payments are open; nothing here holds a secret.
 (function () {
   "use strict";
+  // Served at /pro (no slash), relative paths and the page's security policy would not apply: go to /pro/.
+  if (location.pathname === "/pro") {
+    location.replace("/pro/" + location.search + location.hash);
+    return;
+  }
   // ?api=staging talks to the test service (Bitcoin testnet, licences that unlock nothing).
   var API = /[?&]api=staging(&|$)/.test(location.search)
     ? "https://qp1ng-license-api-staging.quantump1ng.workers.dev"
@@ -292,7 +297,7 @@
 
   function loadDownloads() {
     var box = $("downloads");
-    fetch("../updates/qp1ng-update.json", { cache: "no-cache" }).then(function (response) {
+    fetch("/updates/qp1ng-update.json", { cache: "no-cache" }).then(function (response) {
       if (!response.ok) throw new Error("none");
       return response.json();
     }).then(function (envelope) {

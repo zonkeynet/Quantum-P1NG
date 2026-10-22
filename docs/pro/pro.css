@@ -1,7 +1,7 @@
 /* Q-P1NG Pro page. No inline styles or scripts: the page runs under a strict Content-Security-Policy. */
 @font-face {
   font-family: "QP1NG-Digital";
-  src: url("../assets/fonts/square_dot_digital_qp1ng.woff2") format("woff2");
+  src: url("/assets/fonts/square_dot_digital_qp1ng.woff2") format("woff2");
   font-display: swap;
 }
 
