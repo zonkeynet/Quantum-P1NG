@@ -44,6 +44,11 @@
     if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, function () {});
   }
 
+  function reveal(element) {
+    var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    element.scrollIntoView({ behavior: still ? "auto" : "smooth", block: "center" });
+  }
+
   function btc(sats) {
     return (sats / 1e8).toFixed(8).replace(/0+$/, "").replace(/\.$/, "");
   }
@@ -58,7 +63,7 @@
     $("licence").hidden = false;
     $("licence-key").textContent = licence;
     $("licence-copy").onclick = function () { copy(licence, $("licence-copy")); };
-    $("licence").scrollIntoView({ behavior: "smooth", block: "center" });
+    reveal($("licence"));
   }
 
   // ---- Payment options -------------------------------------------------------------------------------------------
@@ -71,14 +76,17 @@
 
   function describeOptions() {
     var notes = [];
+    $("card-state").textContent = config ? (config.paddle ? "" : "Soon") : "";
+    $("btc-state").textContent = config ? (config.btc ? (config.btc.network !== "mainnet" ? "Testnet" : "") : "Soon") : "";
     if (!config) notes.push("Payments could not be loaded. Check your connection and reload the page.");
-    else {
-      if (!config.paddle) notes.push("Card payments open soon.");
-      if (!config.btc) notes.push("Bitcoin payments open soon.");
-      if ((config.paddle || config.btc) && !$("consent").checked) notes.push("Tick the box above to continue.");
-      if (config.btc && config.btc.network !== "mainnet") notes.push("Bitcoin: test network.");
-    }
+    else if ((config.paddle || config.btc) && !$("consent").checked) notes.push("Tick the box above to choose how to pay.");
     $("pay-note").textContent = notes.join(" ");
+  }
+
+  function showPrice() {
+    if (!config || !/^\d+\.\d{2}$/.test(config.priceEur || "")) return;
+    var items = document.querySelectorAll("[data-price]");
+    for (var i = 0; i < items.length; i++) items[i].textContent = "\u20ac" + config.priceEur;
   }
 
   // ---- Card (Paddle) ---------------------------------------------------------------------------------------------
@@ -162,13 +170,13 @@
       remember("qp1ng_order", order.token);
       history.replaceState(null, "", "#order=" + order.token);
       describeOptions();
-      showOrder(order.token, order);
+      showOrder(order.token, order, true);
     }).catch(function (error) {
       $("pay-note").textContent = "Bitcoin order failed: " + error.message.toLowerCase() + ".";
     }).then(updateButtons);
   }
 
-  function showOrder(token, order) {
+  function showOrder(token, order, scroll) {
     $("btc-order").hidden = false;
     var link = location.origin + location.pathname + "#order=" + token;
     $("btc-link").textContent = link;
@@ -176,7 +184,7 @@
     renderOrder(token, order);
     clearInterval(pollTimer);
     pollTimer = setInterval(function () { refreshOrder(token); }, 15000);
-    $("btc-order").scrollIntoView({ behavior: "smooth", block: "center" });
+    if (scroll) reveal($("btc-order"));
   }
 
   function renderOrder(token, order) {
@@ -254,23 +262,34 @@
       // Shown for convenience; the app itself verifies the signature before it installs anything.
       var manifest = decodePayload(envelope);
       box.textContent = "";
-      [["core", "Q-P1NG Core (free)"], ["pro", "Q-P1NG Pro (licence)"]].forEach(function (pair) {
-        var build = manifest.editions[pair[0]];
+      [["core", "Q-P1NG Core", "Free"], ["pro", "Q-P1NG Pro", "Needs a licence"]].forEach(function (item) {
+        var build = manifest.editions[item[0]];
         if (!build) return;
-        var p = document.createElement("p");
-        var a = document.createElement("a");
-        a.href = build.url;
-        a.className = "button";
-        a.textContent = pair[1] + " " + build.versionName + " · " + Math.round(build.size / 1e6) + " MB";
+        var card = document.createElement("div");
+        card.className = "release";
+        var meta = document.createElement("div");
+        meta.className = "meta";
+        var title = document.createElement("strong");
+        title.textContent = item[1] + " " + build.versionName;
+        var info = document.createElement("span");
+        info.className = "muted small";
+        info.textContent = item[2] + " · " + Math.round(build.size / 1e6) + " MB";
         var hash = document.createElement("div");
-        hash.className = "note mono";
+        hash.className = "hash";
         hash.textContent = "SHA-256 " + build.sha256;
-        p.appendChild(a);
-        p.appendChild(hash);
-        box.appendChild(p);
+        meta.appendChild(title);
+        meta.appendChild(info);
+        meta.appendChild(hash);
+        var link = document.createElement("a");
+        link.className = "btn btn-primary";
+        link.href = build.url;
+        link.textContent = "Download";
+        card.appendChild(meta);
+        card.appendChild(link);
+        box.appendChild(card);
       });
     }).catch(function () {
-      box.innerHTML = '<p class="note">The first release of the website edition will appear here.</p>';
+      box.innerHTML = '<p class="muted">The first release of the website edition will appear here.</p>';
     });
   }
 
@@ -284,13 +303,14 @@
 
   api("/v1/config").then(function (body) { config = body.ok ? body : null; }, function () { config = null; })
     .then(function () {
+      showPrice();
       describeOptions();
       updateButtons();
       var fromLink = /^#order=([A-Za-z0-9_-]{22})$/.exec(location.hash);
       var token = fromLink ? fromLink[1] : recall("qp1ng_order");
       if (token) {
         api("/v1/btc/orders/" + token).then(function (order) {
-          if (order.address) showOrder(token, order);
+          if (order.address) showOrder(token, order, Boolean(fromLink));
           else remember("qp1ng_order", null);
         }, function () {});
       }

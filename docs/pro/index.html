@@ -3,167 +3,303 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>Q-P1NG Pro</title>
-    <meta name="description" content="Q-P1NG Pro: on-device AI, radio, offline maps, Bitcoin vault and more. One-time EUR 9.99, lifetime licence, updates included.">
+    <meta name="description" content="Q-P1NG Pro: on-device AI, radio tools, offline maps, a Bitcoin vault and more. One-time EUR 9.99, lifetime licence, updates included. No account.">
+    <link rel="canonical" href="https://www.qp1ng.com/pro/">
     <link rel="icon" type="image/png" href="../assets/img/qp1ng_icon.png">
-<style>
-    :root {
-        --bg: #050a10;
-        --card-bg: #07101a;
-        --border: #162a3f;
-        --text: #d8e5f2;
-        --text-dim: #7f99b2;
-        --cyan: #00f2ff;
-        --green: #35ff8a;
-        --gold: #ffc94a;
-        --red: #ff6b6b;
-        --font-mono: 'Courier New', 'SFMono-Regular', Consolas, monospace;
-        --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-        background-color: var(--bg); color: var(--text); font-family: var(--font-sans); line-height: 1.6;
-        max-width: 900px; margin: 40px auto; padding: 35px 25px;
-        border: 1px solid var(--border); border-radius: 14px; box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-    }
-    @media (max-width: 600px) { body { margin: 0; border: none; border-radius: 0; padding: 22px 16px; } }
-    a { color: var(--cyan); }
-    .nav-bar { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 25px;
-        padding-bottom: 15px; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
-    .nav-brand { font-family: var(--font-mono); font-weight: 700; font-size: 0.95rem; color: var(--cyan); letter-spacing: 1px; }
-    .nav-link { font-family: var(--font-mono); color: var(--green); text-decoration: none; font-size: 0.85rem;
-        border: 1px solid rgba(53, 255, 138, 0.35); padding: 4px 10px; border-radius: 4px; }
-    h1 { color: var(--cyan); text-transform: uppercase; letter-spacing: 2px; font-family: var(--font-mono);
-        border-bottom: 2px solid var(--cyan); padding-bottom: 10px; margin-bottom: 8px; font-size: 1.85rem; }
-    h2 { color: var(--cyan); margin: 30px 0 12px; font-size: 1.1rem; font-family: var(--font-mono); text-transform: uppercase;
-        letter-spacing: 1px; padding-bottom: 4px; border-bottom: 1px solid rgba(0, 242, 255, 0.2); }
-    .subtitle { color: var(--text-dim); font-family: var(--font-mono); font-size: 0.9rem; margin-bottom: 22px; }
-    .price { font-family: var(--font-mono); font-size: 2.2rem; color: #fff; font-weight: 700; }
-    .price small { font-size: 0.9rem; color: var(--text-dim); font-weight: 400; }
-    p { margin-bottom: 14px; }
-    ul.features { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; margin: 10px 0 18px; }
-    ul.features li { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; font-size: 0.92rem; }
-    ul.features li strong { color: #fff; display: block; margin-bottom: 2px; }
-    .core { color: var(--text-dim); font-size: 0.92rem; }
-    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 18px; margin: 14px 0; }
-    .row { display: flex; gap: 12px; flex-wrap: wrap; }
-    button, .button { font: 700 0.95rem var(--font-mono); letter-spacing: 0.5px; border-radius: 8px; padding: 12px 18px; cursor: pointer;
-        border: 1px solid var(--cyan); background: rgba(0, 242, 255, 0.12); color: var(--cyan); text-decoration: none; display: inline-block; }
-    button.primary { background: var(--cyan); color: #00151a; }
-    button:disabled { opacity: 0.45; cursor: not-allowed; }
-    label.consent { display: flex; gap: 10px; align-items: flex-start; font-size: 0.9rem; margin: 6px 0 14px; cursor: pointer; }
-    label.consent input { margin-top: 4px; width: 18px; height: 18px; flex: none; }
-    .note { color: var(--text-dim); font-size: 0.85rem; }
-    .status { font-family: var(--font-mono); font-size: 0.92rem; margin-top: 10px; }
-    .status.error { color: var(--red); }
-    .status.ok { color: var(--green); }
-    .mono { font-family: var(--font-mono); word-break: break-all; }
-    .key { font-family: var(--font-mono); word-break: break-all; background: #020608; border: 1px dashed var(--green); color: var(--green);
-        padding: 12px; border-radius: 8px; font-size: 0.85rem; margin: 10px 0; user-select: all; }
-    .qr { background: #fff; border-radius: 8px; padding: 8px; width: 220px; height: 220px; }
-    .order { display: grid; grid-template-columns: 236px 1fr; gap: 18px; align-items: start; }
-    @media (max-width: 600px) { .order { grid-template-columns: 1fr; } .qr { margin: 0 auto; } }
-    input[type=text] { width: 100%; font: 0.95rem var(--font-mono); padding: 10px 12px; border-radius: 8px; border: 1px solid var(--border);
-        background: #020608; color: var(--text); }
-    [hidden] { display: none !important; }
-    .footer-legal { margin-top: 35px; padding-top: 20px; border-top: 1px solid var(--border); font-family: var(--font-mono);
-        font-size: 0.82rem; color: var(--text-dim); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-    .footer-legal a { text-decoration: none; }
-</style>
+    <link rel="preload" href="../assets/fonts/square_dot_digital_qp1ng.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="pro.css">
 </head>
 <body>
-    <header class="nav-bar">
-        <span class="nav-brand">QUANTUM P1NG&reg; // PRO</span>
-        <a href="../index.html" class="nav-link">&larr; BACK TO WEBSITE</a>
-    </header>
-
-    <h1>Q-P1NG Pro</h1>
-    <p class="subtitle">EVERYTHING IN CORE, PLUS THE ADVANCED TOOLS &bull; ONE-TIME PAYMENT &bull; LIFETIME LICENCE &bull; UPDATES INCLUDED</p>
-    <p class="price">&euro;9.99 <small>VAT included, no subscription</small></p>
-
-    <h2>What Pro adds</h2>
-    <ul class="features">
-        <li><strong>Q-Brain on your phone</strong>Chat, vision and image generation with models that run offline on the device.</li>
-        <li><strong>Voice</strong>Whisper dictation, natural reading voices, voice changer in calls and voice-note effects.</li>
-        <li><strong>Radio</strong>SDR receivers, LoRa, GhostWave acoustic modem and the Q-Radio Bridge.</li>
-        <li><strong>Q-Cast live</strong>Broadcast your own audio station, not just listen.</li>
-        <li><strong>Q-GEO offline maps</strong>Download map areas and navigate without a connection.</li>
-        <li><strong>Q-Torrent</strong>Private file sharing between your contacts.</li>
-        <li><strong>Bitcoin vault</strong>Non-custodial wallet that signs and verifies payments inside the chat.</li>
-        <li><strong>Q-SWEEP</strong>Counter-surveillance: tracker guard, Bluetooth and Wi-Fi scans.</li>
-        <li><strong>Automations</strong>Q-Scenarios and quick actions.</li>
-        <li><strong>Linux shell</strong>An Alpine Linux sandbox (website edition only).</li>
-        <li><strong>All themes</strong>Every theme, font and background, your own photo and colours.</li>
-    </ul>
-    <p class="core">Free in Core: encrypted chat, voice and video calls, Q-FEED, Q-Cast listening, offline mesh, Secure Live, the secure keyboard, panic wipe and accessibility themes.</p>
-
-    <h2>Get Pro</h2>
-    <div class="card">
-        <p><strong>Google Play:</strong> the Play edition of Pro is bought and updated through Google Play. <span id="play-status" class="note">Coming soon to Google Play.</span></p>
-        <p><strong>Website edition:</strong> buy a licence key here, install the website edition (below) and paste the key in the app: any Pro feature, or Info &rsaquo; Activate Pro. The key is checked on your phone; the app never contacts us to validate it.</p>
-        <label class="consent"><input type="checkbox" id="consent"> <span>I agree that the licence key is delivered immediately after payment and I acknowledge that I therefore lose my right of withdrawal. I accept the <a href="../terms.html">Terms</a> and the <a href="../license.html">EULA</a>; see the <a href="../privacy.html">Privacy Policy</a>.</span></label>
-        <div class="row">
-            <button id="pay-card" class="primary" disabled>Pay by card</button>
-            <button id="pay-btc" disabled>Pay with Bitcoin</button>
-        </div>
-        <p id="pay-note" class="note" style="margin-top:10px">Loading payment options&hellip;</p>
+<header class="topbar">
+    <div class="wrap">
+        <a class="brand" href="../index.html" aria-label="Q-P1NG home">
+            <img src="../assets/img/qp1ng_icon.png" alt="" width="32" height="32">
+            <span class="brand-name">Q-P1NG</span>
+            <span class="pill">Pro</span>
+        </a>
+        <nav class="nav" aria-label="Page">
+            <a href="#features">Features</a>
+            <a href="#download">Download</a>
+            <a href="#help">Help</a>
+            <a class="btn btn-primary btn-sm" href="#buy">Get Pro</a>
+        </nav>
     </div>
+</header>
 
-    <div id="btc-order" class="card" hidden>
-        <div class="order">
-            <img id="btc-qr" class="qr" alt="Bitcoin payment QR code">
+<main>
+    <section class="hero" aria-labelledby="title">
+        <div class="wrap">
             <div>
-                <p>Send exactly <strong id="btc-amount" class="mono"></strong> BTC to:</p>
-                <p id="btc-address" class="mono"></p>
-                <div class="row">
-                    <a id="btc-open" class="button" href="#">Open in wallet</a>
-                    <button id="btc-copy-address">Copy address</button>
-                    <button id="btc-copy-amount">Copy amount</button>
+                <p class="eyebrow">Q-P1NG PRO</p>
+                <h1 id="title">Everything in Q-P1NG, <span class="accent">plus the advanced tools.</span></h1>
+                <p class="lead">On-device AI, radio, offline maps, a Bitcoin vault and more, for a one-time payment. No account, no subscription, and the app never phones home to check your licence.</p>
+                <div class="cta">
+                    <a class="btn btn-primary" href="#buy"><span>Get Pro for <span data-price>&euro;9.99</span></span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                    <a class="btn btn-ghost" href="#features">See what&rsquo;s inside</a>
                 </div>
-                <p class="note" style="margin-top:10px">The rate is held for 24 hours. The licence appears here after one confirmation (usually 10 to 60 minutes). You can close this page and come back with this link: <a id="btc-link" class="mono" href="#"></a></p>
-                <p id="btc-status" class="status"></p>
+                <ul class="trust">
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8.5 8 9 4.5-.5 8-4 8-9V6l-8-3z"/><path d="m9 12 2 2 4-4"/></svg>No account or email</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="m10.8 12.2 8.2-8.2M15 8l3 3M17 6l2 2"/></svg>Key checked offline</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Card or Bitcoin</li>
+                </ul>
+            </div>
+            <aside class="price-card" aria-label="Price">
+                <div class="price-head">
+                    <img src="../assets/img/qp1ng_icon.png" alt="" width="56" height="56">
+                    <div><strong>Q-P1NG Pro</strong><span class="muted small">Lifetime licence</span></div>
+                </div>
+                <p class="price"><span class="amount" data-price>&euro;9.99</span><span class="terms">one-time, VAT included</span></p>
+                <ul class="checks">
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Every Pro feature, for one person on their devices</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Updates of the website edition included</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Key delivered on the spot, recoverable later</li>
+                </ul>
+                <a class="btn btn-primary" href="#buy">Buy a licence</a>
+            </aside>
+        </div>
+    </section>
+
+    <section id="features" aria-labelledby="features-title">
+        <div class="wrap">
+            <div class="section-head">
+                <p class="kicker">WHAT PRO ADDS</p>
+                <h2 id="features-title">Advanced tools that stay on your phone</h2>
+                <p>The models, maps and keys run and live on your device. Pro unlocks them; nothing about you is sent to us.</p>
+            </div>
+            <div class="grid">
+                <article class="feature">
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4M10 10h4v4h-4z"/></svg></div>
+                    <h3>Q-Brain on your phone</h3>
+                    <p>Chat, vision and image generation with models that run offline on the device.</p>
+                </article>
+                <article class="feature">
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div>
+                    <h3>Voice</h3>
+                    <p>Whisper dictation, natural reading voices, voice changer in calls and voice-note effects.</p>
+                </article>
+                <article class="feature">
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12a7 7 0 0 1 14 0M8 12a4 4 0 0 1 8 0"/><circle cx="12" cy="12" r="1.5"/><path d="M12 14v7M9 21h6"/></svg></div>
+                    <h3>Radio</h3>
+                    <p>SDR receivers, LoRa, the GhostWave acoustic modem and the Q-Radio Bridge.</p>
+                </article>
+                <article class="feature">
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="2"/><path d="M16.2 7.8a6 6 0 0 1 0 8.4M7.8 16.2a6 6 0 0 1 0-8.4M19 5a10 10 0 0 1 0 14M5 19A10 10 0 0 1 5 5"/></svg></div>
+                    <h3>Q-Cast live</h3>
+                    <p>Broadcast your own audio station, not just listen.</p>
+                </article>
+                <article class="feature">
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2zM9 4v14M15 6v14"/></svg></div>
+                    <h3>Q-GEO offline maps</h3>
+                    <p>Download map areas and find your way without a connection.</p>
+                </article>
+                <article class="feature">
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg></div>
+                    <h3>Q-Torrent</h3>
+                    <p>Private file sharing between your contacts.</p>
+                </article>
+                <article class="feature">
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18M16 15h2M7 6V4h10v2"/></svg></div>
+                    <h3>Bitcoin vault</h3>
+                    <p>A non-custodial wallet that signs and verifies payments inside the chat.</p>
+                </article>
+                <article class="feature">
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><path d="M12 12 19 5"/></svg></div>
+                    <h3>Q-SWEEP</h3>
+                    <p>Counter-surveillance: tracker guard, Bluetooth and Wi-Fi scans.</p>
+                </article>
+                <article class="feature">
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="15" width="6" height="6" rx="1"/><path d="M9 6h4a2 2 0 0 1 2 2v7"/></svg></div>
+                    <h3>Automations</h3>
+                    <p>Q-Scenarios and quick actions that run on the phone.</p>
+                </article>
+                <article class="feature">
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m7 9 3 3-3 3M13 15h4"/></svg></div>
+                    <h3>Linux shell<span class="tag">Website</span></h3>
+                    <p>An Alpine Linux sandbox, in the website edition only.</p>
+                </article>
+                <article class="feature">
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18c1 0 1.5-.8 1.5-1.5 0-.6-.3-1-.3-1.6 0-.8.7-1.4 1.5-1.4H17a4 4 0 0 0 4-4c0-5-4-9.5-9-9.5z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10" cy="7" r="1"/><circle cx="14.5" cy="7" r="1"/></svg></div>
+                    <h3>All themes</h3>
+                    <p>Every theme, font and background, your own photo and colours.</p>
+                </article>
+                <article class="feature">
+                    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.7M20 4v5h-5"/></svg></div>
+                    <h3>Updates included</h3>
+                    <p>The website edition updates itself, checking size, fingerprint and signature first.</p>
+                </article>
+            </div>
+            <div class="core">
+                <strong>Free in Core, for everyone:</strong>
+                <ul class="chips">
+                    <li>Encrypted chat</li><li>Voice &amp; video calls</li><li>Q-FEED</li><li>Q-Cast listening</li>
+                    <li>Offline mesh</li><li>Secure Live</li><li>Secure keyboard</li><li>Panic wipe</li><li>Accessibility themes</li>
+                </ul>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div id="licence" class="card" hidden>
-        <p class="status ok">Thank you! Your Q-P1NG Pro licence key:</p>
-        <div id="licence-key" class="key"></div>
-        <div class="row"><button id="licence-copy" class="primary">Copy key</button></div>
-        <p class="note" style="margin-top:10px">In Q-P1NG Pro (website edition): tap any Pro feature, or open Info &rsaquo; Activate Pro, paste the key and tap Activate. Keep the key: you need it again on a new phone.</p>
-    </div>
-
-    <div id="claim-wait" class="card" hidden>
-        <p class="status">Payment received by Paddle. Waiting for the confirmation&hellip;</p>
-        <p class="note">This usually takes a few seconds. If it takes longer, keep this page open or recover the key below with the transaction number on your receipt.</p>
-    </div>
-
-    <h2>Lost your key?</h2>
-    <div class="card">
-        <p>Card payments: enter the transaction number from your Paddle receipt (it starts with <span class="mono">txn_</span>). Bitcoin payments: reopen the order link shown during payment.</p>
-        <div class="row" style="flex-wrap:nowrap">
-            <input type="text" id="recover-txn" placeholder="txn_..." autocomplete="off" spellcheck="false">
-            <button id="recover">Recover</button>
+    <section aria-labelledby="how-title">
+        <div class="wrap">
+            <div class="section-head">
+                <p class="kicker">HOW IT WORKS</p>
+                <h2 id="how-title">Three steps, no account</h2>
+            </div>
+            <ol class="steps">
+                <li><strong>Buy a licence</strong><span>Pay by card through Paddle or with Bitcoin. Your key appears on this page.</span></li>
+                <li><strong>Install the website edition</strong><span>Download the APK below. Already on Google Play? The Play edition is bought there instead.</span></li>
+                <li><strong>Paste the key</strong><span>Open any Pro feature, or Info &rsaquo; Activate Pro, paste the key and tap Activate.</span></li>
+            </ol>
         </div>
-        <p id="recover-status" class="status"></p>
-    </div>
+    </section>
 
-    <h2>Download the website edition</h2>
-    <div class="card" id="downloads">
-        <p class="note">Loading the latest release&hellip;</p>
-    </div>
-    <p class="note">Install the APK on Android 8 or later (allow your browser to install apps). The website edition checks for updates once a day and installs them only if their size, fingerprint and signing certificate match. The free Core edition needs no licence.</p>
+    <section id="buy" aria-labelledby="buy-title">
+        <div class="wrap">
+            <div class="section-head">
+                <p class="kicker">GET PRO</p>
+                <h2 id="buy-title">Buy a licence for the website edition</h2>
+                <p><span id="play-status">The Google Play edition is coming soon and will be sold through Google Play.</span></p>
+            </div>
 
-    <footer class="footer-legal">
-        <div>&copy; 2026 ZonkeyNet / Quantum P1NG Team. All Rights Reserved.</div>
-        <div>
-            <a href="../license.html">Commercial License (EULA)</a> &bull;
-            <a href="../terms.html">Terms of Service</a> &bull;
-            <a href="../privacy.html">Privacy Policy</a> &bull;
+            <div class="panel">
+                <label class="consent">
+                    <input type="checkbox" id="consent">
+                    <span>I agree that the licence key is delivered immediately after payment and I acknowledge that I therefore lose my right of withdrawal. I accept the <a href="../terms.html">Terms</a> and the <a href="../license.html">EULA</a>; see the <a href="../privacy.html">Privacy Policy</a>.</span>
+                </label>
+                <div class="methods">
+                    <button type="button" id="pay-card" class="method card" disabled>
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></span>
+                        <span><strong>Pay by card</strong><small>Paddle, our merchant of record</small></span>
+                        <span class="state" id="card-state"></span>
+                    </button>
+                    <button type="button" id="pay-btc" class="method btc" disabled>
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5h6.5a3.5 3.5 0 0 1 0 7H8zM8 12h7.5a3.5 3.5 0 0 1 0 7H8zM8 5v14M10 3v2M14 3v2M10 19v2M14 19v2"/></svg></span>
+                        <span><strong>Pay with Bitcoin</strong><small>On-chain, no account needed</small></span>
+                        <span class="state" id="btc-state"></span>
+                    </button>
+                </div>
+                <p id="pay-note" class="pay-note" aria-live="polite">Loading payment options&hellip;</p>
+            </div>
+
+            <div id="btc-order" class="panel" hidden>
+                <div class="order">
+                    <img id="btc-qr" class="qr" alt="QR code of the Bitcoin payment" width="232" height="232">
+                    <div>
+                        <div class="field">
+                            <span class="label">Amount</span>
+                            <div class="copyline"><span class="value"><span id="btc-amount"></span> BTC</span>
+                                <button type="button" class="btn btn-sm" id="btc-copy-amount">Copy</button></div>
+                        </div>
+                        <div class="field">
+                            <span class="label">Address</span>
+                            <div class="copyline"><span class="value" id="btc-address"></span>
+                                <button type="button" class="btn btn-sm" id="btc-copy-address">Copy</button></div>
+                        </div>
+                        <div class="actions">
+                            <a id="btc-open" class="btn btn-primary" href="#">Open in wallet
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg></a>
+                        </div>
+                        <p id="btc-status" class="status" aria-live="polite"></p>
+                        <p class="muted small">The amount is held for 24 hours and the key appears here after one confirmation, usually 10 to 60 minutes. You can close this page and come back with this link: <a id="btc-link" class="mono" href="#"></a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="claim-wait" class="panel" hidden>
+                <div class="waiting">
+                    <span class="spinner" aria-hidden="true"></span>
+                    <div>
+                        <p><strong>Payment received by Paddle.</strong> Waiting for the confirmation&hellip;</p>
+                        <p class="muted small">This usually takes a few seconds. If it takes longer, keep this page open or recover the key below with the transaction number on your receipt.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="licence" class="panel success" hidden>
+                <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>Thank you! Here is your licence key</h3>
+                <p class="muted small">Keep it somewhere safe: you need it again on a new phone.</p>
+                <div id="licence-key" class="key"></div>
+                <div class="actions">
+                    <button type="button" id="licence-copy" class="btn btn-primary">Copy key</button>
+                    <a class="btn" href="#download">Download the app</a>
+                </div>
+                <p class="muted small">In Q-P1NG Pro (website edition): open any Pro feature, or Info &rsaquo; Activate Pro, paste the key and tap Activate.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="download" aria-labelledby="download-title">
+        <div class="wrap">
+            <div class="section-head">
+                <p class="kicker">DOWNLOAD</p>
+                <h2 id="download-title">The website edition</h2>
+                <p>For Android 8 or later: allow your browser to install apps. The free Core edition needs no licence.</p>
+            </div>
+            <div class="panel" id="downloads">
+                <p class="muted">Loading the latest release&hellip;</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="help" aria-labelledby="help-title">
+        <div class="wrap">
+            <div class="section-head">
+                <p class="kicker">HELP</p>
+                <h2 id="help-title">Lost your key? Questions?</h2>
+            </div>
+            <div class="two">
+                <div class="panel">
+                    <h3>Recover a card purchase</h3>
+                    <p class="muted small">Enter the transaction number from your Paddle receipt (it starts with <span class="mono">txn_</span>). For Bitcoin, reopen the order link shown during payment.</p>
+                    <label class="visually-hidden" for="recover-txn">Paddle transaction number</label>
+                    <div class="inline">
+                        <input type="text" id="recover-txn" class="input" placeholder="txn_..." autocomplete="off" spellcheck="false" inputmode="text">
+                        <button type="button" id="recover" class="btn">Recover</button>
+                    </div>
+                    <p id="recover-status" class="status" aria-live="polite"></p>
+                </div>
+                <div class="faq">
+                    <details>
+                        <summary>Is the licence tied to my phone?</summary>
+                        <p>No. It is a personal licence for the devices under your control. Keep the key: you paste it again on a new phone.</p>
+                    </details>
+                    <details>
+                        <summary>Does the app contact you to check it?</summary>
+                        <p>No. The key is signed by us and checked on your phone against a public key inside the app. Nothing is sent to validate it.</p>
+                    </details>
+                    <details>
+                        <summary>Website or Google Play edition?</summary>
+                        <p>Both have the Pro features. The Play edition is bought and updated through Google Play; the website edition is unlocked with this key, updates itself from GitHub and adds the Linux shell.</p>
+                    </details>
+                    <details>
+                        <summary>How do Bitcoin payments work?</summary>
+                        <p>Each order gets a fresh address of our wallet and the amount is held for 24 hours. The key appears after one confirmation; a payment that arrives later still counts for two weeks.</p>
+                    </details>
+                    <details>
+                        <summary>Who processes card payments?</summary>
+                        <p>Paddle, our merchant of record, handles the payment, the receipt and VAT. We never see your card details.</p>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="wrap">
+        <span>&copy; 2026 ZonkeyNet / Quantum P1NG Team</span>
+        <nav aria-label="Legal">
+            <a href="../terms.html">Terms</a>
+            <a href="../license.html">EULA</a>
+            <a href="../privacy.html">Privacy</a>
             <a href="mailto:support@qp1ng.com">support@qp1ng.com</a>
-        </div>
-    </footer>
-    <script src="pow.js"></script>
-    <script src="pro.js"></script>
+        </nav>
+    </div>
+</footer>
+<script src="pow.js"></script>
+<script src="pro.js"></script>
 </body>
 </html>
