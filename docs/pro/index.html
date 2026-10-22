@@ -185,26 +185,40 @@
                 <p id="pay-note" class="pay-note" aria-live="polite">Loading payment options&hellip;</p>
             </div>
 
-            <div id="btc-order" class="panel" hidden>
-                <div class="order">
-                    <img id="btc-qr" class="qr" alt="QR code of the Bitcoin payment" width="232" height="232">
+            <div id="btc-order" class="panel order-panel" hidden>
+                <div class="order-head">
                     <div>
+                        <h3>Bitcoin payment</h3>
+                        <p class="muted small">Scan the code or copy the details into your wallet.</p>
+                    </div>
+                    <span class="timer" id="btc-timer"></span>
+                </div>
+                <div class="order">
+                    <figure class="qr-wrap">
+                        <img id="btc-qr" class="qr" alt="QR code of the Bitcoin payment" width="232" height="232">
+                        <figcaption class="muted small">Scan with any Bitcoin wallet</figcaption>
+                    </figure>
+                    <div class="order-details">
                         <div class="field">
                             <span class="label">Amount</span>
-                            <div class="copyline"><span class="value"><span id="btc-amount"></span> BTC</span>
+                            <div class="copyline"><span class="value amount"><span id="btc-amount"></span>&nbsp;BTC <span class="eur" id="btc-eur"></span></span>
                                 <button type="button" class="btn btn-sm" id="btc-copy-amount">Copy</button></div>
                         </div>
                         <div class="field">
                             <span class="label">Address</span>
-                            <div class="copyline"><span class="value" id="btc-address"></span>
+                            <div class="copyline"><span class="value address" id="btc-address"></span>
                                 <button type="button" class="btn btn-sm" id="btc-copy-address">Copy</button></div>
                         </div>
-                        <div class="actions">
-                            <a id="btc-open" class="btn btn-primary" href="#">Open in wallet
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg></a>
-                        </div>
+                        <a id="btc-open" class="btn btn-primary btn-wallet" href="#">Open in wallet
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg></a>
                         <p id="btc-status" class="status" aria-live="polite"></p>
-                        <p class="muted small">The amount is held for 24 hours and the key appears here after one confirmation, usually 10 to 60 minutes. You can close this page and come back with this link: <a id="btc-link" class="mono" href="#"></a></p>
+                    </div>
+                </div>
+                <div class="order-foot">
+                    <p class="muted small">The key appears here after one confirmation, usually 10 to 60 minutes. You can close this page and come back later with your order link.</p>
+                    <div class="copyline linkline">
+                        <a id="btc-link" class="value" href="#"></a>
+                        <button type="button" class="btn btn-sm" id="btc-copy-link">Copy link</button>
                     </div>
                 </div>
             </div>

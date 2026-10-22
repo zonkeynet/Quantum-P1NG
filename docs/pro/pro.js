@@ -176,11 +176,45 @@
     }).then(updateButtons);
   }
 
+  var timerTick = null;
+
+  /** The euro price is held until the order expires: a live countdown in the panel header. */
+  function startTimer(expiresAt) {
+    clearInterval(timerTick);
+    var timer = $("btc-timer");
+    var tick = function () {
+      var left = Math.max(0, Math.floor((expiresAt - Date.now()) / 1000));
+      if (!left) {
+        timer.textContent = "Rate expired";
+        timer.classList.add("is-over");
+        clearInterval(timerTick);
+        return;
+      }
+      var h = Math.floor(left / 3600), m = Math.floor((left % 3600) / 60), s = left % 60;
+      timer.textContent = "Rate held \u00b7 " + h + ":" + (m < 10 ? "0" : "") + m + ":" + (s < 10 ? "0" : "") + s;
+      timer.classList.remove("is-over");
+    };
+    tick();
+    timerTick = setInterval(tick, 1000);
+  }
+
+  /** Groups of four characters for reading; selecting or copying gives the address without spaces. */
+  function showAddress(element, address) {
+    element.textContent = "";
+    for (var i = 0; i < address.length; i += 4) {
+      var group = document.createElement("span");
+      group.className = "grp";
+      group.textContent = address.slice(i, i + 4);
+      element.appendChild(group);
+    }
+  }
+
   function showOrder(token, order, scroll) {
     $("btc-order").hidden = false;
     var link = location.origin + location.pathname + "#order=" + token;
     $("btc-link").textContent = link;
     $("btc-link").href = link;
+    $("btc-copy-link").onclick = function () { copy(link, $("btc-copy-link")); };
     renderOrder(token, order);
     clearInterval(pollTimer);
     pollTimer = setInterval(function () { refreshOrder(token); }, 15000);
@@ -190,7 +224,10 @@
   function renderOrder(token, order) {
     var due = Math.max(order.amountSats - (order.receivedSats || 0), 0) || order.amountSats;
     $("btc-amount").textContent = btc(due);
-    $("btc-address").textContent = order.address;
+    $("btc-eur").textContent = due === order.amountSats && order.priceEur ? "\u2248 \u20ac" + order.priceEur : "";
+    showAddress($("btc-address"), order.address);
+    if (order.state === "paid") { clearInterval(timerTick); $("btc-timer").textContent = ""; }
+    else if (order.state !== "expired" || !timerTick) startTimer(order.expiresAt);
     $("btc-open").href = order.bip21;
     $("btc-qr").src = API + "/v1/btc/orders/" + token + "/qr.svg?d=" + due;
     $("btc-copy-address").onclick = function () { copy(order.address, $("btc-copy-address")); };
@@ -213,7 +250,7 @@
         setStatus(status, "This order has expired without a payment. If you have just paid, the payment is still recognised for two weeks; otherwise start a new order.", "error");
         break;
       default:
-        setStatus(status, "Waiting for the payment… (rate held until " + new Date(order.expiresAt).toLocaleString() + ")");
+        setStatus(status, "Waiting for the payment\u2026");
     }
   }
 
