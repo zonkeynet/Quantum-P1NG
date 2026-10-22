@@ -112,6 +112,8 @@
     'q-sat': 'rf',
     'radio-bridge': 'rf',
     'q-call': 'rf',
+    'q-cast': 'rf',
+    'q-globe': 'rf',
     'stt': 'tools',
     'q-ai': 'tools',
     'action-forge': 'tools',
@@ -11570,4 +11572,273 @@ document.querySelectorAll('.nav__cta').forEach(link => {
   });
   travel('.qcall-scanline', 'y');
   travel('.pipe-packet', 'x');
+})();
+
+
+// Q-Globe walkthrough: the video itself is the play/pause button.
+(() => {
+  'use strict';
+  const video = document.getElementById('qglobeDemoVideo');
+  if (!video) return;
+  const hint = document.getElementById('qglobeDemoHint');
+
+  function sync() {
+    const action = video.error ? 'Retry' : video.ended ? 'Replay' : video.paused ? 'Play' : 'Pause';
+    video.setAttribute('aria-label', action + ' Q-Globe walkthrough');
+    if (hint) hint.textContent = 'CLICK TO ' + action.toUpperCase();
+  }
+
+  function toggle() {
+    if (!video.paused && !video.ended) {
+      video.pause();
+      return;
+    }
+    if (video.error) video.load();
+    else if (video.ended) video.currentTime = 0;
+    const play = video.play();
+    if (play && typeof play.catch === 'function') play.catch(sync);
+  }
+
+  video.addEventListener('click', toggle);
+  video.addEventListener('keydown', event => {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    event.preventDefault();
+    if (!event.repeat) toggle();
+  });
+  ['play', 'pause', 'ended', 'error', 'emptied'].forEach(event => video.addEventListener(event, sync));
+  sync();
+})();
+
+
+// Q-Brain Walkthrough Demo: "From Idea to Your Personal Tool" (Quantum Tools & Action Forge)
+(() => {
+  'use strict';
+  const video = document.getElementById('qbrainDemoVideo');
+  const screen = document.getElementById('qbrainDemoScreen');
+  const videoProgress = document.getElementById('qbrainVideoProgress');
+  const walkthroughProgress = document.getElementById('qbrainWalkthroughProgress');
+  const progressTrack = document.getElementById('qbrainProgressTrack');
+  const caption = document.getElementById('qbrainWalkthroughCaption');
+  const time = document.getElementById('qbrainWalkthroughTime');
+  const hint = document.getElementById('qbrainDemoHint');
+  const stepItems = document.querySelectorAll('.qai-step-item');
+  const speedButtons = document.querySelectorAll('.qai-speed-btn');
+
+  if (!video || !screen) return;
+
+  // Enforce muted on HTML element and DOM property so browsers never block playback
+  video.muted = true;
+  video.defaultMuted = true;
+
+  // Default playback speed set to 1.25x for snappier, responsive walkthrough
+  let currentSpeed = 1.25;
+  video.playbackRate = currentSpeed;
+  video.defaultPlaybackRate = currentSpeed;
+
+  const cues = [
+    { start: 0, end: 7.97, text: "Describe the personal tool you want to create.", step: 0 },
+    { start: 7.97, end: 11.97, text: "Q-Brain generates the Python source. Waiting time shortened.", step: 0 },
+    { start: 11.97, end: 15.93, text: "Refine your request in the conversation.", step: 0 },
+    { start: 15.93, end: 19.93, text: "Read the proposed program before running it.", step: 1 },
+    { start: 19.93, end: 27.50, text: "Review and edit the code: correct the Food addition.", step: 1 },
+    { start: 27.50, end: 33.47, text: "Check the file write, then explicitly approve execution.", step: 2 },
+    { start: 33.47, end: 38.43, text: "Real sandbox output: the correct total is 41.20 EUR.", step: 3 },
+    { start: 38.43, end: 42.40, text: "Execution passed. The reviewed source is preserved.", step: 3 },
+    { start: 42.40, end: 47.40, text: "Add the verified code to Quantum Tools.", step: 4 },
+    { start: 47.40, end: 52.40, text: "Open your saved tool in Action Forge.", step: 4 },
+    { start: 52.40, end: 56.37, text: "Run the saved tool again from its test panel.", step: 4 },
+    { start: 56.37, end: 61.33, text: "Your reusable tool returns the same verified result.", step: 4 }
+  ];
+
+  const stepTimes = [0, 19.93, 27.50, 33.47, 42.40];
+
+  function formatTime(sec) {
+    const s = Math.max(0, Math.floor(sec || 0));
+    const m = Math.floor(s / 60);
+    const rem = s % 60;
+    return `${String(m).padStart(2, '0')}:${String(rem).padStart(2, '0')}`;
+  }
+
+  function applySpeed() {
+    try {
+      video.playbackRate = currentSpeed;
+      video.defaultPlaybackRate = currentSpeed;
+    } catch(e){}
+  }
+
+  function syncState() {
+    const isPlaying = !video.paused && !video.ended;
+    screen.classList.toggle('is-playing', isPlaying);
+    applySpeed();
+    if (hint) {
+      const cur = video.currentTime;
+      const dur = video.duration || 61.33;
+      const spdLabel = currentSpeed !== 1 ? ` · ${currentSpeed}x` : '';
+      if (video.ended) {
+        hint.textContent = 'COMPLETED · CLICK TO REPLAY';
+      } else if (isPlaying) {
+        hint.textContent = `PLAYING${spdLabel} · ${formatTime(cur)} / ${formatTime(dur)} · CLICK TO PAUSE`;
+      } else if (cur > 0.5) {
+        hint.textContent = `PAUSED · ${formatTime(cur)} / ${formatTime(dur)} · CLICK TO RESUME`;
+      } else {
+        hint.textContent = `CLICK TO PLAY${spdLabel} · 720×1280 · 30 FPS`;
+      }
+    }
+  }
+
+  function startPlayback() {
+    video.muted = true;
+    applySpeed();
+    if (video.preload === 'none') {
+      video.preload = 'auto';
+    }
+    if (video.ended) video.currentTime = 0;
+    const p = video.play();
+    if (p !== undefined && typeof p.then === 'function') {
+      p.then(() => {
+        applySpeed();
+        syncState();
+      }).catch(() => {
+        video.muted = true;
+        applySpeed();
+        video.play().then(() => {
+          applySpeed();
+          syncState();
+        }).catch(() => {});
+      });
+    }
+  }
+
+  function pausePlayback() {
+    video.pause();
+    syncState();
+  }
+
+  function toggle(e) {
+    if (e) {
+      if (typeof e.preventDefault === 'function') e.preventDefault();
+      if (typeof e.stopPropagation === 'function') e.stopPropagation();
+    }
+    if (video.paused || video.ended) {
+      startPlayback();
+    } else {
+      pausePlayback();
+    }
+  }
+
+  // Clicking on static image of video or phone container starts/toggles video automatically
+  video.addEventListener('click', toggle);
+  screen.addEventListener('click', (e) => {
+    if (e.target !== video) {
+      toggle(e);
+    }
+  });
+
+  screen.addEventListener('keydown', e => {
+    if (e.key === ' ' || e.key === 'Enter') {
+      toggle(e);
+    }
+  });
+
+  ['play', 'pause', 'ended', 'error', 'emptied', 'loadeddata', 'ratechange'].forEach(evt => video.addEventListener(evt, syncState));
+
+  function update() {
+    const cur = video.currentTime;
+    const dur = video.duration || 61.33;
+    const pct = Math.min(100, Math.max(0, (cur / dur) * 100));
+
+    // Update real-time English walkthrough action caption
+    const cue = cues.find(c => cur >= c.start && cur < c.end) || cues[cues.length - 1];
+    if (caption && cue) {
+      caption.textContent = cue.text;
+    }
+
+    // Update progress bars
+    if (walkthroughProgress) {
+      walkthroughProgress.style.width = pct + '%';
+    }
+    if (videoProgress) {
+      videoProgress.style.width = pct + '%';
+    }
+
+    // Update time counter & action hint
+    if (time) {
+      const stateHint = video.ended ? 'Click video to replay' : video.paused ? 'Click video to play' : 'Click video to pause';
+      time.innerHTML = `<span>${formatTime(cur)} / ${formatTime(dur)}</span><span>${stateHint}</span>`;
+    }
+
+    // Synchronize active step (01 to 05)
+    if (cue && stepItems.length) {
+      const curStep = cue.step;
+      stepItems.forEach((item, idx) => {
+        item.classList.toggle('is-active', idx === curStep);
+      });
+    }
+
+    syncState();
+  }
+
+  video.addEventListener('timeupdate', update);
+  video.addEventListener('loadedmetadata', update);
+
+  // Speed selection pills (1x, 1.25x, 1.5x)
+  speedButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const spd = parseFloat(btn.dataset.speed);
+      if (!isNaN(spd) && spd > 0) {
+        currentSpeed = spd;
+        applySpeed();
+        speedButtons.forEach(b => {
+          const active = b === btn;
+          b.classList.toggle('is-active', active);
+          b.setAttribute('aria-pressed', String(active));
+        });
+        syncState();
+      }
+    });
+  });
+
+  // Interactive scrubber track: click anywhere on the bar to seek
+  if (progressTrack) {
+    progressTrack.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const rect = progressTrack.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const ratio = Math.max(0, Math.min(1, clickX / rect.width));
+      const dur = video.duration || 61.33;
+      video.currentTime = ratio * dur;
+      if (video.paused) startPlayback();
+    });
+  }
+
+  // Jump to step milestones on click
+  stepItems.forEach((item, idx) => {
+    item.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (typeof stepTimes[idx] === 'number') {
+        video.currentTime = stepTimes[idx];
+        startPlayback();
+      }
+    });
+  });
+
+  // Smart lazy-prime: when scrolling within 350px of the phone, prime video metadata
+  if ('IntersectionObserver' in window && screen) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (video.preload === 'none') {
+            video.preload = 'metadata';
+          }
+          obs.disconnect();
+        }
+      });
+    }, { rootMargin: '350px 0px' });
+    observer.observe(screen);
+  }
+
+  applySpeed();
+  syncState();
+  update();
 })();

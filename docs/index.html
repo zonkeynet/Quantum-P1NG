@@ -16,9 +16,9 @@
   <title>Quantum P1NG - Secure Comms, Local AI & Field Tools</title>
   <link rel="canonical" href="https://www.qp1ng.com/" />
 
-  <meta name="description" content="Quantum P1NG is an OPSEC-first Android suite for secure messaging, encrypted vaults, local AI, secure dictation, emergency workflows and optional RF lab tools." />
+  <meta name="description" content="Quantum P1NG for Android: secure messaging, local AI, encrypted vaults and field tools. Broadcast with Q-Cast and explore radio stations on Q-Globe." />
 
-  <meta name="keywords" content="Tor messaging, secure notes, encrypted vault, local AI, secure dictation, emergency workflows, RadioBridge, RF lab tools, OPSEC, anti-forensics, qp1ng" />
+  <meta name="keywords" content="Tor messaging, secure notes, encrypted vault, local AI, secure dictation, emergency workflows, RadioBridge, RF lab tools, Q-Cast, Q-Globe, Tor radio, internet radio, OPSEC, anti-forensics, qp1ng" />
   <meta name="author" content="Zonkeynet" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
@@ -28,7 +28,7 @@
   <meta property="og:site_name" content="Quantum P1NG" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:title" content="Quantum P1NG - OPSEC-First Secure Communications Suite" />
-  <meta property="og:description" content="Secure messaging, encrypted vaults, local AI, secure dictation, emergency workflows and optional RF lab tools in one OPSEC-first Android suite." />
+  <meta property="og:description" content="Quantum P1NG for Android: secure messaging, local AI, encrypted vaults and field tools. Broadcast with Q-Cast and explore radio stations on Q-Globe." />
   <meta property="og:image" content="https://www.qp1ng.com/assets/img/social-preview.png" />
   <meta property="og:image:secure_url" content="https://www.qp1ng.com/assets/img/social-preview.png" />
   <meta property="og:image:type" content="image/png" />
@@ -41,11 +41,11 @@
   <meta name="twitter:site" content="@QP1NG" />
   <meta name="twitter:creator" content="@Zonkeynet" />
   <meta name="twitter:title" content="Quantum P1NG - Secure Comms, Local AI & Field Tools" />
-  <meta name="twitter:description" content="OPSEC-first Android suite for private communications, encrypted vaults, local AI, secure dictation and field resilience." />
+  <meta name="twitter:description" content="Quantum P1NG for Android: secure messaging, local AI, encrypted vaults and field tools. Broadcast with Q-Cast and explore radio stations on Q-Globe." />
   <meta name="twitter:image" content="https://www.qp1ng.com/assets/img/social-preview.png" />
 
   <link rel="preload" href="assets/fonts/square_dot_digital_qp1ng.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="styles.css?v=3.0.4" as="style" />
+  <link rel="preload" href="styles.css?v=3.0.9" as="style" />
   <link rel="preload" as="image" href="assets/vid/intro_bg_poster.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/intro_mobile_poster.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/qmap_poster.webp">
@@ -60,7 +60,8 @@
       }
     } catch(e){}
   </script>
-  <link rel="stylesheet" href="styles.css?v=3.0.4" />
+  <link rel="stylesheet" href="styles.css?v=3.0.9" />
+  <link rel="stylesheet" href="qcast-globe.css?v=1.0.7" />
 
   <!-- Schema.org Comprehensive Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -144,7 +145,9 @@
           "LoRa Nexus P2P encrypted text & telemetry mesh engine",
           "Q-Geo offline tactical vector GIS and MGRS waypoint map packs",
           "Anti-forensic panic wipe, kinetic shake sanitization and plausible deniability decoy PINs",
-          "GhostWave RadioBridge transceiver control via USB-C AIOC interface"
+          "GhostWave RadioBridge transceiver control via USB-C AIOC interface",
+          "Q-Cast personal radio studio: microphone, music, jingles and Tor broadcasting",
+          "Q-Globe interactive world radio, user stations and information layers in the app and on the web"
         ],
         "author": {
           "@id": "https://www.qp1ng.com/#organization"
@@ -157,6 +160,38 @@
         "@type": "FAQPage",
         "@id": "https://www.qp1ng.com/#faq",
         "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does Q-Cast work without the internet?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Q-Cast is internet audio streaming and needs a connection, including when using Tor. The VHF RadioBridge and LoRa tools are separate features for compatible radio hardware."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does appearing on the globe reveal my GPS location?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You choose whether to publish a place and select the point yourself. Q-Cast does not automatically publish your phone's GPS position. The station details and any place you choose for a public listing are public information."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I keep my radio Tor-only?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. You can broadcast and publish a station through Tor. Listing the station does not authorize a relay to expose its audio on the ordinary web; web distribution is a separate choice."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can my station grow beyond a few listeners?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Use authorized repeaters or a compatible Icecast server to distribute the audio. Direct phone mode supports a small audience; larger audiences require real relay or server bandwidth. QP1NG does not promise free unlimited hosting."
+            }
+          },
           {
             "@type": "Question",
             "name": "What is Quantum P1NG?",
@@ -439,8 +474,22 @@
                 <span class="drop-sub">Encrypted WebRTC voice mesh</span>
               </div>
             </a>
-            <a href="https://globe.qp1ng.com/" class="nav-drop-item" role="menuitem" target="_blank" rel="noopener">
+            <a href="#q-cast" class="nav-drop-item" role="menuitem">
               <span class="drop-idx mono">06</span>
+              <div class="drop-text">
+                <span class="drop-title">Q-Cast</span>
+                <span class="drop-sub">Your voice, music and personal radio</span>
+              </div>
+            </a>
+            <a href="#q-globe" class="nav-drop-item" role="menuitem">
+              <span class="drop-idx mono">07</span>
+              <div class="drop-text">
+                <span class="drop-title">Q-Globe</span>
+                <span class="drop-sub">Explore stations, places and information</span>
+              </div>
+            </a>
+            <a href="https://globe.qp1ng.com/" class="nav-drop-item" role="menuitem" target="_blank" rel="noopener">
+              <span class="drop-idx mono">08</span>
               <div class="drop-text">
                 <span class="drop-title">Q-P1NG Globe &#8599;</span>
                 <span class="drop-sub">Live radio, SDR, news &amp; OSINT on a 3D globe</span>
@@ -562,6 +611,8 @@
         <a href="#q-sat">Q-Sat Satellite EME</a>
         <a href="#radio-bridge">RadioBridge Interface</a>
         <a href="#q-call">Q-CALL WebRTC</a>
+        <a href="#q-cast">Q-Cast Personal Radio</a>
+        <a href="#q-globe">Q-Globe Discover &amp; Listen</a>
       </div>
       <div class="mobilemenu-section">
         <span class="mobilemenu-label mono">[ 04 // TOOLS & AI ]</span>
@@ -4242,7 +4293,7 @@ _
         <span>NOSTR NIP-01 + AIR-GAP PROOFS</span>
       </div>
       <h2 class="section-title qfeed-section-title">
-        <img src="assets/img/megaphone_qfeed.webp" alt="" class="qfeed-title-icon" width="86" height="80" loading="eager" decoding="async" aria-hidden="true">
+        <img src="assets/img/megaphone_qfeed.webp?v=2" alt="Q-Feed Decentralized Broadcast Icon" class="qfeed-title-icon" width="86" height="82" loading="eager" decoding="async" aria-hidden="true">
         <span class="qfeed-title-text">Decentralized Feed &amp; <span class="text-gradient">Verifiable Event Receipts</span></span>
       </h2>
       <p class="section-desc">
@@ -5982,7 +6033,16 @@ _
           <span class="rb-kicker-mod">GHOSTWAVE RADIO</span>
         </div>
 
-        <h2 class="rb-title">RadioBridge</h2>
+        <h2 class="rb-title">
+          <picture class="rb-title-icon-wrap">
+            <source srcset="assets/icons/radiobridge_vhf.webp" type="image/webp">
+            <img src="assets/icons/radiobridge_vhf.png" alt="RadioBridge VHF Icon" class="rb-title-icon" width="80" height="110" loading="eager" decoding="async">
+          </picture>
+          <span class="rb-title-text">
+            <span class="rb-word rb-word--radio">RADIO</span>
+            <span class="rb-word rb-word--bridge">BRIDGE</span>
+          </span>
+        </h2>
         <p class="rb-subtitle mono">Analog radio digital messaging for authorized links</p>
         <p class="rb-desc">
           GhostWave turns a phone plus a USB audio interface into a controlled clear-text radio modem:
@@ -6612,6 +6672,153 @@ _
 </section>
 
 
+<!-- Q-Cast and Q-Globe: create a station, choose how it is shared, explore. -->
+<section id="q-cast" class="section qbroadcast qbroadcast--cast" aria-labelledby="qcast-title">
+  <div class="wrap qbroadcast-wrap">
+    <div class="qbroadcast-hero">
+      <div class="qbroadcast-copy">
+        <p class="qbroadcast-kicker"><span class="qbroadcast-mark" aria-hidden="true"></span> Q-CAST <span>// PERSONAL RADIO</span></p>
+        <h2 id="qcast-title" class="qcast-title">
+          <picture class="qcast-title-icon-wrap">
+            <source srcset="assets/icons/q-cast_icon.webp?v=1" type="image/webp">
+            <img src="assets/icons/q-cast_icon.png?v=1" alt="Q-Cast Personal Radio Broadcast Icon" class="qcast-title-icon" width="86" height="78" loading="eager" decoding="async">
+          </picture>
+          <span>Q-CAST</span>
+        </h2>
+        <p class="qbroadcast-slogan">Free your voice. <span>Go on air.</span></p>
+        <p class="qbroadcast-lead">Your phone. Your sound. Your station. Turn music, conversations and independent reporting into a live radio show, with Tor built into the journey.</p>
+        <ul class="qbroadcast-tags" aria-label="Q-Cast highlights">
+          <li>Voice + music + jingles</li><li>Broadcast through Tor</li><li>Optional public listing</li>
+        </ul>
+        <div class="qbroadcast-actions">
+          <a class="qbroadcast-button" href="https://github.com/zonkeynet/Quantum-P1NG/releases/latest" target="_blank" rel="noopener noreferrer">Get QP1NG <span aria-hidden="true">↗</span></a>
+          <a class="qbroadcast-link" href="#qcast-how">How your station works <span aria-hidden="true">↓</span></a>
+        </div>
+        <p class="qbroadcast-micro">Broadcast from Android 10+. An internet connection is required.</p>
+      </div>
+      <figure class="qbroadcast-art">
+        <img src="assets/img/qcast-studio-hero.webp?v=3" srcset="assets/img/qcast-studio-hero-768.webp?v=3 768w, assets/img/qcast-studio-hero.webp?v=3 1536w" sizes="(max-width: 900px) calc(100vw - 48px), 610px" width="1536" height="1030" loading="lazy" decoding="async" alt="The QP1NG messenger pigeon hosting a radio show with headphones, a microphone, a mixer and a phone.">
+        <figcaption><span>Q-CAST STUDIO</span><span>FROM YOUR PHONE TO YOUR LISTENERS</span></figcaption>
+      </figure>
+    </div>
+
+    <div class="qbroadcast-features">
+      <article>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10v2a7 7 0 0 0 14 0v-2M12 19v3M8 22h8"/></svg>
+        <div><h3>Make it your show</h3><p>Speak live, queue your tracks, blend transitions and trigger six jingle pads. Music can dip automatically when you talk.</p></div>
+      </article>
+      <article>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 3 7v5c0 5 9 9 9 9s9-4 9-9V7l-9-4Z"/><path d="m8 12 3 3 5-6"/></svg>
+        <div><h3>Choose your reach</h3><p>Keep the audio on Tor or allow a compatible web relay. No mandatory QP1NG streaming server or commercial provider.</p></div>
+      </article>
+      <article>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        <div><h3>Be found on your terms</h3><p>Give your station a name and artwork. Choose whether to list it publicly and whether to add a place on Q-Globe.</p></div>
+      </article>
+    </div>
+
+    <div id="qcast-how" class="qbroadcast-flow" aria-labelledby="qcast-how-title">
+      <div class="qbroadcast-subhead"><p class="qbroadcast-kicker">FROM STUDIO TO GLOBE</p><h3 id="qcast-how-title">A voice becomes a station.</h3></div>
+      <ol class="qbroadcast-steps">
+        <li><span class="qbroadcast-step" aria-hidden="true">01</span><h4>Build your sound</h4><p>Open Q-Cast, prepare the mic, load music and assign your jingles.</p></li>
+        <li><span class="qbroadcast-step" aria-hidden="true">02</span><h4>Go on air</h4><p>Start your broadcast through Tor. The studio shows the connection and audio levels.</p></li>
+        <li><span class="qbroadcast-step" aria-hidden="true">03</span><h4>Choose to be found</h4><p>Publish your station announcement. Add an optional point you choose on the globe.</p></li>
+        <li><span class="qbroadcast-step" aria-hidden="true">04</span><h4>Let people tune in</h4><p>Listeners discover you in QP1NG or on the web globe and use an available listening route.</p></li>
+      </ol>
+    </div>
+
+    <div class="qbroadcast-subhead qbroadcast-distribution-title"><p class="qbroadcast-kicker">START SMALL. BUILD YOUR AUDIENCE.</p><h3>Three ways to carry your sound.</h3></div>
+    <div class="qbroadcast-routes">
+      <article><span class="qbroadcast-label">01 / DIRECT ONION</span><h4>Start with just your phone</h4><p>A personal station for a small audience: up to three direct listeners through Tor, without renting a streaming server.</p><span class="qbroadcast-footnote">Listen in QP1NG or Tor Browser.</span></article>
+      <article><span class="qbroadcast-label">02 / AUTHORIZED REPEATERS</span><h4>Share the work of delivery</h4><p>Let your own or volunteer nodes redistribute the stream. More listeners use relay capacity instead of all connecting to your phone.</p><span class="qbroadcast-footnote">Available bandwidth sets the audience size.</span></article>
+      <article><span class="qbroadcast-label">03 / YOUR ICECAST SERVER</span><h4>Bring your existing station</h4><p>Send your studio audio through Tor to a compatible Icecast server. Configure its separate listening address for your audience.</p><span class="qbroadcast-footnote">Your server or provider handles distribution.</span></article>
+    </div>
+  </div>
+</section>
+
+<section id="q-globe" class="section qbroadcast qbroadcast--globe" aria-labelledby="qglobe-title">
+  <div class="wrap qbroadcast-wrap">
+    <div class="qbroadcast-hero qbroadcast-hero--reverse">
+      <div class="qbroadcast-copy">
+        <p class="qbroadcast-kicker"><span class="qbroadcast-mark" aria-hidden="true"></span> Q-GLOBE <span>// DISCOVER &amp; LISTEN</span></p>
+        <h2 id="qglobe-title"><span>Q-GLOBE</span></h2>
+        <p class="qbroadcast-slogan">A world of voices. <span>Ready to explore.</span></p>
+        <p class="qbroadcast-lead">Spin the globe. Find a place. Hear a different perspective. Explore world radio, discover Q-Cast stations and move between information layers, in the app or on the web.</p>
+        <ul class="qbroadcast-tags" aria-label="Q-Globe highlights"><li>Interactive 3D globe</li><li>User radio</li><li>Open on the web</li></ul>
+        <div class="qbroadcast-actions">
+          <a class="qbroadcast-button" href="https://globe.qp1ng.com/" target="_blank" rel="noopener noreferrer">Explore Q-Globe <span aria-hidden="true">↗</span></a>
+          <a class="qbroadcast-link" href="https://globe.qp1ng.com/#layer=qcast" target="_blank" rel="noopener noreferrer">Find user radio <span aria-hidden="true">↗</span></a>
+        </div>
+        <p class="qbroadcast-micro">No app required to explore. Tor-only audio needs QP1NG or Tor Browser.</p>
+      </div>
+      <figure class="qbroadcast-art">
+        <img src="assets/img/qglobe-world-hero.webp?v=2" srcset="assets/img/qglobe-world-hero-768.webp?v=2 768w, assets/img/qglobe-world-hero.webp?v=2 1536w" sizes="(max-width: 900px) calc(100vw - 48px), 610px" width="1536" height="1030" loading="lazy" decoding="async" alt="A luminous Earth with radio beacons and connecting arcs, accompanied by the QP1NG messenger pigeon. Concept illustration.">
+        <figcaption><span>Q-GLOBE</span><span>EXPLORE PLACES. DISCOVER VOICES.</span></figcaption>
+      </figure>
+    </div>
+
+    <div class="qbroadcast-features">
+      <article>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M5 6h14M5 18h14"/></svg>
+        <div><h3>Travel through sound</h3><p>Explore places, search for stations and discover music and voices beyond your usual listening habits.</p></div>
+      </article>
+      <article>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="2"/><path d="M7.8 7.8a6 6 0 0 0 0 8.4m8.4-8.4a6 6 0 0 1 0 8.4M5 5a10 10 0 0 0 0 14M19 5a10 10 0 0 1 0 14"/></svg>
+        <div><h3>Meet independent stations</h3><p>Open User Radio to find Q-Cast broadcasts. See the station's artwork, description and available listening route.</p></div>
+      </article>
+      <article>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 10 5-10 5L2 8l10-5ZM2 12l10 5 10-5M2 16l10 5 10-5"/></svg>
+        <div><h3>See more of the world</h3><p>Switch between radio, news, SDR receivers and other information layers. Each layer keeps its own sources and context.</p></div>
+      </article>
+    </div>
+
+    <div class="qglobe-demo" aria-labelledby="qglobe-demo-title">
+      <div class="qglobe-demo-copy">
+        <p class="qbroadcast-kicker">INSIDE Q-GLOBE</p>
+        <h3 id="qglobe-demo-title">See the globe<br> in action.</h3>
+        <p id="qglobe-demo-description">Switch between six globe themes, explore the latest headlines and their sources, then watch one or four live TV channels.</p>
+        <ol class="qglobe-demo-steps" aria-label="In this walkthrough">
+          <li><span aria-hidden="true">01</span> Switch between six globe themes</li>
+          <li><span aria-hidden="true">02</span> Explore headlines and their sources</li>
+          <li><span aria-hidden="true">03</span> Watch one or four channels</li>
+        </ol>
+        <a class="qbroadcast-link" href="https://globe.qp1ng.com/#layer=news" target="_blank" rel="noopener noreferrer">Explore live news <span aria-hidden="true">&#8599;</span></a>
+      </div>
+      <figure class="qglobe-demo-player">
+        <video id="qglobeDemoVideo" width="1280" height="800" muted playsinline preload="none"
+          role="button" tabindex="0" aria-label="Play Q-Globe walkthrough"
+          poster="assets/img/qglobe-demo-poster.webp?v=1"
+          aria-describedby="qglobe-demo-description qglobe-demo-caption">
+          <source src="assets/vid/qglobe-demo.webm?v=4" type="video/webm">
+          <source src="assets/vid/qglobe-demo.mp4?v=4" type="video/mp4">
+          <track kind="captions" src="assets/vid/qglobe-demo.en.vtt?v=4" srclang="en" label="Walkthrough steps">
+          <p><a href="assets/vid/qglobe-demo.mp4">Download the Q-Globe walkthrough.</a></p>
+        </video>
+        <figcaption id="qglobe-demo-caption"><span>RECORDED WALKTHROUGH <span aria-hidden="true">//</span> 00:28</span><span id="qglobeDemoHint">CLICK TO PLAY</span></figcaption>
+      </figure>
+    </div>
+
+
+    <div class="qbroadcast-access" aria-labelledby="qglobe-access-title">
+      <div class="qbroadcast-access-intro"><p class="qbroadcast-kicker">PICK YOUR LISTENING ROUTE</p><h3 id="qglobe-access-title">One globe.<br> Clear choices.</h3><p>A public station listing and public web audio are separate choices.</p></div>
+      <div class="qbroadcast-access-options">
+        <article><span class="qbroadcast-access-icon" aria-hidden="true">WEB</span><div><h4>In your everyday browser</h4><p>Explore without installing QP1NG. Listen to stations with a compatible public web endpoint. On this route, discovery relays and stream providers can see your IP address.</p></div></article>
+        <article><span class="qbroadcast-access-icon qbroadcast-access-icon--tor" aria-hidden="true">TOR</span><div><h4>Through Tor</h4><p>Listen to Q-Cast in QP1NG through Tor, or open a station's onion listening page in Tor Browser. A Tor-only station can be listed on the globe without making its audio available to ordinary browsers.</p></div></article>
+      </div>
+    </div>
+
+    <div class="qbroadcast-faq" aria-labelledby="qbroadcast-faq-title">
+      <div class="qbroadcast-subhead"><p class="qbroadcast-kicker">BEFORE YOU GO ON AIR</p><h3 id="qbroadcast-faq-title">Your station, explained.</h3></div>
+      <details><summary>Does Q-Cast work without the internet?</summary><p>Q-Cast is internet audio streaming and needs a connection, including when using Tor. The VHF RadioBridge and LoRa tools are separate features for compatible radio hardware.</p></details>
+      <details><summary>Does appearing on the globe reveal my GPS location?</summary><p>You choose whether to publish a place and select the point yourself. Q-Cast does not automatically publish your phone's GPS position. The station details and any place you choose for a public listing are public information.</p></details>
+      <details><summary>Can I keep my radio Tor-only?</summary><p>Yes. You can broadcast and publish a station through Tor. Listing the station does not authorize a relay to expose its audio on the ordinary web; web distribution is a separate choice.</p></details>
+      <details><summary>Can my station grow beyond a few listeners?</summary><p>Use authorized repeaters or a compatible Icecast server to distribute the audio. Direct phone mode supports a small audience; larger audiences require real relay or server bandwidth. QP1NG does not promise free unlimited hosting.</p></details>
+    </div>
+
+    <div class="qbroadcast-outro"><p>Give your voice a place in the world.</p><a class="qbroadcast-link" href="#q-cast">Meet Q-Cast <span aria-hidden="true">↑</span></a><a class="qbroadcast-button" href="https://globe.qp1ng.com/#layer=qcast" target="_blank" rel="noopener noreferrer">Discover user stations <span aria-hidden="true">↗</span></a></div>
+  </div>
+</section>
+
 <!-- ================================================
      Q-AI - Q-Brain intelligence architecture
      ================================================ -->
@@ -6644,17 +6851,10 @@ _
         </div>
 
         <h2 class="q-ai-title">
-          <svg class="q-ai-title-brain" viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true">
-            <defs>
-              <linearGradient id="qaiBrainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#35ff8a"/>
-                <stop offset="38%" stop-color="#00f2ff"/>
-                <stop offset="72%" stop-color="#9b5cff"/>
-                <stop offset="100%" stop-color="#ffd166"/>
-              </linearGradient>
-            </defs>
-            <path fill="url(#qaiBrainGrad)" d="M7.152,3.012c0.832,-0.648 1.92,-1.006 3.001,-1.006c0.647,0 1.17,0.222 1.567,0.575q0.16,0.144 0.287,0.304q0.127,-0.16 0.287,-0.304c0.397,-0.353 0.92,-0.575 1.567,-0.575c1.081,0 2.17,0.358 3,1.006c0.648,0.503 1.155,1.198 1.354,2.037c0.42,0.07 0.793,0.284 1.095,0.567c0.48,0.451 0.823,1.103 1.038,1.774c0.219,0.681 0.328,1.446 0.295,2.181c-0.017,0.376 -0.072,0.76 -0.177,1.127l0.065,0.03c0.37,0.174 0.67,0.447 0.895,0.81c0.425,0.685 0.575,1.671 0.575,2.928c0,1.445 -0.553,2.426 -1.263,3.035a3.45,3.45 0,0 1,-1.27 0.69a5.2,5.2 0,0 1,-1.018 2.137c-0.723,0.904 -1.847,1.668 -3.357,1.668c-1.21,0 -2.163,-0.67 -2.775,-1.31a5,5 0,0 1,-0.31 -0.357a5,5 0,0 1,-0.311 0.356c-0.612,0.642 -1.565,1.311 -2.775,1.311c-1.511,0 -2.635,-0.764 -3.357,-1.668a5.2,5.2 0,0 1,-1.02 -2.137a3.45,3.45 0,0 1,-1.269 -0.69c-0.71,-0.61 -1.262,-1.59 -1.262,-3.035c0,-1.257 0.15,-2.243 0.574,-2.928a2.1,2.1 0,0 1,0.96 -0.84a5,5 0,0 1,-0.177 -1.127c-0.033,-0.735 0.076,-1.5 0.295,-2.181c0.215,-0.67 0.557,-1.323 1.038,-1.774a2.1,2.1 0,0 1,1.095 -0.567c0.2,-0.84 0.706,-1.534 1.353,-2.037m0.922,1.183c-0.546,0.425 -0.866,0.991 -0.866,1.643a0.75,0.75 0,0 1,-0.987 0.711c-0.137,-0.046 -0.282,-0.035 -0.49,0.161c-0.232,0.217 -0.467,0.61 -0.637,1.138a4.8,4.8 0,0 0,-0.224 1.656c0.025,0.556 0.157,1.018 0.365,1.33a0.8,0.8 0,0 1,0.083 0.166H6.4a2.85,2.85 0,0 1,2.843 2.642a2,2 0,1 1,-1.507 0.01A1.35,1.35 0,0 0,6.4 12.5H3.775c-0.15,0.348 -0.261,0.949 -0.261,1.966c0,1.021 0.371,1.581 0.739,1.897c0.403,0.345 0.846,0.435 0.974,0.435a0.75,0.75 0,0 1,0.75 0.75c0,0.42 0.232,1.183 0.76,1.843c0.508,0.637 1.232,1.105 2.185,1.105c0.637,0 1.223,-0.358 1.69,-0.846c0.226,-0.238 0.402,-0.485 0.518,-0.685a2,2 0,0 0,0.115 -0.233l0.006,-0.014V9.25h-0.896a2,2 0,1 1,0 -1.5h0.896V5.212l-0.003,-0.057a3.3,3.3 0,0 0,-0.18 -0.903c-0.09,-0.24 -0.207,-0.427 -0.345,-0.55c-0.123,-0.11 -0.293,-0.196 -0.57,-0.196c-0.766,0 -1.525,0.258 -2.08,0.69M12.764,17v1.718l0.005,0.014q0.03,0.08 0.116,0.233c0.115,0.2 0.291,0.447 0.518,0.685c0.466,0.488 1.053,0.846 1.69,0.846c0.952,0 1.676,-0.468 2.185,-1.105c0.527,-0.66 0.76,-1.424 0.76,-1.843a0.75,0.75 0,0 1,0.75 -0.75c0.128,0 0.57,-0.09 0.974,-0.435c0.367,-0.316 0.738,-0.876 0.738,-1.897c0,-1.208 -0.158,-1.83 -0.349,-2.137a0.6,0.6 0,0 0,-0.26 -0.245c-0.101,-0.048 -0.253,-0.084 -0.488,-0.084a0.75,0.75 0,0 1,-0.624 -1.166c0.208,-0.312 0.34,-0.774 0.366,-1.33a4.8,4.8 0,0 0,-0.225 -1.656c-0.17,-0.528 -0.405,-0.92 -0.636,-1.138c-0.209,-0.196 -0.354,-0.207 -0.49,-0.161a0.75,0.75 0,0 1,-0.988 -0.711c0,-0.652 -0.32,-1.218 -0.866,-1.643c-0.553,-0.431 -1.313,-0.69 -2.08,-0.69c-0.276,0 -0.445,0.087 -0.569,0.196a1.4,1.4 0,0 0,-0.344 0.55a3,3 0,0 0,-0.183 0.961V15.5h0.636a1.35,1.35 0,0 0,1.35 -1.35v-1.795a2,2 0,1 1,1.5 0v1.795A2.85,2.85 0,0 1,13.4 17zM8.5,8a0.5,0.5 0,1 0,0 1a0.5,0.5 0,0 0,0 -1M8,15.5a0.5,0.5 0,1 0,1 0a0.5,0.5 0,0 0,-1 0m7,-5a0.5,0.5 0,1 0,1 0a0.5,0.5 0,0 0,-1 0"/>
-          </svg>
+          <picture class="q-ai-title-brain-wrap">
+            <source srcset="assets/icons/qbrain_ai.webp" type="image/webp">
+            <img src="assets/icons/qbrain_ai.png" alt="Q-Brain AI Neural Core Icon" class="q-ai-title-brain" width="80" height="74" loading="eager" decoding="async">
+          </picture>
           <span class="q-ai-title-text">Q-AI</span>
         </h2>
         <p class="q-ai-subtitle mono">Models. Tools. Sandbox. Scenario automation.</p>
@@ -6884,6 +7084,134 @@ _
           <li>No silent destructive actions</li>
         </ul>
       </article>
+    </div>
+
+    <!-- ================================================================
+         Q-Brain Interactive Walkthrough: From Idea to Your Personal Tool
+         ================================================================ -->
+    <div id="qbrain-demo" class="section-anchor" aria-hidden="true"></div>
+    <div class="qai-walkthrough" id="qbrainToolsWalkthrough" aria-labelledby="qaiWalkthroughTitle">
+      <!-- Left Column: Portrait Smartphone Frame & Clean Video Player -->
+      <div class="qai-walkthrough-stage">
+        <div class="qai-walkthrough-phone" id="qbrainDemoScreen" role="button" tabindex="0" aria-label="Q-Brain demonstration video: click or press Space to play or pause">
+          <div class="qai-phone-top-bar" aria-hidden="true">
+            <span class="qai-phone-speaker"></span>
+            <span class="qai-phone-cam"></span>
+          </div>
+
+          <div class="qai-walkthrough-screen-wrap">
+            <video id="qbrainDemoVideo" class="qai-walkthrough-video" width="720" height="1280"
+                   muted playsinline preload="none"
+                   poster="assets/vid/qbrain-tools-demo-poster.webp"
+                   aria-label="Q-Brain demonstration video: click on static image to play">
+              <source src="assets/vid/qbrain-tools-demo.webm" type="video/webm">
+              <source src="assets/vid/qbrain-tools-demo.mp4" type="video/mp4">
+            </video>
+            <div class="qai-video-scrubber" aria-hidden="true">
+              <span class="qai-video-scrubber-fill" id="qbrainVideoProgress"></span>
+            </div>
+          </div>
+
+          <div class="qai-phone-bottom-bar" aria-hidden="true">
+            <span class="qai-phone-home-pill"></span>
+          </div>
+        </div>
+        <div class="qai-walkthrough-subtext mono">
+          <span class="qai-phone-subtext-dot"></span>
+          <span id="qbrainDemoHint">CLICK TO PLAY &middot; 720&times;1280 &middot; 30 FPS</span>
+        </div>
+      </div>
+
+      <!-- Right Column: Narrative & Timeline Milestones -->
+      <div class="qai-walkthrough-content">
+        <div class="qai-walkthrough-kicker mono">
+          <span class="qai-kicker-dot" aria-hidden="true"></span>
+          <span>QP1NG TOOLS</span>
+          <span class="qai-kicker-sep">//</span>
+          <span>Q-BRAIN AI CORE</span>
+          <span class="qai-kicker-sep">//</span>
+          <span class="qai-kicker-mod">QUANTUM TOOLS</span>
+        </div>
+
+        <h3 class="qai-walkthrough-title" id="qaiWalkthroughTitle">From idea to your personal tool.</h3>
+        <p class="qai-walkthrough-desc" id="qaiWalkthroughDesc">
+          Describe the tool you need in natural chat. Q-Brain drafts the Python program, you review and correct the code, verify the file write, and explicitly approve execution in the isolated Linux sandbox. The verified tool is preserved in Quantum Tools and Action Forge for instant reuse anytime.
+        </p>
+
+        <!-- Live Synchronized Walkthrough & Action Progress Card -->
+        <div class="qai-walkthrough-caption-card" aria-live="polite">
+          <div class="qai-walkthrough-caption-header mono">
+            <span class="qai-caption-label">
+              <span class="qai-pulse-dot" aria-hidden="true"></span>
+              <span>LIVE WALKTHROUGH STEP</span>
+            </span>
+            <div class="qai-walkthrough-speed" role="group" aria-label="Playback speed">
+              <span class="qai-speed-label">SPEED:</span>
+              <button type="button" class="qai-speed-btn" data-speed="1" aria-pressed="false">1x</button>
+              <button type="button" class="qai-speed-btn is-active" data-speed="1.25" aria-pressed="true">1.25x</button>
+              <button type="button" class="qai-speed-btn" data-speed="1.5" aria-pressed="false">1.5x</button>
+            </div>
+          </div>
+
+          <p class="qai-walkthrough-caption" id="qbrainWalkthroughCaption">Describe the personal tool you want to create.</p>
+
+          <div class="qai-walkthrough-progress-track" id="qbrainProgressTrack" role="progressbar" aria-label="Walkthrough progress bar: click anywhere to scrub" tabindex="0">
+            <span class="qai-walkthrough-progress-bar" id="qbrainWalkthroughProgress"></span>
+          </div>
+
+          <div class="qai-walkthrough-time mono" id="qbrainWalkthroughTime">
+            <span>00:00 / 01:01</span>
+            <span>Click video to play or pause</span>
+          </div>
+        </div>
+
+        <!-- Walkthrough Steps Timeline (Interactive Click-to-Seek) -->
+        <ol class="qai-walkthrough-steps mono" aria-label="Walkthrough timeline milestones">
+          <li class="qai-step-item is-active" data-step="0" role="button" tabindex="0" title="Jump to Step 01: Chat Prompt">
+            <span class="step-num">01</span>
+            <div class="step-meta">
+              <strong>Describe requirements in chat</strong>
+              <small>Plain language prompt for an expense calculator</small>
+            </div>
+          </li>
+          <li class="qai-step-item" data-step="1" role="button" tabindex="0" title="Jump to Step 02: Code Review">
+            <span class="step-num">02</span>
+            <div class="step-meta">
+              <strong>Inspect &amp; correct generated Python code</strong>
+              <small>Human-in-the-loop audit: fix Food addition (12.50 + 7.50)</small>
+            </div>
+          </li>
+          <li class="qai-step-item" data-step="2" role="button" tabindex="0" title="Jump to Step 03: Gated Approval">
+            <span class="step-num">03</span>
+            <div class="step-meta">
+              <strong>Approve file write &amp; gated sandbox run</strong>
+              <small>Destination path verified before granting execution permission</small>
+            </div>
+          </li>
+          <li class="qai-step-item" data-step="3" role="button" tabindex="0" title="Jump to Step 04: Real Sandbox Output">
+            <span class="step-num">04</span>
+            <div class="step-meta">
+              <strong>Verify real sandbox output: 41.20 EUR</strong>
+              <small>Isolated PRoot Linux sandbox executes with zero network leaks</small>
+            </div>
+          </li>
+          <li class="qai-step-item" data-step="4" role="button" tabindex="0" title="Jump to Step 05: Action Forge Tool">
+            <span class="step-num">05</span>
+            <div class="step-meta">
+              <strong>Save tool &amp; re-run in Action Forge</strong>
+              <small>Added to Quantum Tools for repeatable, one-tap execution</small>
+            </div>
+          </li>
+        </ol>
+
+        <!-- Disclosure & Security Verification Note -->
+        <aside class="qai-walkthrough-note" role="note">
+          <strong>REAL SANDBOX CAPTURE &middot; TEST BUILD DISCLOSURE</strong>
+          <p>
+            Real recording of a dedicated build on the Android emulator. Local AI model running on the host machine, configured for text generation; real execution in the app's Linux sandbox. The code is reviewed and corrected in the editor before approval. Waiting times and navigation shortened in editing. Zero physical devices or network leaks used.
+          </p>
+        </aside>
+      </div>
     </div>
 
     <div class="qai-arch-grid" aria-label="Q-AI architecture details">
@@ -8165,6 +8493,8 @@ _
       <div class="f-links mono" style="text-align:right;">
         <div style="margin-bottom: 8px;">
             <span style="color:var(--muted); font-size:10px;">[TOOLS]</span>
+            <a href="#q-cast" style="color:var(--acc2);">Q-CAST</a>
+            <span class="sep">::</span>
             <a href="pmtiles.html" style="color:var(--cyan);">PMTILES MAPS</a>
             <span class="sep">::</span>
             <a href="https://globe.qp1ng.com/" target="_blank" rel="noopener" style="color:var(--acc);">Q-P1NG GLOBE</a>
@@ -8359,6 +8689,6 @@ _
     </div>
   </div>
 
-  <script src="script.js?v=2.6.16-field-deck-15.8" defer></script>
+  <script src="script.js?v=2.6.20" defer></script>
 </body>
 </html>

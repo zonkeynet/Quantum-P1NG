@@ -1,0 +1,23 @@
+{
+  "duration_seconds": 61.33333333333334,
+  "resolution": "720x1280",
+  "frame_rate": 30,
+  "audio": false,
+  "emulator": "QP1NG_Demo",
+  "app_id": "com.qp1ng.android.videodemo",
+  "ai_model": "Qwen3-1.7B-Q4_K_M",
+  "ai_location": "local computer, text-only endpoint",
+  "sandbox_execution": "real Android app Linux sandbox",
+  "manual_code_correction": "Food addition: 12.50 + 7.50",
+  "expected_result": "Grand Total: 41.20 EUR",
+  "subtitles": [
+    "it",
+    "en"
+  ],
+  "source_footage": [
+    "04-request.webm",
+    "05-refine.webm",
+    "07-approve.webm",
+    "08-save-tool.webm"
+  ]
+}

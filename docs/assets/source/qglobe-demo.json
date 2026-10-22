@@ -1,0 +1,120 @@
+{
+  "source": "https://globe.qp1ng.com/",
+  "recorded_at": "2026-10-21T19:07:47.619450+00:00",
+  "description": "Screen recording of the public Q-Globe page: six globe themes, news layer, story details, single live TV and four-channel view.",
+  "processing": "Page viewport only. Six-theme montage with direct cuts between settled views (20 frames per theme at 24 fps; 5 seconds total). Theme picker, pointer travel and loading transitions removed. Existing accelerated news and TV scenes retained with visible pointer and click highlights. No audio; encoded from both original recordings.",
+  "duration_seconds": 28.125006,
+  "dimensions": [
+    1280,
+    800
+  ],
+  "chapters": [
+    {
+      "label": "Tactical theme",
+      "start": 0,
+      "end": 0.833
+    },
+    {
+      "label": "Neon City theme",
+      "start": 0.833,
+      "end": 1.667
+    },
+    {
+      "label": "Synthwave theme",
+      "start": 1.667,
+      "end": 2.5
+    },
+    {
+      "label": "Netrunner theme",
+      "start": 2.5,
+      "end": 3.333
+    },
+    {
+      "label": "Replicant theme",
+      "start": 3.333,
+      "end": 4.167
+    },
+    {
+      "label": "Satellite theme",
+      "start": 4.167,
+      "end": 5.0
+    },
+    {
+      "label": "Open the news layer",
+      "start": 5.0,
+      "end": 10.875
+    },
+    {
+      "label": "Read a story and its source",
+      "start": 10.875,
+      "end": 15.458
+    },
+    {
+      "label": "Open live TV",
+      "start": 15.458,
+      "end": 17.667
+    },
+    {
+      "label": "Watch one channel",
+      "start": 17.667,
+      "end": 20.75
+    },
+    {
+      "label": "Compare four live channels",
+      "start": 20.75,
+      "end": 28.125
+    }
+  ],
+  "channels": [
+    "France 24 English",
+    "DW News",
+    "Al Jazeera English",
+    "Euronews English"
+  ],
+  "assets": {
+    "mp4": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1280,
+          "height": 800,
+          "avg_frame_rate": "26000000/1081731"
+        }
+      ],
+      "format": {
+        "duration": "28.125006",
+        "size": "4602766"
+      }
+    },
+    "webm": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "vp9",
+          "codec_type": "video",
+          "width": 1280,
+          "height": 800,
+          "avg_frame_rate": "24/1"
+        }
+      ],
+      "format": {
+        "duration": "28.125000",
+        "size": "3626509"
+      }
+    }
+  },
+  "updated_at": "2026-10-21T19:52:20.231228+00:00",
+  "themes_recorded_at": "2026-10-21T19:38:29.523760+00:00",
+  "themes": [
+    "Tactical",
+    "Neon City",
+    "Synthwave",
+    "Netrunner",
+    "Replicant",
+    "Satellite"
+  ]
+}

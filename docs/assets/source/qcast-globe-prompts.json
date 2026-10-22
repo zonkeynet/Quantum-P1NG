@@ -1,0 +1,74 @@
+{
+  "mode": "User-supplied Q-Cast and Q-Globe images",
+  "purpose": "Q-Cast and Q-Globe marketing illustrations for the QP1NG website",
+  "assets": [
+    {
+      "name": "qcast-studio-hero.webp",
+      "mode": "user-supplied image",
+      "source": "q-cast_logo_original.jpeg",
+      "source_dimensions": [
+        2528,
+        1696
+      ],
+      "source_sha256": "ccead8c4766a982293990ca984ba0cc59b57314e4c570954398f3ba29f29c21b",
+      "processing": "Full-frame resize and WebP encoding; no crop or generated content; EXIF and other metadata omitted.",
+      "derivatives": [
+        {
+          "file": "qcast-studio-hero.webp",
+          "width": 1536,
+          "height": 1030,
+          "quality": 84,
+          "bytes": 131778,
+          "reductionPercent": 94.0
+        },
+        {
+          "file": "qcast-studio-hero-768.webp",
+          "width": 768,
+          "height": 515,
+          "quality": 82,
+          "bytes": 56846,
+          "reductionPercent": 97.4
+        }
+      ],
+      "initial_artwork": {
+        "name": "qcast-studio-hero.webp",
+        "reference": "app/src/main/res/drawable/logo_quantum.webp",
+        "prompt": "Use case: ads-marketing. Create a spectacular, polished landscape 3:2 hero illustration for Q-Cast, the QP1NG app's personal internet radio studio. The supplied image is a brand-character reference only, not an edit target: preserve the recognizable white messenger pigeon, dark charcoal visor with two cyan luminous eyes, dark beak and small rolled parchment on its back. Reimagine this character as a confident radio host wearing over-ear black studio headphones, behind a compact beautifully engineered graphite audio mixer with six tactile pads and a few luminous faders. A broadcast microphone on a short articulated stand sits beside its beak. An upright modern smartphone beside the console shows only a simple cyan audio waveform, no lettering or faux detailed UI. The character, microphone and mixer form one clear sculptural focal point, large in frame, with all essential silhouettes comfortably within the frame. Thin elegant cyan sound-wave ribbons curve outward into the surrounding darkness, suggesting a voice travelling out into the world. Setting: premium dark midnight-navy studio, abstract subtle technical grid receding into a deep almost-black background, no city clutter. Style: cinematic high-end 3D illustration with the clean graphic identity of the reference, smooth sculpted feathers, tactile matte graphite, finely controlled cyan rim light, restrained violet shadows and tiny warm amber LEDs. Lighting is crisp, dimensional and dramatic, not hazy; keep shapes readable at mobile size. Website palette: background #05070a, navy #0a0e14, neon cyan #00f2ff, a little violet #9b5cff and amber #ffd166. Composition fills the landscape frame with an intimate three-quarter studio view, generous dark breathing room around the edges, mixer in lower foreground, pigeon upper center, no text overlay space necessary. No words, numbers, logos, watermarks, borders, collage panels, real app screenshots, claims, RF antennas, weaponry or random floating interface widgets. This is internet audio broadcasting, not a VHF transmitter. Deliver one coherent premium hero artwork."
+      }
+    },
+    {
+      "name": "qglobe-world-hero.webp",
+      "mode": "user-supplied image",
+      "source": "q-globe_world.jpeg",
+      "source_dimensions": [
+        2528,
+        1696
+      ],
+      "source_sha256": "ffc2e841be7647f6fa8bad7154305c844d3076bb8260598ac0e4864f14cb8269",
+      "processing": "Full-frame resize and WebP encoding; no crop or generated content; EXIF and other metadata omitted.",
+      "derivatives": [
+        {
+          "file": "qglobe-world-hero.webp",
+          "width": 1536,
+          "height": 1030,
+          "quality": 84,
+          "bytes": 238624,
+          "reductionPercent": 92.0
+        },
+        {
+          "file": "qglobe-world-hero-768.webp",
+          "width": 768,
+          "height": 515,
+          "quality": 82,
+          "bytes": 76046,
+          "reductionPercent": 97.4
+        }
+      ],
+      "initial_artwork": {
+        "name": "qglobe-world-hero.webp",
+        "reference": "app/src/main/res/drawable/logo_quantum.webp",
+        "prompt": "Use case: ads-marketing. Create a spectacular, polished landscape 3:2 hero illustration for Q-Globe, QP1NG's interactive world for discovering radio stations and exploring information. The supplied image is a brand-character reference only, not an edit target. Main subject: a luminous three-dimensional Earth floating in a deep midnight-navy space, large and central, recognizable geographically plausible Europe, Africa and Asia, fine cyan coastline contours, a subtle latitude-longitude grid, dark textured oceans and a few tiny warm amber station beacons distributed over the visible continents. Three or four elegant luminous cyan and violet arcs rise above the surface to suggest connections between people's stations; a few delicate concentric sound ripples emerge from the beacons. An understated orbital ring adds depth. In the lower right foreground a small recognizable white QP1NG messenger pigeon flies along one orbit: dark charcoal visor, two luminous cyan eyes, dark beak and small rolled parchment on its back; keep it secondary to the Earth, occupying about one sixth of the frame. Foreground has a subtle perspective grid fading into black, no physical platform. Style: premium cinematic 3D illustration, clean strong silhouettes, precise crisp light, finely controlled bloom, sculpted white feathers on the mascot, atmospheric depth without visual noise. Color system matches a dark cyberpunk radio studio: #05070a background, #0a0e14 navy, #00f2ff cyan, restrained #9b5cff violet orbit accents, tiny #ffd166 amber station beacons. Balanced landscape composition with the complete globe and orbit readable at mobile size and breathing room at the edges. It should communicate discovery, voices and global community, not surveillance or warfare. No text, numbers, labels, logos, watermarks, borders, UI panels, screenshots, aircraft, satellites, weapons or excessive network clutter. Do not depict geographic station locations as actual live data: this is evocative concept artwork. Deliver one coherent hero artwork visually paired with a premium QP1NG radio studio illustration."
+      }
+    }
+  ]
+}

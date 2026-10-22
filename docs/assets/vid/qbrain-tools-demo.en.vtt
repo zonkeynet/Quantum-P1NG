@@ -1,0 +1,49 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:07.967
+Describe the personal tool you want to create.
+
+2
+00:00:07.967 --> 00:00:11.967
+Q-Brain generates the Python source. Waiting time shortened.
+
+3
+00:00:11.967 --> 00:00:15.933
+Refine your request in the conversation.
+
+4
+00:00:15.933 --> 00:00:19.933
+Read the proposed program before running it.
+
+5
+00:00:19.933 --> 00:00:27.500
+Review and edit the code: correct the Food addition.
+
+6
+00:00:27.500 --> 00:00:33.467
+Check the file write, then explicitly approve execution.
+
+7
+00:00:33.467 --> 00:00:38.433
+Real sandbox output: the correct total is 41.20 EUR.
+
+8
+00:00:38.433 --> 00:00:42.400
+Execution passed. The reviewed source is preserved.
+
+9
+00:00:42.400 --> 00:00:47.400
+Add the verified code to Quantum Tools.
+
+10
+00:00:47.400 --> 00:00:52.400
+Open your saved tool in Action Forge.
+
+11
+00:00:52.400 --> 00:00:56.367
+Run the saved tool again from its test panel.
+
+12
+00:00:56.367 --> 00:01:01.333
+Your reusable tool returns the same verified result.
