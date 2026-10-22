@@ -571,6 +571,12 @@
           <span class="nav-badge nav-badge--live mono">LIVE</span>
         </a>
 
+        <!-- Q-P1NG Pro: licence, website edition and downloads -->
+        <a href="pro/" class="nav-link nav-link--pro" aria-label="Q-P1NG Pro: licence, website edition and downloads">
+          <span>Pro</span>
+          <span class="nav-badge nav-badge--pro mono">&euro;9.99</span>
+        </a>
+
         <!-- Direct Arcade Link -->
         <a href="#games" class="nav-link nav-link--games" aria-label="Offline Games Hub">
           <span>Games</span>
@@ -624,6 +630,10 @@
         <a href="#q-geo">Q-Geo Tactical</a>
         <a href="#q-feed">Q-Feed</a>
         <a href="#q-cam">Q-CAM Privacy</a>
+      </div>
+      <div class="mobilemenu-section">
+        <span class="mobilemenu-label mono">[ 07 // PRO ]</span>
+        <a href="pro/" class="mobilemenu-pro">Q-P1NG Pro &amp; downloads</a>
       </div>
       <div class="mobilemenu-section">
         <span class="mobilemenu-label mono">[ 06 // LIVE GLOBE ]</span>
@@ -712,6 +722,10 @@
                 </span>
               </button>
 
+              <a class="btn btn--pro" href="pro/">
+                <svg class="btn__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="4"></circle><path d="m10.8 12.2 8.2-8.2M15 8l3 3M17 6l2 2"></path></svg>
+                <span>Q-P1NG Pro</span>
+              </a>
               <a class="btn" href="https://github.com/zonkeynet/Quantum-P1NG" target="_blank" rel="noopener">GitHub Repo</a>
               <a class="btn btn--ghost" href="#security">Security Protocol</a>
             </div>
@@ -732,7 +746,7 @@
 
                   <!-- Central Dispatcher Core Node -->
                   <div class="dl-origin-node">
-                    <div class="dl-origin-badge mono">CENTRAL SOURCE // DETERMINISTIC REPRODUCIBLE BUILD</div>
+                    <div class="dl-origin-badge mono">CENTRAL SOURCE // SIGNED RELEASES</div>
                     <div class="dl-origin-core">
                       <div class="dl-origin-icon" aria-hidden="true">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -743,10 +757,10 @@
                       </div>
                       <div class="dl-origin-text">
                         <div class="dl-origin-title">
-                          <strong>Q-P1NG CORE v2.6.8</strong>
+                          <strong>Q-P1NG CORE &amp; PRO</strong>
                           <span class="dl-status-chip mono">DISPATCHER ACTIVE</span>
                         </div>
-                        <div class="dl-origin-meta mono">VERIFY YOUR DOWNLOAD • ZERO TELEMETRY • P2P &amp; REPO ROUTING</div>
+                        <div class="dl-origin-meta mono">CORE FREE • PRO &euro;9.99 • ZERO TELEMETRY • VERIFIED UPDATES</div>
                       </div>
                     </div>
                   </div>
@@ -760,12 +774,12 @@
                       <!-- Passive Circuit Tracks -->
                       <path d="M450,0 V36 H150 V90" class="dl-circuit-track" data-track="apk" />
                       <path d="M450,0 V90" class="dl-circuit-track" data-track="play" />
-                      <path d="M450,0 V36 H750 V90" class="dl-circuit-track" data-track="fdroid" />
+                      <path d="M450,0 V36 H750 V90" class="dl-circuit-track" data-track="pro" />
 
                       <!-- Dynamic Flowing Signal Pulses -->
                       <path d="M450,0 V36 H150 V90" class="dl-circuit-pulse dl-circuit-pulse--apk" data-signal="apk" />
                       <path d="M450,0 V90" class="dl-circuit-pulse dl-circuit-pulse--play" data-signal="play" />
-                      <path d="M450,0 V36 H750 V90" class="dl-circuit-pulse dl-circuit-pulse--fdroid" data-signal="fdroid" />
+                      <path d="M450,0 V36 H750 V90" class="dl-circuit-pulse dl-circuit-pulse--pro" data-signal="pro" />
 
                       <!-- Junction Pins -->
                       <circle cx="450" cy="0" r="5" class="dl-pin dl-pin--origin" />
@@ -774,64 +788,59 @@
                       <circle cx="750" cy="36" r="3.5" class="dl-pin" />
                       <circle cx="150" cy="90" r="5" class="dl-pin dl-pin--term dl-pin--apk" />
                       <circle cx="450" cy="90" r="5" class="dl-pin dl-pin--term dl-pin--play" />
-                      <circle cx="750" cy="90" r="5" class="dl-pin dl-pin--term dl-pin--fdroid" />
+                      <circle cx="750" cy="90" r="5" class="dl-pin dl-pin--term dl-pin--pro" />
 
                       <!-- Circuit Monospace Route Indicators -->
-                      <text x="210" y="28" class="dl-circuit-label dl-circuit-label--apk mono">BUS_01: DIRECT_GITHUB</text>
+                      <text x="210" y="28" class="dl-circuit-label dl-circuit-label--apk mono">BUS_01: WEBSITE_APK</text>
                       <text x="460" y="58" class="dl-circuit-label dl-circuit-label--play mono">BUS_02: GOOGLE_PLAY</text>
-                      <text x="610" y="28" class="dl-circuit-label dl-circuit-label--fdroid mono">BUS_03: FDROID_REPO</text>
+                      <text x="610" y="28" class="dl-circuit-label dl-circuit-label--pro mono">BUS_03: PRO_LICENCE</text>
                     </svg>
                   </div>
 
-                  <!-- 3 External Distribution Channels (Cards) -->
+                  <!-- 3 Distribution Channels (Cards) -->
                   <div class="dl-dest-grid" role="list">
-                    <!-- CHANNEL 1: DIRECT APK FROM WEBSITE / GITHUB -->
+                    <!-- CHANNEL 1: WEBSITE APK (Core free, Pro with a licence) -->
                     <article class="dl-dest-card dl-dest-card--apk" data-channel="apk" role="listitem">
                       <div class="dl-dest-card__accent" aria-hidden="true"></div>
                       <div class="dl-dest-card__header">
-                        <span class="dl-channel-id mono"><span class="dl-ch-dot"></span>NODE 01 // DIRECT WEB</span>
-                        <span class="dl-channel-badge dl-channel-badge--recommended mono">RECOMMENDED</span>
+                        <span class="dl-channel-id mono"><span class="dl-ch-dot"></span>NODE 01 // WEBSITE</span>
+                        <span class="dl-channel-badge dl-channel-badge--recommended mono">SELF-UPDATING</span>
                       </div>
                       <div class="dl-dest-card__main">
                         <div class="dl-dest-title-row">
                           <div class="dl-dest-icon-box dl-dest-icon-box--apk">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                              <polyline points="7 10 12 15 17 10"></polyline>
-                              <line x1="12" y1="15" x2="12" y2="3"></line>
-                            </svg>
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                           </div>
                           <div>
-                            <h3 class="dl-dest-title">Direct APK</h3>
-                            <span class="dl-dest-sub mono">Official Website &amp; GitHub</span>
+                            <h3 class="dl-dest-title">Website APK</h3>
+                            <span class="dl-dest-sub mono">Core free &middot; Pro with a licence</span>
                           </div>
                         </div>
-                        <p class="dl-dest-desc">Direct and immediate download with zero intermediaries. Autonomous in-app update checks guarantee total device sovereignty.</p>
+                        <p class="dl-dest-desc">The signed APK from qp1ng.com, with every feature including the Linux shell. The app checks a signed update file once a day and installs an update only if its size, fingerprint and signing certificate match.</p>
                         <ul class="dl-dest-specs mono">
-                          <li><span class="k">PACKAGE:</span> app-release.apk</li>
-                          <li><span class="k">INTEGRITY:</span> SHA-256 Verifiable</li>
-                          <li><span class="k">UPDATES:</span> Autonomous P2P Checks</li>
+                          <li><span class="k">EDITIONS:</span> Core &amp; Pro APK</li>
+                          <li><span class="k">INTEGRITY:</span> SHA-256 + signature</li>
+                          <li><span class="k">UPDATES:</span> Built in, verified</li>
                         </ul>
                       </div>
                       <div class="dl-dest-card__cta">
-                        <a href="https://github.com/zonkeynet/Quantum-P1NG/releases/latest/download/app-release.apk" class="btn btn--dl-channel btn--dl-apk" target="_blank" rel="noopener">
-                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                          <span>Direct APK</span>
+                        <a href="pro/#download" class="btn btn--dl-channel btn--dl-apk">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                          <span>Download APK</span>
                         </a>
                       </div>
                     </article>
 
-                    <!-- CHANNEL 2: GOOGLE PLAY STORE -->
+                    <!-- CHANNEL 2: GOOGLE PLAY (two apps: Core free, Pro paid) -->
                     <article class="dl-dest-card dl-dest-card--play" data-channel="play" role="listitem">
                       <div class="dl-dest-card__accent" aria-hidden="true"></div>
                       <div class="dl-dest-card__header">
-                        <span class="dl-channel-id mono"><span class="dl-ch-dot"></span>NODE 02 // APP STORE</span>
-                        <span class="dl-channel-badge dl-channel-badge--play mono">PLAY PROTECT</span>
+                        <span class="dl-channel-id mono"><span class="dl-ch-dot"></span>NODE 02 // GOOGLE PLAY</span>
+                        <span class="dl-channel-badge dl-channel-badge--play mono">COMING SOON</span>
                       </div>
                       <div class="dl-dest-card__main">
                         <div class="dl-dest-title-row">
                           <div class="dl-dest-icon-box dl-dest-icon-box--play">
-                            <!-- Official Google Play Vector Icon -->
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                               <path d="M1.337 0.924a1.486 1.486 0 0 0-0.112 0.568v21.017c0 0.217 0.045 0.419 0.124 0.6l11.155-11.087L1.337 0.924z" fill="#00D2FF" />
                               <path d="M13.544 10.989l3.258-3.238L3.45 0.195a1.466 1.466 0 0 0-0.946-0.179l11.04 10.973z" fill="#00E676" />
@@ -840,63 +849,67 @@
                             </svg>
                           </div>
                           <div>
-                            <h3 class="dl-dest-title">Play Store</h3>
-                            <span class="dl-dest-sub mono">Official Android Ecosystem</span>
+                            <h3 class="dl-dest-title">Google Play</h3>
+                            <span class="dl-dest-sub mono">Core free &middot; Pro paid</span>
                           </div>
                         </div>
-                        <p class="dl-dest-desc">Official distribution channel verified by Google Play Protect with seamless automated background updates managed by Android OS.</p>
+                        <p class="dl-dest-desc">Q-P1NG and Q-P1NG Pro as two Play apps, installed and updated by Google Play. The Play edition of Pro is bought on Google Play and has every Pro feature except the Linux shell.</p>
                         <ul class="dl-dest-specs mono">
-                          <li><span class="k">CHANNEL:</span> Google Play Store</li>
-                          <li><span class="k">SECURITY:</span> Google Play Protect</li>
-                          <li><span class="k">TARGET:</span> Android 8.0+ standard</li>
+                          <li><span class="k">CORE:</span> com.qp1ng.android</li>
+                          <li><span class="k">PRO:</span> com.qp1ng.android.pro</li>
+                          <li><span class="k">TARGET:</span> Android 8.0+</li>
                         </ul>
                       </div>
-                      <div class="dl-dest-card__cta">
-                        <a href="https://play.google.com/store/apps/details?id=com.qp1ng.android" class="btn btn--dl-channel btn--dl-play" target="_blank" rel="noopener">
+                      <div class="dl-dest-card__cta dl-dest-card__cta--pair">
+                        <span class="btn btn--dl-channel btn--dl-play is-soon" role="link" aria-disabled="true" title="Coming soon to Google Play">
                           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                            <path d="M1.337 0.924a1.486 1.486 0 0 0-0.112 0.568v21.017c0 0.217 0.045 0.419 0.124 0.6l11.155-11.087L1.337 0.924z" fill="#00D2FF" />
-                            <path d="M13.544 10.989l3.258-3.238L3.45 0.195a1.466 1.466 0 0 0-0.946-0.179l11.04 10.973z" fill="#00E676" />
-                            <path d="M13.544 13.056l-11 10.933c0.298 0.036 0.612-0.016 0.906-0.183l13.324-7.54-3.23-3.21z" fill="#FF3A44" />
-                            <path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594z" fill="#FFD600" />
-                          </svg>
-                          <span>Open on Play</span>
-                        </a>
+                              <path d="M1.337 0.924a1.486 1.486 0 0 0-0.112 0.568v21.017c0 0.217 0.045 0.419 0.124 0.6l11.155-11.087L1.337 0.924z" fill="#00D2FF" />
+                              <path d="M13.544 10.989l3.258-3.238L3.45 0.195a1.466 1.466 0 0 0-0.946-0.179l11.04 10.973z" fill="#00E676" />
+                              <path d="M13.544 13.056l-11 10.933c0.298 0.036 0.612-0.016 0.906-0.183l13.324-7.54-3.23-3.21z" fill="#FF3A44" />
+                              <path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594z" fill="#FFD600" />
+                            </svg>
+                          <span>Core &middot; soon</span>
+                        </span>
+                        <span class="btn btn--dl-channel btn--dl-play is-soon" role="link" aria-disabled="true" title="Coming soon to Google Play">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                              <path d="M1.337 0.924a1.486 1.486 0 0 0-0.112 0.568v21.017c0 0.217 0.045 0.419 0.124 0.6l11.155-11.087L1.337 0.924z" fill="#00D2FF" />
+                              <path d="M13.544 10.989l3.258-3.238L3.45 0.195a1.466 1.466 0 0 0-0.946-0.179l11.04 10.973z" fill="#00E676" />
+                              <path d="M13.544 13.056l-11 10.933c0.298 0.036 0.612-0.016 0.906-0.183l13.324-7.54-3.23-3.21z" fill="#FF3A44" />
+                              <path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594z" fill="#FFD600" />
+                            </svg>
+                          <span>Pro &middot; soon</span>
+                        </span>
                       </div>
                     </article>
 
-                    <!-- CHANNEL 3: F-DROID REPOSITORY -->
-                    <article class="dl-dest-card dl-dest-card--fdroid" data-channel="fdroid" role="listitem">
+                    <!-- CHANNEL 3: Q-P1NG PRO LICENCE (website edition) -->
+                    <article class="dl-dest-card dl-dest-card--pro" data-channel="pro" role="listitem">
                       <div class="dl-dest-card__accent" aria-hidden="true"></div>
                       <div class="dl-dest-card__header">
-                        <span class="dl-channel-id mono"><span class="dl-ch-dot"></span>NODE 03 // FOSS REPO</span>
-                        <span class="dl-channel-badge dl-channel-badge--fdroid mono">ZERO TRACKERS</span>
+                        <span class="dl-channel-id mono"><span class="dl-ch-dot"></span>NODE 03 // PRO LICENCE</span>
+                        <span class="dl-channel-badge dl-channel-badge--pro mono">&euro;9.99 ONE-TIME</span>
                       </div>
                       <div class="dl-dest-card__main">
                         <div class="dl-dest-title-row">
-                          <div class="dl-dest-icon-box dl-dest-icon-box--fdroid">
-                            <!-- Official F-Droid Vector Mascot Icon -->
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                              <path d="M20.472 10.081H3.528c-0.877 0-1.589 0.711-1.589 1.589v10.59c0 0.877 0.711 1.589 1.589 1.589h16.944c0.877 0 1.589-0.711 1.589-1.589V11.67c0-0.878-0.712-1.589-1.589-1.589zm-8.472 12.444c-3.066 0-5.56-2.494-5.56-5.56s2.494-5.56 5.56-5.56 5.56 2.494 5.56 5.56-2.494 5.56-5.56 5.56zm0-10.114c-2.511 0-4.554 2.043-4.554 4.554s2.043 4.554 4.554 4.554 4.554-2.043 4.554-4.554-2.043-4.554-4.554-4.554zm0 7.863c-1.563 0-2.881-1.103-3.221-2.568h1.67c0.275 0.581 0.859 0.979 1.551 0.979 0.96 0 1.721-0.761 1.721-1.721s-0.761-1.721-1.721-1.721c-0.649 0-1.2 0.352-1.493 0.874H8.805c0.378-1.412 1.669-2.462 3.195-2.462 1.818 0 3.309 1.491 3.309 3.309 0 1.818-1.491 3.309-3.309 3.309zM23.849 0.396a.434.434 0 0 0-.527-.233c-.202.005-.391.097-.512.259l-1.818 2.353c-.164-.058-.339-.095-.523-.095H3.528c-.184 0-.358.038-.523.095L1.187.41C1.066.248.877.157.675.151c-.24.006-.403.1-.519.238a.508.508 0 0 0-.005.007c-.066.078-.297.426-.012.824l1.909 2.471c-.067.177-.108.367-.108.567v3.707c0 .877.711 1.589 1.589 1.589h16.944c.877 0 1.589-.711 1.589-1.589V4.258c0-.2-.041-.39-.109-.566l1.909-2.471c.285-.398.054-.746-.012-.825zM6.904 8.228c-.987 0-1.787-.8-1.787-1.787s.8-1.787 1.787-1.787 1.787.8 1.787 1.787-.8 1.787-1.787 1.787zm10.325 0c-.987 0-1.787-.8-1.787-1.787s.8-1.787 1.787-1.787 1.787.8 1.787 1.787-.8 1.787-1.787 1.787z" />
-                            </svg>
+                          <div class="dl-dest-icon-box dl-dest-icon-box--pro">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="4"></circle><path d="m10.8 12.2 8.2-8.2M15 8l3 3M17 6l2 2"></path></svg>
                           </div>
                           <div>
-                            <h3 class="dl-dest-title">F-Droid</h3>
-                            <span class="dl-dest-sub mono">Independent FOSS Catalog</span>
+                            <h3 class="dl-dest-title">Q-P1NG Pro</h3>
+                            <span class="dl-dest-sub mono">Licence for the website APK</span>
                           </div>
                         </div>
-                        <p class="dl-dest-desc">Built directly from open source code by the F-Droid maintainers. Ideal for de-googled ROMs (GrapheneOS, CalyxOS, LineageOS) with zero trackers.</p>
+                        <p class="dl-dest-desc">On-device AI, radio, offline maps, the Bitcoin vault and more. Pay by card through Paddle or with Bitcoin: no account, and the key is checked offline in the app.</p>
                         <ul class="dl-dest-specs mono">
-                          <li><span class="k">PACKAGE:</span> F-Droid FOSS Build</li>
-                          <li><span class="k">TRACKING:</span> 0 Trackers &amp; No Ads</li>
-                          <li><span class="k">FREEDOM:</span> 100% De-Googled</li>
+                          <li><span class="k">PRICE:</span> &euro;9.99, lifetime</li>
+                          <li><span class="k">PAYMENT:</span> Card or Bitcoin</li>
+                          <li><span class="k">ACCOUNT:</span> None needed</li>
                         </ul>
                       </div>
                       <div class="dl-dest-card__cta">
-                        <a href="https://f-droid.org/packages/com.qp1ng.android/" class="btn btn--dl-channel btn--dl-fdroid" target="_blank" rel="noopener">
-                          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <path d="M20.472 10.081H3.528c-0.877 0-1.589 0.711-1.589 1.589v10.59c0 0.877 0.711 1.589 1.589 1.589h16.944c0.877 0 1.589-0.711 1.589-1.589V11.67c0-0.878-0.712-1.589-1.589-1.589zm-8.472 12.444c-3.066 0-5.56-2.494-5.56-5.56s2.494-5.56 5.56-5.56 5.56 2.494 5.56 5.56-2.494 5.56-5.56 5.56zm0-10.114c-2.511 0-4.554 2.043-4.554 4.554s2.043 4.554 4.554 4.554 4.554-2.043 4.554-4.554-2.043-4.554-4.554-4.554zm0 7.863c-1.563 0-2.881-1.103-3.221-2.568h1.67c0.275 0.581 0.859 0.979 1.551 0.979 0.96 0 1.721-0.761 1.721-1.721s-0.761-1.721-1.721-1.721c-0.649 0-1.2 0.352-1.493 0.874H8.805c0.378-1.412 1.669-2.462 3.195-2.462 1.818 0 3.309 1.491 3.309 3.309 0 1.818-1.491 3.309-3.309 3.309zM23.849 0.396a.434.434 0 0 0-.527-.233c-.202.005-.391.097-.512.259l-1.818 2.353c-.164-.058-.339-.095-.523-.095H3.528c-.184 0-.358.038-.523.095L1.187.41C1.066.248.877.157.675.151c-.24.006-.403.1-.519.238a.508.508 0 0 0-.005.007c-.066.078-.297.426-.012.824l1.909 2.471c-.067.177-.108.367-.108.567v3.707c0 .877.711 1.589 1.589 1.589h16.944c.877 0 1.589-.711 1.589-1.589V4.258c0-.2-.041-.39-.109-.566l1.909-2.471c.285-.398.054-.746-.012-.825zM6.904 8.228c-.987 0-1.787-.8-1.787-1.787s.8-1.787 1.787-1.787 1.787.8 1.787 1.787-.8 1.787-1.787 1.787zm10.325 0c-.987 0-1.787-.8-1.787-1.787s.8-1.787 1.787-1.787 1.787.8 1.787 1.787-.8 1.787-1.787 1.787z" />
-                          </svg>
-                          <span>Open on F-Droid</span>
+                        <a href="pro/" class="btn btn--dl-channel btn--dl-pro">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="4"></circle><path d="m10.8 12.2 8.2-8.2M15 8l3 3M17 6l2 2"></path></svg>
+                          <span>Get Pro</span>
                         </a>
                       </div>
                     </article>
@@ -906,10 +919,10 @@
                   <footer class="dl-board-footer">
                     <div class="dl-board-footer__note mono">
                       <span class="dl-shield-ico" aria-hidden="true">🛡</span>
-                      <span>VERIFY YOUR DOWNLOAD: Check the release source, published checksum and signing information before installing.</span>
+                      <span>VERIFY YOUR DOWNLOAD: the website edition checks every update itself; each APK&apos;s SHA-256 is on the download page.</span>
                     </div>
                     <div class="dl-board-footer__action mono">
-                      <a href="https://github.com/zonkeynet/Quantum-P1NG/releases" target="_blank" rel="noopener">VIEW GITHUB RELEASES &amp; SHA-256 HASHES &rarr;</a>
+                      <a href="pro/#download">DOWNLOADS &amp; SHA-256 &rarr;</a>
                     </div>
                   </footer>
                 </div>

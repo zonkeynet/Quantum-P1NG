@@ -11076,7 +11076,7 @@ if (terminal && gamesGrid) {
 
 // ==========================================================================
 // TACTICAL DEPLOYMENT SCHEMATIC CONTROLLER
-// Interactive external download channels (APK, Google Play, F-Droid)
+// Interactive download channels (website APK, Google Play, Q-P1NG Pro licence)
 // ==========================================================================
 (() => {
   const triggerBtn = document.getElementById('dlHubTrigger');

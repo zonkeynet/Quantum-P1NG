@@ -32022,9 +32022,9 @@ html.intro-active body > *:not(#intro-screen):not(script):not(style) {
   filter: drop-shadow(0 0 6px rgba(0, 242, 255, 0.85));
 }
 
-.dl-circuit-pulse--fdroid {
-  stroke: #38bdf8;
-  filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.85));
+.dl-circuit-pulse--pro {
+  stroke: #ffd166;
+  filter: drop-shadow(0 0 6px rgba(255, 209, 102, 0.85));
 }
 
 @keyframes dlBusPulseFlow {
@@ -32047,7 +32047,7 @@ html.intro-active body > *:not(#intro-screen):not(script):not(style) {
 
 .dl-pin--apk { stroke: #0aff84; }
 .dl-pin--play { stroke: #00f2ff; }
-.dl-pin--fdroid { stroke: #38bdf8; }
+.dl-pin--pro { stroke: #ffd166; }
 
 .dl-circuit-label {
   font-size: 9px;
@@ -32090,7 +32090,7 @@ html.intro-active body > *:not(#intro-screen):not(script):not(style) {
 
 .dl-dest-card--apk .dl-dest-card__accent { background: #0aff84; }
 .dl-dest-card--play .dl-dest-card__accent { background: #00f2ff; }
-.dl-dest-card--fdroid .dl-dest-card__accent { background: #38bdf8; }
+.dl-dest-card--pro .dl-dest-card__accent { background: #ffd166; }
 
 .dl-dest-card:hover,
 .dl-dest-card.is-active-route {
@@ -32110,10 +32110,10 @@ html.intro-active body > *:not(#intro-screen):not(script):not(style) {
   box-shadow: 0 10px 28px -4px rgba(0, 242, 255, 0.2);
 }
 
-.dl-dest-card--fdroid:hover,
-.dl-dest-card--fdroid.is-active-route {
-  border-color: rgba(56, 189, 248, 0.5);
-  box-shadow: 0 10px 28px -4px rgba(56, 189, 248, 0.2);
+.dl-dest-card--pro:hover,
+.dl-dest-card--pro.is-active-route {
+  border-color: rgba(255, 209, 102, 0.5);
+  box-shadow: 0 10px 28px -4px rgba(255, 209, 102, 0.2);
 }
 
 /* Card Header */
@@ -32142,7 +32142,7 @@ html.intro-active body > *:not(#intro-screen):not(script):not(style) {
 
 .dl-dest-card--apk .dl-ch-dot { color: #0aff84; }
 .dl-dest-card--play .dl-ch-dot { color: #00f2ff; }
-.dl-dest-card--fdroid .dl-ch-dot { color: #38bdf8; }
+.dl-dest-card--pro .dl-ch-dot { color: #ffd166; }
 
 .dl-channel-badge {
   font-size: 0.62rem;
@@ -32164,10 +32164,10 @@ html.intro-active body > *:not(#intro-screen):not(script):not(style) {
   border: 1px solid rgba(0, 242, 255, 0.35);
 }
 
-.dl-channel-badge--fdroid {
-  background: rgba(56, 189, 248, 0.15);
-  color: #38bdf8;
-  border: 1px solid rgba(56, 189, 248, 0.35);
+.dl-channel-badge--pro {
+  background: rgba(255, 209, 102, 0.15);
+  color: #ffd166;
+  border: 1px solid rgba(255, 209, 102, 0.35);
 }
 
 /* Card Title Row */
@@ -32197,11 +32197,11 @@ html.intro-active body > *:not(#intro-screen):not(script):not(style) {
   box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
 }
 
-.dl-dest-icon-box--fdroid {
-  background: rgba(47, 128, 237, 0.15);
-  border-color: rgba(47, 128, 237, 0.45);
-  color: #38bdf8;
-  box-shadow: 0 0 15px rgba(47, 128, 237, 0.25);
+.dl-dest-icon-box--pro {
+  background: rgba(255, 209, 102, 0.15);
+  border-color: rgba(255, 209, 102, 0.45);
+  color: #ffd166;
+  box-shadow: 0 0 15px rgba(255, 209, 102, 0.25);
 }
 
 .dl-dest-title {
@@ -32300,15 +32300,15 @@ html.intro-active body > *:not(#intro-screen):not(script):not(style) {
   transform: translateY(-2px);
 }
 
-.btn--dl-fdroid {
-  background: rgba(56, 189, 248, 0.12) !important;
-  color: #38bdf8 !important;
-  border: 1px solid rgba(56, 189, 248, 0.5) !important;
+.btn--dl-pro {
+  background: rgba(255, 209, 102, 0.12) !important;
+  color: #ffd166 !important;
+  border: 1px solid rgba(255, 209, 102, 0.5) !important;
 }
 
-.btn--dl-fdroid:hover {
-  background: rgba(56, 189, 248, 0.22) !important;
-  box-shadow: 0 0 20px rgba(56, 189, 248, 0.45) !important;
+.btn--dl-pro:hover {
+  background: rgba(255, 209, 102, 0.22) !important;
+  box-shadow: 0 0 20px rgba(255, 209, 102, 0.45) !important;
   transform: translateY(-2px);
 }
 
@@ -32329,12 +32329,12 @@ html.intro-active body > *:not(#intro-screen):not(script):not(style) {
   filter: drop-shadow(0 0 10px rgba(0, 242, 255, 1));
 }
 
-.dl-schematic-board:has(.dl-dest-card--fdroid:hover) .dl-circuit-pulse--fdroid,
-.dl-circuit-pulse--fdroid.is-active-trace {
+.dl-schematic-board:has(.dl-dest-card--pro:hover) .dl-circuit-pulse--pro,
+.dl-circuit-pulse--pro.is-active-trace {
   stroke-width: 4px;
-  stroke: #38bdf8;
+  stroke: #ffd166;
   animation-duration: 0.9s;
-  filter: drop-shadow(0 0 10px rgba(56, 189, 248, 1));
+  filter: drop-shadow(0 0 10px rgba(255, 209, 102, 1));
 }
 
 /* Board Footer */
@@ -33937,3 +33937,15 @@ body.donation-modal-open {
     padding: 7px 10px;
   }
 }
+
+/* Q-P1NG Pro: header link, hero button, Play buttons not live yet, two buttons side by side. */
+.nav-link--pro { display: flex; align-items: center; gap: 7px; padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(255, 209, 102, 0.38);
+  background: rgba(255, 209, 102, 0.08); color: #f8fafc; font-family: var(--font-cyber, "QP1NG-Digital", monospace); font-size: 14.5px; font-weight: 700;
+  letter-spacing: 0.04em; text-decoration: none; transition: all 0.25s ease; white-space: nowrap; }
+.nav-link--pro:hover { border-color: rgba(255, 209, 102, 0.8); background: rgba(255, 209, 102, 0.16); box-shadow: 0 0 18px rgba(255, 209, 102, 0.3); color: #fff; transform: translateY(-1px); }
+.nav-badge--pro { background: rgba(255, 209, 102, 0.16); color: #ffd166; border-color: rgba(255, 209, 102, 0.55); }
+.btn--pro { display: inline-flex; align-items: center; gap: 8px; border-color: rgba(255, 209, 102, 0.6); color: #ffd166; background: rgba(255, 209, 102, 0.08); }
+.btn--pro:hover { background: rgba(255, 209, 102, 0.16); box-shadow: 0 0 20px rgba(255, 209, 102, 0.35); color: #ffe39a; }
+.mobilemenu-pro { color: #ffd166 !important; border-color: rgba(255, 209, 102, 0.4) !important; }
+.dl-dest-card__cta--pair { display: grid; grid-template-columns: 1fr; gap: 8px; }
+.btn--dl-channel.is-soon { opacity: 0.55; cursor: default; pointer-events: none; transform: none !important; box-shadow: none !important; }
