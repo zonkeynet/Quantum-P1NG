@@ -96,6 +96,8 @@
             if (event && event.name === "checkout.completed") {
               window.Paddle.Checkout.close();
               waitForClaim(recall("qp1ng_claim"));
+            } else if (event && event.name === "checkout.error") {
+              $("pay-note").textContent = "Card payment is not available right now. Please try again later, or pay with Bitcoin.";
             }
           }
         });
