@@ -26,14 +26,20 @@
     </image:image>
   </url>
   <url>
+    <loc>https://www.qp1ng.com/pro/</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.qp1ng.com/privacy.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.qp1ng.com/terms.html</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
