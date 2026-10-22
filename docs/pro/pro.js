@@ -124,7 +124,7 @@
       paddle.Checkout.open({
         items: [{ priceId: config.paddle.priceId, quantity: 1 }],
         customData: { claim: claim },
-        settings: { displayMode: "overlay", theme: "dark" }
+        settings: { displayMode: "overlay", variant: "one-page", theme: "dark" }
       });
     }, function (error) {
       $("pay-note").textContent = error.message + ". Check that no blocker stops cdn.paddle.com.";
