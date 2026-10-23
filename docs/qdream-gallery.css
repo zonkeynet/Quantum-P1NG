@@ -24,21 +24,11 @@
 #q-dream .qx-badges { margin-top: 18px; }
 #q-dream .qx-badges span { border-color: var(--dream-line); background: rgba(140, 107, 226, .055); line-height: 1.35; }
 #q-dream .qdream-phone {
-  grid-area: phone; position: relative; width: 100%; max-width: none; justify-self: stretch;
+  grid-area: phone; width: 100%; max-width: none; justify-self: stretch;
   border-color: rgba(184, 154, 255, .38); border-radius: 30px; padding: 7px;
   box-shadow: 0 24px 60px rgba(0, 0, 0, .42), 0 0 90px rgba(145, 93, 249, .16);
 }
 #q-dream .qdream-phone video { border-radius: 23px; }
-/* Play mark while the video waits: the video itself stays the button, the mark lets clicks through. */
-#q-dream .qdream-phone::before,
-#q-dream .qdream-phone::after { content: ""; position: absolute; left: 50%; top: 50%; pointer-events: none; opacity: 0; transition: opacity .2s ease, transform .2s ease; }
-#q-dream .qdream-phone::before {
-  width: 76px; height: 76px; margin: -38px 0 0 -38px; border: 1px solid rgba(214, 196, 255, .6); border-radius: 50%;
-  background: rgba(14, 9, 28, .74); box-shadow: 0 0 36px rgba(145, 93, 249, .45);
-}
-#q-dream .qdream-phone::after { margin: -14px 0 0 -8px; border-style: solid; border-width: 14px 0 14px 23px; border-color: transparent transparent transparent #efe6ff; }
-#q-dream .qdream-phone:has(video:not([aria-pressed="true"]))::before,
-#q-dream .qdream-phone:has(video:not([aria-pressed="true"]))::after { opacity: 1; }
 #q-dream .qdream-demo-caption-panel { grid-area: caption; align-self: start; margin-top: 24px; padding-top: 15px; border-top: 1px solid var(--dream-line); }
 #q-dream .qdream-demo-caption-panel .app-walkthrough-meta > span { font-size: 11px; }
 #q-dream .qdream-demo-caption-panel .app-walkthrough-caption { min-height: 3.4em; font-size: 14px; line-height: 1.65; }
@@ -127,7 +117,6 @@ html.qdream-modal-open { overflow: hidden; }
 .qdream-lightbox a:focus-visible,
 .qdream-engine > summary:focus-visible { outline: 2px solid #cbb3ff; outline-offset: 2px; }
 @media (hover: hover) {
-  #q-dream .qdream-phone:hover::before { transform: scale(1.06); }
   .qdream-gallery-link:hover { border-color: #a882df; box-shadow: 0 5px 24px rgba(132, 79, 218, .13); }
   .qdream-gallery-link:hover img { transform: scale(1.025); }
   .qdream-gallery-controls button:hover:not(:disabled), .qdream-lightbox-toolbar button:hover { background: #30233e; }
@@ -163,7 +152,6 @@ html.qdream-modal-open { overflow: hidden; }
 }
 @media (prefers-reduced-motion: reduce) {
   #q-dream.qdream-awake .qx-bg::before { animation: none; }
-  .qdream-gallery-art img, .qdream-gallery-link, .qdream-engine-toggle,
-  #q-dream .qdream-phone::before, #q-dream .qdream-phone::after { transition: none; }
+  .qdream-gallery-art img, .qdream-gallery-link, .qdream-engine-toggle { transition: none; }
   .qdream-gallery-link:hover img { transform: none; }
 }
