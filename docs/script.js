@@ -4038,7 +4038,7 @@ if (terminal && gamesGrid) {
     const terminalLine = document.getElementById('qaiTerminalLine');
     const meterFill = section.querySelector('.qai-risk-meter span');
     const tabs = Array.from(section.querySelectorAll('.qai-module-tab'));
-    const cards = Array.from(section.querySelectorAll('.qai-tool-card'));
+    const cards = Array.from(section.querySelectorAll('.qai-tool-card[data-qai-card]'));
     const counters = Array.from(section.querySelectorAll('[data-qai-count]'));
     const qaiVideo = document.getElementById('qaiVideo');
     const qaiVideoSourceWebm = document.getElementById('qaiVideoSourceWebm');
@@ -4135,24 +4135,6 @@ if (terminal && gamesGrid) {
         videoMp4: 'assets/vid/qbrain-typed-actions-demo.mp4',
         poster: 'assets/vid/qbrain-typed-actions-demo-poster.webp'
       },
-      sandbox: {
-        mode: 'phone',
-        title: 'SANDBOX PRO',
-        status: 'ISOLATION READY',
-        badge: 'LAYER 04 // ISOLATION',
-        brief: 'Isolated command execution',
-        text: 'Linux sandbox policy checks working directories, host paths, network mode, dangerous patterns and lab-only commands before execution.',
-        pills: ['Linux Userspace', 'Path Checks', 'No Root Required', 'Network Policy'],
-        meter: '85%',
-        chip: 'APP_POLICY',
-        cmd: 'sandbox.validate --mode ask_every_time --network allowlist',
-        sub1: 'limits: selected runtime and app policy',
-        sub2: 'PRoot userspace and app checks; not a hardware enclave',
-        hud: 'SANDBOX // POLICY EXAMPLE',
-        videoWebm: 'assets/vid/qai_mobile_sandbox.webm',
-        videoMp4: 'assets/vid/qai_mobile_sandbox.mp4',
-        poster: 'assets/vid/qai_mobile_sandbox_poster.webp'
-      },
       scenario: {
         mode: 'phone',
         clickToPlay: true,
@@ -4177,24 +4159,6 @@ if (terminal && gamesGrid) {
         videoMp4: 'assets/vid/qscenario-workflow-demo.mp4',
         poster: 'assets/vid/qscenario-workflow-demo-poster.webp'
       },
-      governance: {
-        mode: 'phone',
-        title: 'GOVERNANCE LAYER',
-        status: 'POLICY READY',
-        badge: 'LAYER 06 // AUDIT & GHOST',
-        brief: 'Skill policies and Ghost Mode',
-        text: 'Skill profiles define allowed tools, blocked tools, confirmation lists and max tool steps. Ghost Mode denies dangerous categories by default.',
-        pills: ['Ghost Mode', 'Skill Profiles', 'Kill Switch', 'Audit Trail'],
-        meter: '98%',
-        chip: 'GHOST_POLICY',
-        cmd: 'governance.trace --dry-run --human-in-loop --kill-switch',
-        sub1: 'policy: review allowed tools and required confirmations',
-        sub2: 'session controls: app-managed stop and cleanup',
-        hud: 'GOVERNANCE // GHOST_MODE_ENGAGED',
-        videoWebm: 'assets/vid/qai_mobile_governance.webm',
-        videoMp4: 'assets/vid/qai_mobile_governance.mp4',
-        poster: 'assets/vid/qai_mobile_governance_poster.webp'
-      }
     };
 
     let visible = false;
