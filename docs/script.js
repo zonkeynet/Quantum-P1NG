@@ -5670,7 +5670,7 @@ if (terminal && gamesGrid) {
 
   const payloads = [
     { label: 'ENCRYPTED_VAULT_BACKUP (1.4 MB)', size: 1468006, parts: 96, classStr: 'OpticalFountain.kt / OpticalQrStream.kt' },
-    { label: 'DILITHIUM_IDENTITY_KEYRING (4.8 KB)', size: 4915, parts: 12, classStr: 'NfcIdentityManager.kt / OpticalPrivateFiles.kt' },
+    { label: 'IDENTITY_KEYRING (4.8 KB)', size: 4915, parts: 12, classStr: 'NfcIdentityManager.kt / OpticalPrivateFiles.kt' },
     { label: 'OFFLINE_MGRS_TACTICAL_MAP (8.2 MB)', size: 8598322, parts: 260, classStr: 'QGeoOfflineMapPack.kt / LocalLinkTransport.kt' },
     { label: 'EMERGENCY_FIELD_REPORT (18.5 KB)', size: 18944, parts: 32, classStr: 'QGeoReportWizard.kt / OfflineAcousticHandshakeManager.kt' },
     { label: 'TACTICAL_MESH_BURST_CHAT (256 B)', size: 256, parts: 1, classStr: 'BleMeshPacketRouter.kt / StoreAndForwardQueue.kt' }
@@ -11038,91 +11038,6 @@ if (terminal && gamesGrid) {
       hotspots.forEach(h => h.classList.remove('active'));
     }
   });
-})();
-
-// =============================================================================
-// PEACE NODE BITCOIN DONATION MODAL & COPY ACTIONS
-// =============================================================================
-(function initPeaceNodeDonation() {
-  const BTC_ADDRESS = '374KXiCjuvSr5aWXf1tzCB8fUzXhHanngi';
-  const modal = document.getElementById('qp1ng-donation-modal');
-  const backdrop = document.getElementById('donation-modal-backdrop');
-  const closeBtn = document.getElementById('donation-modal-close');
-  const openBtns = [
-    document.getElementById('btn-open-donation-modal'),
-    document.getElementById('btn-footer-donate'),
-    document.getElementById('btn-footer-link-donate')
-  ].filter(Boolean);
-
-  const copyBtns = [
-    document.getElementById('btn-copy-btc-direct'),
-    document.getElementById('btn-modal-copy-btc')
-  ].filter(Boolean);
-
-  function openDonationModal(e) {
-    if (e) e.preventDefault();
-    if (!modal) return;
-    modal.classList.add('is-open');
-    modal.setAttribute('aria-hidden', 'false');
-    document.body.classList.add('donation-modal-open');
-  }
-
-  function closeDonationModal(e) {
-    if (e) e.preventDefault();
-    if (!modal) return;
-    modal.classList.remove('is-open');
-    modal.setAttribute('aria-hidden', 'true');
-    document.body.classList.remove('donation-modal-open');
-  }
-
-  openBtns.forEach(btn => btn.addEventListener('click', openDonationModal));
-
-  if (closeBtn) closeBtn.addEventListener('click', closeDonationModal);
-  if (backdrop) backdrop.addEventListener('click', closeDonationModal);
-
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal && modal.classList.contains('is-open')) {
-      closeDonationModal(e);
-    }
-  });
-
-  copyBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const origContent = btn.innerHTML;
-      
-      const onSuccess = () => {
-        btn.classList.add('copied');
-        btn.innerHTML = '<span class="copy-icon">✓</span> <span class="copy-text">COPIED!</span>';
-        setTimeout(() => {
-          btn.innerHTML = origContent;
-          btn.classList.remove('copied');
-        }, 2200);
-      };
-
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(BTC_ADDRESS).then(onSuccess).catch(() => {
-          fallbackCopy(onSuccess);
-        });
-      } else {
-        fallbackCopy(onSuccess);
-      }
-    });
-  });
-
-  function fallbackCopy(cb) {
-    const textarea = document.createElement('textarea');
-    textarea.value = BTC_ADDRESS;
-    textarea.style.position = 'fixed';
-    textarea.style.opacity = '0';
-    document.body.appendChild(textarea);
-    textarea.select();
-    try {
-      document.execCommand('copy');
-      if (cb) cb();
-    } catch (_) {}
-    document.body.removeChild(textarea);
-  }
 })();
 
 // ==========================================================================

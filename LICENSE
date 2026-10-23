@@ -131,7 +131,7 @@ Q-P1NG® is designed with an uncompromising OPSEC-first architecture:
   - ZERO SURVEILLANCE: Communications, encrypted vault records, local AI models,
     and voice transcriptions are processed strictly on-device or across peer-to-peer
     encrypted networks chosen by the user.
-  - DATA MINIMIZATION: Private cryptographic keys (RSA, AES, Kyber/Dilithium) are
+  - DATA MINIMIZATION: Private cryptographic keys (RSA, AES, X25519, Ed25519) are
     generated and stored exclusively on your device. ZonkeyNet possesses no
     technical backdoors or private key escrows.
 
