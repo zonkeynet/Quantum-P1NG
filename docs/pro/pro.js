@@ -1,4 +1,4 @@
-// Q-P1NG Pro checkout: card through Paddle, Bitcoin through the licence API, licence recovery and downloads.
+// Q-P1NG Pro checkout: card through FastSpring, Bitcoin through the licence API, licence recovery and downloads.
 // The licence API (Q-P1NG/tools/license-worker) says which payments are open; nothing here holds a secret.
 (function () {
   "use strict";
@@ -13,7 +13,7 @@
     : "https://qp1ng-license-api.quantump1ng.workers.dev";
   var $ = function (id) { return document.getElementById(id); };
   var config = null;
-  var paddleReady = null;
+  var cardReady = null;
   var pollTimer = null;
 
   // Per-browser conveniences only (a pending claim or order); everything works without them.
@@ -75,16 +75,16 @@
 
   function updateButtons() {
     var agreed = $("consent").checked;
-    $("pay-card").disabled = !(config && config.paddle && agreed);
+    $("pay-card").disabled = !(config && config.card && agreed);
     $("pay-btc").disabled = !(config && config.btc && agreed);
   }
 
   function describeOptions() {
     var notes = [];
-    $("card-state").textContent = config ? (config.paddle ? "" : "Soon") : "";
+    $("card-provider").textContent = config && config.card ? "Through FastSpring, our reseller" : "Coming soon";
     $("btc-state").textContent = config ? (config.btc ? (config.btc.network !== "mainnet" ? "Testnet" : "") : "Soon") : "";
     if (!config) notes.push("Payments could not be loaded. Check your connection and reload the page.");
-    else if ((config.paddle || config.btc) && !$("consent").checked) notes.push("Tick the box above to choose how to pay.");
+    else if ((config.card || config.btc) && !$("consent").checked) notes.push("Tick the box above to choose how to pay.");
     $("pay-note").textContent = notes.join(" ");
   }
 
@@ -94,49 +94,48 @@
     for (var i = 0; i < items.length; i++) items[i].textContent = "\u20ac" + config.priceEur;
   }
 
-  // ---- Card (Paddle) ---------------------------------------------------------------------------------------------
+  // ---- Card (FastSpring popup checkout) --------------------------------------------------------------------------
 
-  function loadPaddle() {
-    if (paddleReady) return paddleReady;
-    paddleReady = new Promise(function (resolve, reject) {
-      var script = document.createElement("script");
-      script.src = "https://cdn.paddle.com/paddle/v2/paddle.js";
-      script.onload = function () {
-        if (config.paddle.environment === "sandbox") window.Paddle.Environment.set("sandbox");
-        window.Paddle.Initialize({
-          token: config.paddle.token,
-          eventCallback: function (event) {
-            if (event && event.name === "checkout.completed") {
-              window.Paddle.Checkout.close();
-              waitForClaim(recall("qp1ng_claim"));
-            } else if (event && event.name === "checkout.error") {
-              $("pay-note").textContent = "Card payment is not available right now. Please try again later, or pay with Bitcoin.";
-            }
-          }
-        });
-        resolve(window.Paddle);
+  function loadCardCheckout() {
+    if (cardReady) return cardReady;
+    cardReady = new Promise(function (resolve, reject) {
+      // The Store Builder Library reads its settings from its own script tag and calls global functions by name.
+      window.qp1ngCardClosed = function (order) {
+        // { id, reference } after a purchase, null when the buyer closed the popup without paying.
+        if (order && order.reference) {
+          remember("qp1ng_card_ref", order.reference);
+          waitForClaim(recall("qp1ng_claim"));
+        }
       };
-      script.onerror = function () { paddleReady = null; reject(new Error("Paddle could not be loaded")); };
+      window.qp1ngCardError = function () {
+        $("pay-note").textContent = "Card payment is not available right now. Please try again later, or pay with Bitcoin.";
+      };
+      var script = document.createElement("script");
+      script.id = "fsc-api";
+      script.src = "https://sbl.onfastspring.com/sbl/1.0.6/fastspring-builder.min.js";
+      script.setAttribute("data-storefront", config.card.storefront);
+      script.setAttribute("data-popup-closed", "qp1ngCardClosed");
+      script.setAttribute("data-error-callback", "qp1ngCardError");
+      script.onload = function () { resolve(window.fastspring); };
+      script.onerror = function () { cardReady = null; script.remove(); reject(new Error("The card checkout could not be loaded")); };
       document.head.appendChild(script);
     });
-    return paddleReady;
+    return cardReady;
   }
 
   function payByCard() {
     var claim = randomToken();
     remember("qp1ng_claim", claim);
-    loadPaddle().then(function (paddle) {
-      paddle.Checkout.open({
-        items: [{ priceId: config.paddle.priceId, quantity: 1 }],
-        customData: { claim: claim },
-        settings: { displayMode: "overlay", variant: "one-page", theme: "dark" }
-      });
+    loadCardCheckout().then(function (fastspring) {
+      fastspring.builder.reset();
+      fastspring.builder.push({ products: [{ path: config.card.product, quantity: 1 }], tags: { claim: claim } });
+      fastspring.builder.checkout();
     }, function (error) {
-      $("pay-note").textContent = error.message + ". Check that no blocker stops cdn.paddle.com.";
+      $("pay-note").textContent = error.message + ". Check that no blocker stops onfastspring.com.";
     });
   }
 
-  /** Paddle's webhook issues the licence; this asks for it with the claim token passed to the checkout. */
+  /** FastSpring's webhook issues the licence; this asks for it with the claim token passed as an order tag. */
   function waitForClaim(claim) {
     if (!claim) return;
     $("claim-wait").hidden = false;
@@ -148,6 +147,7 @@
         if (body.licence) {
           clearInterval(pollTimer);
           remember("qp1ng_claim", null);
+          remember("qp1ng_card_ref", null);
           showLicence(body.licence);
         } else if (tries > 100) clearInterval(pollTimer);
       }, function () {});
@@ -275,15 +275,15 @@
   // ---- Recovery and downloads ------------------------------------------------------------------------------------
 
   function recover() {
-    var txn = $("recover-txn").value.trim();
+    var reference = $("recover-ref").value.trim().toUpperCase();
     var status = $("recover-status");
-    if (!/^txn_[0-9a-z]{10,40}$/.test(txn)) return setStatus(status, "That is not a Paddle transaction number.", "error");
+    if (!/^[A-Z0-9]{2,24}(-[A-Z0-9]{1,24}){1,4}$/.test(reference)) return setStatus(status, "That is not an order reference.", "error");
     setStatus(status, "Looking it up…");
-    api("/v1/licences/txn/" + txn).then(function (body) {
+    api("/v1/licences/order/" + encodeURIComponent(reference)).then(function (body) {
       if (body.licence) {
         setStatus(status, "Found.", "ok");
         showLicence(body.licence);
-      } else setStatus(status, "No licence for that transaction yet. If you have just paid, try again in a minute; otherwise write to support@qp1ng.com.", "error");
+      } else setStatus(status, "No licence for that order yet. If you have just paid, try again in a minute; otherwise write to support@qp1ng.com.", "error");
     }, function () { setStatus(status, "The licence service could not be reached.", "error"); });
   }
 
@@ -356,7 +356,7 @@
           else remember("qp1ng_order", null);
         }, function () {});
       }
-      if (recall("qp1ng_claim") && config && config.paddle) {
+      if (recall("qp1ng_claim") && config && config.card) {
         // Back after a card payment: the licence may already be there (independently of any Bitcoin order).
         api("/v1/licences/claim/" + recall("qp1ng_claim")).then(function (body) {
           if (body.licence) { remember("qp1ng_claim", null); showLicence(body.licence); }
