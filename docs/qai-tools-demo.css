@@ -1,0 +1,33 @@
+/* Real app footage inside the existing Q-AI Tool Router console. */
+.q-ai-console { scroll-margin-top: 100px; }
+.qai-phone-chassis:focus-visible { outline: 3px solid var(--qai-cyan); outline-offset: 5px; }
+.qai-tools-caption[hidden] { display: none; }
+.qai-tools-caption { width: 100%; margin-top: 15px; padding: 13px 14px; border: 1px solid var(--qai-border); border-left: 2px solid var(--qai-green); border-radius: 8px; background: rgba(3, 12, 22, .9); }
+.qai-tools-caption-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; color: var(--qai-cyan); font-size: 9px; letter-spacing: .08em; }
+.qai-tools-languages { display: flex; gap: 4px; flex-shrink: 0; }
+.qai-tools-languages button { min-width: 32px; min-height: 32px; border: 1px solid var(--qai-border); border-radius: 4px; color: #b7cddd; background: #081725; font: inherit; cursor: pointer; }
+.qai-tools-languages button[aria-pressed="true"] { color: var(--qai-green); border-color: var(--qai-green); background: rgba(53, 255, 138, .08); }
+.qai-tools-languages button:focus-visible { outline: 2px solid var(--qai-cyan); outline-offset: 2px; }
+.qai-tools-caption p { margin: 10px 0; min-height: 5.6em; color: #e1edf7; font-size: 14px; line-height: 1.4; overflow-wrap: anywhere; }
+.qai-tools-time { color: #96b3c8; font-size: 10px; }
+.q-ai-console.is-tools-demo .qai-phone-screen { aspect-ratio: 9 / 16; }
+.q-ai-console.is-tools-demo .qai-phone-screen video { object-fit: contain; }
+.q-ai-console.is-tools-demo .qai-video-vignette,
+.q-ai-console.is-tools-demo .qai-video-scanline,
+.q-ai-console.is-tools-demo .qai-video-hud-tag,
+.q-ai-console.is-tools-demo .qai-video-bracket,
+.q-ai-console.is-tools-demo .qai-phone-glare,
+.q-ai-console.is-tools-demo .qai-phone-camera { display: none; }
+.q-ai-console.is-tools-demo .qai-risk-meter span { animation: none; }
+.q-ai-console.is-tools-demo .qai-panel-header,
+.q-ai-console.is-tools-demo .qai-terminal-head { flex-wrap: wrap; }
+.q-ai-console.is-tools-demo .qai-terminal-body { overflow-wrap: anywhere; }
+.q-ai-console.is-tools-demo .qai-phone-subtext { font-size: 8px; text-align: center; line-height: 1.6; }
+@media (max-width: 860px) {
+  .q-ai-console.is-tools-demo .qai-phone-chassis { max-width: 310px; }
+  .qai-tools-caption { max-width: 400px; }
+  .qai-tools-caption p { min-height: 4.2em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .q-ai-console.is-tools-demo .qai-phone-glitch { animation: none; }
+}

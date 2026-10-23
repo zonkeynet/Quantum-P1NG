@@ -64,6 +64,7 @@
   <link rel="stylesheet" href="qcast-globe.css?v=1.0.8" />
   <link rel="stylesheet" href="qgeo-demo.css?v=2" />
   <link rel="stylesheet" href="radio-bridge-layout.css?v=1" />
+  <link rel="stylesheet" href="qai-tools-demo.css?v=1" />
 
   <!-- Schema.org Comprehensive Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -6935,7 +6936,7 @@ _
         </div>
       </div>
 
-      <div class="q-ai-console is-mode-widescreen" role="region" aria-label="Q-AI interactive demonstration">
+      <div class="q-ai-console is-mode-widescreen" id="qaiModulePanel" role="tabpanel" aria-label="Q-AI interactive demonstration">
 <aside class="editorial-demo-note" role="note"><strong>INTERACTIVE DEMO · SAMPLE DATA</strong><span>Illustrative states. This panel does not control the app or verify your device.</span></aside>
 
         <!-- Console Top Bar (Layer & Status) -->
@@ -6953,7 +6954,7 @@ _
         <div class="qai-stage-container" id="qaiStageContainer">
           <!-- Morphing Stage / Smartphone Chassis -->
           <div class="qai-stage-col" id="qaiStageCol">
-            <div class="qai-phone-chassis" id="qaiPhoneChassis" title="Play or pause the demonstration video">
+            <div class="qai-phone-chassis" id="qaiPhoneChassis" role="button" tabindex="0" aria-label="Play Q-AI demonstration video" aria-pressed="false" title="Click or press Enter or Space to play or pause">
               <div class="qai-phone-speaker" aria-hidden="true"></div>
               <div class="qai-phone-camera" aria-hidden="true"></div>
               <div class="qai-phone-screen" id="qaiPhoneScreen">
@@ -6978,7 +6979,18 @@ _
             </div>
             <div class="qai-phone-subtext mono" id="qaiPhoneSubtext">
               <span class="qai-phone-subtext-dot"></span>
-              <span>LIVE DEMO // TAP SCREEN TO TOGGLE</span>
+              <span id="qaiVideoHint">DEMO // CLICK TO PLAY OR PAUSE</span>
+            </div>
+            <div class="qai-tools-caption" id="qaiToolsCaptionPanel" hidden>
+              <div class="qai-tools-caption-head mono">
+                <span>APP WALKTHROUGH</span>
+                <div class="qai-tools-languages" role="group" aria-label="Demo caption language">
+                  <button type="button" data-qai-caption-lang="en" aria-pressed="true" aria-label="English captions">EN</button>
+                  <button type="button" data-qai-caption-lang="it" aria-pressed="false" aria-label="Italian captions">IT</button>
+                </div>
+              </div>
+              <p id="qaiToolsCaption" lang="en" aria-live="polite" aria-atomic="true">Ask Gemini to find a local note.</p>
+              <span class="qai-tools-time mono" id="qaiToolsTime">00:00 / 01:03</span>
             </div>
           </div>
 
@@ -7001,7 +7013,7 @@ _
 
               <div class="qai-meter-block">
                 <div class="qai-meter-header mono">
-                  <span>DEMO METER</span>
+                  <span id="qaiMeterLabel">DEMO METER</span>
                   <span id="qaiMeterVal">94%</span>
                 </div>
                 <div class="qai-risk-meter" aria-label="Q-AI demonstration meter; not a device measurement">
@@ -7017,7 +7029,7 @@ _
                   <span class="qai-term-dot"></span>
                   <span class="qai-term-dot"></span>
                 </div>
-                <span class="qai-term-title">EXAMPLE CONFIGURATION</span>
+                <span class="qai-term-title" id="qaiTermTitle">EXAMPLE CONFIGURATION</span>
                 <span class="qai-term-chip" id="qaiTermChip">LOCAL_RUNTIME</span>
               </div>
               <div class="qai-terminal-body">
@@ -7078,7 +7090,7 @@ _
         <p>Typed tool schemas expose notes, vault knowledge, app status, image prompt helpers, LoRa and sandbox operations with aliases.</p>
         <ul>
           <li>Risk levels and timeouts</li>
-          <li>Read-only cache and metrics</li>
+          <li>Watch the Gemini app walkthrough</li>
           <li>Confirmation before sensitive actions</li>
         </ul>
       </article>
@@ -8726,7 +8738,7 @@ _
     </div>
   </div>
 
-  <script src="script.js?v=2.6.20" defer></script>
+  <script src="script.js?v=2.6.21" defer></script>
   <script src="qgeo-demo.js?v=1" defer></script>
 </body>
 </html>
