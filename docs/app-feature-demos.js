@@ -82,8 +82,10 @@
     video.addEventListener('pause', () => { requested = false; render(); });
     video.addEventListener('timeupdate', render);
     video.addEventListener('error', unavailable);
-    // Source failures do not bubble to the video element in every browser.
+    // Source failures do not bubble to the video element in every browser. Before the first click the sources have no
+    // src yet, and the browser reports each of them as failed while the page loads: those are not real failures.
     sources.forEach(source => source.addEventListener('error', () => {
+      if (!source.getAttribute('src')) return;
       failedSources.add(source);
       if (failedSources.size === sources.length) unavailable();
     }));

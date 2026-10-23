@@ -8,19 +8,40 @@
 }
 #q-dream.qdream-awake .qx-bg::before { animation: qdream-arrival 4s ease-out both; }
 @keyframes qdream-arrival { from { opacity: .3; transform: translateY(16px) scale(.98); } to { opacity: .85; transform: none; } }
+/* Text and phone side by side as one centred block: the phone grows with the window but always fits its height;
+   the live captions sit under the text here and under the video on phones. */
 #q-dream .qdream-studio {
-  display: grid; grid-template-columns: minmax(0, 1fr) minmax(240px, 300px);
-  gap: clamp(28px, 5vw, 76px); align-items: center; max-width: none;
+  --dream-phone: clamp(300px, min(28vw, calc((100vh - 150px) * .5625)), 400px);
+  display: grid; grid-template-columns: minmax(0, 620px) var(--dream-phone);
+  grid-template-areas: "copy phone" "caption phone";
+  justify-content: center; align-items: center; column-gap: clamp(36px, 5vw, 80px); row-gap: 0; max-width: none;
 }
-#q-dream .qdream-copy { min-width: 0; margin: 0; text-align: left; }
+#q-dream .qdream-copy { grid-area: copy; align-self: end; min-width: 0; margin: 0; text-align: left; }
 #q-dream .qx-title { margin-top: 16px; }
 #q-dream .qdream-tagline { color: #bf9fff; font-size: clamp(25px, 2.6vw, 36px); line-height: 1.25; margin-top: 8px; }
-#q-dream .qx-desc { max-width: 65ch; font-size: 16px; line-height: 1.7; }
+#q-dream .qx-desc { max-width: none; font-size: 16px; line-height: 1.7; }
 #q-dream .qx-subtitle { color: #7fe7ef; margin: 20px 0 12px; }
 #q-dream .qx-badges { margin-top: 18px; }
 #q-dream .qx-badges span { border-color: var(--dream-line); background: rgba(140, 107, 226, .055); line-height: 1.35; }
-.qdream-phone { width: 100%; max-width: 300px; justify-self: end; box-shadow: 0 0 72px rgba(145, 93, 249, .12); }
-.qdream-demo-caption-panel { margin-top: 24px; padding-top: 15px; border-top: 1px solid var(--dream-line); }
+#q-dream .qdream-phone {
+  grid-area: phone; position: relative; width: 100%; max-width: none; justify-self: stretch;
+  border-color: rgba(184, 154, 255, .38); border-radius: 30px; padding: 7px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .42), 0 0 90px rgba(145, 93, 249, .16);
+}
+#q-dream .qdream-phone video { border-radius: 23px; }
+/* Play mark while the video waits: the video itself stays the button, the mark lets clicks through. */
+#q-dream .qdream-phone::before,
+#q-dream .qdream-phone::after { content: ""; position: absolute; left: 50%; top: 50%; pointer-events: none; opacity: 0; transition: opacity .2s ease, transform .2s ease; }
+#q-dream .qdream-phone::before {
+  width: 76px; height: 76px; margin: -38px 0 0 -38px; border: 1px solid rgba(214, 196, 255, .6); border-radius: 50%;
+  background: rgba(14, 9, 28, .74); box-shadow: 0 0 36px rgba(145, 93, 249, .45);
+}
+#q-dream .qdream-phone::after { margin: -14px 0 0 -8px; border-style: solid; border-width: 14px 0 14px 23px; border-color: transparent transparent transparent #efe6ff; }
+#q-dream .qdream-phone:has(video:not([aria-pressed="true"]))::before,
+#q-dream .qdream-phone:has(video:not([aria-pressed="true"]))::after { opacity: 1; }
+#q-dream .qdream-demo-caption-panel { grid-area: caption; align-self: start; margin-top: 24px; padding-top: 15px; border-top: 1px solid var(--dream-line); }
+#q-dream .qdream-demo-caption-panel .app-walkthrough-meta > span { font-size: 11px; }
+#q-dream .qdream-demo-caption-panel .app-walkthrough-caption { min-height: 3.4em; font-size: 14px; line-height: 1.65; }
 .qdream-demo-caption-panel .app-walkthrough-note { max-width: 86ch; font-size: 11px; line-height: 1.65; }
 .qdream-gallery { margin-top: clamp(40px, 5vw, 64px); scroll-margin-top: 90px; }
 .qdream-gallery-heading { display: flex; align-items: end; justify-content: space-between; gap: 18px; margin-bottom: 22px; }
@@ -106,6 +127,7 @@ html.qdream-modal-open { overflow: hidden; }
 .qdream-lightbox a:focus-visible,
 .qdream-engine > summary:focus-visible { outline: 2px solid #cbb3ff; outline-offset: 2px; }
 @media (hover: hover) {
+  #q-dream .qdream-phone:hover::before { transform: scale(1.06); }
   .qdream-gallery-link:hover { border-color: #a882df; box-shadow: 0 5px 24px rgba(132, 79, 218, .13); }
   .qdream-gallery-link:hover img { transform: scale(1.025); }
   .qdream-gallery-controls button:hover:not(:disabled), .qdream-lightbox-toolbar button:hover { background: #30233e; }
@@ -114,8 +136,9 @@ html.qdream-modal-open { overflow: hidden; }
   .qdream-gallery-track { grid-auto-columns: calc((100% - 18px) / 2); }
 }
 @media (max-width: 800px) {
-  #q-dream .qdream-studio { grid-template-columns: minmax(0, 1fr); gap: 28px; }
-  .qdream-phone { justify-self: center; }
+  #q-dream .qdream-studio { grid-template-columns: minmax(0, 1fr); grid-template-areas: "copy" "phone" "caption"; row-gap: 28px; }
+  #q-dream .qdream-phone { width: min(100%, 360px); justify-self: center; }
+  #q-dream .qdream-demo-caption-panel { margin-top: -6px; }
   #q-dream .qx-desc { font-size: 15px; }
   .qdream-lightbox-body { grid-template-columns: minmax(0, 1fr); gap: 22px; padding: 18px; }
   .qdream-lightbox-body > img { max-width: min(512px, 58vh); justify-self: center; }
@@ -140,6 +163,7 @@ html.qdream-modal-open { overflow: hidden; }
 }
 @media (prefers-reduced-motion: reduce) {
   #q-dream.qdream-awake .qx-bg::before { animation: none; }
-  .qdream-gallery-art img, .qdream-gallery-link, .qdream-engine-toggle { transition: none; }
+  .qdream-gallery-art img, .qdream-gallery-link, .qdream-engine-toggle,
+  #q-dream .qdream-phone::before, #q-dream .qdream-phone::after { transition: none; }
   .qdream-gallery-link:hover img { transform: none; }
 }

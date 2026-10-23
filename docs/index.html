@@ -67,7 +67,7 @@
   <link rel="stylesheet" href="radio-bridge-layout.css?v=1" />
   <link rel="stylesheet" href="qai-tools-demo.css?v=4" />
   <link rel="stylesheet" href="app-feature-demos.css?v=2" />
-  <link rel="stylesheet" href="qdream-gallery.css?v=1" />
+  <link rel="stylesheet" href="qdream-gallery.css?v=2" />
 
   <!-- Schema.org Comprehensive Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -7027,8 +7027,7 @@ _
   <div class="wrap">
     <figure class="app-walkthrough app-walkthrough--dream qdream-studio" data-app-walkthrough="Q-Dream"
         data-cues="assets/vid/qdream-cyberrealistic-demo-v2-timing.json" data-idle-en="From a photographic prompt to a CyberRealistic image, generated locally in Q-Brain." data-idle-it="Da un prompt fotografico a un’immagine CyberRealistic, generata localmente in Q-Brain.">
-      <figcaption id="qdream-demo-caption" class="qdream-copy">
-        <div class="qx-copy">
+      <div class="qx-copy qdream-copy">
         <div class="qx-kicker mono">
           <span class="qx-kicker-dot" aria-hidden="true"></span>
           <span>MODULE: Q-DREAM_IMAGE_ENGINE</span>
@@ -7048,31 +7047,25 @@ _
         <p class="qx-subtitle mono">Your imagination. On your phone.</p>
         <p class="qx-desc">Turn a few words into portraits, imagined worlds and cinematic scenes. Q-Dream creates images locally inside Q-Brain, using models you download to your phone. Keep your creations private until you choose to share them.</p>
         <div class="qx-badges" aria-label="Q-Dream properties">
-              <span>Local image generation</span><span>3 downloadable models</span><span>Offline after setup</span>
-            </div>
+          <span>Local image generation</span><span>3 downloadable models</span><span>Offline after setup</span>
+        </div>
       </div>
-        <div class="qdream-demo-caption-panel">
-          <div class="app-walkthrough-meta mono"><span>Q-DREAM // 00:39<br><span data-demo-hint>Click to play</span></span>
-            <div class="app-walkthrough-languages" role="group" aria-label="Q-Dream caption language">
-              <button type="button" data-demo-lang="en" aria-label="English captions" aria-pressed="true">EN</button>
-              <button type="button" data-demo-lang="it" aria-label="Didascalie in italiano" aria-pressed="false">IT</button>
-            </div>
-          </div>
-          <span id="qdream-demo-text" class="app-walkthrough-caption" data-demo-caption>From a photographic prompt to a CyberRealistic image, generated locally in Q-Brain.</span>
-          <small class="app-walkthrough-note">Images: CyberRealistic, generated locally. Gemini in the recording is the separate chat model. Recorded in the Android emulator with the Eclipse theme; waiting time edited.</small>
-          <p class="app-walkthrough-fallback" data-demo-fallback hidden><a href="assets/vid/qdream-cyberrealistic-demo-v2.mp4">Open the video</a></p>
-          <noscript><p class="app-walkthrough-fallback"><a href="assets/vid/qdream-cyberrealistic-demo-v2.mp4">Watch the Q-Dream demo</a></p></noscript>
-        </div>
-      </figcaption>
       <div class="app-walkthrough-screen qdream-phone">
-          <video width="720" height="1280" muted playsinline preload="none" disablepictureinpicture disableremoteplayback
-            role="button" tabindex="0" aria-label="Play Q-Dream demo" aria-describedby="qdream-demo-text"
-            poster="assets/img/qdream-cyberrealistic-demo-poster.webp">
-            <source data-src="assets/vid/qdream-cyberrealistic-demo-v2.webm" type="video/webm">
-            <source data-src="assets/vid/qdream-cyberrealistic-demo-v2.mp4" type="video/mp4">
-            <p><a href="assets/vid/qdream-cyberrealistic-demo-v2.mp4">Watch the Q-Dream demo.</a></p>
-          </video>
-        </div>
+        <video width="720" height="1280" muted playsinline preload="none" disablepictureinpicture disableremoteplayback
+          role="button" tabindex="0" aria-label="Play Q-Dream demo" aria-describedby="qdream-demo-text"
+          poster="assets/img/qdream-cyberrealistic-demo-poster.webp">
+          <source data-src="assets/vid/qdream-cyberrealistic-demo-v2.webm" type="video/webm">
+          <source data-src="assets/vid/qdream-cyberrealistic-demo-v2.mp4" type="video/mp4">
+          <p><a href="assets/vid/qdream-cyberrealistic-demo-v2.mp4">Watch the Q-Dream demo.</a></p>
+        </video>
+      </div>
+      <figcaption id="qdream-demo-caption" class="qdream-demo-caption-panel">
+        <div class="app-walkthrough-meta mono"><span>Q-DREAM // 00:39 <span aria-hidden="true">&middot;</span> <span data-demo-hint>Click to play</span></span></div>
+        <span id="qdream-demo-text" class="app-walkthrough-caption" data-demo-caption>From a photographic prompt to a CyberRealistic image, generated locally in Q-Brain.</span>
+        <small class="app-walkthrough-note">Images: CyberRealistic, generated locally. Gemini in the recording is the separate chat model. Recorded in the Android emulator with the Eclipse theme; waiting time edited.</small>
+        <p class="app-walkthrough-fallback" data-demo-fallback hidden><a href="assets/vid/qdream-cyberrealistic-demo-v2.mp4">Open the video</a></p>
+        <noscript><p class="app-walkthrough-fallback"><a href="assets/vid/qdream-cyberrealistic-demo-v2.mp4">Watch the Q-Dream demo</a></p></noscript>
+      </figcaption>
     </figure>
 
     <div id="qdream-gallery" class="qdream-gallery" aria-labelledby="qdream-gallery-title">
@@ -8642,7 +8635,7 @@ _
     })();
   </script>
   <script src="script.js?v=2.6.24" defer></script>
-  <script src="app-feature-demos.js?v=1" defer></script>
+  <script src="app-feature-demos.js?v=2" defer></script>
   <script src="qdream-gallery.js?v=1" defer></script>
   <script src="qcast-hero-player.js?v=1" defer></script>
   <script src="qgeo-demo.js?v=1" defer></script>
