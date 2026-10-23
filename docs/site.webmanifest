@@ -1,0 +1,14 @@
+{
+  "name": "Quantum P1NG",
+  "short_name": "Q-P1NG",
+  "description": "Secure messaging, local AI, encrypted vaults and field tools for Android.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "background_color": "#0b0f14",
+  "theme_color": "#0b0f14",
+  "icons": [
+    { "src": "/assets/img/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/img/qp1ng_icon.png", "sizes": "418x418", "type": "image/png", "purpose": "any" }
+  ]
+}
