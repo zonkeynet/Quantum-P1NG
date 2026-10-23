@@ -1,4 +1,4 @@
-/* Real app footage inside the existing Q-AI Tool Router console. */
+/* Real app footage inside the existing Q-AI Tool Router and Q-Scenario console. */
 .q-ai-console { scroll-margin-top: 100px; }
 .qai-phone-chassis:focus-visible { outline: 3px solid var(--qai-cyan); outline-offset: 5px; }
 .qai-tools-caption[hidden] { display: none; }
@@ -10,24 +10,30 @@
 .qai-tools-languages button:focus-visible { outline: 2px solid var(--qai-cyan); outline-offset: 2px; }
 .qai-tools-caption p { margin: 10px 0; min-height: 5.6em; color: #e1edf7; font-size: 14px; line-height: 1.4; overflow-wrap: anywhere; }
 .qai-tools-time { color: #96b3c8; font-size: 10px; }
-.q-ai-console.is-tools-demo .qai-phone-screen { aspect-ratio: 9 / 16; }
-.q-ai-console.is-tools-demo .qai-phone-screen video { object-fit: contain; }
-.q-ai-console.is-tools-demo .qai-video-vignette,
-.q-ai-console.is-tools-demo .qai-video-scanline,
-.q-ai-console.is-tools-demo .qai-video-hud-tag,
-.q-ai-console.is-tools-demo .qai-video-bracket,
-.q-ai-console.is-tools-demo .qai-phone-glare,
-.q-ai-console.is-tools-demo .qai-phone-camera { display: none; }
-.q-ai-console.is-tools-demo .qai-risk-meter span { animation: none; }
-.q-ai-console.is-tools-demo .qai-panel-header,
-.q-ai-console.is-tools-demo .qai-terminal-head { flex-wrap: wrap; }
-.q-ai-console.is-tools-demo .qai-terminal-body { overflow-wrap: anywhere; }
-.q-ai-console.is-tools-demo .qai-phone-subtext { font-size: 8px; text-align: center; line-height: 1.6; }
+.q-ai-console.is-recorded-demo .qai-phone-screen { aspect-ratio: 9 / 16; }
+.q-ai-console.is-recorded-demo .qai-phone-screen video { object-fit: contain; }
+.q-ai-console.is-recorded-demo .qai-video-vignette,
+.q-ai-console.is-recorded-demo .qai-video-scanline,
+.q-ai-console.is-recorded-demo .qai-video-hud-tag,
+.q-ai-console.is-recorded-demo .qai-video-bracket,
+.q-ai-console.is-recorded-demo .qai-phone-glare,
+.q-ai-console.is-recorded-demo .qai-phone-camera { display: none; }
+.q-ai-console.is-recorded-demo .qai-risk-meter span { animation: none; }
+.q-ai-console.is-recorded-demo .qai-panel-header,
+.q-ai-console.is-recorded-demo .qai-terminal-head { flex-wrap: wrap; }
+.q-ai-console.is-recorded-demo .qai-terminal-body { overflow-wrap: anywhere; }
+.q-ai-console.is-recorded-demo .qai-phone-subtext { font-size: 8px; text-align: center; line-height: 1.6; }
 @media (max-width: 860px) {
-  .q-ai-console.is-tools-demo .qai-phone-chassis { max-width: 310px; }
+  .q-ai-console.is-recorded-demo .qai-phone-chassis { max-width: 310px; }
   .qai-tools-caption { max-width: 400px; align-self: center; }
   .qai-tools-caption p { min-height: 4.2em; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .q-ai-console.is-tools-demo .qai-phone-glitch { animation: none; }
+  .q-ai-console.is-recorded-demo .qai-phone-glitch { animation: none; }
+}
+
+/* Keep the complete module names readable on one line. */
+.q-ai-section .qai-module-tab { white-space: nowrap; overflow-wrap: normal; word-break: normal; }
+@media (min-width: 1121px) and (max-width: 1399px) {
+  .q-ai-section .qai-module-switcher { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 560px; }
 }

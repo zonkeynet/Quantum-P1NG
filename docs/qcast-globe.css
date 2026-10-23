@@ -245,3 +245,7 @@
   .qglobe-demo-steps { grid-template-columns: 1fr; gap: 10px; margin-block: 20px 12px; }
   .qglobe-demo-player figcaption { padding: 11px 12px; font-size: 8px; }
 }
+
+/* The hero artwork is a silent animation, loaded only on explicit activation. */
+.qglobe-hero-motion video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; cursor: pointer; background: #050b15; }
+.qglobe-hero-motion video:focus-visible { outline: 3px solid var(--qb-accent); outline-offset: -4px; }

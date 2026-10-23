@@ -1,0 +1,49 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:03.967
+Esamina il flusso di esempio: una checklist e il suo budget.
+
+2
+00:00:03.967 --> 00:00:08.967
+Scegli un evento. Questo esempio parte con un avvio manuale.
+
+3
+00:00:08.967 --> 00:00:13.933
+Controlla la condizione prima dell’avvio: batteria tra il 20% e il 100%.
+
+4
+00:00:13.933 --> 00:00:18.933
+Imposta, separa e unisci le QVars per costruire la checklist.
+
+5
+00:00:18.933 --> 00:00:22.933
+Esegui Python, conserva il risultato in una QVar e aggiungilo a una nota privata.
+
+6
+00:00:22.933 --> 00:00:26.933
+Ispeziona il contenuto dell’azione prima di eseguirla.
+
+7
+00:00:26.933 --> 00:00:32.933
+Leggi il codice Python, la variabile di risultato e il limite di esecuzione.
+
+8
+00:00:32.933 --> 00:00:36.933
+Salva il flusso controllato, pronto per l’avvio manuale.
+
+9
+00:00:36.933 --> 00:00:41.900
+Premi Run. Le cinque azioni vengono eseguite in sequenza.
+
+10
+00:00:41.900 --> 00:00:45.900
+L’esecuzione riesce e la nota privata viene aggiornata.
+
+11
+00:00:45.900 --> 00:00:50.867
+Apri il registro: evento manuale, durata ed esito completato.
+
+12
+00:00:50.867 --> 00:00:58.200
+Apri la nota salvata: checklist, risultato reale di Python e totale di 102 EUR.

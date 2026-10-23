@@ -4068,6 +4068,7 @@ if (terminal && gamesGrid) {
     const qaiToolsTime = document.getElementById('qaiToolsTime');
     const captionButtons = Array.from(section.querySelectorAll('[data-qai-caption-lang]'));
     const toolsDemoCues = [{"start": 0, "end": 4.0, "en": "Ask Gemini to find a local note.", "it": "Chiedi a Gemini di trovare una nota locale."}, {"start": 4.0, "end": 8.933333333333334, "en": "Review the tool and arguments. Allow the search once.", "it": "Controlla strumento e argomenti. Approva la ricerca una sola volta."}, {"start": 8.933333333333334, "end": 13.9, "en": "Reading the note also requires approval to share its result with Gemini.", "it": "Anche la lettura della nota richiede il consenso alla condivisione con Gemini."}, {"start": 13.9, "end": 17.9, "en": "The answer uses the note: meeting place and time.", "it": "La risposta usa il contenuto della nota: luogo e ora dell’incontro."}, {"start": 17.9, "end": 21.866666666666667, "en": "Check a feature with app.feature_status.", "it": "Verifica lo stato di una funzione con app.feature_status."}, {"start": 21.866666666666667, "end": 25.833333333333336, "en": "P2P routing is enabled. No setting is changed.", "it": "Il routing P2P risulta abilitato. Nessuna impostazione viene modificata."}, {"start": 25.833333333333336, "end": 30.800000000000004, "en": "You can deny vault access before its result is sent to the model.", "it": "Puoi negare l’accesso al vault prima che il risultato venga inviato al modello."}, {"start": 30.800000000000004, "end": 34.733333333333334, "en": "Request declined: the action was not executed or shared.", "it": "Richiesta rifiutata: azione non eseguita e risultato non condiviso."}, {"start": 34.733333333333334, "end": 39.63333333333333, "en": "Gemini prepares a Python script. Review the code before execution.", "it": "Gemini prepara uno script Python. Il codice è visibile prima dell’esecuzione."}, {"start": 39.63333333333333, "end": 44.63333333333333, "en": "The Secure Tool Runner Q-Skill requires explicit confirmation.", "it": "La Q-Skill Secure Tool Runner richiede una conferma esplicita."}, {"start": 44.63333333333333, "end": 47.6, "en": "The JSON tab shows the structured tool-call arguments.", "it": "La scheda JSON mostra gli argomenti strutturati della chiamata."}, {"start": 47.6, "end": 51.53333333333333, "en": "Return to the code and approve execution in the local sandbox.", "it": "Torna al codice e approva l’esecuzione nella sandbox locale."}, {"start": 51.53333333333333, "end": 56.5, "en": "Real execution completed: the kit costs EUR 50.", "it": "Esecuzione reale completata: il kit costa 50 EUR."}, {"start": 56.5, "end": 63.4, "en": "The Q-Skill decision is recorded locally: REQUIRE_CONFIRMATION.", "it": "La decisione della Q-Skill resta nella traccia locale: REQUIRE_CONFIRMATION."}];
+    const scenarioDemoCues = [{"it":"Esamina il flusso di esempio: una checklist e il suo budget.","en":"Review the sample workflow: a field checklist and its budget.","chapter":"Review","start":0,"end":3.966666666666667},{"it":"Scegli un evento. Questo esempio parte con un avvio manuale.","en":"Choose a trigger. This example starts only with a manual run.","chapter":"Trigger","start":3.966666666666667,"end":8.966666666666667},{"it":"Controlla la condizione prima dell’avvio: batteria tra il 20% e il 100%.","en":"Check the condition before execution: battery between 20% and 100%.","chapter":"Condition","start":8.966666666666667,"end":13.933333333333334},{"it":"Imposta, separa e unisci le QVars per costruire la checklist.","en":"Set, split and join QVars to build the checklist.","chapter":"QVars","start":13.933333333333334,"end":18.933333333333334},{"it":"Esegui Python, conserva il risultato in una QVar e aggiungilo a una nota privata.","en":"Run Python, store its output in a QVar, then append it to a vault note.","chapter":"Actions","start":18.933333333333334,"end":22.933333333333334},{"it":"Ispeziona il contenuto dell’azione prima di eseguirla.","en":"Inspect the action payload before it runs.","chapter":"Payload","start":22.933333333333334,"end":26.933333333333334},{"it":"Leggi il codice Python, la variabile di risultato e il limite di esecuzione.","en":"Read the Python source, output variable and execution timeout.","chapter":"Code","start":26.933333333333334,"end":32.93333333333334},{"it":"Salva il flusso controllato, pronto per l’avvio manuale.","en":"Save the reviewed workflow, ready for a manual run.","chapter":"Save","start":32.93333333333334,"end":36.93333333333334},{"it":"Premi Run. Le cinque azioni vengono eseguite in sequenza.","en":"Press Run. The five actions execute in order.","chapter":"Run","start":36.93333333333334,"end":41.900000000000006},{"it":"L’esecuzione riesce e la nota privata viene aggiornata.","en":"The run succeeds and the vault note is updated.","chapter":"Success","start":41.900000000000006,"end":45.900000000000006},{"it":"Apri il registro: evento manuale, durata ed esito completato.","en":"Open the run log: manual trigger, duration and completed status.","chapter":"Log","start":45.900000000000006,"end":50.866666666666674},{"it":"Apri la nota salvata: checklist, risultato reale di Python e totale di 102 EUR.","en":"Open the saved note: checklist, real Python output and a total of 102 EUR.","chapter":"Result","start":50.866666666666674,"end":58.20000000000001}];
     let captionLanguage = 'en';
     let contentTimer = 0;
     let mediaLoaded = false;
@@ -4113,6 +4114,11 @@ if (terminal && gamesGrid) {
       tools: {
         mode: 'phone',
         clickToPlay: true,
+        duration: 63.4,
+        cues: toolsDemoCues,
+        playbackLabel: 'Gemini typed actions app walkthrough',
+        recordingNote: 'Gemini 2.5 Flash online · real app execution · waits shortened.',
+        intro: {en: 'The model proposes. You review the arguments, decide and approve the code.', it: 'Il modello propone. Tu controlli gli argomenti, decidi e approvi il codice.'},
         title: 'TOOL ROUTER',
         status: 'RECORDED APP DEMO',
         badge: 'LAYER 03 // DISPATCH',
@@ -4149,21 +4155,27 @@ if (terminal && gamesGrid) {
       },
       scenario: {
         mode: 'phone',
+        clickToPlay: true,
+        duration: 58.20000000000001,
+        cues: scenarioDemoCues,
+        playbackLabel: 'Q-Scenario workflow app walkthrough',
+        recordingNote: 'Real app and Python execution · sample workflow · waits shortened.',
+        intro: {en: 'Review the trigger, conditions and code. Run the workflow and inspect its log and saved result.', it: 'Controlla evento, condizioni e codice. Avvia il flusso e verifica il registro e il risultato salvato.'},
         title: 'Q-SCENARIO ENGINE',
-        status: 'SIMULATION READY',
-        badge: 'LAYER 05 // OSINT & MAP',
+        status: 'RECORDED APP DEMO',
+        badge: 'LAYER 05 // WORKFLOWS',
         brief: 'Automation with manual review',
-        text: 'Scenario actions can transform QVars, run ActionForge tools, ask Q-Brain, inspect mindmaps, request Tor identity and trigger automated workflows.',
-        pills: ['Mindmap OSINT', 'ActionForge', 'QVars Flow', 'Tor Gate'],
-        meter: '89%',
-        chip: 'OSINT_GRAPH',
-        cmd: 'qscenario.run --manual-review risky-actions --graph-sync',
-        sub1: 'pipeline: trigger -> condition -> decision -> action_step',
-        sub2: 'graph nodes: 14 active, memory state persistent',
-        hud: 'SCENARIO // MINDMAP_SYNCED',
-        videoWebm: 'assets/vid/qai_mobile_scenario.webm',
-        videoMp4: 'assets/vid/qai_mobile_scenario.mp4',
-        poster: 'assets/vid/qai_mobile_scenario_poster.webp'
+        text: 'Review a field-kit workflow: a manual trigger, a battery condition, QVar transformations and Python in the local sandbox. Run it explicitly, inspect the log and open the checklist and budget saved in the encrypted notes vault.',
+        pills: ['Trigger & Conditions', 'QVars Flow', 'Python Sandbox', 'Run Log'],
+        meter: '0%',
+        chip: 'LOCAL EXECUTION',
+        cmd: 'QVars → Python sandbox → vault note',
+        sub1: 'manual run: completed · checklist and budget: 102 EUR',
+        sub2: 'Code is inspected before pressing Run. This example does not use a cloud model.',
+        hud: 'SCENARIO // RECORDED APP DEMO',
+        videoWebm: 'assets/vid/qscenario-workflow-demo.webm',
+        videoMp4: 'assets/vid/qscenario-workflow-demo.mp4',
+        poster: 'assets/vid/qscenario-workflow-demo-poster.webp'
       },
       governance: {
         mode: 'phone',
@@ -4307,20 +4319,20 @@ if (terminal && gamesGrid) {
       });
 
       // Toggle morphing mode between 16:9 widescreen (q-brain) and phone chassis
-      const isTools = resolvedKey === 'tools';
-      if (qaiToolsCaptionPanel) qaiToolsCaptionPanel.hidden = !isTools;
-      if (qaiDemoNote) qaiDemoNote.innerHTML = isTools
-        ? '<strong>RECORDED APP DEMO · SAMPLE DATA</strong><span>Gemini 2.5 Flash online · real app execution · waits shortened.</span>'
+      const isRecording = Boolean(data.clickToPlay);
+      if (qaiToolsCaptionPanel) qaiToolsCaptionPanel.hidden = !isRecording;
+      if (qaiDemoNote) qaiDemoNote.innerHTML = isRecording
+        ? `<strong>RECORDED APP DEMO · SAMPLE DATA</strong><span>${data.recordingNote}</span>`
         : originalDemoNote;
-      if (qaiMeterLabel) qaiMeterLabel.textContent = isTools ? 'VIDEO PROGRESS' : 'DEMO METER';
-      if (qaiTermTitle) qaiTermTitle.textContent = isTools ? 'IN THIS RECORDING' : 'EXAMPLE CONFIGURATION';
+      if (qaiMeterLabel) qaiMeterLabel.textContent = isRecording ? 'VIDEO PROGRESS' : 'DEMO METER';
+      if (qaiTermTitle) qaiTermTitle.textContent = isRecording ? 'IN THIS RECORDING' : 'EXAMPLE CONFIGURATION';
       const meter = qaiRiskMeterSpan?.parentElement;
-      if (meter) meter.setAttribute('aria-label', isTools ? 'Recorded demo playback progress' : 'Q-AI demonstration meter; not a device measurement');
+      if (meter) meter.setAttribute('aria-label', isRecording ? 'Recorded demo playback progress' : 'Q-AI demonstration meter; not a device measurement');
       const isWidescreen = (data.mode || 'widescreen') === 'widescreen';
       if (qaiConsoleBox) {
         qaiConsoleBox.classList.toggle('is-mode-widescreen', isWidescreen);
         qaiConsoleBox.classList.toggle('is-mode-phone', !isWidescreen);
-        qaiConsoleBox.classList.toggle('is-tools-demo', isTools);
+        qaiConsoleBox.classList.toggle('is-recorded-demo', isRecording);
       }
 
       // Cyber glitch flash on chassis / video screen during module morph
@@ -4356,6 +4368,7 @@ if (terminal && gamesGrid) {
         if (qaiInfoCol) {
           qaiInfoCol.classList.remove('is-transitioning');
         }
+        if (isRecording) updatePlayback();
       };
 
       if (isSwitch) {
@@ -4368,14 +4381,14 @@ if (terminal && gamesGrid) {
         qaiVideoHudText.textContent = data.hud;
       }
 
-      // Tools uses a static poster and fetches the recording only after a user click.
+      // Recorded app demos use a static poster and load only after explicit activation.
       if (qaiVideo) {
         qaiVideo.pause();
         qaiVideo.autoplay = false;
         qaiVideo.loop = !data.clickToPlay;
         qaiVideo.preload = data.clickToPlay ? 'none' : 'metadata';
-        qaiVideo.width = isTools ? 720 : isWidescreen ? 1280 : 404;
-        qaiVideo.height = isTools ? 1280 : 720;
+        qaiVideo.width = isRecording ? 720 : isWidescreen ? 1280 : 404;
+        qaiVideo.height = isRecording ? 1280 : 720;
         if (data.poster) qaiVideo.poster = data.poster;
         for (const [source, url] of [[qaiVideoSourceWebm, data.videoWebm], [qaiVideoSourceMp4, data.videoMp4]]) {
           if (!source) continue;
@@ -4396,21 +4409,22 @@ if (terminal && gamesGrid) {
 
     function updatePlayback() {
       if (!qaiVideo) return;
-      const isTools = currentModule === 'tools';
+      const data = modules[currentModule];
+      const isRecording = Boolean(data?.clickToPlay);
       const playing = !qaiVideo.paused && !qaiVideo.ended;
       const hint = playbackError ? 'VIDEO UNAVAILABLE // CLICK TO RETRY'
         : playing ? 'CLICK TO PAUSE' : qaiVideo.currentTime > 0 ? 'CLICK TO RESUME' : 'CLICK TO PLAY';
       if (qaiVideoBox) {
         qaiVideoBox.setAttribute('aria-pressed', String(playing));
-        qaiVideoBox.setAttribute('aria-label', `${playing ? 'Pause' : 'Play'} ${isTools ? 'Gemini typed actions app walkthrough' : 'Q-AI demonstration video'}`);
+        qaiVideoBox.setAttribute('aria-label', `${playing ? 'Pause' : 'Play'} ${data?.playbackLabel || 'Q-AI demonstration video'}`);
       }
-      if (qaiVideoHint) qaiVideoHint.textContent = `${isTools ? '01:03 APP DEMO' : 'DEMO'} // ${hint}`;
-      if (!isTools) return;
+      if (qaiVideoHint) qaiVideoHint.textContent = `${isRecording ? stamp(data.duration) + ' APP DEMO' : 'DEMO'} // ${hint}`;
+      if (!isRecording) return;
       const time = qaiVideo.currentTime || 0;
-      const duration = Number.isFinite(qaiVideo.duration) ? qaiVideo.duration : 63.4;
-      const cue = toolsDemoCues.find(c => time >= c.start && time < c.end) || toolsDemoCues[0];
+      const duration = Number.isFinite(qaiVideo.duration) ? qaiVideo.duration : data.duration;
+      const cue = data.cues.find(c => time >= c.start && time < c.end) || data.cues[data.cues.length - 1];
       const caption = time === 0 && qaiVideo.paused
-        ? (captionLanguage === 'it' ? 'Il modello propone. Tu controlli gli argomenti, decidi e approvi il codice.' : 'The model proposes. You review the arguments, decide and approve the code.')
+        ? data.intro[captionLanguage]
         : cue[captionLanguage];
       if (qaiToolsCaption && qaiToolsCaption.textContent !== caption) {
         qaiToolsCaption.textContent = caption;
@@ -4518,14 +4532,14 @@ if (terminal && gamesGrid) {
       qaiVideoBox.addEventListener('keydown', (event) => {
         if (event.key === 'Enter' || event.key === ' ') {
           event.preventDefault();
-          togglePlayback();
+          if (!event.repeat) togglePlayback();
         }
       });
       ['timeupdate', 'loadedmetadata', 'play', 'pause', 'emptied'].forEach(name => {
         qaiVideo.addEventListener(name, updatePlayback);
       });
       qaiVideo.addEventListener('ended', () => {
-        if (currentModule !== 'tools') return;
+        if (!modules[currentModule]?.clickToPlay) return;
         // Re-selecting a completed recording starts from its static poster.
         qaiVideo.preload = 'none';
         qaiVideo.load();
@@ -4536,7 +4550,7 @@ if (terminal && gamesGrid) {
       });
       if ('IntersectionObserver' in window) {
         new IntersectionObserver(([entry]) => {
-          if (!entry.isIntersecting && currentModule === 'tools') qaiVideo.pause();
+          if (!entry.isIntersecting && modules[currentModule]?.clickToPlay) qaiVideo.pause();
         }, { threshold: 0 }).observe(qaiVideoBox);
       }
     }
@@ -11976,4 +11990,59 @@ document.querySelectorAll('.nav__cta').forEach(link => {
   applySpeed();
   syncState();
   update();
+})();
+
+// Q-Globe hero: static artwork until a click or keyboard activation.
+(() => {
+  'use strict';
+  const video = document.getElementById('qglobeHeroVideo');
+  const hint = document.getElementById('qglobeHeroHint');
+  if (!video) return;
+  let loaded = false;
+  let failed = false;
+  video.muted = true;
+  video.defaultMuted = true;
+
+  function sync() {
+    const playing = !video.paused && !video.ended;
+    video.setAttribute('aria-pressed', String(playing));
+    video.setAttribute('aria-label', `${playing ? 'Pause' : 'Play'} Q-Globe animation`);
+    if (hint) hint.textContent = failed ? 'VIDEO UNAVAILABLE // CLICK TO RETRY'
+      : playing ? 'CLICK TO PAUSE' : video.currentTime > 0 ? 'CLICK TO RESUME' : 'CLICK TO PLAY';
+  }
+
+  function toggle() {
+    if (!video.paused) { video.pause(); return; }
+    if (!loaded || failed) {
+      video.querySelectorAll('source[data-src]').forEach(source => { source.src = source.dataset.src; });
+      loaded = true;
+      failed = false;
+      video.load();
+    }
+    video.play().catch(error => {
+      if (error.name === 'AbortError') return;
+      failed = true;
+      sync();
+    });
+  }
+
+  video.addEventListener('click', toggle);
+  video.addEventListener('keydown', event => {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    event.preventDefault();
+    if (!event.repeat) toggle();
+  });
+  ['play', 'pause', 'emptied'].forEach(name => video.addEventListener(name, sync));
+  video.addEventListener('ended', () => {
+    video.querySelectorAll('source').forEach(source => source.removeAttribute('src'));
+    loaded = false;
+    video.load();
+    sync();
+  });
+  video.addEventListener('error', () => { if (loaded) { failed = true; sync(); } });
+  document.addEventListener('visibilitychange', () => { if (document.hidden) video.pause(); });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(([entry]) => { if (!entry.isIntersecting) video.pause(); }).observe(video);
+  }
+  sync();
 })();
