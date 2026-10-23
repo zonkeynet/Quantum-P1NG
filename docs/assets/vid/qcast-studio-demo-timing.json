@@ -1,0 +1,79 @@
+[
+  {
+    "it": "Esplora le radio con le loro copertine e passa dalla musica alle voci. Stazioni e ascolto sono simulati per la demo.",
+    "en": "Explore stations with their own covers and switch between music and voices. Sample stations and playback are simulated.",
+    "chapter": "01 / DISCOVER",
+    "start": 0,
+    "end": 4.967
+  },
+  {
+    "it": "Scopri identità radio differenti: City Pulse, Nightfall Jazz e Morning Stories.",
+    "en": "Browse different station identities: City Pulse, Nightfall Jazz and Morning Stories.",
+    "chapter": "02 / STATIONS",
+    "start": 4.967,
+    "end": 10.267
+  },
+  {
+    "it": "Il pannello ripetitore mostra ascoltatori e upload. I valori di traffico che cambiano sono simulati per la dimostrazione.",
+    "en": "The repeater panel shows listeners and upload. These changing traffic figures are simulated for the demonstration.",
+    "chapter": "03 / REPEAT",
+    "start": 10.267,
+    "end": 16.833
+  },
+  {
+    "it": "Ora lo studio reale: assegna alla stazione nome, descrizione e copertina.",
+    "en": "Now the real studio: give your station a name, description and cover.",
+    "chapter": "04 / YOUR STATION",
+    "start": 16.833,
+    "end": 20.0
+  },
+  {
+    "it": "Scegli Phone per trasmettere direttamente tramite Tor. Sono disponibili anche destinazioni Relay e Icecast.",
+    "en": "Choose Phone to broadcast directly over Tor. Relay and Icecast destinations are also available.",
+    "chapter": "05 / TOR",
+    "start": 20.0,
+    "end": 23.967
+  },
+  {
+    "it": "Lascia disattivata la pubblicazione per questa registrazione e avvia la trasmissione reale Tor. Attese di connessione accorciate.",
+    "en": "Keep public listing off for this recording, then start the real Tor broadcast. Connection waits are shortened.",
+    "chapter": "06 / GO ON AIR",
+    "start": 23.967,
+    "end": 30.967
+  },
+  {
+    "it": "Carica due file audio locali. Il primo va in onda mentre il secondo rimane in coda.",
+    "en": "Load two local audio files. The first plays on air while the second waits in the queue.",
+    "chapter": "07 / LOAD MUSIC",
+    "start": 30.967,
+    "end": 36.3
+  },
+  {
+    "it": "Regola il livello della musica e avvia la dissolvenza verso il brano successivo.",
+    "en": "Adjust the music level and trigger a crossfade to the next track.",
+    "chapter": "08 / CROSSFADE",
+    "start": 36.3,
+    "end": 41.633
+  },
+  {
+    "it": "Controlla i livelli reali della musica e dell’uscita. In questa registrazione musicale il microfono resta spento.",
+    "en": "Watch the real music and on-air meters. The microphone stays off in this music-only recording.",
+    "chapter": "09 / LEVELS",
+    "start": 41.633,
+    "end": 48.933
+  },
+  {
+    "it": "Avvia un jingle originale dal pad. Ogni pad può contenere una clip audio diversa.",
+    "en": "Trigger an original station ID from a pad. Each pad can hold a different audio clip.",
+    "chapter": "10 / JINGLES",
+    "start": 48.933,
+    "end": 54.533
+  },
+  {
+    "it": "Configura abbassamento della musica sotto la voce, durata della dissolvenza e salto dei silenzi.",
+    "en": "Set voice ducking, crossfade duration and silence skipping from the studio controls.",
+    "chapter": "11 / MIX",
+    "start": 54.533,
+    "end": 59.533
+  }
+]

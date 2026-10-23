@@ -66,6 +66,7 @@
   <link rel="stylesheet" href="qgeo-demo.css?v=2" />
   <link rel="stylesheet" href="radio-bridge-layout.css?v=1" />
   <link rel="stylesheet" href="qai-tools-demo.css?v=4" />
+  <link rel="stylesheet" href="app-feature-demos.css?v=1" />
 
   <!-- Schema.org Comprehensive Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -6444,12 +6445,41 @@ _
 
     <div id="qcast-how" class="qbroadcast-flow" aria-labelledby="qcast-how-title">
       <div class="qbroadcast-subhead"><p class="qbroadcast-kicker">FROM STUDIO TO GLOBE</p><h3 id="qcast-how-title">A voice becomes a station.</h3></div>
+      <div class="qcast-demo-layout">
+        <div>
       <ol class="qbroadcast-steps">
         <li><span class="qbroadcast-step" aria-hidden="true">01</span><h4>Build your sound</h4><p>Open Q-Cast, prepare the mic, load music and assign your jingles.</p></li>
         <li><span class="qbroadcast-step" aria-hidden="true">02</span><h4>Go on air</h4><p>Start your broadcast through Tor. The studio shows the connection and audio levels.</p></li>
         <li><span class="qbroadcast-step" aria-hidden="true">03</span><h4>Choose to be found</h4><p>Publish your station announcement. Add an optional point you choose on the globe.</p></li>
         <li><span class="qbroadcast-step" aria-hidden="true">04</span><h4>Let people tune in</h4><p>Listeners discover you in QP1NG or on the web globe and use an available listening route.</p></li>
       </ol>
+          <p class="qcast-demo-context">Explore sample stations with their own covers, then watch the real studio in use: choose a destination, load tracks and control the mix. Public listing and a point on the globe remain your choice.</p>
+        </div>
+      <figure class="app-walkthrough app-walkthrough--cast" data-app-walkthrough="Q-Cast"
+        data-cues="assets/vid/qcast-studio-demo-timing.json" data-idle-en="Explore radio stations, then run your own Tor broadcast with tracks, crossfades and jingles." data-idle-it="Esplora le radio, poi trasmetti tramite Tor con brani, dissolvenze e jingle.">
+        <div class="app-walkthrough-screen">
+          <video width="720" height="1280" muted playsinline preload="none" disablepictureinpicture disableremoteplayback
+            role="button" tabindex="0" aria-label="Play Q-Cast demo" aria-describedby="qcast-demo-caption"
+            poster="assets/img/qcast-studio-demo-poster.webp">
+            <source data-src="assets/vid/qcast-studio-demo.webm" type="video/webm">
+            <source data-src="assets/vid/qcast-studio-demo.mp4" type="video/mp4">
+            <p><a href="assets/vid/qcast-studio-demo.mp4">Watch the Q-Cast demo.</a></p>
+          </video>
+        </div>
+        <figcaption id="qcast-demo-caption">
+          <div class="app-walkthrough-meta mono"><span>Q-CAST // 01:00<br><span data-demo-hint>Click to play</span></span>
+            <div class="app-walkthrough-languages" role="group" aria-label="Q-Cast caption language">
+              <button type="button" data-demo-lang="en" aria-label="English captions" aria-pressed="true">EN</button>
+              <button type="button" data-demo-lang="it" aria-label="Didascalie in italiano" aria-pressed="false">IT</button>
+            </div>
+          </div>
+          <span class="app-walkthrough-caption" data-demo-caption>Explore radio stations, then run your own Tor broadcast with tracks, crossfades and jingles.</span>
+          <small class="app-walkthrough-note">Ghost Pro theme. Directory stations and repeater traffic are simulated and labeled. Studio recording uses a real, unlisted Tor broadcast. Waiting time edited.</small>
+          <p class="app-walkthrough-fallback" data-demo-fallback hidden><a href="assets/vid/qcast-studio-demo.mp4">Open the video</a></p>
+          <noscript><p class="app-walkthrough-fallback"><a href="assets/vid/qcast-studio-demo.mp4">Watch the Q-Cast demo</a></p></noscript>
+        </figcaption>
+      </figure>
+      </div>
     </div>
 
     <div class="qbroadcast-subhead qbroadcast-distribution-title"><p class="qbroadcast-kicker">START SMALL. BUILD YOUR AUDIENCE.</p><h3>Three ways to carry your sound.</h3></div>
@@ -7028,7 +7058,33 @@ _
           <span>Open RAIL-M</span>
         </div>
       </div>
-      <aside class="qx-spec mono" aria-label="Q-Dream measured performance">
+      <figure class="app-walkthrough app-walkthrough--dream" data-app-walkthrough="Q-Dream"
+        data-cues="assets/vid/qdream-cyberrealistic-demo-timing.json" data-idle-en="From a photographic prompt to a CyberRealistic image, generated locally in Q-Brain." data-idle-it="Da un prompt fotografico a un’immagine CyberRealistic, generata localmente in Q-Brain.">
+        <div class="app-walkthrough-screen">
+          <video width="720" height="1280" muted playsinline preload="none" disablepictureinpicture disableremoteplayback
+            role="button" tabindex="0" aria-label="Play Q-Dream demo" aria-describedby="qdream-demo-caption"
+            poster="assets/img/qdream-cyberrealistic-demo-poster.webp">
+            <source data-src="assets/vid/qdream-cyberrealistic-demo.webm" type="video/webm">
+            <source data-src="assets/vid/qdream-cyberrealistic-demo.mp4" type="video/mp4">
+            <p><a href="assets/vid/qdream-cyberrealistic-demo.mp4">Watch the Q-Dream demo.</a></p>
+          </video>
+        </div>
+        <figcaption id="qdream-demo-caption">
+          <div class="app-walkthrough-meta mono"><span>Q-DREAM // 00:49<br><span data-demo-hint>Click to play</span></span>
+            <div class="app-walkthrough-languages" role="group" aria-label="Q-Dream caption language">
+              <button type="button" data-demo-lang="en" aria-label="English captions" aria-pressed="true">EN</button>
+              <button type="button" data-demo-lang="it" aria-label="Didascalie in italiano" aria-pressed="false">IT</button>
+            </div>
+          </div>
+          <span class="app-walkthrough-caption" data-demo-caption>From a photographic prompt to a CyberRealistic image, generated locally in Q-Brain.</span>
+          <small class="app-walkthrough-note">Recorded in the Android emulator with the Eclipse theme and a local CPU runtime. Waiting time edited; not a speed benchmark.</small>
+          <p class="app-walkthrough-fallback" data-demo-fallback hidden><a href="assets/vid/qdream-cyberrealistic-demo.mp4">Open the video</a></p>
+          <noscript><p class="app-walkthrough-fallback"><a href="assets/vid/qdream-cyberrealistic-demo.mp4">Watch the Q-Dream demo</a></p></noscript>
+        </figcaption>
+      </figure>
+    </div>
+
+      <aside class="qx-spec qx-spec--below mono" aria-label="Q-Dream measured performance">
         <div class="qx-spec-head"><span>Measured in the app</span><span>6 steps</span></div>
         <dl>
           <div><dt>Snapdragon 8 Elite (NPU)</dt><dd>512 px in 0.9 s per image</dd></div>
@@ -7038,7 +7094,6 @@ _
           <div><dt>Download</dt><dd>About 1 GB per model, every file SHA-256 checked</dd></div>
         </dl>
       </aside>
-    </div>
 
     <div class="qx-grid" aria-label="Q-Dream capabilities">
       <article class="qx-card">
@@ -8460,6 +8515,7 @@ _
     })();
   </script>
   <script src="script.js?v=2.6.24" defer></script>
+  <script src="app-feature-demos.js?v=1" defer></script>
   <script src="qcast-hero-player.js?v=1" defer></script>
   <script src="qgeo-demo.js?v=1" defer></script>
 </body>

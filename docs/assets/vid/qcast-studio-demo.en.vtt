@@ -1,0 +1,45 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:04.967
+Explore stations with their own covers and switch between music and voices. Sample stations and playback are simulated.
+
+2
+00:00:04.967 --> 00:00:10.267
+Browse different station identities: City Pulse, Nightfall Jazz and Morning Stories.
+
+3
+00:00:10.267 --> 00:00:16.833
+The repeater panel shows listeners and upload. These changing traffic figures are simulated for the demonstration.
+
+4
+00:00:16.833 --> 00:00:20.000
+Now the real studio: give your station a name, description and cover.
+
+5
+00:00:20.000 --> 00:00:23.967
+Choose Phone to broadcast directly over Tor. Relay and Icecast destinations are also available.
+
+6
+00:00:23.967 --> 00:00:30.967
+Keep public listing off for this recording, then start the real Tor broadcast. Connection waits are shortened.
+
+7
+00:00:30.967 --> 00:00:36.300
+Load two local audio files. The first plays on air while the second waits in the queue.
+
+8
+00:00:36.300 --> 00:00:41.633
+Adjust the music level and trigger a crossfade to the next track.
+
+9
+00:00:41.633 --> 00:00:48.933
+Watch the real music and on-air meters. The microphone stays off in this music-only recording.
+
+10
+00:00:48.933 --> 00:00:54.533
+Trigger an original station ID from a pad. Each pad can hold a different audio clip.
+
+11
+00:00:54.533 --> 00:00:59.533
+Set voice ducking, crossfade duration and silence skipping from the studio controls.
