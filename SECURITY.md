@@ -1,19 +1,26 @@
-# Security Policy
+# Security policy
 
-## Reporting a Vulnerability
+## Reporting a vulnerability
 
-We take the security of **Quantum P1NG** seriously.
-If you discover a vulnerability, please adhere to the following:
+Please do not open a public issue. Write to **support@qp1ng.com** with "Security" in the subject and include:
 
-1.  **DO NOT** open a public issue on GitHub.
-2.  Email us directly at quantump1ng@proton.me
-3.  We will acknowledge your report within 48 hours.
+- what you found and its impact;
+- the app version (Info screen) and edition (Core or Pro, website or Google Play);
+- the steps to reproduce it.
 
-## Supported Versions
+We acknowledge reports within 48 hours and tell you when a fix is released.
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 2.0.x   | :white_check_mark: |
-| 1.0.x   | :x:                |
+## Supported versions
 
-⚠️ **Unauthorized copying or commercial use of this code is strictly prohibited.**
+Only the latest release of each edition receives security fixes. The website edition updates itself from this
+repository's signed releases; the Google Play edition is updated by Google Play.
+
+## Scope
+
+- The Q-P1NG app, Core and Pro
+- www.qp1ng.com and its services: the Pro checkout and licence service, the temporary email tool and the AI report
+  service
+- Our Nostr relay and STUN server
+- The files published in this repository: the update manifest, the map catalog, the AI model catalog and the firmware
+
+The app is commercial software under the [EULA](LICENSE): copying or redistributing it is not allowed.
