@@ -45,7 +45,7 @@
   <meta name="twitter:image" content="https://www.qp1ng.com/assets/img/social-preview.png" />
 
   <link rel="preload" href="assets/fonts/square_dot_digital_qp1ng.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="styles.css?v=3.1.4" as="style" />
+  <link rel="preload" href="styles.css?v=3.1.5" as="style" />
   <link rel="preload" as="image" href="assets/vid/intro_bg_poster.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/intro_mobile_poster.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/qmap_poster.webp">
@@ -60,7 +60,7 @@
       }
     } catch(e){}
   </script>
-  <link rel="stylesheet" href="styles.css?v=3.1.4" />
+  <link rel="stylesheet" href="styles.css?v=3.1.5" />
   <link rel="stylesheet" href="qcast-globe.css?v=1.0.8" />
   <link rel="stylesheet" href="qgeo-demo.css?v=2" />
 
@@ -518,7 +518,7 @@
               <span class="drop-idx mono">02</span>
               <div class="drop-text">
                 <span class="drop-title">Secure Voice</span>
-                <span class="drop-sub">Voice clone &amp; conversion</span>
+                <span class="drop-sub">Voice effects &amp; reading voices</span>
               </div>
             </a>
             <a href="#q-ai" class="nav-drop-item" role="menuitem">
@@ -560,7 +560,7 @@
               <span class="drop-idx mono">08</span>
               <div class="drop-text">
                 <span class="drop-title">Q-CAM</span>
-                <span class="drop-sub">Facial shielding &amp; face swap</span>
+                <span class="drop-sub">Facial shielding &amp; EXIF strip</span>
               </div>
             </a>
           </div>
@@ -4042,7 +4042,16 @@ _
           <span>SELF-CUSTODY FINANCIAL STACK</span>
         </div>
 
-        <h2 class="finance-title"><span>Financial</span><span>Sovereignty</span></h2>
+        <h2 class="finance-title">
+          <span class="finance-title-main">
+            <picture class="finance-title-icon-wrap">
+              <source srcset="assets/icons/btc_vault_icon.webp?v=1" type="image/webp">
+              <img src="assets/icons/btc_vault_icon.png?v=1" alt="Bitcoin Self-Custody Vault Icon" class="finance-title-icon" width="60" height="82" loading="eager" decoding="async">
+            </picture>
+            <span class="finance-title-text">Financial</span>
+          </span>
+          <span>Sovereignty</span>
+        </h2>
         <p class="finance-subtitle mono">Self-custodial Bitcoin vault for Tor-routed payments, receipts and event proofs</p>
         <p class="finance-desc">
           QP1NG turns the Bitcoin wallet into an operational vault: keys stay local, BDK handles wallet state,
@@ -5055,7 +5064,7 @@ _
   </div>
 </section>
 <!-- ===================================================================== -->
-<!-- SECURE VOICE: CLONE, CONVERT & REVIEW                                 -->
+<!-- SECURE VOICE: EFFECTS, DICTATION & REVIEW                             -->
 <!-- ===================================================================== -->
 <section id="q-voice" class="section qx-section qx-section--voice" aria-labelledby="q-voice-title">
   <div class="qx-bg" aria-hidden="true"></div>
@@ -5066,7 +5075,7 @@ _
           <span class="qx-kicker-dot" aria-hidden="true"></span>
           <span>MODULE: SECURE_VOICE</span>
           <span>//</span>
-          <span>ON-DEVICE VOICE SYNTHESIS</span>
+          <span>ON-DEVICE VOICE PROCESSING</span>
         </div>
         <h2 class="qx-title" id="q-voice-title">
           <span class="qx-title-main">
@@ -5076,27 +5085,26 @@ _
             </picture>
             <span class="qx-title-text">Secure Voice</span>
           </span>
-          <span>Clone · Convert · Review</span>
+          <span>Effects · Dictation · Review</span>
         </h2>
         <p class="qx-subtitle mono">Voice messages shaped on the phone. No audio is uploaded.</p>
         <p class="qx-desc">
-          The chat recorder is also a private voice studio. Send your own voice, apply the Ghost effect, convert a recording into a reference voice, or type a message and hear it spoken in a voice you are allowed to use. The models run offline on the device, and every result is played back for your review before it is sent.
+          The chat recorder is also a private voice studio. Send your own voice or change how it sounds with an effect, dictate with Whisper, and let natural voices read text aloud. Everything runs offline on the device, and every message is played back for your review before it is sent.
         </p>
         <div class="qx-badges" aria-label="Secure Voice capabilities">
           <span>On-device</span>
-          <span>Clone from text</span>
-          <span>Voice conversion</span>
-          <span>Ghost effect</span>
+          <span>Voice effects</span>
+          <span>Whisper dictation</span>
+          <span>Reading voices</span>
           <span>Review before send</span>
         </div>
       </div>
       <aside class="qx-spec mono" aria-label="Secure Voice models">
         <div class="qx-spec-head"><span>Voice models</span><span>Optional</span></div>
         <dl>
-          <div><dt>Clone from text</dt><dd>Pocket TTS, Italian and English, from 165 MB</dd></div>
-          <div><dt>High fidelity</dt><dd>Italian, 392 MB</dd></div>
-          <div><dt>Voice conversion</dt><dd>OpenVoice v2: Standard 130 MB, Compact 43 MB</dd></div>
-          <div><dt>Reference</dt><dd>5 to 10 s of clear speech, or WAV, MP3, M4A, OGG, FLAC</dd></div>
+          <div><dt>Effects</dt><dd>Ghost, Interview, Robot, Shadow, Studio</dd></div>
+          <div><dt>Dictation</dt><dd>Whisper, transcribed on the phone</dd></div>
+          <div><dt>Reading voices</dt><dd>Kokoro 82M, 83 MB, Italian and English voices</dd></div>
           <div><dt>Download</dt><dd>Directly or over Tor; no recordings are uploaded</dd></div>
         </dl>
       </aside>
@@ -5105,39 +5113,39 @@ _
     <div class="qx-grid" aria-label="Secure Voice modes">
       <article class="qx-card">
         <span class="qx-card-index mono">01</span>
-        <h3>Clone from text</h3>
-        <p>Record a short reference or import an audio file, type the message and generate a preview. Synthesis runs on the phone; the reference stays temporary and only the generated message reaches the preview.</p>
+        <h3>Voice effects</h3>
+        <p>Ghost, Interview, Robot, Shadow and Studio change how a voice message sounds, on the phone. Ghost fails closed: if the effect cannot be applied, the original is never sent in its place.</p>
       </article>
       <article class="qx-card">
         <span class="qx-card-index mono">02</span>
-        <h3>Voice conversion</h3>
-        <p>Turn a recorded message into the timbre of a reference voice. Only the converted audio is saved; the reference stays in memory until the window closes.</p>
+        <h3>Whisper dictation</h3>
+        <p>Speak and get text, transcribed on the device by Whisper. The recording never leaves the phone.</p>
       </article>
       <article class="qx-card">
         <span class="qx-card-index mono">03</span>
-        <h3>Ghost effect</h3>
-        <p>A voice effect for messages where your natural voice is not needed. It fails closed: if the effect cannot be applied, the original is never sent in its place.</p>
+        <h3>Reading voices</h3>
+        <p>Natural Kokoro voices in Italian and English read text aloud, generated on the phone without a connection.</p>
       </article>
       <article class="qx-card">
         <span class="qx-card-index mono">04</span>
         <h3>Review gate</h3>
-        <p>Original, Ghost, converted or cloned: every message is played back before sending, with an optional on-device Whisper transcript you can edit or delete.</p>
+        <p>Original or with an effect: every message is played back before sending, with an optional on-device Whisper transcript you can edit or delete.</p>
       </article>
     </div>
 
     <div class="qx-flow" aria-label="Secure Voice workflow">
       <div><span class="mono">CAPTURE</span><strong>record or import audio</strong></div>
-      <div><span class="mono">SHAPE</span><strong>Ghost, conversion or clone from text</strong></div>
+      <div><span class="mono">SHAPE</span><strong>your voice or a voice effect</strong></div>
       <div><span class="mono">LISTEN</span><strong>preview on the phone</strong></div>
       <div><span class="mono">CHECK</span><strong>optional local transcript</strong></div>
       <div><span class="mono">SEND</span><strong>to your contact, end-to-end encrypted</strong></div>
     </div>
 
     <div class="qx-note">
-      <span class="mono">CONSENT</span>
-      <p>Use your own voice or one you have permission to use. Synthetic speech is not a guarantee of anonymity: wording, background sounds and context can still identify you, and imitating a person without consent can be unlawful.</p>
+      <span class="mono">NOTE</span>
+      <p>Voice effects make a voice harder to recognise, but they are not a guarantee of anonymity: wording, background sounds and context can still identify you.</p>
     </div>
-    <p class="qx-credit">Clone from text uses Pocket TTS by Kyutai (CC BY 4.0). Voice conversion uses OpenVoice v2 by MyShell (MIT).</p>
+    <p class="qx-credit">Dictation uses Whisper by OpenAI (MIT). Reading voices use Kokoro 82M by hexgrad (Apache 2.0).</p>
   </div>
 </section>
 <!-- ================================================
@@ -7807,7 +7815,6 @@ _
           <span>IDENTITY MASKS</span>
           <span>EXIF STRIP</span>
           <span>SECURE ROUTING</span>
-          <span>FACE SWAP</span>
         </div>
       </div>
 
@@ -7911,24 +7918,11 @@ _
       </article>
     </div>
 
-    <div class="qcam-swap" aria-label="Q-CAM face swap">
-      <div class="qcam-swap-copy">
-        <span>FACE SWAP</span>
-        <h3>Replace a face instead of covering it</h3>
-        <p>Choose a source face once and Q-CAM swaps it into photos, videos and live streams, entirely on the device. The preview shows the time per frame; if the face is lost or memory runs short, the swap pauses and no original frame is sent.</p>
-      </div>
-      <ul class="qcam-swap-facts">
-        <li><strong>ON-DEVICE</strong>ONNX Runtime, nothing uploaded</li>
-        <li><strong>MODES</strong>photo, video and live</li>
-        <li><strong>FAIL-SAFE</strong>pauses, never sends the original</li>
-        <li><strong>MODEL</strong>optional download, 292 MB</li>
-      </ul>
-    </div>
 
     <div class="qcam-flow" aria-label="Q-CAM protected capture workflow">
       <div><span class="mono">CAPTURE</span><strong>camera permission gate + mode selection</strong></div>
       <div><span class="mono">DETECT</span><strong>on-device face lock + preview brackets</strong></div>
-      <div><span class="mono">DEFACE</span><strong>pixel, void, random, mask or face swap</strong></div>
+      <div><span class="mono">DEFACE</span><strong>pixel, void, random or mask</strong></div>
       <div><span class="mono">CLEAN</span><strong>EXIF and embedded metadata stripped</strong></div>
       <div><span class="mono">ROUTE</span><strong>vault, Q-NET, burn or external share</strong></div>
     </div>
