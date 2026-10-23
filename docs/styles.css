@@ -18462,6 +18462,46 @@ main section *,
   min-width: 0;
 }
 
+.games-title-main {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.22em;
+  max-width: 100%;
+}
+
+.games-title-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+  margin-right: 4px;
+}
+
+.games-title-icon {
+  width: auto;
+  height: 0.75em;
+  max-width: 1.45em;
+  aspect-ratio: 512 / 276;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+  filter: drop-shadow(0 0 16px rgba(0, 243, 255, 0.75)) drop-shadow(0 0 28px rgba(255, 42, 109, 0.45)) drop-shadow(0 0 42px rgba(0, 243, 255, 0.35));
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
+}
+
+.games-title:hover .games-title-icon {
+  transform: scale(1.08) rotate(-2deg);
+  filter: drop-shadow(0 0 24px rgba(0, 243, 255, 0.95)) drop-shadow(0 0 42px rgba(255, 42, 109, 0.75)) drop-shadow(0 0 58px rgba(0, 243, 255, 0.55));
+}
+
+.games-title-text {
+  display: inline-block !important;
+}
+
 .legacy-pro-desc {
   max-width: 760px;
   margin: 0;
@@ -18754,6 +18794,10 @@ main section *,
 
   .legacy-pro-title span {
     text-align: center;
+  }
+
+  .games-title-main {
+    justify-content: center;
   }
 
   .legacy-pro-desc {

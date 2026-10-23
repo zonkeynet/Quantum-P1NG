@@ -47,7 +47,7 @@
   <meta name="twitter:image:alt" content="Quantum P1NG: secure comms, local AI and field tools for Android: Secure Voice, Q-Brain AI, Q-Dream, Q-CALL, Q-Cast, Q-Globe, Q-Feed, Q-Geo maps, VHF radio, LoRa mesh, Q-SDR, Q-Sat, Q-Map, Q-Torrent, Q-CAM and the Bitcoin vault" />
 
   <link rel="preload" href="assets/fonts/square_dot_digital_qp1ng.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="styles.css?v=3.1.5" as="style" />
+  <link rel="preload" href="styles.css?v=3.1.6" as="style" />
   <link rel="preload" as="image" href="assets/vid/intro_bg_poster.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/intro_mobile_poster.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/img/qp1ng_icon.webp" type="image/webp" fetchpriority="high" />
@@ -60,7 +60,7 @@
       }
     } catch(e){}
   </script>
-  <link rel="stylesheet" href="styles.css?v=3.1.5" />
+  <link rel="stylesheet" href="styles.css?v=3.1.6" />
   <link rel="stylesheet" href="qcast-globe.css?v=1.0.9" />
   <link rel="stylesheet" href="qgeo-demo.css?v=2" />
   <link rel="stylesheet" href="radio-bridge-layout.css?v=1" />
@@ -2428,7 +2428,7 @@ _
               <img src="assets/img/video_local_wifi_poster.jpg?v=2" alt="Local Wi-Fi and Hotspot P2P Carrier Diagram" class="ag-wifi-poster-img" width="960" height="540" loading="lazy" decoding="async">
             </picture>
 
-            <video id="agWifiVideo" class="ag-wifi-video" width="960" height="540" poster="assets/img/video_local_wifi_poster.webp?v=2" loop muted playsinline preload="metadata" title="Click to play / pause video animation">
+            <video id="agWifiVideo" class="ag-wifi-video" width="960" height="540" data-lazy-poster="assets/img/video_local_wifi_poster.webp?v=2" loop muted playsinline preload="metadata" title="Click to play / pause video animation">
               <source src="assets/vid/video_local_wifi.webm?v=2" type="video/webm">
               <source src="assets/vid/video_local_wifi.mp4?v=2" type="video/mp4">
             </video>
@@ -2446,7 +2446,7 @@ _
               <img src="assets/img/video_acoustic_identity_poster.jpg?v=1" alt="Acoustic Identity Handshake Ultrasonic Carrier Diagram" class="ag-acoustic-poster-img" width="960" height="540" loading="lazy" decoding="async">
             </picture>
 
-            <video id="agAcousticVideo" class="ag-acoustic-video" width="960" height="540" poster="assets/img/video_acoustic_identity_poster.webp?v=1" loop muted playsinline preload="metadata" title="Click to play / pause video animation">
+            <video id="agAcousticVideo" class="ag-acoustic-video" width="960" height="540" data-lazy-poster="assets/img/video_acoustic_identity_poster.webp?v=1" loop muted playsinline preload="metadata" title="Click to play / pause video animation">
               <source src="assets/vid/video_acoustic_identity.webm?v=1" type="video/webm">
               <source src="assets/vid/video_acoustic_identity.mp4?v=1" type="video/mp4">
             </video>
@@ -2767,7 +2767,7 @@ _
             muted
             loop
             preload="none"
-            poster="assets/vid/qmap_poster.webp"
+            data-lazy-poster="assets/vid/qmap_poster.webp"
             width="540"
             height="946"
           >
@@ -2924,7 +2924,7 @@ _
           <video id="qgeoDemoVideo" width="720" height="1280" muted playsinline preload="none"
             role="button" tabindex="0" aria-label="Play Q-Geo app walkthrough"
             aria-describedby="qgeoDemoCaption qgeoDemoNote"
-            poster="assets/img/qgeo-map-packs-demo-poster.webp?v=1"
+            data-lazy-poster="assets/img/qgeo-map-packs-demo-poster.webp?v=1"
             disablepictureinpicture disableremoteplayback>
             <source data-src="assets/vid/qgeo-map-packs-demo.mp4?v=1" type="video/mp4">
             <source data-src="assets/vid/qgeo-map-packs-demo.webm?v=1" type="video/webm">
@@ -4126,7 +4126,7 @@ _
             <video
               id="f-stage-video"
               class="f-stage-video"
-              poster="assets/vid/btc_vault_poster.webp"
+              data-lazy-poster="assets/vid/btc_vault_poster.webp"
               preload="metadata"
               muted
               playsinline
@@ -4420,8 +4420,8 @@ _
               <!-- Screen Viewport with Video -->
               <div class="qfeed-phone-screen">
                 <video class="qfeed-phone-video" id="qfeed-runtime-video"
-                  autoplay loop muted playsinline preload="metadata"
-                  poster="assets/vid/qfeed_runtime_poster.webp"
+                  data-lazy-autoplay loop muted playsinline preload="metadata"
+                  data-lazy-poster="assets/vid/qfeed_runtime_poster.webp"
                   width="384" height="860">
                   <source src="assets/vid/qfeed_runtime.webm" type="video/webm">
                   <source src="assets/vid/qfeed_runtime.mp4" type="video/mp4">
@@ -5042,7 +5042,7 @@ _
         <h3>Language Hints</h3>
         <p>Auto language defaults can follow the device language, while explicit hints improve accuracy for multilingual sessions.</p>
         <div class="sd-card-media">
-          <video autoplay loop muted playsinline preload="metadata" aria-label="Multilingual features animation">
+          <video data-lazy-autoplay loop muted playsinline preload="metadata" aria-label="Multilingual features animation">
             <source src="assets/vid/Q-P1NG_multilingual_ALL_7_fast.webm" type="video/webm">
             <source src="assets/vid/Q-P1NG_multilingual_ALL_7_fast.mp4" type="video/mp4">
           </video>
@@ -5751,7 +5751,7 @@ _
             <img src="assets/vid/q-sat_trace_poster.webp" alt="Q-Sat Orbital Satellite Downlink and GhostWave Telemetry Trace" class="qsat-poster-img" width="1280" height="720" loading="lazy" decoding="async">
           </picture>
 
-          <video id="qsatTraceVideo" class="qsat-trace-video" width="1280" height="720" poster="assets/vid/q-sat_trace_poster.webp" loop muted playsinline preload="metadata" title="Click to play / pause video animation">
+          <video id="qsatTraceVideo" class="qsat-trace-video" width="1280" height="720" data-lazy-poster="assets/vid/q-sat_trace_poster.webp" loop muted playsinline preload="metadata" title="Click to play / pause video animation">
             <source src="assets/vid/q-sat_trace.webm" type="video/webm">
             <source src="assets/vid/q-sat_trace.mp4" type="video/mp4">
           </video>
@@ -6192,7 +6192,7 @@ _
             <img src="assets/img/radio_collegamento_poster.png?v=2" alt="Baofeng UV-5R and Smartphone Wireless RF Link Diagram" class="rb-radio-poster-img" width="1280" height="720" loading="lazy" decoding="async">
           </picture>
 
-          <video id="rbRadioVideo" class="rb-radio-video" width="1280" height="720" poster="assets/img/radio_collegamento_poster.webp?v=2" loop muted playsinline preload="none" disablepictureinpicture disableremoteplayback title="Click to play / pause video animation">
+          <video id="rbRadioVideo" class="rb-radio-video" width="1280" height="720" data-lazy-poster="assets/img/radio_collegamento_poster.webp?v=2" loop muted playsinline preload="none" disablepictureinpicture disableremoteplayback title="Click to play / pause video animation">
             <source src="assets/vid/radio_collegamento.webm?v=2" type="video/webm">
             <source src="assets/vid/radio_collegamento.mp4?v=2" type="video/mp4">
           </video>
@@ -6471,7 +6471,7 @@ _
         <div class="qcall-video-stage" role="region" aria-label="Demonstration video of a call session">
           <!-- Realtime encrypted video feed -->
           <div class="qcall-video-feed-wrap" id="qcallVideoWrap">
-            <video id="qcallVideo" class="qcall-video-feed" width="1280" height="720" poster="assets/img/qcall_video_poster.webp" playsinline muted preload="metadata" title="Q-Call demonstration video">
+            <video id="qcallVideo" class="qcall-video-feed" width="1280" height="720" data-lazy-poster="assets/img/qcall_video_poster.webp" playsinline muted preload="metadata" title="Q-Call demonstration video">
               <source src="assets/vid/qcall_video_fastcut.webm" type="video/webm">
               <source src="assets/vid/qcall_video_fastcut.mp4" type="video/mp4">
             </video>
@@ -6813,7 +6813,7 @@ _
         <video id="qglobeHeroVideo" width="1280" height="720" muted playsinline preload="none"
           disablepictureinpicture disableremoteplayback role="button" tabindex="0" aria-pressed="false"
           aria-label="Play Q-Globe animation" aria-describedby="qglobeHeroCaption"
-          poster="assets/img/qglobe-hero-motion-poster.webp">
+          data-lazy-poster="assets/img/qglobe-hero-motion-poster.webp">
           <source data-src="assets/vid/qglobe-hero-motion.mp4" type="video/mp4">
           <p><a href="assets/vid/qglobe-hero-motion.mp4">Watch the Q-Globe animation.</a></p>
         </video>
@@ -6851,7 +6851,7 @@ _
       <figure class="qglobe-demo-player">
         <video id="qglobeDemoVideo" width="1280" height="800" muted playsinline preload="none"
           role="button" tabindex="0" aria-label="Play Q-Globe walkthrough"
-          poster="assets/img/qglobe-demo-poster.webp?v=1"
+          data-lazy-poster="assets/img/qglobe-demo-poster.webp?v=1"
           aria-describedby="qglobe-demo-description qglobe-demo-caption">
           <source src="assets/vid/qglobe-demo.webm?v=4" type="video/webm">
           <source src="assets/vid/qglobe-demo.mp4?v=4" type="video/mp4">
@@ -6972,7 +6972,7 @@ _
               <div class="qai-phone-speaker" aria-hidden="true"></div>
               <div class="qai-phone-camera" aria-hidden="true"></div>
               <div class="qai-phone-screen" id="qaiPhoneScreen">
-                <video id="qaiVideo" class="qai-core-video" width="1280" height="720" poster="assets/vid/q-ai_poster.webp" loop muted playsinline autoplay preload="metadata">
+                <video id="qaiVideo" class="qai-core-video" width="1280" height="720" data-lazy-poster="assets/vid/q-ai_poster.webp" loop muted playsinline autoplay preload="metadata">
                   <source id="qaiVideoSourceWebm" src="assets/vid/q-ai.webm" type="video/webm">
                   <source id="qaiVideoSourceMp4" src="assets/vid/q-ai.mp4" type="video/mp4">
                 </video>
@@ -7159,7 +7159,7 @@ _
           <div class="qai-walkthrough-screen-wrap">
             <video id="qbrainDemoVideo" class="qai-walkthrough-video" width="720" height="1280"
                    muted playsinline preload="none"
-                   poster="assets/vid/qbrain-tools-demo-poster.webp"
+                   data-lazy-poster="assets/vid/qbrain-tools-demo-poster.webp"
                    aria-label="Q-Brain demonstration video: click on static image to play">
               <source src="assets/vid/qbrain-tools-demo.webm" type="video/webm">
               <source src="assets/vid/qbrain-tools-demo.mp4" type="video/mp4">
@@ -8118,7 +8118,16 @@ _
         <span>//</span>
         <span>LOCAL STRESS TOOLS</span>
       </div>
-      <h2 class="legacy-pro-title"><span>Retro-Privacy</span><span>Games</span></h2>
+      <h2 class="legacy-pro-title games-title">
+          <span class="games-title-main">
+            <picture class="games-title-icon-wrap">
+              <source srcset="assets/icons/games_icon.webp?v=1" type="image/webp">
+              <img src="assets/icons/games_icon.png?v=1" alt="Retro-Privacy Games Arcade Gamepad Icon" class="games-title-icon" width="80" height="43" loading="eager" decoding="async">
+            </picture>
+            <span class="games-title-text">Retro-Privacy</span>
+          </span>
+          <span>Games</span>
+        </h2>
       <p class="legacy-pro-desc">Offline arcade widgets for controlled focus breaks, local-only gameplay, and zero network dependency inside the QP1NG tool surface.</p>
     </div>
 
@@ -8752,6 +8761,31 @@ _
     </div>
   </div>
 
+  <script>
+    // Video posters, and autoplay videos far down the page, start loading when the reader scrolls near them: a poster
+    // attribute or an autoplay video downloads at once otherwise, wherever it sits (about 2.6 MB on opening this
+    // page). The intro handles its own posters. Without IntersectionObserver everything starts at once, as before.
+    (function () {
+      var videos = document.querySelectorAll('video[data-lazy-poster], video[data-lazy-autoplay]');
+      var start = function (video) {
+        var poster = video.getAttribute('data-lazy-poster');
+        if (poster && !video.getAttribute('poster')) video.poster = poster;
+        if (video.hasAttribute('data-lazy-autoplay')) {
+          video.removeAttribute('data-lazy-autoplay');
+          video.autoplay = true;
+          var playing = video.play();
+          if (playing && playing.catch) playing.catch(function () {});
+        }
+      };
+      if (!('IntersectionObserver' in window)) { Array.prototype.forEach.call(videos, start); return; }
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { observer.unobserve(entry.target); start(entry.target); }
+        });
+      }, { rootMargin: '1200px 0px' });
+      Array.prototype.forEach.call(videos, function (video) { observer.observe(video); });
+    })();
+  </script>
   <script src="script.js?v=2.6.23" defer></script>
   <script src="qgeo-demo.js?v=1" defer></script>
 </body>
