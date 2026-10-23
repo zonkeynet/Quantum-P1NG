@@ -4400,10 +4400,10 @@ _
       </div>
       <h2 class="section-title qfeed-section-title">
         <img src="assets/img/megaphone_qfeed.webp?v=2" alt="Q-Feed Decentralized Broadcast Icon" class="qfeed-title-icon" width="86" height="82" loading="eager" decoding="async" aria-hidden="true">
-        <span class="qfeed-title-text">Decentralized Feed &amp; <span class="text-gradient">Verifiable Event Receipts</span></span>
+        <span class="qfeed-title-text">Decentralized Feed &amp; <span class="text-gradient">Signed Events</span></span>
       </h2>
       <p class="section-desc">
-        Zero centralized social graphs, zero metadata tracking. Q-Feed bridges serverless LoRa mesh broadcasts with decentralized Nostr relays over Tor SOCKS5, offering 4-tier cryptographic audience scopes and air-gapped Bitcoin Proof-of-Payment tickets.
+        Q-Feed is the social feed inside Q-P1NG, free in Core. Write signed posts and events and choose, for each one, who sees it: the whole world through independent Nostr relays, your contacts or the peers you pick, or nobody but you. No phone number, no account with us, no central feed server.
       </p>
     </div>
 
@@ -4464,461 +4464,125 @@ _
 
             <!-- Clear, Production-Ready Sovereign Operational Overview -->
             <div class="qfeed-deck-header">
-              <div class="qfeed-deck-kicker">SOVEREIGN ARCHITECTURE &amp; OPERATIONAL FLOW</div>
-              <h3 class="qfeed-deck-title">How Q-Feed Operates in the Field</h3>
-              <p class="qfeed-deck-desc">Q-Feed combines contact sharing with public Nostr distribution through independent relays. Review the audience before publishing; public posts and their metadata can be copied beyond your contacts.</p>
+              <div class="qfeed-deck-kicker">WHAT Q-FEED DOES</div>
+              <h3 class="qfeed-deck-title">A feed where you decide the audience</h3>
+              <p class="qfeed-deck-desc">The video shows the app with sample content. Every post carries your signature and its own audience; public posts are standard Nostr events that anyone can read and copy, so choose before you publish.</p>
             </div>
 
             <!-- Telemetry & Operational Metrics Windows Deck (6 Cards) -->
-            <div class="qfeed-metrics-deck" aria-label="Q-Feed capabilities and example states">
+            <div class="qfeed-metrics-deck" aria-label="What Q-Feed does">
               <div class="qfeed-metric-card">
                 <div class="metric-top">
-                  <span class="metric-tag">TOPOLOGY</span>
+                  <span class="metric-tag">AUDIENCE</span>
                   <span class="metric-dot green"></span>
                 </div>
-                <div class="metric-val txt-green">PEERS + RELAYS</div>
-                <div class="metric-label">No single central feed operator</div>
+                <div class="metric-val txt-green">4 ROUTES</div>
+                <div class="metric-label">Public, contacts, picked peers, this phone</div>
               </div>
-
               <div class="qfeed-metric-card">
                 <div class="metric-top">
-                  <span class="metric-tag">RECEIPT CHECK</span>
+                  <span class="metric-tag">SIGNATURES</span>
                   <span class="metric-dot cyan"></span>
                 </div>
-                <div class="metric-val txt-cyan">SIGNED DATA</div>
-                <div class="metric-label">Receipt signature; network settlement is separate</div>
+                <div class="metric-val txt-cyan">EVERY POST</div>
+                <div class="metric-label">Checked on arrival, changes flagged</div>
               </div>
-
               <div class="qfeed-metric-card">
                 <div class="metric-top">
-                  <span class="metric-tag">AUDIENCE SCOPES</span>
+                  <span class="metric-tag">REPOSTS</span>
                   <span class="metric-dot amber"></span>
                 </div>
-                <div class="metric-val txt-amber">4 TIERS</div>
-                <div class="metric-label">Public Nostr, Contacts, Ephemeral, Local</div>
+                <div class="metric-val txt-amber">SIGNED CHAIN</div>
+                <div class="metric-label">Original untouched, author&rsquo;s rules kept</div>
               </div>
-
               <div class="qfeed-metric-card">
                 <div class="metric-top">
-                  <span class="metric-tag">METADATA PRIVACY</span>
+                  <span class="metric-tag">EVENTS</span>
                   <span class="metric-dot purple"></span>
                 </div>
-                <div class="metric-val txt-purple">AUDIENCE CHOICE</div>
-                <div class="metric-label">Review public and contact visibility</div>
+                <div class="metric-val txt-purple">AGENDA + MAP</div>
+                <div class="metric-label">Going or Maybe, encrypted agenda</div>
               </div>
-
               <div class="qfeed-metric-card">
                 <div class="metric-top">
-                  <span class="metric-tag">EVENT AGENDAS</span>
+                  <span class="metric-tag">TICKETS</span>
                   <span class="metric-dot green"></span>
                 </div>
-                <div class="metric-val txt-green">SMART UTXO</div>
-                <div class="metric-label">Boom Fest &amp; Middleman-Free Tickets</div>
+                <div class="metric-val txt-green">BTC RECEIPTS</div>
+                <div class="metric-label">Signed, with a QR, checkable offline</div>
               </div>
-
               <div class="qfeed-metric-card">
                 <div class="metric-top">
-                  <span class="metric-tag">LIGHTNING &amp; ZAPS</span>
+                  <span class="metric-tag">NOSTR</span>
                   <span class="metric-dot amber"></span>
                 </div>
-                <div class="metric-val txt-amber">OFF-GRID VOUCHERS</div>
-                <div class="metric-label">Instant Sats Streaming &amp; CameraX Audit</div>
+                <div class="metric-val txt-amber">TOR READY</div>
+                <div class="metric-label">Independent relays, older posts on demand</div>
               </div>
             </div>
-
             <div class="qfeed-deck-footer">
-              <a href="#qfeed-workspace" class="cyber-button-sm txt-cyan">EXPLORE INTERACTIVE WORKSPACE &darr;</a>
-              <span class="f-deck-status txt-green">&#x25CF; INTERACTIVE DEMONSTRATION</span>
+              <a href="#qfeed-capabilities" class="cyber-button-sm txt-cyan">SEE EVERY FEATURE &darr;</a>
+              <span class="f-deck-status txt-green">&#x25CF; FREE IN Q-P1NG CORE</span>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Main Workspace -->
-    <aside class="editorial-demo-note" role="note"><strong>INTERACTIVE DEMO · SAMPLE DATA</strong><span>Illustrative states. This panel does not control the app or verify your device.</span></aside>
-<div class="qfeed-workspace" id="qfeed-workspace">
-      <!-- Navigation Tabs -->
-      <div class="qfeed-workspace-nav" role="tablist">
-        <button class="qfeed-tab-btn active mono" data-tab="stream" role="tab" aria-selected="true">
-          <span class="tab-num">01</span>
-          <span class="tab-title">DECENTRALIZED FEED &amp; COMPOSER</span>
-        </button>
-        <button class="qfeed-tab-btn mono" data-tab="receipts" role="tab" aria-selected="false">
-          <span class="tab-num">02</span>
-          <span class="tab-title">P2P RECEIPTS &amp; OFFLINE QR SCANNER</span>
-        </button>
-        <button class="qfeed-tab-btn mono" data-tab="nostr" role="tab" aria-selected="false">
-          <span class="tab-num">03</span>
-          <span class="tab-title">NOSTR BRIDGE &amp; NIP-01 DISSECTOR</span>
-        </button>
+    <!-- What Q-Feed does: the app's features, without a simulation. -->
+    <div class="qfeed-capabilities" id="qfeed-capabilities" style="--qx-a: 0, 243, 255; --qx-b: 10, 255, 132;">
+      <div class="qx-grid" aria-label="What Q-Feed can do">
+        <article class="qx-card">
+          <span class="qx-card-index mono">01</span>
+          <h3>Choose who sees it</h3>
+          <p>Every post and event has its own audience: public on Nostr relays, all your contacts, only the peers you pick, or this phone only. Contacts and picked peers get it from your node, and only after proving who they are.</p>
+        </article>
+        <article class="qx-card">
+          <span class="qx-card-index mono">02</span>
+          <h3>Signed and checked</h3>
+          <p>Posts are signed with your Q-Feed key and checked when they arrive. Q-Feed marks content that was changed, signed by an unknown key or not signed at all.</p>
+        </article>
+        <article class="qx-card">
+          <span class="qx-card-index mono">03</span>
+          <h3>Reposts keep the original</h3>
+          <p>A repost is a new signed envelope around the untouched original, with your optional comment and its own audience. Authors can forbid public reposts, and the chain is checked hop by hop.</p>
+        </article>
+        <article class="qx-card">
+          <span class="qx-card-index mono">04</span>
+          <h3>Events and agenda</h3>
+          <p>Create an event with dates, a place on the map, details and a picture. People answer Going or Maybe, and it lands in an encrypted agenda on the phone, not in the system calendar.</p>
+        </article>
+        <article class="qx-card">
+          <span class="qx-card-index mono">05</span>
+          <h3>Tickets in Bitcoin</h3>
+          <p>Attach a payment request from your BTC Vault. Payments come with a signed receipt and a QR code: the signature can be checked offline, the payment itself on the Bitcoin network.</p>
+        </article>
+        <article class="qx-card">
+          <span class="qx-card-index mono">06</span>
+          <h3>Talk and keep</h3>
+          <p>Likes, comments and replies, bookmarks for later, and sharing a post, an event or your profile card into a chat or another app.</p>
+        </article>
+        <article class="qx-card">
+          <span class="qx-card-index mono">07</span>
+          <h3>Nostr over Tor</h3>
+          <p>Public posts are standard Nostr events on independent relays, sent over Tor when Tor is on. Older public posts load on demand, and the reading position stays on the phone.</p>
+        </article>
+        <article class="qx-card">
+          <span class="qx-card-index mono">08</span>
+          <h3>Report and block</h3>
+          <p>Hide a post, report it to the relays with a standard Nostr report and, if you like, to us, or block someone: their posts, reposts and comments leave your feed.</p>
+        </article>
       </div>
-
-      <!-- TAB PANE 1: STREAM & COMPOSER -->
-      <div class="qfeed-tab-pane active" id="qfeed-pane-stream" data-pane="stream" role="tabpanel">
-        <div class="qfeed-grid-2col">
-          <!-- Left Column: Feed Stream -->
-          <div class="qfeed-stream-col">
-            <!-- Filter Bar -->
-            <div class="qfeed-filter-bar mono">
-              <span class="ctrl-label">FILTER FEED:</span>
-              <div class="filter-chips">
-                <button class="f-chip active" data-filter="all">ALL</button>
-                <button class="f-chip" data-filter="mesh">LOCAL MESH</button>
-                <button class="f-chip" data-filter="nostr">NOSTR PUBLIC</button>
-                <button class="f-chip" data-filter="events">EVENTS &amp; SATS</button>
-              </div>
-            </div>
-
-            <!-- Feed Post Stream List -->
-            <div class="qfeed-post-list" id="qfeed-post-list">
-              <!-- Post 1: SitRep -->
-              <article class="qfeed-card" data-category="mesh">
-                <div class="card-header">
-                  <div class="avatar-ring avatar-mesh"></div>
-                  <div class="author-meta mono">
-                    <div class="author-line">
-                      <strong class="author-alias">Vanguard-Alpha</strong>
-                      <span class="author-onion muted">node:7f14...92b0.onion</span>
-                    </div>
-                    <div class="post-flags">
-                      <span class="badge-audience badge-mesh">CONTACTS (RATCHET CIPHER)</span>
-                      <span class="badge-sig txt-green">✓ SAMPLE SIGNATURE</span>
-                    </div>
-                  </div>
-                  <span class="post-time mono muted">14m ago</span>
-                </div>
-                <div class="card-body">
-                  <p>
-                    Corridor Bravo-4 clear of radar surveillance. Electronic jamming detected on GNSS L1/L2 frequencies north of sector 2. All field nodes: switch to dead-reckoning MBTiles basemaps and forward packets via LoRa mesh hop 3.
-                  </p>
-                </div>
-                <div class="card-footer mono">
-                  <button class="action-btn zap-btn">⚡ <strong>120</strong> Sats</button>
-                  <button class="action-btn comment-btn">💬 <strong>8</strong> Replies</button>
-                  <button class="action-btn repost-btn">🔄 Repost</button>
-                  <button class="action-btn share-btn">📡 Air-Gap QR</button>
-                </div>
-              </article>
-
-              <!-- Post 2: Ticketed Event -->
-              <article class="qfeed-card event-card" data-category="events">
-                <div class="card-header">
-                  <div class="avatar-ring avatar-event"></div>
-                  <div class="author-meta mono">
-                    <div class="author-line">
-                      <strong class="author-alias">CypherOps Directorate</strong>
-                      <span class="author-onion muted">npub19x4...7a01</span>
-                    </div>
-                    <div class="post-flags">
-                      <span class="badge-audience badge-nostr">PUBLIC NOSTR (TAG: qevent_payment)</span>
-                      <span class="badge-sig txt-cyan">✓ NOSTR NIP-01 SIGNED</span>
-                    </div>
-                  </div>
-                  <span class="post-time mono muted">1h ago</span>
-                </div>
-                <div class="card-body">
-                  <div class="event-banner mono">
-                    <div class="event-kicker">TACTICAL GATHERING // AIR-GAPPED VERIFICATION</div>
-                    <h4 class="event-title">Off-Grid SIGINT &amp; Hardware Rig Workshop</h4>
-                    <div class="event-grid">
-                      <div><span>SCHEDULE:</span><strong>Tomorrow, 20:00 UTC</strong></div>
-                      <div><span>LOCATION:</span><strong>Bunker Alpha (Encrypted in Ticket)</strong></div>
-                      <div><span>TICKET COST:</span><strong class="txt-amber">15,000 SATS (DEMO PRICE)</strong></div>
-                      <div><span>PAYMENT ROUTE:</span><strong>Bitcoin On-Chain / Lightning</strong></div>
-                    </div>
-                  </div>
-                  <p class="event-desc">
-                    Field operational workshop on software-defined radio direction finding and acoustic ultrasound data exfiltration. Limited to 25 verified operators. Ticket receipt verified offline via CameraX scanner.
-                  </p>
-                </div>
-                <div class="card-footer mono">
-                  <button class="cyber-button-sm txt-amber" id="btn-pay-event">PREVIEW PAYMENT &amp; TICKET</button>
-                  <span class="ticket-status-label muted" id="ticket-buy-status">UTXO Gated Event</span>
-                </div>
-              </article>
-
-              <!-- Post 3: Public Warning -->
-              <article class="qfeed-card" data-category="nostr">
-                <div class="card-header">
-                  <div class="avatar-ring avatar-nostr"></div>
-                  <div class="author-meta mono">
-                    <div class="author-line">
-                      <strong class="author-alias">Sentinel-Mesh</strong>
-                      <span class="author-onion muted">npub1k83...fe49</span>
-                    </div>
-                    <div class="post-flags">
-                      <span class="badge-audience badge-nostr">PUBLIC NOSTR</span>
-                      <span class="badge-sig txt-green">✓ SAMPLE SIGNATURE</span>
-                    </div>
-                  </div>
-                  <span class="post-time mono muted">3h ago</span>
-                </div>
-                <div class="card-body">
-                  <p>
-                    IMSI-Catcher vehicle active near district 9 perimeter. False cellular base station broadcasting MCC 260 MNC 01. Enforce strict airplane mode and route all communications exclusively through T-Deck 868 MHz LoRa relays.
-                  </p>
-                </div>
-                <div class="card-footer mono">
-                  <button class="action-btn zap-btn">⚡ <strong>450</strong> Sats</button>
-                  <button class="action-btn comment-btn">💬 <strong>22</strong> Replies</button>
-                  <button class="action-btn repost-btn">🔄 Repost</button>
-                  <button class="action-btn share-btn">📡 Air-Gap QR</button>
-                </div>
-              </article>
-            </div>
-          </div>
-
-          <!-- Right Column: Interactive Post Composer -->
-          <div class="qfeed-composer-col">
-            <div class="qfeed-composer-frame mono">
-              <div class="composer-header">
-                <span>COMPOSE DEMO POST</span>
-                <span class="txt-green">DEMO READY</span>
-              </div>
-
-              <div class="composer-form">
-                <!-- Text Area -->
-                <label class="field-label">
-                  <span>POST BODY / INTEL BULLETIN:</span>
-                  <textarea id="composer-text" class="qfeed-textarea" rows="4" placeholder="Write a post or event. Check the audience before publishing."></textarea>
-                </label>
-
-                <!-- Audience Mode Selector (NodeAudienceMode) -->
-                <label class="field-label">
-                  <span>AUDIENCE / VISIBILITY:</span>
-                  <select id="composer-audience" class="qfeed-select">
-                    <option value="nostr" selected>Public Nostr Relays (NIP-01 + Tor SOCKS5)</option>
-                    <option value="contacts">Trusted Contacts (Sealed Group Ratchet)</option>
-                    <option value="selected">Selected Contacts (Ephemeral Pairwise Key)</option>
-                    <option value="local">Local Air-Gap Only (1-Hop Direct Mesh)</option>
-                  </select>
-                </label>
-
-                <!-- Optional Event / Sats Gate -->
-                <div class="composer-row">
-                  <label class="field-label" style="flex: 1;">
-                    <span>EVENT TICKET PRICE (SATS):</span>
-                    <input type="number" id="composer-sats" class="qfeed-input" placeholder="0 = Free Broadcast" value="0">
-                  </label>
-                  <label class="field-label" style="flex: 1;">
-                    <span>REPOST PREFERENCE:</span>
-                    <select id="composer-repost" class="qfeed-select">
-                      <option value="allow" selected>ALLOW REPOST</option>
-                      <option value="deny">REQUEST NO REPOST</option>
-                    </select>
-                  </label>
-                </div>
-
-                <!-- Live Canonical Signature Preview -->
-                <p class="editorial-copy-note">Public posts may be copied or redistributed. Repost preferences and deletion requests cannot guarantee removal of every copy.</p>
-            <div class="sig-preview-box">
-                  <span class="sig-title">CANONICAL INPUT (POSTSIGNER.KT):</span>
-                  <div class="sig-content" id="composer-sig-preview">QP1NG-FEED-POST-v1|hash|content|author|timestamp</div>
-                </div>
-
-                <!-- Submit Action -->
-                <div class="composer-actions">
-                  <button class="cyber-button-sm txt-green" id="btn-publish-post">PREVIEW PUBLICATION</button>
-                </div>
-              </div>
-
-              <!-- Live Outbox Log -->
-              <div class="composer-outbox" id="composer-outbox">
-                <div class="stream-line muted">&gt; DEMO: Prepare a sample post...</div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="qx-flow" aria-label="How a Q-Feed post travels">
+        <div><span class="mono">WRITE</span><strong>a post or an event, with a picture</strong></div>
+        <div><span class="mono">SIGN</span><strong>with your Q-Feed key</strong></div>
+        <div><span class="mono">ROUTE</span><strong>public, contacts, picked peers or local</strong></div>
+        <div><span class="mono">CHECK</span><strong>signatures verified on arrival</strong></div>
+        <div><span class="mono">CONTROL</span><strong>edit, delete, report, block</strong></div>
       </div>
-
-      <!-- TAB PANE 2: P2P RECEIPTS & OFFLINE QR SCANNER -->
-      <div class="qfeed-tab-pane" id="qfeed-pane-receipts" data-pane="receipts" role="tabpanel">
-        <div class="qfeed-grid-2col">
-          <!-- Left Column: Attendee Payer Ticket Vault -->
-          <div class="qfeed-info-col">
-            <div class="qfeed-badge-label mono">ATTENDEE TICKET VAULT // NODEEVENTRECEIPT.KT</div>
-            <h3 class="qfeed-pane-title">Signed Bitcoin Receipt</h3>
-            <p class="qfeed-text">A signed receipt can be checked offline. Current Bitcoin confirmation status requires network verification. This demonstration uses sample receipt data and does not make or verify a payment.</p>
-
-            <!-- Interactive Ticket Card -->
-            <div class="ticket-vault-card mono" id="ticket-vault-card">
-              <div class="ticket-header">
-                <span class="txt-cyan">Q-P1NG EVENT PAYMENT RECEIPT</span>
-                <span class="badge-sig txt-green">DEMO RECEIPT</span>
-              </div>
-              <div class="ticket-body">
-                <div class="ticket-prop"><span>EVENT:</span><strong>Off-Grid SIGINT &amp; Hardware Workshop</strong></div>
-                <div class="ticket-prop"><span>AMOUNT:</span><strong class="txt-amber">15,000 SATS</strong></div>
-                <div class="ticket-prop"><span>NETWORK:</span><strong>bitcoin-mainnet</strong></div>
-                <div class="ticket-prop"><span>TXID:</span><strong class="break-hash">8f4c39e2a7b189cc521d09e4f00192a83e7102b4d89a7102...</strong></div>
-                <div class="ticket-prop"><span>OUTPUT IDX:</span><strong>0</strong></div>
-                <div class="ticket-prop"><span>PAYER HASH:</span><strong class="break-hash">node:a92f801c4e77b...</strong></div>
-                <div class="ticket-prop"><span>ED25519 SIG:</span><strong class="txt-green break-hash">3b7a8109d...e81c</strong></div>
-              </div>
-
-              <!-- Animated Air-Gap QR Ticket Canvas -->
-              <div class="ticket-qr-wrap">
-                <canvas id="qfeedReceiptQrCanvas" width="180" height="180" class="receipt-qr-canvas"></canvas>
-                <div class="qr-label">DEMO QR PATTERN // SAMPLE RECEIPT</div>
-              </div>
-
-              <div class="ticket-actions">
-                <button class="cyber-button-sm txt-cyan" id="btn-copy-receipt">COPY SAMPLE RECEIPT</button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right Column: Organizer / Gatekeeper Offline Scanner -->
-          <div class="qfeed-sim-col">
-            <div class="scanner-frame mono">
-              <div class="scanner-header">
-                <span>OFFLINE RECEIPT CHECK DEMO</span>
-                <span class="txt-green">AIR-GAP READY</span>
-              </div>
-
-              <!-- Simulated Camera Viewfinder -->
-              <div class="scanner-viewfinder" id="scanner-viewfinder">
-                <div class="scanner-reticle">
-                  <div class="reticle-corner tl"></div>
-                  <div class="reticle-corner tr"></div>
-                  <div class="reticle-corner bl"></div>
-                  <div class="reticle-corner br"></div>
-                  <div class="scanner-laser-line"></div>
-                </div>
-                <div class="viewfinder-text">DEMONSTRATION // NO CAMERA SCAN</div>
-              </div>
-
-              <!-- Scan Action Button -->
-              <div class="scanner-controls">
-                <button class="cyber-button-sm txt-green" id="btn-simulate-scan">PREVIEW RECEIPT CHECK</button>
-              </div>
-
-              <!-- Verification Steps Checklist -->
-              <div class="scanner-audit-box" id="scanner-audit-box">
-                <div class="audit-step" id="audit-step-1">
-                  <span class="audit-indicator">○</span>
-                  <span class="audit-label">1. Envelope format: QP1NG_EVENT_RECEIPT|v2</span>
-                </div>
-                <div class="audit-step" id="audit-step-2">
-                  <span class="audit-indicator">○</span>
-                  <span class="audit-label">2. Cryptographic Ed25519 signature validity</span>
-                </div>
-                <div class="audit-step" id="audit-step-3">
-                  <span class="audit-indicator">○</span>
-                  <span class="audit-label">3. Bitcoin UTXO output index &amp; satoshi match</span>
-                </div>
-                <div class="audit-step" id="audit-step-4">
-                  <span class="audit-indicator">○</span>
-                  <span class="audit-label">4. Replay check: SQLite double-entry guard</span>
-                </div>
-              </div>
-
-              <!-- Final Result Banner -->
-              <div class="scanner-result-banner hidden" id="scanner-result-banner">
-                <div class="result-icon">✓</div>
-                <div class="result-text">
-                  <strong>DEMO COMPLETE</strong>
-                  <small>SAMPLE RESULT · NO PAYMENT VERIFIED</small>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- TAB PANE 3: NOSTR RELAY BRIDGE & DISSECTOR -->
-      <div class="qfeed-tab-pane" id="qfeed-pane-nostr" data-pane="nostr" role="tabpanel">
-        <div class="qfeed-grid-2col">
-          <!-- Left Column: Nostr Architecture & Relay Health -->
-          <div class="qfeed-info-col">
-            <div class="qfeed-badge-label mono">NOSTR RELAYS // QFEEDNOSTRBRIDGE.KT</div>
-            <h3 class="qfeed-pane-title">Decentralized Relay Transport via Tor</h3>
-            <p class="qfeed-text">Nostr events use Schnorr signatures on secp256k1. QP1NG payload signatures are a separate layer. Public events carry a public key, timestamp and content. Relay access and privacy depend on the selected route.</p>
-
-            <!-- Relay Health List -->
-            <div class="nostr-relay-box mono">
-              <div class="box-head">
-                <span>EXAMPLE RELAY LIST:</span>
-                <button class="cyber-button-xs txt-cyan" id="btn-ping-relays">PREVIEW RELAY STATUS</button>
-              </div>
-              <div class="relay-list" id="relay-list">
-                <div class="relay-item">
-                  <span class="r-dot green"></span>
-                  <span class="r-url">wss://relay.damus.io</span>
-                  <span class="r-status txt-green">DEMO (42ms)</span>
-                </div>
-                <div class="relay-item">
-                  <span class="r-dot green"></span>
-                  <span class="r-url">wss://nos.lol</span>
-                  <span class="r-status txt-green">DEMO (58ms)</span>
-                </div>
-                <div class="relay-item">
-                  <span class="r-dot green"></span>
-                  <span class="r-url">wss://relay.snort.social</span>
-                  <span class="r-status txt-green">DEMO (64ms)</span>
-                </div>
-                <div class="relay-item">
-                  <span class="r-dot purple"></span>
-                  <span class="r-url">onion://qp1ngsocialv4...onion:8443</span>
-                  <span class="r-status txt-purple">TOR RELAY EXAMPLE</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Features Summary -->
-            <div class="qfeed-specs-grid mono">
-              <div class="spec-card">
-                <strong>NIP-01 NOTES</strong>
-                <small>NIP-01 events use Schnorr signatures on secp256k1.</small>
-              </div>
-              <div class="spec-card">
-                <strong>qevent_payment</strong>
-                <small>Custom NIP tag binding Bitcoin invoices to event announcements.</small>
-              </div>
-              <div class="spec-card">
-                <strong>qmedia_thumb</strong>
-                <small>Inline 32 KiB encrypted preview thumbnails for air-gap cards.</small>
-              </div>
-              <div class="spec-card">
-                <strong>NIP-09 REQUEST</strong>
-                <small>Deletion requests cannot guarantee removal of every public copy.</small>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right Column: Protocol Dissector -->
-          <div class="qfeed-sim-col">
-            <div class="dissector-frame mono">
-              <div class="dissector-header">
-                <span>NIP-01 + Q-FEED CANONICAL JSON DISSECTOR</span>
-                <span class="txt-cyan">SAMPLE EVENT</span>
-              </div>
-
-              <!-- Code Box -->
-              <pre class="dissector-code"><code id="nostr-json-code">{
-  "id": "e4c7a91b...389f",
-  "pubkey": "a92f801c4e77b...c014",
-  "created_at": 1727702400,
-  "kind": 1,
-  "tags": [
-    ["t", "q-p1ng"],
-    ["qevent_payment", "15000", "bc1q...", "8f4c39e..."],
-    ["qmedia_thumb", "data:image/webp;base64,UklGR..."],
-    ["qfeed_repost_policy", "allow"]
-  ],
-  "content": "Off-Grid SIGINT & Hardware Rig Workshop. Admission ticket confirmed via Bitcoin Vault UTXO proof.",
-  "sig": "3b7a8109d84e...91c82"
-}</code></pre>
-
-              <div class="dissector-notes">
-                <div class="note-row"><span class="txt-cyan">tag: qevent_payment</span>: Links amount (15,000 sats), Bitcoin address, and terms hash.</div>
-                <div class="note-row"><span class="txt-green">tag: qmedia_thumb</span>: Base64 preview displayed without opening external network connections.</div>
-                <div class="note-row"><span class="txt-amber">tag: qfeed_repost_policy</span>: Restricts or permits federation across public relays.</div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="qx-note">
+        <span class="mono">PUBLIC MEANS PUBLIC</span>
+        <p>Public posts go to independent Nostr relays: anyone can read, copy and keep them, with your public key and the time. A deletion request asks the relays to remove a post but cannot guarantee that every copy disappears. For anything else, pick contacts, chosen peers or this phone.</p>
       </div>
     </div>
   </div>
@@ -8795,7 +8459,7 @@ _
       Array.prototype.forEach.call(videos, function (video) { observer.observe(video); });
     })();
   </script>
-  <script src="script.js?v=2.6.23" defer></script>
+  <script src="script.js?v=2.6.24" defer></script>
   <script src="qcast-hero-player.js?v=1" defer></script>
   <script src="qgeo-demo.js?v=1" defer></script>
 </body>
