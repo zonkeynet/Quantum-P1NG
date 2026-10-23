@@ -4,11 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#05070a">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <title>Q-P1NG Pro</title>
+    <title>Q-P1NG Pro: on-device AI, radio and offline maps · €9.99 lifetime</title>
     <meta name="description" content="Q-P1NG Pro: on-device AI, radio tools, offline maps, a Bitcoin vault and more. One-time EUR 9.99, lifetime licence, updates included. No account.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="https://www.qp1ng.com/pro/">
-    <link rel="icon" type="image/png" href="/assets/img/qp1ng_icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/icon-192.png">
+    <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+    <!-- Link previews (Open Graph, X/Twitter): the image is rendered from this page's icons, 1200x630. -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Q-P1NG">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="https://www.qp1ng.com/pro/">
+    <meta property="og:title" content="Q-P1NG Pro: everything in Q-P1NG, plus the advanced tools">
+    <meta property="og:description" content="On-device AI, radio, offline maps and a Bitcoin vault for Android. One-time €9.99, lifetime licence, no account, key checked offline.">
+    <meta property="og:image" content="https://www.qp1ng.com/pro/og.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Q-P1NG Pro: on-device AI, voice, radio, offline maps, private file sharing and a Bitcoin vault, €9.99 lifetime">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Q-P1NG Pro: everything in Q-P1NG, plus the advanced tools">
+    <meta name="twitter:description" content="On-device AI, radio, offline maps and a Bitcoin vault for Android. One-time €9.99, lifetime licence, no account.">
+    <meta name="twitter:image" content="https://www.qp1ng.com/pro/og.jpg">
+    <meta name="twitter:image:alt" content="Q-P1NG Pro: on-device AI, voice, radio, offline maps, private file sharing and a Bitcoin vault, €9.99 lifetime">
+    <!-- Search engines: the product and its price (a data block, not a script: the page policy still applies). -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Q-P1NG Pro",
+        "description": "The Pro edition of Q-P1NG, an encrypted messaging and calling app for Android: on-device AI, radio tools, offline maps, a Bitcoin vault and more.",
+        "url": "https://www.qp1ng.com/pro/",
+        "image": "https://www.qp1ng.com/pro/og.jpg",
+        "applicationCategory": "CommunicationApplication",
+        "operatingSystem": "Android 8.0 or later",
+        "offers": {
+            "@type": "Offer",
+            "price": "9.99",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://www.qp1ng.com/pro/#buy"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "ZonkeyNet",
+            "url": "https://www.qp1ng.com/",
+            "logo": "https://www.qp1ng.com/assets/img/icon-192.png",
+            "email": "support@qp1ng.com"
+        }
+    }
+    </script>
+    <link rel="preconnect" href="https://qp1ng-license-api.quantump1ng.workers.dev" crossorigin>
     <link rel="preload" href="/assets/fonts/square_dot_digital_qp1ng.woff2" as="font" type="font/woff2" crossorigin>
     <!-- Bump ?v= whenever pro.css, pow.js or pro.js change: the proxy lets browsers cache them for hours. -->
     <link rel="stylesheet" href="/pro/pro.css?v=20261024">
@@ -183,6 +232,7 @@
                     </button>
                 </div>
                 <p id="pay-note" class="pay-note" aria-live="polite">Loading payment options&hellip;</p>
+                <noscript><style>#pay-note { display: none; }</style><p class="pay-note">Payments on this page need JavaScript: turn it on to buy a licence.</p></noscript>
             </div>
 
             <div id="btc-order" class="panel order-panel" hidden>
