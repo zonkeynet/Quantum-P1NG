@@ -47,24 +47,40 @@
 .app-walkthrough-note { display: block; margin-top: 7px; color: #8b9caf; font-size: 10px; line-height: 1.6; }
 .app-walkthrough-fallback { font-size: 12px; color: var(--demo-accent); }
 .app-walkthrough-fallback a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
-.qcast-demo-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 320px); align-items: center; gap: clamp(28px, 6vw, 80px); }
-.qcast-demo-layout .qbroadcast-steps { grid-template-columns: minmax(0, 1fr); gap: 14px; }
-.qcast-demo-layout .qbroadcast-steps li { padding: 18px 20px; }
-.qcast-demo-layout .qbroadcast-steps h4 { margin-top: 8px; }
-.qcast-demo-context { margin: 16px 0 0; max-width: 52ch; color: #9bb2c4; font-size: 12px; line-height: 1.8; }
+.qcast-demo-layout {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(240px, 300px);
+  max-width: none; align-items: center; gap: clamp(28px, 5vw, 72px);
+}
+.qcast-demo-layout .qcast-demo-copy { margin: 0; min-width: 0; text-align: left; }
+.qcast-demo-copy .qbroadcast-subhead { margin: 0 0 22px; }
+.qcast-demo-copy .qbroadcast-subhead h3 { font-size: clamp(22px, 2.3vw, 30px); }
+.qcast-demo-copy .qbroadcast-steps { grid-template-columns: minmax(0, 1fr); gap: 17px; margin: 0; }
+.qcast-demo-copy .qbroadcast-steps li {
+  display: grid; grid-template-columns: 28px minmax(0, 1fr); column-gap: 14px;
+  padding: 0; align-items: start;
+}
+.qcast-demo-copy .qbroadcast-step { grid-row: 1 / 3; margin: 3px 0 0; font-size: 11px; }
+.qcast-demo-copy .qbroadcast-steps .qbroadcast-step::after { display: none; }
+.qcast-demo-copy .qbroadcast-steps h4 { margin: 0; font-size: 18px; line-height: 1.4; }
+.qcast-demo-copy .qbroadcast-steps p { grid-column: 2; margin: 4px 0 0; font-size: 13px; line-height: 1.6; }
+.qcast-demo-caption-panel { margin-top: 22px; padding-top: 15px; border-top: 1px solid var(--demo-line); }
+.qcast-demo-copy .app-walkthrough-caption { max-width: 76ch; }
+.qcast-demo-copy .app-walkthrough-note { max-width: 96ch; }
+.qcast-demo-phone { width: 100%; max-width: 300px; min-width: 0; justify-self: end; }
 .qx-section--dream .qx-hero { align-items: center; }
 .qx-section--dream .qx-spec--below { margin: 28px 0 0; }
 .qx-section--dream .qx-spec--below dl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 24px; }
 .qx-section--dream .qx-spec--below dl > div { display: block; min-width: 0; }
 .qx-section--dream .qx-spec--below dd { margin: 7px 0 0; text-align: left; }
 @media (max-width: 760px) {
-  .qcast-demo-layout { grid-template-columns: minmax(0, 1fr); gap: 26px; }
-  .qcast-demo-layout > .app-walkthrough { grid-row: 1; }
-  .qcast-demo-layout .qbroadcast-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .qcast-demo-layout { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .qcast-demo-phone { justify-self: center; }
   .qx-section--dream .qx-spec--below dl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 480px) {
-  .qcast-demo-layout .qbroadcast-steps { grid-template-columns: minmax(0, 1fr); gap: 10px; }
-  .qcast-demo-layout .qbroadcast-steps li { padding: 14px 16px; }
+  .qcast-demo-copy .qbroadcast-subhead { margin-bottom: 18px; }
+  .qcast-demo-copy .qbroadcast-steps { gap: 15px; }
+  .qcast-demo-copy .qbroadcast-steps li { grid-template-columns: 22px minmax(0, 1fr); column-gap: 10px; }
+  .qcast-demo-copy .qbroadcast-steps h4 { font-size: 16px; }
   .qx-section--dream .qx-spec--below dl { grid-template-columns: minmax(0, 1fr); }
 }

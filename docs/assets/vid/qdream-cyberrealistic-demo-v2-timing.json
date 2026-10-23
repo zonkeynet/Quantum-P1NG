@@ -1,0 +1,65 @@
+[
+  {
+    "it": "Scegli CyberRealistic LCM e il profilo Qualità 512 × 512. Le immagini vengono generate in locale.",
+    "en": "Choose CyberRealistic LCM and the 512 × 512 Quality profile. Image generation runs locally.",
+    "chapter": "01 / MODEL",
+    "start": 0,
+    "end": 3.2
+  },
+  {
+    "it": "Seleziona lo stile Photorealistic per luce naturale e dettagli fotografici.",
+    "en": "Select the Photorealistic style for natural light and photographic detail.",
+    "chapter": "02 / STYLE",
+    "start": 3.2,
+    "end": 6.367
+  },
+  {
+    "it": "Descrivi l’immagine: un ritratto nella luce del tramonto, scogliere e un effetto fotografico da 85 mm.",
+    "en": "Describe your image: a portrait in golden-hour light, coastal cliffs and an 85 mm photographic look.",
+    "chapter": "03 / PROMPT",
+    "start": 6.367,
+    "end": 11.367
+  },
+  {
+    "it": "Q-Dream genera sul dispositivo con modalità aereo attiva. Le attese sono state accorciate nel video.",
+    "en": "Q-Dream generates on the device with airplane mode enabled. Waiting time has been shortened in this demo.",
+    "chapter": "04 / GENERATE",
+    "start": 11.367,
+    "end": 14.567
+  },
+  {
+    "it": "Apri il ritratto generato per osservare l’immagine nel visualizzatore dell’app.",
+    "en": "Open the generated portrait to inspect the image in the app viewer.",
+    "chapter": "05 / RESULT",
+    "start": 14.567,
+    "end": 20.267
+  },
+  {
+    "it": "I dettagli mostrano il modello usato, gli otto passaggi e il tempo effettivo di generazione.",
+    "en": "Image details show the actual model, eight steps and the recorded generation time.",
+    "chapter": "06 / DETAILS",
+    "start": 20.267,
+    "end": 24.233
+  },
+  {
+    "it": "Crea un’altra scena: Tokyo dopo la pioggia, neon ciano e magenta, riflessi e luce cinematografica.",
+    "en": "Try a different scene: Tokyo after rain, cyan and magenta neon, reflections and cinematic light.",
+    "chapter": "07 / CREATE AGAIN",
+    "start": 24.233,
+    "end": 27.967
+  },
+  {
+    "it": "Una seconda immagine, generata sempre in locale con CyberRealistic. Tocca per vederla a schermo intero.",
+    "en": "A second image, also generated locally with CyberRealistic. Tap to view it full screen.",
+    "chapter": "08 / EXPLORE",
+    "start": 27.967,
+    "end": 34.9
+  },
+  {
+    "it": "Salva l’immagine nel vault del dispositivo, pronta per i tuoi progetti.",
+    "en": "Save the finished image to the device vault, ready to use in your own projects.",
+    "chapter": "09 / SAVE",
+    "start": 34.9,
+    "end": 39.233
+  }
+]
