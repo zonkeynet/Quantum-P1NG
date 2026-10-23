@@ -62,7 +62,7 @@
   </script>
   <link rel="stylesheet" href="styles.css?v=3.1.4" />
   <link rel="stylesheet" href="qcast-globe.css?v=1.0.8" />
-  <link rel="stylesheet" href="qgeo-demo.css?v=1" />
+  <link rel="stylesheet" href="qgeo-demo.css?v=2" />
 
   <!-- Schema.org Comprehensive Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -2865,7 +2865,30 @@ _
       <div class="qgeo-demo-intro">
         <p class="qgeo-demo-kicker mono">Q-GEO <span aria-hidden="true">//</span> IN THE APP</p>
         <h3 id="qgeoDemoTitle">Your map.<br><span>Even offline.</span></h3>
-        <p>Prepare a map before you go. Explore it without a connection, choose your view and keep useful places in your own collections.</p>
+        <p>Download an area, explore it offline and keep useful places in your own collections.</p>
+      </div>
+
+      <div class="qgeo-metrics-deck mono" aria-label="Q-Geo tactical metrics">
+        <div class="qgeo-metric-card">
+          <span class="qgeo-metric-label">VECTOR TILE ENGINE</span>
+          <strong class="qgeo-metric-val txt-cyan">60 FPS GPU</strong>
+          <span class="qgeo-metric-sub">Local OpenGL vector rendering</span>
+        </div>
+        <div class="qgeo-metric-card">
+          <span class="qgeo-metric-label">RADIO PACKET SIZE</span>
+          <strong class="qgeo-metric-val txt-green">&lt; 36 BYTES</strong>
+          <span class="qgeo-metric-sub">LoRa / GhostWave RF event payload</span>
+        </div>
+        <div class="qgeo-metric-card">
+          <span class="qgeo-metric-label">OFFLINE MAP PACKS</span>
+          <strong class="qgeo-metric-val txt-amber">MBTILES / PMTILES</strong>
+          <span class="qgeo-metric-sub">100% air-gapped on device storage</span>
+        </div>
+        <div class="qgeo-metric-card">
+          <span class="qgeo-metric-label">ROUTING ENGINE</span>
+          <strong class="qgeo-metric-val txt-purple">OFFLINE BROUTER</strong>
+          <span class="qgeo-metric-sub">Turn-by-turn foot, cycle &amp; 4x4 graph</span>
+        </div>
       </div>
 
       <figure class="qgeo-demo-player">
@@ -2892,15 +2915,15 @@ _
       <ol class="qgeo-demo-steps" aria-label="In this app walkthrough">
         <li>
           <span class="qgeo-demo-number mono" aria-hidden="true">01</span>
-          <div><h4>Prepare your map</h4><p>Choose an area and its detail, download through Tor, then check the installed pack.</p></div>
+          <div><h4>Prepare your map</h4><p>Select an area and detail, then download its map through Tor.</p></div>
         </li>
         <li>
           <span class="qgeo-demo-number mono" aria-hidden="true">02</span>
-          <div><h4>Explore offline</h4><p>Browse the Rome map in airplane mode. Switch between Tactical, Day and OLED styles.</p></div>
+          <div><h4>Explore offline</h4><p>Use Tactical, Day or OLED maps, even in airplane mode.</p></div>
         </li>
         <li>
           <span class="qgeo-demo-number mono" aria-hidden="true">03</span>
-          <div><h4>Keep useful places</h4><p>Create a collection, save a sample report with a note, then search for it on the map.</p></div>
+          <div><h4>Keep useful places</h4><p>Save a report in a collection, then find it on the map.</p></div>
         </li>
       </ol>
 
@@ -2908,30 +2931,6 @@ _
       <noscript><p class="qgeo-demo-noscript"><a href="assets/vid/qgeo-map-packs-demo.mp4">Watch the Q-Geo app walkthrough (MP4)</a></p></noscript>
     </section>
 
-
-    <!-- Metrics Deck -->
-    <div class="qgeo-metrics-deck mono" aria-label="Q-Geo tactical metrics">
-      <div class="qgeo-metric-card">
-        <span class="qgeo-metric-label">VECTOR TILE ENGINE</span>
-        <strong class="qgeo-metric-val txt-cyan">60 FPS GPU</strong>
-        <span class="qgeo-metric-sub">Local OpenGL vector rendering</span>
-      </div>
-      <div class="qgeo-metric-card">
-        <span class="qgeo-metric-label">RADIO PACKET SIZE</span>
-        <strong class="qgeo-metric-val txt-green">&lt; 36 BYTES</strong>
-        <span class="qgeo-metric-sub">LoRa / GhostWave RF event payload</span>
-      </div>
-      <div class="qgeo-metric-card">
-        <span class="qgeo-metric-label">OFFLINE MAP PACKS</span>
-        <strong class="qgeo-metric-val txt-amber">MBTILES / PMTILES</strong>
-        <span class="qgeo-metric-sub">100% air-gapped on device storage</span>
-      </div>
-      <div class="qgeo-metric-card">
-        <span class="qgeo-metric-label">ROUTING ENGINE</span>
-        <strong class="qgeo-metric-val txt-purple">OFFLINE BROUTER</strong>
-        <span class="qgeo-metric-sub">Turn-by-turn foot, cycle &amp; 4x4 graph</span>
-      </div>
-    </div>
 
     <!-- MAIN INTERACTIVE WORKSPACE (Tabs: Tactical Map / Map Packs / Event Protocol / Guide) -->
     <aside class="editorial-demo-note" role="note"><strong>INTERACTIVE DEMO · SAMPLE DATA</strong><span>Illustrative states. This panel does not control the app or verify your device.</span></aside>
