@@ -5,14 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Q-Geo Map Studio — Quantum P1NG</title>
   <meta name="description" content="Prepare offline vector map regions (.pmtiles) for Quantum P1NG. Explore online street and satellite maps, then extract a local map for offline use.">
+  <meta name="theme-color" content="#040910">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://www.qp1ng.com/pmtiles.html">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 
   <!-- OpenGraph / Social Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Quantum P1NG">
+  <meta property="og:locale" content="en_US">
   <meta property="og:title" content="Q-Geo Map Studio — Quantum P1NG">
   <meta property="og:description" content="Explore online maps and prepare PMTiles vector regions for offline use in Quantum P1NG.">
-  <meta property="og:image" content="https://www.qp1ng.com/assets/img/social-preview-1200.jpg">
   <meta property="og:url" content="https://www.qp1ng.com/pmtiles.html">
+  <meta property="og:image" content="https://www.qp1ng.com/assets/img/og-geo.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Q-Geo Map Studio: street and satellite maps, place search, drawing an area and extracting it as a .pmtiles file for offline use in Q-P1NG">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Q-Geo Map Studio — Quantum P1NG">
+  <meta name="twitter:description" content="Explore online maps and prepare PMTiles vector regions for offline use in Quantum P1NG.">
+  <meta name="twitter:image" content="https://www.qp1ng.com/assets/img/og-geo.jpg">
+  <meta name="twitter:image:alt" content="Q-Geo Map Studio: street and satellite maps, place search, drawing an area and extracting it as a .pmtiles file for offline use in Q-P1NG">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Q-Geo Map Studio",
+    "url": "https://www.qp1ng.com/pmtiles.html",
+    "description": "Explore street and satellite maps in the browser, draw an area and extract it as a PMTiles vector map for offline use in Quantum P1NG.",
+    "applicationCategory": "TravelApplication",
+    "operatingSystem": "Any (web browser)",
+    "image": "https://www.qp1ng.com/assets/img/og-geo.jpg",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+    "publisher": { "@type": "Organization", "name": "ZonkeyNet", "url": "https://www.qp1ng.com/" }
+  }
+  </script>
 
   <!-- Content Security Policy (Self-hosted & GIS Mapping Enabled) -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://github.com https://raw.githubusercontent.com https://*.tile.openstreetmap.org https://tile.openstreetmap.org https://*.arcgisonline.com https://server.arcgisonline.com https://services.arcgisonline.com; font-src 'self' data:; media-src 'self' data: blob:; worker-src 'self' blob:; connect-src 'self' https://api.qp1ng.com wss://api.qp1ng.com https://raw.githubusercontent.com https://zonkeynet.github.io https://*.tile.openstreetmap.org https://tile.openstreetmap.org https://*.arcgisonline.com https://server.arcgisonline.com https://services.arcgisonline.com https://nominatim.openstreetmap.org https://build.protomaps.com https://build-metadata.protomaps.dev https://slice.openstreetmap.us blob:; object-src 'none';" />
