@@ -1,0 +1,145 @@
+/* Q-Dream: original model examples, a compact studio and a quiet aurora. */
+#q-dream { --dream-ink: #edf1ff; --dream-muted: #acb5cd; --dream-line: rgba(177, 145, 255, .24); }
+#q-dream .qx-bg::before {
+  content: ""; position: absolute; inset: 0; opacity: .85;
+  background: radial-gradient(ellipse at 13% 19%, rgba(139, 65, 247, .19), transparent 49%),
+    radial-gradient(ellipse at 87% 30%, rgba(0, 210, 228, .12), transparent 44%),
+    radial-gradient(ellipse at 40% 85%, rgba(140, 71, 211, .09), transparent 44%);
+}
+#q-dream.qdream-awake .qx-bg::before { animation: qdream-arrival 4s ease-out both; }
+@keyframes qdream-arrival { from { opacity: .3; transform: translateY(16px) scale(.98); } to { opacity: .85; transform: none; } }
+#q-dream .qdream-studio {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(240px, 300px);
+  gap: clamp(28px, 5vw, 76px); align-items: center; max-width: none;
+}
+#q-dream .qdream-copy { min-width: 0; margin: 0; text-align: left; }
+#q-dream .qx-title { margin-top: 16px; }
+#q-dream .qdream-tagline { color: #bf9fff; font-size: clamp(25px, 2.6vw, 36px); line-height: 1.25; margin-top: 8px; }
+#q-dream .qx-desc { max-width: 65ch; font-size: 16px; line-height: 1.7; }
+#q-dream .qx-subtitle { color: #7fe7ef; margin: 20px 0 12px; }
+#q-dream .qx-badges { margin-top: 18px; }
+#q-dream .qx-badges span { border-color: var(--dream-line); background: rgba(140, 107, 226, .055); line-height: 1.35; }
+.qdream-phone { width: 100%; max-width: 300px; justify-self: end; box-shadow: 0 0 72px rgba(145, 93, 249, .12); }
+.qdream-demo-caption-panel { margin-top: 24px; padding-top: 15px; border-top: 1px solid var(--dream-line); }
+.qdream-demo-caption-panel .app-walkthrough-note { max-width: 86ch; font-size: 11px; line-height: 1.65; }
+.qdream-gallery { margin-top: clamp(40px, 5vw, 64px); scroll-margin-top: 90px; }
+.qdream-gallery-heading { display: flex; align-items: end; justify-content: space-between; gap: 18px; margin-bottom: 22px; }
+.qdream-eyebrow { display: block; color: #bba2f8; font-size: 10px; line-height: 1.65; letter-spacing: .045em; }
+.qdream-gallery h3 { margin: 10px 0 7px; color: var(--dream-ink); font-family: var(--font-cyber, var(--font-mono)); font-size: clamp(25px, 2.8vw, 36px); font-weight: 700; line-height: 1.15; }
+.qdream-gallery-heading p { margin: 0; color: var(--dream-muted); font-size: 14px; line-height: 1.6; }
+.qdream-gallery-controls { display: flex; gap: 8px; flex-shrink: 0; }
+.qdream-gallery-controls[hidden] { display: none; }
+.qdream-gallery-controls button,
+.qdream-lightbox-toolbar button {
+  display: inline-grid; place-items: center; width: 44px; height: 44px; padding: 0;
+  border: 1px solid rgba(187, 162, 248, .35); border-radius: 8px;
+  color: #ede5ff; background: rgba(156, 120, 228, .08); font: 22px/1 var(--font-sans); cursor: pointer;
+}
+.qdream-gallery-controls button:disabled { opacity: .3; cursor: default; }
+.qdream-gallery-track {
+  display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 36px) / 3);
+  gap: 18px; margin: 0; padding: 3px 2px 15px; list-style: none;
+  overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory;
+  scrollbar-width: thin; scrollbar-color: #65518d transparent; scroll-padding-inline: 2px;
+}
+.qdream-gallery-item { min-width: 0; scroll-snap-align: start; }
+.qdream-gallery-link {
+  display: block; height: 100%; overflow: hidden; border: 1px solid var(--dream-line);
+  border-radius: 12px; background: linear-gradient(150deg, rgba(21, 18, 36, .96), rgba(5, 11, 18, .98));
+  color: var(--dream-ink); text-decoration: none; transition: border-color .25s ease, box-shadow .25s ease;
+}
+.qdream-gallery-art { position: relative; overflow: hidden; aspect-ratio: 1; background: #080b14; }
+.qdream-gallery-art img { display: block; width: 100%; height: 100%; object-fit: contain; transition: transform .5s ease; }
+.qdream-gallery-genre {
+  position: absolute; top: 14px; left: 14px; padding: 7px 9px; border: 1px solid rgba(219, 207, 255, .22);
+  border-radius: 5px; background: rgba(7, 8, 20, .86); color: #e6ddff; font-size: 9px; line-height: 1.3;
+  pointer-events: none;
+}
+.qdream-gallery-label { padding: 18px 19px 16px; }
+.qdream-gallery-model { display: block; color: #b6a1dc; font-size: 9px; line-height: 1.6; }
+.qdream-gallery-label h4 { margin: 9px 0 12px; color: #f3ecff; font: 700 clamp(20px, 1.8vw, 25px)/1.2 var(--font-cyber, var(--font-mono)); }
+.qdream-gallery-open { display: flex; align-items: center; justify-content: space-between; color: #89dce6; font-size: 12px; line-height: 1.5; }
+.qdream-gallery-open > span { font-size: 21px; line-height: 1; }
+.qdream-gallery-provenance,
+.qdream-gallery-credit { margin: 10px 0 0; color: #9ca7c0; font-size: 11px; line-height: 1.8; }
+.qdream-gallery-provenance a,
+.qdream-gallery-credit a { color: #c5aff4; text-decoration: underline; text-underline-offset: 3px; }
+.qdream-gallery-provenance a { margin-left: 8px; white-space: nowrap; }
+.qdream-engine { margin-top: 28px; border: 1px solid var(--dream-line); border-radius: 10px; background: rgba(7, 10, 19, .65); }
+.qdream-engine > summary { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 19px 22px; list-style: none; cursor: pointer; }
+.qdream-engine > summary::-webkit-details-marker { display: none; }
+.qdream-engine > summary > span:first-child { display: flex; align-items: center; flex-wrap: wrap; column-gap: 24px; row-gap: 7px; }
+.qdream-engine summary strong { color: #d8c5ff; font: 700 20px/1.2 var(--font-cyber, var(--font-mono)); }
+.qdream-engine summary span span { color: #a7b2c6; font-size: 12px; line-height: 1.5; }
+.qdream-engine-toggle { color: #bca0ee; font: 24px/1 var(--font-sans); transition: transform .2s ease; }
+.qdream-engine[open] .qdream-engine-toggle { transform: rotate(45deg); }
+.qdream-engine-body { padding: 0 22px 22px; }
+#q-dream .qdream-engine .qx-spec--below { max-width: none; margin: 0; }
+.qdream-lightbox {
+  width: min(1020px, calc(100vw - 32px)); max-width: none; max-height: calc(100dvh - 32px);
+  margin: auto; padding: 0; overflow: auto; overscroll-behavior: contain;
+  border: 1px solid #69558a; border-radius: 16px; color: #edf1ff; background: #090b14;
+  box-shadow: 0 28px 100px rgba(0, 0, 0, .65); font-family: var(--font-sans);
+  scrollbar-width: thin; scrollbar-color: #65518d #090b14;
+}
+.qdream-lightbox::backdrop { background: rgba(2, 3, 10, .9); }
+.qdream-lightbox-toolbar { position: sticky; top: 0; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 16px; border-bottom: 1px solid #322741; background: #0d101c; }
+.qdream-lightbox-toolbar > span { color: #c3b1e6; font-size: 11px; }
+.qdream-lightbox-toolbar > div { display: flex; gap: 8px; }
+.qdream-lightbox-body { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); align-items: center; gap: 30px; padding: 24px; }
+.qdream-lightbox-body > img { display: block; width: 100%; max-width: 512px; height: auto; aspect-ratio: 1; object-fit: contain; border-radius: 8px; background: #050610; }
+.qdream-lightbox-copy { min-width: 0; }
+.qdream-lightbox-copy h3 { margin: 12px 0 24px; color: #f1e9ff; font: 700 30px/1.15 var(--font-cyber, var(--font-mono)); }
+.qdream-prompt-label { color: #85d9e3; font-size: 10px; }
+.qdream-lightbox-copy [data-dream-prompt] { margin: 10px 0 15px; color: #e2e4ee; font-size: 15px; line-height: 1.7; user-select: text; }
+.qdream-copy-prompt { min-height: 44px; padding: 10px 16px; border: 1px solid #9976cd; border-radius: 7px; color: #efe4ff; background: #241733; font: 600 13px/1.5 var(--font-sans); cursor: pointer; }
+.qdream-copy-status { min-height: 1.6em; margin: 6px 0 12px; color: #9ce4cd; font-size: 12px; line-height: 1.6; }
+.qdream-image-settings { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; padding-top: 16px; margin: 0; border-top: 1px solid #322741; }
+.qdream-image-settings dt { color: #a59ab8; font-size: 11px; }
+.qdream-image-settings dd { margin: 5px 0 0; color: #e3d6f7; font-size: 12px; }
+.qdream-image-note { margin: 14px 0; color: #9ea8bc; font-size: 11px; line-height: 1.7; }
+.qdream-lightbox-copy > a { color: #cbb6f5; font-size: 12px; text-decoration: underline; text-underline-offset: 3px; }
+html.qdream-modal-open { overflow: hidden; }
+.qdream-gallery-link:focus-visible,
+.qdream-gallery-controls button:focus-visible,
+.qdream-lightbox button:focus-visible,
+.qdream-lightbox a:focus-visible,
+.qdream-engine > summary:focus-visible { outline: 2px solid #cbb3ff; outline-offset: 2px; }
+@media (hover: hover) {
+  .qdream-gallery-link:hover { border-color: #a882df; box-shadow: 0 5px 24px rgba(132, 79, 218, .13); }
+  .qdream-gallery-link:hover img { transform: scale(1.025); }
+  .qdream-gallery-controls button:hover:not(:disabled), .qdream-lightbox-toolbar button:hover { background: #30233e; }
+}
+@media (max-width: 1000px) {
+  .qdream-gallery-track { grid-auto-columns: calc((100% - 18px) / 2); }
+}
+@media (max-width: 800px) {
+  #q-dream .qdream-studio { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .qdream-phone { justify-self: center; }
+  #q-dream .qx-desc { font-size: 15px; }
+  .qdream-lightbox-body { grid-template-columns: minmax(0, 1fr); gap: 22px; padding: 18px; }
+  .qdream-lightbox-body > img { max-width: min(512px, 58vh); justify-self: center; }
+}
+@media (max-width: 600px) {
+  .qdream-gallery-heading { align-items: center; gap: 12px; }
+  .qdream-gallery-heading p { font-size: 13px; }
+  .qdream-gallery-controls { gap: 5px; }
+  .qdream-gallery-controls button { width: 44px; }
+  .qdream-gallery-track { grid-auto-columns: 85%; gap: 14px; }
+  .qdream-gallery-provenance a { display: inline-block; margin: 4px 0 0; white-space: normal; }
+  .qdream-engine > summary { padding: 17px 16px; }
+  .qdream-engine-body { padding: 0 12px 16px; }
+  .qdream-lightbox { width: calc(100vw - 20px); max-height: calc(100dvh - 20px); }
+  .qdream-lightbox-toolbar { padding: 8px 12px; }
+  .qdream-lightbox-copy h3 { font-size: 26px; }
+}
+@media (max-width: 380px) {
+  .qdream-gallery-heading { flex-wrap: wrap; }
+  .qdream-gallery-controls { margin-left: auto; }
+  .qdream-image-settings { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  #q-dream.qdream-awake .qx-bg::before { animation: none; }
+  .qdream-gallery-art img, .qdream-gallery-link, .qdream-engine-toggle { transition: none; }
+  .qdream-gallery-link:hover img { transform: none; }
+}

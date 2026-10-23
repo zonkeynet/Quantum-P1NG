@@ -67,6 +67,7 @@
   <link rel="stylesheet" href="radio-bridge-layout.css?v=1" />
   <link rel="stylesheet" href="qai-tools-demo.css?v=4" />
   <link rel="stylesheet" href="app-feature-demos.css?v=2" />
+  <link rel="stylesheet" href="qdream-gallery.css?v=1" />
 
   <!-- Schema.org Comprehensive Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -7024,8 +7025,10 @@ _
 <section id="q-dream" class="section qx-section qx-section--dream" aria-labelledby="q-dream-title">
   <div class="qx-bg" aria-hidden="true"></div>
   <div class="wrap">
-    <div class="qx-hero">
-      <div class="qx-copy">
+    <figure class="app-walkthrough app-walkthrough--dream qdream-studio" data-app-walkthrough="Q-Dream"
+        data-cues="assets/vid/qdream-cyberrealistic-demo-v2-timing.json" data-idle-en="From a photographic prompt to a CyberRealistic image, generated locally in Q-Brain." data-idle-it="Da un prompt fotografico a un’immagine CyberRealistic, generata localmente in Q-Brain.">
+      <figcaption id="qdream-demo-caption" class="qdream-copy">
+        <div class="qx-copy">
         <div class="qx-kicker mono">
           <span class="qx-kicker-dot" aria-hidden="true"></span>
           <span>MODULE: Q-DREAM_IMAGE_ENGINE</span>
@@ -7040,53 +7043,156 @@ _
             </picture>
             <span class="qx-title-text">Q-Dream</span>
           </span>
-          <span>Image Engine on the Phone</span>
+          <span class="qdream-tagline">Dream it. Create it.<br>Keep it yours.</span>
         </h2>
-        <p class="qx-subtitle mono">Text to image without a server. NPU in under a second, CPU on any recent phone.</p>
-        <p class="qx-desc">
-          Q-Dream is the image engine behind Q-Brain chat. Describe a picture and it is generated on the device by Stable Diffusion 1.5 models with latent-consistency sampling: on the Hexagon NPU of recent Snapdragon phones, or on the CPU of any arm64 phone with enough memory. Prompts and images stay on the phone until you decide to share them.
-        </p>
+        <p class="qx-subtitle mono">Your imagination. On your phone.</p>
+        <p class="qx-desc">Turn a few words into portraits, imagined worlds and cinematic scenes. Q-Dream creates images locally inside Q-Brain, using models you download to your phone. Keep your creations private until you choose to share them.</p>
         <div class="qx-badges" aria-label="Q-Dream properties">
-          <span>On-device</span>
-          <span>Snapdragon NPU</span>
-          <span>CPU int8</span>
-          <span>6-step LCM</span>
-          <span>No image server</span>
-          <span>Open RAIL-M</span>
-        </div>
+              <span>Local image generation</span><span>3 downloadable models</span><span>Offline after setup</span>
+            </div>
       </div>
-      <figure class="app-walkthrough app-walkthrough--dream" data-app-walkthrough="Q-Dream"
-        data-cues="assets/vid/qdream-cyberrealistic-demo-v2-timing.json" data-idle-en="From a photographic prompt to a CyberRealistic image, generated locally in Q-Brain." data-idle-it="Da un prompt fotografico a un’immagine CyberRealistic, generata localmente in Q-Brain.">
-        <div class="app-walkthrough-screen">
-          <video width="720" height="1280" muted playsinline preload="none" disablepictureinpicture disableremoteplayback
-            role="button" tabindex="0" aria-label="Play Q-Dream demo" aria-describedby="qdream-demo-caption"
-            poster="assets/img/qdream-cyberrealistic-demo-poster.webp">
-            <source data-src="assets/vid/qdream-cyberrealistic-demo-v2.webm" type="video/webm">
-            <source data-src="assets/vid/qdream-cyberrealistic-demo-v2.mp4" type="video/mp4">
-            <p><a href="assets/vid/qdream-cyberrealistic-demo-v2.mp4">Watch the Q-Dream demo.</a></p>
-          </video>
-        </div>
-        <figcaption id="qdream-demo-caption">
+        <div class="qdream-demo-caption-panel">
           <div class="app-walkthrough-meta mono"><span>Q-DREAM // 00:39<br><span data-demo-hint>Click to play</span></span>
             <div class="app-walkthrough-languages" role="group" aria-label="Q-Dream caption language">
               <button type="button" data-demo-lang="en" aria-label="English captions" aria-pressed="true">EN</button>
               <button type="button" data-demo-lang="it" aria-label="Didascalie in italiano" aria-pressed="false">IT</button>
             </div>
           </div>
-          <span class="app-walkthrough-caption" data-demo-caption>From a photographic prompt to a CyberRealistic image, generated locally in Q-Brain.</span>
-          <small class="app-walkthrough-note">Recorded in the Android emulator with the Eclipse theme and a local CPU runtime. Waiting time edited; not a speed benchmark.</small>
+          <span id="qdream-demo-text" class="app-walkthrough-caption" data-demo-caption>From a photographic prompt to a CyberRealistic image, generated locally in Q-Brain.</span>
+          <small class="app-walkthrough-note">Images: CyberRealistic, generated locally. Gemini in the recording is the separate chat model. Recorded in the Android emulator with the Eclipse theme; waiting time edited.</small>
           <p class="app-walkthrough-fallback" data-demo-fallback hidden><a href="assets/vid/qdream-cyberrealistic-demo-v2.mp4">Open the video</a></p>
           <noscript><p class="app-walkthrough-fallback"><a href="assets/vid/qdream-cyberrealistic-demo-v2.mp4">Watch the Q-Dream demo</a></p></noscript>
-        </figcaption>
-      </figure>
+        </div>
+      </figcaption>
+      <div class="app-walkthrough-screen qdream-phone">
+          <video width="720" height="1280" muted playsinline preload="none" disablepictureinpicture disableremoteplayback
+            role="button" tabindex="0" aria-label="Play Q-Dream demo" aria-describedby="qdream-demo-text"
+            poster="assets/img/qdream-cyberrealistic-demo-poster.webp">
+            <source data-src="assets/vid/qdream-cyberrealistic-demo-v2.webm" type="video/webm">
+            <source data-src="assets/vid/qdream-cyberrealistic-demo-v2.mp4" type="video/mp4">
+            <p><a href="assets/vid/qdream-cyberrealistic-demo-v2.mp4">Watch the Q-Dream demo.</a></p>
+          </video>
+        </div>
+    </figure>
+
+    <div id="qdream-gallery" class="qdream-gallery" aria-labelledby="qdream-gallery-title">
+      <div class="qdream-gallery-heading">
+        <div>
+          <span class="qdream-eyebrow mono">FROM A FEW WORDS TO A WORLD</span>
+          <h3 id="qdream-gallery-title">What will you dream?</h3>
+          <p>Choose a scene. Explore its prompt. Make it your own.</p>
+        </div>
+        <div class="qdream-gallery-controls" data-dream-controls hidden>
+          <button type="button" data-dream-scroll="-1" aria-label="Previous gallery images" aria-controls="qdream-gallery-track" disabled>&#8592;</button>
+          <button type="button" data-dream-scroll="1" aria-label="Next gallery images" aria-controls="qdream-gallery-track">&#8594;</button>
+        </div>
+      </div>
+      <ul id="qdream-gallery-track" class="qdream-gallery-track" aria-label="Six Q-Dream model examples">
+          <li class="qdream-gallery-item">
+            <a class="qdream-gallery-link" href="assets/img/qdream-gallery/dreamshaper8_mushrooms.webp" data-dream-image data-title="A forest of light"
+              data-model="DreamShaper 8 LCM" data-prompt="a magical forest with glowing mushrooms and fireflies at night, fantasy illustration" data-seed="23" data-source="https://huggingface.co/Q-P1NG/qdream-models/blob/0cca33d3b6ad23e1d350fb11964be359c55f9d4a/images/examples/dreamshaper8_mushrooms.jpg"
+              aria-label="Explore A forest of light: image and original prompt">
+              <div class="qdream-gallery-art">
+                <img src="assets/img/qdream-gallery/dreamshaper8_mushrooms.webp" width="512" height="512" loading="lazy" decoding="async" alt="Purple and blue mushrooms glowing along a moonlit forest path.">
+                <span class="qdream-gallery-genre mono">01 // Fantasy</span>
+              </div>
+              <div class="qdream-gallery-label">
+                <span class="qdream-gallery-model mono">DreamShaper 8 LCM</span>
+                <h4>A forest of light</h4>
+                <span class="qdream-gallery-open">Explore the prompt <span aria-hidden="true">&#8599;</span></span>
+              </div>
+            </a>
+          </li>
+          <li class="qdream-gallery-item">
+            <a class="qdream-gallery-link" href="assets/img/qdream-gallery/cyberrealistic_redhead.webp" data-dream-image data-title="Golden-hour muse"
+              data-model="CyberRealistic Final" data-prompt="portrait of a young woman with freckles and windswept red hair, golden hour, shallow depth of field, 85mm photo" data-seed="23" data-source="https://huggingface.co/Q-P1NG/qdream-models/blob/0cca33d3b6ad23e1d350fb11964be359c55f9d4a/images/examples/cyberrealistic_redhead.jpg"
+              aria-label="Explore Golden-hour muse: image and original prompt">
+              <div class="qdream-gallery-art">
+                <img src="assets/img/qdream-gallery/cyberrealistic_redhead.webp" width="512" height="512" loading="lazy" decoding="async" alt="A generated portrait with freckles, copper hair and warm evening light.">
+                <span class="qdream-gallery-genre mono">02 // Portrait</span>
+              </div>
+              <div class="qdream-gallery-label">
+                <span class="qdream-gallery-model mono">CyberRealistic Final</span>
+                <h4>Golden-hour muse</h4>
+                <span class="qdream-gallery-open">Explore the prompt <span aria-hidden="true">&#8599;</span></span>
+              </div>
+            </a>
+          </li>
+          <li class="qdream-gallery-item">
+            <a class="qdream-gallery-link" href="assets/img/qdream-gallery/realisticvision6_aurora.webp" data-dream-image data-title="Under northern skies"
+              data-model="Realistic Vision V6.0 B1" data-prompt="a cozy wooden cabin by a lake under the northern lights, reflections, snow, long exposure photo" data-seed="23" data-source="https://huggingface.co/Q-P1NG/qdream-models/blob/0cca33d3b6ad23e1d350fb11964be359c55f9d4a/images/examples/realisticvision6_aurora.jpg"
+              aria-label="Explore Under northern skies: image and original prompt">
+              <div class="qdream-gallery-art">
+                <img src="assets/img/qdream-gallery/realisticvision6_aurora.webp" width="512" height="512" loading="lazy" decoding="async" alt="A wooden cabin and northern lights reflected in a quiet snowy lake.">
+                <span class="qdream-gallery-genre mono">03 // Nature</span>
+              </div>
+              <div class="qdream-gallery-label">
+                <span class="qdream-gallery-model mono">Realistic Vision V6.0 B1</span>
+                <h4>Under northern skies</h4>
+                <span class="qdream-gallery-open">Explore the prompt <span aria-hidden="true">&#8599;</span></span>
+              </div>
+            </a>
+          </li>
+          <li class="qdream-gallery-item">
+            <a class="qdream-gallery-link" href="assets/img/qdream-gallery/dreamshaper8_castle.webp" data-dream-image data-title="An island of dreams"
+              data-model="DreamShaper 8 LCM" data-prompt="a medieval castle on an island at sunrise, fantasy landscape, volumetric light" data-seed="11" data-source="https://huggingface.co/Q-P1NG/qdream-models/blob/0cca33d3b6ad23e1d350fb11964be359c55f9d4a/images/examples/dreamshaper8_castle.jpg"
+              aria-label="Explore An island of dreams: image and original prompt">
+              <div class="qdream-gallery-art">
+                <img src="assets/img/qdream-gallery/dreamshaper8_castle.webp" width="512" height="512" loading="lazy" decoding="async" alt="A castle rising above a rocky island in golden sunrise light.">
+                <span class="qdream-gallery-genre mono">04 // Fantasy</span>
+              </div>
+              <div class="qdream-gallery-label">
+                <span class="qdream-gallery-model mono">DreamShaper 8 LCM</span>
+                <h4>An island of dreams</h4>
+                <span class="qdream-gallery-open">Explore the prompt <span aria-hidden="true">&#8599;</span></span>
+              </div>
+            </a>
+          </li>
+          <li class="qdream-gallery-item">
+            <a class="qdream-gallery-link" href="assets/img/qdream-gallery/cyberrealistic_cyberpunk.webp" data-dream-image data-title="After the neon rain"
+              data-model="CyberRealistic Final" data-prompt="a futuristic cyberpunk street at night, neon signs, rain, reflections on wet asphalt, cinematic" data-seed="11" data-source="https://huggingface.co/Q-P1NG/qdream-models/blob/0cca33d3b6ad23e1d350fb11964be359c55f9d4a/images/examples/cyberrealistic_cyberpunk.jpg"
+              aria-label="Explore After the neon rain: image and original prompt">
+              <div class="qdream-gallery-art">
+                <img src="assets/img/qdream-gallery/cyberrealistic_cyberpunk.webp" width="512" height="512" loading="lazy" decoding="async" alt="Red and cyan neon reflected on a rain-soaked city street.">
+                <span class="qdream-gallery-genre mono">05 // Cinema</span>
+              </div>
+              <div class="qdream-gallery-label">
+                <span class="qdream-gallery-model mono">CyberRealistic Final</span>
+                <h4>After the neon rain</h4>
+                <span class="qdream-gallery-open">Explore the prompt <span aria-hidden="true">&#8599;</span></span>
+              </div>
+            </a>
+          </li>
+          <li class="qdream-gallery-item">
+            <a class="qdream-gallery-link" href="assets/img/qdream-gallery/realisticvision6_reef.webp" data-dream-image data-title="Beneath the blue"
+              data-model="Realistic Vision V6.0 B1" data-prompt="underwater coral reef with tropical fish and sun rays, crystal clear water, vivid colors" data-seed="11" data-source="https://huggingface.co/Q-P1NG/qdream-models/blob/0cca33d3b6ad23e1d350fb11964be359c55f9d4a/images/examples/realisticvision6_reef.jpg"
+              aria-label="Explore Beneath the blue: image and original prompt">
+              <div class="qdream-gallery-art">
+                <img src="assets/img/qdream-gallery/realisticvision6_reef.webp" width="512" height="512" loading="lazy" decoding="async" alt="Sunlight filtering through blue water onto fish and pink coral.">
+                <span class="qdream-gallery-genre mono">06 // Nature</span>
+              </div>
+              <div class="qdream-gallery-label">
+                <span class="qdream-gallery-model mono">Realistic Vision V6.0 B1</span>
+                <h4>Beneath the blue</h4>
+                <span class="qdream-gallery-open">Explore the prompt <span aria-hidden="true">&#8599;</span></span>
+              </div>
+            </a>
+          </li>
+      </ul>
+      <p class="qdream-gallery-provenance">Q-Dream CPU reference pipeline · 512 × 512 · 6 LCM steps · No retouching.
+        <a href="https://huggingface.co/Q-P1NG/qdream-models/blob/0cca33d3b6ad23e1d350fb11964be359c55f9d4a/README.md#gallery" target="_blank" rel="noopener">Original gallery &amp; settings</a>
+      </p>
     </div>
 
-      <aside class="qx-spec qx-spec--below mono" aria-label="Q-Dream measured performance">
+    <details class="qdream-engine">
+      <summary><span><strong>Inside Q-Dream</strong><span>Models, compatibility &amp; measured performance</span></span><span class="qdream-engine-toggle" aria-hidden="true">+</span></summary>
+      <div class="qdream-engine-body">
+        <aside class="qx-spec qx-spec--below mono" aria-label="Q-Dream measured performance">
         <div class="qx-spec-head"><span>Measured in the app</span><span>6 steps</span></div>
         <dl>
-          <div><dt>Snapdragon 8 Elite (NPU)</dt><dd>512 px in 0.9 s per image</dd></div>
+          <div><dt>Snapdragon 8 Elite (NPU)</dt><dd>512 px, 6 steps: 0.91–0.93 s generation; 1.5–1.6 s including engine load and saving.</dd></div>
           <div><dt>Pixel 10a (CPU)</dt><dd>384 px in 12 to 13 s</dd></div>
-          <div><dt>NPU bundles</dt><dd>Snapdragon 8 Gen 2, 7 Gen 4, 8 Gen 3, 8 Elite, 8 Elite Gen 5</dd></div>
+          <div><dt>NPU bundles</dt><dd>DreamShaper and CyberRealistic: Snapdragon 8 Gen 2, 7 Gen 4, 8 Gen 3, 8 Elite and 8 Elite Gen 5. Performance varies by phone.</dd></div>
           <div><dt>CPU bundles</dt><dd>Any arm64 phone with 6 GB of RAM</dd></div>
           <div><dt>Download</dt><dd>About 1 GB per model, every file SHA-256 checked</dd></div>
         </dl>
@@ -7118,7 +7224,7 @@ _
     <div class="qx-flow" aria-label="Q-Dream generation pipeline">
       <div><span class="mono">PROMPT</span><strong>written in Q-Brain chat</strong></div>
       <div><span class="mono">ENCODE</span><strong>CLIP text encoder</strong></div>
-      <div><span class="mono">DENOISE</span><strong>6 LCM steps on NPU or CPU</strong></div>
+      <div><span class="mono">DENOISE</span><strong>LCM sampling on NPU or CPU</strong></div>
       <div><span class="mono">DECODE</span><strong>TAESD or full VAE</strong></div>
       <div><span class="mono">KEEP</span><strong>on the phone until you share it</strong></div>
     </div>
@@ -7128,6 +7234,30 @@ _
       <p>Generated images can look real. Use them lawfully and within the Open RAIL-M restrictions, and label synthetic images when you share them.</p>
     </div>
     <p class="qx-credit">Models: DreamShaper 8 LCM (Lykon), Realistic Vision V6.0 B1 (SG161222), CyberRealistic (cyberdelia), LCM-LoRA and TAESD. Bundles: <a href="https://huggingface.co/Q-P1NG/qdream-models" target="_blank" rel="noopener">Q-P1NG/qdream-models</a>, under the Q-P1NG Q-Dream Model License (CreativeML Open RAIL-M).</p>
+      </div>
+    </details>
+    <p class="qdream-gallery-credit">Q-Dream models by <a href="https://huggingface.co/Q-P1NG/qdream-models" target="_blank" rel="noopener">Q-P1NG</a>. Gallery examples are generated images; the video shows the app in use.</p>
+
+    <dialog id="qdream-lightbox" class="qdream-lightbox" aria-labelledby="qdream-lightbox-title">
+      <div class="qdream-lightbox-toolbar">
+        <span class="mono" data-dream-counter>01 / 06</span>
+        <div><button type="button" data-dream-previous aria-label="Previous image">&#8592;</button><button type="button" data-dream-next aria-label="Next image">&#8594;</button><button type="button" data-dream-close aria-label="Close image" autofocus>&#215;</button></div>
+      </div>
+      <div class="qdream-lightbox-body">
+        <img data-dream-full width="512" height="512" alt="">
+        <div class="qdream-lightbox-copy">
+          <span class="qdream-eyebrow mono" data-dream-model></span>
+          <h3 id="qdream-lightbox-title"></h3>
+          <span class="qdream-prompt-label mono">THE ORIGINAL PROMPT</span>
+          <p id="qdream-lightbox-prompt" data-dream-prompt></p>
+          <button type="button" class="qdream-copy-prompt" data-dream-copy>Copy prompt</button>
+          <p class="qdream-copy-status" data-dream-status role="status" aria-live="polite"></p>
+          <dl class="qdream-image-settings"><div><dt>Seed</dt><dd data-dream-seed></dd></div><div><dt>Steps</dt><dd>6 LCM</dd></div><div><dt>Guidance</dt><dd>1.0</dd></div><div><dt>Image</dt><dd>512 × 512</dd></div></dl>
+          <p class="qdream-image-note">CPU reference pipeline · No negative prompt.<br>Try these settings in Q-Dream; results can vary with the runtime and decoder.</p>
+          <a data-dream-original target="_blank" rel="noopener">View original on Hugging Face &#8599;</a>
+        </div>
+      </div>
+    </dialog>
   </div>
 </section>
 <!-- ===================================================================== -->
@@ -8513,6 +8643,7 @@ _
   </script>
   <script src="script.js?v=2.6.24" defer></script>
   <script src="app-feature-demos.js?v=1" defer></script>
+  <script src="qdream-gallery.js?v=1" defer></script>
   <script src="qcast-hero-player.js?v=1" defer></script>
   <script src="qgeo-demo.js?v=1" defer></script>
 </body>
