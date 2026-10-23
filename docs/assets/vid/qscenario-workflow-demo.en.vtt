@@ -1,0 +1,49 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:03.967
+Review the sample workflow: a field checklist and its budget.
+
+2
+00:00:03.967 --> 00:00:08.967
+Choose a trigger. This example starts only with a manual run.
+
+3
+00:00:08.967 --> 00:00:13.933
+Check the condition before execution: battery between 20% and 100%.
+
+4
+00:00:13.933 --> 00:00:18.933
+Set, split and join QVars to build the checklist.
+
+5
+00:00:18.933 --> 00:00:22.933
+Run Python, store its output in a QVar, then append it to a vault note.
+
+6
+00:00:22.933 --> 00:00:26.933
+Inspect the action payload before it runs.
+
+7
+00:00:26.933 --> 00:00:32.933
+Read the Python source, output variable and execution timeout.
+
+8
+00:00:32.933 --> 00:00:36.933
+Save the reviewed workflow, ready for a manual run.
+
+9
+00:00:36.933 --> 00:00:41.900
+Press Run. The five actions execute in order.
+
+10
+00:00:41.900 --> 00:00:45.900
+The run succeeds and the vault note is updated.
+
+11
+00:00:45.900 --> 00:00:50.867
+Open the run log: manual trigger, duration and completed status.
+
+12
+00:00:50.867 --> 00:00:58.200
+Open the saved note: checklist, real Python output and a total of 102 EUR.

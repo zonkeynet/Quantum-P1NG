@@ -61,10 +61,10 @@
     } catch(e){}
   </script>
   <link rel="stylesheet" href="styles.css?v=3.1.5" />
-  <link rel="stylesheet" href="qcast-globe.css?v=1.0.8" />
+  <link rel="stylesheet" href="qcast-globe.css?v=1.0.9" />
   <link rel="stylesheet" href="qgeo-demo.css?v=2" />
   <link rel="stylesheet" href="radio-bridge-layout.css?v=1" />
-  <link rel="stylesheet" href="qai-tools-demo.css?v=2" />
+  <link rel="stylesheet" href="qai-tools-demo.css?v=3" />
 
   <!-- Schema.org Comprehensive Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -6783,9 +6783,15 @@ _
         </div>
         <p class="qbroadcast-micro">No app required to explore. Tor-only audio needs QP1NG or Tor Browser.</p>
       </div>
-      <figure class="qbroadcast-art">
-        <img src="assets/img/qglobe-world-hero.webp?v=2" srcset="assets/img/qglobe-world-hero-768.webp?v=2 768w, assets/img/qglobe-world-hero.webp?v=2 1536w" sizes="(max-width: 900px) calc(100vw - 48px), 610px" width="1536" height="1030" loading="lazy" decoding="async" alt="A luminous Earth with radio beacons and connecting arcs, accompanied by the QP1NG messenger pigeon. Concept illustration.">
-        <figcaption><span>Q-GLOBE</span><span>EXPLORE PLACES. DISCOVER VOICES.</span></figcaption>
+      <figure class="qbroadcast-art qglobe-hero-motion">
+        <video id="qglobeHeroVideo" width="1280" height="720" muted playsinline preload="none"
+          disablepictureinpicture disableremoteplayback role="button" tabindex="0" aria-pressed="false"
+          aria-label="Play Q-Globe animation" aria-describedby="qglobeHeroCaption"
+          poster="assets/img/qglobe-hero-motion-poster.webp">
+          <source data-src="assets/vid/qglobe-hero-motion.mp4" type="video/mp4">
+          <p><a href="assets/vid/qglobe-hero-motion.mp4">Watch the Q-Globe animation.</a></p>
+        </video>
+        <figcaption id="qglobeHeroCaption"><span>Q-GLOBE <span aria-hidden="true">//</span> 00:10</span><span id="qglobeHeroHint">CLICK TO PLAY</span></figcaption>
       </figure>
     </div>
 
@@ -6910,23 +6916,7 @@ _
 
         <div class="qai-module-switcher" role="tablist" aria-label="Q-AI modules">
           <button class="qai-module-tab is-active" type="button" data-qai-module="brain" role="tab" aria-selected="true">
-            <svg class="qai-tab-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M 6,15 Q 5,8 11,6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              <path d="M 13,6 Q 19,8 18,15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              <path d="M 6,15 Q 6,19 12,19 Q 18,19 18,15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              <path d="M 11,6 Q 12,5 13,6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-              <path d="M 12,6 L 12,15" stroke="currentColor" stroke-width="0.8" stroke-linecap="round"/>
-              <path d="M 8,11 L 16,11" stroke="currentColor" stroke-width="1.0" stroke-linecap="round"/>
-              <path d="M 9,11 L 8,9 M 9,11 L 8,13 M 15,11 L 16,9 M 15,11 L 16,13" stroke="currentColor" stroke-width="0.8" stroke-linecap="round"/>
-              <circle cx="8" cy="11" r="0.9" fill="currentColor"/>
-              <circle cx="12" cy="11" r="1.1" fill="currentColor"/>
-              <circle cx="16" cy="11" r="0.9" fill="currentColor"/>
-              <circle cx="8" cy="9" r="0.6" fill="currentColor"/>
-              <circle cx="8" cy="13" r="0.6" fill="currentColor"/>
-              <circle cx="16" cy="9" r="0.6" fill="currentColor"/>
-              <circle cx="16" cy="13" r="0.6" fill="currentColor"/>
-            </svg>
-            <span>Q-Brain</span>
+            Q-Brain
           </button>
           <button class="qai-module-tab" type="button" data-qai-module="models" role="tab" aria-selected="false">Models</button>
           <button class="qai-module-tab" type="button" data-qai-module="tools" role="tab" aria-selected="false">Tools</button>
@@ -8738,7 +8728,7 @@ _
     </div>
   </div>
 
-  <script src="script.js?v=2.6.21" defer></script>
+  <script src="script.js?v=2.6.22" defer></script>
   <script src="qgeo-demo.js?v=1" defer></script>
 </body>
 </html>
