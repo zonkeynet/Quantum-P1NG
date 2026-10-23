@@ -17145,6 +17145,46 @@ html.perf-lite .stack-scan-band {
   display: block;
 }
 
+.finance-title-main {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.22em;
+  max-width: 100%;
+}
+
+.finance-title-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+  margin-right: 4px;
+}
+
+.finance-title-icon {
+  width: auto;
+  height: 0.88em;
+  max-width: 0.75em;
+  aspect-ratio: 512 / 703;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+  filter: drop-shadow(0 0 16px rgba(247, 147, 26, 0.85)) drop-shadow(0 0 28px rgba(247, 147, 26, 0.5)) drop-shadow(0 0 42px rgba(255, 214, 10, 0.35));
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
+}
+
+.finance-title:hover .finance-title-icon {
+  transform: scale(1.08) rotate(-2deg);
+  filter: drop-shadow(0 0 24px rgba(247, 147, 26, 1)) drop-shadow(0 0 42px rgba(247, 147, 26, 0.75)) drop-shadow(0 0 58px rgba(255, 214, 10, 0.55));
+}
+
+.finance-title-text {
+  display: inline-block !important;
+}
+
 .finance-subtitle {
   margin: 0 0 14px;
   color: rgba(0, 243, 255, 0.86);
@@ -18168,6 +18208,10 @@ body.btc-modal-open {
 
   .finance-title span {
     text-align: center;
+  }
+
+  .finance-title-main {
+    justify-content: center;
   }
 
   .finance-subtitle {
