@@ -50,7 +50,7 @@
   <link rel="preload" href="styles.css?v=3.1.5" as="style" />
   <link rel="preload" as="image" href="assets/vid/intro_bg_poster.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/intro_mobile_poster.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high" />
-  <link rel="preload" as="image" href="assets/img/qp1ng_icon.png" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/img/qp1ng_icon.webp" type="image/webp" fetchpriority="high" />
   <script>
     try {
       if (sessionStorage.getItem('qp1ng_intro_seen_v1') === 'true') {
@@ -262,16 +262,30 @@
   <!-- Background Fullscreen Video with cinematic filters (Dual Engine: Desktop & Smartphone) -->
   <div class="intro-video-wrap" id="introVideoWrap">
     <!-- Desktop Video Engine (Widescreen 1680x720) -->
-    <video id="introBgVideoDesktop" class="intro-bg-video intro-bg-video--desktop" poster="assets/vid/intro_bg_poster.webp" muted loop playsinline preload="auto">
+    <video id="introBgVideoDesktop" class="intro-bg-video intro-bg-video--desktop" data-poster="assets/vid/intro_bg_poster.webp" data-media="(min-width: 769px)" muted loop playsinline preload="auto">
       <source src="assets/vid/intro_bg.webm" type="video/webm" media="(min-width: 769px)">
       <source src="assets/vid/intro_bg.mp4" type="video/mp4" media="(min-width: 769px)">
     </video>
 
     <!-- Smartphone / Mobile Video Engine (HD Vertical 720x1280) -->
-    <video id="introBgVideoMobile" class="intro-bg-video intro-bg-video--mobile" poster="assets/vid/intro_mobile_poster.webp" muted loop playsinline preload="none">
+    <video id="introBgVideoMobile" class="intro-bg-video intro-bg-video--mobile" data-poster="assets/vid/intro_mobile_poster.webp" data-media="(max-width: 768px)" muted loop playsinline preload="none">
       <source src="assets/vid/intro_mobile.webm" type="video/webm" media="(max-width: 768px)">
       <source src="assets/vid/intro_mobile.mp4" type="video/mp4" media="(max-width: 768px)">
     </video>
+    <script>
+      // A poster attribute is downloaded even when its video is hidden: give each intro video its poster only on the
+      // screens that show it (the head preloads the same file), and again if the window crosses the breakpoint.
+      (function () {
+        var videos = document.querySelectorAll('#introVideoWrap video[data-poster]');
+        Array.prototype.forEach.call(videos, function (video) {
+          if (!window.matchMedia) { video.poster = video.getAttribute('data-poster'); return; }
+          var query = window.matchMedia(video.getAttribute('data-media'));
+          var apply = function () { if (query.matches && !video.poster) video.poster = video.getAttribute('data-poster'); };
+          apply();
+          if (query.addEventListener) query.addEventListener('change', apply);
+        });
+      })();
+    </script>
 
     <div class="intro-video-overlay"></div>
   </div>
@@ -676,7 +690,7 @@
           <div class="hud-frame mono">
             <span class="blink-dot"></span> [LN-77 // TRACE: DISABLED]
           </div>
-          <img src="./assets/img/qp1ng_icon.png" alt="Quantum P1NG logo" loading="eager" width="220" height="220" />
+          <img src="./assets/img/qp1ng_icon.webp" alt="Quantum P1NG logo" loading="eager" width="220" height="220" />
           <div class="logoCard__meta">
             <div class="logoCard__line">
               <span class="mono blink-text">_STATUS: ACTIVE</span>
@@ -988,7 +1002,7 @@
               <div class="hero-logo-grid" aria-hidden="true"></div>
               <div class="hero-logo-reticle" aria-hidden="true"></div>
               <div class="hero-logo-halo"></div>
-              <img fetchpriority="high" class="hero-logo" src="./assets/img/qp1ng_icon.png" alt="Quantum P1NG logo" loading="eager" decoding="async" width="418" height="418" />
+              <img fetchpriority="high" class="hero-logo" src="./assets/img/qp1ng_icon.webp" alt="Quantum P1NG logo" loading="eager" decoding="async" width="418" height="418" />
               <div class="hero-lock-ring mono" aria-hidden="true">
                 <span>ONION ROUTE</span>
                 <span>VAULT ENCRYPTED</span>
