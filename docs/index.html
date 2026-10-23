@@ -63,6 +63,7 @@
   <link rel="stylesheet" href="styles.css?v=3.1.5" />
   <link rel="stylesheet" href="qcast-globe.css?v=1.0.8" />
   <link rel="stylesheet" href="qgeo-demo.css?v=2" />
+  <link rel="stylesheet" href="radio-bridge-layout.css?v=1" />
 
   <!-- Schema.org Comprehensive Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -6139,7 +6140,18 @@ _
     </div>
 
     <!-- Tactical Handheld Radio Rig Showcase (Baofeng UV-5R & Smartphone Wireless Link) -->
-    <div class="rb-radio-showcase" aria-label="Baofeng UV-5R and Smartphone Wireless RF Link Showcase">
+    <div class="rb-radio-showcase rb-radio-showcase--compact" id="radio-bridge-guide" aria-labelledby="rbRadioGuideTitle">
+      <div class="rb-radio-guide-head">
+        <p class="rb-kicker mono"><span class="rb-kicker-mod">RADIO LINK CHECK</span><span class="rb-kicker-sep" aria-hidden="true">//</span><span>04 STEPS</span></p>
+        <h3 id="rbRadioGuideTitle">From cable<br> <span>to packet.</span></h3>
+      </div>
+      <div class="rb-test-strip" aria-label="RadioBridge test workflow">
+        <div class="rb-test-step"><span class="mono">01</span><strong>USB audio detected</strong><p>CM108 or AIOC appears as USB audio; internal phone speaker/mic are not the default radio path.</p></div>
+        <div class="rb-test-step"><span class="mono">02</span><strong>1200 Hz tone</strong><p>Confirm tone exits USB audio. In VOX mode the radio should key if level and VOX sensitivity are correct.</p></div>
+        <div class="rb-test-step"><span class="mono">03</span><strong>PTT or VOX open</strong><p>AIOC uses DTR/RTS PTT. CM108 uses pre-tone, preamble and optional VOX kick/MIC path checks.</p></div>
+        <div class="rb-test-step"><span class="mono">04</span><strong>QGW packet RX</strong><p>Node B receives QP1NG TEST 001, validates CRC OK and logs packet sequence.</p></div>
+      </div>
+
       <div class="rb-radio-stage" aria-label="Baofeng UV-5R and Smartphone Wireless RF Link Video">
         <div class="rb-radio-hud-top mono">
           <span class="rb-radio-freq-badge"><i class="ag-pulse-dot"></i> 155.500 / 400.025 MHz</span>
@@ -6153,15 +6165,11 @@ _
             <img src="assets/img/radio_collegamento_poster.png?v=2" alt="Baofeng UV-5R and Smartphone Wireless RF Link Diagram" class="rb-radio-poster-img" width="1280" height="720" loading="lazy" decoding="async">
           </picture>
 
-          <video id="rbRadioVideo" class="rb-radio-video" width="1280" height="720" poster="assets/img/radio_collegamento_poster.webp?v=2" loop muted playsinline preload="metadata" title="Click to play / pause video animation">
+          <video id="rbRadioVideo" class="rb-radio-video" width="1280" height="720" poster="assets/img/radio_collegamento_poster.webp?v=2" loop muted playsinline preload="none" disablepictureinpicture disableremoteplayback title="Click to play / pause video animation">
             <source src="assets/vid/radio_collegamento.webm?v=2" type="video/webm">
             <source src="assets/vid/radio_collegamento.mp4?v=2" type="video/mp4">
           </video>
 
-          <div class="rb-radio-play-pill mono" aria-hidden="true">
-            <span class="rb-play-icon">▶</span>
-            <span class="rb-play-text">CLICK TO PLAY RF LINK</span>
-          </div>
         </div>
 
         <div class="rb-radio-hud-bottom mono" id="rbRadioHudBottom">
@@ -6170,6 +6178,7 @@ _
           <span class="rb-radio-spec-pill"><i class="pill-dot"></i> AFSK 1200 BELL 202</span>
           <span class="rb-radio-spec-pill"><i class="pill-dot"></i> HALF DUPLEX LAB LINK</span>
         </div>
+        <p class="rb-radio-watch-hint mono">ILLUSTRATED RF LINK <span aria-hidden="true">//</span> CLICK THE IMAGE TO WATCH</p>
       </div>
     </div>
 
@@ -6313,12 +6322,6 @@ _
       </article>
     </div>
 
-    <div class="rb-test-strip" aria-label="RadioBridge test workflow">
-      <div class="rb-test-step"><span class="mono">01</span><strong>USB audio detected</strong><p>CM108 or AIOC appears as USB audio; internal phone speaker/mic are not the default radio path.</p></div>
-      <div class="rb-test-step"><span class="mono">02</span><strong>1200 Hz tone</strong><p>Confirm tone exits USB audio. In VOX mode the radio should key if level and VOX sensitivity are correct.</p></div>
-      <div class="rb-test-step"><span class="mono">03</span><strong>PTT or VOX open</strong><p>AIOC uses DTR/RTS PTT. CM108 uses pre-tone, preamble and optional VOX kick/MIC path checks.</p></div>
-      <div class="rb-test-step"><span class="mono">04</span><strong>QGW packet RX</strong><p>Node B receives QP1NG TEST 001, validates CRC OK and logs packet sequence.</p></div>
-    </div>
   </div>
 </section>
 <!-- ================================================

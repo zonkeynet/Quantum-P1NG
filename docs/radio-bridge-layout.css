@@ -1,0 +1,134 @@
+/* One compact field guide: setup checks at left, the existing RF video at right. */
+.rb-radio-showcase--compact {
+  display: grid;
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.4fr);
+  grid-template-areas: "heading media" "steps media";
+  gap: 22px clamp(24px, 3vw, 38px);
+  align-items: center;
+  padding: clamp(22px, 2.5vw, 32px);
+  margin-top: 30px;
+  border: 1px solid rgba(0, 242, 255, .2);
+  border-radius: 14px;
+  background: linear-gradient(125deg, rgba(7, 23, 29, .92), rgba(3, 10, 17, .96));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .04), 0 18px 48px rgba(0, 0, 0, .24);
+  scroll-margin-top: 110px;
+}
+.rb-radio-guide-head { grid-area: heading; align-self: end; min-width: 0; }
+.rb-radio-guide-head .rb-kicker { justify-content: flex-start; font-size: 10px; letter-spacing: .1em; margin: 0 0 14px; }
+.rb-radio-guide-head h3 {
+  margin: 0;
+  font-family: var(--font-cyber);
+  font-size: clamp(32px, 3.1vw, 40px);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: 0;
+  color: #e8f5f7;
+}
+.rb-radio-guide-head h3 span { color: var(--rb-cyan, #00f2ff); }
+.rb-radio-showcase--compact .rb-test-strip {
+  grid-area: steps;
+  align-self: start;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  overflow: visible;
+  background: none;
+}
+.rb-radio-showcase--compact .rb-test-step {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  grid-template-areas: "number title" "number copy";
+  gap: 5px 12px;
+  min-height: 0;
+  padding: 15px 0;
+  background: none;
+  border-top: 1px solid rgba(0, 242, 255, .12);
+}
+.rb-radio-showcase--compact .rb-test-step:first-child { padding-top: 0; border-top: 0; }
+.rb-radio-showcase--compact .rb-test-step:last-child { padding-bottom: 0; }
+.rb-radio-showcase--compact .rb-test-step > span {
+  grid-area: number;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 242, 255, .2);
+  background: rgba(0, 242, 255, .045);
+  font-size: 10px;
+  letter-spacing: .05em;
+}
+.rb-radio-showcase--compact .rb-test-step strong {
+  grid-area: title;
+  margin: 0;
+  font-family: var(--font-cyber);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+.rb-radio-showcase--compact .rb-test-step p { grid-area: copy; margin: 0; font-size: 12px; line-height: 1.65; color: #a4bdc8; }
+.rb-radio-showcase--compact .rb-radio-stage {
+  grid-area: media;
+  min-width: 0;
+  max-width: none;
+  padding: 14px;
+  border-color: rgba(0, 242, 255, .24);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .35);
+  background: #02070b;
+}
+.rb-radio-showcase--compact .rb-radio-stage::before,
+.rb-radio-showcase--compact .rb-radio-stage::after { display: none; }
+.rb-radio-showcase--compact .rb-radio-hud-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px 8px;
+  margin-bottom: 12px;
+}
+.rb-radio-showcase--compact .rb-radio-freq-badge { grid-column: 1; grid-row: 1; justify-self: start; font-size: 9px; letter-spacing: .03em; box-shadow: none; padding: 4px 7px; }
+.rb-radio-showcase--compact .rb-radio-link-badge { grid-column: 2; grid-row: 1; justify-self: end; font-size: 8px; letter-spacing: .03em; padding: 4px 7px; }
+.rb-radio-showcase--compact .rb-radio-hud-title { display: block; grid-column: 1 / -1; grid-row: 2; font-size: 9px; line-height: 1.6; letter-spacing: .055em; overflow-wrap: anywhere; }
+.rb-radio-showcase--compact .rb-radio-viewport { min-height: 0; aspect-ratio: 16 / 9; touch-action: manipulation; }
+.rb-radio-showcase--compact .rb-radio-viewport:focus-visible { outline: 2px solid var(--rb-cyan, #00f2ff); outline-offset: 3px; }
+.rb-radio-showcase--compact .rb-radio-stage:hover .rb-radio-poster-wrap,
+.rb-radio-showcase--compact .rb-radio-stage:hover .rb-radio-video { transform: none; }
+.rb-radio-showcase--compact .rb-radio-hud-bottom { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; }
+.rb-radio-showcase--compact .rb-radio-spec-pill { min-width: 0; padding: 6px 7px; font-size: 8px; line-height: 1.5; letter-spacing: .035em; overflow-wrap: anywhere; }
+.rb-radio-showcase--compact .pill-dot { flex: 0 0 4px; }
+.rb-radio-watch-hint { color: #8aaab9; font-size: 9px; line-height: 1.7; letter-spacing: .07em; text-align: center; margin: 13px 0 0; }
+
+@media (min-width: 901px) and (max-width: 1100px) {
+  .rb-radio-showcase--compact { grid-template-columns: minmax(0, .9fr) minmax(0, 1.2fr); gap: 20px 24px; padding: 24px; }
+  .rb-radio-showcase--compact .rb-test-step { padding-block: 12px; }
+  .rb-radio-showcase--compact .rb-test-step strong { font-size: 22px; }
+}
+@media (max-width: 900px) {
+  .rb-radio-showcase--compact { grid-template-columns: minmax(0, 1fr); grid-template-areas: "heading" "media" "steps"; padding: 24px; gap: 24px; }
+  .rb-radio-guide-head { width: 100%; }
+  .rb-radio-guide-head h3 br { display: none; }
+  .rb-radio-showcase--compact .rb-test-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+  .rb-radio-showcase--compact .rb-test-step { padding: 0; border: 0; }
+}
+@media (max-width: 600px) {
+  .rb-radio-showcase--compact { padding: 20px 14px; gap: 22px; margin-top: 22px; }
+  .rb-radio-guide-head h3 { font-size: 32px; }
+  .rb-radio-showcase--compact .rb-radio-stage { padding: 10px; }
+  .rb-radio-showcase--compact .rb-radio-freq-badge,
+  .rb-radio-showcase--compact .rb-radio-link-badge { font-size: 7.5px; padding: 4px 5px; }
+  .rb-radio-showcase--compact .rb-radio-hud-title { font-size: 8px; }
+  .rb-radio-showcase--compact .rb-radio-spec-pill { font-size: 7.5px; padding: 5px; }
+  .rb-radio-showcase--compact .rb-test-strip { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .rb-radio-showcase--compact .rb-test-step { padding-block: 14px; border-top: 1px solid rgba(0, 242, 255, .12); }
+  .rb-radio-showcase--compact .rb-test-step strong { font-size: 23px; }
+  .rb-radio-watch-hint { font-size: 8px; letter-spacing: .04em; }
+}
+@media (max-width: 360px) {
+  .rb-radio-showcase--compact { padding: 18px 10px; }
+  .rb-radio-showcase--compact .rb-radio-stage { padding: 8px; }
+  .rb-radio-showcase--compact .rb-radio-hud-top { grid-template-columns: minmax(0, 1fr); gap: 7px; }
+  .rb-radio-showcase--compact .rb-radio-link-badge { grid-column: 1; grid-row: 2; justify-self: start; }
+  .rb-radio-showcase--compact .rb-radio-hud-title { grid-row: 3; }
+}
