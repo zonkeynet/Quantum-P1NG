@@ -1,0 +1,4 @@
+.qcast-hero-motion video { display:block; width:100%; height:auto; aspect-ratio:16/9; object-fit:contain; cursor:pointer; touch-action:manipulation; background:#050b15; }
+.qcast-hero-motion video:focus-visible { outline:3px solid var(--qb-accent); outline-offset:-4px; }
+.qcast-hero-motion video::-webkit-media-controls,
+.qcast-hero-motion video::-webkit-media-controls-start-playback-button { display:none !important; }

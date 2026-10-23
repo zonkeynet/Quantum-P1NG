@@ -62,6 +62,7 @@
   </script>
   <link rel="stylesheet" href="styles.css?v=3.1.6" />
   <link rel="stylesheet" href="qcast-globe.css?v=1.0.9" />
+  <link rel="stylesheet" href="qcast-hero.css?v=1" />
   <link rel="stylesheet" href="qgeo-demo.css?v=2" />
   <link rel="stylesheet" href="radio-bridge-layout.css?v=1" />
   <link rel="stylesheet" href="qai-tools-demo.css?v=4" />
@@ -6748,9 +6749,17 @@ _
         </div>
         <p class="qbroadcast-micro">Broadcast from Android 10+. An internet connection is required.</p>
       </div>
-      <figure class="qbroadcast-art">
-        <img src="assets/img/qcast-studio-hero.webp?v=3" srcset="assets/img/qcast-studio-hero-768.webp?v=3 768w, assets/img/qcast-studio-hero.webp?v=3 1536w" sizes="(max-width: 900px) calc(100vw - 48px), 610px" width="1536" height="1030" loading="lazy" decoding="async" alt="The QP1NG messenger pigeon hosting a radio show with headphones, a microphone, a mixer and a phone.">
-        <figcaption><span>Q-CAST STUDIO</span><span>FROM YOUR PHONE TO YOUR LISTENERS</span></figcaption>
+      <figure class="qbroadcast-art qcast-hero-motion">
+        <video id="qcastHeroVideo" width="1280" height="720" muted playsinline preload="none"
+          disablepictureinpicture disableremoteplayback role="button" tabindex="0" aria-pressed="false"
+          aria-label="Play Q-Cast animation" aria-describedby="qcastHeroCaption"
+          poster="assets/img/qcast-hero-motion-poster.webp">
+          <source data-src="assets/vid/qcast-hero-motion.webm" type="video/webm">
+          <source data-src="assets/vid/qcast-hero-motion.mp4" type="video/mp4">
+          <p><a href="assets/vid/qcast-hero-motion.mp4">Watch the Q-Cast animation.</a></p>
+        </video>
+        <figcaption id="qcastHeroCaption"><span>Q-CAST <span aria-hidden="true">//</span> 00:10</span><span id="qcastHeroHint">CLICK TO PLAY</span></figcaption>
+        <noscript><p><a href="assets/vid/qcast-hero-motion.mp4">Watch the Q-Cast animation</a></p></noscript>
       </figure>
     </div>
 
@@ -8787,6 +8796,7 @@ _
     })();
   </script>
   <script src="script.js?v=2.6.23" defer></script>
+  <script src="qcast-hero-player.js?v=1" defer></script>
   <script src="qgeo-demo.js?v=1" defer></script>
 </body>
 </html>
