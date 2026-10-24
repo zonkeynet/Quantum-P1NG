@@ -22,22 +22,23 @@ ROOT = Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
 SITE = "https://www.qp1ng.com"
 
-# The app's languages: the website speaks to the same people as the app and its store listings.
+# The app's languages, plus Traditional Chinese (Taiwan, Hong Kong): the website speaks to the same people as the app.
 LANGS = {
     "en": "English", "it": "Italiano", "de": "Deutsch", "es": "Español", "fr": "Français",
     "pt-BR": "Português (Brasil)", "pl": "Polski", "ru": "Русский", "uk": "Українська", "ar": "العربية",
-    "fa": "فارسی", "ja": "日本語", "zh-CN": "简体中文", "my": "မြန်မာ",
+    "fa": "فارسی", "ja": "日本語", "zh-CN": "简体中文", "zh-TW": "繁體中文", "my": "မြန်မာ",
 }
 RTL = {"ar", "fa"}
 # The language menu's name for screen readers, in each language.
 LANGUAGE_LABEL = {
     "en": "Language", "it": "Lingua", "de": "Sprache", "es": "Idioma", "fr": "Langue", "pt-BR": "Idioma",
-    "pl": "Język", "ru": "Язык", "uk": "Мова", "ar": "اللغة", "fa": "زبان", "ja": "言語", "zh-CN": "语言",
+    "pl": "Język", "ru": "Язык", "uk": "Мова", "ar": "اللغة", "fa": "زبان", "ja": "言語", "zh-CN": "语言", "zh-TW": "語言",
     "my": "ဘာသာစကား",
 }
 OG_LOCALE = {
     "en": "en_US", "it": "it_IT", "de": "de_DE", "es": "es_ES", "fr": "fr_FR", "pt-BR": "pt_BR", "pl": "pl_PL",
-    "ru": "ru_RU", "uk": "uk_UA", "ar": "ar_AR", "fa": "fa_IR", "ja": "ja_JP", "zh-CN": "zh_CN", "my": "my_MM",
+    "ru": "ru_RU", "uk": "uk_UA", "ar": "ar_AR", "fa": "fa_IR", "ja": "ja_JP", "zh-CN": "zh_CN", "zh-TW": "zh_TW",
+    "my": "my_MM",
 }
 
 # The Pro page lives under /pro/<lang>/: Cloudflare gives everything under /pro/ the checkout's security policy.
@@ -302,7 +303,7 @@ def build():
                 page["messages_id"], json.dumps(used, ensure_ascii=False).replace("</", "<\\/"))
             text = replace_block(text, "messages", block)
             text = replace_block(text, "switcher", switcher(page, lang))
-            text = re.sub(r'<html lang="en"', '<html lang="%s"%s' % (lang, ' dir="rtl"' if lang in RTL else ""), text, 1)
+            text = re.sub(r'<html lang="en"', '<html lang="%s"%s' % (lang, ' dir="rtl"' if lang in RTL else ""), text, count=1)
             url = page_url(page, lang)
             text = text.replace('<link rel="canonical" href="%s">' % page_url(page, "en"), '<link rel="canonical" href="%s">' % url)
             text = text.replace('<meta property="og:url" content="%s">' % page_url(page, "en"), '<meta property="og:url" content="%s">' % url)

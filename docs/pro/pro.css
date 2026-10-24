@@ -82,6 +82,16 @@ img { max-width: 100%; display: block; }
 .nav a.btn-primary, .nav a.btn-primary:hover { color: #001417; background: linear-gradient(135deg, var(--cyan), #3df5c3); }
 @media (max-width: 720px) { .nav a:not(.btn) { display: none; } }
 
+/* Scripts that are not spaced out letter by letter: spacing breaks the joined letters of Arabic and Persian, and
+   Burmese, Chinese and Japanese do not use it. The dot font has none of these glyphs: the fallback font draws them. */
+:lang(ar) *, :lang(fa) *, :lang(my) *, :lang(ja) *, :lang(zh) * { letter-spacing: normal !important; }
+/* A monospaced fallback draws every Arabic, Persian or Burmese letter at the same width, as if they were apart:
+   these pages fall back on the proportional font (the dot font still draws Latin letters such as Q-P1NG). */
+html:lang(ar), html:lang(fa), html:lang(my) {
+  --font-mono: var(--font-sans);
+  --font-brand: "QP1NG-Digital", var(--font-sans);
+}
+
 /* Language menu: a disclosure without script, its list drops below the summary. */
 .lang { position: relative; }
 .lang summary { display: flex; align-items: center; gap: 6px; list-style: none; cursor: pointer; color: var(--muted); font-size: 0.92rem; padding: 8px 10px; border-radius: 8px; }
