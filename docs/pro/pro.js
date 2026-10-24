@@ -312,9 +312,13 @@
     var status = $("btc-status");
     switch (order.state || "awaiting") {
       case "paid":
-        setStatus(status, t("Payment confirmed."), "ok");
         clearInterval(pollTimer);
         remember("qp1ng_order", null);
+        if (order.refunded) {
+          setStatus(status, t("This licence was refunded."), "error");
+          break;
+        }
+        setStatus(status, t("Payment confirmed."), "ok");
         if (order.licence) showLicence(order.licence);
         break;
       case "seen":
