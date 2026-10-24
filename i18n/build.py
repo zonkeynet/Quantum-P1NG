@@ -42,8 +42,14 @@ OG_LOCALE = {
 }
 
 # The Pro page lives under /pro/<lang>/: Cloudflare gives everything under /pro/ the checkout's security policy.
+# The home lives under /<lang>/ with relative links ("../styles.css"), so it also works on the IPFS mirror, where an
+# absolute "/..." would leave the site's folder. "fn" is the scripts' translation function, "messages_id" the JSON
+# block that carries its texts. A page whose source has no i18n markers yet is skipped by build.
 PAGES = {
-    "pro": {"source": "pro/index.html", "path": "/pro/", "scripts": ["pro/pro.js"], "messages_id": "pro-i18n"},
+    "pro": {"source": "pro/index.html", "path": "/pro/", "scripts": ["pro/pro.js"], "fn": "t",
+            "messages_id": "pro-i18n", "ld_urls": True},
+    "home": {"source": "index.html", "path": "/", "scripts": ["script.js", "app-feature-demos.js", "qdream-gallery.js",
+             "qcast-hero-player.js", "qgeo-demo.js"], "fn": "T", "messages_id": "site-i18n", "relative": True},
 }
 
 VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"}
@@ -180,7 +186,7 @@ def find(text):
         if entry[0] == "text":
             node = entry[1]
             key, opaque = segment_of(text, node)
-            if re.search(r"[A-Za-z]", re.sub(r"<[^>]+>|\{\{\d+\}\}", "", key)):
+            if translatable(key):
                 items.append(("text", node.open_end, node.close_start, key, opaque))
         elif entry[0] == "attr":
             node, name = entry[1], entry[2]
@@ -198,18 +204,59 @@ def find(text):
     return items
 
 
+def translatable(key):
+    """Words to translate, not identifiers: "TOR_CIRCUIT_LOST", "[WIDGET_SNAKE]", "0x05", "V" and the like stay."""
+    if "<" in key or "{{" in key:
+        return True  # markup the translation may need to reorder, such as a price around an amount
+    text = html.unescape(key).strip()
+    if re.search(r"[a-zß-ÿ]", text) or re.search(r"\d.*[€$£]|[€$£].*\d", text):
+        return True
+    letters = re.sub(r"[^A-ZÀ-Þ]", "", text)
+    return len(letters) > 3 and "_" not in text and not re.match(r"^\[|^0x[0-9A-F]", text)
+
+
 def tags(fragment):
     return sorted(re.findall(r"</?[a-zA-Z][^>]*>", fragment)) + sorted(re.findall(r"\{\{\d+\}\}", fragment))
 
 
+def js_string(body, quote):
+    """The value of a JavaScript string literal's body, quoted with ' or "."""
+    if quote == "'":
+        body = re.sub(r"\\'", "'", body)
+        body = re.sub(r'(?<!\\)"', '\\"', body)
+    return json.loads('"%s"' % body)
+
+
 def messages_of(page):
     keys = []
+    pattern = re.compile(r"""\b%s\(\s*(["'])((?:\\.|(?!\1)[^\\])*)\1""" % re.escape(page.get("fn", "t")))
     for script in page["scripts"]:
-        for match in re.finditer(r'\bt\("((?:[^"\\]|\\.)*)"', (DOCS / script).read_text(encoding="utf-8")):
-            key = json.loads('"%s"' % match.group(1))
+        for match in pattern.finditer((DOCS / script).read_text(encoding="utf-8")):
+            key = js_string(match.group(2), match.group(1))
             if key not in keys:
                 keys.append(key)
     return keys
+
+
+LINK = re.compile(r'(\s(?:src|href|poster|srcset|data-[\w-]+)=")([^"]*)(")')
+
+
+def relative_links(text, prefix):
+    """Relative links to files of the site, one folder down: "styles.css?v=3" -> "../styles.css?v=3"."""
+    def fix(match):
+        parts = []
+        for item in match.group(2).split(","):
+            stripped = item.strip()
+            path = re.split(r"[?#\s]", stripped, maxsplit=1)[0]
+            if path and not re.match(r"^([a-z][a-z0-9+.-]*:|/|#|\.\./)", path, re.I) and (DOCS / path).exists():
+                item = item.replace(stripped, prefix + stripped, 1)
+            parts.append(item)
+        return match.group(1) + ",".join(parts) + match.group(3)
+    return LINK.sub(fix, text)
+
+
+def prepared(text):
+    return all(MARK.format(name=name) in text for name in ("alternates", "switcher", "messages"))
 
 
 def replace_block(text, name, content):
@@ -233,9 +280,10 @@ def alternates(page):
 
 def switcher(page, current):
     # A plain disclosure: no script. ?lang= lets the site worker remember the choice.
+    base = ("" if current == "en" else "../") if page.get("relative") else page["path"]
     items = "".join(
         '<li><a href="%s%s?lang=%s" hreflang="%s" lang="%s"%s>%s</a></li>' % (
-            page["path"], "" if lang == "en" else lang + "/", lang, lang, lang,
+            base, "" if lang == "en" else lang + "/", lang, lang, lang,
             ' aria-current="page"' if lang == current else "", name)
         for lang, name in LANGS.items())
     return ('<details class="lang" translate="no"><summary aria-label="%s"><svg viewBox="0 0 24 24" fill="none" '
@@ -265,6 +313,9 @@ def build():
     for name, page in PAGES.items():
         source_path = DOCS / page["source"]
         source = source_path.read_text(encoding="utf-8")
+        if not prepared(source):
+            print(f"{name}: no i18n markers in {page['source']} yet, skipped")
+            continue
         source = replace_block(source, "alternates", alternates(page))
         source = replace_block(source, "switcher", switcher(page, "en"))
         source = replace_block(source, "messages", "")
@@ -308,8 +359,11 @@ def build():
             text = text.replace('<link rel="canonical" href="%s">' % page_url(page, "en"), '<link rel="canonical" href="%s">' % url)
             text = text.replace('<meta property="og:url" content="%s">' % page_url(page, "en"), '<meta property="og:url" content="%s">' % url)
             text = text.replace('<meta property="og:locale" content="en_US">', '<meta property="og:locale" content="%s">' % OG_LOCALE[lang])
-            text = text.replace('"url": "%s"' % page_url(page, "en"), '"url": "%s"' % url)
-            text = text.replace('"url": "%s#buy"' % page_url(page, "en"), '"url": "%s#buy"' % url)
+            if page.get("ld_urls"):
+                text = text.replace('"url": "%s"' % page_url(page, "en"), '"url": "%s"' % url)
+                text = text.replace('"url": "%s#buy"' % page_url(page, "en"), '"url": "%s#buy"' % url)
+            if page.get("relative"):
+                text = relative_links(text, "../")
             out = DOCS / page["path"].strip("/") / lang / "index.html"
             out.parent.mkdir(parents=True, exist_ok=True)
             out.write_text(text, encoding="utf-8", newline="\n")
@@ -325,8 +379,10 @@ def check(lang):
     """Checks one language's files against the source texts without writing anything: missing, extra, changed tags."""
     problems = 0
     for name, page in PAGES.items():
-        source = json.loads((ROOT / "i18n" / name / "source.json").read_text(encoding="utf-8"))
         file = ROOT / "i18n" / name / f"{lang}.json"
+        if not file.exists():
+            continue
+        source = json.loads((ROOT / "i18n" / name / "source.json").read_text(encoding="utf-8"))
         data = json.loads(file.read_text(encoding="utf-8"))
         for part in ("segments", "messages"):
             given = data.get(part, {})

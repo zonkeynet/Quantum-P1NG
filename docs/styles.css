@@ -9214,7 +9214,7 @@ body.qmap-modal-open {
 }
 
 .q-ai-section .qai-tool-card {
-  min-height: 300px;
+  min-height: 250px;
 }
 
 .q-ai-section .qai-tool-card.is-active {
@@ -11341,7 +11341,7 @@ body.qmap-modal-open {
 }
 
 .sd-pipe-step {
-  min-height: 156px;
+  min-height: 110px;
   padding: 16px;
   background:
     linear-gradient(180deg, rgba(5, 13, 26, 0.96), rgba(2, 8, 16, 0.94)),
@@ -11966,7 +11966,7 @@ body.qmap-modal-open {
 }
 
 .sp-layer-card {
-  min-height: 268px;
+  min-height: 200px;
   padding: 18px 16px;
   opacity: 0;
   transform: translateY(18px);
@@ -15487,7 +15487,7 @@ body.qmap-modal-open {
 }
 
 .stack-runtime-card {
-  min-height: 172px;
+  min-height: 120px;
   padding: 16px;
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 8px;

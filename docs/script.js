@@ -1,3 +1,16 @@
+// The site's root folder, for the files this script loads: pages in other languages live one folder down (/it/),
+// also on the IPFS mirror. T(): the texts this script writes, in the page's language (a JSON block the language
+// pages carry, i18n/build.py); the English page has none.
+var SITE_ROOT = new URL('./', document.currentScript ? document.currentScript.src : location.href).href;
+var SITE_TEXTS = (function () {
+  try { return JSON.parse(document.getElementById('site-i18n').textContent); } catch (e) { return {}; }
+})();
+function T(text, values) {
+  var out = SITE_TEXTS[text] || text;
+  if (values) Object.keys(values).forEach(function (name) { out = out.split('{' + name + '}').join(values[name]); });
+  return out;
+}
+
 (() => {
   const memory = Number(navigator.deviceMemory || 8);
   const cores = Number(navigator.hardwareConcurrency || 8);
@@ -214,7 +227,7 @@
       try {
         await navigator.clipboard.writeText(el.textContent.trim());
         const old = btn.textContent;
-        btn.textContent = "COPIED";
+        btn.textContent = T("COPIED");
         btn.style.color = "var(--acc)";
         setTimeout(() => {
             btn.textContent = old;
@@ -285,7 +298,7 @@ if (terminal && gamesGrid) {
   const playUnlockSound = () => {
     try {
       if (!unlockSound) {
-        unlockSound = new Audio('assets/audio/glitch.mp3');
+        unlockSound = new Audio(SITE_ROOT + 'assets/audio/glitch.mp3');
         unlockSound.volume = 0.6;
       }
       unlockSound.currentTime = 0;
@@ -330,7 +343,7 @@ if (terminal && gamesGrid) {
     // --- FASE 2: LA BRECCIA (0.6s) ---
     setTimeout(() => {
       clearInterval(scrambleInterval); // Ferma lo scramble
-      if (glitchText) glitchText.innerText = "[ ACCESS GRANTED ]"; // Messaggio finale rapido
+      if (glitchText) glitchText.innerText = T("[ ACCESS GRANTED ]"); // Messaggio finale rapido
       
       noise.classList.add('active'); // Attiva rumore bianco totale
 
@@ -1987,7 +2000,7 @@ if (terminal && gamesGrid) {
     setState('[BUFFERING]');
 
     const last = document.getElementById('qmap-last');
-    if (last) last.textContent = 'REPLAY_BUFFER';
+    if (last) last.textContent = T('REPLAY_BUFFER');
   }
 
   async function attemptPlay(){
@@ -2083,7 +2096,7 @@ if (terminal && gamesGrid) {
   video.addEventListener('error', () => {
     setState('[ERR]');
     const integrity = document.getElementById('integrity-status');
-    if (integrity) { integrity.textContent = 'REPLAY_FAIL'; integrity.className = 'status-warn'; }
+    if (integrity) { integrity.textContent = T('REPLAY_FAIL'); integrity.className = 'status-warn'; }
   });
 
   // ---------- Inject controls (min/reset) + resize handle ----------
@@ -2103,7 +2116,7 @@ if (terminal && gamesGrid) {
     minBtn.id = 'qmap-replay-min';
     minBtn.type = 'button';
     minBtn.className = 'qmap-replay__btn mono';
-    minBtn.textContent = 'MIN';
+    minBtn.textContent = T('MIN');
     if (openBtn) bar.insertBefore(minBtn, openBtn);
     else bar.appendChild(minBtn);
   }
@@ -2114,7 +2127,7 @@ if (terminal && gamesGrid) {
     resetBtn.id = 'qmap-replay-reset';
     resetBtn.type = 'button';
     resetBtn.className = 'qmap-replay__btn mono';
-    resetBtn.textContent = 'RST';
+    resetBtn.textContent = T('RST');
     if (minBtn) bar.insertBefore(resetBtn, minBtn);
     else bar.appendChild(resetBtn);
   }
@@ -2399,7 +2412,7 @@ if (terminal && gamesGrid) {
         badge.classList.add('is-playing');
       }
       const pillText = container.querySelector('.qcam-play-text, .rb-play-text, .qsat-play-text');
-      if (pillText) pillText.textContent = 'PAUSE STREAM';
+      if (pillText) pillText.textContent = T('PAUSE STREAM');
       const pillIcon = container.querySelector('.qcam-play-icon, .rb-play-icon, .qsat-play-icon');
       if (pillIcon) pillIcon.textContent = '■';
       video.muted = true;
@@ -2422,7 +2435,7 @@ if (terminal && gamesGrid) {
         badge.classList.remove('is-playing');
       }
       const pillText = container.querySelector('.qcam-play-text, .rb-play-text, .qsat-play-text');
-      if (pillText) pillText.textContent = 'CLICK TO PLAY';
+      if (pillText) pillText.textContent = T('CLICK TO PLAY');
       const pillIcon = container.querySelector('.qcam-play-icon, .rb-play-icon, .qsat-play-icon');
       if (pillIcon) pillIcon.textContent = '▶';
       video.pause();
@@ -2534,7 +2547,7 @@ if (terminal && gamesGrid) {
         // AIOC Rig Hardware Phase
         rbTitle.innerHTML = '<span class="hud-sep">//</span> HARDWARE INTERFACE: AIOC ADAPTER &times; DIGITAL PTT';
         if (rbBadgeLabel && rbContainer && rbContainer.classList.contains('is-playing')) {
-          rbBadgeLabel.textContent = 'AIOC RIG ACTIVE';
+          rbBadgeLabel.textContent = T('AIOC RIG ACTIVE');
         }
         rbBottom.innerHTML = `
           <span class="rb-radio-spec-pill"><i class="pill-dot"></i> BAOFENG UV-5R TRANSCEIVER</span>
@@ -2546,7 +2559,7 @@ if (terminal && gamesGrid) {
         // Wireless RF Link Phase
         rbTitle.innerHTML = '<span class="hud-sep">//</span> RF LINK MONITOR: BAOFENG UV-5R &times; SMARTPHONE';
         if (rbBadgeLabel && rbContainer && rbContainer.classList.contains('is-playing')) {
-          rbBadgeLabel.textContent = 'RF LINK ACTIVE';
+          rbBadgeLabel.textContent = T('RF LINK ACTIVE');
         }
         rbBottom.innerHTML = `
           <span class="rb-radio-spec-pill"><i class="pill-dot"></i> BAOFENG UV-5R TRANSCEIVER</span>
@@ -3045,7 +3058,7 @@ if (terminal && gamesGrid) {
     ctx.fillStyle = 'rgba(0, 242, 255, 0.5)';
     ctx.textAlign = 'left';
     ctx.textBaseline = 'top';
-    const leftText = isMobile ? 'RBW: 10k' : 'RBW: 10 kHz  |  SPAN: 3.2 GHz';
+    const leftText = isMobile ? 'RBW: 10k' : 'RBW: 10 kHz  |  MAX SPAN: 20 MHz';
     ctx.fillText(leftText, 6, 5);
 
     ctx.textAlign = 'right';
@@ -3460,14 +3473,14 @@ if (terminal && gamesGrid) {
         // Riprende
         scanBtn.classList.add('sdr-action--scanning');
         scanBtn.setAttribute('aria-pressed', 'true');
-        if (statusEl) statusEl.textContent = 'SCANNING';
+        if (statusEl) statusEl.textContent = T('SCANNING');
         dashboard?.classList.remove('is-paused');
         if (!animating) { animating = true; startAll(); }
       } else {
         // Pausa reale: ferma i RAF e segna il dashboard
         scanBtn.classList.remove('sdr-action--scanning');
         scanBtn.setAttribute('aria-pressed', 'false');
-        if (statusEl) statusEl.textContent = 'PAUSED';
+        if (statusEl) statusEl.textContent = T('PAUSED');
         animating = false;
         stopAll();
         stopLiveUpdates();
@@ -3856,7 +3869,7 @@ if (terminal && gamesGrid) {
         playPromise.then(() => {
           isCallVideoPlaying = true;
           if (callPlayIcon) callPlayIcon.textContent = '■';
-          if (callPlayText) callPlayText.textContent = 'PAUSE FEED';
+          if (callPlayText) callPlayText.textContent = T('PAUSE FEED');
         }).catch(() => {
           isCallVideoPlaying = false;
         });
@@ -3868,7 +3881,7 @@ if (terminal && gamesGrid) {
       callVideo.pause();
       isCallVideoPlaying = false;
       if (callPlayIcon) callPlayIcon.textContent = '▶';
-      if (callPlayText) callPlayText.textContent = 'CALL DEMO VIDEO';
+      if (callPlayText) callPlayText.textContent = T('CALL DEMO VIDEO');
     }
 
     function replayCallVideo() {
@@ -3883,7 +3896,7 @@ if (terminal && gamesGrid) {
         isCallVideoPlaying = false;
         if (callEndOverlay) callEndOverlay.classList.add('is-active');
         if (callPlayIcon) callPlayIcon.textContent = '↻';
-        if (callPlayText) callPlayText.textContent = 'REPLAY FEED';
+        if (callPlayText) callPlayText.textContent = T('REPLAY FEED');
       });
 
       if (callPlayPill) {
@@ -3972,7 +3985,7 @@ if (terminal && gamesGrid) {
     const routeProfiles = {
       direct: { label: 'Direct', latency: '42 ms', jitter: '8 ms', loss: '0.2%' },
       relay: { label: 'Relay', latency: '86 ms', jitter: '14 ms', loss: '0.4%' },
-      tor: { label: 'Tor-ready', latency: '184 ms', jitter: '22 ms', loss: '0.8%' }
+      tor: { label: 'Tor', latency: '184 ms', jitter: '22 ms', loss: '0.8%' }
     };
 
     function setRoute(mode) {
@@ -4081,17 +4094,17 @@ if (terminal && gamesGrid) {
         status: 'POLICY READY',
         badge: 'LAYER 01 // LOCAL CORE',
         brief: 'Private assistant runtime',
-        text: 'Local Q-Brain generation, memory compression, vision intake and guarded tool calls run as scoped sessions with queue control directly on device.',
+        text: 'Generation, memory, vision and guarded tool calls run on the phone, one model job at a time.',
         pills: ['Local GGUF', 'AiPack LLM', 'Vision Intake', 'Zero Telemetry'],
         meter: '94%',
         chip: 'LOCAL_RUNTIME',
         cmd: 'qbrain.start --runtime local --tools governed',
         sub1: 'runtime: selected local model and pack',
-        sub2: 'Model, context size and acceleration depend on the selected pack, runtime and device.',
+        sub2: 'Speed and context depend on the pack and your phone.',
         hud: 'Q-BRAIN // NEURAL_CORE_ONLINE',
-        videoWebm: 'assets/vid/q-ai.webm',
-        videoMp4: 'assets/vid/q-ai.mp4',
-        poster: 'assets/vid/q-ai_poster.webp'
+        videoWebm: SITE_ROOT + 'assets/vid/q-ai.webm',
+        videoMp4: SITE_ROOT + 'assets/vid/q-ai.mp4',
+        poster: SITE_ROOT + 'assets/vid/q-ai_poster.webp'
       },
       models: {
         mode: 'phone',
@@ -4099,17 +4112,17 @@ if (terminal && gamesGrid) {
         status: 'COMPUTATION READY',
         badge: 'LAYER 02 // MULTIMODAL',
         brief: 'AiPack runtime catalog',
-        text: 'Local image generation diffusion, LLM, embedding, STT whisper, translation and TTS speech packs with on-device acceleration and verified hashes.',
+        text: 'Image generation, LLM, embedding, Whisper STT, translation and TTS packs, accelerated on the phone and SHA-256 checked.',
         pills: ['Image Gen', 'Whisper STT', 'TTS Voice', 'Diffusion', 'Multimodal'],
         meter: '91%',
         chip: 'MULTIMODAL_VPU',
         cmd: 'aipacks.scan --types image,vision,llm,stt,tts,embedding',
         sub1: 'image size and memory use depend on the selected model',
-        sub2: 'Model, context size and acceleration depend on the selected pack, runtime and device.',
+        sub2: 'Speed and context depend on the pack and your phone.',
         hud: 'MODELS // LOCAL_DIFFUSION_ACTIVE',
-        videoWebm: 'assets/vid/qai_mobile_models.webm',
-        videoMp4: 'assets/vid/qai_mobile_models.mp4',
-        poster: 'assets/vid/qai_mobile_models_poster.webp'
+        videoWebm: SITE_ROOT + 'assets/vid/qai_mobile_models.webm',
+        videoMp4: SITE_ROOT + 'assets/vid/qai_mobile_models.mp4',
+        poster: SITE_ROOT + 'assets/vid/qai_mobile_models_poster.webp'
       },
       tools: {
         mode: 'phone',
@@ -4131,9 +4144,9 @@ if (terminal && gamesGrid) {
         sub1: 'vault access: denied · Python sandbox: approved',
         sub2: 'Local Q-Skill trace: REQUIRE_CONFIRMATION. Approved note results are shared with Gemini.',
         hud: 'TOOLS // RECORDED APP DEMO',
-        videoWebm: 'assets/vid/qbrain-typed-actions-demo.webm',
-        videoMp4: 'assets/vid/qbrain-typed-actions-demo.mp4',
-        poster: 'assets/vid/qbrain-typed-actions-demo-poster.webp'
+        videoWebm: SITE_ROOT + 'assets/vid/qbrain-typed-actions-demo.webm',
+        videoMp4: SITE_ROOT + 'assets/vid/qbrain-typed-actions-demo.mp4',
+        poster: SITE_ROOT + 'assets/vid/qbrain-typed-actions-demo-poster.webp'
       },
       scenario: {
         mode: 'phone',
@@ -4155,9 +4168,9 @@ if (terminal && gamesGrid) {
         sub1: 'manual run: completed · checklist and budget: 102 EUR',
         sub2: 'Code is inspected before pressing Run. This example does not use a cloud model.',
         hud: 'SCENARIO // RECORDED APP DEMO',
-        videoWebm: 'assets/vid/qscenario-workflow-demo.webm',
-        videoMp4: 'assets/vid/qscenario-workflow-demo.mp4',
-        poster: 'assets/vid/qscenario-workflow-demo-poster.webp'
+        videoWebm: SITE_ROOT + 'assets/vid/qscenario-workflow-demo.webm',
+        videoMp4: SITE_ROOT + 'assets/vid/qscenario-workflow-demo.mp4',
+        poster: SITE_ROOT + 'assets/vid/qscenario-workflow-demo-poster.webp'
       },
     };
 
@@ -5520,11 +5533,11 @@ if (terminal && gamesGrid) {
     if (!wifiVideo || !wifiVideoWrap) return;
     isWifiVideoPlaying = true;
     wifiVideoWrap.classList.add('is-playing');
-    if (wifiPlayPillText) wifiPlayPillText.textContent = 'PAUSE STREAM';
+    if (wifiPlayPillText) wifiPlayPillText.textContent = T('PAUSE STREAM');
     if (wifiPlayPillIcon) wifiPlayPillIcon.textContent = '■';
     if (toggleBtn) {
       const g = toggleBtn.querySelector('.ag-btn-glitch');
-      if (g) g.textContent = '[ PAUSE STREAM ]';
+      if (g) g.textContent = T('[ PAUSE STREAM ]');
     }
     wifiVideo.muted = true;
     wifiVideo.play().catch(() => {});
@@ -5534,7 +5547,7 @@ if (terminal && gamesGrid) {
     if (!wifiVideo || !wifiVideoWrap) return;
     isWifiVideoPlaying = false;
     wifiVideoWrap.classList.remove('is-playing');
-    if (wifiPlayPillText) wifiPlayPillText.textContent = 'CLICK TO PLAY';
+    if (wifiPlayPillText) wifiPlayPillText.textContent = T('CLICK TO PLAY');
     if (wifiPlayPillIcon) wifiPlayPillIcon.textContent = '▶';
     if (toggleBtn) {
       const g = toggleBtn.querySelector('.ag-btn-glitch');
@@ -5568,7 +5581,7 @@ if (terminal && gamesGrid) {
       const mbps = (47.8 + Math.sin(t * 2.8) * 4.6).toFixed(1);
       const chunks = Math.floor(1200 + Math.sin(t * 3.5) * 45);
       if (telemetryEl) {
-        telemetryEl.textContent = `THROUGHPUT: ${mbps} MB/s | TLS 1.3 PINNED`;
+        telemetryEl.textContent = `THROUGHPUT: ${mbps} MB/s | TLS PINNED`;
       }
       if (rateStatEl) {
         rateStatEl.textContent = `${chunks.toLocaleString()} CHUNKS/SEC`;
@@ -5588,11 +5601,11 @@ if (terminal && gamesGrid) {
     if (!acousticVideo || !acousticVideoWrap) return;
     isAcousticVideoPlaying = true;
     acousticVideoWrap.classList.add('is-playing');
-    if (acousticPlayPillText) acousticPlayPillText.textContent = 'PAUSE STREAM';
+    if (acousticPlayPillText) acousticPlayPillText.textContent = T('PAUSE STREAM');
     if (acousticPlayPillIcon) acousticPlayPillIcon.textContent = '■';
     if (toggleBtn) {
       const g = toggleBtn.querySelector('.ag-btn-glitch');
-      if (g) g.textContent = '[ PAUSE STREAM ]';
+      if (g) g.textContent = T('[ PAUSE STREAM ]');
     }
     acousticVideo.muted = true;
     acousticVideo.play().catch(() => {});
@@ -5602,7 +5615,7 @@ if (terminal && gamesGrid) {
     if (!acousticVideo || !acousticVideoWrap) return;
     isAcousticVideoPlaying = false;
     acousticVideoWrap.classList.remove('is-playing');
-    if (acousticPlayPillText) acousticPlayPillText.textContent = 'CLICK TO PLAY';
+    if (acousticPlayPillText) acousticPlayPillText.textContent = T('CLICK TO PLAY');
     if (acousticPlayPillIcon) acousticPlayPillIcon.textContent = '▶';
     if (toggleBtn) {
       const g = toggleBtn.querySelector('.ag-btn-glitch');
@@ -5636,10 +5649,10 @@ if (terminal && gamesGrid) {
       const freq = (18.4 + Math.sin(t * 3.2) * 1.8).toFixed(1);
       const snr = (24 + Math.floor(Math.sin(t * 2.5) * 6));
       if (telemetryEl) {
-        telemetryEl.textContent = `ULTRASONIC: ${freq} kHz | SNR: +${snr} dB`;
+        telemetryEl.textContent = `AUDIO CARRIER | SNR: +${snr} dB`;
       }
       if (rateStatEl) {
-        rateStatEl.textContent = `${(1.2 + Math.sin(t * 1.5) * 0.4).toFixed(1)} kB/s (FSK)`;
+        rateStatEl.textContent = `${(1.2 + Math.sin(t * 1.5) * 0.4).toFixed(1)} kB/s (DEMO)`;
       }
     });
   }
@@ -5669,11 +5682,11 @@ if (terminal && gamesGrid) {
   let fps = 24;
 
   const payloads = [
-    { label: 'ENCRYPTED_VAULT_BACKUP (1.4 MB)', size: 1468006, parts: 96, classStr: 'OpticalFountain.kt / OpticalQrStream.kt' },
+    { label: 'ENCRYPTED_VAULT_BACKUP (0.9 MB)', size: 943718, parts: 96, classStr: 'OpticalFountain.kt / OpticalQrStream.kt' },
     { label: 'IDENTITY_KEYRING (4.8 KB)', size: 4915, parts: 12, classStr: 'NfcIdentityManager.kt / OpticalPrivateFiles.kt' },
-    { label: 'OFFLINE_MGRS_TACTICAL_MAP (8.2 MB)', size: 8598322, parts: 260, classStr: 'QGeoOfflineMapPack.kt / LocalLinkTransport.kt' },
+    { label: 'OFFLINE_MAP_EXTRACT (0.8 MB)', size: 838861, parts: 260, classStr: 'QGeoOfflineMapPack.kt / LocalLinkTransport.kt' },
     { label: 'EMERGENCY_FIELD_REPORT (18.5 KB)', size: 18944, parts: 32, classStr: 'QGeoReportWizard.kt / OfflineAcousticHandshakeManager.kt' },
-    { label: 'TACTICAL_MESH_BURST_CHAT (256 B)', size: 256, parts: 1, classStr: 'BleMeshPacketRouter.kt / StoreAndForwardQueue.kt' }
+    { label: 'TACTICAL_MESH_BURST_CHAT (256 B)', size: 256, parts: 1, classStr: 'QMeshEngine.kt / QMeshRelaySpool.kt' }
   ];
   let currentPayloadIdx = 0;
 
@@ -5681,14 +5694,14 @@ if (terminal && gamesGrid) {
   const modeConfigs = {
     optical: {
       modeName: 'OPTICAL_FOUNTAIN_STREAM',
-      telemetry: 'FPS: 24 | LOSS_REPAIR: ACTIVE',
+      telemetry: 'FPS: 4-12 | LOSS_REPAIR: ACTIVE',
       rfStat: 'NO RF LINK REQUIRED',
       rfColor: 'var(--neon-green)',
-      rateStat: '24 FRAMES/SEC',
+      rateStat: '4-12 FRAMES/SEC',
       hashStat: 'SHA256::VERIFIED',
       intelTag: 'OPTICAL LINK · CAMERA TO SCREEN',
       title: 'Animated Fountain Codes (Luby Transform)',
-      desc: 'Direct camera-to-screen unidirectional data pipeline. Payloads are divided into 32 KiB pages with rateless erasure coding (Hummingbird core). The receiving device captures the stream with CameraX, reconstructing the encrypted file even with dropped or occluded frames without any backchannel RF handshake.',
+      desc: 'Screen to camera, one way, up to 1 MiB. Fountain codes (Hummingbird, 32 KiB pages) rebuild the encrypted file through lost or blocked frames.',
       medium: 'Display Photons → Camera Sensor',
       detect: 'Line of sight required',
       detectColor: 'var(--neon-green)',
@@ -5702,19 +5715,19 @@ if (terminal && gamesGrid) {
     },
     wifi: {
       modeName: 'LOCAL_WIFI_HOTSPOT_P2P',
-      telemetry: 'THROUGHPUT: 48.2 MB/s | TLS 1.3 PINNED',
+      telemetry: 'THROUGHPUT: 48.2 MB/s | TLS PINNED',
       rfStat: '+14 dBm (2.4/5GHz LAN)',
       rfColor: 'var(--neon-amber)',
       rateStat: '1,200 CHUNKS/SEC',
-      hashStat: 'BLAKE3::VERIFIED',
+      hashStat: 'SHA256::VERIFIED',
       intelTag: 'NETWORK: ISOLATED LAN // NO CLOUD',
-      title: 'Local Wi-Fi & Hotspot Direct P2P (Iroh-Ready)',
-      desc: 'Local peer-to-peer session with explicit QR pairing (IP + TLS pin + ephemeral secret). Full WebRTC audio/video signaling and verified file transfers up to 1 GiB without external STUN/TURN servers, DNS, or Tor triangulation. Designed for bunker LANs and mobile hotspots without Internet access.',
+      title: 'Local Wi-Fi & Hotspot Direct P2P',
+      desc: 'Pair by QR: address, TLS pin and a one-time secret, valid 10 minutes. Send files up to 1 GiB, SHA-256 checked, or call over WebRTC with no STUN/TURN, DNS or Tor. Works on a LAN or hotspot with no internet.',
       medium: '802.11 Wi-Fi Direct / Local Hotspot',
       detect: 'Confined to Local RF Propagation Area',
       detectColor: 'var(--neon-amber)',
-      attack: 'Pinned TLS 1.3 Handshake (No Open Ports)',
-      sourceClass: 'LocalLinkTransport.kt / Qp1ngWifiDirectManager.kt',
+      attack: 'Pinned TLS listener on the local network',
+      sourceClass: 'LocalLinkTransport.kt / LocalLinkSession.kt',
       log: [
         '> LOCAL_PEER_AUTH: 192.168.49.12 [PIN VALIDATED // 10 MIN LEASE]',
         '> WEBRTC_ICE_CANDIDATE: HOST_ONLY (STUN/TURN: DISABLED)',
@@ -5748,20 +5761,20 @@ if (terminal && gamesGrid) {
       rfStat: '-14 dBm (BURST LE 5.3)',
       rfColor: 'var(--neon-cyan)',
       rateStat: '128 B/PACKET // BURST',
-      hashStat: 'BLAKE3::SEALED',
+      hashStat: 'AES-GCM::SEALED',
       intelTag: 'TOPOLOGY: BLUETOOTH RADIO MESH',
-      title: 'Decentralized Bluetooth LE Multi-Hop Mesh Chat',
-      desc: 'Bluetooth peers can relay messages without mobile data or internet access. Range, delivery and supported modes depend on the devices and nearby peers. Radio activity can still be detected.',
+      title: 'Bluetooth LE Multi-Hop Mesh Chat',
+      desc: 'Phones relay messages for each other, up to 7 hops, no internet. The radio itself can still be detected.',
       medium: '2.4 GHz Bluetooth LE 5.x Advertising & GATT',
       detect: 'Range and device dependent',
       detectColor: 'var(--neon-green)',
-      attack: 'Double Ratchet Sealed Envelope (Zero-Relay-Knowledge)',
-      sourceClass: 'BleMeshPacketRouter.kt / StoreAndForwardQueue.kt',
+      attack: 'Bluetooth radio, visible to nearby scanners',
+      sourceClass: 'QMeshEngine.kt / QMeshRelaySpool.kt',
       log: [
-        '> BLE_ADVERTISER: ROTATING MAC (PRIVACY LEASE: 15m)',
+        '> BLE_ADVERTISER: QMESH SERVICE ACTIVE',
         '> MESH_ROUTER: 4 RELAY NODES DISCOVERED // TTL: 7 HOPS',
         '> PACKET_DISPATCH: BLIND STORE-AND-FORWARD // SHA-256 OK',
-        '> END_TO_END_SECURITY: DOUBLE RATCHET FORWARD SECRECY VALIDATED'
+        '> END_TO_END: X25519 + AES-256-GCM SEALED'
       ]
     }
   };
@@ -6606,11 +6619,11 @@ if (terminal && gamesGrid) {
 
     ctx.font = '9px monospace';
     ctx.fillStyle = 'rgba(0, 242, 255, 0.9)';
-    ctx.fillText('ENCRYPT: DOUBLE RATCHET + AES-256', barX + 8, barY + 16);
+    ctx.fillText('ENCRYPT: X25519 + AES-256-GCM', barX + 8, barY + 16);
 
     ctx.fillStyle = '#35ff8a';
     ctx.textAlign = 'right';
-    ctx.fillText('PRIVACY LEASE: 14m:22s // NO SIM', barX + barW - 8, barY + 16);
+    ctx.fillText('TTL: 7 HOPS // NO SIM', barX + barW - 8, barY + 16);
     ctx.textAlign = 'left';
   }
 
@@ -6721,7 +6734,7 @@ if (terminal && gamesGrid) {
         { c1: 'AZA421', c2: '4CA85D', c3: 'FL360 (36,000 ft)', c4: '478 kts', c5: '-12 dBm', lat: 0.35, lon: 0.42 },
         { c1: 'AFR1182', c2: '394A20', c3: 'FL340 (34,000 ft)', c4: '450 kts', c5: '-16 dBm', lat: -0.45, lon: 0.28 },
         { c1: 'DLH440', c2: '3C65B2', c3: 'FL380 (38,000 ft)', c4: '492 kts', c5: '-14 dBm', lat: 0.62, lon: -0.38 },
-        { c1: 'NATO01', c2: 'AE01D4', c3: 'FL310 (AWACS SENTRY)', c4: '390 kts', c5: '-21 dBm', lat: -0.22, lon: -0.55 },
+        { c1: 'EZY45UP', c2: '4007F2', c3: 'FL310 (31,000 ft)', c4: '440 kts', c5: '-21 dBm', lat: -0.22, lon: -0.55 },
         { c1: 'RYR87KC', c2: '4CA211', c3: 'FL280 (28,000 ft)', c4: '430 kts', c5: '-11 dBm', lat: 0.18, lon: -0.15 },
         { c1: 'BAW552', c2: '40052F', c3: 'FL390 (39,000 ft)', c4: '505 kts', c5: '-18 dBm', lat: -0.58, lon: 0.64 }
       ],
@@ -6729,7 +6742,7 @@ if (terminal && gamesGrid) {
         '*8D4CA85D580B07A9A06C04123456; [DF17 TC=19 ALT=36000 SQUAWK=7000]',
         '*8D394A20994400288820A812C4EF; [DF17 TC=9 POS=41.8902N 012.4923E]',
         '*8D3C65B2588302A6A04C20188902; [DF17 TC=19 ALT=38000 SPEED=492]',
-        '*8DAE01D45812B4C0A02844ABCDEF; [DF17 TC=19 MILITARY AWACS SECURE]',
+        '*8D4007F2990C4A1C0804A2B3C4D5; [DF17 TC=19 VELOCITY 440 KTS]',
         '*8D4CA211991204288018A4FE1204; [DF17 TC=9 CPR_EVEN AIRBORNE_POS]'
       ]
     },
@@ -6738,7 +6751,7 @@ if (terminal && gamesGrid) {
       scopeMeta: 'VESSELS: 5 | SECTOR: CH-87B/88B',
       demod: 'GMSK 9600 BAUD (NRZI)',
       bandwidth: '25.0 kHz',
-      engineClass: 'AisGmsk9600Decoder.kt • AisMarineTracker.kt',
+      engineClass: 'AisGmsk9600Decoder.kt',
       headers: ['SHIP NAME', 'MMSI', 'STATUS / HEADING', 'SPEED', 'SIGNAL'],
       targets: [
         { c1: 'EVER GIVEN', c2: '353136000', c3: 'Underway (218°)', c4: '16.4 kts', c5: '-14 dBm', lat: 0.42, lon: 0.35 },
@@ -6755,27 +6768,27 @@ if (terminal && gamesGrid) {
       ]
     },
     acars: {
-      scopeTitle: 'ACARS AVIATION TELETYPE // 131.550 MHz',
-      scopeMeta: 'MESSAGES CAPTURED: 4 | AM-MSK 2400',
+      scopeTitle: 'ACARS HEADERS // 131.550 MHz',
+      scopeMeta: 'MESSAGES: 4 | TEXT KEPT AS HASH',
       demod: 'AM-MSK 2400 BAUD',
       bandwidth: '8.0 kHz',
-      engineClass: 'AcarsAm2400Decoder.kt • AcarsMessageParser.kt',
-      headers: ['FLIGHT', 'REG TAIL', 'MESSAGE TYPE', 'ROUTING / WPT', 'SIGNAL'],
+      engineClass: 'AcarsAm2400Decoder.kt • QRfTrafficDecodePolicy.kt',
+      headers: ['REG TAIL', 'MODE', 'LABEL', 'BLOCK / CRC', 'SIGNAL'],
       targets: [
-        { c1: 'BAW249', c2: 'G-STBC', c3: 'POS REPORT', c4: 'WPT BPK FL340 M.78', c5: '-15 dBm', lat: 0.25, lon: 0.38 },
-        { c1: 'AFR022', c2: 'F-GSQD', c3: 'METAR WX', c4: 'LFPG 300100Z CAVOK', c5: '-19 dBm', lat: -0.35, lon: 0.22 },
-        { c1: 'DLH104', c2: 'D-AIGP', c3: 'ENGINE DATA', c4: 'EGT NORMAL N1 88.4%', c5: '-12 dBm', lat: 0.48, lon: -0.32 },
-        { c1: 'UAE007', c2: 'A6-EEO', c3: 'ATC CLEARANCE', c4: 'CLEARED DIRECT ETENI', c5: '-20 dBm', lat: -0.15, lon: -0.48 }
+        { c1: '.G-STBC', c2: '2', c3: 'H1', c4: 'BLK 3 / CRC OK', c5: '-15 dBm', lat: 0.25, lon: 0.38 },
+        { c1: '.F-GSQD', c2: '2', c3: '5Z', c4: 'BLK 7 / CRC OK', c5: '-19 dBm', lat: -0.35, lon: 0.22 },
+        { c1: '.D-AIGP', c2: '2', c3: 'H1', c4: 'BLK 1 / CRC OK', c5: '-12 dBm', lat: 0.48, lon: -0.32 },
+        { c1: '.A6-EEO', c2: '2', c3: '_d', c4: 'BLK 5 / CRC OK', c5: '-20 dBm', lat: -0.15, lon: -0.48 }
       ],
       rawPackets: [
-        'ACARS: .G-STBC /BAW249 [POS REPORT BPK 0122 FL340 M.78 FOB 14.8T]',
-        'ACARS: .F-GSQD /AFR022 [WX REQ LFPG 300100Z 24008KT 9999 FEW030 14/09 Q1018]',
-        'ACARS: .D-AIGP /DLH104 [PERF MON ENGINE REPORT VIB OK OIL_PRESS 64]',
-        'ACARS: .A6-EEO /UAE007 [ATC CPDLC CONNECTION ESTABLISHED TO LIMM_CTR]'
+        'ACARS: MODE=2 REG=.G-STBC LABEL=H1 BLK=3 CRC=OK TEXT=sha256:9f2c41…',
+        'ACARS: MODE=2 REG=.F-GSQD LABEL=5Z BLK=7 CRC=OK TEXT=sha256:1b7e08…',
+        'ACARS: MODE=2 REG=.D-AIGP LABEL=H1 BLK=1 CRC=OK TEXT=sha256:c40d95…',
+        'ACARS: MODE=2 REG=.A6-EEO LABEL=_d BLK=5 CRC=OK TEXT=sha256:77a3e2…'
       ]
     },
     aprs: {
-      scopeTitle: 'APRS TACTICAL PACKET // 144.800 MHz',
+      scopeTitle: 'APRS PACKET RADIO // 144.800 MHz',
       scopeMeta: 'NODES HEARD: 4 | AFSK 1200 BELL 202',
       demod: 'AFSK 1200 BAUD (BELL 202)',
       bandwidth: '12.5 kHz',
@@ -7085,7 +7098,7 @@ if (terminal && gamesGrid) {
   if (btnEnter) {
     btnEnter.addEventListener('click', () => {
       if (typedOutput) {
-        typedOutput.textContent = '🔒 [MESSAGE_ENCRYPTED_AND_DISPATCHED]';
+        typedOutput.textContent = T('🔒 [MESSAGE_ENCRYPTED_AND_DISPATCHED]');
         setTimeout(() => {
           currentTyped = '_';
           typedOutput.textContent = currentTyped;
@@ -7107,7 +7120,7 @@ if (terminal && gamesGrid) {
   if (toolVault) {
     toolVault.addEventListener('click', () => {
       let core = currentTyped.endsWith('_') ? currentTyped.slice(0, -1) : currentTyped;
-      currentTyped = core + ' [NSEC1_SECRET_SNIPPET_INSERTED]_';
+      currentTyped = core + ' [Q-PASS_LOGIN_PASTED]_';
       if (typedOutput) typedOutput.textContent = currentTyped;
     });
   }
@@ -7123,24 +7136,24 @@ if (terminal && gamesGrid) {
   let clipSeconds = 30;
   const clipSamples = [
     '[ENC_PAYLOAD: 8f2a...9c41]',
-    '[NOSTR_KEY: nsec1ql4z...p99x]',
-    '[BIP39_SEED: 7e93...11ba]',
-    '[SESSION_KEY: ed25519...3f02]'
+    '[GENERATED_PASSWORD: Xk9#...q2Lm]',
+    '[TOOL_OUTPUT: 7e93...11ba]',
+    '[TOOL_OUTPUT: 3f02...a7d1]'
   ];
   let clipSampleIdx = 0;
 
   function flushClipboard() {
     clipSeconds = 30;
     if (clipContent) {
-      clipContent.textContent = '[BUFFER_ZEROIZED: 00 00 00 00]';
+      clipContent.textContent = T('[BUFFER_ZEROIZED: 00 00 00 00]');
       clipContent.style.color = 'var(--neon-red)';
     }
     if (clipBadge) {
-      clipBadge.textContent = 'BUFFER: ZEROIZED';
+      clipBadge.textContent = T('BUFFER: ZEROIZED');
       clipBadge.style.color = 'var(--neon-red)';
     }
     if (clipBar) clipBar.style.transform = 'scaleX(0)';
-    if (clipTimer) clipTimer.textContent = '0s';
+    if (clipTimer) clipTimer.textContent = T('0s');
 
     setTimeout(() => {
       clipSampleIdx = (clipSampleIdx + 1) % clipSamples.length;
@@ -7149,7 +7162,7 @@ if (terminal && gamesGrid) {
         clipContent.style.color = 'var(--neon-green)';
       }
       if (clipBadge) {
-        clipBadge.textContent = 'BUFFER: ENCRYPTED (AES-256)';
+        clipBadge.textContent = T('BUFFER: ENCRYPTED (AES-256)');
         clipBadge.style.color = 'var(--neon-cyan)';
       }
       clipSeconds = 30;
@@ -7234,30 +7247,30 @@ if (terminal && gamesGrid) {
     if (enteredPin === '1337') {
       setScreenState('state-master');
       if (pinFeedback) {
-        pinFeedback.textContent = 'AUTH_GRANTED // MASTER ENCRYPTED VAULT';
+        pinFeedback.textContent = T('AUTH_GRANTED // REAL APP UNLOCKED');
         pinFeedback.style.color = 'var(--neon-green)';
       }
     } else if (enteredPin === '9999') {
       setScreenState('state-weather');
       if (pinFeedback) {
-        pinFeedback.textContent = 'PLAUSIBLE DENIABILITY // DECOY WEATHER PRO';
+        pinFeedback.textContent = T('DECOY PIN // WEATHER COVER');
         pinFeedback.style.color = 'var(--neon-cyan)';
       }
     } else if (enteredPin === '4040') {
       setScreenState('state-grocery');
       if (pinFeedback) {
-        pinFeedback.textContent = 'PLAUSIBLE DENIABILITY // DECOY GROCERY CART';
+        pinFeedback.textContent = T('DECOY PIN // SHOPPING LIST COVER');
         pinFeedback.style.color = 'var(--neon-amber)';
       }
     } else if (enteredPin === '0000') {
       setScreenState('state-duress-wipe');
       if (pinFeedback) {
-        pinFeedback.textContent = 'SILENT_DURESS_TRIGGERED // ZEROIZING MASTER KEYS';
+        pinFeedback.textContent = T('SILENT_DURESS_TRIGGERED // DELETING KEYSTORE KEYS');
         pinFeedback.style.color = 'var(--neon-red)';
       }
     } else {
       if (pinFeedback) {
-        pinFeedback.textContent = 'ERR: INVALID_PIN (REMAINING: 2)';
+        pinFeedback.textContent = T('ERR: INVALID_PIN (REMAINING: 2)');
         pinFeedback.style.color = 'var(--neon-red)';
       }
       setTimeout(() => {
@@ -7287,7 +7300,7 @@ if (terminal && gamesGrid) {
       enteredPin = '';
       updateDots();
       if (pinFeedback) {
-        pinFeedback.textContent = 'PIN BUFFER CLEARED';
+        pinFeedback.textContent = T('PIN BUFFER CLEARED');
         pinFeedback.style.color = 'rgba(255, 255, 255, 0.6)';
       }
     });
@@ -7314,7 +7327,7 @@ if (terminal && gamesGrid) {
     updateDots();
     setScreenState('state-locked');
     if (pinFeedback) {
-      pinFeedback.textContent = 'STANDBY // CLICK PRESETS OR KEYPAD';
+      pinFeedback.textContent = T('STANDBY // CLICK PRESETS OR KEYPAD');
       pinFeedback.style.color = 'rgba(255, 255, 255, 0.6)';
     }
   }
@@ -7369,7 +7382,7 @@ if (terminal && gamesGrid) {
   if (btnRunWipe) {
     btnRunWipe.addEventListener('click', () => {
       btnRunWipe.disabled = true;
-      btnRunWipe.textContent = 'EXECUTING WIPE SEQUENCE...';
+      btnRunWipe.textContent = T('EXECUTING WIPE SEQUENCE...');
 
       let step = 0;
       function nextStep() {
@@ -7380,10 +7393,10 @@ if (terminal && gamesGrid) {
           setTimeout(nextStep, 600);
         } else {
           btnRunWipe.disabled = false;
-          btnRunWipe.textContent = 'SIMULATION COMPLETE // ENTROPY ZEROIZED';
+          btnRunWipe.textContent = T('SIMULATION COMPLETE // KEYS VERIFIED GONE');
           setTimeout(() => {
             seqSteps.forEach(s => s.classList.remove('step-active'));
-            btnRunWipe.textContent = 'EXECUTE PIPELINE SIMULATION';
+            btnRunWipe.textContent = T('EXECUTE PIPELINE SIMULATION');
           }, 2400);
         }
       }
@@ -7412,7 +7425,7 @@ if (terminal && gamesGrid) {
       'Nmap done: 1 IP address (1 host up) scanned in 0.42 seconds'
     ],
     'tshark': [
-      'Capturing on eth0 (PRoot virtual socket bridge)',
+      'Sample: reading capture.pcap (live capture needs root; use tshark -r)',
       '  1 0.000000 192.168.1.42 -> 192.168.1.1 DNS Standard query 0x1a2b A encrypted.mesh',
       '  2 0.001210 192.168.1.1 -> 192.168.1.42 DNS Standard query response NXDOMAIN',
       '  3 0.015400 192.168.1.42 -> 10.0.0.2   TCP 54820 > 9050 [SYN] Seq=0 Win=64240',
@@ -7421,7 +7434,7 @@ if (terminal && gamesGrid) {
     ],
     'tcpdump': [
       'tcpdump: verbose output suppressed, use -v[v]... for full protocol decode',
-      'listening on eth0, link-type EN10MB (Ethernet), snapshot length 262144 bytes',
+      'reading from file capture.pcap, link-type EN10MB (Ethernet) [live capture needs root]',
       '02:41:10.104 IP 192.168.1.105.53412 > 1.1.1.1.53: 42109+ A? torproject.org. (32)',
       '02:41:10.128 IP 1.1.1.1.53 > 192.168.1.105.53412: 42109 2/0/0 A 116.202.120.166 (64)',
       '4 packets captured, 4 packets received by filter, 0 packets dropped'
@@ -7459,10 +7472,10 @@ if (terminal && gamesGrid) {
     ],
     'sqlite3': [
       'SQLite version 3.44.2 2023-11-24 11:41:44',
-      'Encrypted schema detected. Decrypting with transient key...',
+      'Opening the sample /workspace/vault.db (plain SQLite)...',
       'contacts           key_registry       messages           tor_sessions',
       'audit_log          sdr_bookmarks      vault_payloads     whisper_cache',
-      '8 tables present in SQLCipher database.'
+      '8 tables in the sample database.'
     ],
     'openssl': [
       'Generating 32 cryptographically secure pseudo-random bytes:',
@@ -7547,7 +7560,7 @@ if (terminal && gamesGrid) {
       if (termScreen) {
         termScreen.innerHTML = `
           <div class="term-out">Linux qp1ng-alpine 6.6.21-qp1ng-proot #1 SMP PREEMPT aarch64 Linux</div>
-          <div class="term-out">Alpine Linux 3.19.1 - Userspace Container (Zero-Root required)</div>
+          <div class="term-out">Alpine Linux 3.23.4 - Userspace Container (no root required)</div>
           <div class="term-out">&nbsp;</div>
           <div class="term-line-active">
             <span class="term-prompt">root@qp1ng-alpine:~#</span>
@@ -7614,10 +7627,10 @@ if (terminal && gamesGrid) {
       trajectory: { startAz: 195, peakAz: 68, peakEl: 74, endAz: 12 },
       streamType: 'NOAA APT LINE SYNC',
       streamLines: [
-        '[SYNC A: 1040 Hz] [SYNC B: 832 Hz] LINE 0842/1200 LOCK',
-        'CH1 (VIS 0.64um): 214 218 221 219 212 205 198 184 172',
-        'CH2 (IR 10.8um):  042 045 049 052 056 061 068 074 081',
-        'TEMP CALIBRATION: SENSOR_T = 281.4K // SPACE RADIATOR = 4.2K'
+        'APT 2400 Hz SUBCARRIER // LINE SYNC LOCK // LINE 0842',
+        'LINE 500 ms // SUBCARRIER QUALITY 0.86 // ENVELOPE 64%',
+        'OUTPUT: LINE METADATA + PAYLOAD HASH',
+        'IMAGE ASSEMBLY: NOT IN APP // RECORD RAW IQ'
       ]
     },
     'noaa18': {
@@ -7635,12 +7648,12 @@ if (terminal && gamesGrid) {
       elevation: 28.0,
       range: '1,480 km',
       trajectory: { startAz: 210, peakAz: 142, peakEl: 58, endAz: 30 },
-      streamType: 'NOAA-18 APT TELEMETRY',
+      streamType: 'NOAA-18 APT LINE SYNC',
       streamLines: [
-        '[FRAME LOCK] AVHRR/3 APT Telemetry Frame 124',
-        'CH1 (VIS): 198 202 208 214 210 205 194 182 170',
-        'CH4 (IR):  065 068 072 075 080 084 089 095 101',
-        'DEEP SPACE CLAMP: OK // LINE COUNTER = 0418'
+        'APT 2400 Hz SUBCARRIER // CARRIER PRESENT',
+        'LINES DETECTED: 0418 // SUBCARRIER QUALITY 0.71',
+        'OUTPUT: LINE METADATA + PAYLOAD HASH',
+        'IMAGE ASSEMBLY: NOT IN APP // RECORD RAW IQ'
       ]
     },
     'meteor': {
@@ -7658,12 +7671,12 @@ if (terminal && gamesGrid) {
       elevation: 36.2,
       range: '1,210 km',
       trajectory: { startAz: 180, peakAz: 35, peakEl: 68, endAz: 355 },
-      streamType: 'METEOR LRPT DIGITAL QPSK',
+      streamType: 'METEOR LRPT RAW IQ',
       streamLines: [
-        'VITERBI FEC LOCK: BER = 0.00000 // 72 kbps QPSK',
-        'MSU-MR RGB PACKET #18442: 1280x1024 DECOMPRESSING',
-        'REED-SOLOMON CHECK: OK (0 errors corrected in block)',
-        'RADIOMETER CALIBRATION: ON-BOARD BLACKBODY = 289.1K'
+        'RAW IQ CAPTURE: 2.4 Msps // RECORDING OK',
+        'TUNED ONCE TO THE DOPPLER-CORRECTED FREQUENCY',
+        'LRPT DECODE: NOT IN APP',
+        'EXPORT THE .iq FILE TO AN EXTERNAL DECODER'
       ]
     },
     'iss': {
@@ -7683,10 +7696,10 @@ if (terminal && gamesGrid) {
       trajectory: { startAz: 290, peakAz: 210, peakEl: 82, endAz: 110 },
       streamType: 'ISS AX.25 APRS PACKET',
       streamLines: [
-        'RS0ISS-4>CQ,ARISS* [UI, C]: Hello from International Space Station!',
-        'TELEMETRY: BATT=31.8V SOLAR_CURRENT=48.2A CABIN_P=101.3kPa',
-        'APRS PACKET RELAYED: IK1XXX>APRS [MSG #42 RECEIVED IN ORBIT]',
-        'SSTV TRANSPONDER: STANDBY // CAM STATUS: NOMINAL'
+        'IK1XXX-7>APRS,RS0ISS*:=4153.41N/01229.53E-via ISS',
+        'AX.25 FCS OK // APRS PACKET DECODED',
+        'SSTV: VIS HEADER 95, PARITY OK // NO IMAGE',
+        'ISS RADIO STATUS: VERIFY THE LIVE SCHEDULE'
       ]
     },
     'so50': {
@@ -7801,9 +7814,9 @@ if (terminal && gamesGrid) {
     const retunedHz = sat.freqHz + deltaF;
 
     if (scrubLabel) {
-      if (sliderVal < -20) scrubLabel.textContent = 'AOS APPROACH (BLUE SHIFT)';
-      else if (sliderVal > 20) scrubLabel.textContent = 'LOS RECEDING (RED SHIFT)';
-      else scrubLabel.textContent = 'TCA ZENITH (PEAK ELEVATION)';
+      if (sliderVal < -20) scrubLabel.textContent = T('AOS APPROACH (BLUE SHIFT)');
+      else if (sliderVal > 20) scrubLabel.textContent = T('LOS RECEDING (RED SHIFT)');
+      else scrubLabel.textContent = T('TCA ZENITH (PEAK ELEVATION)');
     }
 
     if (freqDeltaEl) {
@@ -8072,10 +8085,10 @@ if (terminal && gamesGrid) {
   if (btnPtt) {
     btnPtt.addEventListener('click', () => {
       btnPtt.disabled = true;
-      btnPtt.textContent = 'DEMO · PTT BURST...';
+      btnPtt.textContent = T('DEMO · PTT BURST...');
       if (pttLed) pttLed.classList.add('ptt-active');
       if (pttLabel) {
-        pttLabel.textContent = 'DEMO PTT: NO RF TRANSMISSION';
+        pttLabel.textContent = T('DEMO PTT: NO RF TRANSMISSION');
         pttLabel.style.color = 'var(--neon-red)';
       }
 
@@ -8093,15 +8106,15 @@ if (terminal && gamesGrid) {
       setTimeout(() => {
         if (pttLed) pttLed.classList.remove('ptt-active');
         if (pttLabel) {
-          pttLabel.textContent = 'DEMO PTT: TAIL PREVIEW';
+          pttLabel.textContent = T('DEMO PTT: TAIL PREVIEW');
           pttLabel.style.color = 'var(--neon-amber)';
         }
 
         setTimeout(() => {
           btnPtt.disabled = false;
-          btnPtt.textContent = 'PREVIEW PTT BURST';
+          btnPtt.textContent = T('PREVIEW PTT BURST');
           if (pttLabel) {
-            pttLabel.textContent = 'DEMO PTT: STANDBY';
+            pttLabel.textContent = T('DEMO PTT: STANDBY');
             pttLabel.style.color = '#fff';
           }
           if (serialConsole) {
@@ -8185,19 +8198,19 @@ if (terminal && gamesGrid) {
   function updatePrivacyDisplay() {
     if (!privacyBadge || !btnTogglePrivacy) return;
     if (isFuzzy) {
-      privacyBadge.textContent = 'DEMO: APPROXIMATE COORDINATES';
+      privacyBadge.textContent = T('DEMO: APPROXIMATE COORDINATES');
       privacyBadge.style.borderColor = 'var(--cyan)';
       privacyBadge.style.color = 'var(--cyan)';
       privacyBadge.style.background = 'rgba(0, 243, 255, 0.08)';
-      btnTogglePrivacy.textContent = 'PREVIEW EXACT COORDINATES';
+      btnTogglePrivacy.textContent = T('PREVIEW EXACT COORDINATES');
       btnTogglePrivacy.classList.remove('txt-amber');
       btnTogglePrivacy.classList.add('txt-cyan');
     } else {
-      privacyBadge.textContent = 'DEMO: EXACT COORDINATES';
+      privacyBadge.textContent = T('DEMO: EXACT COORDINATES');
       privacyBadge.style.borderColor = 'var(--neon-amber)';
       privacyBadge.style.color = 'var(--neon-amber)';
       privacyBadge.style.background = 'rgba(255, 170, 0, 0.12)';
-      btnTogglePrivacy.textContent = 'PREVIEW APPROXIMATE COORDINATES';
+      btnTogglePrivacy.textContent = T('PREVIEW APPROXIMATE COORDINATES');
       btnTogglePrivacy.classList.remove('txt-cyan');
       btnTogglePrivacy.classList.add('txt-amber');
     }
@@ -8346,7 +8359,7 @@ if (terminal && gamesGrid) {
       id: 'pin-node-op',
       code: 'NODE',
       type: 'OPERATOR BEACON',
-      title: 'Friendly Operator // Unit 7-Alpha',
+      title: 'Sample mesh node · illustration only',
       desc: 'Current tactical radio anchor. T-Deck transceiver connected.',
       lat: 50.4501,
       lon: 30.5234,
@@ -8409,9 +8422,9 @@ if (terminal && gamesGrid) {
       selectedPin.confirms += 1;
       updatePopover(selectedPin);
       logRadioEvent(`[DEMO ACK] Sample report ${selectedPin.code}: Quorum updated to ${selectedPin.confirms} ACKs`);
-      btnPopConfirm.textContent = 'VERIFIED (+1 ACK)';
+      btnPopConfirm.textContent = T('VERIFIED (+1 ACK)');
       setTimeout(() => {
-        if (btnPopConfirm) btnPopConfirm.textContent = 'CONFIRM (+1)';
+        if (btnPopConfirm) btnPopConfirm.textContent = T('CONFIRM (0x03)');
       }, 1000);
     });
   }
@@ -8761,7 +8774,7 @@ if (terminal && gamesGrid) {
       ctx.fillStyle = pal.danger;
       ctx.font = 'bold 9px "JetBrains Mono", monospace';
       ctx.textAlign = 'center';
-      ctx.fillText('⚠ 500m HOSTILE CLUSTER GEOFENCE', gX, gY - gRadius - 8);
+      ctx.fillText('⚠ SAMPLE 500m REPORT RADIUS', gX, gY - gRadius - 8);
     }
 
     // 7. BRouter Safe Egress Route (Cyan dashed polyline)
@@ -8796,7 +8809,7 @@ if (terminal && gamesGrid) {
       ctx.fillStyle = pal.friendly;
       ctx.font = 'bold 10px "JetBrains Mono", monospace';
       ctx.textAlign = 'left';
-      ctx.fillText('➔ SAMPLE ROUTE WAYPOINT', dest.x + 10, dest.y + 4);
+      ctx.fillText('➔ SAMPLE: ROUTE REPORTED PASSABLE', dest.x + 10, dest.y + 4);
     }
 
     // 8. Tactical Map Pins (Hazards, Nodes, POI)
@@ -8958,7 +8971,7 @@ if (terminal && gamesGrid) {
           setTimeout(() => {
             if (installProgress) installProgress.classList.add('hidden');
             btnInstallPack.disabled = false;
-            btnInstallPack.textContent = 'PREVIEW OFFLINE SETUP';
+            btnInstallPack.textContent = T('PREVIEW OFFLINE SETUP');
             btnInstallPack.style.borderColor = '';
             btnInstallPack.style.color = '';
           }, 3500);
@@ -9066,8 +9079,8 @@ if (terminal && gamesGrid) {
 
       const fullPacket = `${magic} ${ver} ${op} ${hazard} ${latHex} ${lonHex} ${ttl} ${sig}`;
 
-      logRadioEvent(`RAW_HEX: ${fullPacket}`, 'txt-cyan');
-      logRadioEvent(`[LORA_TX] Dispatched: 32 bytes | SF7/125kHz | Ch: 868.1 MHz | Airtime: 56ms`, 'txt-green');
+      logRadioEvent(`RAW_HEX: 51 47 4C 31 ... ${hazard} ... (QGL1 header, map token, public key, 27-byte event, 64-byte signature)`, 'txt-cyan');
+      logRadioEvent(`[DEMO] Signed QGL1 packet: 135-235 bytes | 433 MHz LoRa, SF9/BW250 | not sent`, 'txt-green');
       logRadioEvent(`DEMO · sample acknowledgements shown; no radio event sent.`, '');
 
       // Add dynamic pin to map
@@ -9085,7 +9098,7 @@ if (terminal && gamesGrid) {
         radius: 50,
         severity: hazardHex === '0x17' ? 'CRITICAL' : 'HIGH',
         confirms: 1,
-        ttl: '24h 00m',
+        ttl: ((hazardName.match(/TTL: ([^)]+)/) || [])[1] || '24 Hours').toUpperCase(),
         reporter: 'LOCAL_OPERATOR (LoRa TX)',
         category: 'hazard'
       };
@@ -9095,9 +9108,9 @@ if (terminal && gamesGrid) {
       updatePopover(newPin);
 
       // Button feedback
-      btnBroadcastEvent.textContent = 'DEMO PACKET PREVIEWED OK';
+      btnBroadcastEvent.textContent = T('DEMO PACKET PREVIEWED OK');
       setTimeout(() => {
-        if (btnBroadcastEvent) btnBroadcastEvent.textContent = 'TRANSMIT COMPACT RADIO DELTA';
+        if (btnBroadcastEvent) btnBroadcastEvent.textContent = T('BUILD SAMPLE PACKET');
       }, 1500);
     });
   }
@@ -9148,44 +9161,44 @@ if (terminal && gamesGrid) {
     {
       index: 0,
       tag: "FLOW 01 // RESILIENT MAPPING",
-      src: "assets/img/qgeo_flow_crisis.webp?v=4.3",
+      src: SITE_ROOT + "assets/img/qgeo_flow_crisis.webp?v=4.3",
       title: "Offline Vector Cartography",
-      desc: "On-device vector maps, ready for offline use after import. View your saved area alongside supported markers and shared reports."
+      desc: "Vector maps live on the phone once imported, with your collections and shared reports. No signal needed."
     },
     {
       index: 1,
       tag: "FLOW 02 // TOR FAIL-CLOSED",
-      src: "assets/img/qgeo_flow_tor.webp?v=4.3",
-      title: "Tor Isolation & Clearnet Block",
-      desc: "Choose offline maps or an online source. When Tor is required, map requests wait for Tor and do not fall back to a direct connection."
+      src: SITE_ROOT + "assets/img/qgeo_flow_tor.webp?v=4.3",
+      title: "Fail-Closed Tor Downloads",
+      desc: "With Tor required, online map requests wait for Tor instead of going direct. No clearnet fallback."
     },
     {
       index: 2,
       tag: "FLOW 03 // P2P MESH BLACKOUT",
-      src: "assets/img/qgeo_flow_mesh.webp?v=4.3",
-      title: "Bluetooth & Wi-Fi Direct Mesh",
-      desc: "During cellular network blackouts, handsets form a zero-infrastructure ad-hoc mesh. Signed hazard events (formatted as compact QG1:Base64... frames) hop peer-to-peer in real time without cellular towers."
+      src: SITE_ROOT + "assets/img/qgeo_flow_mesh.webp?v=4.3",
+      title: "Bluetooth Mesh & Local Wi-Fi",
+      desc: "No cell network? QG1:Base64... reports hop over an encrypted Bluetooth mesh or go over local Wi-Fi."
     },
     {
       index: 3,
       tag: "FLOW 04 // LORA MEDIUM-RANGE",
-      src: "assets/img/qgeo_flow_lora.webp?v=4.3",
-      title: "LoRa Mesh Radio Relay (LilyGO T-Deck)",
-      desc: "Bridging the handset via BLE to a LilyGO T-Deck or Meshtastic node allows encrypted QGR1 packets to travel over 868/915 MHz mountain and urban repeaters across multi-kilometer spans."
+      src: SITE_ROOT + "assets/img/qgeo_flow_lora.webp?v=4.3",
+      title: "LoRa via T-Deck (Pro)",
+      desc: "A LilyGO T-Deck with Q-P1NG firmware sends signed, unencrypted QGL1 reports on 433 MHz. Not Meshtastic."
     },
     {
       index: 4,
       tag: "FLOW 05 // VHF WALKIE-TALKIE",
-      src: "assets/img/qgeo_flow_vhf.webp?v=4.3",
-      title: "VHF Walkie-Talkie Audio Relay",
-      desc: "Connected via 3.5mm TRRS audio cable or AIOC interface to commercial analog VHF/UHF transceivers. Hazards are Ed25519-signed, hardened with Reed-Solomon FEC, and modulated as audio tones."
+      src: SITE_ROOT + "assets/img/qgeo_flow_vhf.webp?v=4.3",
+      title: "VHF Audio Relay (Pro)",
+      desc: "A cable or AIOC to an analog VHF/UHF radio. Reports go out Ed25519-signed, as audio tones."
     },
     {
       index: 5,
-      tag: "FLOW 06 // BROUTER ROUTE PLANNING",
-      src: "assets/img/qgeo_flow_egress.webp?v=4.3",
-      title: "Offline BRouter Routes & Geofencing",
-      desc: "Plan routes with downloaded routing data and review nearby reports. Reports may be incomplete or outdated; a suggested route is not a guarantee of safe passage."
+      tag: "FLOW 06 // REPORT LIFECYCLE",
+      src: SITE_ROOT + "assets/img/qgeo_flow_egress.webp?v=4.3",
+      title: "Search, Filter, Expire",
+      desc: "Filter reports by priority or confirmations. Each leaves the map when its TTL ends or it is cleared."
     }
   ];
 
@@ -9491,43 +9504,43 @@ if (terminal && gamesGrid) {
   const recipes = {
     emcon: {
       n1Title: 'BLE_PEER_APPEARED',
-      n1Sub: 'Proximity: Unknown MAC < -65 dBm',
-      n2Title: 'GHOST_MODE_INACTIVE',
-      n2Sub: 'Check transmitter state',
+      n1Sub: 'Ghost Mesh peer comes into range',
+      n2Title: 'GHOST_MODE_ACTIVE',
+      n2Sub: 'Expected: false',
       n3Title: 'ACTIVATE_GHOST_MODE',
-      n3Sub: 'Configured radio controls · example',
+      n3Sub: 'Volatile in-RAM chat session',
       n4Title: 'SEND_LORA_MESSAGE',
-      n4Sub: 'Ch 868.1 MHz: 32B Coded Alert'
+      n4Sub: 'Shared-key text, up to 180 characters'
     },
     deadman: {
-      n1Title: 'DEAD_MAN_TIMER',
-      n1Sub: '24h Inactivity Horizon Elapsed',
-      n2Title: 'CANARY_PIN_MISSING',
-      n2Sub: 'Zero operator auth response',
-      n3Title: 'STAGE_PANIC_WIPE',
-      n3Sub: 'Shred Bitcoin Vault descriptors',
-      n4Title: 'BROADCAST_DISTRESS',
-      n4Sub: 'LoRa Distress Beacon: SQUAD_ALERT'
+      n1Title: 'SCHEDULED',
+      n1Sub: 'Cron 0 9 * * * · Android may defer it',
+      n2Title: 'BATTERY_RANGE',
+      n2Sub: '20% to 100%',
+      n3Title: 'SHOW_NOTIFICATION',
+      n3Sub: 'Daily checklist reminder',
+      n4Title: 'LOG_TO_VAULT',
+      n4Sub: 'Encrypted run note'
     },
     sigint: {
-      n1Title: 'RF_BURST_DETECTED',
-      n1Sub: 'Q-SDR 1090 MHz ADS-B Intercept',
-      n2Title: 'KNOWN_SQUAWK_CHECK',
-      n2Sub: '7700 Emergency Code Match',
-      n3Title: 'RUN_YARA_TRIAGE',
-      n3Sub: 'PRoot Linux: starter.yara_scan',
+      n1Title: 'MANUAL',
+      n1Sub: 'You start the triage',
+      n2Title: 'QVAR_EQUALS',
+      n2Sub: '%CASE_STATUS = open',
+      n3Title: 'RUN_ACTION_FORGE_TOOL',
+      n3Sub: 'PRoot Linux: fieldkit.yara_match',
       n4Title: 'LOG_TO_VAULT',
-      n4Sub: 'Append encrypted incident card'
+      n4Sub: 'Append encrypted incident note'
     },
     tor: {
       n1Title: 'TOR_CIRCUIT_LOST',
-      n1Sub: 'Daemon socket unreachable',
-      n2Title: 'OUTBOX_BUFFER_PENDING',
-      n2Sub: 'Check unsent messages',
-      n3Title: 'REQUEST_NEW_IDENTITY',
-      n3Sub: 'Control Port 9051: SIGNAL NEWNYM',
-      n4Title: 'FALLBACK_TO_LORA',
-      n4Sub: 'Route via local 868 MHz relay'
+      n1Sub: 'Circuit no longer ready',
+      n2Title: 'WIFI_CONNECTED',
+      n2Sub: 'Local Wi-Fi still up',
+      n3Title: 'SHOW_NOTIFICATION',
+      n3Sub: 'Tells you Tor is down',
+      n4Title: 'SEND_LORA_MESSAGE',
+      n4Sub: 'Status text over your LoRa link'
     }
   };
 
@@ -9573,8 +9586,8 @@ if (terminal && gamesGrid) {
   if (btnSimulateFlow) {
     btnSimulateFlow.addEventListener('click', () => {
       btnSimulateFlow.disabled = true;
-      btnSimulateFlow.textContent = 'PREVIEWING FLOW GRAPH...';
-      if (flowStatus) flowStatus.textContent = 'DEMO: EVENT NODE 01';
+      btnSimulateFlow.textContent = T('PREVIEWING FLOW GRAPH...');
+      if (flowStatus) flowStatus.textContent = T('DEMO: EVENT NODE 01');
 
       // Clear existing active styles
       [node1, node2, node3, node4].forEach(n => n && n.classList.remove('active-node'));
@@ -9591,7 +9604,7 @@ if (terminal && gamesGrid) {
         // Stage 2: Condition Gate
         if (wire12) wire12.classList.add('active-wire');
         if (node2) node2.classList.add('active-node');
-        if (flowStatus) flowStatus.textContent = 'DEMO: CONDITION NODE 02';
+        if (flowStatus) flowStatus.textContent = T('DEMO: CONDITION NODE 02');
         logTerminal(`[COND_EVAL] Condition check: ${r.n2Title} -> TRUE`, 'txt-purple');
 
         setTimeout(() => {
@@ -9600,15 +9613,15 @@ if (terminal && gamesGrid) {
           if (wire24) wire24.classList.add('active-wire');
           if (node3) node3.classList.add('active-node');
           if (node4) node4.classList.add('active-node');
-          if (flowStatus) flowStatus.textContent = 'DEMO: ACTIONS 03 & 04';
+          if (flowStatus) flowStatus.textContent = T('DEMO: ACTIONS 03 & 04');
 
           logTerminal(`[DEMO ACTION] Action 01: ${r.n3Title} [example step]`, 'txt-cyan');
           logTerminal(`[DEMO DISPATCH] Action 02: ${r.n4Title} [no broadcast sent]`, 'txt-green');
 
           setTimeout(() => {
-            if (flowStatus) flowStatus.textContent = 'DEMO COMPLETE · NO ACTIONS EXECUTED';
+            if (flowStatus) flowStatus.textContent = T('DEMO COMPLETE · NO ACTIONS EXECUTED');
             btnSimulateFlow.disabled = false;
-            btnSimulateFlow.textContent = 'PREVIEW GRAPH FLOW';
+            btnSimulateFlow.textContent = T('PREVIEW GRAPH FLOW');
             logTerminal(`[DEMO COMPLETE] No app action executed or vault state changed.`, '');
           }, 600);
         }, 600);
@@ -9655,7 +9668,7 @@ if (terminal && gamesGrid) {
       deadmanTimerDisplay.style.color = '#ff2244';
     }
     if (tripwireAlertBox) tripwireAlertBox.classList.remove('hidden');
-    logTerminal(`[DEMO TIMEOUT] Example sequence displayed; no panic action executed.`, 'txt-red');
+    logTerminal(`[DEMO RUN] Example scheduled run displayed; no app action executed.`, 'txt-red');
   }
 
   if (btnCanaryCheckin) {
@@ -9665,14 +9678,14 @@ if (terminal && gamesGrid) {
       if (deadmanTimerDisplay) deadmanTimerDisplay.style.color = '#ff2244';
       if (tripwireAlertBox) tripwireAlertBox.classList.add('hidden');
 
-      btnCanaryCheckin.textContent = '✓ DEMO TIMER RESET (24H)';
+      btnCanaryCheckin.textContent = T('✓ DEMO TIMER RESET (24H)');
       btnCanaryCheckin.style.borderColor = '#00ff9d';
       btnCanaryCheckin.style.color = '#00ff9d';
-      logTerminal(`[DEMO CHECK-IN] Sample timer extended +24h.`, 'txt-green');
+      logTerminal(`[DEMO RESET] Sample countdown reset to 24h.`, 'txt-green');
 
       setTimeout(() => {
         if (btnCanaryCheckin) {
-          btnCanaryCheckin.textContent = 'RESET DEMO TIMER (24H)';
+          btnCanaryCheckin.textContent = T('RESET DEMO TIMER (24H)');
           btnCanaryCheckin.style.borderColor = '';
           btnCanaryCheckin.style.color = '';
         }
@@ -9698,20 +9711,20 @@ if (terminal && gamesGrid) {
 
   const toolManifests = {
     yara: {
-      id: 'starter.yara_scan',
-      json: `{\n  "schema": "qp1ng.tool.v1",\n  "id": "starter.yara_scan",\n  "name": "Local YARA Signature Matcher",\n  "version": "1.4.2",\n  "category": "security_lab",\n  "execution_mode": "SANDBOX_PROOT",\n  "network_policy": {\n    "outbound": "BLOCKED",\n    "loopback": "DENIED"\n  },\n  "runtime_limits": {\n    "timeout_seconds": 10,\n    "max_input_bytes": 32768,\n    "max_output_bytes": 65536\n  },\n  "signature": {\n    "format": "minisign",\n    "verified": true,\n    "signer": "zonkeynet-fieldkit-key-01"\n  }\n}`
+      id: 'fieldkit.yara_match',
+      json: `{\n  "schema": "qp1ng.tool.v1",\n  "id": "fieldkit.yara_match",\n  "name": "Local YARA Rule Match",\n  "version": "1.0.0",\n  "category": "workspace",\n  "permissions": {\n    "sandboxExecution": true,\n    "workspaceRead": true,\n    "workspaceWrite": false,\n    "network": false\n  },\n  "policy": {\n    "risk": "MEDIUM",\n    "executionMode": "OFF",\n    "networkDefault": false\n  }\n}`
     },
     defanger: {
       id: 'starter.url_defanger',
-      json: `{\n  "schema": "qp1ng.tool.v1",\n  "id": "starter.url_defanger",\n  "name": "URL Defanger & Neutralizer",\n  "version": "1.0.1",\n  "category": "opsec_utility",\n  "execution_mode": "FLOW_PYTHON",\n  "network_policy": {\n    "outbound": "OFFLINE_ONLY",\n    "loopback": "DENIED"\n  },\n  "runtime_limits": {\n    "timeout_seconds": 2,\n    "max_input_bytes": 8192,\n    "max_output_bytes": 8192\n  },\n  "signature": {\n    "format": "minisign",\n    "verified": true,\n    "signer": "zonkeynet-fieldkit-key-01"\n  }\n}`
+      json: `{\n  "schema": "qp1ng.tool.v1",\n  "id": "starter.url_defanger",\n  "name": "URL Defanger",\n  "version": "0.1.0",\n  "category": "workspace",\n  "permissions": {\n    "sandboxExecution": true,\n    "workspaceRead": false,\n    "workspaceWrite": false,\n    "network": false\n  },\n  "policy": {\n    "risk": "LOW",\n    "executionMode": "MANUAL_ONLY",\n    "networkDefault": false\n  }\n}`
     },
     pdf: {
-      id: 'starter.pdf_structure',
-      json: `{\n  "schema": "qp1ng.tool.v1",\n  "id": "starter.pdf_structure",\n  "name": "PDF Object Stream Inspector",\n  "version": "1.1.0",\n  "category": "forensics",\n  "execution_mode": "SANDBOX_PROOT",\n  "network_policy": {\n    "outbound": "BLOCKED",\n    "loopback": "DENIED"\n  },\n  "runtime_limits": {\n    "timeout_seconds": 8,\n    "max_input_bytes": 10485760,\n    "max_output_bytes": 32768\n  },\n  "signature": {\n    "format": "minisign",\n    "verified": true,\n    "signer": "zonkeynet-fieldkit-key-01"\n  }\n}`
+      id: 'fieldkit.pdf_check',
+      json: `{\n  "schema": "qp1ng.tool.v1",\n  "id": "fieldkit.pdf_check",\n  "name": "PDF Structure Check",\n  "version": "1.0.0",\n  "category": "workspace",\n  "permissions": {\n    "sandboxExecution": true,\n    "workspaceRead": true,\n    "workspaceWrite": false,\n    "network": false\n  },\n  "policy": {\n    "risk": "MEDIUM",\n    "executionMode": "OFF",\n    "networkDefault": false\n  }\n}`
     },
     sqlite: {
-      id: 'starter.sqlite_audit',
-      json: `{\n  "schema": "qp1ng.tool.v1",\n  "id": "starter.sqlite_audit",\n  "name": "SQLite Read-Only Pragma Audit",\n  "version": "1.2.0",\n  "category": "database_health",\n  "execution_mode": "FLOW_LITE",\n  "network_policy": {\n    "outbound": "OFFLINE_ONLY",\n    "loopback": "DENIED"\n  },\n  "runtime_limits": {\n    "timeout_seconds": 5,\n    "max_input_bytes": 65536,\n    "max_output_bytes": 16384\n  },\n  "signature": {\n    "format": "minisign",\n    "verified": true,\n    "signer": "zonkeynet-fieldkit-key-01"\n  }\n}`
+      id: 'fieldkit.sqlite_check',
+      json: `{\n  "schema": "qp1ng.tool.v1",\n  "id": "fieldkit.sqlite_check",\n  "name": "SQLite Read-Only Check",\n  "version": "1.0.0",\n  "category": "workspace",\n  "permissions": {\n    "sandboxExecution": true,\n    "workspaceRead": true,\n    "workspaceWrite": false,\n    "network": false\n  },\n  "policy": {\n    "risk": "MEDIUM",\n    "executionMode": "OFF",\n    "networkDefault": false\n  }\n}`
     }
   };
 
@@ -9730,13 +9743,13 @@ if (terminal && gamesGrid) {
   if (btnAuditTool) {
     btnAuditTool.addEventListener('click', () => {
       btnAuditTool.disabled = true;
-      btnAuditTool.textContent = 'DEMO · SIGNATURE CHECK...';
+      btnAuditTool.textContent = T('DEMO · HASH CHECK...');
 
       setTimeout(() => {
         btnAuditTool.disabled = false;
-        btnAuditTool.textContent = 'PREVIEW SIGNATURE CHECK';
+        btnAuditTool.textContent = T('PREVIEW HASH CHECK');
         if (auditSignatureStatus) {
-          auditSignatureStatus.textContent = 'DEMO COMPLETE · NO SIGNATURE VERIFIED';
+          auditSignatureStatus.textContent = T('DEMO COMPLETE · NO HASH CHECKED');
           auditSignatureStatus.style.color = 'var(--neon-green)';
         }
       }, 400);
@@ -9791,7 +9804,7 @@ if (terminal && gamesGrid) {
     if (!introAudio) {
       introAudio = new Audio();
       const canOgg = introAudio.canPlayType('audio/ogg; codecs="vorbis"');
-      introAudio.src = (canOgg === 'probably' || canOgg === 'maybe') ? 'assets/audio/intro.ogg' : 'assets/audio/intro.mp3';
+      introAudio.src = (canOgg === 'probably' || canOgg === 'maybe') ? SITE_ROOT + 'assets/audio/intro.ogg' : SITE_ROOT + 'assets/audio/intro.mp3';
       introAudio.preload = 'auto';
       introAudio.volume = 0.85;
       introAudio.load();
@@ -9799,7 +9812,7 @@ if (terminal && gamesGrid) {
     if (!outroAudio) {
       outroAudio = new Audio();
       const canOgg = outroAudio.canPlayType('audio/ogg; codecs="vorbis"');
-      outroAudio.src = (canOgg === 'probably' || canOgg === 'maybe') ? 'assets/audio/intro_outro_glitch.ogg' : 'assets/audio/intro_outro_glitch.mp3';
+      outroAudio.src = (canOgg === 'probably' || canOgg === 'maybe') ? SITE_ROOT + 'assets/audio/intro_outro_glitch.ogg' : SITE_ROOT + 'assets/audio/intro_outro_glitch.mp3';
       outroAudio.preload = 'auto';
       outroAudio.volume = 0.95;
       outroAudio.load();
@@ -9807,7 +9820,7 @@ if (terminal && gamesGrid) {
     if (!cipherGlitchAudio) {
       cipherGlitchAudio = new Audio();
       const canOgg = cipherGlitchAudio.canPlayType('audio/ogg; codecs="vorbis"');
-      cipherGlitchAudio.src = (canOgg === 'probably' || canOgg === 'maybe') ? 'assets/audio/cipher_glitch.ogg' : 'assets/audio/cipher_glitch.mp3';
+      cipherGlitchAudio.src = (canOgg === 'probably' || canOgg === 'maybe') ? SITE_ROOT + 'assets/audio/cipher_glitch.ogg' : SITE_ROOT + 'assets/audio/cipher_glitch.mp3';
       cipherGlitchAudio.preload = 'auto';
       cipherGlitchAudio.volume = 0.88;
       cipherGlitchAudio.load();
@@ -9997,12 +10010,12 @@ if (terminal && gamesGrid) {
   // Main English Manifesto: one phrase at a time in the centre of the screen. Each one is typed, held long enough
   // to read and erased backwards before the next; the last stays with the Enter button.
   const manifestoSegments = [
-    { text: "When you can no longer trust governments and institutions.", type: "normal" },
-    { text: "When tech monopolies monetize your existence and sell your privacy to the highest bidder.", type: "danger" },
-    { text: "When dissent is monitored, intercepted, and weaponized.", type: "normal" },
-    { text: "Do not submit to mass surveillance.", type: "highlight" },
-    { text: "Cryptography is self-defense. Freedom is a protocol.", type: "highlight" },
-    { text: "QUANTUM P1NG // WELCOME TO THE RESISTANCE.", type: "brand" }
+    { text: T("When you can no longer trust governments and institutions."), type: "normal" },
+    { text: T("When Big Tech sells your life to the highest bidder."), type: "danger" },
+    { text: T("When dissent is monitored, intercepted and weaponized."), type: "normal" },
+    { text: T("Do not submit to mass surveillance."), type: "highlight" },
+    { text: T("Cryptography is self-defense. Freedom is a protocol."), type: "highlight" },
+    { text: T("QUANTUM P1NG // WELCOME TO THE RESISTANCE."), type: "brand" }
   ];
   // Press clippings: real reporting on state spyware, Big Tech and the data trade, shown around the manifesto.
   // Headlines and standfirsts are the outlets' own words (each checked against its source on 2026-10-13); the
@@ -10474,13 +10487,13 @@ if (terminal && gamesGrid) {
         const icon = btnAudio.querySelector('.intro-audio-icon');
         const text = btnAudio.querySelector('.intro-audio-text');
         if (icon) icon.textContent = '🔇';
-        if (text) text.textContent = 'MUTED';
+        if (text) text.textContent = T('MUTED');
       } else {
         btnAudio.classList.remove('is-muted');
         const icon = btnAudio.querySelector('.intro-audio-icon');
         const text = btnAudio.querySelector('.intro-audio-text');
         if (icon) icon.textContent = '🔊';
-        if (text) text.textContent = 'AUDIO';
+        if (text) text.textContent = T('AUDIO');
         if (introAudio && !isDismissed) {
           introAudio.play().catch(() => {});
         }
@@ -11322,7 +11335,7 @@ document.querySelectorAll('.nav__cta').forEach(link => {
       const dur = video.duration || 61.33;
       const spdLabel = currentSpeed !== 1 ? ` · ${currentSpeed}x` : '';
       if (video.ended) {
-        hint.textContent = 'COMPLETED · CLICK TO REPLAY';
+        hint.textContent = T('COMPLETED · CLICK TO REPLAY');
       } else if (isPlaying) {
         hint.textContent = `PLAYING${spdLabel} · ${formatTime(cur)} / ${formatTime(dur)} · CLICK TO PAUSE`;
       } else if (cur > 0.5) {
