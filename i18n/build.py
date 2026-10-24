@@ -356,9 +356,12 @@ def build():
             text = replace_block(text, "switcher", switcher(page, lang))
             text = re.sub(r'<html lang="en"', '<html lang="%s"%s' % (lang, ' dir="rtl"' if lang in RTL else ""), text, count=1)
             url = page_url(page, lang)
-            text = text.replace('<link rel="canonical" href="%s">' % page_url(page, "en"), '<link rel="canonical" href="%s">' % url)
-            text = text.replace('<meta property="og:url" content="%s">' % page_url(page, "en"), '<meta property="og:url" content="%s">' % url)
-            text = text.replace('<meta property="og:locale" content="en_US">', '<meta property="og:locale" content="%s">' % OG_LOCALE[lang])
+            # The pages close void tags either way ("<link ...>" or "<link ... />").
+            english = re.escape(page_url(page, "en"))
+            text = re.sub(r'(<link rel="canonical" href=")%s(")' % english, r"\g<1>%s\g<2>" % url, text, count=1)
+            text = re.sub(r'(<meta property="og:url" content=")%s(")' % english, r"\g<1>%s\g<2>" % url, text, count=1)
+            text = re.sub(r'(<meta property="og:locale" content=")en_US(")', r"\g<1>%s\g<2>" % OG_LOCALE[lang], text,
+                          count=1)
             if page.get("ld_urls"):
                 text = text.replace('"url": "%s"' % page_url(page, "en"), '"url": "%s"' % url)
                 text = text.replace('"url": "%s#buy"' % page_url(page, "en"), '"url": "%s#buy"' % url)

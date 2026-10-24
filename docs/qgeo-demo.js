@@ -5,6 +5,8 @@
   const caption = document.getElementById('qgeoDemoCaption');
   const fallback = document.getElementById('qgeoDemoFallback');
   if (!video || !caption || !fallback) return;
+  // The page's language (script.js); English when it is missing.
+  const T = window.T || (text => text);
 
   const idleCaption = caption.textContent;
   const language = document.documentElement.lang.split('-')[0];
@@ -16,8 +18,10 @@
   let failed = false;
 
   function label() {
-    const action = failed ? 'Retry' : requested || !video.paused ? 'Pause' : completed ? 'Replay' : 'Play';
-    video.setAttribute('aria-label', action + ' Q-Geo app walkthrough');
+    const action = failed ? T('Retry the Q-Geo app walkthrough') : requested || !video.paused
+      ? T('Pause the Q-Geo app walkthrough') : completed ? T('Replay the Q-Geo app walkthrough')
+      : T('Play the Q-Geo app walkthrough');
+    video.setAttribute('aria-label', action);
   }
 
   function showCaption() {
@@ -29,7 +33,7 @@
   function unavailable() {
     requested = false;
     failed = true;
-    caption.textContent = 'The video could not load. Click the image to retry.';
+    caption.textContent = T('The video could not load. Click the image to retry.');
     fallback.hidden = false;
     label();
   }

@@ -2690,6 +2690,7 @@
   "VERIFIED (+1 ACK)",
   "CONFIRM (0x03)",
   "PREVIEW OFFLINE SETUP",
+  "Dynamic Hazard",
   "DEMO PACKET PREVIEWED OK",
   "BUILD SAMPLE PACKET",
   "PREVIEWING FLOW GRAPH...",
@@ -2711,6 +2712,16 @@
   "QUANTUM P1NG // WELCOME TO THE RESISTANCE.",
   "MUTED",
   "AUDIO",
-  "COMPLETED · CLICK TO REPLAY"
+  "COMPLETED · CLICK TO REPLAY",
+  "Click to play",
+  "Click to pause",
+  "Click to replay",
+  "Click to retry",
+  "The video could not load. Click the preview to retry.",
+  "Retry the Q-Geo app walkthrough",
+  "Pause the Q-Geo app walkthrough",
+  "Replay the Q-Geo app walkthrough",
+  "Play the Q-Geo app walkthrough",
+  "The video could not load. Click the image to retry."
  ]
 }

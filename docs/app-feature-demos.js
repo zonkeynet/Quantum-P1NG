@@ -1,6 +1,7 @@
 // Real app walkthroughs: media is requested only after the visitor clicks.
 (() => {
   'use strict';
+  const T = window.T || (text => text);
   const players = Array.from(document.querySelectorAll('[data-app-walkthrough]'));
   players.forEach(player => {
     const video = player.querySelector('video');
@@ -19,8 +20,9 @@
     const sources = Array.from(video.querySelectorAll('source[data-src]'));
     const failedSources = new Set();
     const words = {
-      en: { play: 'Click to play', pause: 'Click to pause', replay: 'Click to replay', retry: 'Click to retry',
-        unavailable: 'The video could not load. Click the preview to retry.' },
+      // English, or the page's language (script.js's T) on the translated pages.
+      en: { play: T('Click to play'), pause: T('Click to pause'), replay: T('Click to replay'), retry: T('Click to retry'),
+        unavailable: T('The video could not load. Click the preview to retry.') },
       it: { play: 'Clicca per avviare', pause: 'Clicca per mettere in pausa', replay: 'Clicca per rivedere', retry: 'Clicca per riprovare',
         unavailable: 'Il video non si è caricato. Clicca sull’anteprima per riprovare.' }
     };

@@ -16,6 +16,24 @@
 
   <title>Quantum P1NG - Encrypted Messenger, Local AI & Off-Grid Tools</title>
   <link rel="canonical" href="https://www.qp1ng.com/" />
+  <!-- The same page in every language (written by i18n/build.py). --><!-- i18n:alternates -->
+    <link rel="alternate" hreflang="en" href="https://www.qp1ng.com/">
+    <link rel="alternate" hreflang="it" href="https://www.qp1ng.com/it/">
+    <link rel="alternate" hreflang="de" href="https://www.qp1ng.com/de/">
+    <link rel="alternate" hreflang="es" href="https://www.qp1ng.com/es/">
+    <link rel="alternate" hreflang="fr" href="https://www.qp1ng.com/fr/">
+    <link rel="alternate" hreflang="pt-BR" href="https://www.qp1ng.com/pt-BR/">
+    <link rel="alternate" hreflang="pl" href="https://www.qp1ng.com/pl/">
+    <link rel="alternate" hreflang="ru" href="https://www.qp1ng.com/ru/">
+    <link rel="alternate" hreflang="uk" href="https://www.qp1ng.com/uk/">
+    <link rel="alternate" hreflang="ar" href="https://www.qp1ng.com/ar/">
+    <link rel="alternate" hreflang="fa" href="https://www.qp1ng.com/fa/">
+    <link rel="alternate" hreflang="ja" href="https://www.qp1ng.com/ja/">
+    <link rel="alternate" hreflang="zh-CN" href="https://www.qp1ng.com/zh-CN/">
+    <link rel="alternate" hreflang="zh-TW" href="https://www.qp1ng.com/zh-TW/">
+    <link rel="alternate" hreflang="my" href="https://www.qp1ng.com/my/">
+    <link rel="alternate" hreflang="x-default" href="https://www.qp1ng.com/">
+    <!-- /i18n:alternates -->
 
   <meta name="description" content="Encrypted Android messenger, no phone number: Tor, post-quantum calls, on-device AI, offline maps, radio and mesh for when the network goes dark." />
 
@@ -47,7 +65,7 @@
   <meta name="twitter:image:alt" content="Quantum P1NG: encrypted comms, local AI and off-grid tools for Android: Secure Voice, Q-Brain AI, Q-Dream, Q-CALL, Q-Cast, Q-Globe, Q-Feed, Q-Geo maps, VHF radio, LoRa mesh, Q-SDR, Q-Sat, Q-Map, Q-Torrent, Q-CAM and the Bitcoin vault" />
 
   <link rel="preload" href="assets/fonts/bitcount_square_qp1ng.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="styles.css?v=3.1.9" as="style" />
+  <link rel="preload" href="styles.css?v=3.2.4" as="style" />
   <link rel="preload" as="image" href="assets/vid/intro_bg_poster.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/vid/intro_mobile_poster.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/img/qp1ng_icon.webp" type="image/webp" fetchpriority="high" />
@@ -60,7 +78,7 @@
       }
     } catch(e){}
   </script>
-  <link rel="stylesheet" href="styles.css?v=3.1.9" />
+  <link rel="stylesheet" href="styles.css?v=3.2.4" />
   <link rel="stylesheet" href="qcast-globe.css?v=1.0.9" />
   <link rel="stylesheet" href="qcast-hero.css?v=1" />
   <link rel="stylesheet" href="qgeo-demo.css?v=2" />
@@ -618,6 +636,8 @@
         <!-- GitHub CTA -->
         <a class="nav__cta" href="https://github.com/zonkeynet/Quantum-P1NG" target="_blank" rel="noopener">GitHub</a>
       </nav>
+
+      <!-- i18n:switcher --><details class="lang" translate="no"><summary aria-label="Language"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><span>English</span></summary><ul><li><a href="?lang=en" hreflang="en" lang="en" aria-current="page">English</a></li><li><a href="it/?lang=it" hreflang="it" lang="it">Italiano</a></li><li><a href="de/?lang=de" hreflang="de" lang="de">Deutsch</a></li><li><a href="es/?lang=es" hreflang="es" lang="es">Español</a></li><li><a href="fr/?lang=fr" hreflang="fr" lang="fr">Français</a></li><li><a href="pt-BR/?lang=pt-BR" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="pl/?lang=pl" hreflang="pl" lang="pl">Polski</a></li><li><a href="ru/?lang=ru" hreflang="ru" lang="ru">Русский</a></li><li><a href="uk/?lang=uk" hreflang="uk" lang="uk">Українська</a></li><li><a href="ar/?lang=ar" hreflang="ar" lang="ar">العربية</a></li><li><a href="fa/?lang=fa" hreflang="fa" lang="fa">فارسی</a></li><li><a href="ja/?lang=ja" hreflang="ja" lang="ja">日本語</a></li><li><a href="zh-CN/?lang=zh-CN" hreflang="zh-CN" lang="zh-CN">简体中文</a></li><li><a href="zh-TW/?lang=zh-TW" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li><li><a href="my/?lang=my" hreflang="my" lang="my">မြန်မာ</a></li></ul></details><!-- /i18n:switcher -->
 
       <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobilemenu">
         <span></span><span></span><span></span>
@@ -8487,11 +8507,13 @@ _
       Array.prototype.forEach.call(videos, function (video) { observer.observe(video); });
     })();
   </script>
+  <!-- The texts the scripts write, in the page's language (i18n/build.py). -->
+  <!-- i18n:messages --><!-- /i18n:messages -->
   <script src="script.js?v=2.6.26" defer></script>
-  <script src="app-feature-demos.js?v=2" defer></script>
+  <script src="app-feature-demos.js?v=3" defer></script>
   <script src="qdream-gallery.js?v=1" defer></script>
   <script src="qcast-hero-player.js?v=1" defer></script>
-  <script src="qgeo-demo.js?v=1" defer></script>
+  <script src="qgeo-demo.js?v=2" defer></script>
   <script src="/email-contact.js?v=20261024" defer></script>
 </body>
 </html>

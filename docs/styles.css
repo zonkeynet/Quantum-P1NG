@@ -10933,8 +10933,8 @@ body.qmap-modal-open {
 }
 
 @media (min-width: 801px) {
-  .nav a { font-size: clamp(12px, 1vw, 18px); }
-  .nav { gap: clamp(8px, 0.9vw, 16px); }
+  .nav a { font-size: clamp(12px, 0.94vw, 18px); }
+  .nav { gap: clamp(8px, 0.8vw, 16px); }
 }
 
 /* ================================================================
@@ -32557,3 +32557,51 @@ html.intro-active body > *:not(#intro-screen):not(script):not(style) {
 .mobilemenu-pro { color: #ffd166 !important; border-color: rgba(255, 209, 102, 0.4) !important; }
 .dl-dest-card__cta--pair { display: grid; grid-template-columns: 1fr; gap: 8px; }
 .btn--dl-channel.is-soon { opacity: 0.55; cursor: default; pointer-events: none; transform: none !important; box-shadow: none !important; }
+
+/* --- LANGUAGES (i18n/build.py writes the pages under /<lang>/) --- */
+/* Language menu: a disclosure without script between the navigation and the menu button, its list drops below. */
+.lang { position: relative; flex: none; margin-inline-start: 12px; }
+.lang summary {
+  display: flex; align-items: center; gap: 6px; list-style: none; cursor: pointer;
+  color: var(--muted); font: 600 12px/1 var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 9px 10px; border: 1px solid var(--line); border-radius: 8px;
+}
+.lang summary::-webkit-details-marker { display: none; }
+.lang summary:hover, .lang[open] summary { color: var(--acc2); border-color: rgba(0, 243, 255, 0.4); }
+.lang summary svg { width: 17px; height: 17px; flex: none; }
+.lang ul {
+  position: absolute; inset-inline-end: 0; top: calc(100% + 8px); z-index: 1100; margin: 0; padding: 6px;
+  list-style: none; min-width: 210px; max-height: min(70vh, 470px); overflow-y: auto;
+  background: rgba(5, 9, 14, 0.97); border: 1px solid rgba(0, 243, 255, 0.25); border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+.lang ul a { display: block; color: var(--text); text-decoration: none; font-size: 14px; padding: 8px 10px; border-radius: 6px; }
+.lang ul a:hover { background: rgba(255, 255, 255, 0.05); }
+.lang ul a[aria-current="page"] { color: var(--acc2); background: rgba(0, 243, 255, 0.08); }
+/* Only the globe icon in the bar: the navigation already fills it (the open list names every language). */
+.lang summary span { display: none; }
+/* Up to 1080 px the navigation folds into the menu button: the globe sits next to it. */
+@media (max-width: 1080px) {
+  .lang { margin-inline-start: auto; margin-inline-end: 10px; }
+}
+
+/* Scripts that are not spaced out letter by letter: spacing breaks the joined letters of Arabic and Persian, and
+   Burmese, Chinese and Japanese do not use it. The dot font has none of these glyphs: the fallback font draws them. */
+:lang(ar) *, :lang(fa) *, :lang(my) *, :lang(ja) *, :lang(zh) * { letter-spacing: normal !important; }
+/* A monospaced fallback draws every Arabic, Persian or Burmese letter at the same width, as if they were apart:
+   these pages fall back on the proportional font (the dot font still draws Latin letters such as Q-P1NG). */
+html:lang(ar), html:lang(fa), html:lang(my) {
+  --font-mono: var(--font-sans);
+  --font-cyber: "QP1NG-Digital", var(--font-sans);
+}
+/* Translations run longer than the English the boxes were sized for: short labels wrap instead of overflowing or
+   being cut, and a word too long for a big title (German compounds, "Retroprivacidad" on a phone) is hyphenated or,
+   as a last resort, broken. The English page is unaffected: its texts already fit. */
+.secure-dictation-section .sd-device-status strong,
+.hero-signal-rail span { white-space: normal; overflow-wrap: anywhere; }
+h1, h2, h3, .games-title-text { overflow-wrap: break-word; hyphens: auto; }
+/* The security title stays on one line only in English: a translated title may need two. */
+html:not([lang="en"]) .security-protocol-section .sp-title { white-space: normal; hyphens: manual; }
+/* Terminal output is Latin with aligned columns: it keeps a monospaced font where the page falls back on the
+   proportional one. */
+html:lang(ar) pre, html:lang(fa) pre, html:lang(my) pre { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace; }

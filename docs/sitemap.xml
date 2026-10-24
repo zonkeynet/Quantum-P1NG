@@ -4,12 +4,28 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.qp1ng.com/</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.qp1ng.com/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.qp1ng.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.qp1ng.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.qp1ng.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.qp1ng.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.qp1ng.com/pt-BR/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.qp1ng.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.qp1ng.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.qp1ng.com/uk/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.qp1ng.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://www.qp1ng.com/fa/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.qp1ng.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.qp1ng.com/zh-CN/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.qp1ng.com/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="my" href="https://www.qp1ng.com/my/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.qp1ng.com/"/>
     <image:image>
       <image:loc>https://www.qp1ng.com/assets/img/social-preview-1200.jpg</image:loc>
-      <image:title>Quantum P1NG - Secure Comms, Local AI &amp; Field Tools</image:title>
+      <image:title>Quantum P1NG - Encrypted Messenger, Local AI &amp; Off-Grid Tools</image:title>
       <image:caption>Secure Voice, Q-Brain AI, Q-Dream, Q-CALL, Q-Cast, Q-Globe, Q-Feed, Q-Geo maps, VHF radio, LoRa mesh, Q-SDR, Q-Sat, Q-Map, Q-Torrent, Q-CAM and the Bitcoin vault</image:caption>
     </image:image>
     <image:image>
@@ -27,9 +43,25 @@
   </url>
   <url>
     <loc>https://www.qp1ng.com/pro/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.qp1ng.com/pro/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.qp1ng.com/pro/it/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.qp1ng.com/pro/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.qp1ng.com/pro/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.qp1ng.com/pro/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.qp1ng.com/pro/pt-BR/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.qp1ng.com/pro/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.qp1ng.com/pro/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.qp1ng.com/pro/uk/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.qp1ng.com/pro/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://www.qp1ng.com/pro/fa/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.qp1ng.com/pro/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.qp1ng.com/pro/zh-CN/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.qp1ng.com/pro/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="my" href="https://www.qp1ng.com/pro/my/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.qp1ng.com/pro/"/>
   </url>
   <url>
     <loc>https://www.qp1ng.com/privacy.html</loc>
@@ -72,5 +104,622 @@
     <lastmod>2026-10-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
+  </url>
+  <!-- The translated pages (i18n/build.py), each with the same language links. -->
+  <url>
+    <loc>https://www.qp1ng.com/it/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.qp1ng.com/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.qp1ng.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.qp1ng.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.qp1ng.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.qp1ng.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.qp1ng.com/pt-BR/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.qp1ng.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.qp1ng.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.qp1ng.com/uk/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.qp1ng.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://www.qp1ng.com/fa/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.qp1ng.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.qp1ng.com/zh-CN/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.qp1ng.com/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="my" href="https://www.qp1ng.com/my/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.qp1ng.com/"/>
+  </url>
+  <url>
+    <loc>https://www.qp1ng.com/de/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.qp1ng.com/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.qp1ng.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.qp1ng.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.qp1ng.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.qp1ng.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.qp1ng.com/pt-BR/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.qp1ng.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.qp1ng.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.qp1ng.com/uk/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.qp1ng.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://www.qp1ng.com/fa/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.qp1ng.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.qp1ng.com/zh-CN/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.qp1ng.com/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="my" href="https://www.qp1ng.com/my/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.qp1ng.com/"/>
+  </url>
+  <url>
+    <loc>https://www.qp1ng.com/es/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.qp1ng.com/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.qp1ng.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.qp1ng.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.qp1ng.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.qp1ng.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.qp1ng.com/pt-BR/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.qp1ng.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.qp1ng.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.qp1ng.com/uk/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.qp1ng.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://www.qp1ng.com/fa/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.qp1ng.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.qp1ng.com/zh-CN/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.qp1ng.com/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="my" href="https://www.qp1ng.com/my/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.qp1ng.com/"/>
+  </url>
+  <url>
+    <loc>https://www.qp1ng.com/fr/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.qp1ng.com/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.qp1ng.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.qp1ng.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.qp1ng.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.qp1ng.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.qp1ng.com/pt-BR/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.qp1ng.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.qp1ng.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.qp1ng.com/uk/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.qp1ng.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://www.qp1ng.com/fa/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.qp1ng.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.qp1ng.com/zh-CN/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.qp1ng.com/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="my" href="https://www.qp1ng.com/my/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.qp1ng.com/"/>
+  </url>
+  <url>
+    <loc>https://www.qp1ng.com/pt-BR/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.qp1ng.com/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.qp1ng.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.qp1ng.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.qp1ng.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.qp1ng.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.qp1ng.com/pt-BR/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.qp1ng.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.qp1ng.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.qp1ng.com/uk/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.qp1ng.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://www.qp1ng.com/fa/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.qp1ng.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.qp1ng.com/zh-CN/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.qp1ng.com/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="my" href="https://www.qp1ng.com/my/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.qp1ng.com/"/>
+  </url>
+  <url>
+    <loc>https://www.qp1ng.com/pl/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.qp1ng.com/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.qp1ng.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.qp1ng.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.qp1ng.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.qp1ng.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.qp1ng.com/pt-BR/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.qp1ng.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.qp1ng.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.qp1ng.com/uk/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.qp1ng.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://www.qp1ng.com/fa/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.qp1ng.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.qp1ng.com/zh-CN/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.qp1ng.com/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="my" href="https://www.qp1ng.com/my/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.qp1ng.com/"/>
+  </url>
+  <url>
+    <loc>https://www.qp1ng.com/ru/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.qp1ng.com/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.qp1ng.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.qp1ng.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.qp1ng.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.qp1ng.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.qp1ng.com/pt-BR/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.qp1ng.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.qp1ng.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.qp1ng.com/uk/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.qp1ng.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://www.qp1ng.com/fa/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.qp1ng.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.qp1ng.com/zh-CN/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.qp1ng.com/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="my" href="https://www.qp1ng.com/my/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.qp1ng.com/"/>
+  </url>
+  <url>
+    <loc>https://www.qp1ng.com/uk/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.qp1ng.com/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.qp1ng.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.qp1ng.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.qp1ng.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.qp1ng.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.qp1ng.com/pt-BR/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.qp1ng.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.qp1ng.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.qp1ng.com/uk/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.qp1ng.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://www.qp1ng.com/fa/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.qp1ng.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.qp1ng.com/zh-CN/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.qp1ng.com/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="my" href="https://www.qp1ng.com/my/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.qp1ng.com/"/>
+  </url>
+  <url>
+    <loc>https://www.qp1ng.com/ar/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.qp1ng.com/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.qp1ng.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.qp1ng.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.qp1ng.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.qp1ng.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.qp1ng.com/pt-BR/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.qp1ng.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.qp1ng.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.qp1ng.com/uk/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.qp1ng.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://www.qp1ng.com/fa/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.qp1ng.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.qp1ng.com/zh-CN/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.qp1ng.com/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="my" href="https://www.qp1ng.com/my/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.qp1ng.com/"/>
+  </url>
+  <url>
+    <loc>https://www.qp1ng.com/fa/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.qp1ng.com/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.qp1ng.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.qp1ng.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.qp1ng.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.qp1ng.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.qp1ng.com/pt-BR/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.qp1ng.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.qp1ng.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.qp1ng.com/uk/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.qp1ng.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://www.qp1ng.com/fa/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.qp1ng.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.qp1ng.com/zh-CN/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.qp1ng.com/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="my" href="https://www.qp1ng.com/my/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.qp1ng.com/"/>
+  </url>
+  <url>
+    <loc>https://www.qp1ng.com/ja/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.qp1ng.com/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.qp1ng.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.qp1ng.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.qp1ng.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.qp1ng.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.qp1ng.com/pt-BR/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.qp1ng.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.qp1ng.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.qp1ng.com/uk/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.qp1ng.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://www.qp1ng.com/fa/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.qp1ng.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.qp1ng.com/zh-CN/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.qp1ng.com/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="my" href="https://www.qp1ng.com/my/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.qp1ng.com/"/>
+  </url>
+  <url>
+    <loc>https://www.qp1ng.com/zh-CN/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.qp1ng.com/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.qp1ng.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.qp1ng.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.qp1ng.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.qp1ng.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.qp1ng.com/pt-BR/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.qp1ng.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.qp1ng.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.qp1ng.com/uk/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.qp1ng.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://www.qp1ng.com/fa/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.qp1ng.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.qp1ng.com/zh-CN/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.qp1ng.com/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="my" href="https://www.qp1ng.com/my/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.qp1ng.com/"/>
+  </url>
+  <url>
+    <loc>https://www.qp1ng.com/zh-TW/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.qp1ng.com/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.qp1ng.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.qp1ng.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.qp1ng.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.qp1ng.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.qp1ng.com/pt-BR/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.qp1ng.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.qp1ng.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.qp1ng.com/uk/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.qp1ng.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://www.qp1ng.com/fa/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.qp1ng.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.qp1ng.com/zh-CN/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.qp1ng.com/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="my" href="https://www.qp1ng.com/my/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.qp1ng.com/"/>
+  </url>
+  <url>
+    <loc>https://www.qp1ng.com/my/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.qp1ng.com/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.qp1ng.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.qp1ng.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.qp1ng.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.qp1ng.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.qp1ng.com/pt-BR/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.qp1ng.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.qp1ng.com/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.qp1ng.com/uk/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.qp1ng.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://www.qp1ng.com/fa/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.qp1ng.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.qp1ng.com/zh-CN/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.qp1ng.com/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="my" href="https://www.qp1ng.com/my/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.qp1ng.com/"/>
+  </url>
+  <url>
+    <loc>https://www.qp1ng.com/pro/it/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.qp1ng.com/pro/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.qp1ng.com/pro/it/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.qp1ng.com/pro/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.qp1ng.com/pro/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.qp1ng.com/pro/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.qp1ng.com/pro/pt-BR/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.qp1ng.com/pro/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.qp1ng.com/pro/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.qp1ng.com/pro/uk/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.qp1ng.com/pro/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://www.qp1ng.com/pro/fa/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.qp1ng.com/pro/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.qp1ng.com/pro/zh-CN/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.qp1ng.com/pro/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="my" href="https://www.qp1ng.com/pro/my/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.qp1ng.com/pro/"/>
+  </url>
+  <url>
+    <loc>https://www.qp1ng.com/pro/de/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.qp1ng.com/pro/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.qp1ng.com/pro/it/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.qp1ng.com/pro/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.qp1ng.com/pro/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.qp1ng.com/pro/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.qp1ng.com/pro/pt-BR/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.qp1ng.com/pro/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.qp1ng.com/pro/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.qp1ng.com/pro/uk/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.qp1ng.com/pro/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://www.qp1ng.com/pro/fa/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.qp1ng.com/pro/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.qp1ng.com/pro/zh-CN/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.qp1ng.com/pro/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="my" href="https://www.qp1ng.com/pro/my/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.qp1ng.com/pro/"/>
+  </url>
+  <url>
+    <loc>https://www.qp1ng.com/pro/es/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.qp1ng.com/pro/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.qp1ng.com/pro/it/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.qp1ng.com/pro/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.qp1ng.com/pro/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.qp1ng.com/pro/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.qp1ng.com/pro/pt-BR/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.qp1ng.com/pro/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.qp1ng.com/pro/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.qp1ng.com/pro/uk/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.qp1ng.com/pro/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://www.qp1ng.com/pro/fa/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.qp1ng.com/pro/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.qp1ng.com/pro/zh-CN/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.qp1ng.com/pro/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="my" href="https://www.qp1ng.com/pro/my/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.qp1ng.com/pro/"/>
+  </url>
+  <url>
+    <loc>https://www.qp1ng.com/pro/fr/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.qp1ng.com/pro/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.qp1ng.com/pro/it/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.qp1ng.com/pro/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.qp1ng.com/pro/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.qp1ng.com/pro/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.qp1ng.com/pro/pt-BR/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.qp1ng.com/pro/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.qp1ng.com/pro/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.qp1ng.com/pro/uk/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.qp1ng.com/pro/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://www.qp1ng.com/pro/fa/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.qp1ng.com/pro/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.qp1ng.com/pro/zh-CN/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.qp1ng.com/pro/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="my" href="https://www.qp1ng.com/pro/my/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.qp1ng.com/pro/"/>
+  </url>
+  <url>
+    <loc>https://www.qp1ng.com/pro/pt-BR/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.qp1ng.com/pro/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.qp1ng.com/pro/it/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.qp1ng.com/pro/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.qp1ng.com/pro/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.qp1ng.com/pro/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.qp1ng.com/pro/pt-BR/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.qp1ng.com/pro/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.qp1ng.com/pro/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.qp1ng.com/pro/uk/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.qp1ng.com/pro/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://www.qp1ng.com/pro/fa/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.qp1ng.com/pro/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.qp1ng.com/pro/zh-CN/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.qp1ng.com/pro/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="my" href="https://www.qp1ng.com/pro/my/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.qp1ng.com/pro/"/>
+  </url>
+  <url>
+    <loc>https://www.qp1ng.com/pro/pl/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.qp1ng.com/pro/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.qp1ng.com/pro/it/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.qp1ng.com/pro/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.qp1ng.com/pro/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.qp1ng.com/pro/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.qp1ng.com/pro/pt-BR/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.qp1ng.com/pro/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.qp1ng.com/pro/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.qp1ng.com/pro/uk/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.qp1ng.com/pro/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://www.qp1ng.com/pro/fa/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.qp1ng.com/pro/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.qp1ng.com/pro/zh-CN/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.qp1ng.com/pro/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="my" href="https://www.qp1ng.com/pro/my/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.qp1ng.com/pro/"/>
+  </url>
+  <url>
+    <loc>https://www.qp1ng.com/pro/ru/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.qp1ng.com/pro/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.qp1ng.com/pro/it/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.qp1ng.com/pro/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.qp1ng.com/pro/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.qp1ng.com/pro/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.qp1ng.com/pro/pt-BR/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.qp1ng.com/pro/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.qp1ng.com/pro/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.qp1ng.com/pro/uk/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.qp1ng.com/pro/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://www.qp1ng.com/pro/fa/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.qp1ng.com/pro/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.qp1ng.com/pro/zh-CN/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.qp1ng.com/pro/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="my" href="https://www.qp1ng.com/pro/my/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.qp1ng.com/pro/"/>
+  </url>
+  <url>
+    <loc>https://www.qp1ng.com/pro/uk/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.qp1ng.com/pro/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.qp1ng.com/pro/it/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.qp1ng.com/pro/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.qp1ng.com/pro/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.qp1ng.com/pro/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.qp1ng.com/pro/pt-BR/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.qp1ng.com/pro/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.qp1ng.com/pro/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.qp1ng.com/pro/uk/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.qp1ng.com/pro/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://www.qp1ng.com/pro/fa/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.qp1ng.com/pro/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.qp1ng.com/pro/zh-CN/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.qp1ng.com/pro/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="my" href="https://www.qp1ng.com/pro/my/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.qp1ng.com/pro/"/>
+  </url>
+  <url>
+    <loc>https://www.qp1ng.com/pro/ar/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.qp1ng.com/pro/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.qp1ng.com/pro/it/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.qp1ng.com/pro/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.qp1ng.com/pro/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.qp1ng.com/pro/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.qp1ng.com/pro/pt-BR/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.qp1ng.com/pro/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.qp1ng.com/pro/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.qp1ng.com/pro/uk/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.qp1ng.com/pro/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://www.qp1ng.com/pro/fa/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.qp1ng.com/pro/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.qp1ng.com/pro/zh-CN/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.qp1ng.com/pro/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="my" href="https://www.qp1ng.com/pro/my/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.qp1ng.com/pro/"/>
+  </url>
+  <url>
+    <loc>https://www.qp1ng.com/pro/fa/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.qp1ng.com/pro/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.qp1ng.com/pro/it/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.qp1ng.com/pro/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.qp1ng.com/pro/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.qp1ng.com/pro/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.qp1ng.com/pro/pt-BR/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.qp1ng.com/pro/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.qp1ng.com/pro/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.qp1ng.com/pro/uk/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.qp1ng.com/pro/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://www.qp1ng.com/pro/fa/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.qp1ng.com/pro/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.qp1ng.com/pro/zh-CN/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.qp1ng.com/pro/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="my" href="https://www.qp1ng.com/pro/my/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.qp1ng.com/pro/"/>
+  </url>
+  <url>
+    <loc>https://www.qp1ng.com/pro/ja/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.qp1ng.com/pro/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.qp1ng.com/pro/it/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.qp1ng.com/pro/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.qp1ng.com/pro/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.qp1ng.com/pro/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.qp1ng.com/pro/pt-BR/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.qp1ng.com/pro/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.qp1ng.com/pro/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.qp1ng.com/pro/uk/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.qp1ng.com/pro/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://www.qp1ng.com/pro/fa/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.qp1ng.com/pro/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.qp1ng.com/pro/zh-CN/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.qp1ng.com/pro/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="my" href="https://www.qp1ng.com/pro/my/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.qp1ng.com/pro/"/>
+  </url>
+  <url>
+    <loc>https://www.qp1ng.com/pro/zh-CN/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.qp1ng.com/pro/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.qp1ng.com/pro/it/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.qp1ng.com/pro/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.qp1ng.com/pro/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.qp1ng.com/pro/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.qp1ng.com/pro/pt-BR/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.qp1ng.com/pro/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.qp1ng.com/pro/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.qp1ng.com/pro/uk/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.qp1ng.com/pro/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://www.qp1ng.com/pro/fa/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.qp1ng.com/pro/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.qp1ng.com/pro/zh-CN/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.qp1ng.com/pro/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="my" href="https://www.qp1ng.com/pro/my/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.qp1ng.com/pro/"/>
+  </url>
+  <url>
+    <loc>https://www.qp1ng.com/pro/zh-TW/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.qp1ng.com/pro/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.qp1ng.com/pro/it/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.qp1ng.com/pro/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.qp1ng.com/pro/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.qp1ng.com/pro/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.qp1ng.com/pro/pt-BR/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.qp1ng.com/pro/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.qp1ng.com/pro/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.qp1ng.com/pro/uk/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.qp1ng.com/pro/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://www.qp1ng.com/pro/fa/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.qp1ng.com/pro/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.qp1ng.com/pro/zh-CN/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.qp1ng.com/pro/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="my" href="https://www.qp1ng.com/pro/my/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.qp1ng.com/pro/"/>
+  </url>
+  <url>
+    <loc>https://www.qp1ng.com/pro/my/</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.qp1ng.com/pro/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.qp1ng.com/pro/it/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.qp1ng.com/pro/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.qp1ng.com/pro/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.qp1ng.com/pro/fr/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://www.qp1ng.com/pro/pt-BR/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://www.qp1ng.com/pro/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.qp1ng.com/pro/ru/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.qp1ng.com/pro/uk/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.qp1ng.com/pro/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://www.qp1ng.com/pro/fa/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.qp1ng.com/pro/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.qp1ng.com/pro/zh-CN/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://www.qp1ng.com/pro/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="my" href="https://www.qp1ng.com/pro/my/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.qp1ng.com/pro/"/>
   </url>
 </urlset>

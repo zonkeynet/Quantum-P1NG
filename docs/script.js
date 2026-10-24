@@ -9084,7 +9084,9 @@ if (terminal && gamesGrid) {
       logRadioEvent(`DEMO · sample acknowledgements shown; no radio event sent.`, '');
 
       // Add dynamic pin to map
-      const hazardName = genHazardSelect ? genHazardSelect.options[genHazardSelect.selectedIndex].text.split(' - ')[1] : 'Dynamic Hazard';
+      // The option reads "0x05 - Name (TTL: ...)"; a translation may use another dash, or none.
+      const optionText = genHazardSelect ? genHazardSelect.options[genHazardSelect.selectedIndex].text : '';
+      const hazardName = optionText.replace(/^0x[0-9A-F]+\s*[-–—:]\s*/i, '').trim() || T('Dynamic Hazard');
       const newPin = {
         id: `pin-dyn-${Date.now()}`,
         code: hazardHex,
