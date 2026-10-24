@@ -98,10 +98,11 @@
   --font-cyber:   "QP1NG-Digital", "JetBrains Mono", monospace;
 }
 
+/* Bitcount Grid Single (SIL OFL 1.1, assets/fonts/OFL-Bitcount.txt), static square-dot instance (wght 250, ELSH 50)
+   with capital-only letters, as the previous dot font: same 0.6 em advance, so layouts keep their widths. */
 @font-face {
   font-family: 'QP1NG-Digital';
-  src: url('./assets/fonts/square_dot_digital_qp1ng.woff2') format('woff2'),
-       url('./assets/fonts/square_dot_digital_qp1ng.ttf') format('truetype');
+  src: url('./assets/fonts/bitcount_square_qp1ng.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap; /* evita FOIT */
