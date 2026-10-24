@@ -8,7 +8,7 @@
   if (target) target.textContent = shown;
   var report = document.getElementById("report");
   if (report) {
-    report.href = "mailto:support@qp1ng.com?subject=" + encodeURIComponent("Broken link on qp1ng.com") +
-      "&body=" + encodeURIComponent("This address was not found: " + location.href + "\n");
+    report.setAttribute("data-email-subject", "Broken link on qp1ng.com");
+    report.setAttribute("data-email-body", "This address was not found: " + location.href + "\n");
   }
 })();
