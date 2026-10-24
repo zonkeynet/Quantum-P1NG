@@ -1,5 +1,9 @@
 // Q-P1NG Pro checkout: card through FastSpring, Bitcoin through the licence API, licence recovery and downloads.
 // The licence API (Q-P1NG/tools/license-worker) says which payments are open; nothing here holds a secret.
+// Messages are written in English and translated by the JSON block #pro-i18n that the language pages carry
+// (i18n/build.py in this repository); the English page has none.
+// From the app: /pro/#claim=<token> passes the app's claim token to the card or Bitcoin order, so the app collects
+// the key by itself once the payment is confirmed.
 (function () {
   "use strict";
   // Served at /pro (no slash), relative paths and the page's security policy would not apply: go to /pro/.
@@ -15,6 +19,23 @@
   var config = null;
   var cardReady = null;
   var pollTimer = null;
+  var pendingClaim = null; // also kept here: localStorage may be blocked
+  // The pinned Store Builder Library, checked by the browser: a changed file does not run (card payments then say so).
+  var SBL_URL = "https://sbl.onfastspring.com/sbl/1.0.6/fastspring-builder.min.js";
+  var SBL_INTEGRITY = "sha384-AmnCPC7pew3MIsQ1KgO9oQNDaJTpgvkpYTBgFfvm/VPmoxx0Uw08z2imm58+jq2/";
+  var CLAIM = /^[A-Za-z0-9_-]{22,64}$/;
+  var SUPPORT = ["support", ["qp1ng", "com"].join(".")].join(String.fromCharCode(64));
+
+  var MESSAGES = (function () {
+    try { return JSON.parse($("pro-i18n").textContent); } catch (e) { return {}; }
+  })();
+
+  /** The message in the page's language; {name} placeholders take the values given. */
+  function t(text, values) {
+    var out = MESSAGES[text] || text;
+    if (values) Object.keys(values).forEach(function (name) { out = out.split("{" + name + "}").join(values[name]); });
+    return out;
+  }
 
   // Per-browser conveniences only (a pending claim or order); everything works without them.
   function remember(key, value) {
@@ -23,6 +44,18 @@
   function recall(key) {
     try { return localStorage.getItem(key); } catch (e) { return null; }
   }
+
+  /** The app's claim token from #claim=..., taken out of the address so it is not shared by accident. */
+  var appClaim = (function () {
+    var match = /^#claim=([A-Za-z0-9_-]{22,64})$/.exec(location.hash);
+    if (match) {
+      remember("qp1ng_app_claim", match[1]);
+      history.replaceState(null, "", location.pathname + location.search);
+      return match[1];
+    }
+    var stored = recall("qp1ng_app_claim");
+    return stored && CLAIM.test(stored) ? stored : null;
+  })();
 
   function api(path, options) {
     return fetch(API + path, options).then(function (response) {
@@ -43,7 +76,7 @@
   function copy(text, button) {
     var done = function () {
       var label = button.textContent;
-      button.textContent = "Copied";
+      button.textContent = t("Copied");
       setTimeout(function () { button.textContent = label; }, 1500);
     };
     if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, function () {});
@@ -68,6 +101,9 @@
     $("licence").hidden = false;
     $("licence-key").textContent = licence;
     $("licence-copy").onclick = function () { copy(licence, $("licence-copy")); };
+    $("licence-app").hidden = !appClaim;
+    // The app collects this key with its token: a later visit to this page is not "from the app" any more.
+    if (appClaim) remember("qp1ng_app_claim", null);
     reveal($("licence"));
   }
 
@@ -81,17 +117,30 @@
 
   function describeOptions() {
     var notes = [];
-    $("card-provider").textContent = config && config.card ? "Through FastSpring, our reseller" : "Coming soon";
-    $("btc-state").textContent = config ? (config.btc ? (config.btc.network !== "mainnet" ? "Testnet" : "") : "Soon") : "";
-    if (!config) notes.push("Payments could not be loaded. Check your connection and reload the page.");
-    else if ((config.card || config.btc) && !$("consent").checked) notes.push("Tick the box above to choose how to pay.");
+    var cardOpen = Boolean(config && config.card);
+    $("card-provider").textContent = cardOpen ? t("Through FastSpring, our reseller") : t("Coming soon");
+    // Texts that differ while cards are closed or open: the licence API's configuration decides, not this file.
+    var variants = document.querySelectorAll("[data-card]");
+    for (var i = 0; i < variants.length; i++) variants[i].hidden = (variants[i].getAttribute("data-card") === "on") !== cardOpen;
+    $("btc-state").textContent = config ? (config.btc ? (config.btc.network !== "mainnet" ? "Testnet" : "") : t("Soon")) : "";
+    if (!config) notes.push(t("Payments could not be loaded. Check your connection and reload the page."));
+    else if ((config.card || config.btc) && !$("consent").checked) notes.push(t("Tick the box above to choose how to pay."));
     $("pay-note").textContent = notes.join(" ");
+  }
+
+  /** A euro amount as the page's language writes it: €9.99, 9,99 €... */
+  function euro(amount) {
+    try {
+      return new Intl.NumberFormat(document.documentElement.lang || "en", { style: "currency", currency: "EUR" }).format(Number(amount));
+    } catch (e) {
+      return "€" + amount;
+    }
   }
 
   function showPrice() {
     if (!config || !/^\d+\.\d{2}$/.test(config.priceEur || "")) return;
     var items = document.querySelectorAll("[data-price]");
-    for (var i = 0; i < items.length; i++) items[i].textContent = "\u20ac" + config.priceEur;
+    for (var i = 0; i < items.length; i++) items[i].textContent = euro(config.priceEur);
   }
 
   // ---- Card (FastSpring popup checkout) --------------------------------------------------------------------------
@@ -104,41 +153,51 @@
         // { id, reference } after a purchase, null when the buyer closed the popup without paying.
         if (order && order.reference) {
           remember("qp1ng_card_ref", order.reference);
-          waitForClaim(recall("qp1ng_claim"));
+          waitForClaim(pendingClaim || recall("qp1ng_claim"), order.reference);
         }
       };
       window.qp1ngCardError = function () {
-        $("pay-note").textContent = "Card payment is not available right now. Please try again later, or pay with Bitcoin.";
+        $("pay-note").textContent = t("Card payment is not available right now. Please try again later, or pay with Bitcoin.");
       };
       var script = document.createElement("script");
       script.id = "fsc-api";
-      script.src = "https://sbl.onfastspring.com/sbl/1.0.6/fastspring-builder.min.js";
+      script.src = SBL_URL;
+      script.integrity = SBL_INTEGRITY;
+      script.crossOrigin = "anonymous";
       script.setAttribute("data-storefront", config.card.storefront);
       script.setAttribute("data-popup-closed", "qp1ngCardClosed");
       script.setAttribute("data-error-callback", "qp1ngCardError");
       script.onload = function () { resolve(window.fastspring); };
-      script.onerror = function () { cardReady = null; script.remove(); reject(new Error("The card checkout could not be loaded")); };
+      script.onerror = function () { cardReady = null; script.remove(); reject(new Error("load")); };
       document.head.appendChild(script);
     });
     return cardReady;
   }
 
   function payByCard() {
-    var claim = randomToken();
+    var claim = appClaim || randomToken();
+    pendingClaim = claim;
     remember("qp1ng_claim", claim);
     loadCardCheckout().then(function (fastspring) {
       fastspring.builder.reset();
       fastspring.builder.push({ products: [{ path: config.card.product, quantity: 1 }], tags: { claim: claim } });
       fastspring.builder.checkout();
-    }, function (error) {
-      $("pay-note").textContent = error.message + ". Check that no blocker stops onfastspring.com.";
+    }, function () {
+      $("pay-note").textContent = t("The card checkout could not be loaded. Check that no blocker stops onfastspring.com.");
     });
   }
 
-  /** FastSpring's webhook issues the licence; this asks for it with the claim token passed as an order tag. */
-  function waitForClaim(claim) {
+  /**
+   * FastSpring's webhook issues the licence; this asks for it with the claim token passed as an order tag. After five
+   * minutes it stops and points to the recovery form, filled in with the order reference.
+   */
+  function waitForClaim(claim, reference) {
     if (!claim) return;
     $("claim-wait").hidden = false;
+    if (reference) {
+      $("recover-ref").value = reference;
+      $("claim-help").textContent = t("This usually takes a few seconds. Your order reference is {reference} (also on your receipt): with it you can recover the key below at any time.", { reference: reference });
+    }
     var tries = 0;
     clearInterval(pollTimer);
     var ask = function () {
@@ -146,10 +205,21 @@
       api("/v1/licences/claim/" + claim).then(function (body) {
         if (body.licence) {
           clearInterval(pollTimer);
+          pendingClaim = null;
           remember("qp1ng_claim", null);
           remember("qp1ng_card_ref", null);
           showLicence(body.licence);
-        } else if (tries > 100) clearInterval(pollTimer);
+        } else if (body.httpStatus === 410 || tries > 100) {
+          clearInterval(pollTimer);
+          $("claim-title").textContent = body.httpStatus === 410
+            ? t("This licence was refunded.")
+            : t("Your payment is confirmed, but the key is taking longer than usual.");
+          if (body.httpStatus !== 410) {
+            $("claim-help").textContent = reference
+              ? t("Recover it below with the order reference {reference} in a few minutes, or write to {support}.", { reference: reference, support: SUPPORT })
+              : t("Recover it below with the order reference on your receipt in a few minutes, or write to {support}.", { support: SUPPORT });
+          }
+        }
       }, function () {});
     };
     ask();
@@ -161,23 +231,25 @@
   function payWithBitcoin() {
     var button = $("pay-btc");
     button.disabled = true;
-    $("pay-note").textContent = "Preparing the order (a few seconds of work on this device)…";
+    $("pay-note").textContent = t("Preparing the order (a few seconds of work on this device)…");
     api("/v1/challenge").then(function (challenge) {
-      if (!challenge.challenge) throw new Error(challenge.error || "No challenge");
+      if (!challenge.challenge) throw new Error(challenge.error || "NO CHALLENGE");
       return window.QP1NGPow.solve(challenge.challenge, challenge.difficulty).then(function (nonce) {
+        var body = { challenge: challenge.challenge, nonce: nonce, consent: true };
+        if (appClaim) body.claim = appClaim;
         return api("/v1/btc/orders", {
-          method: "POST", headers: { "content-type": "application/json" },
-          body: JSON.stringify({ challenge: challenge.challenge, nonce: nonce, consent: true })
+          method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body)
         });
       });
     }).then(function (order) {
-      if (!order.token) throw new Error(order.error || "The order could not be created");
+      if (!order.token) throw new Error(order.error || "THE ORDER COULD NOT BE CREATED");
       remember("qp1ng_order", order.token);
       history.replaceState(null, "", "#order=" + order.token);
       describeOptions();
       showOrder(order.token, order, true);
     }).catch(function (error) {
-      $("pay-note").textContent = "Bitcoin order failed: " + error.message.toLowerCase() + ".";
+      // The service's own message (in English, upper case) follows the translated sentence.
+      $("pay-note").textContent = t("The Bitcoin order failed:") + " " + error.message.toLowerCase() + ".";
     }).then(updateButtons);
   }
 
@@ -190,13 +262,13 @@
     var tick = function () {
       var left = Math.max(0, Math.floor((expiresAt - Date.now()) / 1000));
       if (!left) {
-        timer.textContent = "Rate expired";
+        timer.textContent = t("Rate expired");
         timer.classList.add("is-over");
         clearInterval(timerTick);
         return;
       }
       var h = Math.floor(left / 3600), m = Math.floor((left % 3600) / 60), s = left % 60;
-      timer.textContent = "Rate held \u00b7 " + h + ":" + (m < 10 ? "0" : "") + m + ":" + (s < 10 ? "0" : "") + s;
+      timer.textContent = t("Rate held") + " · " + h + ":" + (m < 10 ? "0" : "") + m + ":" + (s < 10 ? "0" : "") + s;
       timer.classList.remove("is-over");
     };
     tick();
@@ -229,7 +301,7 @@
   function renderOrder(token, order) {
     var due = Math.max(order.amountSats - (order.receivedSats || 0), 0) || order.amountSats;
     $("btc-amount").textContent = btc(due);
-    $("btc-eur").textContent = due === order.amountSats && order.priceEur ? "\u2248 \u20ac" + order.priceEur : "";
+    $("btc-eur").textContent = due === order.amountSats && order.priceEur ? "≈ " + euro(order.priceEur) : "";
     showAddress($("btc-address"), order.address);
     if (order.state === "paid") { clearInterval(timerTick); $("btc-timer").textContent = ""; }
     else if (order.state !== "expired" || !timerTick) startTimer(order.expiresAt);
@@ -240,22 +312,23 @@
     var status = $("btc-status");
     switch (order.state || "awaiting") {
       case "paid":
-        setStatus(status, "Payment confirmed.", "ok");
+        setStatus(status, t("Payment confirmed."), "ok");
         clearInterval(pollTimer);
         remember("qp1ng_order", null);
         if (order.licence) showLicence(order.licence);
         break;
       case "seen":
-        setStatus(status, "Payment seen on the network. Waiting for one confirmation…");
+        setStatus(status, t("Payment seen on the network. Waiting for one confirmation…"));
         break;
       case "underpaid":
-        setStatus(status, "Received " + btc(order.receivedSats) + " BTC. Send the remaining " + btc(due) + " BTC to the same address.", "error");
+        setStatus(status, t("Received {received} BTC. Send the remaining {due} BTC to the same address.",
+          { received: btc(order.receivedSats), due: btc(due) }), "error");
         break;
       case "expired":
-        setStatus(status, "This order has expired without a payment. If you have just paid, the payment is still recognised for two weeks; otherwise start a new order.", "error");
+        setStatus(status, t("This order has expired without a payment. If you have just paid, the payment is still recognised for two weeks; otherwise start a new order."), "error");
         break;
       default:
-        setStatus(status, "Waiting for the payment\u2026");
+        setStatus(status, t("Waiting for the payment…"));
     }
   }
 
@@ -265,7 +338,7 @@
         clearInterval(pollTimer);
         remember("qp1ng_order", null);
         $("btc-order").hidden = true;
-        $("pay-note").textContent = "That order no longer exists.";
+        $("pay-note").textContent = t("That order no longer exists.");
         return;
       }
       if (order.address) renderOrder(token, order);
@@ -277,14 +350,16 @@
   function recover() {
     var reference = $("recover-ref").value.trim().toUpperCase();
     var status = $("recover-status");
-    if (!/^[A-Z0-9]{2,24}(-[A-Z0-9]{1,24}){1,4}$/.test(reference)) return setStatus(status, "That is not an order reference.", "error");
-    setStatus(status, "Looking it up…");
+    if (!/^[A-Z0-9]{2,24}(-[A-Z0-9]{1,24}){1,4}$/.test(reference)) return setStatus(status, t("That is not an order reference."), "error");
+    setStatus(status, t("Looking it up…"));
     api("/v1/licences/order/" + encodeURIComponent(reference)).then(function (body) {
       if (body.licence) {
-        setStatus(status, "Found.", "ok");
+        setStatus(status, t("Found."), "ok");
         showLicence(body.licence);
-      } else setStatus(status, "No licence for that order yet. If you have just paid, try again in a minute; otherwise write to support@qp1ng.com.", "error");
-    }, function () { setStatus(status, "The licence service could not be reached.", "error"); });
+      } else if (body.httpStatus === 410) setStatus(status, t("This licence was refunded."), "error");
+      else if (body.httpStatus === 429) setStatus(status, t("Too many attempts: try again in a minute."), "error");
+      else setStatus(status, t("No licence for that order yet. If you have just paid, try again in a minute; otherwise write to {support}.", { support: SUPPORT }), "error");
+    }, function () { setStatus(status, t("The licence service could not be reached."), "error"); });
   }
 
   function decodePayload(envelope) {
@@ -304,7 +379,7 @@
       // Shown for convenience; the app itself verifies the signature before it installs anything.
       var manifest = decodePayload(envelope);
       box.textContent = "";
-      [["core", "Q-P1NG Core", "Free"], ["pro", "Q-P1NG Pro", "Needs a licence"]].forEach(function (item) {
+      [["core", "Q-P1NG Core", t("Free")], ["pro", "Q-P1NG Pro", t("Needs a licence")]].forEach(function (item) {
         var build = manifest.editions[item[0]];
         if (!build) return;
         var card = document.createElement("div");
@@ -325,13 +400,17 @@
         var link = document.createElement("a");
         link.className = "btn btn-primary";
         link.href = build.url;
-        link.textContent = "Download";
+        link.textContent = t("Download");
         card.appendChild(meta);
         card.appendChild(link);
         box.appendChild(card);
       });
     }).catch(function () {
-      box.innerHTML = '<p class="muted">The first release of the website edition will appear here.</p>';
+      var note = document.createElement("p");
+      note.className = "muted";
+      note.textContent = t("The first release of the website edition will appear here.");
+      box.textContent = "";
+      box.appendChild(note);
     });
   }
 
@@ -341,6 +420,7 @@
   $("pay-card").addEventListener("click", payByCard);
   $("pay-btc").addEventListener("click", payWithBitcoin);
   $("recover").addEventListener("click", recover);
+  $("from-app").hidden = !appClaim;
   loadDownloads();
 
   api("/v1/config").then(function (body) { config = body.ok ? body : null; }, function () { config = null; })
@@ -356,9 +436,10 @@
           else remember("qp1ng_order", null);
         }, function () {});
       }
-      if (recall("qp1ng_claim") && config && config.card) {
-        // Back after a card payment: the licence may already be there (independently of any Bitcoin order).
-        api("/v1/licences/claim/" + recall("qp1ng_claim")).then(function (body) {
+      // Back after a payment: the licence may already be there (independently of any Bitcoin order).
+      var claim = recall("qp1ng_claim") || appClaim;
+      if (claim) {
+        api("/v1/licences/claim/" + claim).then(function (body) {
           if (body.licence) { remember("qp1ng_claim", null); showLicence(body.licence); }
         }, function () {});
       }
