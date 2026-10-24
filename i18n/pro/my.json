@@ -72,7 +72,6 @@
   "Accessibility themes": "အသုံးပြုရလွယ်ကူမှု theme များ",
   "HOW IT WORKS": "အသုံးပြုပုံ",
   "Three steps, no account": "အဆင့် သုံးဆင့်၊ အကောင့် မလို",
-  "<span data-card=\"off\">Pay with Bitcoin; card payments are coming soon.</span><span data-card=\"on\" hidden>Pay by card through FastSpring, our reseller, or with Bitcoin.</span> Your key appears on this page.": "<span data-card=\"off\">Bitcoin ဖြင့် ပေးချေပါ၊ ကတ်ဖြင့် ပေးချေမှု မကြာမီ ရနိုင်ပါမည်။</span><span data-card=\"on\" hidden>ကျွန်ုပ်တို့၏ ပြန်လည်ရောင်းချသူ FastSpring မှတစ်ဆင့် ကတ်ဖြင့် သို့မဟုတ် Bitcoin ဖြင့် ပေးချေပါ။</span> သင့်ကီးသည် ဤစာမျက်နှာပေါ်တွင် ပေါ်လာပါမည်။",
   "Install the website edition": "ဝက်ဘ်ဆိုက်ဗားရှင်းကို ထည့်သွင်းပါ",
   "Download the APK below. Already on Google Play? The Play edition is bought there instead.": "အောက်ပါ APK ကို ဒေါင်းလုဒ်လုပ်ပါ။ Google Play တွင် သုံးနေပြီလား။ Play ဗားရှင်းကို ထိုနေရာတွင်သာ ဝယ်ရပါမည်။",
   "Paste the key": "ကီးကို ကူးထည့်ပါ",
@@ -128,7 +127,6 @@
   "Can I get a refund?": "ငွေပြန်အမ်းနိုင်ပါသလား။",
   "Yes: a full refund within 14 days of your purchase, for any reason. See the <a href=\"/refund.html\">Refund Policy</a>.": "ရပါသည်- ဝယ်ယူပြီး ၁၄ ရက်အတွင်း မည်သည့်အကြောင်းကြောင့်ဖြစ်စေ ငွေအပြည့် ပြန်အမ်းပေးပါသည်။ <a href=\"/refund.html\">ငွေပြန်အမ်းမှု မူဝါဒ</a>ကို ကြည့်ပါ။",
   "{{1}}Secure payments": "{{1}}လုံခြုံသော ငွေပေးချေမှု",
-  "<span data-card=\"on\" hidden>Cards in the secure checkout of FastSpring, our reseller: we never see your card details. </span>Bitcoin on-chain, straight to our wallet: no account, no card details.<span data-card=\"off\"> Card payments are coming soon.</span>": "<span data-card=\"on\" hidden>ကတ်များကို ကျွန်ုပ်တို့၏ ပြန်လည်ရောင်းချသူ FastSpring ၏ လုံခြုံသော ငွေရှင်းစာမျက်နှာတွင် ပေးချေသည်- သင့်ကတ်အသေးစိတ်ကို ကျွန်ုပ်တို့ မမြင်ရပါ။ </span>Bitcoin ကို on-chain ဖြင့် ကျွန်ုပ်တို့ ပိုက်ဆံအိတ်သို့ တိုက်ရိုက် ပေးချေသည်- အကောင့် မလို၊ ကတ်အသေးစိတ် မလို။<span data-card=\"off\"> ကတ်ဖြင့် ပေးချေမှု မကြာမီ ရနိုင်ပါမည်။</span>",
   "Accepted payment methods": "လက်ခံသော ငွေပေးချေမှုနည်းလမ်းများ",
   "&copy; 2026 ZonkeyNet / Quantum P1NG Team": "© 2026 ZonkeyNet / Quantum P1NG Team",
   "Legal": "ဥပဒေဆိုင်ရာ",
@@ -137,17 +135,17 @@
   "Privacy": "ကိုယ်ရေးကိုယ်တာ",
   "Refunds": "ငွေပြန်အမ်းမှု",
   "Show support email": "အကူအညီ အီးမေးလ်ကို ပြရန်",
-  "(support [at] qp1ng [dot] com)": "(support [at] qp1ng [dot] com)"
+  "(support [at] qp1ng [dot] com)": "(support [at] qp1ng [dot] com)",
+  "<span data-card=\"off\">Pay with Bitcoin; card payments are coming soon.</span><span data-card=\"on\" hidden>Pay by card through <span data-card-name>FastSpring</span>, our reseller, or with Bitcoin.</span> Your key appears on this page.": "<span data-card=\"off\">Bitcoin ဖြင့် ပေးချေပါ၊ ကတ်ဖြင့် ပေးချေမှု မကြာမီ ရနိုင်ပါမည်။</span><span data-card=\"on\" hidden>ကျွန်ုပ်တို့၏ ပြန်လည်ရောင်းချသူ <span data-card-name>FastSpring</span> မှတစ်ဆင့် ကတ်ဖြင့် သို့မဟုတ် Bitcoin ဖြင့် ပေးချေပါ။</span> သင့်ကီးသည် ဤစာမျက်နှာပေါ်တွင် ပေါ်လာပါမည်။",
+  "<span data-card=\"on\" hidden>Cards in the secure checkout of <span data-card-name>FastSpring</span>, our reseller: we never see your card details. </span>Bitcoin on-chain, straight to our wallet: no account, no card details.<span data-card=\"off\"> Card payments are coming soon.</span>": "<span data-card=\"on\" hidden>ကတ်များကို ကျွန်ုပ်တို့၏ ပြန်လည်ရောင်းချသူ <span data-card-name>FastSpring</span> ၏ လုံခြုံသော ငွေရှင်းစာမျက်နှာတွင် ပေးချေသည်- သင့်ကတ်အသေးစိတ်ကို ကျွန်ုပ်တို့ မမြင်ရပါ။ </span>Bitcoin ကို on-chain ဖြင့် ကျွန်ုပ်တို့ ပိုက်ဆံအိတ်သို့ တိုက်ရိုက် ပေးချေသည်- အကောင့် မလို၊ ကတ်အသေးစိတ် မလို။<span data-card=\"off\"> ကတ်ဖြင့် ပေးချေမှု မကြာမီ ရနိုင်ပါမည်။</span>"
  },
  "messages": {
   "Copied": "ကူးယူပြီးပါပြီ",
-  "Through FastSpring, our reseller": "ကျွန်ုပ်တို့၏ ပြန်လည်ရောင်းချသူ FastSpring မှတစ်ဆင့်",
   "Coming soon": "မကြာမီ ရနိုင်မည်",
   "Soon": "မကြာမီ",
   "Payments could not be loaded. Check your connection and reload the page.": "ငွေပေးချေမှုများကို ဖွင့်၍မရပါ။ ချိတ်ဆက်မှုကို စစ်ဆေးပြီး စာမျက်နှာကို ပြန်ဖွင့်ပါ။",
   "Tick the box above to choose how to pay.": "ပေးချေနည်း ရွေးရန် အပေါ်ရှိ အကွက်ကို အမှန်ခြစ်ပါ။",
   "Card payment is not available right now. Please try again later, or pay with Bitcoin.": "ကတ်ဖြင့် ပေးချေမှု ယခု မရနိုင်ပါ။ နောက်မှ ထပ်ကြိုးစားပါ သို့မဟုတ် Bitcoin ဖြင့် ပေးချေပါ။",
-  "The card checkout could not be loaded. Check that no blocker stops onfastspring.com.": "ကတ်ငွေရှင်းစာမျက်နှာကို ဖွင့်၍မရပါ။ onfastspring.com ကို မည်သည့် blocker ကမျှ ပိတ်မထားကြောင်း စစ်ဆေးပါ။",
   "This usually takes a few seconds. Your order reference is {reference} (also on your receipt): with it you can recover the key below at any time.": "ပုံမှန်အားဖြင့် စက္ကန့်အနည်းငယ်သာ ကြာသည်။ သင့်အော်ဒါနံပါတ်မှာ {reference} ဖြစ်သည် (ပြေစာပေါ်တွင်လည်း ပါသည်)- ၎င်းဖြင့် အောက်တွင် ကီးကို အချိန်မရွေး ပြန်ရယူနိုင်သည်။",
   "This licence was refunded.": "ဤလိုင်စင်အတွက် ငွေပြန်အမ်းပြီးပါပြီ။",
   "Your payment is confirmed, but the key is taking longer than usual.": "သင့်ငွေပေးချေမှုကို အတည်ပြုပြီးပါပြီ၊ သို့သော် ကီး ထွက်ရန် ပုံမှန်ထက် ပိုကြာနေသည်။",
@@ -172,6 +170,8 @@
   "Free": "အခမဲ့",
   "Needs a licence": "လိုင်စင် လိုအပ်သည်",
   "Download": "ဒေါင်းလုဒ်",
-  "The first release of the website edition will appear here.": "ဝက်ဘ်ဆိုက်ဗားရှင်း၏ ပထမဆုံးထုတ်ဝေမှုကို ဤနေရာတွင် ပြသပါမည်။"
+  "The first release of the website edition will appear here.": "ဝက်ဘ်ဆိုက်ဗားရှင်း၏ ပထမဆုံးထုတ်ဝေမှုကို ဤနေရာတွင် ပြသပါမည်။",
+  "Through {provider}, our reseller": "ကျွန်ုပ်တို့၏ ပြန်လည်ရောင်းချသူ {provider} မှတစ်ဆင့်",
+  "The card checkout could not be loaded. Check that no blocker stops {domain}.": "ကတ်ငွေရှင်းစာမျက်နှာကို ဖွင့်၍မရပါ။ {domain} ကို မည်သည့် blocker ကမျှ ပိတ်မထားကြောင်း စစ်ဆေးပါ။"
  }
 }

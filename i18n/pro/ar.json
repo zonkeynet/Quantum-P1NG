@@ -72,7 +72,6 @@
   "Accessibility themes": "سمات لإمكانية الوصول",
   "HOW IT WORKS": "كيف يعمل",
   "Three steps, no account": "ثلاث خطوات، بلا حساب",
-  "<span data-card=\"off\">Pay with Bitcoin; card payments are coming soon.</span><span data-card=\"on\" hidden>Pay by card through FastSpring, our reseller, or with Bitcoin.</span> Your key appears on this page.": "<span data-card=\"off\">ادفع بـ Bitcoin؛ سيتوفر الدفع بالبطاقة قريباً.</span><span data-card=\"on\" hidden>ادفع بالبطاقة عبر FastSpring، مُعيد البيع الخاص بنا، أو بـ Bitcoin.</span> يظهر مفتاحك في هذه الصفحة.",
   "Install the website edition": "ثبّت إصدار الموقع",
   "Download the APK below. Already on Google Play? The Play edition is bought there instead.": "نزّل ملف APK أدناه. هل لديك التطبيق من Google Play؟ إصدار Play يُشترى من هناك.",
   "Paste the key": "الصق المفتاح",
@@ -128,7 +127,6 @@
   "Can I get a refund?": "هل يمكنني استرداد المبلغ؟",
   "Yes: a full refund within 14 days of your purchase, for any reason. See the <a href=\"/refund.html\">Refund Policy</a>.": "نعم: استرداد كامل المبلغ خلال 14 يوماً من الشراء، لأي سبب. راجع <a href=\"/refund.html\">سياسة الاسترداد</a>.",
   "{{1}}Secure payments": "{{1}}مدفوعات آمنة",
-  "<span data-card=\"on\" hidden>Cards in the secure checkout of FastSpring, our reseller: we never see your card details. </span>Bitcoin on-chain, straight to our wallet: no account, no card details.<span data-card=\"off\"> Card payments are coming soon.</span>": "<span data-card=\"on\" hidden>البطاقات عبر صفحة الدفع الآمنة لدى FastSpring، مُعيد البيع الخاص بنا: لا نرى بيانات بطاقتك أبداً. </span>Bitcoin على السلسلة، مباشرة إلى محفظتنا: بلا حساب ولا بيانات بطاقة.<span data-card=\"off\"> سيتوفر الدفع بالبطاقة قريباً.</span>",
   "Accepted payment methods": "طرق الدفع المقبولة",
   "&copy; 2026 ZonkeyNet / Quantum P1NG Team": "&copy; 2026 ZonkeyNet / Quantum P1NG Team",
   "Legal": "المعلومات القانونية",
@@ -137,17 +135,17 @@
   "Privacy": "الخصوصية",
   "Refunds": "الاسترداد",
   "Show support email": "إظهار بريد الدعم",
-  "(support [at] qp1ng [dot] com)": "(support [at] qp1ng [dot] com)"
+  "(support [at] qp1ng [dot] com)": "(support [at] qp1ng [dot] com)",
+  "<span data-card=\"off\">Pay with Bitcoin; card payments are coming soon.</span><span data-card=\"on\" hidden>Pay by card through <span data-card-name>FastSpring</span>, our reseller, or with Bitcoin.</span> Your key appears on this page.": "<span data-card=\"off\">ادفع بـ Bitcoin؛ سيتوفر الدفع بالبطاقة قريباً.</span><span data-card=\"on\" hidden>ادفع بالبطاقة عبر <span data-card-name>FastSpring</span>، مُعيد البيع الخاص بنا، أو بـ Bitcoin.</span> يظهر مفتاحك في هذه الصفحة.",
+  "<span data-card=\"on\" hidden>Cards in the secure checkout of <span data-card-name>FastSpring</span>, our reseller: we never see your card details. </span>Bitcoin on-chain, straight to our wallet: no account, no card details.<span data-card=\"off\"> Card payments are coming soon.</span>": "<span data-card=\"on\" hidden>البطاقات عبر صفحة الدفع الآمنة لدى <span data-card-name>FastSpring</span>، مُعيد البيع الخاص بنا: لا نرى بيانات بطاقتك أبداً. </span>Bitcoin على السلسلة، مباشرة إلى محفظتنا: بلا حساب ولا بيانات بطاقة.<span data-card=\"off\"> سيتوفر الدفع بالبطاقة قريباً.</span>"
  },
  "messages": {
   "Copied": "تم النسخ",
-  "Through FastSpring, our reseller": "عبر FastSpring، مُعيد البيع الخاص بنا",
   "Coming soon": "قريباً",
   "Soon": "قريباً",
   "Payments could not be loaded. Check your connection and reload the page.": "تعذّر تحميل خيارات الدفع. تحقق من اتصالك وأعد تحميل الصفحة.",
   "Tick the box above to choose how to pay.": "حدّد المربع أعلاه لاختيار طريقة الدفع.",
   "Card payment is not available right now. Please try again later, or pay with Bitcoin.": "الدفع بالبطاقة غير متاح حالياً. حاول لاحقاً، أو ادفع بـ Bitcoin.",
-  "The card checkout could not be loaded. Check that no blocker stops onfastspring.com.": "تعذّر تحميل صفحة الدفع بالبطاقة. تأكد من أن أداة الحظر لا تمنع onfastspring.com.",
   "This usually takes a few seconds. Your order reference is {reference} (also on your receipt): with it you can recover the key below at any time.": "يستغرق ذلك عادةً بضع ثوانٍ. رقم طلبك هو {reference} (وهو مذكور أيضاً في إيصالك): يمكنك به استعادة المفتاح أدناه في أي وقت.",
   "This licence was refunded.": "تم استرداد ثمن هذا الترخيص.",
   "Your payment is confirmed, but the key is taking longer than usual.": "تم تأكيد دفعتك، لكن المفتاح يتأخر أكثر من المعتاد.",
@@ -172,6 +170,8 @@
   "Free": "مجاني",
   "Needs a licence": "يتطلب ترخيصاً",
   "Download": "تنزيل",
-  "The first release of the website edition will appear here.": "ستظهر هنا أول نسخة من إصدار الموقع."
+  "The first release of the website edition will appear here.": "ستظهر هنا أول نسخة من إصدار الموقع.",
+  "Through {provider}, our reseller": "عبر {provider}، مُعيد البيع الخاص بنا",
+  "The card checkout could not be loaded. Check that no blocker stops {domain}.": "تعذّر تحميل صفحة الدفع بالبطاقة. تأكد من أن أداة الحظر لا تمنع {domain}."
  }
 }

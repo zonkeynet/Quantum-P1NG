@@ -72,7 +72,6 @@
   "Accessibility themes": "無障礙主題",
   "HOW IT WORKS": "使用方式",
   "Three steps, no account": "三個步驟，免帳號",
-  "<span data-card=\"off\">Pay with Bitcoin; card payments are coming soon.</span><span data-card=\"on\" hidden>Pay by card through FastSpring, our reseller, or with Bitcoin.</span> Your key appears on this page.": "<span data-card=\"off\">使用 Bitcoin 付款；刷卡付款即將推出。</span><span data-card=\"on\" hidden>透過我們的經銷商 FastSpring 刷卡付款，或使用 Bitcoin 付款。</span>您的金鑰會顯示在這個頁面上。",
   "Install the website edition": "安裝網站版",
   "Download the APK below. Already on Google Play? The Play edition is bought there instead.": "請下載下方的 APK。已在使用 Google Play 嗎？Play 版請改在 Google Play 購買。",
   "Paste the key": "貼上金鑰",
@@ -128,7 +127,6 @@
   "Can I get a refund?": "可以退款嗎？",
   "Yes: a full refund within 14 days of your purchase, for any reason. See the <a href=\"/refund.html\">Refund Policy</a>.": "可以：購買後 14 天內，無論任何理由皆可全額退款。詳見<a href=\"/refund.html\">退款政策</a>。",
   "{{1}}Secure payments": "{{1}}安全付款",
-  "<span data-card=\"on\" hidden>Cards in the secure checkout of FastSpring, our reseller: we never see your card details. </span>Bitcoin on-chain, straight to our wallet: no account, no card details.<span data-card=\"off\"> Card payments are coming soon.</span>": "<span data-card=\"on\" hidden>刷卡在我們的經銷商 FastSpring 的安全結帳頁面中完成：我們絕不會看到您的卡片資料。</span>Bitcoin 鏈上付款，直接轉入我們的錢包：免帳號，也不需卡片資料。<span data-card=\"off\">刷卡付款即將推出。</span>",
   "Accepted payment methods": "接受的付款方式",
   "&copy; 2026 ZonkeyNet / Quantum P1NG Team": "© 2026 ZonkeyNet / Quantum P1NG Team",
   "Legal": "法律資訊",
@@ -137,17 +135,17 @@
   "Privacy": "隱私權",
   "Refunds": "退款",
   "Show support email": "顯示客服電子郵件",
-  "(support [at] qp1ng [dot] com)": "(support [at] qp1ng [dot] com)"
+  "(support [at] qp1ng [dot] com)": "(support [at] qp1ng [dot] com)",
+  "<span data-card=\"off\">Pay with Bitcoin; card payments are coming soon.</span><span data-card=\"on\" hidden>Pay by card through <span data-card-name>FastSpring</span>, our reseller, or with Bitcoin.</span> Your key appears on this page.": "<span data-card=\"off\">使用 Bitcoin 付款；刷卡付款即將推出。</span><span data-card=\"on\" hidden>透過我們的經銷商 <span data-card-name>FastSpring</span> 刷卡付款，或使用 Bitcoin 付款。</span>您的金鑰會顯示在這個頁面上。",
+  "<span data-card=\"on\" hidden>Cards in the secure checkout of <span data-card-name>FastSpring</span>, our reseller: we never see your card details. </span>Bitcoin on-chain, straight to our wallet: no account, no card details.<span data-card=\"off\"> Card payments are coming soon.</span>": "<span data-card=\"on\" hidden>刷卡在我們的經銷商 <span data-card-name>FastSpring</span> 的安全結帳頁面中完成：我們絕不會看到您的卡片資料。</span>Bitcoin 鏈上付款，直接轉入我們的錢包：免帳號，也不需卡片資料。<span data-card=\"off\">刷卡付款即將推出。</span>"
  },
  "messages": {
   "Copied": "已複製",
-  "Through FastSpring, our reseller": "透過我們的經銷商 FastSpring",
   "Coming soon": "即將推出",
   "Soon": "即將推出",
   "Payments could not be loaded. Check your connection and reload the page.": "無法載入付款方式。請檢查網路連線並重新載入頁面。",
   "Tick the box above to choose how to pay.": "請勾選上方的核取方塊，即可選擇付款方式。",
   "Card payment is not available right now. Please try again later, or pay with Bitcoin.": "目前無法刷卡付款。請稍後再試，或使用 Bitcoin 付款。",
-  "The card checkout could not be loaded. Check that no blocker stops onfastspring.com.": "無法載入刷卡結帳頁面。請確認沒有任何封鎖工具阻擋 onfastspring.com。",
   "This usually takes a few seconds. Your order reference is {reference} (also on your receipt): with it you can recover the key below at any time.": "通常只需幾秒鐘。您的訂單編號是 {reference}（收據上也有）：憑此編號可隨時在下方找回金鑰。",
   "This licence was refunded.": "此授權已退款。",
   "Your payment is confirmed, but the key is taking longer than usual.": "您的付款已確認，但金鑰的產生時間比平常久。",
@@ -172,6 +170,8 @@
   "Free": "免費",
   "Needs a licence": "需要授權",
   "Download": "下載",
-  "The first release of the website edition will appear here.": "網站版的第一個版本將會顯示在這裡。"
+  "The first release of the website edition will appear here.": "網站版的第一個版本將會顯示在這裡。",
+  "Through {provider}, our reseller": "透過我們的經銷商 {provider}",
+  "The card checkout could not be loaded. Check that no blocker stops {domain}.": "無法載入刷卡結帳頁面。請確認沒有任何封鎖工具阻擋 {domain}。"
  }
 }

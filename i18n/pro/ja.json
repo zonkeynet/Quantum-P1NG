@@ -72,7 +72,6 @@
   "Accessibility themes": "アクセシビリティ用テーマ",
   "HOW IT WORKS": "ご利用の流れ",
   "Three steps, no account": "アカウント不要の 3 ステップ",
-  "<span data-card=\"off\">Pay with Bitcoin; card payments are coming soon.</span><span data-card=\"on\" hidden>Pay by card through FastSpring, our reseller, or with Bitcoin.</span> Your key appears on this page.": "<span data-card=\"off\">Bitcoin でお支払いください。カード決済は近日対応予定です。</span><span data-card=\"on\" hidden>販売代理店 FastSpring を通じたカード、または Bitcoin でお支払いください。</span>キーはこのページに表示されます。",
   "Install the website edition": "ウェブサイト版をインストール",
   "Download the APK below. Already on Google Play? The Play edition is bought there instead.": "下の APK をダウンロードしてください。すでに Google Play 版をお使いですか？ Play 版は Google Play で購入します。",
   "Paste the key": "キーを貼り付け",
@@ -128,7 +127,6 @@
   "Can I get a refund?": "返金は受けられますか？",
   "Yes: a full refund within 14 days of your purchase, for any reason. See the <a href=\"/refund.html\">Refund Policy</a>.": "はい。購入から 14 日以内であれば、理由を問わず全額返金します。<a href=\"/refund.html\">返金ポリシー</a>をご覧ください。",
   "{{1}}Secure payments": "{{1}}安全なお支払い",
-  "<span data-card=\"on\" hidden>Cards in the secure checkout of FastSpring, our reseller: we never see your card details. </span>Bitcoin on-chain, straight to our wallet: no account, no card details.<span data-card=\"off\"> Card payments are coming soon.</span>": "<span data-card=\"on\" hidden>カードは販売代理店 FastSpring の安全な決済画面で処理され、当社がカード情報を目にすることはありません。</span>Bitcoin はオンチェーンで当社ウォレットに直接送金。アカウントもカード情報も不要です。<span data-card=\"off\">カード決済は近日対応予定です。</span>",
   "Accepted payment methods": "利用できるお支払い方法",
   "&copy; 2026 ZonkeyNet / Quantum P1NG Team": "© 2026 ZonkeyNet / Quantum P1NG Team",
   "Legal": "法的情報",
@@ -137,17 +135,17 @@
   "Privacy": "プライバシー",
   "Refunds": "返金",
   "Show support email": "サポートのメールアドレスを表示",
-  "(support [at] qp1ng [dot] com)": "(support [at] qp1ng [dot] com)"
+  "(support [at] qp1ng [dot] com)": "(support [at] qp1ng [dot] com)",
+  "<span data-card=\"off\">Pay with Bitcoin; card payments are coming soon.</span><span data-card=\"on\" hidden>Pay by card through <span data-card-name>FastSpring</span>, our reseller, or with Bitcoin.</span> Your key appears on this page.": "<span data-card=\"off\">Bitcoin でお支払いください。カード決済は近日対応予定です。</span><span data-card=\"on\" hidden>販売代理店 <span data-card-name>FastSpring</span> を通じたカード、または Bitcoin でお支払いください。</span>キーはこのページに表示されます。",
+  "<span data-card=\"on\" hidden>Cards in the secure checkout of <span data-card-name>FastSpring</span>, our reseller: we never see your card details. </span>Bitcoin on-chain, straight to our wallet: no account, no card details.<span data-card=\"off\"> Card payments are coming soon.</span>": "<span data-card=\"on\" hidden>カードは販売代理店 <span data-card-name>FastSpring</span> の安全な決済画面で処理され、当社がカード情報を目にすることはありません。</span>Bitcoin はオンチェーンで当社ウォレットに直接送金。アカウントもカード情報も不要です。<span data-card=\"off\">カード決済は近日対応予定です。</span>"
  },
  "messages": {
   "Copied": "コピーしました",
-  "Through FastSpring, our reseller": "販売代理店 FastSpring 経由",
   "Coming soon": "近日対応",
   "Soon": "近日",
   "Payments could not be loaded. Check your connection and reload the page.": "お支払い方法を読み込めませんでした。接続を確認して、ページを再読み込みしてください。",
   "Tick the box above to choose how to pay.": "お支払い方法を選ぶには、上のチェックボックスにチェックを入れてください。",
   "Card payment is not available right now. Please try again later, or pay with Bitcoin.": "現在カード決済はご利用いただけません。後でもう一度お試しいただくか、Bitcoin でお支払いください。",
-  "The card checkout could not be loaded. Check that no blocker stops onfastspring.com.": "カード決済画面を読み込めませんでした。onfastspring.com がブロッカーで遮断されていないか確認してください。",
   "This usually takes a few seconds. Your order reference is {reference} (also on your receipt): with it you can recover the key below at any time.": "通常は数秒で完了します。注文番号は {reference} です（領収書にも記載）。これを使えば、いつでも下でキーを再取得できます。",
   "This licence was refunded.": "このライセンスは返金されました。",
   "Your payment is confirmed, but the key is taking longer than usual.": "お支払いは確認されましたが、キーの発行に通常より時間がかかっています。",
@@ -172,6 +170,8 @@
   "Free": "無料",
   "Needs a licence": "ライセンスが必要",
   "Download": "ダウンロード",
-  "The first release of the website edition will appear here.": "ウェブサイト版の最初のリリースはここに表示されます。"
+  "The first release of the website edition will appear here.": "ウェブサイト版の最初のリリースはここに表示されます。",
+  "Through {provider}, our reseller": "販売代理店 {provider} 経由",
+  "The card checkout could not be loaded. Check that no blocker stops {domain}.": "カード決済画面を読み込めませんでした。{domain} がブロッカーで遮断されていないか確認してください。"
  }
 }

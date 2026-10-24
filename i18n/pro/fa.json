@@ -72,7 +72,6 @@
   "Accessibility themes": "پوسته‌های دسترس‌پذیری",
   "HOW IT WORKS": "روش کار",
   "Three steps, no account": "سه مرحله، بدون حساب کاربری",
-  "<span data-card=\"off\">Pay with Bitcoin; card payments are coming soon.</span><span data-card=\"on\" hidden>Pay by card through FastSpring, our reseller, or with Bitcoin.</span> Your key appears on this page.": "<span data-card=\"off\">با Bitcoin پرداخت کنید؛ پرداخت با کارت به‌زودی فراهم می‌شود.</span><span data-card=\"on\" hidden>با کارت از طریق FastSpring، بازفروشندهٔ ما، یا با Bitcoin پرداخت کنید.</span> کلیدتان در همین صفحه نمایش داده می‌شود.",
   "Install the website edition": "نسخهٔ وب‌سایت را نصب کنید",
   "Download the APK below. Already on Google Play? The Play edition is bought there instead.": "فایل APK را از پایین همین صفحه دانلود کنید. برنامه را از Google Play نصب کرده‌اید؟ نسخهٔ Play را باید از همان‌جا خرید.",
   "Paste the key": "کلید را بچسبانید",
@@ -128,7 +127,6 @@
   "Can I get a refund?": "آیا می‌توانم پولم را پس بگیرم؟",
   "Yes: a full refund within 14 days of your purchase, for any reason. See the <a href=\"/refund.html\">Refund Policy</a>.": "بله: بازپرداخت کامل تا ۱۴ روز پس از خرید، به هر دلیلی. <a href=\"/refund.html\">سیاست بازپرداخت</a> را ببینید.",
   "{{1}}Secure payments": "{{1}}پرداخت امن",
-  "<span data-card=\"on\" hidden>Cards in the secure checkout of FastSpring, our reseller: we never see your card details. </span>Bitcoin on-chain, straight to our wallet: no account, no card details.<span data-card=\"off\"> Card payments are coming soon.</span>": "<span data-card=\"on\" hidden>کارت‌ها در صفحهٔ پرداخت امن FastSpring، بازفروشندهٔ ما: ما هرگز اطلاعات کارت شما را نمی‌بینیم. </span>Bitcoin به‌صورت درون‌زنجیره‌ای، مستقیم به کیف پول ما: بدون حساب کاربری و بدون اطلاعات کارت.<span data-card=\"off\"> پرداخت با کارت به‌زودی فراهم می‌شود.</span>",
   "Accepted payment methods": "روش‌های پرداخت پذیرفته‌شده",
   "&copy; 2026 ZonkeyNet / Quantum P1NG Team": "&copy; 2026 ZonkeyNet / Quantum P1NG Team",
   "Legal": "اطلاعات حقوقی",
@@ -137,17 +135,17 @@
   "Privacy": "حریم خصوصی",
   "Refunds": "بازپرداخت",
   "Show support email": "نمایش ایمیل پشتیبانی",
-  "(support [at] qp1ng [dot] com)": "(support [at] qp1ng [dot] com)"
+  "(support [at] qp1ng [dot] com)": "(support [at] qp1ng [dot] com)",
+  "<span data-card=\"off\">Pay with Bitcoin; card payments are coming soon.</span><span data-card=\"on\" hidden>Pay by card through <span data-card-name>FastSpring</span>, our reseller, or with Bitcoin.</span> Your key appears on this page.": "<span data-card=\"off\">با Bitcoin پرداخت کنید؛ پرداخت با کارت به‌زودی فراهم می‌شود.</span><span data-card=\"on\" hidden>با کارت از طریق <span data-card-name>FastSpring</span>، بازفروشندهٔ ما، یا با Bitcoin پرداخت کنید.</span> کلیدتان در همین صفحه نمایش داده می‌شود.",
+  "<span data-card=\"on\" hidden>Cards in the secure checkout of <span data-card-name>FastSpring</span>, our reseller: we never see your card details. </span>Bitcoin on-chain, straight to our wallet: no account, no card details.<span data-card=\"off\"> Card payments are coming soon.</span>": "<span data-card=\"on\" hidden>کارت‌ها در صفحهٔ پرداخت امن <span data-card-name>FastSpring</span>، بازفروشندهٔ ما: ما هرگز اطلاعات کارت شما را نمی‌بینیم. </span>Bitcoin به‌صورت درون‌زنجیره‌ای، مستقیم به کیف پول ما: بدون حساب کاربری و بدون اطلاعات کارت.<span data-card=\"off\"> پرداخت با کارت به‌زودی فراهم می‌شود.</span>"
  },
  "messages": {
   "Copied": "کپی شد",
-  "Through FastSpring, our reseller": "از طریق FastSpring، بازفروشندهٔ ما",
   "Coming soon": "به‌زودی",
   "Soon": "به‌زودی",
   "Payments could not be loaded. Check your connection and reload the page.": "روش‌های پرداخت بارگذاری نشد. اتصال خود را بررسی کنید و صفحه را دوباره بارگذاری کنید.",
   "Tick the box above to choose how to pay.": "برای انتخاب روش پرداخت، کادر بالا را علامت بزنید.",
   "Card payment is not available right now. Please try again later, or pay with Bitcoin.": "پرداخت با کارت فعلاً در دسترس نیست. بعداً دوباره امتحان کنید یا با Bitcoin پرداخت کنید.",
-  "The card checkout could not be loaded. Check that no blocker stops onfastspring.com.": "صفحهٔ پرداخت با کارت بارگذاری نشد. مطمئن شوید هیچ مسدودکننده‌ای جلوی onfastspring.com را نمی‌گیرد.",
   "This usually takes a few seconds. Your order reference is {reference} (also on your receipt): with it you can recover the key below at any time.": "این کار معمولاً چند ثانیه طول می‌کشد. شمارهٔ سفارش شما {reference} است (روی رسیدتان هم آمده): با آن هر زمان می‌توانید کلید را در پایین بازیابی کنید.",
   "This licence was refunded.": "مبلغ این مجوز بازپرداخت شده است.",
   "Your payment is confirmed, but the key is taking longer than usual.": "پرداخت شما تأیید شد، اما آماده شدن کلید بیش از معمول طول می‌کشد.",
@@ -172,6 +170,8 @@
   "Free": "رایگان",
   "Needs a licence": "نیاز به مجوز",
   "Download": "دانلود",
-  "The first release of the website edition will appear here.": "نخستین انتشار نسخهٔ وب‌سایت اینجا نمایش داده می‌شود."
+  "The first release of the website edition will appear here.": "نخستین انتشار نسخهٔ وب‌سایت اینجا نمایش داده می‌شود.",
+  "Through {provider}, our reseller": "از طریق {provider}، بازفروشندهٔ ما",
+  "The card checkout could not be loaded. Check that no blocker stops {domain}.": "صفحهٔ پرداخت با کارت بارگذاری نشد. مطمئن شوید هیچ مسدودکننده‌ای جلوی {domain} را نمی‌گیرد."
  }
 }

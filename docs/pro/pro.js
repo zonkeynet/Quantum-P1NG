@@ -1,5 +1,7 @@
-// Q-P1NG Pro checkout: card through FastSpring, Bitcoin through the licence API, licence recovery and downloads.
-// The licence API (Q-P1NG/tools/license-worker) says which payments are open; nothing here holds a secret.
+// Q-P1NG Pro checkout: card through a reseller (today FastSpring), Bitcoin through the licence API, licence recovery
+// and downloads. The licence API (Q-P1NG/tools/license-worker) says which payments are open and which provider takes
+// cards, in one of two modes: "popup" (the provider's script in this page, see POPUPS) or "redirect" (its hosted
+// checkout, with no script of the provider here). Nothing here holds a secret.
 // Messages are written in English and translated by the JSON block #pro-i18n that the language pages carry
 // (i18n/build.py in this repository); the English page has none.
 // From the app: /pro/#claim=<token> passes the app's claim token to the card or Bitcoin order, so the app collects
@@ -118,7 +120,9 @@
   function describeOptions() {
     var notes = [];
     var cardOpen = Boolean(config && config.card);
-    $("card-provider").textContent = cardOpen ? t("Through FastSpring, our reseller") : t("Coming soon");
+    $("card-provider").textContent = cardOpen ? t("Through {provider}, our reseller", { provider: config.card.name }) : t("Coming soon");
+    var names = document.querySelectorAll("[data-card-name]");
+    for (var n = 0; n < names.length; n++) if (cardOpen) names[n].textContent = config.card.name;
     // Texts that differ while cards are closed or open: the licence API's configuration decides, not this file.
     var variants = document.querySelectorAll("[data-card]");
     for (var i = 0; i < variants.length; i++) variants[i].hidden = (variants[i].getAttribute("data-card") === "on") !== cardOpen;
@@ -143,8 +147,9 @@
     for (var i = 0; i < items.length; i++) items[i].textContent = euro(config.priceEur);
   }
 
-  // ---- Card (FastSpring popup checkout) --------------------------------------------------------------------------
+  // ---- Card --------------------------------------------------------------------------------------------------------
 
+  /** FastSpring's popup checkout: its Store Builder Library, pinned and checked (SRI), drives an overlay frame. */
   function loadCardCheckout() {
     if (cardReady) return cardReady;
     cardReady = new Promise(function (resolve, reject) {
@@ -174,17 +179,31 @@
     return cardReady;
   }
 
-  function payByCard() {
-    var claim = appClaim || randomToken();
-    pendingClaim = claim;
-    remember("qp1ng_claim", claim);
+  function openFastSpring(claim) {
     loadCardCheckout().then(function (fastspring) {
       fastspring.builder.reset();
       fastspring.builder.push({ products: [{ path: config.card.product, quantity: 1 }], tags: { claim: claim } });
       fastspring.builder.checkout();
     }, function () {
-      $("pay-note").textContent = t("The card checkout could not be loaded. Check that no blocker stops onfastspring.com.");
+      $("pay-note").textContent = t("The card checkout could not be loaded. Check that no blocker stops {domain}.", { domain: config.card.domain });
     });
+  }
+
+  // Providers whose checkout opens over this page. Another provider in "redirect" mode needs no code here.
+  var POPUPS = { fastspring: openFastSpring };
+
+  function payByCard() {
+    var claim = appClaim || randomToken();
+    pendingClaim = claim;
+    remember("qp1ng_claim", claim);
+    if (config.card.mode === "redirect" && /^https:\/\//.test(config.card.url || "")) {
+      // The provider's hosted checkout; it sends the buyer back to /pro/?paid=1, where the key is collected.
+      location.assign(config.card.url.split("{claim}").join(encodeURIComponent(claim)));
+      return;
+    }
+    var open = POPUPS[config.card.provider];
+    if (open) open(claim);
+    else $("pay-note").textContent = t("Card payment is not available right now. Please try again later, or pay with Bitcoin.");
   }
 
   /**
@@ -440,9 +459,11 @@
           else remember("qp1ng_order", null);
         }, function () {});
       }
-      // Back after a payment: the licence may already be there (independently of any Bitcoin order).
+      // Back after a payment: the licence may already be there (independently of any Bitcoin order). Back from a
+      // hosted checkout (?paid=1): wait for the provider's confirmation as after a popup.
       var claim = recall("qp1ng_claim") || appClaim;
-      if (claim) {
+      if (claim && /[?&]paid=1(&|$)/.test(location.search)) waitForClaim(claim);
+      else if (claim) {
         api("/v1/licences/claim/" + claim).then(function (body) {
           if (body.licence) { remember("qp1ng_claim", null); showLicence(body.licence); }
         }, function () {});

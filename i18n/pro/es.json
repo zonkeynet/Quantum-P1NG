@@ -72,7 +72,6 @@
   "Accessibility themes": "Temas de accesibilidad",
   "HOW IT WORKS": "CÓMO FUNCIONA",
   "Three steps, no account": "Tres pasos, sin cuenta",
-  "<span data-card=\"off\">Pay with Bitcoin; card payments are coming soon.</span><span data-card=\"on\" hidden>Pay by card through FastSpring, our reseller, or with Bitcoin.</span> Your key appears on this page.": "<span data-card=\"off\">Paga con Bitcoin; los pagos con tarjeta llegarán pronto.</span><span data-card=\"on\" hidden>Paga con tarjeta a través de FastSpring, nuestro revendedor, o con Bitcoin.</span> Tu clave aparece en esta página.",
   "Install the website edition": "Instala la edición web",
   "Download the APK below. Already on Google Play? The Play edition is bought there instead.": "Descarga el APK más abajo. ¿Ya tienes la app de Google Play? En ese caso, la edición de Play se compra allí.",
   "Paste the key": "Pega la clave",
@@ -128,7 +127,6 @@
   "Can I get a refund?": "¿Puedo pedir un reembolso?",
   "Yes: a full refund within 14 days of your purchase, for any reason. See the <a href=\"/refund.html\">Refund Policy</a>.": "Sí: un reembolso completo en los 14 días siguientes a la compra, por cualquier motivo. Consulta la <a href=\"/refund.html\">Política de reembolsos</a>.",
   "{{1}}Secure payments": "{{1}}Pagos seguros",
-  "<span data-card=\"on\" hidden>Cards in the secure checkout of FastSpring, our reseller: we never see your card details. </span>Bitcoin on-chain, straight to our wallet: no account, no card details.<span data-card=\"off\"> Card payments are coming soon.</span>": "<span data-card=\"on\" hidden>Tarjetas en el pago seguro de FastSpring, nuestro revendedor: nunca vemos los datos de tu tarjeta. </span>Bitcoin on-chain, directo a nuestro monedero: sin cuenta y sin datos de tarjeta.<span data-card=\"off\"> Los pagos con tarjeta llegarán pronto.</span>",
   "Accepted payment methods": "Métodos de pago aceptados",
   "&copy; 2026 ZonkeyNet / Quantum P1NG Team": "© 2026 ZonkeyNet / Quantum P1NG Team",
   "Legal": "Aviso legal",
@@ -137,17 +135,17 @@
   "Privacy": "Privacidad",
   "Refunds": "Reembolsos",
   "Show support email": "Mostrar el correo de soporte",
-  "(support [at] qp1ng [dot] com)": "(support [at] qp1ng [dot] com)"
+  "(support [at] qp1ng [dot] com)": "(support [at] qp1ng [dot] com)",
+  "<span data-card=\"off\">Pay with Bitcoin; card payments are coming soon.</span><span data-card=\"on\" hidden>Pay by card through <span data-card-name>FastSpring</span>, our reseller, or with Bitcoin.</span> Your key appears on this page.": "<span data-card=\"off\">Paga con Bitcoin; los pagos con tarjeta llegarán pronto.</span><span data-card=\"on\" hidden>Paga con tarjeta a través de <span data-card-name>FastSpring</span>, nuestro revendedor, o con Bitcoin.</span> Tu clave aparece en esta página.",
+  "<span data-card=\"on\" hidden>Cards in the secure checkout of <span data-card-name>FastSpring</span>, our reseller: we never see your card details. </span>Bitcoin on-chain, straight to our wallet: no account, no card details.<span data-card=\"off\"> Card payments are coming soon.</span>": "<span data-card=\"on\" hidden>Tarjetas en el pago seguro de <span data-card-name>FastSpring</span>, nuestro revendedor: nunca vemos los datos de tu tarjeta. </span>Bitcoin on-chain, directo a nuestro monedero: sin cuenta y sin datos de tarjeta.<span data-card=\"off\"> Los pagos con tarjeta llegarán pronto.</span>"
  },
  "messages": {
   "Copied": "Copiado",
-  "Through FastSpring, our reseller": "A través de FastSpring, nuestro revendedor",
   "Coming soon": "Próximamente",
   "Soon": "Pronto",
   "Payments could not be loaded. Check your connection and reload the page.": "No se han podido cargar los pagos. Comprueba tu conexión y recarga la página.",
   "Tick the box above to choose how to pay.": "Marca la casilla de arriba para elegir cómo pagar.",
   "Card payment is not available right now. Please try again later, or pay with Bitcoin.": "El pago con tarjeta no está disponible en este momento. Vuelve a intentarlo más tarde o paga con Bitcoin.",
-  "The card checkout could not be loaded. Check that no blocker stops onfastspring.com.": "No se ha podido cargar el pago con tarjeta. Comprueba que ningún bloqueador impida el acceso a onfastspring.com.",
   "This usually takes a few seconds. Your order reference is {reference} (also on your receipt): with it you can recover the key below at any time.": "Normalmente tarda unos segundos. La referencia de tu pedido es {reference} (también figura en tu recibo): con ella puedes recuperar la clave más abajo en cualquier momento.",
   "This licence was refunded.": "Esta licencia fue reembolsada.",
   "Your payment is confirmed, but the key is taking longer than usual.": "Tu pago está confirmado, pero la clave está tardando más de lo habitual.",
@@ -172,6 +170,8 @@
   "Free": "Gratis",
   "Needs a licence": "Necesita licencia",
   "Download": "Descargar",
-  "The first release of the website edition will appear here.": "Aquí aparecerá la primera versión de la edición web."
+  "The first release of the website edition will appear here.": "Aquí aparecerá la primera versión de la edición web.",
+  "Through {provider}, our reseller": "A través de {provider}, nuestro revendedor",
+  "The card checkout could not be loaded. Check that no blocker stops {domain}.": "No se ha podido cargar el pago con tarjeta. Comprueba que ningún bloqueador impida el acceso a {domain}."
  }
 }

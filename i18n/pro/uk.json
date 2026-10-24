@@ -72,7 +72,6 @@
   "Accessibility themes": "Теми для доступності",
   "HOW IT WORKS": "ЯК ЦЕ ПРАЦЮЄ",
   "Three steps, no account": "Три кроки, без акаунта",
-  "<span data-card=\"off\">Pay with Bitcoin; card payments are coming soon.</span><span data-card=\"on\" hidden>Pay by card through FastSpring, our reseller, or with Bitcoin.</span> Your key appears on this page.": "<span data-card=\"off\">Оплатіть у Bitcoin; оплата карткою незабаром з’явиться.</span><span data-card=\"on\" hidden>Оплатіть карткою через FastSpring, нашого реселера, або в Bitcoin.</span> Ключ з’явиться на цій сторінці.",
   "Install the website edition": "Встановіть версію із сайту",
   "Download the APK below. Already on Google Play? The Play edition is bought there instead.": "Завантажте APK нижче. Встановили застосунок із Google Play? Ту версію купують там.",
   "Paste the key": "Вставте ключ",
@@ -128,7 +127,6 @@
   "Can I get a refund?": "Чи можна повернути кошти?",
   "Yes: a full refund within 14 days of your purchase, for any reason. See the <a href=\"/refund.html\">Refund Policy</a>.": "Так: повне повернення коштів протягом 14 днів після покупки, з будь-якої причини. Див. <a href=\"/refund.html\">Правила повернення коштів</a>.",
   "{{1}}Secure payments": "{{1}}Безпечна оплата",
-  "<span data-card=\"on\" hidden>Cards in the secure checkout of FastSpring, our reseller: we never see your card details. </span>Bitcoin on-chain, straight to our wallet: no account, no card details.<span data-card=\"off\"> Card payments are coming soon.</span>": "<span data-card=\"on\" hidden>Картки — через захищену сторінку оплати FastSpring, нашого реселера: ми ніколи не бачимо даних вашої картки. </span>Bitcoin — ончейн, напряму на наш гаманець: без акаунта й без даних картки.<span data-card=\"off\"> Оплата карткою незабаром з’явиться.</span>",
   "Accepted payment methods": "Способи оплати, які ми приймаємо",
   "&copy; 2026 ZonkeyNet / Quantum P1NG Team": "&copy; 2026 ZonkeyNet / Quantum P1NG Team",
   "Legal": "Правова інформація",
@@ -137,17 +135,17 @@
   "Privacy": "Конфіденційність",
   "Refunds": "Повернення коштів",
   "Show support email": "Показати адресу підтримки",
-  "(support [at] qp1ng [dot] com)": "(support [at] qp1ng [dot] com)"
+  "(support [at] qp1ng [dot] com)": "(support [at] qp1ng [dot] com)",
+  "<span data-card=\"off\">Pay with Bitcoin; card payments are coming soon.</span><span data-card=\"on\" hidden>Pay by card through <span data-card-name>FastSpring</span>, our reseller, or with Bitcoin.</span> Your key appears on this page.": "<span data-card=\"off\">Оплатіть у Bitcoin; оплата карткою незабаром з’явиться.</span><span data-card=\"on\" hidden>Оплатіть карткою через <span data-card-name>FastSpring</span>, нашого реселера, або в Bitcoin.</span> Ключ з’явиться на цій сторінці.",
+  "<span data-card=\"on\" hidden>Cards in the secure checkout of <span data-card-name>FastSpring</span>, our reseller: we never see your card details. </span>Bitcoin on-chain, straight to our wallet: no account, no card details.<span data-card=\"off\"> Card payments are coming soon.</span>": "<span data-card=\"on\" hidden>Картки — через захищену сторінку оплати <span data-card-name>FastSpring</span>, нашого реселера: ми ніколи не бачимо даних вашої картки. </span>Bitcoin — ончейн, напряму на наш гаманець: без акаунта й без даних картки.<span data-card=\"off\"> Оплата карткою незабаром з’явиться.</span>"
  },
  "messages": {
   "Copied": "Скопійовано",
-  "Through FastSpring, our reseller": "Через FastSpring, нашого реселера",
   "Coming soon": "Незабаром",
   "Soon": "Скоро",
   "Payments could not be loaded. Check your connection and reload the page.": "Не вдалося завантажити способи оплати. Перевірте з’єднання й перезавантажте сторінку.",
   "Tick the box above to choose how to pay.": "Позначте прапорець вище, щоб вибрати спосіб оплати.",
   "Card payment is not available right now. Please try again later, or pay with Bitcoin.": "Оплата карткою зараз недоступна. Спробуйте пізніше або оплатіть у Bitcoin.",
-  "The card checkout could not be loaded. Check that no blocker stops onfastspring.com.": "Не вдалося завантажити сторінку оплати карткою. Переконайтеся, що блокувальник не заважає onfastspring.com.",
   "This usually takes a few seconds. Your order reference is {reference} (also on your receipt): with it you can recover the key below at any time.": "Зазвичай це займає кілька секунд. Номер вашого замовлення — {reference} (він також є в квитанції): за ним можна будь-коли відновити ключ нижче.",
   "This licence was refunded.": "За цю ліцензію оформлено повернення коштів.",
   "Your payment is confirmed, but the key is taking longer than usual.": "Платіж підтверджено, але видача ключа триває довше, ніж зазвичай.",
@@ -172,6 +170,8 @@
   "Free": "Безкоштовно",
   "Needs a licence": "Потрібна ліцензія",
   "Download": "Завантажити",
-  "The first release of the website edition will appear here.": "Тут з’явиться перший випуск версії із сайту."
+  "The first release of the website edition will appear here.": "Тут з’явиться перший випуск версії із сайту.",
+  "Through {provider}, our reseller": "Через {provider}, нашого реселера",
+  "The card checkout could not be loaded. Check that no blocker stops {domain}.": "Не вдалося завантажити сторінку оплати карткою. Переконайтеся, що блокувальник не заважає {domain}."
  }
 }

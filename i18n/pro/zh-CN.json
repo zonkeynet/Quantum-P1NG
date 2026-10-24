@@ -72,7 +72,6 @@
   "Accessibility themes": "无障碍主题",
   "HOW IT WORKS": "使用方法",
   "Three steps, no account": "三步完成，无需账号",
-  "<span data-card=\"off\">Pay with Bitcoin; card payments are coming soon.</span><span data-card=\"on\" hidden>Pay by card through FastSpring, our reseller, or with Bitcoin.</span> Your key appears on this page.": "<span data-card=\"off\">使用 Bitcoin 付款；银行卡付款即将推出。</span><span data-card=\"on\" hidden>通过我们的经销商 FastSpring 用银行卡付款，或使用 Bitcoin 付款。</span>密钥会显示在此页面上。",
   "Install the website edition": "安装网站版",
   "Download the APK below. Already on Google Play? The Play edition is bought there instead.": "下载下方的 APK。已经在用 Google Play？Play 版请在 Google Play 上购买。",
   "Paste the key": "粘贴密钥",
@@ -128,7 +127,6 @@
   "Can I get a refund?": "可以退款吗？",
   "Yes: a full refund within 14 days of your purchase, for any reason. See the <a href=\"/refund.html\">Refund Policy</a>.": "可以：购买后 14 天内，无论出于何种原因均可全额退款。详见<a href=\"/refund.html\">退款政策</a>。",
   "{{1}}Secure payments": "{{1}}安全支付",
-  "<span data-card=\"on\" hidden>Cards in the secure checkout of FastSpring, our reseller: we never see your card details. </span>Bitcoin on-chain, straight to our wallet: no account, no card details.<span data-card=\"off\"> Card payments are coming soon.</span>": "<span data-card=\"on\" hidden>银行卡在我们的经销商 FastSpring 的安全结账页面中付款：我们永远看不到你的卡信息。</span>Bitcoin 链上支付，直接转入我们的钱包：无需账号，无需卡信息。<span data-card=\"off\">银行卡付款即将推出。</span>",
   "Accepted payment methods": "支持的付款方式",
   "&copy; 2026 ZonkeyNet / Quantum P1NG Team": "© 2026 ZonkeyNet / Quantum P1NG Team",
   "Legal": "法律信息",
@@ -137,17 +135,17 @@
   "Privacy": "隐私",
   "Refunds": "退款",
   "Show support email": "显示客服邮箱",
-  "(support [at] qp1ng [dot] com)": "(support [at] qp1ng [dot] com)"
+  "(support [at] qp1ng [dot] com)": "(support [at] qp1ng [dot] com)",
+  "<span data-card=\"off\">Pay with Bitcoin; card payments are coming soon.</span><span data-card=\"on\" hidden>Pay by card through <span data-card-name>FastSpring</span>, our reseller, or with Bitcoin.</span> Your key appears on this page.": "<span data-card=\"off\">使用 Bitcoin 付款；银行卡付款即将推出。</span><span data-card=\"on\" hidden>通过我们的经销商 <span data-card-name>FastSpring</span> 用银行卡付款，或使用 Bitcoin 付款。</span>密钥会显示在此页面上。",
+  "<span data-card=\"on\" hidden>Cards in the secure checkout of <span data-card-name>FastSpring</span>, our reseller: we never see your card details. </span>Bitcoin on-chain, straight to our wallet: no account, no card details.<span data-card=\"off\"> Card payments are coming soon.</span>": "<span data-card=\"on\" hidden>银行卡在我们的经销商 <span data-card-name>FastSpring</span> 的安全结账页面中付款：我们永远看不到你的卡信息。</span>Bitcoin 链上支付，直接转入我们的钱包：无需账号，无需卡信息。<span data-card=\"off\">银行卡付款即将推出。</span>"
  },
  "messages": {
   "Copied": "已复制",
-  "Through FastSpring, our reseller": "通过我们的经销商 FastSpring",
   "Coming soon": "即将推出",
   "Soon": "即将推出",
   "Payments could not be loaded. Check your connection and reload the page.": "无法加载付款方式。请检查网络连接并重新加载页面。",
   "Tick the box above to choose how to pay.": "勾选上方的复选框即可选择付款方式。",
   "Card payment is not available right now. Please try again later, or pay with Bitcoin.": "银行卡付款暂不可用。请稍后重试，或使用 Bitcoin 付款。",
-  "The card checkout could not be loaded. Check that no blocker stops onfastspring.com.": "无法加载银行卡结账页面。请检查是否有拦截工具屏蔽了 onfastspring.com。",
   "This usually takes a few seconds. Your order reference is {reference} (also on your receipt): with it you can recover the key below at any time.": "通常只需几秒钟。你的订单号是 {reference}（收据上也有）：凭此可随时在下方找回密钥。",
   "This licence was refunded.": "此许可证已退款。",
   "Your payment is confirmed, but the key is taking longer than usual.": "你的付款已确认，但密钥的生成比平时慢。",
@@ -172,6 +170,8 @@
   "Free": "免费",
   "Needs a licence": "需要许可证",
   "Download": "下载",
-  "The first release of the website edition will appear here.": "网站版的首个版本将显示在这里。"
+  "The first release of the website edition will appear here.": "网站版的首个版本将显示在这里。",
+  "Through {provider}, our reseller": "通过我们的经销商 {provider}",
+  "The card checkout could not be loaded. Check that no blocker stops {domain}.": "无法加载银行卡结账页面。请检查是否有拦截工具屏蔽了 {domain}。"
  }
 }
