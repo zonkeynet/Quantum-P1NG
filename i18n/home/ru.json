@@ -2646,7 +2646,16 @@
   "QP1NG / FALLOUT / 00:32 · 2×": "QP1NG / FALLOUT / 00:32 · 2×",
   "Signed mind maps over Tor": "Подписанные mind-карты через Tor",
   "Q-Map MindMap": "Q-Map MindMap",
-  "P1NG": "P1NG"
+  "P1NG": "P1NG",
+  "ANDROID APP · PRIVACY IN ACTION": "ПРИЛОЖЕНИЕ ANDROID · ПРИВАТНОСТЬ В ДЕЙСТВИИ",
+  "Choose what the screen reveals.": "Выберите, что покажет экран.",
+  "Switch to a cover with a shake. Lock private sections with a master password. Keep your tools close with Quantum Keyboard.": "Встряхните телефон для перехода к экрану прикрытия. Закройте личные разделы мастер-паролем. Используйте инструменты Quantum Keyboard.",
+  "<span class=\"mono\" aria-hidden=\"true\">01</span>Shake: weather, calculator, puzzle or grocery list": "<span class=\"mono\" aria-hidden=\"true\">01</span>Встряхивание: погода, калькулятор, головоломка или покупки",
+  "<span class=\"mono\" aria-hidden=\"true\">02</span>Master password: unlock private notes": "<span class=\"mono\" aria-hidden=\"true\">02</span>Мастер-пароль: доступ к личным заметкам",
+  "<span class=\"mono\" aria-hidden=\"true\">03</span>Separate primary, decoy and duress credentials": "<span class=\"mono\" aria-hidden=\"true\">03</span>Отдельные основные, ложные и экстренные данные входа",
+  "ANDROID / FALLOUT / 00:58": "ANDROID / FALLOUT / 00:58",
+  "Recorded in the Android demo with sample data and an emulated shake. Credential configuration shown; no wipe executed. Waiting time shortened. Edited with cuts and accelerated sequences.": "Записано в Android-демо с примерными данными и эмуляцией встряхивания. Показана настройка доступа; удаление не выполнялось. Ожидание сокращено. Монтаж с сокращениями и ускоренными сценами.",
+  "Click to play: Anti-forensics · Android demo": "Нажмите для воспроизведения: Anti-forensics · Android demo"
  },
  "messages": {
   "COPIED": "СКОПИРОВАНО",

@@ -2646,7 +2646,16 @@
   "QP1NG / FALLOUT / 00:32 · 2×": "QP1NG / FALLOUT / 00:32 · 2×",
   "Signed mind maps over Tor": "Signierte Mindmaps über Tor",
   "Q-Map MindMap": "Q-Map MindMap",
-  "P1NG": "P1NG"
+  "P1NG": "P1NG",
+  "ANDROID APP · PRIVACY IN ACTION": "ANDROID-APP · PRIVATSPHÄRE IN AKTION",
+  "Choose what the screen reveals.": "Wähle, was der Bildschirm zeigt.",
+  "Switch to a cover with a shake. Lock private sections with a master password. Keep your tools close with Quantum Keyboard.": "Wechsle durch Schütteln zur Tarnansicht. Sperre private Bereiche mit einem Masterpasswort. Nutze Werkzeuge direkt mit Quantum Keyboard.",
+  "<span class=\"mono\" aria-hidden=\"true\">01</span>Shake: weather, calculator, puzzle or grocery list": "<span class=\"mono\" aria-hidden=\"true\">01</span>Schütteln: Wetter, Rechner, Puzzle oder Einkaufsliste",
+  "<span class=\"mono\" aria-hidden=\"true\">02</span>Master password: unlock private notes": "<span class=\"mono\" aria-hidden=\"true\">02</span>Masterpasswort: private Notizen entsperren",
+  "<span class=\"mono\" aria-hidden=\"true\">03</span>Separate primary, decoy and duress credentials": "<span class=\"mono\" aria-hidden=\"true\">03</span>Getrennte Haupt-, Köder- und Zwangszugangsdaten",
+  "ANDROID / FALLOUT / 00:58": "ANDROID / FALLOUT / 00:58",
+  "Recorded in the Android demo with sample data and an emulated shake. Credential configuration shown; no wipe executed. Waiting time shortened. Edited with cuts and accelerated sequences.": "In der Android-Demo mit Beispieldaten und simuliertem Schütteln aufgenommen. Zugangskonfiguration gezeigt; keine Löschung ausgeführt. Wartezeiten gekürzt. Mit Schnitten und beschleunigten Sequenzen.",
+  "Click to play: Anti-forensics · Android demo": "Zum Abspielen klicken: Anti-forensics · Android demo"
  },
  "messages": {
   "COPIED": "KOPIERT",

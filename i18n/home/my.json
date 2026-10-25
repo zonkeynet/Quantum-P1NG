@@ -2646,7 +2646,16 @@
   "QP1NG / FALLOUT / 00:32 · 2×": "QP1NG / FALLOUT / 00:32 · 2×",
   "Signed mind maps over Tor": "Tor မှတစ်ဆင့် လက်မှတ်ထိုးထားသော mind map များ",
   "Q-Map MindMap": "Q-Map MindMap",
-  "P1NG": "P1NG"
+  "P1NG": "P1NG",
+  "ANDROID APP · PRIVACY IN ACTION": "ANDROID အက်ပ် · ကိုယ်ရေးလုံခြုံမှု လက်တွေ့ပြသချက်",
+  "Choose what the screen reveals.": "မျက်နှာပြင်မှာ ပြမည့်အရာကို ရွေးပါ။",
+  "Switch to a cover with a shake. Lock private sections with a master password. Keep your tools close with Quantum Keyboard.": "ဖုန်းကို လှုပ်၍ ဖုံးကွယ်မျက်နှာပြင်သို့ ပြောင်းပါ။ ကိုယ်ပိုင်အပိုင်းများကို ပင်မစကားဝှက်ဖြင့် ပိတ်ပါ။ Quantum Keyboard မှ ကိရိယာများကို သုံးပါ။",
+  "<span class=\"mono\" aria-hidden=\"true\">01</span>Shake: weather, calculator, puzzle or grocery list": "<span class=\"mono\" aria-hidden=\"true\">01</span>လှုပ်ခြင်း — မိုးလေဝသ၊ ဂဏန်းတွက်စက်၊ ပဟေဠိ သို့မဟုတ် ဈေးဝယ်စာရင်း",
+  "<span class=\"mono\" aria-hidden=\"true\">02</span>Master password: unlock private notes": "<span class=\"mono\" aria-hidden=\"true\">02</span>ပင်မစကားဝှက် — ကိုယ်ပိုင်မှတ်စုများ ဖွင့်ပါ",
+  "<span class=\"mono\" aria-hidden=\"true\">03</span>Separate primary, decoy and duress credentials": "<span class=\"mono\" aria-hidden=\"true\">03</span>ပင်မ၊ အယောင်ပြနှင့် အကျပ်ကိုင်ခံရချိန် ဝင်ရောက်မှုအချက်အလက်များ",
+  "ANDROID / FALLOUT / 00:58": "ANDROID / FALLOUT / 00:58",
+  "Recorded in the Android demo with sample data and an emulated shake. Credential configuration shown; no wipe executed. Waiting time shortened. Edited with cuts and accelerated sequences.": "နမူနာဒေတာနှင့် လှုပ်ခြင်းကို တုပ၍ Android ဒီမိုတွင် ရိုက်ကူးထားသည်။ ဝင်ရောက်မှုသတ်မှတ်ချက်ကိုသာ ပြသပြီး ဒေတာဖျက်ခြင်း မလုပ်ပါ။ စောင့်ဆိုင်းချိန်ကို လျှော့ထားသည်။ တည်းဖြတ်ဖြတ်တောက်မှုနှင့် အမြန်ပြထားသည့် အပိုင်းများ ပါဝင်သည်။",
+  "Click to play: Anti-forensics · Android demo": "ဖွင့်ရန် နှိပ်ပါ: Anti-forensics · Android demo"
  },
  "messages": {
   "COPIED": "ကူးယူပြီး",

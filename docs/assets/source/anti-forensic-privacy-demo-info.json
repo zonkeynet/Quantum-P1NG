@@ -1,0 +1,150 @@
+{
+  "name": "anti-forensic-privacy-demo",
+  "duration_seconds": 57.567,
+  "resolution": "720x1280",
+  "frame_rate": 30,
+  "audio": false,
+  "app_id": "com.qp1ng.android.videodemo",
+  "emulator": "QP1NG_Demo / emulator-5580",
+  "theme": "FALLOUT",
+  "capture": "Actual Android app with synthetic demo data. Shake injected through the emulator accelerometer.",
+  "demonstrated_actions": [
+    "Choose shake camouflage",
+    "Open the weather cover with emulated shake",
+    "Configure a master password",
+    "Unlock Q-Note",
+    "Review decoy and duress credential fields",
+    "Use Quantum Keyboard"
+  ],
+  "limits": [
+    "Weather cover uses sample data",
+    "Duress credential and wipe are shown as configuration only; no wipe executed",
+    "No claim of forensic resistance is verified by this recording"
+  ],
+  "editing": "Navigation and waiting time removed. Selected setup scenes accelerated 1.5x; keyboard typing accelerated 6x. Android status bar replaced with demo chapter labels.",
+  "real_devices_used": false,
+  "main_app_source_modified": false,
+  "subtitles": [
+    "it",
+    "en"
+  ],
+  "scenes": [
+    {
+      "file": "09-calculator-clean.webm",
+      "start": 0,
+      "end": 5,
+      "label": "01 / CALCULATOR COVER / ANDROID DEMO",
+      "chapter": "calculator",
+      "en": "A working calculator cover. The app stays behind its access gate.",
+      "it": "Una calcolatrice funzionante come copertura. L’app resta dietro il suo accesso protetto."
+    },
+    {
+      "file": "01-shake-options.webm",
+      "start": 0,
+      "end": 4.5,
+      "label": "02 / SHAKE CAMOUFLAGE / ANDROID DEMO",
+      "chapter": "shake-options",
+      "en": "Choose what a shake opens: tile puzzle, calculator, weather or grocery list.",
+      "it": "Scegli cosa apre uno shake: puzzle, calcolatrice, meteo o lista della spesa."
+    },
+    {
+      "file": "02-weather-shake.webm",
+      "start": 0,
+      "end": 6.8,
+      "hold": 1.2,
+      "label": "03 / EMULATED SHAKE / SAMPLE WEATHER",
+      "chapter": "weather",
+      "en": "An emulated shake switches the app to its weather cover. Weather readings are sample data.",
+      "it": "Uno shake emulato passa dall’app alla copertura meteo. I valori meteo sono dati di esempio."
+    },
+    {
+      "file": "03-master-setup.webm",
+      "start": 8,
+      "end": 18.5,
+      "speed": 1.5,
+      "label": "04 / MASTER PASSWORD / ANDROID DEMO",
+      "chapter": "master-setup",
+      "en": "Set a local master password for protected sections. The password stays masked.",
+      "it": "Imposta una master password locale per le sezioni protette. La password resta mascherata."
+    },
+    {
+      "file": "03-master-setup.webm",
+      "start": 46,
+      "end": 55.7,
+      "speed": 1.5,
+      "label": "04 / SECTION LOCKS / ANDROID DEMO",
+      "chapter": "master-locks",
+      "en": "Choose which sections require the master password: Q-Note, Q-Pass and Q-Chat.",
+      "it": "Scegli quali sezioni richiedono la master password: Q-Note, Q-Pass e Q-Chat."
+    },
+    {
+      "file": "04-master-unlock.webm",
+      "start": 0,
+      "end": 6.5,
+      "label": "05 / UNLOCK PRIVATE NOTES / DEMO DATA",
+      "chapter": "master-unlock",
+      "en": "Q-Note shows a locked screen. Unlock it to load the private notes and previews.",
+      "it": "Q-Note mostra la schermata di blocco. Sbloccalo per caricare note private e anteprime."
+    },
+    {
+      "file": "11-keyboard-typing.webm",
+      "start": 12,
+      "end": 72,
+      "speed": 6,
+      "label": "06 / QUANTUM KEYBOARD / DEMO DRAFT",
+      "chapter": "keyboard",
+      "en": "Type a draft with Quantum Keyboard. Its tools stay in the keyboard toolbar. Demo contact offline; message not sent.",
+      "it": "Scrivi una bozza con Quantum Keyboard. Gli strumenti restano nella barra della tastiera. Contatto demo offline; messaggio non inviato."
+    },
+    {
+      "file": "08-pin-protocols.webm",
+      "start": 0,
+      "end": 4.5,
+      "label": "07 / ACCESS PROTOCOLS / CONFIGURATION ONLY",
+      "chapter": "pins",
+      "en": "Separate fields for the primary PIN, duress wipe and decoy vault. Configuration only; no duress action triggered.",
+      "it": "Campi separati per PIN principale, cancellazione sotto coercizione e vault esca. Solo configurazione; nessuna azione di coercizione attivata."
+    },
+    {
+      "file": "10-wipe-review.webm",
+      "start": 3,
+      "end": 9,
+      "label": "08 / WIPE REVIEW / NO WIPE EXECUTED",
+      "chapter": "wipe",
+      "en": "Review what Factory Wipe removes and its limits. The confirmation remains unchecked; no wipe is executed.",
+      "it": "Controlla cosa rimuove Factory Wipe e i suoi limiti. La conferma resta deselezionata; nessuna cancellazione viene eseguita."
+    }
+  ],
+  "files": [
+    {
+      "name": "anti-forensic-privacy-demo-poster.webp",
+      "bytes": 29644,
+      "sha256": "c13a3c79fd63272814b19ef3497c35e05e127bb167ff60802bd082c66b8cca57"
+    },
+    {
+      "name": "anti-forensic-privacy-demo-timing.json",
+      "bytes": 2683,
+      "sha256": "c9150642a17821e735261d8ea87e8b4705fef607f56185a79546594b2df30ba0"
+    },
+    {
+      "name": "anti-forensic-privacy-demo.en.vtt",
+      "bytes": 1148,
+      "sha256": "7c9432e61d4b1c057d2554ac3c8346a97fa48e1c4d16a0133db2179e6c68c15a"
+    },
+    {
+      "name": "anti-forensic-privacy-demo.it.vtt",
+      "bytes": 1258,
+      "sha256": "053bc7acba56be95a07512ad2bd8fdabe4708c49bf99654cac6600e6f47f522d"
+    },
+    {
+      "name": "anti-forensic-privacy-demo.mp4",
+      "bytes": 1783060,
+      "sha256": "ef61306961cdab9424f4b5c5aaa64bd33986c3d072879dd832724527c3167dd3"
+    },
+    {
+      "name": "anti-forensic-privacy-demo.webm",
+      "bytes": 1675930,
+      "sha256": "b504877c476082d7643f6cbf6cc5a426e6354b2b5b5a71abee2899bef5ecf3a4"
+    }
+  ]
+}

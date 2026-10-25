@@ -2646,7 +2646,16 @@
   "QP1NG / FALLOUT / 00:32 · 2×": "QP1NG / FALLOUT / 00:32 · 2×",
   "Signed mind maps over Tor": "经 Tor 同步的签名思维导图",
   "Q-Map MindMap": "Q-Map MindMap",
-  "P1NG": "P1NG"
+  "P1NG": "P1NG",
+  "ANDROID APP · PRIVACY IN ACTION": "ANDROID 应用 · 隐私功能实演",
+  "Choose what the screen reveals.": "选择屏幕展示的内容。",
+  "Switch to a cover with a shake. Lock private sections with a master password. Keep your tools close with Quantum Keyboard.": "摇动切换伪装界面。用主密码锁定私人区域。通过 Quantum Keyboard 使用工具。",
+  "<span class=\"mono\" aria-hidden=\"true\">01</span>Shake: weather, calculator, puzzle or grocery list": "<span class=\"mono\" aria-hidden=\"true\">01</span>摇动：天气、计算器、拼图或购物清单",
+  "<span class=\"mono\" aria-hidden=\"true\">02</span>Master password: unlock private notes": "<span class=\"mono\" aria-hidden=\"true\">02</span>主密码：解锁私人笔记",
+  "<span class=\"mono\" aria-hidden=\"true\">03</span>Separate primary, decoy and duress credentials": "<span class=\"mono\" aria-hidden=\"true\">03</span>分别设置主凭据、诱饵凭据和胁迫凭据",
+  "ANDROID / FALLOUT / 00:58": "ANDROID / FALLOUT / 00:58",
+  "Recorded in the Android demo with sample data and an emulated shake. Credential configuration shown; no wipe executed. Waiting time shortened. Edited with cuts and accelerated sequences.": "在 Android 演示版中录制，使用示例数据和模拟摇动。展示凭据设置，未执行擦除。已缩短等待时间。 含剪辑与加速片段。",
+  "Click to play: Anti-forensics · Android demo": "点击播放: Anti-forensics · Android demo"
  },
  "messages": {
   "COPIED": "已复制",

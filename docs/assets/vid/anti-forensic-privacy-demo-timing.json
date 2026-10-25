@@ -1,0 +1,65 @@
+[
+  {
+    "start": 0,
+    "end": 4.967,
+    "chapter": "calculator",
+    "en": "A working calculator cover. The app stays behind its access gate.",
+    "it": "Una calcolatrice funzionante come copertura. L’app resta dietro il suo accesso protetto."
+  },
+  {
+    "start": 4.967,
+    "end": 9.433,
+    "chapter": "shake-options",
+    "en": "Choose what a shake opens: tile puzzle, calculator, weather or grocery list.",
+    "it": "Scegli cosa apre uno shake: puzzle, calcolatrice, meteo o lista della spesa."
+  },
+  {
+    "start": 9.433,
+    "end": 17.4,
+    "chapter": "weather",
+    "en": "An emulated shake switches the app to its weather cover. Weather readings are sample data.",
+    "it": "Uno shake emulato passa dall’app alla copertura meteo. I valori meteo sono dati di esempio."
+  },
+  {
+    "start": 17.4,
+    "end": 24.4,
+    "chapter": "master-setup",
+    "en": "Set a local master password for protected sections. The password stays masked.",
+    "it": "Imposta una master password locale per le sezioni protette. La password resta mascherata."
+  },
+  {
+    "start": 24.4,
+    "end": 30.833,
+    "chapter": "master-locks",
+    "en": "Choose which sections require the master password: Q-Note, Q-Pass and Q-Chat.",
+    "it": "Scegli quali sezioni richiedono la master password: Q-Note, Q-Pass e Q-Chat."
+  },
+  {
+    "start": 30.833,
+    "end": 37.3,
+    "chapter": "master-unlock",
+    "en": "Q-Note shows a locked screen. Unlock it to load the private notes and previews.",
+    "it": "Q-Note mostra la schermata di blocco. Sbloccalo per caricare note private e anteprime."
+  },
+  {
+    "start": 37.3,
+    "end": 47.3,
+    "chapter": "keyboard",
+    "en": "Type a draft with Quantum Keyboard. Its tools stay in the keyboard toolbar. Demo contact offline; message not sent.",
+    "it": "Scrivi una bozza con Quantum Keyboard. Gli strumenti restano nella barra della tastiera. Contatto demo offline; messaggio non inviato."
+  },
+  {
+    "start": 47.3,
+    "end": 51.6,
+    "chapter": "pins",
+    "en": "Separate fields for the primary PIN, duress wipe and decoy vault. Configuration only; no duress action triggered.",
+    "it": "Campi separati per PIN principale, cancellazione sotto coercizione e vault esca. Solo configurazione; nessuna azione di coercizione attivata."
+  },
+  {
+    "start": 51.6,
+    "end": 57.567,
+    "chapter": "wipe",
+    "en": "Review what Factory Wipe removes and its limits. The confirmation remains unchecked; no wipe is executed.",
+    "it": "Controlla cosa rimuove Factory Wipe e i suoi limiti. La conferma resta deselezionata; nessuna cancellazione viene eseguita."
+  }
+]

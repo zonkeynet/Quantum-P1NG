@@ -2646,7 +2646,16 @@
   "QP1NG / FALLOUT / 00:32 · 2×": "QP1NG / FALLOUT / 00:32 · 2×",
   "Signed mind maps over Tor": "Tor 経由の署名付きマインドマップ",
   "Q-Map MindMap": "Q-Map MindMap",
-  "P1NG": "P1NG"
+  "P1NG": "P1NG",
+  "ANDROID APP · PRIVACY IN ACTION": "ANDROID アプリ · プライバシーを実演",
+  "Choose what the screen reveals.": "画面に何を見せるかを選ぶ。",
+  "Switch to a cover with a shake. Lock private sections with a master password. Keep your tools close with Quantum Keyboard.": "シェイクでカバー画面に切り替え。マスターパスワードで個人用セクションをロック。Quantum Keyboard からツールを利用。",
+  "<span class=\"mono\" aria-hidden=\"true\">01</span>Shake: weather, calculator, puzzle or grocery list": "<span class=\"mono\" aria-hidden=\"true\">01</span>シェイク：天気・電卓・パズル・買い物リスト",
+  "<span class=\"mono\" aria-hidden=\"true\">02</span>Master password: unlock private notes": "<span class=\"mono\" aria-hidden=\"true\">02</span>マスターパスワードで個人用メモを解除",
+  "<span class=\"mono\" aria-hidden=\"true\">03</span>Separate primary, decoy and duress credentials": "<span class=\"mono\" aria-hidden=\"true\">03</span>通常・おとり・強要時の認証情報を分離",
+  "ANDROID / FALLOUT / 00:58": "ANDROID / FALLOUT / 00:58",
+  "Recorded in the Android demo with sample data and an emulated shake. Credential configuration shown; no wipe executed. Waiting time shortened. Edited with cuts and accelerated sequences.": "サンプルデータとシェイクのエミュレーションを使用した Android デモの録画です。認証情報の設定を表示し、消去は実行していません。待ち時間を短縮。 一部をカット・早送りしています。",
+  "Click to play: Anti-forensics · Android demo": "クリックして再生: Anti-forensics · Android demo"
  },
  "messages": {
   "COPIED": "コピーしました",
