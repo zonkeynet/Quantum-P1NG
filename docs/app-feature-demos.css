@@ -204,3 +204,9 @@
   .finance-chat-phone { width: 200px; justify-self: center; }
   .finance-chat-panel .app-walkthrough-meta { flex-wrap: wrap; }
 }
+/* Desktop: a wider right column and a larger phone, so the recording reads at a glance. */
+@media (min-width: 1181px) {
+  .finance-visual-stage { grid-template-columns: minmax(0, 1.5fr) minmax(420px, 1fr); }
+  .finance-chat-stage { grid-template-columns: minmax(220px, 250px) minmax(0, 1fr); gap: 12px; }
+  .finance-chat-demo .demo-chapters li { padding: 11px 10px 14px; font-size: 12.5px; }
+}
