@@ -1,0 +1,29 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:04.767
+Open Request via chat from the Bitcoin vault. This wallet uses Testnet and has no funds.
+
+2
+00:00:04.767 --> 00:00:11.833
+Enter 25,000 sats and a memo. The app also shows the amount in BTC and a fiat estimate.
+
+3
+00:00:11.833 --> 00:00:18.300
+Review the amount, memo and Testnet receiving address, then choose Send request.
+
+4
+00:00:18.300 --> 00:00:26.267
+Choose the demo contact. With this peer offline, the request is saved locally in the conversation.
+
+5
+00:00:26.267 --> 00:00:31.267
+The chat card shows 0.00025000 BTC, 25,000 sats, the memo and Awaiting payment.
+
+6
+00:00:31.267 --> 00:00:35.567
+Payment details keep the network, receiving address, amount and memo together.
+
+7
+00:00:35.567 --> 00:00:39.533
+Request created. No Bitcoin payment is signed or broadcast in this demo.

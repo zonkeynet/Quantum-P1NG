@@ -1,4 +1,47 @@
 /* Compact phone recordings, using the existing section palette and typography. */
+.fallout-demo.btc-chat-demo {
+  border-color: rgba(255, 190, 85, .24);
+  background: radial-gradient(ellipse at 85% 50%, rgba(157, 112, 36, .12), transparent 65%), #0d0e08;
+}
+.btc-chat-demo .app-walkthrough.fallout-demo-layout { --demo-accent: #ffcc7a; --demo-line: rgba(255, 190, 85, .3); }
+.btc-chat-demo .fallout-demo-kicker { color: #ffcc7a; }
+.fallout-demo {
+  margin: clamp(32px, 5vw, 64px) 0;
+  padding: clamp(22px, 4vw, 48px);
+  border: 1px solid rgba(141, 255, 133, .2);
+  border-radius: 18px;
+  background: radial-gradient(ellipse at 85% 50%, rgba(82, 135, 55, .12), transparent 65%), #080e0d;
+}
+.fallout-demo .fallout-demo-layout {
+  --demo-accent: #a4fa8c;
+  --demo-line: rgba(164, 250, 140, .28);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(230px, 300px);
+  align-items: center;
+  gap: clamp(28px, 5vw, 72px);
+  max-width: none;
+}
+.fallout-demo .fallout-demo-copy { margin: 0; min-width: 0; text-align: start; }
+.fallout-demo-kicker { margin: 0 0 18px; color: #a4fa8c; font-size: 11px; letter-spacing: .09em; line-height: 1.7; }
+.fallout-demo-copy h3 { margin: 0 0 18px; color: #edf5e9; font-size: clamp(25px, 3vw, 40px); line-height: 1.16; text-wrap: balance; }
+.fallout-demo-intro { max-width: 48ch; margin: 0; color: #becbb9; font-size: 15px; line-height: 1.8; }
+.fallout-demo-steps { display: grid; gap: 16px; padding: 0; margin: 27px 0; list-style: none; }
+.fallout-demo-steps li { display: grid; grid-template-columns: 25px minmax(0, 1fr); gap: 12px; align-items: baseline; color: #d7e6d1; font-size: 14px; line-height: 1.6; }
+.fallout-demo-steps li > span { color: #90b280; font-size: 11px; }
+.fallout-demo-caption-panel { padding-top: 13px; border-top: 1px solid rgba(164, 250, 140, .18); }
+.fallout-demo .app-walkthrough-caption { color: #d0dfc9; min-height: 5.1em; }
+.fallout-demo .app-walkthrough-note { color: #a9bba1; }
+.fallout-demo-note { max-width: 65ch; margin: 18px 0 0; color: #9aaa94; font-size: 11px; line-height: 1.8; }
+.fallout-demo-phone { width: 100%; max-width: 300px; min-width: 0; justify-self: end; }
+@media (max-width: 760px) {
+  .fallout-demo .fallout-demo-layout { grid-template-columns: minmax(0, 1fr); gap: 26px; }
+  .fallout-demo-phone { justify-self: center; }
+}
+@media (max-width: 480px) {
+  .fallout-demo { padding: 20px 16px; }
+  .fallout-demo .app-walkthrough-meta { flex-wrap: wrap; }
+  .fallout-demo .app-walkthrough-caption { min-height: 6.8em; }
+}
 .app-walkthrough {
   --demo-accent: #63e6ff;
   --demo-line: rgba(99, 230, 255, .26);
@@ -83,4 +126,85 @@
   .qcast-demo-copy .qbroadcast-steps li { grid-template-columns: 22px minmax(0, 1fr); column-gap: 10px; }
   .qcast-demo-copy .qbroadcast-steps h4 { font-size: 16px; }
   .qx-section--dream .qx-spec--below dl { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Security protocol: the Fallout recording inside the console. The posture rings orbit the phone, three dots run
+   along them, the chapters beside it light up and fill while the video plays (app-feature-demos.js). */
+.sp-console--video { display: flex; flex-direction: column; gap: 14px; }
+/* The corner brackets stay small, clear of the text along the edges. */
+.sp-console--video::before, .sp-console--video::after { width: 20px; height: 20px; }
+.sp-console--video::after { left: 7px; bottom: 7px; }
+.sp-walkthrough.app-walkthrough {
+  --demo-accent: var(--sp-green);
+  --demo-line: rgba(0, 242, 255, .3);
+  position: relative; z-index: 1; width: 100%; max-width: none;
+}
+.sp-stage {
+  display: grid; grid-template-columns: minmax(250px, 1fr) minmax(170px, .78fr);
+  align-items: center; gap: 18px;
+}
+.sp-stage-phone { position: relative; display: grid; place-items: center; min-height: 450px; }
+.sp-stage-phone .sp-posture-ring {
+  position: absolute; inset: 50% auto auto 50%; width: 460px; height: 460px; margin: 0;
+  transform: translate(-50%, -50%); display: grid; place-items: center; overflow: visible; pointer-events: none;
+}
+.sp-stage-phone .sp-posture-ring::before { width: 100%; }
+.sp-stage-phone .sp-ring--outer { width: 420px; height: 420px; }
+.sp-stage-phone .sp-ring--mid { width: 340px; height: 340px; }
+.sp-stage-phone .sp-ring--inner { width: 268px; height: 268px; }
+.sp-orbit-track { position: absolute; border-radius: 50%; animation: spSpin 14s linear infinite; }
+.sp-orbit-track::before {
+  content: ""; position: absolute; top: -4.5px; left: 50%; width: 9px; height: 9px; margin-left: -4.5px;
+  border-radius: 50%; background: currentColor; box-shadow: 0 0 14px currentColor;
+}
+.sp-orbit-track--one { width: 420px; height: 420px; color: var(--sp-red); }
+.sp-orbit-track--two { width: 340px; height: 340px; color: var(--sp-amber); animation: spSpinReverse 10s linear infinite -3.4s; }
+.sp-orbit-track--three { width: 268px; height: 268px; color: var(--sp-green); animation-duration: 7s; animation-delay: -4.6s; }
+.sp-phone {
+  position: relative; z-index: 1; width: 226px;
+  border-color: rgba(0, 242, 255, .42);
+  box-shadow: 0 0 0 1px rgba(0, 242, 255, .08), 0 0 34px rgba(0, 242, 255, .16), 0 26px 70px rgba(0, 0, 0, .6);
+  transition: box-shadow .5s ease, border-color .5s ease;
+}
+.sp-walkthrough.is-playing .sp-phone {
+  border-color: rgba(53, 255, 138, .62);
+  box-shadow: 0 0 0 1px rgba(53, 255, 138, .2), 0 0 52px rgba(53, 255, 138, .3), 0 26px 70px rgba(0, 0, 0, .6);
+}
+.sp-walkthrough.is-playing .sp-ring--outer { border-color: rgba(255, 77, 109, .5); }
+.sp-walkthrough.is-playing .sp-ring--mid { border-color: rgba(0, 242, 255, .6); }
+.sp-walkthrough.is-playing .sp-ring--inner { border-color: rgba(53, 255, 138, .66); }
+.sp-chapters { position: relative; z-index: 1; display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.sp-chapters li {
+  position: relative; display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 10px;
+  padding: 13px 12px 16px; border: 1px solid rgba(0, 242, 255, .14); border-radius: 8px;
+  background: rgba(1, 8, 15, .72); color: rgba(220, 234, 245, .72); font-size: 13px; line-height: 1.45;
+  transition: border-color .3s ease, color .3s ease, background .3s ease, box-shadow .3s ease;
+}
+.sp-chapters li > span { padding-top: 2px; color: var(--sp-cyan); font-size: 10px; letter-spacing: .1em; }
+.sp-chapters li::after {
+  content: ""; position: absolute; inset: auto 12px 7px; height: 2px; border-radius: 2px;
+  background: linear-gradient(90deg, var(--sp-green), var(--sp-cyan));
+  transform: scaleX(var(--chapter-progress, 0)); transform-origin: left; transition: transform .25s linear;
+}
+[dir="rtl"] .sp-chapters li::after { transform-origin: right; }
+.sp-chapters li.is-active {
+  border-color: rgba(53, 255, 138, .5); background: rgba(53, 255, 138, .07); color: #f6fbff;
+  box-shadow: 0 0 24px rgba(53, 255, 138, .12);
+}
+.sp-chapters li.is-active > span { color: var(--sp-green); }
+.sp-walkthrough-panel { margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(0, 242, 255, .14); }
+.sp-walkthrough-panel .app-walkthrough-caption { min-height: 3.4em; color: #d6e4ef; font-size: 13px; }
+.sp-walkthrough-note { margin: 10px 0 0; color: rgba(220, 234, 245, .5); font-size: 10.5px; line-height: 1.6; }
+@media (max-width: 760px) {
+  .sp-stage { grid-template-columns: minmax(0, 1fr); }
+  .sp-stage-phone { min-height: 400px; }
+  .sp-phone { width: 204px; }
+  .sp-stage-phone .sp-posture-ring { width: 380px; height: 380px; }
+  .sp-stage-phone .sp-ring--outer, .sp-orbit-track--one { width: 360px; height: 360px; }
+  .sp-stage-phone .sp-ring--mid, .sp-orbit-track--two { width: 296px; height: 296px; }
+  .sp-stage-phone .sp-ring--inner, .sp-orbit-track--three { width: 236px; height: 236px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sp-orbit-track { animation: none !important; }
+  .sp-chapters li, .sp-chapters li::after, .sp-phone { transition: none; }
 }

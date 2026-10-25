@@ -1,0 +1,100 @@
+[
+  {
+    "start": 0,
+    "end": 4.5,
+    "chapter": "access",
+    "en": "A calculator cover opens QP1NG with the demo PIN.",
+    "it": "La copertura calcolatrice apre QP1NG con il PIN della demo."
+  },
+  {
+    "start": 4.5,
+    "end": 7.5,
+    "chapter": "home",
+    "en": "The Fallout dashboard brings communications, local tools and network status together.",
+    "it": "La dashboard Fallout riunisce comunicazioni, strumenti locali e stato della rete."
+  },
+  {
+    "start": 7.5,
+    "end": 11.967,
+    "chapter": "chat",
+    "en": "Prepare a message in Q-Chat. This sample contact and draft stay in the demo; nothing is sent.",
+    "it": "Prepara un messaggio in Q-Chat. Contatto e bozza sono di esempio: nessun messaggio viene inviato."
+  },
+  {
+    "start": 11.967,
+    "end": 15.833,
+    "chapter": "ghost",
+    "en": "Enable Ghost mode: its message database lives in RAM for the session.",
+    "it": "Attiva Ghost: il database dei messaggi della sessione vive in RAM."
+  },
+  {
+    "start": 15.833,
+    "end": 21.8,
+    "chapter": "identity",
+    "en": "Share the demo identity through an animated QR, without a phone number.",
+    "it": "Condividi l’identità della demo tramite QR animato, senza numero di telefono."
+  },
+  {
+    "start": 21.8,
+    "end": 28.8,
+    "chapter": "bluetooth",
+    "en": "Start Bluetooth mesh and discover nearby devices. No second peer is connected in this recording.",
+    "it": "Avvia la mesh Bluetooth e cerca dispositivi vicini. In questa ripresa non è collegato un secondo peer."
+  },
+  {
+    "start": 28.8,
+    "end": 32.767,
+    "chapter": "wifi",
+    "en": "Open Local Wi-Fi: messages, files and calls can use a shared Wi-Fi network or offline hotspot.",
+    "it": "Apri il Wi-Fi locale: messaggi, file e chiamate possono usare una rete condivisa o un hotspot offline."
+  },
+  {
+    "start": 32.767,
+    "end": 39.267,
+    "chapter": "wifi-invite",
+    "en": "Create a private QR invitation for the other phone. Pairing is waiting; no transfer is shown.",
+    "it": "Crea un invito QR privato per l’altro telefono. L’abbinamento è in attesa: non viene mostrato un trasferimento."
+  },
+  {
+    "start": 39.267,
+    "end": 44.233,
+    "chapter": "tor-check",
+    "en": "Run the Tor check: verify the local SOCKS proxy and exit node. Waiting time is shortened.",
+    "it": "Avvia il controllo Tor: verifica il proxy SOCKS locale e il nodo di uscita. Le attese sono abbreviate."
+  },
+  {
+    "start": 44.233,
+    "end": 49.233,
+    "chapter": "tor-route",
+    "en": "Inspect the verified circuit and its relays on the globe.",
+    "it": "Consulta il circuito verificato e i suoi relay sul globo."
+  },
+  {
+    "start": 49.233,
+    "end": 53.2,
+    "chapter": "covers",
+    "en": "Choose a startup cover: calculator, weather or tile puzzle.",
+    "it": "Scegli una copertura iniziale: calcolatrice, meteo o puzzle."
+  },
+  {
+    "start": 53.2,
+    "end": 58.0,
+    "chapter": "security",
+    "en": "Open access protocols from Secure Settings, alongside startup and sensitive-page locks.",
+    "it": "Apri i protocolli di accesso da Secure Settings, accanto ai blocchi di avvio e delle pagine sensibili."
+  },
+  {
+    "start": 58.0,
+    "end": 61.467,
+    "chapter": "protocols",
+    "en": "Primary, duress and decoy credentials have separate fields. This is a settings view; no wipe is performed.",
+    "it": "Credenziali principali, di emergenza e di esca hanno campi separati. È una vista delle impostazioni: nessuna cancellazione viene eseguita."
+  },
+  {
+    "start": 61.467,
+    "end": 64.133,
+    "chapter": "outro",
+    "en": "One app: private identity, local connections and controls you can inspect.",
+    "it": "Un’app: identità privata, collegamenti locali e controlli da verificare."
+  }
+]

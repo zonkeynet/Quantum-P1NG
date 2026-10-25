@@ -84,7 +84,7 @@
   <link rel="stylesheet" href="../qgeo-demo.css?v=2" />
   <link rel="stylesheet" href="../radio-bridge-layout.css?v=1" />
   <link rel="stylesheet" href="../qai-tools-demo.css?v=4" />
-  <link rel="stylesheet" href="../app-feature-demos.css?v=2" />
+  <link rel="stylesheet" href="../app-feature-demos.css?v=4" />
   <link rel="stylesheet" href="../qdream-gallery.css?v=3" />
 
   <!-- Schema.org Comprehensive Structured Data (JSON-LD) -->
@@ -1455,41 +1455,60 @@ _
         </div>
       </div>
 
-      <div class="sp-console" role="region" aria-label="عرض توضيحي لبروتوكول الأمان">
-<aside class="editorial-demo-note" role="note"><strong>عرض تفاعلي · بيانات نموذجية</strong><span>حالات توضيحية. هذه اللوحة لا تتحكم في التطبيق ولا تفحص جهازك.</span></aside>
-
+      <div class="sp-console sp-console--video" role="region" aria-label="QP1NG · Fallout">
         <div class="sp-console-top">
           <div>
-            <span class="sp-console-label mono">إعدادات OPSEC نموذجية</span>
-            <strong class="sp-console-title mono">عرض توضيحي</strong>
+            <span class="sp-console-label mono">QP1NG أثناء الاستخدام · سمة FALLOUT</span>
+            <strong class="sp-console-title mono">هويتك. اتصالاتك.</strong>
           </div>
-          <span class="sp-console-state mono"><span class="sp-live-dot"></span> بيانات نموذجية</span>
+          <span class="sp-console-state mono"><span class="sp-live-dot"></span> التطبيق الحقيقي</span>
         </div>
 
-        <div class="sp-posture-ring" aria-hidden="true">
-          <div class="sp-ring sp-ring--outer"></div>
-          <div class="sp-ring sp-ring--mid"></div>
-          <div class="sp-ring sp-ring--inner"></div>
-          <div class="sp-core">OP</div>
-          <span class="sp-orbit sp-orbit--one"></span>
-          <span class="sp-orbit sp-orbit--two"></span>
-          <span class="sp-orbit sp-orbit--three"></span>
-        </div>
-
-        <div class="sp-console-grid">
-          <div class="sp-status-card">
-            <span class="sp-panel-label mono">نموذج التهديد</span>
-            <h3>اعزل كل سطح</h3>
-            <p>المسارات والحالة المحلية والبيانات الوصفية والأتمتة تُعامَل كأسطح انكشاف منفصلة.</p>
-            <div class="sp-meter"><span style="--sp-fill: 91%"></span></div>
+        <!-- A recording of the real app (assets/source/qp1ng-fallout-field-demo-info.json), downloaded only on click.
+             The posture rings orbit the phone; the chapters light up and fill as the video plays (app-feature-demos.js). -->
+        <figure class="app-walkthrough sp-walkthrough" data-app-walkthrough="QP1NG · Fallout"
+          data-cues="../assets/vid/qp1ng-fallout-field-demo-timing.json" data-idle-en="From a calculator cover to a verified Tor circuit: see the app in use." data-idle-it="Dalla copertura calcolatrice al circuito Tor verificato: guarda l’app in uso.">
+          <div class="sp-stage">
+            <div class="sp-stage-phone">
+              <div class="sp-posture-ring" aria-hidden="true">
+                <div class="sp-ring sp-ring--outer"></div>
+                <div class="sp-ring sp-ring--mid"></div>
+                <div class="sp-ring sp-ring--inner"></div>
+                <span class="sp-orbit-track sp-orbit-track--one"></span>
+                <span class="sp-orbit-track sp-orbit-track--two"></span>
+                <span class="sp-orbit-track sp-orbit-track--three"></span>
+              </div>
+              <div class="app-walkthrough-screen sp-phone">
+                <video width="720" height="1280" muted playsinline preload="none" role="button" tabindex="0"
+                  aria-label="انقر للتشغيل: QP1NG · Fallout" aria-describedby="sp-demo-caption sp-demo-note"
+                  poster="../assets/img/qp1ng-fallout-field-demo-poster.webp">
+                  <source data-src="../assets/vid/qp1ng-fallout-field-demo.webm" type="video/webm">
+                  <source data-src="../assets/vid/qp1ng-fallout-field-demo.mp4" type="video/mp4">
+                  <p><a href="../assets/vid/qp1ng-fallout-field-demo.mp4">افتح الفيديو</a></p>
+                </video>
+              </div>
+            </div>
+            <ol class="sp-chapters">
+              <li data-demo-chapter data-from="0" data-to="21.8"><span class="mono" aria-hidden="true">01</span>دردشة Ghost ورمز هوية QR متحرك</li>
+              <li data-demo-chapter data-from="21.8" data-to="39.267"><span class="mono" aria-hidden="true">02</span>شبكة Bluetooth ودعوة Wi-Fi محلية</li>
+              <li data-demo-chapter data-from="39.267" data-to="64.2"><span class="mono" aria-hidden="true">03</span>التحقق من Tor وإعدادات الوصول</li>
+            </ol>
           </div>
-
-          <div class="sp-terminal mono" aria-label="تشخيصات بروتوكول الأمان">
-            <div><span>&gt;</span><span>screen_guard=enabled secure_window=true</span></div>
-            <div><span>&gt;</span><span>tor_route=optional onion_diagnostics=sample</span></div>
-            <div><span>&gt;</span><span>ai_tools=risk_gated sandbox=policy_checked</span></div>
-          </div>
-        </div>
+          <figcaption class="sp-walkthrough-panel">
+            <div class="app-walkthrough-meta">
+              <span class="mono">QP1NG / FALLOUT / 01:04</span>
+              <div class="app-walkthrough-languages" role="group" aria-label="EN / IT">
+                <button type="button" data-demo-lang="en" aria-pressed="true" lang="en">EN</button>
+                <button type="button" data-demo-lang="it" aria-pressed="false" lang="it">IT</button>
+              </div>
+            </div>
+            <span class="app-walkthrough-caption" id="sp-demo-caption" data-demo-caption>من واجهة الآلة الحاسبة إلى التحقق من مسار Tor: شاهد التطبيق أثناء الاستخدام.</span>
+            <span class="app-walkthrough-note" data-demo-hint>انقر للتشغيل</span>
+            <p class="app-walkthrough-fallback" data-demo-fallback hidden><a href="../assets/vid/qp1ng-fallout-field-demo.mp4">افتح الفيديو</a></p>
+            <p class="sp-walkthrough-note" id="sp-demo-note">عرض Android مع تقصير الانتظار. جهة اتصال تجريبية ومسودة غير مرسلة. بحث Bluetooth ودعوة Wi-Fi دون جهاز ثانٍ. لم يحدث نقل أو اتصال أو مسح طارئ.</p>
+            <noscript><p><a href="../assets/vid/qp1ng-fallout-field-demo.mp4">فتح الفيديو (MP4)</a></p></noscript>
+          </figcaption>
+        </figure>
       </div>
     </div>
 
@@ -3997,6 +4016,45 @@ _
         </div>
       </div>
     </div>
+
+    <section class="fallout-demo btc-chat-demo" id="btc-chat-demo" aria-labelledby="btc-chat-demo-title">
+      <figure class="app-walkthrough fallout-demo-layout" data-app-walkthrough="Q-Vault · BTC request"
+        data-cues="../assets/vid/btc-chat-payment-request-demo-timing.json" data-idle-en="Set an amount, add a memo and choose a contact. Keep the request and its details in the conversation." data-idle-it="Imposta l’importo, aggiungi una causale e scegli il contatto. La richiesta e i suoi dettagli restano nella conversazione.">
+        <figcaption class="fallout-demo-copy">
+          <p class="fallout-demo-kicker mono">Q-VAULT · طلبات الدفع</p>
+          <h3 id="btc-chat-demo-title">اطلب بيتكوين. مباشرة في الدردشة.</h3>
+          <p class="fallout-demo-intro">حدد المبلغ وأضف ملاحظة واختر جهة اتصال. يبقى الطلب وتفاصيله في المحادثة.</p>
+          <ol class="fallout-demo-steps">
+            <li><span class="mono" aria-hidden="true">01</span>المبلغ بالساتوشي والملاحظة</li>
+            <li><span class="mono" aria-hidden="true">02</span>اختر جهة الاتصال</li>
+            <li><span class="mono" aria-hidden="true">03</span>راجع الطلب في الدردشة</li>
+          </ol>
+          <div class="fallout-demo-caption-panel">
+            <div class="app-walkthrough-meta">
+              <span class="mono">Q-VAULT / TESTNET DEMO / 00:40</span>
+              <div class="app-walkthrough-languages" role="group" aria-label="EN / IT">
+                <button type="button" data-demo-lang="en" aria-pressed="true" lang="en">EN</button>
+                <button type="button" data-demo-lang="it" aria-pressed="false" lang="it">IT</button>
+              </div>
+            </div>
+            <span class="app-walkthrough-caption" id="btc-chat-demo-caption" data-demo-caption>حدد المبلغ وأضف ملاحظة واختر جهة اتصال. يبقى الطلب وتفاصيله في المحادثة.</span>
+            <span class="app-walkthrough-note" data-demo-hint>انقر للتشغيل</span>
+            <p class="app-walkthrough-fallback" data-demo-fallback hidden><a href="../assets/vid/btc-chat-payment-request-demo.mp4">افتح الفيديو</a></p>
+          </div>
+          <p class="fallout-demo-note" id="btc-chat-demo-note">مسجل في تطبيق Android بمحفظة Testnet فارغة وجهة اتصال تجريبية غير متصلة. حُفظ الطلب محليًا؛ لم تُوقّع أو تُبث أي معاملة بيتكوين. اختُصر الانتظار.</p>
+          <noscript><p><a href="../assets/vid/btc-chat-payment-request-demo.mp4">فتح الفيديو (MP4)</a></p></noscript>
+        </figcaption>
+        <div class="app-walkthrough-screen fallout-demo-phone">
+          <video width="720" height="1280" muted playsinline preload="none" role="button" tabindex="0"
+            aria-label="انقر للتشغيل: Q-Vault · BTC request" aria-describedby="btc-chat-demo-caption btc-chat-demo-note"
+            poster="../assets/img/btc-chat-payment-request-demo-poster.webp">
+            <source data-src="../assets/vid/btc-chat-payment-request-demo.webm" type="video/webm">
+            <source data-src="../assets/vid/btc-chat-payment-request-demo.mp4" type="video/mp4">
+            <p><a href="../assets/vid/btc-chat-payment-request-demo.mp4">افتح الفيديو</a></p>
+          </video>
+        </div>
+      </figure>
+    </section>
 
     <!-- ARCHITECTURAL VISUAL CENTERPIECE: BITCOIN VAULT & TOR NETWORK -->
     <div class="finance-visual-stage" aria-label="رسم توضيحي لبنية خزنة Bitcoin وشبكة Tor">
@@ -8276,7 +8334,7 @@ _
   <!-- The texts the scripts write, in the page's language (i18n/build.py). -->
   <!-- i18n:messages --><script type="application/json" id="site-i18n">{"COPIED": "تم النسخ", "[ ACCESS GRANTED ]": "[ تم منح الوصول ]", "REPLAY_BUFFER": "REPLAY_BUFFER", "REPLAY_FAIL": "REPLAY_FAIL", "MIN": "تصغير", "RST": "إعادة", "PAUSE STREAM": "إيقاف البث مؤقتاً", "CLICK TO PLAY": "انقر للتشغيل", "AIOC RIG ACTIVE": "جهاز AIOC نشط", "RF LINK ACTIVE": "رابط RF نشط", "SCANNING": "جارٍ البحث", "PAUSED": "متوقف مؤقتاً", "PAUSE FEED": "إيقاف التغذية مؤقتاً", "CALL DEMO VIDEO": "فيديو عرض المكالمة", "REPLAY FEED": "إعادة تشغيل التغذية", "[ PAUSE STREAM ]": "[ إيقاف البث مؤقتاً ]", "🔒 [MESSAGE_ENCRYPTED_AND_DISPATCHED]": "🔒 [MESSAGE_ENCRYPTED_AND_DISPATCHED]", "[BUFFER_ZEROIZED: 00 00 00 00]": "[BUFFER_ZEROIZED: 00 00 00 00]", "BUFFER: ZEROIZED": "المخزن المؤقت: صُفّر", "0s": "0s", "BUFFER: ENCRYPTED (AES-256)": "المخزن المؤقت: مشفر (AES-256)", "AUTH_GRANTED // REAL APP UNLOCKED": "AUTH_GRANTED // فُتح التطبيق الحقيقي", "DECOY PIN // WEATHER COVER": "رمز تمويه // غطاء الطقس", "DECOY PIN // SHOPPING LIST COVER": "رمز تمويه // غطاء قائمة التسوق", "SILENT_DURESS_TRIGGERED // DELETING KEYSTORE KEYS": "SILENT_DURESS_TRIGGERED // جارٍ حذف مفاتيح KEYSTORE", "ERR: INVALID_PIN (REMAINING: 2)": "خطأ: INVALID_PIN (المتبقي: 2)", "PIN BUFFER CLEARED": "مُسح مخزن الرمز", "STANDBY // CLICK PRESETS OR KEYPAD": "استعداد // انقر الإعدادات الجاهزة أو لوحة الأرقام", "EXECUTING WIPE SEQUENCE...": "جارٍ تنفيذ تسلسل المسح...", "SIMULATION COMPLETE // KEYS VERIFIED GONE": "اكتملت المحاكاة // تأكّد زوال المفاتيح", "EXECUTE PIPELINE SIMULATION": "تشغيل محاكاة المسار", "AOS APPROACH (BLUE SHIFT)": "AOS اقتراب (انزياح أزرق)", "LOS RECEDING (RED SHIFT)": "LOS ابتعاد (انزياح أحمر)", "TCA ZENITH (PEAK ELEVATION)": "TCA سمت الرأس (أقصى ارتفاع)", "DEMO · PTT BURST...": "عرض · دفعة PTT...", "DEMO PTT: NO RF TRANSMISSION": "PTT تجريبي: بلا إرسال RF", "DEMO PTT: TAIL PREVIEW": "PTT تجريبي: معاينة الذيل", "PREVIEW PTT BURST": "معاينة دفعة PTT", "DEMO PTT: STANDBY": "PTT تجريبي: استعداد", "DEMO: APPROXIMATE COORDINATES": "عرض: إحداثيات تقريبية", "PREVIEW EXACT COORDINATES": "معاينة الإحداثيات الدقيقة", "DEMO: EXACT COORDINATES": "عرض: إحداثيات دقيقة", "PREVIEW APPROXIMATE COORDINATES": "معاينة الإحداثيات التقريبية", "VERIFIED (+1 ACK)": "موثّق (+1 ACK)", "CONFIRM (0x03)": "تأكيد (0x03)", "PREVIEW OFFLINE SETUP": "معاينة الإعداد بلا اتصال", "Dynamic Hazard": "خطر متغيّر", "DEMO PACKET PREVIEWED OK": "عُرضت الحزمة التجريبية بنجاح", "BUILD SAMPLE PACKET": "أنشئ حزمة نموذجية", "PREVIEWING FLOW GRAPH...": "جارٍ معاينة مخطط التدفق...", "DEMO: EVENT NODE 01": "عرض: عقدة الحدث 01", "DEMO: CONDITION NODE 02": "عرض: عقدة الشرط 02", "DEMO: ACTIONS 03 & 04": "عرض: الإجراءان 03 و04", "DEMO COMPLETE · NO ACTIONS EXECUTED": "اكتمل العرض · لم يُنفَّذ أي إجراء", "PREVIEW GRAPH FLOW": "معاينة تدفق المخطط", "✓ DEMO TIMER RESET (24H)": "✓ أُعيد ضبط المؤقت التجريبي (24H)", "RESET DEMO TIMER (24H)": "إعادة ضبط المؤقت التجريبي (24H)", "DEMO · HASH CHECK...": "عرض · فحص التجزئة...", "PREVIEW HASH CHECK": "معاينة فحص التجزئة", "DEMO COMPLETE · NO HASH CHECKED": "اكتمل العرض · لم تُفحص أي تجزئة", "When you can no longer trust governments and institutions.": "حين لا تعود قادراً على الوثوق بالحكومات والمؤسسات.", "When Big Tech sells your life to the highest bidder.": "حين تبيع شركات التكنولوجيا الكبرى حياتك لمن يدفع أكثر.", "When dissent is monitored, intercepted and weaponized.": "حين يُراقَب الرأي المخالف ويُعترَض ويُستخدم سلاحاً ضد أصحابه.", "Do not submit to mass surveillance.": "لا تخضع للمراقبة الجماعية.", "Cryptography is self-defense. Freedom is a protocol.": "التشفير دفاع عن النفس. والحرية بروتوكول.", "QUANTUM P1NG // WELCOME TO THE RESISTANCE.": "QUANTUM P1NG // أهلاً بك في المقاومة.", "MUTED": "صامت", "AUDIO": "الصوت", "COMPLETED · CLICK TO REPLAY": "اكتمل · انقر لإعادة التشغيل", "Click to play": "انقر للتشغيل", "Click to pause": "انقر للإيقاف المؤقت", "Click to replay": "انقر لإعادة المشاهدة", "Click to retry": "انقر لإعادة المحاولة", "The video could not load. Click the preview to retry.": "تعذّر تحميل الفيديو. انقر على المعاينة لإعادة المحاولة.", "Retry the Q-Geo app walkthrough": "إعادة محاولة جولة تطبيق Q-Geo", "Pause the Q-Geo app walkthrough": "إيقاف جولة تطبيق Q-Geo مؤقتاً", "Replay the Q-Geo app walkthrough": "إعادة مشاهدة جولة تطبيق Q-Geo", "Play the Q-Geo app walkthrough": "تشغيل جولة تطبيق Q-Geo", "The video could not load. Click the image to retry.": "تعذّر تحميل الفيديو. انقر على الصورة لإعادة المحاولة."}</script><!-- /i18n:messages -->
   <script src="../script.js?v=2.6.26" defer></script>
-  <script src="../app-feature-demos.js?v=3" defer></script>
+  <script src="../app-feature-demos.js?v=5" defer></script>
   <script src="../qdream-gallery.js?v=1" defer></script>
   <script src="../qcast-hero-player.js?v=1" defer></script>
   <script src="../qgeo-demo.js?v=2" defer></script>

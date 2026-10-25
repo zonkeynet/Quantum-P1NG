@@ -84,7 +84,7 @@
   <link rel="stylesheet" href="qgeo-demo.css?v=2" />
   <link rel="stylesheet" href="radio-bridge-layout.css?v=1" />
   <link rel="stylesheet" href="qai-tools-demo.css?v=4" />
-  <link rel="stylesheet" href="app-feature-demos.css?v=2" />
+  <link rel="stylesheet" href="app-feature-demos.css?v=4" />
   <link rel="stylesheet" href="qdream-gallery.css?v=3" />
 
   <!-- Schema.org Comprehensive Structured Data (JSON-LD) -->
@@ -1495,41 +1495,60 @@ _
         </div>
       </div>
 
-      <div class="sp-console" role="region" aria-label="Security protocol demonstration">
-<aside class="editorial-demo-note" role="note"><strong>INTERACTIVE DEMO · SAMPLE DATA</strong><span>Illustrative states. This panel does not control the app or verify your device.</span></aside>
-
+      <div class="sp-console sp-console--video" role="region" aria-label="QP1NG · Fallout">
         <div class="sp-console-top">
           <div>
-            <span class="sp-console-label mono">SAMPLE OPSEC SETTINGS</span>
-            <strong class="sp-console-title mono">DEMONSTRATION</strong>
+            <span class="sp-console-label mono">QP1NG IN USE · FALLOUT THEME</span>
+            <strong class="sp-console-title mono">Your identity. Your routes.</strong>
           </div>
-          <span class="sp-console-state mono"><span class="sp-live-dot"></span> SAMPLE DATA</span>
+          <span class="sp-console-state mono"><span class="sp-live-dot"></span> REAL APP</span>
         </div>
 
-        <div class="sp-posture-ring" aria-hidden="true">
-          <div class="sp-ring sp-ring--outer"></div>
-          <div class="sp-ring sp-ring--mid"></div>
-          <div class="sp-ring sp-ring--inner"></div>
-          <div class="sp-core">OP</div>
-          <span class="sp-orbit sp-orbit--one"></span>
-          <span class="sp-orbit sp-orbit--two"></span>
-          <span class="sp-orbit sp-orbit--three"></span>
-        </div>
-
-        <div class="sp-console-grid">
-          <div class="sp-status-card">
-            <span class="sp-panel-label mono">THREAT MODEL</span>
-            <h3>Isolate every surface</h3>
-            <p>Routes, local state, metadata and automation are treated as separate exposure surfaces.</p>
-            <div class="sp-meter"><span style="--sp-fill: 91%"></span></div>
+        <!-- A recording of the real app (assets/source/qp1ng-fallout-field-demo-info.json), downloaded only on click.
+             The posture rings orbit the phone; the chapters light up and fill as the video plays (app-feature-demos.js). -->
+        <figure class="app-walkthrough sp-walkthrough" data-app-walkthrough="QP1NG · Fallout"
+          data-cues="assets/vid/qp1ng-fallout-field-demo-timing.json" data-idle-en="From a calculator cover to a verified Tor circuit: see the app in use." data-idle-it="Dalla copertura calcolatrice al circuito Tor verificato: guarda l’app in uso.">
+          <div class="sp-stage">
+            <div class="sp-stage-phone">
+              <div class="sp-posture-ring" aria-hidden="true">
+                <div class="sp-ring sp-ring--outer"></div>
+                <div class="sp-ring sp-ring--mid"></div>
+                <div class="sp-ring sp-ring--inner"></div>
+                <span class="sp-orbit-track sp-orbit-track--one"></span>
+                <span class="sp-orbit-track sp-orbit-track--two"></span>
+                <span class="sp-orbit-track sp-orbit-track--three"></span>
+              </div>
+              <div class="app-walkthrough-screen sp-phone">
+                <video width="720" height="1280" muted playsinline preload="none" role="button" tabindex="0"
+                  aria-label="Click to play: QP1NG · Fallout" aria-describedby="sp-demo-caption sp-demo-note"
+                  poster="assets/img/qp1ng-fallout-field-demo-poster.webp">
+                  <source data-src="assets/vid/qp1ng-fallout-field-demo.webm" type="video/webm">
+                  <source data-src="assets/vid/qp1ng-fallout-field-demo.mp4" type="video/mp4">
+                  <p><a href="assets/vid/qp1ng-fallout-field-demo.mp4">Open the video</a></p>
+                </video>
+              </div>
+            </div>
+            <ol class="sp-chapters">
+              <li data-demo-chapter data-from="0" data-to="21.8"><span class="mono" aria-hidden="true">01</span>Ghost chat &amp; animated identity QR</li>
+              <li data-demo-chapter data-from="21.8" data-to="39.267"><span class="mono" aria-hidden="true">02</span>Bluetooth mesh &amp; local Wi-Fi invitation</li>
+              <li data-demo-chapter data-from="39.267" data-to="64.2"><span class="mono" aria-hidden="true">03</span>Tor circuit check &amp; access protocols</li>
+            </ol>
           </div>
-
-          <div class="sp-terminal mono" aria-label="Security protocol diagnostics">
-            <div><span>&gt;</span><span>screen_guard=enabled secure_window=true</span></div>
-            <div><span>&gt;</span><span>tor_route=optional onion_diagnostics=sample</span></div>
-            <div><span>&gt;</span><span>ai_tools=risk_gated sandbox=policy_checked</span></div>
-          </div>
-        </div>
+          <figcaption class="sp-walkthrough-panel">
+            <div class="app-walkthrough-meta">
+              <span class="mono">QP1NG / FALLOUT / 01:04</span>
+              <div class="app-walkthrough-languages" role="group" aria-label="EN / IT">
+                <button type="button" data-demo-lang="en" aria-pressed="true" lang="en">EN</button>
+                <button type="button" data-demo-lang="it" aria-pressed="false" lang="it">IT</button>
+              </div>
+            </div>
+            <span class="app-walkthrough-caption" id="sp-demo-caption" data-demo-caption>From a calculator cover to a verified Tor circuit: see the app in use.</span>
+            <span class="app-walkthrough-note" data-demo-hint>Click to play</span>
+            <p class="app-walkthrough-fallback" data-demo-fallback hidden><a href="assets/vid/qp1ng-fallout-field-demo.mp4">Open the video</a></p>
+            <p class="sp-walkthrough-note" id="sp-demo-note">Recorded in the Android demo, with waiting time shortened. Sample contact and unsent draft. Bluetooth discovery and Wi-Fi invitation shown without a second peer. No transfer, call or emergency wipe performed.</p>
+            <noscript><p><a href="assets/vid/qp1ng-fallout-field-demo.mp4">Open the video (MP4)</a></p></noscript>
+          </figcaption>
+        </figure>
       </div>
     </div>
 
@@ -4108,6 +4127,45 @@ _
         </div>
       </div>
     </div>
+
+    <section class="fallout-demo btc-chat-demo" id="btc-chat-demo" aria-labelledby="btc-chat-demo-title">
+      <figure class="app-walkthrough fallout-demo-layout" data-app-walkthrough="Q-Vault · BTC request"
+        data-cues="assets/vid/btc-chat-payment-request-demo-timing.json" data-idle-en="Set an amount, add a memo and choose a contact. Keep the request and its details in the conversation." data-idle-it="Imposta l’importo, aggiungi una causale e scegli il contatto. La richiesta e i suoi dettagli restano nella conversazione.">
+        <figcaption class="fallout-demo-copy">
+          <p class="fallout-demo-kicker mono">Q-VAULT · PAYMENT REQUESTS</p>
+          <h3 id="btc-chat-demo-title">Request Bitcoin. Right in chat.</h3>
+          <p class="fallout-demo-intro">Set an amount, add a memo and choose a contact. Keep the request and its details in the conversation.</p>
+          <ol class="fallout-demo-steps">
+            <li><span class="mono" aria-hidden="true">01</span>Amount in satoshis and a memo</li>
+            <li><span class="mono" aria-hidden="true">02</span>Choose the contact</li>
+            <li><span class="mono" aria-hidden="true">03</span>Review the request in chat</li>
+          </ol>
+          <div class="fallout-demo-caption-panel">
+            <div class="app-walkthrough-meta">
+              <span class="mono">Q-VAULT / TESTNET DEMO / 00:40</span>
+              <div class="app-walkthrough-languages" role="group" aria-label="EN / IT">
+                <button type="button" data-demo-lang="en" aria-pressed="true" lang="en">EN</button>
+                <button type="button" data-demo-lang="it" aria-pressed="false" lang="it">IT</button>
+              </div>
+            </div>
+            <span class="app-walkthrough-caption" id="btc-chat-demo-caption" data-demo-caption>Set an amount, add a memo and choose a contact. Keep the request and its details in the conversation.</span>
+            <span class="app-walkthrough-note" data-demo-hint>Click to play</span>
+            <p class="app-walkthrough-fallback" data-demo-fallback hidden><a href="assets/vid/btc-chat-payment-request-demo.mp4">Open the video</a></p>
+          </div>
+          <p class="fallout-demo-note" id="btc-chat-demo-note">Recorded in the Android app with an empty Testnet wallet and an offline demo contact. Request saved locally; no Bitcoin transaction signed or broadcast. Waiting time shortened.</p>
+          <noscript><p><a href="assets/vid/btc-chat-payment-request-demo.mp4">Open the video (MP4)</a></p></noscript>
+        </figcaption>
+        <div class="app-walkthrough-screen fallout-demo-phone">
+          <video width="720" height="1280" muted playsinline preload="none" role="button" tabindex="0"
+            aria-label="Click to play: Q-Vault · BTC request" aria-describedby="btc-chat-demo-caption btc-chat-demo-note"
+            poster="assets/img/btc-chat-payment-request-demo-poster.webp">
+            <source data-src="assets/vid/btc-chat-payment-request-demo.webm" type="video/webm">
+            <source data-src="assets/vid/btc-chat-payment-request-demo.mp4" type="video/mp4">
+            <p><a href="assets/vid/btc-chat-payment-request-demo.mp4">Open the video</a></p>
+          </video>
+        </div>
+      </figure>
+    </section>
 
     <!-- ARCHITECTURAL VISUAL CENTERPIECE: BITCOIN VAULT & TOR NETWORK -->
     <div class="finance-visual-stage" aria-label="Bitcoin Vault &amp; Tor Network Architecture Visual">
@@ -8510,7 +8568,7 @@ _
   <!-- The texts the scripts write, in the page's language (i18n/build.py). -->
   <!-- i18n:messages --><!-- /i18n:messages -->
   <script src="script.js?v=2.6.26" defer></script>
-  <script src="app-feature-demos.js?v=3" defer></script>
+  <script src="app-feature-demos.js?v=5" defer></script>
   <script src="qdream-gallery.js?v=1" defer></script>
   <script src="qcast-hero-player.js?v=1" defer></script>
   <script src="qgeo-demo.js?v=2" defer></script>

@@ -9,7 +9,10 @@
     const hint = player.querySelector('[data-demo-hint]');
     const fallback = player.querySelector('[data-demo-fallback]');
     const buttons = Array.from(player.querySelectorAll('[data-demo-lang]'));
+    // Optional chapters (data-from / data-to, in seconds): the current one is marked and shows how far it has played.
+    const chapters = Array.from(player.querySelectorAll('[data-demo-chapter]'));
     if (!video || !caption || !hint || !fallback) return;
+    const pageIdle = caption.textContent;
     const name = player.dataset.appWalkthrough;
     let language = document.documentElement.lang.startsWith('it') ? 'it' : 'en';
     let requested = false;
@@ -33,8 +36,22 @@
       video.setAttribute('aria-label', text[action] + ': ' + name);
       video.setAttribute('aria-pressed', String(requested || !video.paused));
       const cue = !ended && cues.find(item => video.currentTime >= item.start && video.currentTime < item.end);
-      caption.textContent = failed ? text.unavailable : cue ? cue[language] : player.dataset['idle' + (language === 'it' ? 'It' : 'En')];
+      // At rest: the caption the page was built with, in the page's language; data-idle-it/-en when the visitor picks
+      // the other caption language on the Italian page.
+      const idle = language === 'it' ? player.dataset.idleIt
+        : document.documentElement.lang.startsWith('it') ? player.dataset.idleEn : pageIdle;
+      caption.textContent = failed ? text.unavailable : cue ? cue[language] : idle;
       buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.demoLang === language)));
+      const playing = requested || !video.paused;
+      player.classList.toggle('is-playing', playing);
+      const time = ended ? 0 : video.currentTime;
+      chapters.forEach(chapter => {
+        const from = Number(chapter.dataset.from);
+        const to = Number(chapter.dataset.to);
+        const current = (playing || time > 0) && time >= from && time < to;
+        chapter.classList.toggle('is-active', current);
+        chapter.style.setProperty('--chapter-progress', current ? ((time - from) / (to - from)).toFixed(3) : time >= to ? '1' : '0');
+      });
     }
     function pause() {
       requested = false;

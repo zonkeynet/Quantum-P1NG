@@ -84,7 +84,7 @@
   <link rel="stylesheet" href="../qgeo-demo.css?v=2" />
   <link rel="stylesheet" href="../radio-bridge-layout.css?v=1" />
   <link rel="stylesheet" href="../qai-tools-demo.css?v=4" />
-  <link rel="stylesheet" href="../app-feature-demos.css?v=2" />
+  <link rel="stylesheet" href="../app-feature-demos.css?v=4" />
   <link rel="stylesheet" href="../qdream-gallery.css?v=3" />
 
   <!-- Schema.org Comprehensive Structured Data (JSON-LD) -->
@@ -1455,41 +1455,60 @@ _
         </div>
       </div>
 
-      <div class="sp-console" role="region" aria-label="Демонстрація протоколу безпеки">
-<aside class="editorial-demo-note" role="note"><strong>ІНТЕРАКТИВНЕ ДЕМО · ТЕСТОВІ ДАНІ</strong><span>Ілюстративні стани. Ця панель не керує застосунком і не перевіряє ваш пристрій.</span></aside>
-
+      <div class="sp-console sp-console--video" role="region" aria-label="QP1NG · Fallout">
         <div class="sp-console-top">
           <div>
-            <span class="sp-console-label mono">ПРИКЛАД НАЛАШТУВАНЬ OPSEC</span>
-            <strong class="sp-console-title mono">ДЕМОНСТРАЦІЯ</strong>
+            <span class="sp-console-label mono">QP1NG У ДІЇ · ТЕМА FALLOUT</span>
+            <strong class="sp-console-title mono">Ваша особистість. Ваші з’єднання.</strong>
           </div>
-          <span class="sp-console-state mono"><span class="sp-live-dot"></span> ТЕСТОВІ ДАНІ</span>
+          <span class="sp-console-state mono"><span class="sp-live-dot"></span> СПРАВЖНІЙ ЗАСТОСУНОК</span>
         </div>
 
-        <div class="sp-posture-ring" aria-hidden="true">
-          <div class="sp-ring sp-ring--outer"></div>
-          <div class="sp-ring sp-ring--mid"></div>
-          <div class="sp-ring sp-ring--inner"></div>
-          <div class="sp-core">OP</div>
-          <span class="sp-orbit sp-orbit--one"></span>
-          <span class="sp-orbit sp-orbit--two"></span>
-          <span class="sp-orbit sp-orbit--three"></span>
-        </div>
-
-        <div class="sp-console-grid">
-          <div class="sp-status-card">
-            <span class="sp-panel-label mono">МОДЕЛЬ ЗАГРОЗ</span>
-            <h3>Ізолюйте кожну поверхню</h3>
-            <p>Маршрути, локальний стан, метадані й автоматизація — окремі поверхні викриття.</p>
-            <div class="sp-meter"><span style="--sp-fill: 91%"></span></div>
+        <!-- A recording of the real app (assets/source/qp1ng-fallout-field-demo-info.json), downloaded only on click.
+             The posture rings orbit the phone; the chapters light up and fill as the video plays (app-feature-demos.js). -->
+        <figure class="app-walkthrough sp-walkthrough" data-app-walkthrough="QP1NG · Fallout"
+          data-cues="../assets/vid/qp1ng-fallout-field-demo-timing.json" data-idle-en="From a calculator cover to a verified Tor circuit: see the app in use." data-idle-it="Dalla copertura calcolatrice al circuito Tor verificato: guarda l’app in uso.">
+          <div class="sp-stage">
+            <div class="sp-stage-phone">
+              <div class="sp-posture-ring" aria-hidden="true">
+                <div class="sp-ring sp-ring--outer"></div>
+                <div class="sp-ring sp-ring--mid"></div>
+                <div class="sp-ring sp-ring--inner"></div>
+                <span class="sp-orbit-track sp-orbit-track--one"></span>
+                <span class="sp-orbit-track sp-orbit-track--two"></span>
+                <span class="sp-orbit-track sp-orbit-track--three"></span>
+              </div>
+              <div class="app-walkthrough-screen sp-phone">
+                <video width="720" height="1280" muted playsinline preload="none" role="button" tabindex="0"
+                  aria-label="Натисніть для перегляду: QP1NG · Fallout" aria-describedby="sp-demo-caption sp-demo-note"
+                  poster="../assets/img/qp1ng-fallout-field-demo-poster.webp">
+                  <source data-src="../assets/vid/qp1ng-fallout-field-demo.webm" type="video/webm">
+                  <source data-src="../assets/vid/qp1ng-fallout-field-demo.mp4" type="video/mp4">
+                  <p><a href="../assets/vid/qp1ng-fallout-field-demo.mp4">Відкрити відео</a></p>
+                </video>
+              </div>
+            </div>
+            <ol class="sp-chapters">
+              <li data-demo-chapter data-from="0" data-to="21.8"><span class="mono" aria-hidden="true">01</span>Чат Ghost та анімований QR особистості</li>
+              <li data-demo-chapter data-from="21.8" data-to="39.267"><span class="mono" aria-hidden="true">02</span>Bluetooth-мережа й локальне запрошення Wi-Fi</li>
+              <li data-demo-chapter data-from="39.267" data-to="64.2"><span class="mono" aria-hidden="true">03</span>Перевірка Tor і протоколи доступу</li>
+            </ol>
           </div>
-
-          <div class="sp-terminal mono" aria-label="Діагностика протоколу безпеки">
-            <div><span>&gt;</span><span>screen_guard=enabled secure_window=true</span></div>
-            <div><span>&gt;</span><span>tor_route=optional onion_diagnostics=sample</span></div>
-            <div><span>&gt;</span><span>ai_tools=risk_gated sandbox=policy_checked</span></div>
-          </div>
-        </div>
+          <figcaption class="sp-walkthrough-panel">
+            <div class="app-walkthrough-meta">
+              <span class="mono">QP1NG / FALLOUT / 01:04</span>
+              <div class="app-walkthrough-languages" role="group" aria-label="EN / IT">
+                <button type="button" data-demo-lang="en" aria-pressed="true" lang="en">EN</button>
+                <button type="button" data-demo-lang="it" aria-pressed="false" lang="it">IT</button>
+              </div>
+            </div>
+            <span class="app-walkthrough-caption" id="sp-demo-caption" data-demo-caption>Від маскування калькулятором до перевіреного ланцюжка Tor: застосунок у дії.</span>
+            <span class="app-walkthrough-note" data-demo-hint>Натисніть для перегляду</span>
+            <p class="app-walkthrough-fallback" data-demo-fallback hidden><a href="../assets/vid/qp1ng-fallout-field-demo.mp4">Відкрити відео</a></p>
+            <p class="sp-walkthrough-note" id="sp-demo-note">Демо Android зі скороченим очікуванням. Приклад контакту та ненадіслана чернетка. Пошук Bluetooth і запрошення Wi-Fi без другого пристрою. Без передачі, дзвінка чи аварійного видалення.</p>
+            <noscript><p><a href="../assets/vid/qp1ng-fallout-field-demo.mp4">Відкрити відео (MP4)</a></p></noscript>
+          </figcaption>
+        </figure>
       </div>
     </div>
 
@@ -3997,6 +4016,45 @@ _
         </div>
       </div>
     </div>
+
+    <section class="fallout-demo btc-chat-demo" id="btc-chat-demo" aria-labelledby="btc-chat-demo-title">
+      <figure class="app-walkthrough fallout-demo-layout" data-app-walkthrough="Q-Vault · BTC request"
+        data-cues="../assets/vid/btc-chat-payment-request-demo-timing.json" data-idle-en="Set an amount, add a memo and choose a contact. Keep the request and its details in the conversation." data-idle-it="Imposta l’importo, aggiungi una causale e scegli il contatto. La richiesta e i suoi dettagli restano nella conversazione.">
+        <figcaption class="fallout-demo-copy">
+          <p class="fallout-demo-kicker mono">Q-VAULT · ЗАПИТИ ОПЛАТИ</p>
+          <h3 id="btc-chat-demo-title">Запросіть біткоїн. Просто в чаті.</h3>
+          <p class="fallout-demo-intro">Укажіть суму, додайте примітку й виберіть контакт. Запит і його деталі залишаються в розмові.</p>
+          <ol class="fallout-demo-steps">
+            <li><span class="mono" aria-hidden="true">01</span>Сума в сатоші та примітка</li>
+            <li><span class="mono" aria-hidden="true">02</span>Виберіть контакт</li>
+            <li><span class="mono" aria-hidden="true">03</span>Перегляньте запит у чаті</li>
+          </ol>
+          <div class="fallout-demo-caption-panel">
+            <div class="app-walkthrough-meta">
+              <span class="mono">Q-VAULT / TESTNET DEMO / 00:40</span>
+              <div class="app-walkthrough-languages" role="group" aria-label="EN / IT">
+                <button type="button" data-demo-lang="en" aria-pressed="true" lang="en">EN</button>
+                <button type="button" data-demo-lang="it" aria-pressed="false" lang="it">IT</button>
+              </div>
+            </div>
+            <span class="app-walkthrough-caption" id="btc-chat-demo-caption" data-demo-caption>Укажіть суму, додайте примітку й виберіть контакт. Запит і його деталі залишаються в розмові.</span>
+            <span class="app-walkthrough-note" data-demo-hint>Натисніть для перегляду</span>
+            <p class="app-walkthrough-fallback" data-demo-fallback hidden><a href="../assets/vid/btc-chat-payment-request-demo.mp4">Відкрити відео</a></p>
+          </div>
+          <p class="fallout-demo-note" id="btc-chat-demo-note">Запис із застосунку Android з порожнім гаманцем Testnet і демонстраційним контактом офлайн. Запит збережено локально; транзакцію Bitcoin не підписано й не надіслано. Очікування скорочено.</p>
+          <noscript><p><a href="../assets/vid/btc-chat-payment-request-demo.mp4">Відкрити відео (MP4)</a></p></noscript>
+        </figcaption>
+        <div class="app-walkthrough-screen fallout-demo-phone">
+          <video width="720" height="1280" muted playsinline preload="none" role="button" tabindex="0"
+            aria-label="Натисніть для перегляду: Q-Vault · BTC request" aria-describedby="btc-chat-demo-caption btc-chat-demo-note"
+            poster="../assets/img/btc-chat-payment-request-demo-poster.webp">
+            <source data-src="../assets/vid/btc-chat-payment-request-demo.webm" type="video/webm">
+            <source data-src="../assets/vid/btc-chat-payment-request-demo.mp4" type="video/mp4">
+            <p><a href="../assets/vid/btc-chat-payment-request-demo.mp4">Відкрити відео</a></p>
+          </video>
+        </div>
+      </figure>
+    </section>
 
     <!-- ARCHITECTURAL VISUAL CENTERPIECE: BITCOIN VAULT & TOR NETWORK -->
     <div class="finance-visual-stage" aria-label="Ілюстрація архітектури Bitcoin-сховища й мережі Tor">
@@ -8276,7 +8334,7 @@ _
   <!-- The texts the scripts write, in the page's language (i18n/build.py). -->
   <!-- i18n:messages --><script type="application/json" id="site-i18n">{"COPIED": "СКОПІЙОВАНО", "[ ACCESS GRANTED ]": "[ ДОСТУП НАДАНО ]", "REPLAY_BUFFER": "REPLAY_BUFFER", "REPLAY_FAIL": "REPLAY_FAIL", "MIN": "ЗГОРН.", "RST": "СКИД", "PAUSE STREAM": "ПРИЗУПИНИТИ ПОТІК", "CLICK TO PLAY": "КЛАЦНІТЬ, ЩОБ ЗАПУСТИТИ", "AIOC RIG ACTIVE": "AIOC АКТИВНИЙ", "RF LINK ACTIVE": "РАДІОКАНАЛ АКТИВНИЙ", "SCANNING": "СКАНУВАННЯ", "PAUSED": "ПАУЗА", "PAUSE FEED": "ПРИЗУПИНИТИ СТРІЧКУ", "CALL DEMO VIDEO": "ДЕМОВІДЕО ДЗВІНКА", "REPLAY FEED": "ПОВТОРИТИ СТРІЧКУ", "[ PAUSE STREAM ]": "[ ПРИЗУПИНИТИ ПОТІК ]", "🔒 [MESSAGE_ENCRYPTED_AND_DISPATCHED]": "🔒 [MESSAGE_ENCRYPTED_AND_DISPATCHED]", "[BUFFER_ZEROIZED: 00 00 00 00]": "[BUFFER_ZEROIZED: 00 00 00 00]", "BUFFER: ZEROIZED": "БУФЕР: СТЕРТО", "0s": "0s", "BUFFER: ENCRYPTED (AES-256)": "БУФЕР: ЗАШИФРОВАНО (AES-256)", "AUTH_GRANTED // REAL APP UNLOCKED": "AUTH_GRANTED // СПРАВЖНІЙ ЗАСТОСУНОК РОЗБЛОКОВАНО", "DECOY PIN // WEATHER COVER": "PIN-ПРИМАНКА // ПРИКРИТТЯ: ПОГОДА", "DECOY PIN // SHOPPING LIST COVER": "PIN-ПРИМАНКА // ПРИКРИТТЯ: СПИСОК ПОКУПОК", "SILENT_DURESS_TRIGGERED // DELETING KEYSTORE KEYS": "SILENT_DURESS_TRIGGERED // ВИДАЛЕННЯ КЛЮЧІВ KEYSTORE", "ERR: INVALID_PIN (REMAINING: 2)": "ERR: INVALID_PIN (ЛИШИЛОСЯ: 2)", "PIN BUFFER CLEARED": "БУФЕР PIN ОЧИЩЕНО", "STANDBY // CLICK PRESETS OR KEYPAD": "ОЧІКУВАННЯ // НАТИСНІТЬ ПРЕСЕТ АБО КЛАВІШІ", "EXECUTING WIPE SEQUENCE...": "ВИКОНАННЯ ПОСЛІДОВНОСТІ ВИДАЛЕННЯ...", "SIMULATION COMPLETE // KEYS VERIFIED GONE": "СИМУЛЯЦІЮ ЗАВЕРШЕНО // КЛЮЧІ ЗНИЩЕНО, ПЕРЕВІРЕНО", "EXECUTE PIPELINE SIMULATION": "ЗАПУСТИТИ СИМУЛЯЦІЮ КОНВЕЄРА", "AOS APPROACH (BLUE SHIFT)": "AOS НАБЛИЖЕННЯ (СИНІЙ ЗСУВ)", "LOS RECEDING (RED SHIFT)": "LOS ВІДДАЛЕННЯ (ЧЕРВОНИЙ ЗСУВ)", "TCA ZENITH (PEAK ELEVATION)": "TCA ЗЕНІТ (ПІКОВИЙ КУТ МІСЦЯ)", "DEMO · PTT BURST...": "ДЕМО · ІМПУЛЬС PTT...", "DEMO PTT: NO RF TRANSMISSION": "ДЕМО PTT: БЕЗ РАДІОПЕРЕДАЧІ", "DEMO PTT: TAIL PREVIEW": "ДЕМО PTT: ПРЕВ’Ю ХВОСТА", "PREVIEW PTT BURST": "ПРЕВ’Ю ІМПУЛЬСУ PTT", "DEMO PTT: STANDBY": "ДЕМО PTT: ОЧІКУВАННЯ", "DEMO: APPROXIMATE COORDINATES": "ДЕМО: ПРИБЛИЗНІ КООРДИНАТИ", "PREVIEW EXACT COORDINATES": "ПОКАЗАТИ ТОЧНІ КООРДИНАТИ", "DEMO: EXACT COORDINATES": "ДЕМО: ТОЧНІ КООРДИНАТИ", "PREVIEW APPROXIMATE COORDINATES": "ПОКАЗАТИ ПРИБЛИЗНІ КООРДИНАТИ", "VERIFIED (+1 ACK)": "ПЕРЕВІРЕНО (+1 ACK)", "CONFIRM (0x03)": "ПІДТВЕРДИТИ (0x03)", "PREVIEW OFFLINE SETUP": "ПРЕВ’Ю ОФЛАЙН-НАЛАШТУВАННЯ", "Dynamic Hazard": "Динамічна загроза", "DEMO PACKET PREVIEWED OK": "ДЕМО-ПАКЕТ ПЕРЕГЛЯНУТО, OK", "BUILD SAMPLE PACKET": "ЗІБРАТИ ТЕСТОВИЙ ПАКЕТ", "PREVIEWING FLOW GRAPH...": "ПРЕВ’Ю ГРАФА ПОТОКУ...", "DEMO: EVENT NODE 01": "ДЕМО: ВУЗОЛ ПОДІЇ 01", "DEMO: CONDITION NODE 02": "ДЕМО: ВУЗОЛ УМОВИ 02", "DEMO: ACTIONS 03 & 04": "ДЕМО: ДІЇ 03 І 04", "DEMO COMPLETE · NO ACTIONS EXECUTED": "ДЕМО ЗАВЕРШЕНО · ЖОДНИХ ДІЙ НЕ ВИКОНАНО", "PREVIEW GRAPH FLOW": "ПРЕВ’Ю ПОТОКУ ГРАФА", "✓ DEMO TIMER RESET (24H)": "✓ ДЕМО-ТАЙМЕР СКИНУТО (24H)", "RESET DEMO TIMER (24H)": "СКИНУТИ ДЕМО-ТАЙМЕР (24H)", "DEMO · HASH CHECK...": "ДЕМО · ПЕРЕВІРКА ХЕШУ...", "PREVIEW HASH CHECK": "ПРЕВ’Ю ПЕРЕВІРКИ ХЕШУ", "DEMO COMPLETE · NO HASH CHECKED": "ДЕМО ЗАВЕРШЕНО · ХЕШ НЕ ПЕРЕВІРЯВСЯ", "When you can no longer trust governments and institutions.": "Коли урядам та інституціям більше не можна довіряти.", "When Big Tech sells your life to the highest bidder.": "Коли Big Tech продає ваше життя тому, хто більше заплатить.", "When dissent is monitored, intercepted and weaponized.": "Коли за інакодумством стежать, його перехоплюють і обертають на зброю.", "Do not submit to mass surveillance.": "Не скоряйтеся масовому стеженню.", "Cryptography is self-defense. Freedom is a protocol.": "Криптографія — це самозахист. Свобода — це протокол.", "QUANTUM P1NG // WELCOME TO THE RESISTANCE.": "QUANTUM P1NG // ЛАСКАВО ПРОСИМО ДО ОПОРУ.", "MUTED": "БЕЗ ЗВУКУ", "AUDIO": "ЗВУК", "COMPLETED · CLICK TO REPLAY": "ЗАВЕРШЕНО · КЛАЦНІТЬ, ЩОБ ПОВТОРИТИ", "Click to play": "Натисніть, щоб відтворити", "Click to pause": "Натисніть, щоб призупинити", "Click to replay": "Натисніть, щоб переглянути знову", "Click to retry": "Натисніть, щоб спробувати знову", "The video could not load. Click the preview to retry.": "Не вдалося завантажити відео. Натисніть на прев’ю, щоб спробувати знову.", "Retry the Q-Geo app walkthrough": "Повторити огляд застосунку Q-Geo", "Pause the Q-Geo app walkthrough": "Призупинити огляд застосунку Q-Geo", "Replay the Q-Geo app walkthrough": "Переглянути огляд застосунку Q-Geo знову", "Play the Q-Geo app walkthrough": "Відтворити огляд застосунку Q-Geo", "The video could not load. Click the image to retry.": "Не вдалося завантажити відео. Натисніть на зображення, щоб спробувати знову."}</script><!-- /i18n:messages -->
   <script src="../script.js?v=2.6.26" defer></script>
-  <script src="../app-feature-demos.js?v=3" defer></script>
+  <script src="../app-feature-demos.js?v=5" defer></script>
   <script src="../qdream-gallery.js?v=1" defer></script>
   <script src="../qcast-hero-player.js?v=1" defer></script>
   <script src="../qgeo-demo.js?v=2" defer></script>

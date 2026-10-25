@@ -1,0 +1,51 @@
+[
+  {
+    "start": 0,
+    "end": 4.767,
+    "chapter": "wallet",
+    "en": "Open Request via chat from the Bitcoin vault. This wallet uses Testnet and has no funds.",
+    "it": "Apri Richiedi via chat dal portafoglio Bitcoin. Il wallet usa Testnet e non contiene fondi."
+  },
+  {
+    "start": 4.767,
+    "end": 11.833,
+    "chapter": "amount",
+    "en": "Enter 25,000 sats and a memo. The app also shows the amount in BTC and a fiat estimate.",
+    "it": "Inserisci 25.000 satoshi e una causale. L’app mostra anche l’importo in BTC e una stima in valuta."
+  },
+  {
+    "start": 11.833,
+    "end": 18.3,
+    "chapter": "review",
+    "en": "Review the amount, memo and Testnet receiving address, then choose Send request.",
+    "it": "Controlla importo, causale e indirizzo di ricezione Testnet, poi scegli Invia richiesta."
+  },
+  {
+    "start": 18.3,
+    "end": 26.267,
+    "chapter": "contact",
+    "en": "Choose the demo contact. With this peer offline, the request is saved locally in the conversation.",
+    "it": "Scegli il contatto demo. Poiché il peer è offline, la richiesta viene salvata localmente nella conversazione."
+  },
+  {
+    "start": 26.267,
+    "end": 31.267,
+    "chapter": "chat",
+    "en": "The chat card shows 0.00025000 BTC, 25,000 sats, the memo and Awaiting payment.",
+    "it": "La scheda in chat mostra 0,00025000 BTC, 25.000 satoshi, la causale e In attesa di pagamento."
+  },
+  {
+    "start": 31.267,
+    "end": 35.567,
+    "chapter": "details",
+    "en": "Payment details keep the network, receiving address, amount and memo together.",
+    "it": "I dettagli riuniscono rete, indirizzo di ricezione, importo e causale."
+  },
+  {
+    "start": 35.567,
+    "end": 39.533,
+    "chapter": "outro",
+    "en": "Request created. No Bitcoin payment is signed or broadcast in this demo.",
+    "it": "Richiesta creata. In questa demo non viene firmato né trasmesso alcun pagamento Bitcoin."
+  }
+]

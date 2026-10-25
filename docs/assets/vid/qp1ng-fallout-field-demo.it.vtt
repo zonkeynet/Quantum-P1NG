@@ -1,0 +1,57 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:04.500
+La copertura calcolatrice apre QP1NG con il PIN della demo.
+
+2
+00:00:04.500 --> 00:00:07.500
+La dashboard Fallout riunisce comunicazioni, strumenti locali e stato della rete.
+
+3
+00:00:07.500 --> 00:00:11.967
+Prepara un messaggio in Q-Chat. Contatto e bozza sono di esempio: nessun messaggio viene inviato.
+
+4
+00:00:11.967 --> 00:00:15.833
+Attiva Ghost: il database dei messaggi della sessione vive in RAM.
+
+5
+00:00:15.833 --> 00:00:21.800
+Condividi l’identità della demo tramite QR animato, senza numero di telefono.
+
+6
+00:00:21.800 --> 00:00:28.800
+Avvia la mesh Bluetooth e cerca dispositivi vicini. In questa ripresa non è collegato un secondo peer.
+
+7
+00:00:28.800 --> 00:00:32.767
+Apri il Wi-Fi locale: messaggi, file e chiamate possono usare una rete condivisa o un hotspot offline.
+
+8
+00:00:32.767 --> 00:00:39.267
+Crea un invito QR privato per l’altro telefono. L’abbinamento è in attesa: non viene mostrato un trasferimento.
+
+9
+00:00:39.267 --> 00:00:44.233
+Avvia il controllo Tor: verifica il proxy SOCKS locale e il nodo di uscita. Le attese sono abbreviate.
+
+10
+00:00:44.233 --> 00:00:49.233
+Consulta il circuito verificato e i suoi relay sul globo.
+
+11
+00:00:49.233 --> 00:00:53.200
+Scegli una copertura iniziale: calcolatrice, meteo o puzzle.
+
+12
+00:00:53.200 --> 00:00:58.000
+Apri i protocolli di accesso da Secure Settings, accanto ai blocchi di avvio e delle pagine sensibili.
+
+13
+00:00:58.000 --> 00:01:01.467
+Credenziali principali, di emergenza e di esca hanno campi separati. È una vista delle impostazioni: nessuna cancellazione viene eseguita.
+
+14
+00:01:01.467 --> 00:01:04.133
+Un’app: identità privata, collegamenti locali e controlli da verificare.

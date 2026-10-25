@@ -1,0 +1,195 @@
+{
+  "name": "qp1ng-fallout-field-demo",
+  "duration_seconds": 64.133,
+  "resolution": "720x1280",
+  "frame_rate": 30,
+  "audio": false,
+  "app_id": "com.qp1ng.android.videodemo",
+  "emulator": "QP1NG_Demo / emulator-5580",
+  "theme": "FALLOUT",
+  "capture": "Actual Android app operated in the isolated recording emulator. Synthetic contact and unsent draft.",
+  "demonstrated_actions": [
+    "Calculator cover unlock",
+    "Ghost mode toggle",
+    "Animated identity QR",
+    "Bluetooth mesh discovery",
+    "Local Wi-Fi private invitation",
+    "Tor exit and circuit verification",
+    "Access protocol settings"
+  ],
+  "limits": [
+    "No chat message sent",
+    "No second Bluetooth or Wi-Fi peer connected",
+    "No file transfer or call performed",
+    "No duress wipe performed",
+    "Access protocol screen uses the app own authentication styling"
+  ],
+  "editing": "Waiting time cut; Tor check accelerated 1.4x; Tor check and final relay view are from separate successful checks; Wi-Fi invitation final frame held 1.5s; access protocol still held 3.5s; status bar replaced with scene labels.",
+  "real_devices_used": false,
+  "main_app_source_modified": false,
+  "subtitles": [
+    "it",
+    "en"
+  ],
+  "scenes": [
+    {
+      "file": "05-unlock.webm",
+      "start": 0,
+      "end": 4.5,
+      "label": "DEMO // DECOY ACCESS",
+      "chapter": "access",
+      "en": "A calculator cover opens QP1NG with the demo PIN.",
+      "it": "La copertura calcolatrice apre QP1NG con il PIN della demo."
+    },
+    {
+      "file": "05-unlock.webm",
+      "start": 5,
+      "end": 8,
+      "label": "QP1NG // FALLOUT THEME",
+      "chapter": "home",
+      "en": "The Fallout dashboard brings communications, local tools and network status together.",
+      "it": "La dashboard Fallout riunisce comunicazioni, strumenti locali e stato della rete."
+    },
+    {
+      "file": "04-chat.webm",
+      "start": 4.8,
+      "end": 9.3,
+      "label": "DEMO // SAMPLE CONTACT - UNSENT DRAFT",
+      "chapter": "chat",
+      "en": "Prepare a message in Q-Chat. This sample contact and draft stay in the demo; nothing is sent.",
+      "it": "Prepara un messaggio in Q-Chat. Contatto e bozza sono di esempio: nessun messaggio viene inviato."
+    },
+    {
+      "file": "04-chat.webm",
+      "start": 63,
+      "end": 67,
+      "label": "DEMO // GHOST MODE - UNSENT DRAFT",
+      "chapter": "ghost",
+      "en": "Enable Ghost mode: its message database lives in RAM for the session.",
+      "it": "Attiva Ghost: il database dei messaggi della sessione vive in RAM."
+    },
+    {
+      "file": "06-identity.webm",
+      "start": 16,
+      "end": 22,
+      "label": "DEMO // ANIMATED CONTACT QR",
+      "chapter": "identity",
+      "en": "Share the demo identity through an animated QR, without a phone number.",
+      "it": "Condividi l’identità della demo tramite QR animato, senza numero di telefono."
+    },
+    {
+      "file": "08-local-links.webm",
+      "start": 1,
+      "end": 8,
+      "label": "DEMO // BLUETOOTH DISCOVERY - NO PEER",
+      "chapter": "bluetooth",
+      "en": "Start Bluetooth mesh and discover nearby devices. No second peer is connected in this recording.",
+      "it": "Avvia la mesh Bluetooth e cerca dispositivi vicini. In questa ripresa non è collegato un secondo peer."
+    },
+    {
+      "file": "08-local-links.webm",
+      "start": 24,
+      "end": 28,
+      "label": "DEMO // LOCAL WI-FI",
+      "chapter": "wifi",
+      "en": "Open Local Wi-Fi: messages, files and calls can use a shared Wi-Fi network or offline hotspot.",
+      "it": "Apri il Wi-Fi locale: messaggi, file e chiamate possono usare una rete condivisa o un hotspot offline."
+    },
+    {
+      "file": "08-local-links.webm",
+      "start": 29.5,
+      "end": 34.5,
+      "hold": 1.5,
+      "label": "DEMO // WI-FI INVITATION - NO PEER",
+      "chapter": "wifi-invite",
+      "en": "Create a private QR invitation for the other phone. Pairing is waiting; no transfer is shown.",
+      "it": "Crea un invito QR privato per l’altro telefono. L’abbinamento è in attesa: non viene mostrato un trasferimento."
+    },
+    {
+      "file": "03-tor.webm",
+      "start": 14,
+      "end": 21,
+      "speed": 1.4,
+      "label": "DEMO // VERIFY TOR CIRCUIT",
+      "chapter": "tor-check",
+      "en": "Run the Tor check: verify the local SOCKS proxy and exit node. Waiting time is shortened.",
+      "it": "Avvia il controllo Tor: verifica il proxy SOCKS locale e il nodo di uscita. Le attese sono abbreviate."
+    },
+    {
+      "file": "11-tor-relays.webm",
+      "start": 0.3,
+      "end": 5.3,
+      "label": "DEMO // TOR CIRCUIT VERIFIED",
+      "chapter": "tor-route",
+      "en": "Inspect the verified circuit and its relays on the globe.",
+      "it": "Consulta il circuito verificato e i suoi relay sul globo."
+    },
+    {
+      "file": "09-security.webm",
+      "start": 1.6,
+      "end": 5.6,
+      "label": "DEMO // SECURE SETTINGS",
+      "chapter": "covers",
+      "en": "Choose a startup cover: calculator, weather or tile puzzle.",
+      "it": "Scegli una copertura iniziale: calcolatrice, meteo o puzzle."
+    },
+    {
+      "file": "09-security.webm",
+      "start": 20,
+      "end": 24.8,
+      "label": "DEMO // ACCESS PROTOCOLS",
+      "chapter": "security",
+      "en": "Open access protocols from Secure Settings, alongside startup and sensitive-page locks.",
+      "it": "Apri i protocolli di accesso da Secure Settings, accanto ai blocchi di avvio e delle pagine sensibili."
+    },
+    {
+      "file": "protocols.png",
+      "duration": 3.5,
+      "label": "DEMO // PRIMARY - DURESS - DECOY",
+      "chapter": "protocols",
+      "en": "Primary, duress and decoy credentials have separate fields. This is a settings view; no wipe is performed.",
+      "it": "Credenziali principali, di emergenza e di esca hanno campi separati. È una vista delle impostazioni: nessuna cancellazione viene eseguita."
+    },
+    {
+      "file": "05-unlock.webm",
+      "start": 7,
+      "end": 9.7,
+      "label": "QP1NG // YOUR IDENTITY - YOUR ROUTES",
+      "chapter": "outro",
+      "en": "One app: private identity, local connections and controls you can inspect.",
+      "it": "Un’app: identità privata, collegamenti locali e controlli da verificare."
+    }
+  ],
+  "files": [
+    {
+      "name": "qp1ng-fallout-field-demo-poster.webp",
+      "bytes": 93212,
+      "sha256": "2d9cc82978790f177bd2a98207a516c949560e2bf00f2cd04a6e6b95197e18f0"
+    },
+    {
+      "name": "qp1ng-fallout-field-demo-timing.json",
+      "bytes": 3858,
+      "sha256": "ea639175a67b9f0a1adc29b1a42a6dbff4b65cef079abca9398dad44ee07cf49"
+    },
+    {
+      "name": "qp1ng-fallout-field-demo.en.vtt",
+      "bytes": 1667,
+      "sha256": "e1bddf08a9bdd27132fae17c1cd254b8067fdc32572eded2ce03f3c6b9fd0c32"
+    },
+    {
+      "name": "qp1ng-fallout-field-demo.it.vtt",
+      "bytes": 1784,
+      "sha256": "286d0d997a2e12fa2139807828bf2b629c74f684a6b83dc3cc0c64faeabd2125"
+    },
+    {
+      "name": "qp1ng-fallout-field-demo.mp4",
+      "bytes": 2460822,
+      "sha256": "5c2dc924b67f6fa4e82f6adf53ba6a5765bf92d5c3109f7a7a4245d298166a06"
+    },
+    {
+      "name": "qp1ng-fallout-field-demo.webm",
+      "bytes": 3022760,
+      "sha256": "78242b562212a9bfc6faa8eeaaec2345d6b2098b1d1d898998682b7a82c8c2f3"
+    }
+  ]
+}

@@ -84,7 +84,7 @@
   <link rel="stylesheet" href="../qgeo-demo.css?v=2" />
   <link rel="stylesheet" href="../radio-bridge-layout.css?v=1" />
   <link rel="stylesheet" href="../qai-tools-demo.css?v=4" />
-  <link rel="stylesheet" href="../app-feature-demos.css?v=2" />
+  <link rel="stylesheet" href="../app-feature-demos.css?v=4" />
   <link rel="stylesheet" href="../qdream-gallery.css?v=3" />
 
   <!-- Schema.org Comprehensive Structured Data (JSON-LD) -->
@@ -1455,41 +1455,60 @@ _
         </div>
       </div>
 
-      <div class="sp-console" role="region" aria-label="Démonstration du protocole de sécurité">
-<aside class="editorial-demo-note" role="note"><strong>DÉMO INTERACTIVE · DONNÉES D’EXEMPLE</strong><span>États illustratifs. Ce panneau ne contrôle pas l’appli et ne vérifie pas votre appareil.</span></aside>
-
+      <div class="sp-console sp-console--video" role="region" aria-label="QP1NG · Fallout">
         <div class="sp-console-top">
           <div>
-            <span class="sp-console-label mono">RÉGLAGES OPSEC D’EXEMPLE</span>
-            <strong class="sp-console-title mono">DÉMONSTRATION</strong>
+            <span class="sp-console-label mono">QP1NG EN ACTION · THÈME FALLOUT</span>
+            <strong class="sp-console-title mono">Votre identité. Vos connexions.</strong>
           </div>
-          <span class="sp-console-state mono"><span class="sp-live-dot"></span> DONNÉES D’EXEMPLE</span>
+          <span class="sp-console-state mono"><span class="sp-live-dot"></span> VRAIE APPLI</span>
         </div>
 
-        <div class="sp-posture-ring" aria-hidden="true">
-          <div class="sp-ring sp-ring--outer"></div>
-          <div class="sp-ring sp-ring--mid"></div>
-          <div class="sp-ring sp-ring--inner"></div>
-          <div class="sp-core">OP</div>
-          <span class="sp-orbit sp-orbit--one"></span>
-          <span class="sp-orbit sp-orbit--two"></span>
-          <span class="sp-orbit sp-orbit--three"></span>
-        </div>
-
-        <div class="sp-console-grid">
-          <div class="sp-status-card">
-            <span class="sp-panel-label mono">MODÈLE DE MENACE</span>
-            <h3>Isoler chaque surface</h3>
-            <p>Routes, état local, métadonnées et automatisation sont traités comme des surfaces d’exposition distinctes.</p>
-            <div class="sp-meter"><span style="--sp-fill: 91%"></span></div>
+        <!-- A recording of the real app (assets/source/qp1ng-fallout-field-demo-info.json), downloaded only on click.
+             The posture rings orbit the phone; the chapters light up and fill as the video plays (app-feature-demos.js). -->
+        <figure class="app-walkthrough sp-walkthrough" data-app-walkthrough="QP1NG · Fallout"
+          data-cues="../assets/vid/qp1ng-fallout-field-demo-timing.json" data-idle-en="From a calculator cover to a verified Tor circuit: see the app in use." data-idle-it="Dalla copertura calcolatrice al circuito Tor verificato: guarda l’app in uso.">
+          <div class="sp-stage">
+            <div class="sp-stage-phone">
+              <div class="sp-posture-ring" aria-hidden="true">
+                <div class="sp-ring sp-ring--outer"></div>
+                <div class="sp-ring sp-ring--mid"></div>
+                <div class="sp-ring sp-ring--inner"></div>
+                <span class="sp-orbit-track sp-orbit-track--one"></span>
+                <span class="sp-orbit-track sp-orbit-track--two"></span>
+                <span class="sp-orbit-track sp-orbit-track--three"></span>
+              </div>
+              <div class="app-walkthrough-screen sp-phone">
+                <video width="720" height="1280" muted playsinline preload="none" role="button" tabindex="0"
+                  aria-label="Cliquer pour lire: QP1NG · Fallout" aria-describedby="sp-demo-caption sp-demo-note"
+                  poster="../assets/img/qp1ng-fallout-field-demo-poster.webp">
+                  <source data-src="../assets/vid/qp1ng-fallout-field-demo.webm" type="video/webm">
+                  <source data-src="../assets/vid/qp1ng-fallout-field-demo.mp4" type="video/mp4">
+                  <p><a href="../assets/vid/qp1ng-fallout-field-demo.mp4">Ouvrir la vidéo</a></p>
+                </video>
+              </div>
+            </div>
+            <ol class="sp-chapters">
+              <li data-demo-chapter data-from="0" data-to="21.8"><span class="mono" aria-hidden="true">01</span>Chat Ghost et QR d’identité animé</li>
+              <li data-demo-chapter data-from="21.8" data-to="39.267"><span class="mono" aria-hidden="true">02</span>Maillage Bluetooth et invitation Wi-Fi locale</li>
+              <li data-demo-chapter data-from="39.267" data-to="64.2"><span class="mono" aria-hidden="true">03</span>Vérification Tor et protocoles d’accès</li>
+            </ol>
           </div>
-
-          <div class="sp-terminal mono" aria-label="Diagnostics du protocole de sécurité">
-            <div><span>&gt;</span><span>screen_guard=enabled secure_window=true</span></div>
-            <div><span>&gt;</span><span>tor_route=optional onion_diagnostics=sample</span></div>
-            <div><span>&gt;</span><span>ai_tools=risk_gated sandbox=policy_checked</span></div>
-          </div>
-        </div>
+          <figcaption class="sp-walkthrough-panel">
+            <div class="app-walkthrough-meta">
+              <span class="mono">QP1NG / FALLOUT / 01:04</span>
+              <div class="app-walkthrough-languages" role="group" aria-label="EN / IT">
+                <button type="button" data-demo-lang="en" aria-pressed="true" lang="en">EN</button>
+                <button type="button" data-demo-lang="it" aria-pressed="false" lang="it">IT</button>
+              </div>
+            </div>
+            <span class="app-walkthrough-caption" id="sp-demo-caption" data-demo-caption>Du camouflage calculatrice au circuit Tor vérifié : découvrez l’application en action.</span>
+            <span class="app-walkthrough-note" data-demo-hint>Cliquer pour lire</span>
+            <p class="app-walkthrough-fallback" data-demo-fallback hidden><a href="../assets/vid/qp1ng-fallout-field-demo.mp4">Ouvrir la vidéo</a></p>
+            <p class="sp-walkthrough-note" id="sp-demo-note">Démo Android avec attentes raccourcies. Contact fictif et brouillon non envoyé. Recherche Bluetooth et invitation Wi-Fi sans second appareil. Aucun transfert, appel ni effacement d’urgence.</p>
+            <noscript><p><a href="../assets/vid/qp1ng-fallout-field-demo.mp4">Ouvrir la vidéo (MP4)</a></p></noscript>
+          </figcaption>
+        </figure>
       </div>
     </div>
 
@@ -3997,6 +4016,45 @@ _
         </div>
       </div>
     </div>
+
+    <section class="fallout-demo btc-chat-demo" id="btc-chat-demo" aria-labelledby="btc-chat-demo-title">
+      <figure class="app-walkthrough fallout-demo-layout" data-app-walkthrough="Q-Vault · BTC request"
+        data-cues="../assets/vid/btc-chat-payment-request-demo-timing.json" data-idle-en="Set an amount, add a memo and choose a contact. Keep the request and its details in the conversation." data-idle-it="Imposta l’importo, aggiungi una causale e scegli il contatto. La richiesta e i suoi dettagli restano nella conversazione.">
+        <figcaption class="fallout-demo-copy">
+          <p class="fallout-demo-kicker mono">Q-VAULT · DEMANDES DE PAIEMENT</p>
+          <h3 id="btc-chat-demo-title">Demandez des bitcoins. Dans le chat.</h3>
+          <p class="fallout-demo-intro">Indiquez un montant, ajoutez un motif et choisissez un contact. La demande et ses détails restent dans la conversation.</p>
+          <ol class="fallout-demo-steps">
+            <li><span class="mono" aria-hidden="true">01</span>Montant en satoshis et motif</li>
+            <li><span class="mono" aria-hidden="true">02</span>Choisir le contact</li>
+            <li><span class="mono" aria-hidden="true">03</span>Consulter la demande dans le chat</li>
+          </ol>
+          <div class="fallout-demo-caption-panel">
+            <div class="app-walkthrough-meta">
+              <span class="mono">Q-VAULT / TESTNET DEMO / 00:40</span>
+              <div class="app-walkthrough-languages" role="group" aria-label="EN / IT">
+                <button type="button" data-demo-lang="en" aria-pressed="true" lang="en">EN</button>
+                <button type="button" data-demo-lang="it" aria-pressed="false" lang="it">IT</button>
+              </div>
+            </div>
+            <span class="app-walkthrough-caption" id="btc-chat-demo-caption" data-demo-caption>Indiquez un montant, ajoutez un motif et choisissez un contact. La demande et ses détails restent dans la conversation.</span>
+            <span class="app-walkthrough-note" data-demo-hint>Cliquer pour lire</span>
+            <p class="app-walkthrough-fallback" data-demo-fallback hidden><a href="../assets/vid/btc-chat-payment-request-demo.mp4">Ouvrir la vidéo</a></p>
+          </div>
+          <p class="fallout-demo-note" id="btc-chat-demo-note">Enregistré dans l’application Android avec un portefeuille Testnet vide et un contact de démonstration hors ligne. Demande enregistrée localement ; aucune transaction Bitcoin signée ni diffusée. Attentes raccourcies.</p>
+          <noscript><p><a href="../assets/vid/btc-chat-payment-request-demo.mp4">Ouvrir la vidéo (MP4)</a></p></noscript>
+        </figcaption>
+        <div class="app-walkthrough-screen fallout-demo-phone">
+          <video width="720" height="1280" muted playsinline preload="none" role="button" tabindex="0"
+            aria-label="Cliquer pour lire: Q-Vault · BTC request" aria-describedby="btc-chat-demo-caption btc-chat-demo-note"
+            poster="../assets/img/btc-chat-payment-request-demo-poster.webp">
+            <source data-src="../assets/vid/btc-chat-payment-request-demo.webm" type="video/webm">
+            <source data-src="../assets/vid/btc-chat-payment-request-demo.mp4" type="video/mp4">
+            <p><a href="../assets/vid/btc-chat-payment-request-demo.mp4">Ouvrir la vidéo</a></p>
+          </video>
+        </div>
+      </figure>
+    </section>
 
     <!-- ARCHITECTURAL VISUAL CENTERPIECE: BITCOIN VAULT & TOR NETWORK -->
     <div class="finance-visual-stage" aria-label="Visuel de l’architecture du coffre Bitcoin et du réseau Tor">
@@ -8276,7 +8334,7 @@ _
   <!-- The texts the scripts write, in the page's language (i18n/build.py). -->
   <!-- i18n:messages --><script type="application/json" id="site-i18n">{"COPIED": "COPIÉ", "[ ACCESS GRANTED ]": "[ ACCÈS AUTORISÉ ]", "REPLAY_BUFFER": "REPLAY_BUFFER", "REPLAY_FAIL": "REPLAY_FAIL", "MIN": "MIN", "RST": "RST", "PAUSE STREAM": "PAUSE DU FLUX", "CLICK TO PLAY": "CLIQUEZ POUR LIRE", "AIOC RIG ACTIVE": "STATION AIOC ACTIVE", "RF LINK ACTIVE": "LIAISON RF ACTIVE", "SCANNING": "BALAYAGE", "PAUSED": "EN PAUSE", "PAUSE FEED": "PAUSE DU FLUX", "CALL DEMO VIDEO": "VIDÉO DÉMO D’APPEL", "REPLAY FEED": "REJOUER LE FLUX", "[ PAUSE STREAM ]": "[ PAUSE DU FLUX ]", "🔒 [MESSAGE_ENCRYPTED_AND_DISPATCHED]": "🔒 [MESSAGE_ENCRYPTED_AND_DISPATCHED]", "[BUFFER_ZEROIZED: 00 00 00 00]": "[BUFFER_ZEROIZED: 00 00 00 00]", "BUFFER: ZEROIZED": "TAMPON : MIS À ZÉRO", "0s": "0s", "BUFFER: ENCRYPTED (AES-256)": "TAMPON : CHIFFRÉ (AES-256)", "AUTH_GRANTED // REAL APP UNLOCKED": "AUTH_GRANTED // VRAIE APPLI DÉVERROUILLÉE", "DECOY PIN // WEATHER COVER": "PIN LEURRE // COUVERTURE MÉTÉO", "DECOY PIN // SHOPPING LIST COVER": "PIN LEURRE // COUVERTURE LISTE DE COURSES", "SILENT_DURESS_TRIGGERED // DELETING KEYSTORE KEYS": "SILENT_DURESS_TRIGGERED // SUPPRESSION DES CLÉS KEYSTORE", "ERR: INVALID_PIN (REMAINING: 2)": "ERR : INVALID_PIN (RESTANT : 2)", "PIN BUFFER CLEARED": "TAMPON DU PIN EFFACÉ", "STANDBY // CLICK PRESETS OR KEYPAD": "EN ATTENTE // CLIQUEZ UN PRÉRÉGLAGE OU LE PAVÉ", "EXECUTING WIPE SEQUENCE...": "SÉQUENCE D’EFFACEMENT EN COURS...", "SIMULATION COMPLETE // KEYS VERIFIED GONE": "SIMULATION TERMINÉE // DISPARITION DES CLÉS VÉRIFIÉE", "EXECUTE PIPELINE SIMULATION": "LANCER LA SIMULATION DU PIPELINE", "AOS APPROACH (BLUE SHIFT)": "AOS APPROCHE (DÉCALAGE VERS LE BLEU)", "LOS RECEDING (RED SHIFT)": "LOS ÉLOIGNEMENT (DÉCALAGE VERS LE ROUGE)", "TCA ZENITH (PEAK ELEVATION)": "TCA ZÉNITH (ÉLÉVATION MAX)", "DEMO · PTT BURST...": "DÉMO · SALVE PTT...", "DEMO PTT: NO RF TRANSMISSION": "PTT DÉMO : AUCUNE ÉMISSION RF", "DEMO PTT: TAIL PREVIEW": "PTT DÉMO : APERÇU DE LA TRAÎNE", "PREVIEW PTT BURST": "APERÇU D’UNE SALVE PTT", "DEMO PTT: STANDBY": "PTT DÉMO : EN ATTENTE", "DEMO: APPROXIMATE COORDINATES": "DÉMO : COORDONNÉES APPROXIMATIVES", "PREVIEW EXACT COORDINATES": "APERÇU COORDONNÉES EXACTES", "DEMO: EXACT COORDINATES": "DÉMO : COORDONNÉES EXACTES", "PREVIEW APPROXIMATE COORDINATES": "APERÇU COORDONNÉES APPROXIMATIVES", "VERIFIED (+1 ACK)": "VÉRIFIÉ (+1 ACK)", "CONFIRM (0x03)": "CONFIRMER (0x03)", "PREVIEW OFFLINE SETUP": "APERÇU DE L’INSTALLATION HORS LIGNE", "Dynamic Hazard": "Danger dynamique", "DEMO PACKET PREVIEWED OK": "APERÇU DU PAQUET DÉMO OK", "BUILD SAMPLE PACKET": "GÉNÉRER UN PAQUET D’EXEMPLE", "PREVIEWING FLOW GRAPH...": "APERÇU DU GRAPHE DE FLUX...", "DEMO: EVENT NODE 01": "DÉMO : NŒUD ÉVÉNEMENT 01", "DEMO: CONDITION NODE 02": "DÉMO : NŒUD CONDITION 02", "DEMO: ACTIONS 03 & 04": "DÉMO : ACTIONS 03 ET 04", "DEMO COMPLETE · NO ACTIONS EXECUTED": "DÉMO TERMINÉE · AUCUNE ACTION EXÉCUTÉE", "PREVIEW GRAPH FLOW": "APERÇU DU FLUX", "✓ DEMO TIMER RESET (24H)": "✓ MINUTERIE DÉMO RÉINITIALISÉE (24H)", "RESET DEMO TIMER (24H)": "RÉINITIALISER LA MINUTERIE DÉMO (24H)", "DEMO · HASH CHECK...": "DÉMO · CONTRÔLE DU HASH...", "PREVIEW HASH CHECK": "APERÇU DU CONTRÔLE DE HASH", "DEMO COMPLETE · NO HASH CHECKED": "DÉMO TERMINÉE · AUCUN HASH VÉRIFIÉ", "When you can no longer trust governments and institutions.": "Quand vous ne pouvez plus faire confiance aux gouvernements et aux institutions.", "When Big Tech sells your life to the highest bidder.": "Quand les Big Tech vendent votre vie au plus offrant.", "When dissent is monitored, intercepted and weaponized.": "Quand la dissidence est surveillée, interceptée et retournée contre vous.", "Do not submit to mass surveillance.": "Ne vous soumettez pas à la surveillance de masse.", "Cryptography is self-defense. Freedom is a protocol.": "La cryptographie est une autodéfense. La liberté est un protocole.", "QUANTUM P1NG // WELCOME TO THE RESISTANCE.": "QUANTUM P1NG // BIENVENUE DANS LA RÉSISTANCE.", "MUTED": "MUET", "AUDIO": "AUDIO", "COMPLETED · CLICK TO REPLAY": "TERMINÉ · CLIQUEZ POUR REJOUER", "Click to play": "Cliquez pour lire", "Click to pause": "Cliquez pour mettre en pause", "Click to replay": "Cliquez pour revoir", "Click to retry": "Cliquez pour réessayer", "The video could not load. Click the preview to retry.": "La vidéo n’a pas pu se charger. Cliquez sur l’aperçu pour réessayer.", "Retry the Q-Geo app walkthrough": "Réessayer la démo de l’appli Q-Geo", "Pause the Q-Geo app walkthrough": "Mettre en pause la démo de l’appli Q-Geo", "Replay the Q-Geo app walkthrough": "Revoir la démo de l’appli Q-Geo", "Play the Q-Geo app walkthrough": "Lire la démo de l’appli Q-Geo", "The video could not load. Click the image to retry.": "La vidéo n’a pas pu se charger. Cliquez sur l’image pour réessayer."}</script><!-- /i18n:messages -->
   <script src="../script.js?v=2.6.26" defer></script>
-  <script src="../app-feature-demos.js?v=3" defer></script>
+  <script src="../app-feature-demos.js?v=5" defer></script>
   <script src="../qdream-gallery.js?v=1" defer></script>
   <script src="../qcast-hero-player.js?v=1" defer></script>
   <script src="../qgeo-demo.js?v=2" defer></script>

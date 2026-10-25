@@ -1,0 +1,134 @@
+{
+  "name": "btc-chat-payment-request-demo",
+  "duration_seconds": 39.533,
+  "resolution": "720x1280",
+  "frame_rate": 30,
+  "audio": false,
+  "app_id": "com.qp1ng.android.videodemo",
+  "emulator": "QP1NG_Demo / emulator-5580",
+  "theme": "FALLOUT",
+  "capture": "Actual Android app, real empty Testnet wallet and real generated payment request. Synthetic offline contact.",
+  "network": "testnet",
+  "amount_sats": 25000,
+  "amount_btc": "0.00025000",
+  "memo": "Equipment share - demo",
+  "demonstrated_actions": [
+    "Open Request via chat in Q-Vault",
+    "Enter amount in sats",
+    "Add memo",
+    "Review generated Testnet address",
+    "Select demo contact",
+    "View locally saved request in chat",
+    "Open payment details"
+  ],
+  "limits": [
+    "No mainnet wallet or funds used",
+    "Recipient is a synthetic offline contact; request saved locally, not delivered to a second device",
+    "No Bitcoin transaction signed or broadcast",
+    "Fiat amount is the estimate shown by the app during recording"
+  ],
+  "editing": "Navigation and waiting time removed. Original playback speed retained. Android status bar replaced with Testnet demo scene labels.",
+  "real_devices_used": false,
+  "main_app_source_modified": false,
+  "subtitles": [
+    "it",
+    "en"
+  ],
+  "scenes": [
+    {
+      "file": "01-request.webm",
+      "start": 0,
+      "end": 4.8,
+      "label": "TESTNET DEMO // Q-VAULT TO CHAT",
+      "chapter": "wallet",
+      "en": "Open Request via chat from the Bitcoin vault. This wallet uses Testnet and has no funds.",
+      "it": "Apri Richiedi via chat dal portafoglio Bitcoin. Il wallet usa Testnet e non contiene fondi."
+    },
+    {
+      "file": "01-request.webm",
+      "start": 35.7,
+      "end": 42.8,
+      "label": "TESTNET DEMO // AMOUNT AND MEMO",
+      "chapter": "amount",
+      "en": "Enter 25,000 sats and a memo. The app also shows the amount in BTC and a fiat estimate.",
+      "it": "Inserisci 25.000 satoshi e una causale. L’app mostra anche l’importo in BTC e una stima in valuta."
+    },
+    {
+      "file": "01-request.webm",
+      "start": 43,
+      "end": 49.5,
+      "label": "TESTNET DEMO // REVIEW AND SHARE REQUEST",
+      "chapter": "review",
+      "en": "Review the amount, memo and Testnet receiving address, then choose Send request.",
+      "it": "Controlla importo, causale e indirizzo di ricezione Testnet, poi scegli Invia richiesta."
+    },
+    {
+      "file": "01-request.webm",
+      "start": 149,
+      "end": 157,
+      "label": "TESTNET DEMO // SAMPLE CONTACT - OFFLINE",
+      "chapter": "contact",
+      "en": "Choose the demo contact. With this peer offline, the request is saved locally in the conversation.",
+      "it": "Scegli il contatto demo. Poiché il peer è offline, la richiesta viene salvata localmente nella conversazione."
+    },
+    {
+      "file": "01-request.webm",
+      "start": 160,
+      "end": 165,
+      "label": "TESTNET DEMO // AWAITING PAYMENT",
+      "chapter": "chat",
+      "en": "The chat card shows 0.00025000 BTC, 25,000 sats, the memo and Awaiting payment.",
+      "it": "La scheda in chat mostra 0,00025000 BTC, 25.000 satoshi, la causale e In attesa di pagamento."
+    },
+    {
+      "file": "02-details.webm",
+      "start": 1,
+      "end": 5.5,
+      "label": "TESTNET DEMO // PAYMENT DETAILS",
+      "chapter": "details",
+      "en": "Payment details keep the network, receiving address, amount and memo together.",
+      "it": "I dettagli riuniscono rete, indirizzo di ricezione, importo e causale."
+    },
+    {
+      "file": "01-request.webm",
+      "start": 170,
+      "end": 174,
+      "label": "TESTNET DEMO // REQUEST CREATED - NO PAYMENT",
+      "chapter": "outro",
+      "en": "Request created. No Bitcoin payment is signed or broadcast in this demo.",
+      "it": "Richiesta creata. In questa demo non viene firmato né trasmesso alcun pagamento Bitcoin."
+    }
+  ],
+  "files": [
+    {
+      "name": "btc-chat-payment-request-demo-poster.webp",
+      "bytes": 28706,
+      "sha256": "8968b82681d8e85695a05206fbc161ae54d22f5ee141b50aff1f69ce5834a711"
+    },
+    {
+      "name": "btc-chat-payment-request-demo-timing.json",
+      "bytes": 1975,
+      "sha256": "7a1525aaa5c696deec60fb6f1ec5cfe26b5feab91419dcb337b2fb8131e9b678"
+    },
+    {
+      "name": "btc-chat-payment-request-demo.en.vtt",
+      "bytes": 856,
+      "sha256": "7437ca7a3c248f9b13b2a9b5f89dce009a1edb762141c75acf24ec892a321c38"
+    },
+    {
+      "name": "btc-chat-payment-request-demo.it.vtt",
+      "bytes": 918,
+      "sha256": "ad45512dff546e8652009676bfe345f1541b533febf74f1f8b8b30b7a12aebe4"
+    },
+    {
+      "name": "btc-chat-payment-request-demo.mp4",
+      "bytes": 896412,
+      "sha256": "288d409e55312569bc7fb3faaf78cfdd764ce5f578f575f2266ff6a0c4ba197e"
+    },
+    {
+      "name": "btc-chat-payment-request-demo.webm",
+      "bytes": 963260,
+      "sha256": "cb8bb0eda013a2d5b93393e99e934818c68c56504b814225be3eca0b189324d4"
+    }
+  ]
+}

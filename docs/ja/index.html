@@ -84,7 +84,7 @@
   <link rel="stylesheet" href="../qgeo-demo.css?v=2" />
   <link rel="stylesheet" href="../radio-bridge-layout.css?v=1" />
   <link rel="stylesheet" href="../qai-tools-demo.css?v=4" />
-  <link rel="stylesheet" href="../app-feature-demos.css?v=2" />
+  <link rel="stylesheet" href="../app-feature-demos.css?v=4" />
   <link rel="stylesheet" href="../qdream-gallery.css?v=3" />
 
   <!-- Schema.org Comprehensive Structured Data (JSON-LD) -->
@@ -1455,41 +1455,60 @@ _
         </div>
       </div>
 
-      <div class="sp-console" role="region" aria-label="セキュリティプロトコルのデモ">
-<aside class="editorial-demo-note" role="note"><strong>インタラクティブデモ · サンプルデータ</strong><span>説明用の状態です。このパネルはアプリを操作せず、端末の検証もしません。</span></aside>
-
+      <div class="sp-console sp-console--video" role="region" aria-label="QP1NG · Fallout">
         <div class="sp-console-top">
           <div>
-            <span class="sp-console-label mono">OPSEC 設定のサンプル</span>
-            <strong class="sp-console-title mono">デモ</strong>
+            <span class="sp-console-label mono">QP1NGの操作デモ · FALLOUTテーマ</span>
+            <strong class="sp-console-title mono">自分のID。自分の接続経路。</strong>
           </div>
-          <span class="sp-console-state mono"><span class="sp-live-dot"></span> サンプルデータ</span>
+          <span class="sp-console-state mono"><span class="sp-live-dot"></span> 実際のアプリ</span>
         </div>
 
-        <div class="sp-posture-ring" aria-hidden="true">
-          <div class="sp-ring sp-ring--outer"></div>
-          <div class="sp-ring sp-ring--mid"></div>
-          <div class="sp-ring sp-ring--inner"></div>
-          <div class="sp-core">OP</div>
-          <span class="sp-orbit sp-orbit--one"></span>
-          <span class="sp-orbit sp-orbit--two"></span>
-          <span class="sp-orbit sp-orbit--three"></span>
-        </div>
-
-        <div class="sp-console-grid">
-          <div class="sp-status-card">
-            <span class="sp-panel-label mono">脅威モデル</span>
-            <h3>すべての面を分離</h3>
-            <p>ルート、ローカル状態、メタデータ、自動化は、それぞれ別の露出面として扱われます。</p>
-            <div class="sp-meter"><span style="--sp-fill: 91%"></span></div>
+        <!-- A recording of the real app (assets/source/qp1ng-fallout-field-demo-info.json), downloaded only on click.
+             The posture rings orbit the phone; the chapters light up and fill as the video plays (app-feature-demos.js). -->
+        <figure class="app-walkthrough sp-walkthrough" data-app-walkthrough="QP1NG · Fallout"
+          data-cues="../assets/vid/qp1ng-fallout-field-demo-timing.json" data-idle-en="From a calculator cover to a verified Tor circuit: see the app in use." data-idle-it="Dalla copertura calcolatrice al circuito Tor verificato: guarda l’app in uso.">
+          <div class="sp-stage">
+            <div class="sp-stage-phone">
+              <div class="sp-posture-ring" aria-hidden="true">
+                <div class="sp-ring sp-ring--outer"></div>
+                <div class="sp-ring sp-ring--mid"></div>
+                <div class="sp-ring sp-ring--inner"></div>
+                <span class="sp-orbit-track sp-orbit-track--one"></span>
+                <span class="sp-orbit-track sp-orbit-track--two"></span>
+                <span class="sp-orbit-track sp-orbit-track--three"></span>
+              </div>
+              <div class="app-walkthrough-screen sp-phone">
+                <video width="720" height="1280" muted playsinline preload="none" role="button" tabindex="0"
+                  aria-label="クリックして再生: QP1NG · Fallout" aria-describedby="sp-demo-caption sp-demo-note"
+                  poster="../assets/img/qp1ng-fallout-field-demo-poster.webp">
+                  <source data-src="../assets/vid/qp1ng-fallout-field-demo.webm" type="video/webm">
+                  <source data-src="../assets/vid/qp1ng-fallout-field-demo.mp4" type="video/mp4">
+                  <p><a href="../assets/vid/qp1ng-fallout-field-demo.mp4">動画を開く</a></p>
+                </video>
+              </div>
+            </div>
+            <ol class="sp-chapters">
+              <li data-demo-chapter data-from="0" data-to="21.8"><span class="mono" aria-hidden="true">01</span>GhostチャットとアニメーションID QR</li>
+              <li data-demo-chapter data-from="21.8" data-to="39.267"><span class="mono" aria-hidden="true">02</span>BluetoothメッシュとローカルWi-Fi招待</li>
+              <li data-demo-chapter data-from="39.267" data-to="64.2"><span class="mono" aria-hidden="true">03</span>Tor回線の検証とアクセス設定</li>
+            </ol>
           </div>
-
-          <div class="sp-terminal mono" aria-label="セキュリティプロトコルの診断">
-            <div><span>&gt;</span><span>screen_guard=enabled secure_window=true</span></div>
-            <div><span>&gt;</span><span>tor_route=optional onion_diagnostics=sample</span></div>
-            <div><span>&gt;</span><span>ai_tools=risk_gated sandbox=policy_checked</span></div>
-          </div>
-        </div>
+          <figcaption class="sp-walkthrough-panel">
+            <div class="app-walkthrough-meta">
+              <span class="mono">QP1NG / FALLOUT / 01:04</span>
+              <div class="app-walkthrough-languages" role="group" aria-label="EN / IT">
+                <button type="button" data-demo-lang="en" aria-pressed="true" lang="en">EN</button>
+                <button type="button" data-demo-lang="it" aria-pressed="false" lang="it">IT</button>
+              </div>
+            </div>
+            <span class="app-walkthrough-caption" id="sp-demo-caption" data-demo-caption>電卓カバーからTor回線の検証まで、アプリの操作をご覧ください。</span>
+            <span class="app-walkthrough-note" data-demo-hint>クリックして再生</span>
+            <p class="app-walkthrough-fallback" data-demo-fallback hidden><a href="../assets/vid/qp1ng-fallout-field-demo.mp4">動画を開く</a></p>
+            <p class="sp-walkthrough-note" id="sp-demo-note">待機時間を短縮したAndroidデモです。サンプル連絡先と未送信の下書きを使用。Bluetooth検索とWi-Fi招待は2台目の端末なしで表示しています。転送・通話・緊急消去は実行していません。</p>
+            <noscript><p><a href="../assets/vid/qp1ng-fallout-field-demo.mp4">動画を開く (MP4)</a></p></noscript>
+          </figcaption>
+        </figure>
       </div>
     </div>
 
@@ -3997,6 +4016,45 @@ _
         </div>
       </div>
     </div>
+
+    <section class="fallout-demo btc-chat-demo" id="btc-chat-demo" aria-labelledby="btc-chat-demo-title">
+      <figure class="app-walkthrough fallout-demo-layout" data-app-walkthrough="Q-Vault · BTC request"
+        data-cues="../assets/vid/btc-chat-payment-request-demo-timing.json" data-idle-en="Set an amount, add a memo and choose a contact. Keep the request and its details in the conversation." data-idle-it="Imposta l’importo, aggiungi una causale e scegli il contatto. La richiesta e i suoi dettagli restano nella conversazione.">
+        <figcaption class="fallout-demo-copy">
+          <p class="fallout-demo-kicker mono">Q-VAULT · 支払いリクエスト</p>
+          <h3 id="btc-chat-demo-title">チャットでビットコインをリクエスト。</h3>
+          <p class="fallout-demo-intro">金額とメモを入力し、連絡先を選びます。リクエストと詳細は会話内に残ります。</p>
+          <ol class="fallout-demo-steps">
+            <li><span class="mono" aria-hidden="true">01</span>サトシ単位の金額とメモ</li>
+            <li><span class="mono" aria-hidden="true">02</span>連絡先を選択</li>
+            <li><span class="mono" aria-hidden="true">03</span>チャットでリクエストを確認</li>
+          </ol>
+          <div class="fallout-demo-caption-panel">
+            <div class="app-walkthrough-meta">
+              <span class="mono">Q-VAULT / TESTNET DEMO / 00:40</span>
+              <div class="app-walkthrough-languages" role="group" aria-label="EN / IT">
+                <button type="button" data-demo-lang="en" aria-pressed="true" lang="en">EN</button>
+                <button type="button" data-demo-lang="it" aria-pressed="false" lang="it">IT</button>
+              </div>
+            </div>
+            <span class="app-walkthrough-caption" id="btc-chat-demo-caption" data-demo-caption>金額とメモを入力し、連絡先を選びます。リクエストと詳細は会話内に残ります。</span>
+            <span class="app-walkthrough-note" data-demo-hint>クリックして再生</span>
+            <p class="app-walkthrough-fallback" data-demo-fallback hidden><a href="../assets/vid/btc-chat-payment-request-demo.mp4">動画を開く</a></p>
+          </div>
+          <p class="fallout-demo-note" id="btc-chat-demo-note">空のTestnetウォレットとオフラインのデモ連絡先を使い、Androidアプリで録画しました。リクエストはローカルに保存され、Bitcoin取引の署名・送信は行っていません。待機時間を短縮しています。</p>
+          <noscript><p><a href="../assets/vid/btc-chat-payment-request-demo.mp4">動画を開く (MP4)</a></p></noscript>
+        </figcaption>
+        <div class="app-walkthrough-screen fallout-demo-phone">
+          <video width="720" height="1280" muted playsinline preload="none" role="button" tabindex="0"
+            aria-label="クリックして再生: Q-Vault · BTC request" aria-describedby="btc-chat-demo-caption btc-chat-demo-note"
+            poster="../assets/img/btc-chat-payment-request-demo-poster.webp">
+            <source data-src="../assets/vid/btc-chat-payment-request-demo.webm" type="video/webm">
+            <source data-src="../assets/vid/btc-chat-payment-request-demo.mp4" type="video/mp4">
+            <p><a href="../assets/vid/btc-chat-payment-request-demo.mp4">動画を開く</a></p>
+          </video>
+        </div>
+      </figure>
+    </section>
 
     <!-- ARCHITECTURAL VISUAL CENTERPIECE: BITCOIN VAULT & TOR NETWORK -->
     <div class="finance-visual-stage" aria-label="Bitcoin 保管庫と Tor ネットワークのアーキテクチャ図">
@@ -8276,7 +8334,7 @@ _
   <!-- The texts the scripts write, in the page's language (i18n/build.py). -->
   <!-- i18n:messages --><script type="application/json" id="site-i18n">{"COPIED": "コピーしました", "[ ACCESS GRANTED ]": "[ アクセス許可 ]", "REPLAY_BUFFER": "REPLAY_BUFFER", "REPLAY_FAIL": "REPLAY_FAIL", "MIN": "最小化", "RST": "リセット", "PAUSE STREAM": "ストリームを一時停止", "CLICK TO PLAY": "クリックで再生", "AIOC RIG ACTIVE": "AIOC リグ稼働中", "RF LINK ACTIVE": "RF リンク稼働中", "SCANNING": "スキャン中", "PAUSED": "一時停止中", "PAUSE FEED": "フィードを一時停止", "CALL DEMO VIDEO": "通話デモ動画", "REPLAY FEED": "フィードを再生", "[ PAUSE STREAM ]": "[ ストリームを一時停止 ]", "🔒 [MESSAGE_ENCRYPTED_AND_DISPATCHED]": "🔒 [MESSAGE_ENCRYPTED_AND_DISPATCHED]", "[BUFFER_ZEROIZED: 00 00 00 00]": "[BUFFER_ZEROIZED: 00 00 00 00]", "BUFFER: ZEROIZED": "バッファ: ゼロ化済み", "0s": "0s", "BUFFER: ENCRYPTED (AES-256)": "バッファ: 暗号化済み（AES-256）", "AUTH_GRANTED // REAL APP UNLOCKED": "AUTH_GRANTED // 本物のアプリをロック解除", "DECOY PIN // WEATHER COVER": "ダミー PIN // 天気のカバー", "DECOY PIN // SHOPPING LIST COVER": "ダミー PIN // 買い物リストのカバー", "SILENT_DURESS_TRIGGERED // DELETING KEYSTORE KEYS": "SILENT_DURESS_TRIGGERED // KEYSTORE の鍵を削除中", "ERR: INVALID_PIN (REMAINING: 2)": "ERR: INVALID_PIN (残り: 2)", "PIN BUFFER CLEARED": "PIN バッファを消去", "STANDBY // CLICK PRESETS OR KEYPAD": "待機中 // プリセットかキーパッドをクリック", "EXECUTING WIPE SEQUENCE...": "消去シーケンスを実行中...", "SIMULATION COMPLETE // KEYS VERIFIED GONE": "シミュレーション完了 // 鍵の消失を確認", "EXECUTE PIPELINE SIMULATION": "パイプラインのシミュレーションを実行", "AOS APPROACH (BLUE SHIFT)": "AOS 接近（青方偏移）", "LOS RECEDING (RED SHIFT)": "LOS 遠ざかり（赤方偏移）", "TCA ZENITH (PEAK ELEVATION)": "TCA 天頂（最大仰角）", "DEMO · PTT BURST...": "デモ · PTT バースト...", "DEMO PTT: NO RF TRANSMISSION": "デモ PTT: RF 送信なし", "DEMO PTT: TAIL PREVIEW": "デモ PTT: テールのプレビュー", "PREVIEW PTT BURST": "PTT バーストをプレビュー", "DEMO PTT: STANDBY": "デモ PTT: 待機", "DEMO: APPROXIMATE COORDINATES": "デモ：おおよその座標", "PREVIEW EXACT COORDINATES": "正確な座標をプレビュー", "DEMO: EXACT COORDINATES": "デモ：正確な座標", "PREVIEW APPROXIMATE COORDINATES": "おおよその座標をプレビュー", "VERIFIED (+1 ACK)": "検証済み (+1 ACK)", "CONFIRM (0x03)": "確認 (0x03)", "PREVIEW OFFLINE SETUP": "オフライン設定をプレビュー", "Dynamic Hazard": "動的ハザード", "DEMO PACKET PREVIEWED OK": "デモパケットのプレビュー OK", "BUILD SAMPLE PACKET": "サンプルパケットを作成", "PREVIEWING FLOW GRAPH...": "フローグラフをプレビュー中...", "DEMO: EVENT NODE 01": "デモ: イベントノード 01", "DEMO: CONDITION NODE 02": "デモ: 条件ノード 02", "DEMO: ACTIONS 03 & 04": "デモ: アクション 03 と 04", "DEMO COMPLETE · NO ACTIONS EXECUTED": "デモ完了 · アクションは未実行", "PREVIEW GRAPH FLOW": "グラフフローをプレビュー", "✓ DEMO TIMER RESET (24H)": "✓ デモタイマーをリセット (24H)", "RESET DEMO TIMER (24H)": "デモタイマーをリセット (24H)", "DEMO · HASH CHECK...": "デモ · ハッシュチェック中...", "PREVIEW HASH CHECK": "ハッシュチェックをプレビュー", "DEMO COMPLETE · NO HASH CHECKED": "デモ完了 · ハッシュは未検証", "When you can no longer trust governments and institutions.": "政府や制度を、もはや信頼できないとき。", "When Big Tech sells your life to the highest bidder.": "ビッグテックが、あなたの人生を最高入札者に売り渡すとき。", "When dissent is monitored, intercepted and weaponized.": "異議の声が監視され、傍受され、武器にされるとき。", "Do not submit to mass surveillance.": "大量監視に屈するな。", "Cryptography is self-defense. Freedom is a protocol.": "暗号は自己防衛。自由はプロトコル。", "QUANTUM P1NG // WELCOME TO THE RESISTANCE.": "QUANTUM P1NG // レジスタンスへようこそ。", "MUTED": "ミュート", "AUDIO": "オーディオ", "COMPLETED · CLICK TO REPLAY": "完了 · クリックでもう一度再生", "Click to play": "クリックで再生", "Click to pause": "クリックで一時停止", "Click to replay": "クリックでもう一度再生", "Click to retry": "クリックで再試行", "The video could not load. Click the preview to retry.": "動画を読み込めませんでした。プレビューをクリックして再試行してください。", "Retry the Q-Geo app walkthrough": "Q-Geo アプリ紹介を再試行", "Pause the Q-Geo app walkthrough": "Q-Geo アプリ紹介を一時停止", "Replay the Q-Geo app walkthrough": "Q-Geo アプリ紹介をもう一度再生", "Play the Q-Geo app walkthrough": "Q-Geo アプリ紹介を再生", "The video could not load. Click the image to retry.": "動画を読み込めませんでした。画像をクリックして再試行してください。"}</script><!-- /i18n:messages -->
   <script src="../script.js?v=2.6.26" defer></script>
-  <script src="../app-feature-demos.js?v=3" defer></script>
+  <script src="../app-feature-demos.js?v=5" defer></script>
   <script src="../qdream-gallery.js?v=1" defer></script>
   <script src="../qcast-hero-player.js?v=1" defer></script>
   <script src="../qgeo-demo.js?v=2" defer></script>

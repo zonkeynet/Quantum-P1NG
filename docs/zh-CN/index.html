@@ -84,7 +84,7 @@
   <link rel="stylesheet" href="../qgeo-demo.css?v=2" />
   <link rel="stylesheet" href="../radio-bridge-layout.css?v=1" />
   <link rel="stylesheet" href="../qai-tools-demo.css?v=4" />
-  <link rel="stylesheet" href="../app-feature-demos.css?v=2" />
+  <link rel="stylesheet" href="../app-feature-demos.css?v=4" />
   <link rel="stylesheet" href="../qdream-gallery.css?v=3" />
 
   <!-- Schema.org Comprehensive Structured Data (JSON-LD) -->
@@ -1455,41 +1455,60 @@ _
         </div>
       </div>
 
-      <div class="sp-console" role="region" aria-label="安全协议演示">
-<aside class="editorial-demo-note" role="note"><strong>交互演示 · 示例数据</strong><span>示意状态。此面板不控制应用，也不验证你的设备。</span></aside>
-
+      <div class="sp-console sp-console--video" role="region" aria-label="QP1NG · Fallout">
         <div class="sp-console-top">
           <div>
-            <span class="sp-console-label mono">示例 OPSEC 设置</span>
-            <strong class="sp-console-title mono">演示</strong>
+            <span class="sp-console-label mono">QP1NG 实际操作 · FALLOUT 主题</span>
+            <strong class="sp-console-title mono">你的身份。你的连接。</strong>
           </div>
-          <span class="sp-console-state mono"><span class="sp-live-dot"></span> 示例数据</span>
+          <span class="sp-console-state mono"><span class="sp-live-dot"></span> 真实应用</span>
         </div>
 
-        <div class="sp-posture-ring" aria-hidden="true">
-          <div class="sp-ring sp-ring--outer"></div>
-          <div class="sp-ring sp-ring--mid"></div>
-          <div class="sp-ring sp-ring--inner"></div>
-          <div class="sp-core">OP</div>
-          <span class="sp-orbit sp-orbit--one"></span>
-          <span class="sp-orbit sp-orbit--two"></span>
-          <span class="sp-orbit sp-orbit--three"></span>
-        </div>
-
-        <div class="sp-console-grid">
-          <div class="sp-status-card">
-            <span class="sp-panel-label mono">威胁模型</span>
-            <h3>隔离每个暴露面</h3>
-            <p>路由、本地状态、元数据和自动化被视为各自独立的暴露面。</p>
-            <div class="sp-meter"><span style="--sp-fill: 91%"></span></div>
+        <!-- A recording of the real app (assets/source/qp1ng-fallout-field-demo-info.json), downloaded only on click.
+             The posture rings orbit the phone; the chapters light up and fill as the video plays (app-feature-demos.js). -->
+        <figure class="app-walkthrough sp-walkthrough" data-app-walkthrough="QP1NG · Fallout"
+          data-cues="../assets/vid/qp1ng-fallout-field-demo-timing.json" data-idle-en="From a calculator cover to a verified Tor circuit: see the app in use." data-idle-it="Dalla copertura calcolatrice al circuito Tor verificato: guarda l’app in uso.">
+          <div class="sp-stage">
+            <div class="sp-stage-phone">
+              <div class="sp-posture-ring" aria-hidden="true">
+                <div class="sp-ring sp-ring--outer"></div>
+                <div class="sp-ring sp-ring--mid"></div>
+                <div class="sp-ring sp-ring--inner"></div>
+                <span class="sp-orbit-track sp-orbit-track--one"></span>
+                <span class="sp-orbit-track sp-orbit-track--two"></span>
+                <span class="sp-orbit-track sp-orbit-track--three"></span>
+              </div>
+              <div class="app-walkthrough-screen sp-phone">
+                <video width="720" height="1280" muted playsinline preload="none" role="button" tabindex="0"
+                  aria-label="点击播放: QP1NG · Fallout" aria-describedby="sp-demo-caption sp-demo-note"
+                  poster="../assets/img/qp1ng-fallout-field-demo-poster.webp">
+                  <source data-src="../assets/vid/qp1ng-fallout-field-demo.webm" type="video/webm">
+                  <source data-src="../assets/vid/qp1ng-fallout-field-demo.mp4" type="video/mp4">
+                  <p><a href="../assets/vid/qp1ng-fallout-field-demo.mp4">打开视频</a></p>
+                </video>
+              </div>
+            </div>
+            <ol class="sp-chapters">
+              <li data-demo-chapter data-from="0" data-to="21.8"><span class="mono" aria-hidden="true">01</span>Ghost 聊天与动态身份二维码</li>
+              <li data-demo-chapter data-from="21.8" data-to="39.267"><span class="mono" aria-hidden="true">02</span>蓝牙网状网络与本地 Wi-Fi 邀请</li>
+              <li data-demo-chapter data-from="39.267" data-to="64.2"><span class="mono" aria-hidden="true">03</span>Tor 线路验证与访问设置</li>
+            </ol>
           </div>
-
-          <div class="sp-terminal mono" aria-label="安全协议诊断">
-            <div><span>&gt;</span><span>screen_guard=enabled secure_window=true</span></div>
-            <div><span>&gt;</span><span>tor_route=optional onion_diagnostics=sample</span></div>
-            <div><span>&gt;</span><span>ai_tools=risk_gated sandbox=policy_checked</span></div>
-          </div>
-        </div>
+          <figcaption class="sp-walkthrough-panel">
+            <div class="app-walkthrough-meta">
+              <span class="mono">QP1NG / FALLOUT / 01:04</span>
+              <div class="app-walkthrough-languages" role="group" aria-label="EN / IT">
+                <button type="button" data-demo-lang="en" aria-pressed="true" lang="en">EN</button>
+                <button type="button" data-demo-lang="it" aria-pressed="false" lang="it">IT</button>
+              </div>
+            </div>
+            <span class="app-walkthrough-caption" id="sp-demo-caption" data-demo-caption>从计算器伪装入口到 Tor 线路验证，观看应用的实际操作。</span>
+            <span class="app-walkthrough-note" data-demo-hint>点击播放</span>
+            <p class="app-walkthrough-fallback" data-demo-fallback hidden><a href="../assets/vid/qp1ng-fallout-field-demo.mp4">打开视频</a></p>
+            <p class="sp-walkthrough-note" id="sp-demo-note">录制于 Android 演示环境，等待时间已缩短。使用示例联系人和未发送草稿。蓝牙搜索及 Wi-Fi 邀请均未连接第二台设备。未执行传输、通话或紧急擦除。</p>
+            <noscript><p><a href="../assets/vid/qp1ng-fallout-field-demo.mp4">打开视频 (MP4)</a></p></noscript>
+          </figcaption>
+        </figure>
       </div>
     </div>
 
@@ -3997,6 +4016,45 @@ _
         </div>
       </div>
     </div>
+
+    <section class="fallout-demo btc-chat-demo" id="btc-chat-demo" aria-labelledby="btc-chat-demo-title">
+      <figure class="app-walkthrough fallout-demo-layout" data-app-walkthrough="Q-Vault · BTC request"
+        data-cues="../assets/vid/btc-chat-payment-request-demo-timing.json" data-idle-en="Set an amount, add a memo and choose a contact. Keep the request and its details in the conversation." data-idle-it="Imposta l’importo, aggiungi una causale e scegli il contatto. La richiesta e i suoi dettagli restano nella conversazione.">
+        <figcaption class="fallout-demo-copy">
+          <p class="fallout-demo-kicker mono">Q-VAULT · 付款请求</p>
+          <h3 id="btc-chat-demo-title">直接在聊天中请求比特币。</h3>
+          <p class="fallout-demo-intro">设置金额、添加备注并选择联系人。请求及其详情会保留在对话中。</p>
+          <ol class="fallout-demo-steps">
+            <li><span class="mono" aria-hidden="true">01</span>以聪为单位的金额和备注</li>
+            <li><span class="mono" aria-hidden="true">02</span>选择联系人</li>
+            <li><span class="mono" aria-hidden="true">03</span>在聊天中查看请求</li>
+          </ol>
+          <div class="fallout-demo-caption-panel">
+            <div class="app-walkthrough-meta">
+              <span class="mono">Q-VAULT / TESTNET DEMO / 00:40</span>
+              <div class="app-walkthrough-languages" role="group" aria-label="EN / IT">
+                <button type="button" data-demo-lang="en" aria-pressed="true" lang="en">EN</button>
+                <button type="button" data-demo-lang="it" aria-pressed="false" lang="it">IT</button>
+              </div>
+            </div>
+            <span class="app-walkthrough-caption" id="btc-chat-demo-caption" data-demo-caption>设置金额、添加备注并选择联系人。请求及其详情会保留在对话中。</span>
+            <span class="app-walkthrough-note" data-demo-hint>点击播放</span>
+            <p class="app-walkthrough-fallback" data-demo-fallback hidden><a href="../assets/vid/btc-chat-payment-request-demo.mp4">打开视频</a></p>
+          </div>
+          <p class="fallout-demo-note" id="btc-chat-demo-note">在 Android 应用中使用空的 Testnet 钱包和离线演示联系人录制。请求保存在本地，未签署或广播任何比特币交易。等待时间已缩短。</p>
+          <noscript><p><a href="../assets/vid/btc-chat-payment-request-demo.mp4">打开视频 (MP4)</a></p></noscript>
+        </figcaption>
+        <div class="app-walkthrough-screen fallout-demo-phone">
+          <video width="720" height="1280" muted playsinline preload="none" role="button" tabindex="0"
+            aria-label="点击播放: Q-Vault · BTC request" aria-describedby="btc-chat-demo-caption btc-chat-demo-note"
+            poster="../assets/img/btc-chat-payment-request-demo-poster.webp">
+            <source data-src="../assets/vid/btc-chat-payment-request-demo.webm" type="video/webm">
+            <source data-src="../assets/vid/btc-chat-payment-request-demo.mp4" type="video/mp4">
+            <p><a href="../assets/vid/btc-chat-payment-request-demo.mp4">打开视频</a></p>
+          </video>
+        </div>
+      </figure>
+    </section>
 
     <!-- ARCHITECTURAL VISUAL CENTERPIECE: BITCOIN VAULT & TOR NETWORK -->
     <div class="finance-visual-stage" aria-label="Bitcoin 保险库与 Tor 网络架构示意">
@@ -8276,7 +8334,7 @@ _
   <!-- The texts the scripts write, in the page's language (i18n/build.py). -->
   <!-- i18n:messages --><script type="application/json" id="site-i18n">{"COPIED": "已复制", "[ ACCESS GRANTED ]": "[ 访问已授权 ]", "REPLAY_BUFFER": "REPLAY_BUFFER", "REPLAY_FAIL": "REPLAY_FAIL", "MIN": "收起", "RST": "RST", "PAUSE STREAM": "暂停数据流", "CLICK TO PLAY": "点击播放", "AIOC RIG ACTIVE": "AIOC 电台已启用", "RF LINK ACTIVE": "射频链路已启用", "SCANNING": "扫描中", "PAUSED": "已暂停", "PAUSE FEED": "暂停画面", "CALL DEMO VIDEO": "通话演示视频", "REPLAY FEED": "重播画面", "[ PAUSE STREAM ]": "[ 暂停数据流 ]", "🔒 [MESSAGE_ENCRYPTED_AND_DISPATCHED]": "🔒 [MESSAGE_ENCRYPTED_AND_DISPATCHED]", "[BUFFER_ZEROIZED: 00 00 00 00]": "[BUFFER_ZEROIZED: 00 00 00 00]", "BUFFER: ZEROIZED": "缓冲区：已清零", "0s": "0s", "BUFFER: ENCRYPTED (AES-256)": "缓冲区：已加密（AES-256）", "AUTH_GRANTED // REAL APP UNLOCKED": "AUTH_GRANTED // 真实应用已解锁", "DECOY PIN // WEATHER COVER": "诱饵 PIN // 天气伪装", "DECOY PIN // SHOPPING LIST COVER": "诱饵 PIN // 购物清单伪装", "SILENT_DURESS_TRIGGERED // DELETING KEYSTORE KEYS": "SILENT_DURESS_TRIGGERED // 正在删除 KEYSTORE 密钥", "ERR: INVALID_PIN (REMAINING: 2)": "ERR: INVALID_PIN（剩余：2）", "PIN BUFFER CLEARED": "PIN 缓冲区已清空", "STANDBY // CLICK PRESETS OR KEYPAD": "待机 // 点击预设或键盘", "EXECUTING WIPE SEQUENCE...": "正在执行擦除序列...", "SIMULATION COMPLETE // KEYS VERIFIED GONE": "模拟完成 // 已确认密钥删除", "EXECUTE PIPELINE SIMULATION": "执行流水线模拟", "AOS APPROACH (BLUE SHIFT)": "AOS 逼近（蓝移）", "LOS RECEDING (RED SHIFT)": "LOS 远离（红移）", "TCA ZENITH (PEAK ELEVATION)": "TCA 天顶（最大仰角）", "DEMO · PTT BURST...": "演示 · PTT 突发...", "DEMO PTT: NO RF TRANSMISSION": "演示 PTT：无射频发射", "DEMO PTT: TAIL PREVIEW": "演示 PTT：尾音预览", "PREVIEW PTT BURST": "预览 PTT 突发", "DEMO PTT: STANDBY": "演示 PTT：待命", "DEMO: APPROXIMATE COORDINATES": "演示：近似坐标", "PREVIEW EXACT COORDINATES": "预览精确坐标", "DEMO: EXACT COORDINATES": "演示：精确坐标", "PREVIEW APPROXIMATE COORDINATES": "预览近似坐标", "VERIFIED (+1 ACK)": "已验证（+1 确认）", "CONFIRM (0x03)": "确认（0x03）", "PREVIEW OFFLINE SETUP": "预览离线配置", "Dynamic Hazard": "动态危险", "DEMO PACKET PREVIEWED OK": "演示数据包预览完成", "BUILD SAMPLE PACKET": "生成示例数据包", "PREVIEWING FLOW GRAPH...": "正在预览流程图...", "DEMO: EVENT NODE 01": "演示：事件节点 01", "DEMO: CONDITION NODE 02": "演示：条件节点 02", "DEMO: ACTIONS 03 & 04": "演示：动作 03 和 04", "DEMO COMPLETE · NO ACTIONS EXECUTED": "演示完成 · 未执行任何动作", "PREVIEW GRAPH FLOW": "预览流程图", "✓ DEMO TIMER RESET (24H)": "✓ 演示计时器已重置（24H）", "RESET DEMO TIMER (24H)": "重置演示计时器（24H）", "DEMO · HASH CHECK...": "演示 · 哈希校验...", "PREVIEW HASH CHECK": "预览哈希校验", "DEMO COMPLETE · NO HASH CHECKED": "演示完成 · 未校验哈希", "When you can no longer trust governments and institutions.": "当你再也无法信任政府和机构。", "When Big Tech sells your life to the highest bidder.": "当科技巨头把你的生活卖给出价最高的人。", "When dissent is monitored, intercepted and weaponized.": "当异见被监视、截获并被当作武器。", "Do not submit to mass surveillance.": "不要屈服于大规模监控。", "Cryptography is self-defense. Freedom is a protocol.": "密码学是自卫。自由是一种协议。", "QUANTUM P1NG // WELCOME TO THE RESISTANCE.": "QUANTUM P1NG // 欢迎加入抵抗。", "MUTED": "已静音", "AUDIO": "音频", "COMPLETED · CLICK TO REPLAY": "已完成 · 点击重播", "Click to play": "点击播放", "Click to pause": "点击暂停", "Click to replay": "点击重播", "Click to retry": "点击重试", "The video could not load. Click the preview to retry.": "视频无法加载。点击预览图重试。", "Retry the Q-Geo app walkthrough": "重试 Q-Geo 应用演示", "Pause the Q-Geo app walkthrough": "暂停 Q-Geo 应用演示", "Replay the Q-Geo app walkthrough": "重播 Q-Geo 应用演示", "Play the Q-Geo app walkthrough": "播放 Q-Geo 应用演示", "The video could not load. Click the image to retry.": "视频无法加载。点击图片重试。"}</script><!-- /i18n:messages -->
   <script src="../script.js?v=2.6.26" defer></script>
-  <script src="../app-feature-demos.js?v=3" defer></script>
+  <script src="../app-feature-demos.js?v=5" defer></script>
   <script src="../qdream-gallery.js?v=1" defer></script>
   <script src="../qcast-hero-player.js?v=1" defer></script>
   <script src="../qgeo-demo.js?v=2" defer></script>
