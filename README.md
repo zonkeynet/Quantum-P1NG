@@ -5,13 +5,14 @@
 <h1 align="center">Q-P1NG</h1>
 
 <p align="center">
-  <b>A private messenger for Android. No account, no phone number, no server that holds your messages.</b><br>
+  <b>Private chats. Offline links. Local AI with Pro.</b><br>
   <i>ghost signals for a nomadic network. Here. Then gone.</i>
 </p>
 
 <p align="center">
-  <a href="https://www.qp1ng.com">Website</a> ·
-  <a href="https://www.qp1ng.com/pro/">Get Pro</a> ·
+  <a href="https://www.qp1ng.com/#security">See the app</a> ·
+  <a href="https://www.qp1ng.com/pro/#download">Downloads</a> ·
+  <a href="https://www.qp1ng.com/pro/">Get Pro · €9.99 once</a> ·
   <a href="https://www.qp1ng.com/privacy.html">Privacy</a> ·
   <a href="SECURITY.md">Security</a> ·
   <a href="#support-development">Support development</a>
@@ -26,93 +27,105 @@
 
 ---
 
-## What Q-P1NG is
+Q-P1NG combines encrypted messaging, built-in Tor and nearby offline communication on Android. No account or phone
+number. Pro adds local AI, offline maps, radio, a Bitcoin wallet and an Alpine Linux workspace.
 
-Q-P1NG is a messenger for people whose conversations have to stay theirs: journalists, activists, researchers, and
-anyone who would rather not hand a phone number to a chat app. Your identity is a set of keys created on your phone.
-Messages go straight from phone to phone over Tor onion services, over a Bluetooth and Wi-Fi mesh when there is no
-internet, or over LoRa radio.
+**Core is free. Pro is €9.99 once on the website: a lifetime personal licence, updates included, no subscription.**
 
-## Editions
+**Release status:** the first Core and Pro APKs are being prepared. Check the [download page](https://www.qp1ng.com/pro/#download)
+for availability. Google Play is also in preparation; the Pro licence checkout is already available.
 
-| | Core | Pro |
+## Why choose Q-P1NG?
+
+- **Keep your number to yourself.** Create an identity on your phone and exchange it by animated QR. Tor runs inside
+  the app, with no separate Orbot setup.
+- **Keep talking without internet.** Use Bluetooth mesh or local Wi-Fi for nearby communication. Pro adds radio
+  routes when you have the required hardware.
+- **Choose what stays.** Ghost sessions keep their message database in RAM. Calculator covers, decoy and duress PINs
+  give you separate controls for access and emergencies.
+- **Bring your tools with you.** Pro puts AI, maps, voice tools and automations on the phone, for work in the field
+  as well as everyday tasks.
+
+Built for journalists, activists, researchers, radio operators and anyone who wants private conversations without
+handing over a phone number.
+
+## Core or Pro?
+
+| What you get | Core · Free | Pro · €9.99 once¹ |
 |---|:---:|:---:|
-| Price | Free | €9.99 once on the website, or the paid app on Google Play |
 | Encrypted chat, voice notes, files, voice and video calls | ✓ | ✓ |
-| Offline mesh, Q-Feed, Q-Cast listening, Secure Live, secure keyboard, panic wipe | ✓ | ✓ |
-| On-device AI, dictation and voices, radio tools, offline maps | | ✓ |
-| Bitcoin vault, counter-surveillance, automations, Q-Cast broadcasting, every theme | | ✓ |
+| Built-in Tor, Bluetooth mesh and local Wi-Fi communication | ✓ | ✓ |
+| Ghost sessions, decoy and duress controls, panic wipe | ✓ | ✓ |
+| Encrypted passwords and notes, secure keyboard and accessibility themes | ✓ | ✓ |
+| Q-Feed, Q-Cast listening and Secure Live with face blur | ✓ | ✓ |
+| Local AI, image generation, dictation and voice tools | — | ✓ |
+| Offline map packs, radio and counter-surveillance tools | — | ✓ |
+| Bitcoin vault, Q-Torrent, automations and Q-Cast broadcasting | — | ✓ |
+| Every theme, font and background | — | ✓ |
+| Alpine Linux sandbox | — | Website edition |
 
-Two ways to get it:
+¹ Website licence. Google Play Pro will be a separate paid app. Play builds exclude the Linux sandbox and self-updates.
 
-- **Website edition** ([www.qp1ng.com](https://www.qp1ng.com)): carries every feature of its edition, including the
-  Linux sandbox in Pro, and updates itself with signed releases published in this repository. Pro is unlocked with a
-  licence key.
-- **Google Play** (in preparation): Core and Pro as two apps, with Pro paid through Google Play. The Play builds leave
-  out what Google Play does not allow, such as the Linux sandbox and self-updates.
+## What Pro adds
 
-## Features
+| Put it to work | Tools in Pro |
+|---|---|
+| **Use AI away from the cloud** | Q-Brain chat and vision, Q-Dream images, Whisper dictation, reading voices and call voice effects. Download models first; performance depends on your phone and model. Online AI is optional and uses your own provider key. |
+| **Prepare for a blackout** | Download Q-GEO map packs before losing connectivity. Add LoRa, SDR and GhostWave radio tools for routes and signals beyond the mobile network. Radio features need the appropriate hardware. |
+| **Build your own workflow** | Q-Scenarios and ActionForge automate tasks on the phone. The website edition adds an Alpine Linux sandbox for scripts and tools. |
+| **Request Bitcoin in chat** | Create an amount and memo, share a payment request with a contact and review it in the conversation. The self-custody vault keeps your keys on the phone. |
+| **Share and broadcast** | Q-Torrent shares large files between contacts. Q-Cast broadcasting turns your phone into your own audio station. Listening stays free. |
+| **Inspect and personalise** | Q-SWEEP offers counter-surveillance and tracker checks. Theme Lab unlocks every theme, font, background and custom colours. |
 
-### Core
+**One purchase, every Pro feature for your edition.** The website key is checked offline and covers the devices under
+your control. Keep it for your next phone. Buying Pro also supports independent development.
 
-- End-to-end encrypted messages, voice notes, files, voice and video calls
-- Delivery directly between phones over Tor onion services; when a contact is offline, a sealed envelope waits on a
-  relay that cannot read it
-- Mesh chat with nearby phones over Bluetooth and Wi-Fi Direct, and calls on a local Wi-Fi network, with no internet
-- **Q-Feed**: a public feed on Nostr, with reporting, mute and block
-- **Q-Cast**: listen to live audio stations
-- **Secure Live**: share live video with faces blurred on the phone
-- A keyboard that makes no network connections
-- Panic wipe, duress PIN and accessibility themes
-- Bitcoin requests and addresses in chat, opened in your own wallet
+[**Get Pro · €9.99 lifetime**](https://www.qp1ng.com/pro/#buy) ·
+[Compare features](https://www.qp1ng.com/pro/#features) ·
+[14-day refund policy](https://www.qp1ng.com/refund.html)
 
-### Pro
+## See it in action
 
-- **Q-Brain**: chat, vision and image generation with models that run on your phone; online providers only if you add
-  them with your own API key
-- Whisper dictation, natural reading voices, a voice changer in calls and voice-note effects
-- **Radio**: SDR receivers, LoRa and the GhostWave acoustic modem
-- **Q-Cast live**: broadcast your own audio station
-- **Q-GEO**: offline maps
-- Private file sharing between contacts
-- A non-custodial Bitcoin vault
-- **Q-SWEEP**: counter-surveillance and a tracker guard
-- Automations and every theme
-- A Linux sandbox (website edition only)
+Click a preview to watch the walkthrough on the website.
 
-## How it protects you
+| Inside Q-P1NG | Create a tool · Pro | Request BTC · Pro |
+|:---:|:---:|:---:|
+| <a href="https://www.qp1ng.com/#security"><img src="docs/assets/img/qp1ng-fallout-field-demo-poster.webp" width="200" alt="Q-P1NG Android dashboard in the Fallout theme"></a> | <a href="https://www.qp1ng.com/#qbrain-demo"><img src="docs/assets/vid/qbrain-tools-demo-poster.webp" width="200" alt="Q-Brain tool creation walkthrough in the Android app"></a> | <a href="https://www.qp1ng.com/#btc-chat-demo"><img src="docs/assets/img/btc-chat-payment-request-demo-poster.webp" width="200" alt="A Testnet Bitcoin payment request in a Q-P1NG chat"></a> |
+| Tor, Ghost, animated QR and local links | Generate, review and run a tool | Amount, memo and request details |
 
-- **No account.** No phone number, email or name. Your identity is a key pair generated on your phone and kept in the
-  Android Keystore.
-- **End-to-end encryption.** Each message is encrypted with a fresh AES-256-GCM key, sealed for the recipient's
-  RSA-2048 key and signed by the sender. Messages are padded to a fixed size.
-- **Calls and Secure Live.** Audio and video travel directly between phones or, over Tor, through a relay on the
-  called contact's phone, never through our servers. The DTLS 1.3 handshake offers the hybrid post-quantum key
-  exchange X25519MLKEM768.
-- **Tor built in.** Tor runs inside the app; Orbot is not needed.
-- **No message servers.** Q-P1NG runs no server that stores or routes your messages. Envelopes for offline contacts
-  wait on our Nostr relay, an onion service that keeps no logs and deletes them after 7 days, or on public Nostr
-  relays reached through Tor.
-- **Encrypted storage.** An SQLCipher database, keys in the Android Keystore, and backups encrypted with Argon2id and
-  AES-256-GCM.
-- **No tracking.** No analytics, advertising or crash-reporting SDKs, and the app's own code writes no logs.
-- **Panic wipe.** Keys are destroyed first, then private storage is overwritten and checked; a duress PIN does the
-  same without announcing it.
+Recorded Android demos with sample data and shortened waits. Each walkthrough explains its recording setup; the BTC
+demo uses Testnet and an offline contact, with no payment made.
 
-What it cannot hide: relays see the public keys, time and size of an envelope, and services reached without Tor see
-your IP address. The [privacy policy](https://www.qp1ng.com/privacy.html) lists every service the app contacts and
-what each one sees.
+## Get started
 
-## Download
+1. **Check the [downloads](https://www.qp1ng.com/pro/#download).** Choose Core for free messaging, or the website Pro
+   build for the advanced tools. Android 8.0 or later, on a 64-bit ARM phone (`arm64-v8a`).
+2. **Add someone you trust.** Create your local identity, exchange contact cards by QR and choose Tor or a nearby
+   offline connection.
+3. **Activate Pro when you need it.** Buy a [website licence](https://www.qp1ng.com/pro/#buy), then open a Pro feature
+   or Info → Activate Pro and paste the key. Bitcoin payment is available; cards are coming soon.
 
-- **Website edition**: from [www.qp1ng.com](https://www.qp1ng.com). Releases are published on this repository's
-  Releases page with their SHA-256; before installing an update, the app checks its signature, size, hash and
-  signing certificate.
-- **Google Play**: coming soon.
-- **Pro licence**: at [www.qp1ng.com/pro](https://www.qp1ng.com/pro/), with Bitcoin today and by card soon. The key
-  is checked offline on your phone and is not tied to a device.
+Website releases will be listed with their SHA-256. The app checks an update's signature, size, hash and signing
+certificate before installation. Google Play editions will update through Google Play.
 
-Requirements: Android 8.0 or later on a 64-bit ARM phone (arm64-v8a).
+## Security in plain terms
+
+- **Identity and storage.** Keys are generated on the phone, with private identity keys in the Android Keystore.
+  Local databases use SQLCipher; encrypted backups use Argon2id and AES-256-GCM.
+- **Messages.** Each message uses a fresh AES-256-GCM key sealed to the recipient's RSA-2048 key, is signed by the
+  sender and padded to a fixed size.
+- **Delivery.** Online contacts connect over Tor onion services. For offline delivery, sealed envelopes can wait on
+  Nostr relays reached through Tor. Relays cannot read their contents; our relay deletes envelopes after seven days.
+- **Calls.** Voice, video and Secure Live travel between phones, directly or over Tor through the called contact's
+  phone. The DTLS 1.3 handshake offers hybrid post-quantum key exchange, X25519MLKEM768.
+- **No advertising or tracking SDKs.** No analytics or crash-reporting SDKs. Diagnostics can create private reports
+  on the device.
+- **Emergency controls.** Panic and duress controls can destroy encryption keys and clear app data. Flash storage
+  cannot guarantee physical erasure, and a wipe cannot recall copies already sent.
+
+Relays can see envelope public keys, times and sizes. Direct connections expose your IP to the service or peer;
+public feed posts and Bitcoin blockchain activity are public. No app can protect a phone already controlled by
+spyware. Read the [privacy policy](https://www.qp1ng.com/privacy.html) for the services and routes involved.
 
 ## What's in this repository
 
@@ -125,8 +138,8 @@ The app's source code is not public. This repository holds what the website and 
 | `docs/manifest.json`, `docs/categories/` | The catalog of on-device AI models |
 | `docs/maps/` | Q-GEO sample maps and the signed map catalog |
 | `docs/firmware/` | LoRa firmware for the LilyGO T-Deck, with a browser installer |
-| `docs/updates/` | The signed update manifest of the website edition (from the first release) |
-| Releases | The APKs of the website edition |
+| `docs/updates/` | The website edition's signed update manifest, from the first app release |
+| Releases | Runtime assets and corresponding third-party sources; website APKs will be added when released |
 
 ## Security
 
@@ -158,5 +171,5 @@ trademarks of ZonkeyNet.
 Contact: support@qp1ng.com · legal@qp1ng.com
 
 <p align="center">
-  <i>In the nomadic network, the only trace left is the one you choose to leave.</i>
+  <i>Your identity. Your routes. Your phone.</i>
 </p>
