@@ -32644,15 +32644,15 @@ html:lang(ar) pre, html:lang(fa) pre, html:lang(my) pre { font-family: "JetBrain
   .topbar .nav { gap: clamp(8px, 0.62vw, 12px); }
 }
 
-/* Section menus (desktop): a wide two-column panel instead of a tall list, so every section shows at once; if the
-   window is shorter still, the panel scrolls inside instead of running off the screen under the fixed bar. It opens
-   like the language menu: revealed top-down like a scan, a cyan-magenta beam, entries arriving in sequence, neon
-   corners. Closing is instant. */
+/* Section menus (desktop): one long list under each category; in a window too short for it, the list scrolls
+   inside instead of running off the screen under the fixed bar. It opens like the language menu: revealed top-down
+   like a scan, a cyan-magenta beam, entries arriving in sequence, neon corners. Closing is instant. */
+.topbar .nav .is-squeezed { display: none !important; }
 @media (min-width: 1081px) {
   .topbar .nav-dropdown {
-    width: min(640px, calc(100vw - 48px));
-    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 6px; align-content: start;
-    padding: 12px;
+    width: 370px;
+    display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; align-content: start;
+    padding: 10px;
     max-height: calc(100vh - 96px); overflow-y: auto; overscroll-behavior: contain;
     border: 1px solid rgba(0, 242, 255, 0.34); border-radius: 12px;
     background:
@@ -32694,7 +32694,7 @@ html:lang(ar) pre, html:lang(fa) pre, html:lang(my) pre { font-family: "JetBrain
   }
   .topbar .nav-dropdown-header { grid-column: 1 / -1; margin-bottom: 6px; }
   .topbar .nav-drop-item {
-    position: relative; align-items: flex-start; padding: 10px 11px;
+    position: relative; align-items: flex-start; padding: 9px 11px;
     border: 1px solid rgba(255, 255, 255, 0.06); background: rgba(255, 255, 255, 0.02);
     opacity: 0; transform: translateX(-10px); filter: blur(3px);
   }
@@ -32721,6 +32721,8 @@ html:lang(ar) pre, html:lang(fa) pre, html:lang(my) pre { font-family: "JetBrain
   }
   .topbar .nav-drop-item:hover .drop-idx { color: #ff5ce1; }
   .topbar .drop-idx { padding-top: 2px; }
+  .topbar .drop-text { min-width: 0; }
+  .topbar .drop-sub { white-space: normal; overflow-wrap: anywhere; }
   [dir="rtl"] .topbar .nav-drop-item { transform: translateX(10px); }
   [dir="rtl"] .topbar .nav-dropdown::after {
     background:

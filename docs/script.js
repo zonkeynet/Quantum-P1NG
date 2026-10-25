@@ -35,27 +35,39 @@ function T(text, values) {
   const mobileMenu = document.querySelector(".mobilemenu");
   const topbar = document.querySelector(".topbar");
 
-  // The full navigation only when it fits the bar beside the logo and the language button: translations run
-  // longer than English, so a fixed breakpoint cannot know. Otherwise it folds into the menu button
-  // (.topbar--compact). Measured on load, on resize and once the fonts have arrived.
+  // On a desktop the four section menus always stay in the bar. Translations run longer than English, so a fixed
+  // breakpoint cannot know what fits: when the bar is short of room, the secondary links step out one by one
+  // (GitHub, Globe, then Pro; Globe stays in the RF menu, GitHub in the footer). Only if the section menus
+  // alone still do not fit does the bar fold into the menu button (.topbar--compact). Measured on load, on resize
+  // and once the fonts have arrived.
+  const SECONDARY = [".nav__cta", ".nav-link--globe", ".nav-link--pro"];
   const fitNav = () => {
     const nav = topbar && topbar.querySelector(".nav");
     const brand = topbar && topbar.querySelector(".brand");
     const lang = topbar && topbar.querySelector("details.lang");
     if (!nav || !brand) return;
     topbar.classList.remove("topbar--compact");
+    nav.querySelectorAll(".is-squeezed").forEach((item) => item.classList.remove("is-squeezed"));
     if (getComputedStyle(nav).display === "none") return; // phones: the stylesheet already folds it
-    const items = Array.from(nav.children).map((item) => item.getBoundingClientRect()).filter((box) => box.width);
-    if (!items.length) return;
-    const start = Math.min(...items.map((box) => box.left));
-    const end = Math.max(...items.map((box) => box.right));
-    const b = brand.getBoundingClientRect();
-    const g = lang ? lang.getBoundingClientRect() : null;
     const rtl = document.documentElement.dir === "rtl";
-    const room = rtl
-      ? Math.min(b.left - end, g ? start - g.right : Infinity)
-      : Math.min(start - b.right, g ? g.left - end : Infinity);
-    if (room < 12 || nav.scrollWidth > nav.clientWidth + 1) topbar.classList.add("topbar--compact");
+    const fits = () => {
+      const items = Array.from(nav.children).map((item) => item.getBoundingClientRect()).filter((box) => box.width);
+      if (!items.length) return true;
+      const start = Math.min(...items.map((box) => box.left));
+      const end = Math.max(...items.map((box) => box.right));
+      const b = brand.getBoundingClientRect();
+      const g = lang ? lang.getBoundingClientRect() : null;
+      const room = rtl
+        ? Math.min(b.left - end, g ? start - g.right : Infinity)
+        : Math.min(start - b.right, g ? g.left - end : Infinity);
+      return room >= 12 && nav.scrollWidth <= nav.clientWidth + 1;
+    };
+    for (const selector of SECONDARY) {
+      if (fits()) return;
+      const item = nav.querySelector(selector);
+      if (item) item.classList.add("is-squeezed");
+    }
+    if (!fits()) topbar.classList.add("topbar--compact");
   };
   fitNav();
   window.addEventListener("resize", fitNav, { passive: true });
