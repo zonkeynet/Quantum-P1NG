@@ -1,47 +1,4 @@
-/* Compact phone recordings, using the existing section palette and typography. */
-.fallout-demo.btc-chat-demo {
-  border-color: rgba(255, 190, 85, .24);
-  background: radial-gradient(ellipse at 85% 50%, rgba(157, 112, 36, .12), transparent 65%), #0d0e08;
-}
-.btc-chat-demo .app-walkthrough.fallout-demo-layout { --demo-accent: #ffcc7a; --demo-line: rgba(255, 190, 85, .3); }
-.btc-chat-demo .fallout-demo-kicker { color: #ffcc7a; }
-.fallout-demo {
-  margin: clamp(32px, 5vw, 64px) 0;
-  padding: clamp(22px, 4vw, 48px);
-  border: 1px solid rgba(141, 255, 133, .2);
-  border-radius: 18px;
-  background: radial-gradient(ellipse at 85% 50%, rgba(82, 135, 55, .12), transparent 65%), #080e0d;
-}
-.fallout-demo .fallout-demo-layout {
-  --demo-accent: #a4fa8c;
-  --demo-line: rgba(164, 250, 140, .28);
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(230px, 300px);
-  align-items: center;
-  gap: clamp(28px, 5vw, 72px);
-  max-width: none;
-}
-.fallout-demo .fallout-demo-copy { margin: 0; min-width: 0; text-align: start; }
-.fallout-demo-kicker { margin: 0 0 18px; color: #a4fa8c; font-size: 11px; letter-spacing: .09em; line-height: 1.7; }
-.fallout-demo-copy h3 { margin: 0 0 18px; color: #edf5e9; font-size: clamp(25px, 3vw, 40px); line-height: 1.16; text-wrap: balance; }
-.fallout-demo-intro { max-width: 48ch; margin: 0; color: #becbb9; font-size: 15px; line-height: 1.8; }
-.fallout-demo-steps { display: grid; gap: 16px; padding: 0; margin: 27px 0; list-style: none; }
-.fallout-demo-steps li { display: grid; grid-template-columns: 25px minmax(0, 1fr); gap: 12px; align-items: baseline; color: #d7e6d1; font-size: 14px; line-height: 1.6; }
-.fallout-demo-steps li > span { color: #90b280; font-size: 11px; }
-.fallout-demo-caption-panel { padding-top: 13px; border-top: 1px solid rgba(164, 250, 140, .18); }
-.fallout-demo .app-walkthrough-caption { color: #d0dfc9; min-height: 5.1em; }
-.fallout-demo .app-walkthrough-note { color: #a9bba1; }
-.fallout-demo-note { max-width: 65ch; margin: 18px 0 0; color: #9aaa94; font-size: 11px; line-height: 1.8; }
-.fallout-demo-phone { width: 100%; max-width: 300px; min-width: 0; justify-self: end; }
-@media (max-width: 760px) {
-  .fallout-demo .fallout-demo-layout { grid-template-columns: minmax(0, 1fr); gap: 26px; }
-  .fallout-demo-phone { justify-self: center; }
-}
-@media (max-width: 480px) {
-  .fallout-demo { padding: 20px 16px; }
-  .fallout-demo .app-walkthrough-meta { flex-wrap: wrap; }
-  .fallout-demo .app-walkthrough-caption { min-height: 6.8em; }
-}
+/* Phone recordings of the app, played on click (app-feature-demos.js). */
 .app-walkthrough {
   --demo-accent: #63e6ff;
   --demo-line: rgba(99, 230, 255, .26);
@@ -173,25 +130,29 @@
 .sp-walkthrough.is-playing .sp-ring--outer { border-color: rgba(255, 77, 109, .5); }
 .sp-walkthrough.is-playing .sp-ring--mid { border-color: rgba(0, 242, 255, .6); }
 .sp-walkthrough.is-playing .sp-ring--inner { border-color: rgba(53, 255, 138, .66); }
-.sp-chapters { position: relative; z-index: 1; display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
-.sp-chapters li {
+.demo-chapters {
+  position: relative; z-index: 1; display: grid; gap: 10px; margin: 0; padding: 0; list-style: none;
+  --chapter-accent: var(--sp-green); --chapter-accent-2: var(--sp-cyan);
+}
+.demo-chapters li {
   position: relative; display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 10px;
   padding: 13px 12px 16px; border: 1px solid rgba(0, 242, 255, .14); border-radius: 8px;
   background: rgba(1, 8, 15, .72); color: rgba(220, 234, 245, .72); font-size: 13px; line-height: 1.45;
   transition: border-color .3s ease, color .3s ease, background .3s ease, box-shadow .3s ease;
 }
-.sp-chapters li > span { padding-top: 2px; color: var(--sp-cyan); font-size: 10px; letter-spacing: .1em; }
-.sp-chapters li::after {
+.demo-chapters li > span { padding-top: 2px; color: var(--chapter-accent-2); font-size: 10px; letter-spacing: .1em; }
+.demo-chapters li::after {
   content: ""; position: absolute; inset: auto 12px 7px; height: 2px; border-radius: 2px;
-  background: linear-gradient(90deg, var(--sp-green), var(--sp-cyan));
+  background: linear-gradient(90deg, var(--chapter-accent), var(--chapter-accent-2));
   transform: scaleX(var(--chapter-progress, 0)); transform-origin: left; transition: transform .25s linear;
 }
-[dir="rtl"] .sp-chapters li::after { transform-origin: right; }
-.sp-chapters li.is-active {
-  border-color: rgba(53, 255, 138, .5); background: rgba(53, 255, 138, .07); color: #f6fbff;
-  box-shadow: 0 0 24px rgba(53, 255, 138, .12);
+[dir="rtl"] .demo-chapters li::after { transform-origin: right; }
+.demo-chapters li.is-active {
+  border-color: color-mix(in srgb, var(--chapter-accent) 52%, transparent);
+  background: color-mix(in srgb, var(--chapter-accent) 8%, transparent); color: #f6fbff;
+  box-shadow: 0 0 24px color-mix(in srgb, var(--chapter-accent) 14%, transparent);
 }
-.sp-chapters li.is-active > span { color: var(--sp-green); }
+.demo-chapters li.is-active > span { color: var(--chapter-accent); }
 .sp-walkthrough-panel { margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(0, 242, 255, .14); }
 .sp-walkthrough-panel .app-walkthrough-caption { min-height: 3.4em; color: #d6e4ef; font-size: 13px; }
 .sp-walkthrough-note { margin: 10px 0 0; color: rgba(220, 234, 245, .5); font-size: 10.5px; line-height: 1.6; }
@@ -206,5 +167,40 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .sp-orbit-track { animation: none !important; }
-  .sp-chapters li, .sp-chapters li::after, .sp-phone { transition: none; }
+  .demo-chapters li, .demo-chapters li::after, .sp-phone, .finance-chat-phone { transition: none; }
+}
+
+/* Finance: the chat request recording in the showcase's right column, beside the vault animation. */
+.finance-chat-demo.app-walkthrough {
+  --demo-accent: #ffb547; --demo-line: rgba(247, 147, 26, .32);
+  display: flex; flex-direction: column; gap: 14px; width: 100%; max-width: none; min-width: 0; margin: 0;
+  padding: 18px; border: 1px solid rgba(247, 147, 26, .22); border-radius: 14px;
+  background: radial-gradient(ellipse at 72% 28%, rgba(247, 147, 26, .1), transparent 62%), rgba(8, 10, 12, .88);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .42);
+}
+.finance-chat-demo .demo-chapters { --chapter-accent: var(--btc, #f7931a); --chapter-accent-2: #ffd27a; }
+.finance-chat-demo .demo-chapters li { border-color: rgba(247, 147, 26, .16); background: rgba(14, 10, 4, .7); color: rgba(240, 228, 210, .74); }
+.finance-chat-kicker { margin: 0 0 6px; color: #ffcc7a; font-size: 10px; letter-spacing: .12em; }
+.finance-chat-head h3 { margin: 0; color: #fff3e0; font-size: clamp(19px, 1.6vw, 24px); line-height: 1.2; }
+.finance-chat-stage { display: grid; grid-template-columns: minmax(150px, 190px) minmax(0, 1fr); align-items: center; gap: 14px; }
+.finance-chat-phone {
+  width: 100%; border-color: rgba(247, 147, 26, .36);
+  box-shadow: 0 0 0 1px rgba(247, 147, 26, .08), 0 0 30px rgba(247, 147, 26, .14), 0 20px 50px rgba(0, 0, 0, .5);
+  transition: box-shadow .5s ease, border-color .5s ease;
+}
+.finance-chat-demo.is-playing .finance-chat-phone {
+  border-color: rgba(247, 147, 26, .64);
+  box-shadow: 0 0 0 1px rgba(247, 147, 26, .24), 0 0 48px rgba(247, 147, 26, .3), 0 20px 50px rgba(0, 0, 0, .5);
+}
+.finance-chat-panel { margin: 0; padding-top: 12px; border-top: 1px solid rgba(247, 147, 26, .18); }
+.finance-chat-panel .app-walkthrough-caption { min-height: 5.1em; color: #ebdfcd; font-size: 13px; }
+.finance-chat-panel .app-walkthrough-note { color: #b9a78f; }
+.finance-chat-note { margin: 10px 0 0; color: rgba(235, 223, 205, .5); font-size: 10.5px; line-height: 1.6; }
+@media (max-width: 1180px) {
+  .finance-chat-stage { grid-template-columns: minmax(170px, 210px) minmax(0, 1fr); }
+}
+@media (max-width: 480px) {
+  .finance-chat-stage { grid-template-columns: minmax(0, 1fr); }
+  .finance-chat-phone { width: 200px; justify-self: center; }
+  .finance-chat-panel .app-walkthrough-meta { flex-wrap: wrap; }
 }

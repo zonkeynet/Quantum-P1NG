@@ -84,7 +84,7 @@
   <link rel="stylesheet" href="../qgeo-demo.css?v=2" />
   <link rel="stylesheet" href="../radio-bridge-layout.css?v=1" />
   <link rel="stylesheet" href="../qai-tools-demo.css?v=4" />
-  <link rel="stylesheet" href="../app-feature-demos.css?v=4" />
+  <link rel="stylesheet" href="../app-feature-demos.css?v=5" />
   <link rel="stylesheet" href="../qdream-gallery.css?v=3" />
 
   <!-- Schema.org Comprehensive Structured Data (JSON-LD) -->
@@ -1488,7 +1488,7 @@ _
                 </video>
               </div>
             </div>
-            <ol class="sp-chapters">
+            <ol class="demo-chapters">
               <li data-demo-chapter data-from="0" data-to="21.8"><span class="mono" aria-hidden="true">01</span>Ghost 聊天与动态身份二维码</li>
               <li data-demo-chapter data-from="21.8" data-to="39.267"><span class="mono" aria-hidden="true">02</span>蓝牙网状网络与本地 Wi-Fi 邀请</li>
               <li data-demo-chapter data-from="39.267" data-to="64.2"><span class="mono" aria-hidden="true">03</span>Tor 线路验证与访问设置</li>
@@ -4017,45 +4017,6 @@ _
       </div>
     </div>
 
-    <section class="fallout-demo btc-chat-demo" id="btc-chat-demo" aria-labelledby="btc-chat-demo-title">
-      <figure class="app-walkthrough fallout-demo-layout" data-app-walkthrough="Q-Vault · BTC request"
-        data-cues="../assets/vid/btc-chat-payment-request-demo-timing.json" data-idle-en="Set an amount, add a memo and choose a contact. Keep the request and its details in the conversation." data-idle-it="Imposta l’importo, aggiungi una causale e scegli il contatto. La richiesta e i suoi dettagli restano nella conversazione.">
-        <figcaption class="fallout-demo-copy">
-          <p class="fallout-demo-kicker mono">Q-VAULT · 付款请求</p>
-          <h3 id="btc-chat-demo-title">直接在聊天中请求比特币。</h3>
-          <p class="fallout-demo-intro">设置金额、添加备注并选择联系人。请求及其详情会保留在对话中。</p>
-          <ol class="fallout-demo-steps">
-            <li><span class="mono" aria-hidden="true">01</span>以聪为单位的金额和备注</li>
-            <li><span class="mono" aria-hidden="true">02</span>选择联系人</li>
-            <li><span class="mono" aria-hidden="true">03</span>在聊天中查看请求</li>
-          </ol>
-          <div class="fallout-demo-caption-panel">
-            <div class="app-walkthrough-meta">
-              <span class="mono">Q-VAULT / TESTNET DEMO / 00:40</span>
-              <div class="app-walkthrough-languages" role="group" aria-label="EN / IT">
-                <button type="button" data-demo-lang="en" aria-pressed="true" lang="en">EN</button>
-                <button type="button" data-demo-lang="it" aria-pressed="false" lang="it">IT</button>
-              </div>
-            </div>
-            <span class="app-walkthrough-caption" id="btc-chat-demo-caption" data-demo-caption>设置金额、添加备注并选择联系人。请求及其详情会保留在对话中。</span>
-            <span class="app-walkthrough-note" data-demo-hint>点击播放</span>
-            <p class="app-walkthrough-fallback" data-demo-fallback hidden><a href="../assets/vid/btc-chat-payment-request-demo.mp4">打开视频</a></p>
-          </div>
-          <p class="fallout-demo-note" id="btc-chat-demo-note">在 Android 应用中使用空的 Testnet 钱包和离线演示联系人录制。请求保存在本地，未签署或广播任何比特币交易。等待时间已缩短。</p>
-          <noscript><p><a href="../assets/vid/btc-chat-payment-request-demo.mp4">打开视频 (MP4)</a></p></noscript>
-        </figcaption>
-        <div class="app-walkthrough-screen fallout-demo-phone">
-          <video width="720" height="1280" muted playsinline preload="none" role="button" tabindex="0"
-            aria-label="点击播放: Q-Vault · BTC request" aria-describedby="btc-chat-demo-caption btc-chat-demo-note"
-            poster="../assets/img/btc-chat-payment-request-demo-poster.webp">
-            <source data-src="../assets/vid/btc-chat-payment-request-demo.webm" type="video/webm">
-            <source data-src="../assets/vid/btc-chat-payment-request-demo.mp4" type="video/mp4">
-            <p><a href="../assets/vid/btc-chat-payment-request-demo.mp4">打开视频</a></p>
-          </video>
-        </div>
-      </figure>
-    </section>
-
     <!-- ARCHITECTURAL VISUAL CENTERPIECE: BITCOIN VAULT & TOR NETWORK -->
     <div class="finance-visual-stage" aria-label="Bitcoin 保险库与 Tor 网络架构示意">
       <div class="finance-stage-card">
@@ -4070,7 +4031,7 @@ _
           <div class="f-stage-bar-right">
             <span class="f-chip f-chip--btc">₿ BDK 原生 SEGWIT</span>
             <span class="f-chip f-chip--tor">TOR SOCKS5（就绪时）</span>
-            <span class="f-chip f-chip--mesh">二维码 + 聊天收据</span>
+            <span class="f-chip f-chip--mesh">QR + 聊天收款请求</span>
             <button type="button" class="f-stage-zoom-btn mono" id="btn-btc-zoom" aria-label="全屏查看 Bitcoin 保险库架构">
               <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
               <span>查看 [HD]</span>
@@ -4117,20 +4078,52 @@ _
             <small>熵在设备上生成</small>
           </div>
           <div class="f-footer-stat">
-            <span class="f-stat-tag">收款证明</span>
-            <strong>签名二维码与聊天</strong>
-            <small>签名与付款分别核验</small>
+            <span class="f-stat-tag">聊天收款请求</span>
+            <strong>金额 + 备注发到聊天</strong>
+            <small>联系人可直接支付的卡片</small>
           </div>
         </div>
       </div>
 
-      <!-- Right Column: Status Board -->
-      <div class="finance-status-board mono" aria-label="Bitcoin 保险库状态面板">
-        <div><span>密钥</span><strong>仅限本地</strong><em>种子和私钥留在手机上。</em></div>
-        <div><span>路由</span><strong>TOR（就绪时）</strong><em>Tor 不可用时，Electrum 直连。</em></div>
-        <div><span>证明</span><strong>二维码 + 聊天</strong><em>可分享、可验证的收据。</em></div>
-        <div><span>控制</span><strong>UTXO + RBF</strong><em>查看币、手续费和替换交易。</em></div>
-      </div>
+      <!-- Right column: a payment request made in a real chat (Testnet wallet, offline contact), downloaded only on
+           click. Its three chapters light up and fill while it plays (app-feature-demos.js). -->
+      <figure class="app-walkthrough finance-chat-demo" id="btc-chat-demo" data-app-walkthrough="Q-Vault · BTC request"
+        data-cues="../assets/vid/btc-chat-payment-request-demo-timing.json" data-idle-en="Set an amount, add a memo and choose a contact. Keep the request and its details in the conversation." data-idle-it="Imposta l’importo, aggiungi una causale e scegli il contatto. La richiesta e i suoi dettagli restano nella conversazione.">
+        <div class="finance-chat-head">
+          <p class="finance-chat-kicker mono">Q-VAULT · 付款请求</p>
+          <h3 id="btc-chat-demo-title">直接在聊天中请求比特币。</h3>
+        </div>
+        <div class="finance-chat-stage">
+          <div class="app-walkthrough-screen finance-chat-phone">
+            <video width="720" height="1280" muted playsinline preload="none" role="button" tabindex="0"
+              aria-label="点击播放: Q-Vault · BTC request" aria-describedby="btc-chat-demo-caption btc-chat-demo-note"
+              poster="../assets/img/btc-chat-payment-request-demo-poster.webp">
+              <source data-src="../assets/vid/btc-chat-payment-request-demo.webm" type="video/webm">
+              <source data-src="../assets/vid/btc-chat-payment-request-demo.mp4" type="video/mp4">
+              <p><a href="../assets/vid/btc-chat-payment-request-demo.mp4">打开视频</a></p>
+            </video>
+          </div>
+          <ol class="demo-chapters">
+            <li data-demo-chapter data-from="0" data-to="18.3"><span class="mono" aria-hidden="true">01</span>以聪为单位的金额和备注</li>
+            <li data-demo-chapter data-from="18.3" data-to="26.267"><span class="mono" aria-hidden="true">02</span>选择联系人</li>
+            <li data-demo-chapter data-from="26.267" data-to="39.6"><span class="mono" aria-hidden="true">03</span>在聊天中查看请求</li>
+          </ol>
+        </div>
+        <figcaption class="finance-chat-panel">
+          <div class="app-walkthrough-meta">
+            <span class="mono">Q-VAULT / TESTNET DEMO / 00:40</span>
+            <div class="app-walkthrough-languages" role="group" aria-label="EN / IT">
+              <button type="button" data-demo-lang="en" aria-pressed="true" lang="en">EN</button>
+              <button type="button" data-demo-lang="it" aria-pressed="false" lang="it">IT</button>
+            </div>
+          </div>
+          <span class="app-walkthrough-caption" id="btc-chat-demo-caption" data-demo-caption>设置金额、添加备注并选择联系人。请求及其详情会保留在对话中。</span>
+          <span class="app-walkthrough-note" data-demo-hint>点击播放</span>
+          <p class="app-walkthrough-fallback" data-demo-fallback hidden><a href="../assets/vid/btc-chat-payment-request-demo.mp4">打开视频</a></p>
+          <p class="finance-chat-note" id="btc-chat-demo-note">在 Android 应用中使用空的 Testnet 钱包和离线演示联系人录制。请求保存在本地，未签署或广播任何比特币交易。等待时间已缩短。</p>
+          <noscript><p><a href="../assets/vid/btc-chat-payment-request-demo.mp4">打开视频 (MP4)</a></p></noscript>
+        </figcaption>
+      </figure>
     </div>
 
     <div class="finance-grid finance-pro-grid">
@@ -4187,10 +4180,10 @@ _
           </div>
           <div class="tx-row finance-ledger-row">
             <div>
-              <span class="finance-ledger-type">收据</span>
-              <strong>用于活动和聊天的二维码证明</strong>
+              <span class="finance-ledger-type">请求</span>
+              <strong>已在聊天中发送收款请求</strong>
             </div>
-            <em>可验证</em>
+            <em>待支付</em>
           </div>
         </div>
       </div>
@@ -4223,8 +4216,8 @@ _
         </article>
         <article class="finance-op-card">
           <span class="finance-op-index mono">06</span>
-          <h3>聊天中的收据</h3>
-          <p>付款请求、地址和活动收据经安全聊天传送，用二维码核验。</p>
+          <h3>聊天中的收款请求</h3>
+          <p>在加密聊天中发起带备注的收款请求；卡片会显示是否仍待支付。</p>
         </article>
       </div>
     </div>
@@ -4234,7 +4227,7 @@ _
       <div class="finance-flow-step"><span class="mono">02</span><strong>解锁</strong><p>生物识别或设备凭据打开保险库。</p></div>
       <div class="finance-flow-step"><span class="mono">03</span><strong>同步</strong><p>BDK 通过 Electrum 同步，Tor 就绪时走 Tor。</p></div>
       <div class="finance-flow-step"><span class="mono">04</span><strong>构建</strong><p>收款、请款、付款、选币、提高手续费。</p></div>
-      <div class="finance-flow-step"><span class="mono">05</span><strong>证明</strong><p>通过二维码或聊天分享地址和收据。</p></div>
+      <div class="finance-flow-step"><span class="mono">05</span><strong>请求</strong><p>通过 QR 分享地址，或在聊天中发送收款请求。</p></div>
     </div>
 
     <div class="finance-safety-grid" aria-label="Bitcoin 保险库安全须知">

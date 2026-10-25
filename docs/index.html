@@ -84,7 +84,7 @@
   <link rel="stylesheet" href="qgeo-demo.css?v=2" />
   <link rel="stylesheet" href="radio-bridge-layout.css?v=1" />
   <link rel="stylesheet" href="qai-tools-demo.css?v=4" />
-  <link rel="stylesheet" href="app-feature-demos.css?v=4" />
+  <link rel="stylesheet" href="app-feature-demos.css?v=5" />
   <link rel="stylesheet" href="qdream-gallery.css?v=3" />
 
   <!-- Schema.org Comprehensive Structured Data (JSON-LD) -->
@@ -1528,7 +1528,7 @@ _
                 </video>
               </div>
             </div>
-            <ol class="sp-chapters">
+            <ol class="demo-chapters">
               <li data-demo-chapter data-from="0" data-to="21.8"><span class="mono" aria-hidden="true">01</span>Ghost chat &amp; animated identity QR</li>
               <li data-demo-chapter data-from="21.8" data-to="39.267"><span class="mono" aria-hidden="true">02</span>Bluetooth mesh &amp; local Wi-Fi invitation</li>
               <li data-demo-chapter data-from="39.267" data-to="64.2"><span class="mono" aria-hidden="true">03</span>Tor circuit check &amp; access protocols</li>
@@ -4128,45 +4128,6 @@ _
       </div>
     </div>
 
-    <section class="fallout-demo btc-chat-demo" id="btc-chat-demo" aria-labelledby="btc-chat-demo-title">
-      <figure class="app-walkthrough fallout-demo-layout" data-app-walkthrough="Q-Vault · BTC request"
-        data-cues="assets/vid/btc-chat-payment-request-demo-timing.json" data-idle-en="Set an amount, add a memo and choose a contact. Keep the request and its details in the conversation." data-idle-it="Imposta l’importo, aggiungi una causale e scegli il contatto. La richiesta e i suoi dettagli restano nella conversazione.">
-        <figcaption class="fallout-demo-copy">
-          <p class="fallout-demo-kicker mono">Q-VAULT · PAYMENT REQUESTS</p>
-          <h3 id="btc-chat-demo-title">Request Bitcoin. Right in chat.</h3>
-          <p class="fallout-demo-intro">Set an amount, add a memo and choose a contact. Keep the request and its details in the conversation.</p>
-          <ol class="fallout-demo-steps">
-            <li><span class="mono" aria-hidden="true">01</span>Amount in satoshis and a memo</li>
-            <li><span class="mono" aria-hidden="true">02</span>Choose the contact</li>
-            <li><span class="mono" aria-hidden="true">03</span>Review the request in chat</li>
-          </ol>
-          <div class="fallout-demo-caption-panel">
-            <div class="app-walkthrough-meta">
-              <span class="mono">Q-VAULT / TESTNET DEMO / 00:40</span>
-              <div class="app-walkthrough-languages" role="group" aria-label="EN / IT">
-                <button type="button" data-demo-lang="en" aria-pressed="true" lang="en">EN</button>
-                <button type="button" data-demo-lang="it" aria-pressed="false" lang="it">IT</button>
-              </div>
-            </div>
-            <span class="app-walkthrough-caption" id="btc-chat-demo-caption" data-demo-caption>Set an amount, add a memo and choose a contact. Keep the request and its details in the conversation.</span>
-            <span class="app-walkthrough-note" data-demo-hint>Click to play</span>
-            <p class="app-walkthrough-fallback" data-demo-fallback hidden><a href="assets/vid/btc-chat-payment-request-demo.mp4">Open the video</a></p>
-          </div>
-          <p class="fallout-demo-note" id="btc-chat-demo-note">Recorded in the Android app with an empty Testnet wallet and an offline demo contact. Request saved locally; no Bitcoin transaction signed or broadcast. Waiting time shortened.</p>
-          <noscript><p><a href="assets/vid/btc-chat-payment-request-demo.mp4">Open the video (MP4)</a></p></noscript>
-        </figcaption>
-        <div class="app-walkthrough-screen fallout-demo-phone">
-          <video width="720" height="1280" muted playsinline preload="none" role="button" tabindex="0"
-            aria-label="Click to play: Q-Vault · BTC request" aria-describedby="btc-chat-demo-caption btc-chat-demo-note"
-            poster="assets/img/btc-chat-payment-request-demo-poster.webp">
-            <source data-src="assets/vid/btc-chat-payment-request-demo.webm" type="video/webm">
-            <source data-src="assets/vid/btc-chat-payment-request-demo.mp4" type="video/mp4">
-            <p><a href="assets/vid/btc-chat-payment-request-demo.mp4">Open the video</a></p>
-          </video>
-        </div>
-      </figure>
-    </section>
-
     <!-- ARCHITECTURAL VISUAL CENTERPIECE: BITCOIN VAULT & TOR NETWORK -->
     <div class="finance-visual-stage" aria-label="Bitcoin Vault &amp; Tor Network Architecture Visual">
       <div class="finance-stage-card">
@@ -4181,7 +4142,7 @@ _
           <div class="f-stage-bar-right">
             <span class="f-chip f-chip--btc">₿ BDK NATIVE SEGWIT</span>
             <span class="f-chip f-chip--tor">TOR SOCKS5 WHEN READY</span>
-            <span class="f-chip f-chip--mesh">QR + CHAT RECEIPTS</span>
+            <span class="f-chip f-chip--mesh">QR + CHAT REQUESTS</span>
             <button type="button" class="f-stage-zoom-btn mono" id="btn-btc-zoom" aria-label="Inspect Bitcoin Vault Architecture in Fullscreen">
               <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
               <span>INSPECT [HD]</span>
@@ -4228,20 +4189,52 @@ _
             <small>Entropy generated on-device</small>
           </div>
           <div class="f-footer-stat">
-            <span class="f-stat-tag">RECEIPT PROOFS</span>
-            <strong>Signed QR &amp; Chat</strong>
-            <small>Signature and payment checked apart</small>
+            <span class="f-stat-tag">CHAT REQUESTS</span>
+            <strong>Amount + memo in chat</strong>
+            <small>A card the contact can pay</small>
           </div>
         </div>
       </div>
 
-      <!-- Right Column: Status Board -->
-      <div class="finance-status-board mono" aria-label="Bitcoin vault status board">
-        <div><span>KEYS</span><strong>LOCAL ONLY</strong><em>Seed and private keys stay on the phone.</em></div>
-        <div><span>ROUTE</span><strong>TOR WHEN READY</strong><em>Electrum goes direct if Tor is down.</em></div>
-        <div><span>PROOFS</span><strong>QR + CHAT</strong><em>Receipts to share and verify.</em></div>
-        <div><span>CONTROL</span><strong>UTXO + RBF</strong><em>Inspect coins, fees and replacements.</em></div>
-      </div>
+      <!-- Right column: a payment request made in a real chat (Testnet wallet, offline contact), downloaded only on
+           click. Its three chapters light up and fill while it plays (app-feature-demos.js). -->
+      <figure class="app-walkthrough finance-chat-demo" id="btc-chat-demo" data-app-walkthrough="Q-Vault · BTC request"
+        data-cues="assets/vid/btc-chat-payment-request-demo-timing.json" data-idle-en="Set an amount, add a memo and choose a contact. Keep the request and its details in the conversation." data-idle-it="Imposta l’importo, aggiungi una causale e scegli il contatto. La richiesta e i suoi dettagli restano nella conversazione.">
+        <div class="finance-chat-head">
+          <p class="finance-chat-kicker mono">Q-VAULT · PAYMENT REQUESTS</p>
+          <h3 id="btc-chat-demo-title">Request Bitcoin. Right in chat.</h3>
+        </div>
+        <div class="finance-chat-stage">
+          <div class="app-walkthrough-screen finance-chat-phone">
+            <video width="720" height="1280" muted playsinline preload="none" role="button" tabindex="0"
+              aria-label="Click to play: Q-Vault · BTC request" aria-describedby="btc-chat-demo-caption btc-chat-demo-note"
+              poster="assets/img/btc-chat-payment-request-demo-poster.webp">
+              <source data-src="assets/vid/btc-chat-payment-request-demo.webm" type="video/webm">
+              <source data-src="assets/vid/btc-chat-payment-request-demo.mp4" type="video/mp4">
+              <p><a href="assets/vid/btc-chat-payment-request-demo.mp4">Open the video</a></p>
+            </video>
+          </div>
+          <ol class="demo-chapters">
+            <li data-demo-chapter data-from="0" data-to="18.3"><span class="mono" aria-hidden="true">01</span>Amount in satoshis and a memo</li>
+            <li data-demo-chapter data-from="18.3" data-to="26.267"><span class="mono" aria-hidden="true">02</span>Choose the contact</li>
+            <li data-demo-chapter data-from="26.267" data-to="39.6"><span class="mono" aria-hidden="true">03</span>Review the request in chat</li>
+          </ol>
+        </div>
+        <figcaption class="finance-chat-panel">
+          <div class="app-walkthrough-meta">
+            <span class="mono">Q-VAULT / TESTNET DEMO / 00:40</span>
+            <div class="app-walkthrough-languages" role="group" aria-label="EN / IT">
+              <button type="button" data-demo-lang="en" aria-pressed="true" lang="en">EN</button>
+              <button type="button" data-demo-lang="it" aria-pressed="false" lang="it">IT</button>
+            </div>
+          </div>
+          <span class="app-walkthrough-caption" id="btc-chat-demo-caption" data-demo-caption>Set an amount, add a memo and choose a contact. Keep the request and its details in the conversation.</span>
+          <span class="app-walkthrough-note" data-demo-hint>Click to play</span>
+          <p class="app-walkthrough-fallback" data-demo-fallback hidden><a href="assets/vid/btc-chat-payment-request-demo.mp4">Open the video</a></p>
+          <p class="finance-chat-note" id="btc-chat-demo-note">Recorded in the Android app with an empty Testnet wallet and an offline demo contact. Request saved locally; no Bitcoin transaction signed or broadcast. Waiting time shortened.</p>
+          <noscript><p><a href="assets/vid/btc-chat-payment-request-demo.mp4">Open the video (MP4)</a></p></noscript>
+        </figcaption>
+      </figure>
     </div>
 
     <div class="finance-grid finance-pro-grid">
@@ -4301,10 +4294,10 @@ _
           </div>
           <div class="tx-row finance-ledger-row">
             <div>
-              <span class="finance-ledger-type">RECEIPT</span>
-              <strong>QR proof for events and chats</strong>
+              <span class="finance-ledger-type">REQUEST</span>
+              <strong>Payment request sent in chat</strong>
             </div>
-            <em>VERIFIABLE</em>
+            <em>AWAITING</em>
           </div>
         </div>
       </div>
@@ -4337,8 +4330,8 @@ _
         </article>
         <article class="finance-op-card">
           <span class="finance-op-index mono">06</span>
-          <h3>Receipts In Chat</h3>
-          <p>Payment requests, addresses and event receipts go through secure chat, checked by QR.</p>
+          <h3>Requests In Chat</h3>
+          <p>Ask for an amount with a memo in the encrypted chat; the card shows when it is still awaiting payment.</p>
         </article>
       </div>
     </div>
@@ -4348,7 +4341,7 @@ _
       <div class="finance-flow-step"><span class="mono">02</span><strong>Unlock</strong><p>Biometrics or device credential open the vault.</p></div>
       <div class="finance-flow-step"><span class="mono">03</span><strong>Sync</strong><p>BDK syncs via Electrum, over Tor when ready.</p></div>
       <div class="finance-flow-step"><span class="mono">04</span><strong>Build</strong><p>Receive, request, send, pick coins, bump fees.</p></div>
-      <div class="finance-flow-step"><span class="mono">05</span><strong>Proof</strong><p>Share addresses and receipts by QR or chat.</p></div>
+      <div class="finance-flow-step"><span class="mono">05</span><strong>Request</strong><p>Share an address by QR or a payment request in chat.</p></div>
     </div>
 
     <div class="finance-safety-grid" aria-label="Bitcoin vault safety notes">
