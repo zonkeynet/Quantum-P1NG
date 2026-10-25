@@ -32584,8 +32584,10 @@ html.intro-active body > *:not(#intro-screen):not(script):not(style) {
 .lang ul a { display: block; color: var(--text); text-decoration: none; font-size: 14px; padding: 8px 10px; border-radius: 6px; }
 .lang ul a:hover { background: rgba(255, 255, 255, 0.05); }
 .lang ul a[aria-current="page"] { color: var(--acc2); background: rgba(0, 243, 255, 0.08); }
-/* Only the globe icon in the bar: the navigation already fills it (the open list names every language). */
-.lang summary span { display: none; }
+/* The globe and the current language's code (EN, IT, 简...): the open list names every language. */
+.lang .lang-name { display: none; }
+.lang .lang-code { font: 700 11px/1 var(--font-mono); letter-spacing: 0.08em; color: var(--text); }
+.lang summary:hover .lang-code, .lang[open] .lang-code { color: var(--acc2); }
 /* Up to 1080 px the navigation folds into the menu button: the globe sits next to it. */
 @media (max-width: 1080px) {
   .lang { margin-inline-start: auto; margin-inline-end: 10px; }
@@ -32611,3 +32613,54 @@ html:not([lang="en"]) .security-protocol-section .sp-title { white-space: normal
 /* Terminal output is Latin with aligned columns: it keeps a monospaced font where the page falls back on the
    proportional one. */
 html:lang(ar) pre, html:lang(fa) pre, html:lang(my) pre { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace; }
+
+/* The navigation folds into the menu button whenever it does not fit the bar: script.js measures it, so every
+   language and width gets the full bar only when it has room (translations run longer than English). */
+.topbar.topbar--compact .topbar__inner.wrap { width: 100%; max-width: none; padding-left: 24px; padding-right: 24px; }
+.topbar.topbar--compact .nav { display: none !important; }
+.topbar.topbar--compact .lang { margin-inline-start: auto; margin-inline-end: 10px; }
+.topbar.topbar--compact .burger {
+  display: flex !important; flex-direction: column; justify-content: center; align-items: flex-end; gap: 6px;
+  background: transparent; border: none; cursor: pointer; padding: 8px; z-index: 2001;
+}
+.topbar.topbar--compact .burger span {
+  display: block; height: 2px; background: var(--acc2); border-radius: 2px; box-shadow: 0 0 5px var(--acc2);
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.topbar.topbar--compact .burger span:nth-child(1) { width: 30px; }
+.topbar.topbar--compact .burger span:nth-child(2) { width: 20px; }
+.topbar.topbar--compact .burger span:nth-child(3) { width: 25px; }
+.topbar.topbar--compact .burger[aria-expanded="true"] span:nth-child(1) {
+  width: 30px; transform: rotate(45deg) translate(6px, 6px); background: var(--warn); box-shadow: 0 0 8px var(--warn);
+}
+.topbar.topbar--compact .burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; transform: translateX(-20px); }
+.topbar.topbar--compact .burger[aria-expanded="true"] span:nth-child(3) {
+  width: 30px; transform: rotate(-45deg) translate(6px, -6px); background: var(--warn); box-shadow: 0 0 8px var(--warn);
+}
+.topbar.topbar--compact .mobilemenu {
+  display: flex !important; flex-direction: column; justify-content: center; align-items: center; gap: 18px;
+  position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: 2000;
+  background: rgba(5, 7, 10, 0.98); backdrop-filter: blur(20px);
+  transform: translateX(100%); visibility: hidden;
+  transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1), visibility 0s step-end 0.4s;
+}
+.topbar.topbar--compact .mobilemenu.is-open {
+  transform: translateX(0); visibility: visible;
+  transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1), visibility 0s step-start;
+}
+.topbar.topbar--compact .mobilemenu a {
+  font-family: var(--font-mono); font-size: 20px; font-weight: 900; color: var(--muted); text-transform: uppercase;
+  text-decoration: none; letter-spacing: 0; padding: 8px 18px;
+  border-left: 1px solid transparent; border-right: 1px solid transparent;
+}
+.topbar.topbar--compact .mobilemenu a:hover {
+  color: var(--acc); text-shadow: 0 0 10px var(--acc); border-left-color: var(--acc); border-right-color: var(--acc);
+  background: rgba(10, 255, 132, 0.05);
+}
+/* Below 1600 px the bar drops the badges beside Globe, Pro and Games (LIVE, the price, the game count) and tightens
+   its gaps, so the full navigation still fits a 1366-1440 px laptop in English; longer languages fold into the
+   menu button (script.js). */
+@media (min-width: 1081px) and (max-width: 1599px) {
+  .topbar .nav .nav-badge { display: none; }
+  .topbar .nav { gap: clamp(8px, 0.62vw, 12px); }
+}

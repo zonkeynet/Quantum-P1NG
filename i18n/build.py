@@ -294,7 +294,12 @@ def switcher(page, current):
     return ('<details class="lang" translate="no"><summary aria-label="%s"><svg viewBox="0 0 24 24" fill="none" '
             'stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" '
             'aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>'
-            '</svg><span>%s</span></summary><ul>%s</ul></details>' % (LANGUAGE_LABEL[current], LANGS[current], items))
+            '</svg><span class="lang-name">%s</span><span class="lang-code">%s</span></summary><ul>%s</ul></details>' % (
+                LANGUAGE_LABEL[current], LANGS[current], LANG_CODE.get(current, current.upper()), items))
+
+
+# The short label next to the globe where the bar has no room for the language's name.
+LANG_CODE = {"pt-BR": "PT", "zh-CN": "简", "zh-TW": "繁"}
 
 
 def extract():

@@ -33,6 +33,33 @@ function T(text, values) {
   // =========================================
   const burger = document.querySelector(".burger");
   const mobileMenu = document.querySelector(".mobilemenu");
+  const topbar = document.querySelector(".topbar");
+
+  // The full navigation only when it fits the bar beside the logo and the language button: translations run
+  // longer than English, so a fixed breakpoint cannot know. Otherwise it folds into the menu button
+  // (.topbar--compact). Measured on load, on resize and once the fonts have arrived.
+  const fitNav = () => {
+    const nav = topbar && topbar.querySelector(".nav");
+    const brand = topbar && topbar.querySelector(".brand");
+    const lang = topbar && topbar.querySelector("details.lang");
+    if (!nav || !brand) return;
+    topbar.classList.remove("topbar--compact");
+    if (getComputedStyle(nav).display === "none") return; // phones: the stylesheet already folds it
+    const items = Array.from(nav.children).map((item) => item.getBoundingClientRect()).filter((box) => box.width);
+    if (!items.length) return;
+    const start = Math.min(...items.map((box) => box.left));
+    const end = Math.max(...items.map((box) => box.right));
+    const b = brand.getBoundingClientRect();
+    const g = lang ? lang.getBoundingClientRect() : null;
+    const rtl = document.documentElement.dir === "rtl";
+    const room = rtl
+      ? Math.min(b.left - end, g ? start - g.right : Infinity)
+      : Math.min(start - b.right, g ? g.left - end : Infinity);
+    if (room < 12 || nav.scrollWidth > nav.clientWidth + 1) topbar.classList.add("topbar--compact");
+  };
+  fitNav();
+  window.addEventListener("resize", fitNav, { passive: true });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitNav);
 
   const toggleMenu = (forceClose = false) => {
     const isOpen = burger.getAttribute("aria-expanded") === "true";
@@ -58,7 +85,7 @@ function T(text, values) {
     });
 
     window.addEventListener('resize', () => {
-      if (window.innerWidth > 1080) {
+      if (window.innerWidth > 1080 && !(topbar && topbar.classList.contains("topbar--compact"))) {
         toggleMenu(true);
       }
     }, { passive: true });
