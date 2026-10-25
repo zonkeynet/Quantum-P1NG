@@ -2655,7 +2655,16 @@
   "<span class=\"mono\" aria-hidden=\"true\">03</span>Separate primary, decoy and duress credentials": "<span class=\"mono\" aria-hidden=\"true\">03</span>ပင်မ၊ အယောင်ပြနှင့် အကျပ်ကိုင်ခံရချိန် ဝင်ရောက်မှုအချက်အလက်များ",
   "ANDROID / FALLOUT / 00:58": "ANDROID / FALLOUT / 00:58",
   "Recorded in the Android demo with sample data and an emulated shake. Credential configuration shown; no wipe executed. Waiting time shortened. Edited with cuts and accelerated sequences.": "နမူနာဒေတာနှင့် လှုပ်ခြင်းကို တုပ၍ Android ဒီမိုတွင် ရိုက်ကူးထားသည်။ ဝင်ရောက်မှုသတ်မှတ်ချက်ကိုသာ ပြသပြီး ဒေတာဖျက်ခြင်း မလုပ်ပါ။ စောင့်ဆိုင်းချိန်ကို လျှော့ထားသည်။ တည်းဖြတ်ဖြတ်တောက်မှုနှင့် အမြန်ပြထားသည့် အပိုင်းများ ပါဝင်သည်။",
-  "Click to play: Anti-forensics · Android demo": "ဖွင့်ရန် နှိပ်ပါ: Anti-forensics · Android demo"
+  "Click to play: Anti-forensics · Android demo": "ဖွင့်ရန် နှိပ်ပါ: Anti-forensics · Android demo",
+  "ANDROID APP · FIRST SETUP": "Android အက်ပ် · ပထမဆုံး သတ်မှတ်ခြင်း",
+  "Three PINs. One calculator.": "PIN သုံးခု။ ဂဏန်းတွက်စက် တစ်ခု။",
+  "Set a primary, a duress and a decoy PIN, then turn on Quantum Keyboard. From then on the app opens behind a working calculator: type the PIN and =.": "အဓိက PIN၊ အရေးပေါ် PIN နှင့် လှည့်စား PIN တို့ကို သတ်မှတ်ပြီး Quantum Keyboard ကို ဖွင့်ပါ။ ထို့နောက် အက်ပ်သည် အလုပ်လုပ်သော ဂဏန်းတွက်စက်နောက်ကွယ်မှ ပွင့်လာသည်- PIN ရိုက်ပြီး = နှိပ်ပါ။",
+  "<span class=\"mono\" aria-hidden=\"true\">01</span>Primary, duress and decoy PIN": "<span class=\"mono\" aria-hidden=\"true\">01</span>အဓိက၊ အရေးပေါ်နှင့် လှည့်စား PIN",
+  "<span class=\"mono\" aria-hidden=\"true\">02</span>Quantum Keyboard, enabled in Android settings": "<span class=\"mono\" aria-hidden=\"true\">02</span>Android ဆက်တင်တွင် ဖွင့်ထားသော Quantum Keyboard",
+  "<span class=\"mono\" aria-hidden=\"true\">03</span>Calculator cover: PIN and = to enter": "<span class=\"mono\" aria-hidden=\"true\">03</span>ဂဏန်းတွက်စက် ဖုံးကွယ်မှု- ဝင်ရန် PIN နှင့် =",
+  "ANDROID / FIRST SETUP / 01:31": "ANDROID / FIRST SETUP / 01:31",
+  "Recorded on an Android emulator with demo PINs. Duress and decoy codes configured only; nothing triggered. Typing and waiting accelerated; two takes of the same setup joined.": "သရုပ်ပြ PIN များဖြင့် Android emulator ပေါ်တွင် ရိုက်ကူးထားသည်။ အရေးပေါ်နှင့် လှည့်စားကုဒ်များကို သတ်မှတ်ရုံသာ ပြထားပြီး မည်သည့်လုပ်ဆောင်ချက်ကိုမျှ မစတင်ပါ။ ရိုက်နှိပ်ခြင်းနှင့် စောင့်ချိန်များကို အမြန်ပြထားပြီး တူညီသော သတ်မှတ်မှု၏ ရိုက်ကွက်နှစ်ခုကို ဆက်ထားသည်။",
+  "Click to play: First setup · Android demo": "ဖွင့်ရန် နှိပ်ပါ: First setup · Android demo"
  },
  "messages": {
   "COPIED": "ကူးယူပြီး",

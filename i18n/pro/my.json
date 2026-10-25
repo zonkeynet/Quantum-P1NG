@@ -137,7 +137,20 @@
   "Show support email": "အကူအညီ အီးမေးလ်ကို ပြရန်",
   "(support [at] qp1ng [dot] com)": "(support [at] qp1ng [dot] com)",
   "<span data-card=\"off\">Pay with Bitcoin; card payments are coming soon.</span><span data-card=\"on\" hidden>Pay by card through <span data-card-name>FastSpring</span>, our reseller, or with Bitcoin.</span> Your key appears on this page.": "<span data-card=\"off\">Bitcoin ဖြင့် ပေးချေပါ၊ ကတ်ဖြင့် ပေးချေမှု မကြာမီ ရနိုင်ပါမည်။</span><span data-card=\"on\" hidden>ကျွန်ုပ်တို့၏ ပြန်လည်ရောင်းချသူ <span data-card-name>FastSpring</span> မှတစ်ဆင့် ကတ်ဖြင့် သို့မဟုတ် Bitcoin ဖြင့် ပေးချေပါ။</span> သင့်ကီးသည် ဤစာမျက်နှာပေါ်တွင် ပေါ်လာပါမည်။",
-  "<span data-card=\"on\" hidden>Cards in the secure checkout of <span data-card-name>FastSpring</span>, our reseller: we never see your card details. </span>Bitcoin on-chain, straight to our wallet: no account, no card details.<span data-card=\"off\"> Card payments are coming soon.</span>": "<span data-card=\"on\" hidden>ကတ်များကို ကျွန်ုပ်တို့၏ ပြန်လည်ရောင်းချသူ <span data-card-name>FastSpring</span> ၏ လုံခြုံသော ငွေရှင်းစာမျက်နှာတွင် ပေးချေသည်- သင့်ကတ်အသေးစိတ်ကို ကျွန်ုပ်တို့ မမြင်ရပါ။ </span>Bitcoin ကို on-chain ဖြင့် ကျွန်ုပ်တို့ ပိုက်ဆံအိတ်သို့ တိုက်ရိုက် ပေးချေသည်- အကောင့် မလို၊ ကတ်အသေးစိတ် မလို။<span data-card=\"off\"> ကတ်ဖြင့် ပေးချေမှု မကြာမီ ရနိုင်ပါမည်။</span>"
+  "<span data-card=\"on\" hidden>Cards in the secure checkout of <span data-card-name>FastSpring</span>, our reseller: we never see your card details. </span>Bitcoin on-chain, straight to our wallet: no account, no card details.<span data-card=\"off\"> Card payments are coming soon.</span>": "<span data-card=\"on\" hidden>ကတ်များကို ကျွန်ုပ်တို့၏ ပြန်လည်ရောင်းချသူ <span data-card-name>FastSpring</span> ၏ လုံခြုံသော ငွေရှင်းစာမျက်နှာတွင် ပေးချေသည်- သင့်ကတ်အသေးစိတ်ကို ကျွန်ုပ်တို့ မမြင်ရပါ။ </span>Bitcoin ကို on-chain ဖြင့် ကျွန်ုပ်တို့ ပိုက်ဆံအိတ်သို့ တိုက်ရိုက် ပေးချေသည်- အကောင့် မလို၊ ကတ်အသေးစိတ် မလို။<span data-card=\"off\"> ကတ်ဖြင့် ပေးချေမှု မကြာမီ ရနိုင်ပါမည်။</span>",
+  "ANDROID · INSTALL": "Android · ထည့်သွင်းခြင်း",
+  "From APK to first start": "APK မှ ပထမဆုံးဖွင့်ခြင်းအထိ",
+  "Open the APK, allow that source once and tap Install. Six welcome pages explain the app before setup starts.": "APK ကိုဖွင့်ပါ၊ ထိုရင်းမြစ်ကို တစ်ကြိမ်ခွင့်ပြုပြီး Install ကိုနှိပ်ပါ။ သတ်မှတ်မှုမစမီ ကြိုဆိုစာမျက်နှာ ခြောက်ခုက အက်ပ်ကို ရှင်းပြသည်။",
+  "Open the downloaded APK": "ဒေါင်းလုဒ်လုပ်ထားသော APK ကိုဖွင့်ပါ",
+  "Allow installs from this source, once": "ဤရင်းမြစ်မှ ထည့်သွင်းခြင်းကို တစ်ကြိမ်ခွင့်ပြုပါ",
+  "Install, open, read the welcome pages": "ထည့်သွင်း၊ ဖွင့်၊ ကြိုဆိုစာမျက်နှာများကို ဖတ်ပါ",
+  "ANDROID / INSTALL / 00:58": "ANDROID / INSTALL / 00:58",
+  "EN / IT": "EN / IT",
+  "Click to play": "ဖွင့်ရန် နှိပ်ပါ",
+  "Open the video": "ဗီဒီယိုကို ဖွင့်ရန်",
+  "Recorded on an Android emulator with the Pro debug build; the APK was copied to Downloads. Staging and installing shortened; edited with cuts.": "Pro debug build ဖြင့် Android emulator ပေါ်တွင် ရိုက်ကူးထားသည်။ APK ကို Downloads သို့ ကူးထည့်ထားသည်။ ပြင်ဆင်ချိန်နှင့် ထည့်သွင်းချိန်ကို တိုထားပြီး ဖြတ်တောက်တည်းဖြတ်ထားသည်။",
+  "Open the video (MP4)": "ဗီဒီယိုကို ဖွင့်ရန် (MP4)",
+  "Click to play: Install · Android demo": "ဖွင့်ရန် နှိပ်ပါ: Install · Android demo"
  },
  "messages": {
   "Copied": "ကူးယူပြီးပါပြီ",
@@ -172,6 +185,11 @@
   "Download": "ဒေါင်းလုဒ်",
   "The first release of the website edition will appear here.": "ဝက်ဘ်ဆိုက်ဗားရှင်း၏ ပထမဆုံးထုတ်ဝေမှုကို ဤနေရာတွင် ပြသပါမည်။",
   "Through {provider}, our reseller": "ကျွန်ုပ်တို့၏ ပြန်လည်ရောင်းချသူ {provider} မှတစ်ဆင့်",
-  "The card checkout could not be loaded. Check that no blocker stops {domain}.": "ကတ်ငွေရှင်းစာမျက်နှာကို ဖွင့်၍မရပါ။ {domain} ကို မည်သည့် blocker ကမျှ ပိတ်မထားကြောင်း စစ်ဆေးပါ။"
+  "The card checkout could not be loaded. Check that no blocker stops {domain}.": "ကတ်ငွေရှင်းစာမျက်နှာကို ဖွင့်၍မရပါ။ {domain} ကို မည်သည့် blocker ကမျှ ပိတ်မထားကြောင်း စစ်ဆေးပါ။",
+  "Click to play": "ဖွင့်ရန် ကလစ်နှိပ်ပါ",
+  "Click to pause": "ခေတ္တရပ်ရန် ကလစ်နှိပ်ပါ",
+  "Click to replay": "ပြန်ဖွင့်ရန် ကလစ်နှိပ်ပါ",
+  "Click to retry": "ထပ်ကြိုးစားရန် ကလစ်နှိပ်ပါ",
+  "The video could not load. Click the preview to retry.": "ဗီဒီယို ဖွင့်၍ မရပါ။ ထပ်ကြိုးစားရန် preview ကို ကလစ်နှိပ်ပါ။"
  }
 }

@@ -323,6 +323,23 @@ footer a:hover { color: var(--text); }
 .mark svg[aria-label="Apple Pay"], .mark svg[aria-label="Google Pay"] { width: 50px; height: 40px; }
 .mark svg[aria-label="Visa"] { width: 44px; height: 34px; }
 
+/* Install recording under the downloads: the player and its captions come from /app-feature-demos.css. */
+.install-demo.app-walkthrough { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 280px); gap: clamp(20px, 4vw, 48px);
+  align-items: center; max-width: none; --demo-accent: var(--cyan); --demo-line: rgba(0, 242, 255, 0.22); }
+.install-demo.app-walkthrough figcaption { margin-top: 0; min-width: 0; }
+.install-demo-steps { list-style: none; counter-reset: install; display: grid; gap: 10px; margin: 18px 0; padding: 0; }
+.install-demo-steps li { counter-increment: install; display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 10px; font-size: 0.95rem; }
+.install-demo-steps li::before { content: counter(install, decimal-leading-zero); color: var(--cyan); font: 700 0.8rem/1.7 var(--font-mono); }
+.install-demo-captions { padding: 12px 14px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: rgba(0, 0, 0, 0.2); }
+.install-demo-captions .app-walkthrough-meta > span { font-family: var(--font-mono); }
+.install-demo-note { margin: 14px 0 0; color: var(--faint); font-size: 0.8rem; }
+.install-demo-phone { width: 100%; max-width: 280px; justify-self: center; }
+@media (max-width: 760px) {
+  .install-demo.app-walkthrough { grid-template-columns: minmax(0, 1fr); }
+  .install-demo-phone { max-width: 240px; }
+  .install-demo-captions .app-walkthrough-meta { flex-wrap: wrap; }
+}
+
 /* Phones: compact feature rows (icon beside the text) and full-width download buttons. */
 @media (max-width: 560px) {
   .feature { display: grid; grid-template-columns: 52px minmax(0, 1fr); column-gap: 16px; align-items: start; padding: 18px; }

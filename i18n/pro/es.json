@@ -137,7 +137,20 @@
   "Show support email": "Mostrar el correo de soporte",
   "(support [at] qp1ng [dot] com)": "(support [at] qp1ng [dot] com)",
   "<span data-card=\"off\">Pay with Bitcoin; card payments are coming soon.</span><span data-card=\"on\" hidden>Pay by card through <span data-card-name>FastSpring</span>, our reseller, or with Bitcoin.</span> Your key appears on this page.": "<span data-card=\"off\">Paga con Bitcoin; los pagos con tarjeta llegarán pronto.</span><span data-card=\"on\" hidden>Paga con tarjeta a través de <span data-card-name>FastSpring</span>, nuestro revendedor, o con Bitcoin.</span> Tu clave aparece en esta página.",
-  "<span data-card=\"on\" hidden>Cards in the secure checkout of <span data-card-name>FastSpring</span>, our reseller: we never see your card details. </span>Bitcoin on-chain, straight to our wallet: no account, no card details.<span data-card=\"off\"> Card payments are coming soon.</span>": "<span data-card=\"on\" hidden>Tarjetas en el pago seguro de <span data-card-name>FastSpring</span>, nuestro revendedor: nunca vemos los datos de tu tarjeta. </span>Bitcoin on-chain, directo a nuestro monedero: sin cuenta y sin datos de tarjeta.<span data-card=\"off\"> Los pagos con tarjeta llegarán pronto.</span>"
+  "<span data-card=\"on\" hidden>Cards in the secure checkout of <span data-card-name>FastSpring</span>, our reseller: we never see your card details. </span>Bitcoin on-chain, straight to our wallet: no account, no card details.<span data-card=\"off\"> Card payments are coming soon.</span>": "<span data-card=\"on\" hidden>Tarjetas en el pago seguro de <span data-card-name>FastSpring</span>, nuestro revendedor: nunca vemos los datos de tu tarjeta. </span>Bitcoin on-chain, directo a nuestro monedero: sin cuenta y sin datos de tarjeta.<span data-card=\"off\"> Los pagos con tarjeta llegarán pronto.</span>",
+  "ANDROID · INSTALL": "ANDROID · INSTALACIÓN",
+  "From APK to first start": "Del APK al primer inicio",
+  "Open the APK, allow that source once and tap Install. Six welcome pages explain the app before setup starts.": "Abre el APK, permite esa fuente una vez y toca Instalar. Seis páginas de bienvenida explican la app antes de la configuración.",
+  "Open the downloaded APK": "Abre el APK descargado",
+  "Allow installs from this source, once": "Permite instalar desde esta fuente, una vez",
+  "Install, open, read the welcome pages": "Instala, abre, lee las páginas de bienvenida",
+  "ANDROID / INSTALL / 00:58": "ANDROID / INSTALL / 00:58",
+  "EN / IT": "EN / IT",
+  "Click to play": "Haz clic para reproducir",
+  "Open the video": "Abrir el video",
+  "Recorded on an Android emulator with the Pro debug build; the APK was copied to Downloads. Staging and installing shortened; edited with cuts.": "Grabado en un emulador de Android con la compilación debug de Pro; el APK se copió a Descargas. Preparación e instalación acortadas; editado con cortes.",
+  "Open the video (MP4)": "Abrir el vídeo (MP4)",
+  "Click to play: Install · Android demo": "Haz clic para reproducir: Install · Android demo"
  },
  "messages": {
   "Copied": "Copiado",
@@ -172,6 +185,11 @@
   "Download": "Descargar",
   "The first release of the website edition will appear here.": "Aquí aparecerá la primera versión de la edición web.",
   "Through {provider}, our reseller": "A través de {provider}, nuestro revendedor",
-  "The card checkout could not be loaded. Check that no blocker stops {domain}.": "No se ha podido cargar el pago con tarjeta. Comprueba que ningún bloqueador impida el acceso a {domain}."
+  "The card checkout could not be loaded. Check that no blocker stops {domain}.": "No se ha podido cargar el pago con tarjeta. Comprueba que ningún bloqueador impida el acceso a {domain}.",
+  "Click to play": "Haz clic para reproducir",
+  "Click to pause": "Haz clic para pausar",
+  "Click to replay": "Haz clic para volver a verlo",
+  "Click to retry": "Haz clic para reintentar",
+  "The video could not load. Click the preview to retry.": "No se pudo cargar el video. Haz clic en la vista previa para reintentar."
  }
 }

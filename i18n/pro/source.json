@@ -111,6 +111,19 @@
   "The website edition",
   "For Android 8 or later: allow your browser to install apps. The free Core edition needs no licence.",
   "Loading the latest release&hellip;",
+  "ANDROID · INSTALL",
+  "From APK to first start",
+  "Open the APK, allow that source once and tap Install. Six welcome pages explain the app before setup starts.",
+  "Open the downloaded APK",
+  "Allow installs from this source, once",
+  "Install, open, read the welcome pages",
+  "ANDROID / INSTALL / 00:58",
+  "EN / IT",
+  "Click to play",
+  "Open the video",
+  "Recorded on an Android emulator with the Pro debug build; the APK was copied to Downloads. Staging and installing shortened; edited with cuts.",
+  "Open the video (MP4)",
+  "Click to play: Install · Android demo",
   "HELP",
   "Lost your key? Questions?",
   "Recover your key",
@@ -172,6 +185,11 @@
   "Free",
   "Needs a licence",
   "Download",
-  "The first release of the website edition will appear here."
+  "The first release of the website edition will appear here.",
+  "Click to play",
+  "Click to pause",
+  "Click to replay",
+  "Click to retry",
+  "The video could not load. Click the preview to retry."
  ]
 }

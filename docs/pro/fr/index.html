@@ -77,7 +77,8 @@
     <link rel="preconnect" href="https://qp1ng-license-api.quantump1ng.workers.dev" crossorigin>
     <link rel="preload" href="/assets/fonts/bitcount_square_qp1ng.woff2" as="font" type="font/woff2" crossorigin>
     <!-- Bump ?v= whenever pro.css, pow.js or pro.js change: the proxy lets browsers cache them for hours. -->
-    <link rel="stylesheet" href="/pro/pro.css?v=20261025b">
+    <link rel="stylesheet" href="/pro/pro.css?v=20261025c">
+    <link rel="stylesheet" href="/app-feature-demos.css?v=7">
     <link rel="stylesheet" href="/lang-menu.css?v=1">
 </head>
 <body>
@@ -326,6 +327,43 @@
             <div class="panel" id="downloads">
                 <p class="muted">Chargement de la dernière version…</p>
             </div>
+            <figure class="panel install-demo app-walkthrough" id="install-demo" aria-labelledby="install-demo-title"
+                data-app-walkthrough="Install · Android demo" data-cues="/assets/vid/install-first-launch-demo-timing.json"
+                data-idle-en="Open the APK, allow that source once and tap Install. Six welcome pages explain the app before setup starts." data-idle-it="Apri l’APK, consenti quella fonte una volta e tocca Installa. Sei pagine di benvenuto spiegano l’app prima della configurazione.">
+                <figcaption class="install-demo-copy">
+                    <p class="kicker">ANDROID · INSTALLATION</p>
+                    <h3 id="install-demo-title">De l’APK au premier lancement</h3>
+                    <p class="muted">Ouvrez l’APK, autorisez cette source une fois et touchez Installer. Six pages d’accueil présentent l’app avant la configuration.</p>
+                    <ol class="install-demo-steps">
+                        <li>Ouvrez l’APK téléchargé</li>
+                        <li>Autorisez cette source, une seule fois</li>
+                        <li>Installez, ouvrez, lisez l’accueil</li>
+                    </ol>
+                    <div class="install-demo-captions">
+                        <div class="app-walkthrough-meta">
+                            <span>ANDROID / INSTALL / 00:58</span>
+                            <div class="app-walkthrough-languages" role="group" aria-label="EN / IT">
+                                <button type="button" data-demo-lang="en" aria-pressed="true" lang="en">EN</button>
+                                <button type="button" data-demo-lang="it" aria-pressed="false" lang="it">IT</button>
+                            </div>
+                        </div>
+                        <span class="app-walkthrough-caption" id="install-demo-caption" data-demo-caption>Ouvrez l’APK, autorisez cette source une fois et touchez Installer. Six pages d’accueil présentent l’app avant la configuration.</span>
+                        <span class="app-walkthrough-note" data-demo-hint>Cliquer pour lire</span>
+                        <p class="app-walkthrough-fallback" data-demo-fallback hidden><a href="/assets/vid/install-first-launch-demo.mp4">Ouvrir la vidéo</a></p>
+                    </div>
+                    <p class="install-demo-note" id="install-demo-note">Enregistré sur un émulateur Android avec la version debug de Pro ; l’APK a été copié dans Téléchargements. Préparation et installation raccourcies ; montage avec coupes.</p>
+                    <noscript><p><a href="/assets/vid/install-first-launch-demo.mp4">Ouvrir la vidéo (MP4)</a></p></noscript>
+                </figcaption>
+                <div class="app-walkthrough-screen install-demo-phone">
+                    <video width="720" height="1280" muted playsinline preload="none" role="button" tabindex="0"
+                        aria-label="Cliquer pour lire: Install · Android demo" aria-describedby="install-demo-caption install-demo-note"
+                        poster="/assets/img/install-first-launch-demo-poster.webp">
+                        <source data-src="/assets/vid/install-first-launch-demo.webm" type="video/webm">
+                        <source data-src="/assets/vid/install-first-launch-demo.mp4" type="video/mp4">
+                        <p><a href="/assets/vid/install-first-launch-demo.mp4">Ouvrir la vidéo</a></p>
+                    </video>
+                </div>
+            </figure>
         </div>
     </section>
 
@@ -392,9 +430,10 @@
         </nav>
     </div>
 </footer>
-<!-- i18n:messages --><script type="application/json" id="pro-i18n">{"Copied": "Copié", "Through {provider}, our reseller": "Via {provider}, notre revendeur", "Coming soon": "Bientôt disponible", "Soon": "Bientôt", "Payments could not be loaded. Check your connection and reload the page.": "Impossible de charger les moyens de paiement. Vérifiez votre connexion et rechargez la page.", "Tick the box above to choose how to pay.": "Cochez la case ci-dessus pour choisir un moyen de paiement.", "Card payment is not available right now. Please try again later, or pay with Bitcoin.": "Le paiement par carte n’est pas disponible pour le moment. Réessayez plus tard ou payez en Bitcoin.", "The card checkout could not be loaded. Check that no blocker stops {domain}.": "Impossible de charger le paiement par carte. Vérifiez qu’aucun bloqueur ne filtre {domain}.", "This usually takes a few seconds. Your order reference is {reference} (also on your receipt): with it you can recover the key below at any time.": "Cela prend généralement quelques secondes. Votre référence de commande est {reference} (également sur votre reçu) : elle vous permet de récupérer la clé ci-dessous à tout moment.", "This licence was refunded.": "Cette licence a été remboursée.", "Your payment is confirmed, but the key is taking longer than usual.": "Votre paiement est confirmé, mais la clé met plus de temps que d’habitude.", "Recover it below with the order reference {reference} in a few minutes, or write to {support}.": "Récupérez-la ci-dessous dans quelques minutes avec la référence de commande {reference}, ou écrivez à {support}.", "Recover it below with the order reference on your receipt in a few minutes, or write to {support}.": "Récupérez-la ci-dessous dans quelques minutes avec la référence de commande figurant sur votre reçu, ou écrivez à {support}.", "Preparing the order (a few seconds of work on this device)…": "Préparation de la commande (quelques secondes de calcul sur cet appareil)…", "The Bitcoin order failed:": "La commande Bitcoin a échoué :", "Rate expired": "Taux expiré", "Rate held": "Taux garanti", "Payment confirmed.": "Paiement confirmé.", "Payment seen on the network. Waiting for one confirmation…": "Paiement détecté sur le réseau. En attente d’une confirmation…", "Received {received} BTC. Send the remaining {due} BTC to the same address.": "Reçu : {received} BTC. Envoyez les {due} BTC restants à la même adresse.", "This order has expired without a payment. If you have just paid, the payment is still recognised for two weeks; otherwise start a new order.": "Cette commande a expiré sans paiement. Si vous venez de payer, le paiement reste reconnu pendant deux semaines ; sinon, passez une nouvelle commande.", "Waiting for the payment…": "En attente du paiement…", "That order no longer exists.": "Cette commande n’existe plus.", "That is not an order reference.": "Ce n’est pas une référence de commande.", "Looking it up…": "Recherche…", "Found.": "Trouvé.", "Too many attempts: try again in a minute.": "Trop de tentatives : réessayez dans une minute.", "No licence for that order yet. If you have just paid, try again in a minute; otherwise write to {support}.": "Pas encore de licence pour cette commande. Si vous venez de payer, réessayez dans une minute ; sinon, écrivez à {support}.", "The licence service could not be reached.": "Impossible de joindre le service de licences.", "Free": "Gratuit", "Needs a licence": "Licence requise", "Download": "Télécharger", "The first release of the website edition will appear here.": "La première publication de la version site web apparaîtra ici."}</script><!-- /i18n:messages -->
+<!-- i18n:messages --><script type="application/json" id="pro-i18n">{"Copied": "Copié", "Through {provider}, our reseller": "Via {provider}, notre revendeur", "Coming soon": "Bientôt disponible", "Soon": "Bientôt", "Payments could not be loaded. Check your connection and reload the page.": "Impossible de charger les moyens de paiement. Vérifiez votre connexion et rechargez la page.", "Tick the box above to choose how to pay.": "Cochez la case ci-dessus pour choisir un moyen de paiement.", "Card payment is not available right now. Please try again later, or pay with Bitcoin.": "Le paiement par carte n’est pas disponible pour le moment. Réessayez plus tard ou payez en Bitcoin.", "The card checkout could not be loaded. Check that no blocker stops {domain}.": "Impossible de charger le paiement par carte. Vérifiez qu’aucun bloqueur ne filtre {domain}.", "This usually takes a few seconds. Your order reference is {reference} (also on your receipt): with it you can recover the key below at any time.": "Cela prend généralement quelques secondes. Votre référence de commande est {reference} (également sur votre reçu) : elle vous permet de récupérer la clé ci-dessous à tout moment.", "This licence was refunded.": "Cette licence a été remboursée.", "Your payment is confirmed, but the key is taking longer than usual.": "Votre paiement est confirmé, mais la clé met plus de temps que d’habitude.", "Recover it below with the order reference {reference} in a few minutes, or write to {support}.": "Récupérez-la ci-dessous dans quelques minutes avec la référence de commande {reference}, ou écrivez à {support}.", "Recover it below with the order reference on your receipt in a few minutes, or write to {support}.": "Récupérez-la ci-dessous dans quelques minutes avec la référence de commande figurant sur votre reçu, ou écrivez à {support}.", "Preparing the order (a few seconds of work on this device)…": "Préparation de la commande (quelques secondes de calcul sur cet appareil)…", "The Bitcoin order failed:": "La commande Bitcoin a échoué :", "Rate expired": "Taux expiré", "Rate held": "Taux garanti", "Payment confirmed.": "Paiement confirmé.", "Payment seen on the network. Waiting for one confirmation…": "Paiement détecté sur le réseau. En attente d’une confirmation…", "Received {received} BTC. Send the remaining {due} BTC to the same address.": "Reçu : {received} BTC. Envoyez les {due} BTC restants à la même adresse.", "This order has expired without a payment. If you have just paid, the payment is still recognised for two weeks; otherwise start a new order.": "Cette commande a expiré sans paiement. Si vous venez de payer, le paiement reste reconnu pendant deux semaines ; sinon, passez une nouvelle commande.", "Waiting for the payment…": "En attente du paiement…", "That order no longer exists.": "Cette commande n’existe plus.", "That is not an order reference.": "Ce n’est pas une référence de commande.", "Looking it up…": "Recherche…", "Found.": "Trouvé.", "Too many attempts: try again in a minute.": "Trop de tentatives : réessayez dans une minute.", "No licence for that order yet. If you have just paid, try again in a minute; otherwise write to {support}.": "Pas encore de licence pour cette commande. Si vous venez de payer, réessayez dans une minute ; sinon, écrivez à {support}.", "The licence service could not be reached.": "Impossible de joindre le service de licences.", "Free": "Gratuit", "Needs a licence": "Licence requise", "Download": "Télécharger", "The first release of the website edition will appear here.": "La première publication de la version site web apparaîtra ici.", "Click to play": "Cliquez pour lire", "Click to pause": "Cliquez pour mettre en pause", "Click to replay": "Cliquez pour revoir", "Click to retry": "Cliquez pour réessayer", "The video could not load. Click the preview to retry.": "La vidéo n’a pas pu se charger. Cliquez sur l’aperçu pour réessayer."}</script><!-- /i18n:messages -->
 <script src="/pro/pow.js?v=20261024"></script>
 <script src="/pro/pro.js?v=20261025a"></script>
+<script src="/app-feature-demos.js?v=7" defer></script>
 <script src="/email-contact.js?v=20261024" defer></script>
 </body>
 </html>

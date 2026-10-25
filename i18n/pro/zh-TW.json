@@ -137,7 +137,20 @@
   "Show support email": "顯示客服電子郵件",
   "(support [at] qp1ng [dot] com)": "(support [at] qp1ng [dot] com)",
   "<span data-card=\"off\">Pay with Bitcoin; card payments are coming soon.</span><span data-card=\"on\" hidden>Pay by card through <span data-card-name>FastSpring</span>, our reseller, or with Bitcoin.</span> Your key appears on this page.": "<span data-card=\"off\">使用 Bitcoin 付款；刷卡付款即將推出。</span><span data-card=\"on\" hidden>透過我們的經銷商 <span data-card-name>FastSpring</span> 刷卡付款，或使用 Bitcoin 付款。</span>您的金鑰會顯示在這個頁面上。",
-  "<span data-card=\"on\" hidden>Cards in the secure checkout of <span data-card-name>FastSpring</span>, our reseller: we never see your card details. </span>Bitcoin on-chain, straight to our wallet: no account, no card details.<span data-card=\"off\"> Card payments are coming soon.</span>": "<span data-card=\"on\" hidden>刷卡在我們的經銷商 <span data-card-name>FastSpring</span> 的安全結帳頁面中完成：我們絕不會看到您的卡片資料。</span>Bitcoin 鏈上付款，直接轉入我們的錢包：免帳號，也不需卡片資料。<span data-card=\"off\">刷卡付款即將推出。</span>"
+  "<span data-card=\"on\" hidden>Cards in the secure checkout of <span data-card-name>FastSpring</span>, our reseller: we never see your card details. </span>Bitcoin on-chain, straight to our wallet: no account, no card details.<span data-card=\"off\"> Card payments are coming soon.</span>": "<span data-card=\"on\" hidden>刷卡在我們的經銷商 <span data-card-name>FastSpring</span> 的安全結帳頁面中完成：我們絕不會看到您的卡片資料。</span>Bitcoin 鏈上付款，直接轉入我們的錢包：免帳號，也不需卡片資料。<span data-card=\"off\">刷卡付款即將推出。</span>",
+  "ANDROID · INSTALL": "ANDROID · 安裝",
+  "From APK to first start": "從 APK 到首次啟動",
+  "Open the APK, allow that source once and tap Install. Six welcome pages explain the app before setup starts.": "開啟 APK，允許該來源一次，然後輕觸「安裝」。設定開始前，六頁歡迎頁面會介紹這款應用程式。",
+  "Open the downloaded APK": "開啟下載的 APK",
+  "Allow installs from this source, once": "允許從此來源安裝，僅需一次",
+  "Install, open, read the welcome pages": "安裝、開啟、閱讀歡迎頁面",
+  "ANDROID / INSTALL / 00:58": "ANDROID / INSTALL / 00:58",
+  "EN / IT": "EN / IT",
+  "Click to play": "點擊播放",
+  "Open the video": "開啟影片",
+  "Recorded on an Android emulator with the Pro debug build; the APK was copied to Downloads. Staging and installing shortened; edited with cuts.": "使用 Pro 偵錯版在 Android 模擬器上錄製；APK 是複製到「下載」資料夾的。準備與安裝過程已縮短，並經剪輯。",
+  "Open the video (MP4)": "開啟影片 (MP4)",
+  "Click to play: Install · Android demo": "點擊播放: Install · Android demo"
  },
  "messages": {
   "Copied": "已複製",
@@ -172,6 +185,11 @@
   "Download": "下載",
   "The first release of the website edition will appear here.": "網站版的第一個版本將會顯示在這裡。",
   "Through {provider}, our reseller": "透過我們的經銷商 {provider}",
-  "The card checkout could not be loaded. Check that no blocker stops {domain}.": "無法載入刷卡結帳頁面。請確認沒有任何封鎖工具阻擋 {domain}。"
+  "The card checkout could not be loaded. Check that no blocker stops {domain}.": "無法載入刷卡結帳頁面。請確認沒有任何封鎖工具阻擋 {domain}。",
+  "Click to play": "點擊播放",
+  "Click to pause": "點擊暫停",
+  "Click to replay": "點擊重播",
+  "Click to retry": "點擊重試",
+  "The video could not load. Click the preview to retry.": "影片無法載入。請點擊預覽圖重試。"
  }
 }

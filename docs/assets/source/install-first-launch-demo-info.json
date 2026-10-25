@@ -1,0 +1,221 @@
+{
+  "name": "install-first-launch-demo",
+  "duration_seconds": 58.333,
+  "resolution": "720x1280",
+  "frame_rate": 30,
+  "audio": false,
+  "app_id": "com.qp1ng.android",
+  "app_build": "1.0.263 debug, Pro edition (current main, 25 October 2026)",
+  "emulator": "QP1NG_Install / emulator-5582 (clean Android 16 image)",
+  "capture": "Actual Android package installer and app on a clean emulator. The APK was copied to Downloads; on a phone it comes from the website download.",
+  "demonstrated_actions": [
+    "Open the APK from Files",
+    "Allow installs from this source",
+    "Install",
+    "Open the app",
+    "Read the six welcome pages"
+  ],
+  "limits": [
+    "Recorded on an emulator, not a phone",
+    "Install and first-start waiting times shortened",
+    "Debug build of the Pro edition; the Core edition shows the same installer"
+  ],
+  "editing": "Waiting removed; staging accelerated 6x and installing 12x. Android status bar replaced with chapter labels.",
+  "real_devices_used": false,
+  "main_app_source_modified": false,
+  "subtitles": [
+    "it",
+    "en"
+  ],
+  "scenes": [
+    {
+      "file": "01-install.webm",
+      "start": 0.5,
+      "end": 3.5,
+      "label": "01 / APK IN DOWNLOADS / ANDROID DEMO",
+      "chapter": "apk",
+      "en": "The Q-P1NG APK in Downloads, as after downloading it from the website.",
+      "it": "L’APK di Q-P1NG in Download, come dopo averlo scaricato dal sito."
+    },
+    {
+      "file": "01-install.webm",
+      "start": 3.5,
+      "end": 31,
+      "speed": 6,
+      "label": "02 / OPEN THE FILE / ACCELERATED",
+      "chapter": "staging",
+      "en": "Tap the file: Android prepares the package.",
+      "it": "Tocca il file: Android prepara il pacchetto."
+    },
+    {
+      "file": "01-install.webm",
+      "start": 32,
+      "end": 36,
+      "label": "03 / UNKNOWN SOURCE / ANDROID",
+      "chapter": "unknown",
+      "en": "Installing outside Google Play: Android asks you to allow this source once.",
+      "it": "Installazione fuori da Google Play: Android chiede di consentire questa fonte una volta."
+    },
+    {
+      "file": "01-install.webm",
+      "start": 42.5,
+      "end": 44,
+      "label": "03 / UNKNOWN SOURCE / ANDROID",
+      "chapter": "unknown",
+      "en": "",
+      "it": ""
+    },
+    {
+      "file": "01-install.webm",
+      "start": 54,
+      "end": 57,
+      "label": "03 / ALLOW FROM THIS SOURCE",
+      "chapter": "allow",
+      "en": "Turn on Allow from this source, then go back.",
+      "it": "Attiva Consenti da questa fonte, poi torna indietro."
+    },
+    {
+      "file": "01-install.webm",
+      "start": 61.5,
+      "end": 64.5,
+      "label": "03 / ALLOW FROM THIS SOURCE",
+      "chapter": "allow",
+      "en": "",
+      "it": ""
+    },
+    {
+      "file": "01-install.webm",
+      "start": 121.5,
+      "end": 124.5,
+      "label": "04 / INSTALL / ANDROID",
+      "chapter": "install",
+      "en": "Confirm Install.",
+      "it": "Conferma Installa."
+    },
+    {
+      "file": "01-install.webm",
+      "start": 129.5,
+      "end": 131.5,
+      "label": "04 / INSTALL / ANDROID",
+      "chapter": "install",
+      "en": "",
+      "it": ""
+    },
+    {
+      "file": "01-install.webm",
+      "start": 131.5,
+      "end": 179.5,
+      "speed": 12,
+      "label": "04 / INSTALLING / ACCELERATED",
+      "chapter": "installing",
+      "en": "Installation in progress (time shortened).",
+      "it": "Installazione in corso (tempo accorciato)."
+    },
+    {
+      "file": "02-first-launch.webm",
+      "start": 0.5,
+      "end": 4.5,
+      "label": "05 / APP INSTALLED",
+      "chapter": "installed",
+      "en": "App installed: open it.",
+      "it": "App installata: aprila."
+    },
+    {
+      "file": "02-first-launch.webm",
+      "start": 18,
+      "end": 22,
+      "speed": 2,
+      "label": "06 / FIRST START / ACCELERATED",
+      "chapter": "start",
+      "en": "First start.",
+      "it": "Primo avvio."
+    },
+    {
+      "file": "02-first-launch.webm",
+      "start": 30,
+      "end": 33.8,
+      "label": "07 / WELCOME / 1 OF 6",
+      "chapter": "welcome-1",
+      "en": "Private chats, useful tools and ways to connect offline.",
+      "it": "Chat private, strumenti utili e modi per connettersi offline."
+    },
+    {
+      "file": "02-first-launch.webm",
+      "start": 57.6,
+      "end": 61.4,
+      "label": "07 / WELCOME / 2 OF 6",
+      "chapter": "welcome-2",
+      "en": "Encrypted messages and calls over Tor, with identities you can verify.",
+      "it": "Messaggi e chiamate cifrati via Tor, con identità che puoi verificare."
+    },
+    {
+      "file": "02-first-launch.webm",
+      "start": 66.6,
+      "end": 70.4,
+      "label": "07 / WELCOME / 3 OF 6",
+      "chapter": "welcome-3",
+      "en": "Nearby contacts without internet. LoRa and VHF need compatible hardware.",
+      "it": "Contatti vicini senza internet. LoRa e VHF richiedono hardware compatibile."
+    },
+    {
+      "file": "02-first-launch.webm",
+      "start": 1915,
+      "end": 1918.8,
+      "label": "07 / WELCOME / 4 OF 6",
+      "chapter": "welcome-4",
+      "en": "Notes and files in the encrypted vault; face protection before sharing images.",
+      "it": "Note e file nel vault cifrato; protezione dei volti prima di condividere le immagini."
+    },
+    {
+      "file": "02-first-launch.webm",
+      "start": 1943.6,
+      "end": 1947.4,
+      "label": "07 / WELCOME / 5 OF 6",
+      "chapter": "welcome-5",
+      "en": "Download AI models when you need them; local AI then works offline.",
+      "it": "Scarichi i modelli AI quando servono; poi l’AI locale funziona offline."
+    },
+    {
+      "file": "02-first-launch.webm",
+      "start": 1959.6,
+      "end": 1963.6,
+      "hold": 0.8,
+      "label": "07 / WELCOME / 6 OF 6",
+      "chapter": "welcome-6",
+      "en": "Q-Feed: share with contacts or in public, and check the audience before sending.",
+      "it": "Q-Feed: condividi con i contatti o in pubblico, controllando il pubblico prima di inviare."
+    }
+  ],
+  "files": [
+    {
+      "name": "install-first-launch-demo-poster.webp",
+      "bytes": 60084,
+      "sha256": "fecee1b38369ed3230b752388c5aad1e69f42d88519ce9cea9b1811ff39df336"
+    },
+    {
+      "name": "install-first-launch-demo-timing.json",
+      "bytes": 3055,
+      "sha256": "25247d136c7b0e33f1627d9849d44963e22c603e6b2b83e24067ac16858e555b"
+    },
+    {
+      "name": "install-first-launch-demo.en.vtt",
+      "bytes": 1294,
+      "sha256": "be68743906b73fd378ff8f7b0addbc49352e6dc09c755b167793e15ba562a84c"
+    },
+    {
+      "name": "install-first-launch-demo.it.vtt",
+      "bytes": 1346,
+      "sha256": "6d5b9c3d87eba25ef9e781f3ac719d7796cd4fc6202327e6cb5972cefee2ff35"
+    },
+    {
+      "name": "install-first-launch-demo.mp4",
+      "bytes": 915299,
+      "sha256": "8776b76e72dbe4e48ef118344252279a590ec656619db9b41d208097c99584c7"
+    },
+    {
+      "name": "install-first-launch-demo.webm",
+      "bytes": 1077558,
+      "sha256": "74f0a726272adaf33051da34eb267dee3764c87acd6cb1661a52ec5d9abfc3c5"
+    }
+  ]
+}

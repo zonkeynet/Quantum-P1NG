@@ -43,11 +43,12 @@ OG_LOCALE = {
 
 # The Pro page lives under /pro/<lang>/: Cloudflare gives everything under /pro/ the checkout's security policy.
 # The home lives under /<lang>/ with relative links ("../styles.css"), so it also works on the IPFS mirror, where an
-# absolute "/..." would leave the site's folder. "fn" is the scripts' translation function, "messages_id" the JSON
-# block that carries its texts. A page whose source has no i18n markers yet is skipped by build.
+# absolute "/..." would leave the site's folder. "fn" is the scripts' translation function (a list when the page loads
+# scripts of both pages: the Pro page plays the install recording with the home's app-feature-demos.js, which calls
+# T), "messages_id" the JSON block that carries its texts. A page whose source has no i18n markers yet is skipped by build.
 PAGES = {
-    "pro": {"source": "pro/index.html", "path": "/pro/", "scripts": ["pro/pro.js"], "fn": "t",
-            "messages_id": "pro-i18n", "ld_urls": True},
+    "pro": {"source": "pro/index.html", "path": "/pro/", "scripts": ["pro/pro.js", "app-feature-demos.js"],
+            "fn": ["t", "T"], "messages_id": "pro-i18n", "ld_urls": True},
     "home": {"source": "index.html", "path": "/", "scripts": ["script.js", "app-feature-demos.js", "qdream-gallery.js",
              "qcast-hero-player.js", "qgeo-demo.js"], "fn": "T", "messages_id": "site-i18n", "relative": True},
 }
@@ -230,7 +231,9 @@ def js_string(body, quote):
 
 def messages_of(page):
     keys = []
-    pattern = re.compile(r"""\b%s\(\s*(["'])((?:\\.|(?!\1)[^\\])*)\1""" % re.escape(page.get("fn", "t")))
+    names = page.get("fn", "t")
+    names = [names] if isinstance(names, str) else names
+    pattern = re.compile(r"""\b(?:%s)\(\s*(["'])((?:\\.|(?!\1)[^\\])*)\1""" % "|".join(map(re.escape, names)))
     for script in page["scripts"]:
         for match in pattern.finditer((DOCS / script).read_text(encoding="utf-8")):
             key = js_string(match.group(2), match.group(1))

@@ -2655,7 +2655,16 @@
   "<span class=\"mono\" aria-hidden=\"true\">03</span>Separate primary, decoy and duress credentials": "<span class=\"mono\" aria-hidden=\"true\">03</span>Отдельные основные, ложные и экстренные данные входа",
   "ANDROID / FALLOUT / 00:58": "ANDROID / FALLOUT / 00:58",
   "Recorded in the Android demo with sample data and an emulated shake. Credential configuration shown; no wipe executed. Waiting time shortened. Edited with cuts and accelerated sequences.": "Записано в Android-демо с примерными данными и эмуляцией встряхивания. Показана настройка доступа; удаление не выполнялось. Ожидание сокращено. Монтаж с сокращениями и ускоренными сценами.",
-  "Click to play: Anti-forensics · Android demo": "Нажмите для воспроизведения: Anti-forensics · Android demo"
+  "Click to play: Anti-forensics · Android demo": "Нажмите для воспроизведения: Anti-forensics · Android demo",
+  "ANDROID APP · FIRST SETUP": "ПРИЛОЖЕНИЕ ДЛЯ ANDROID · ПЕРВАЯ НАСТРОЙКА",
+  "Three PINs. One calculator.": "Три PIN-кода. Один калькулятор.",
+  "Set a primary, a duress and a decoy PIN, then turn on Quantum Keyboard. From then on the app opens behind a working calculator: type the PIN and =.": "Задайте основной, экстренный и ложный PIN, затем включите Quantum Keyboard. После этого приложение открывается за работающим калькулятором: введите PIN и =.",
+  "<span class=\"mono\" aria-hidden=\"true\">01</span>Primary, duress and decoy PIN": "<span class=\"mono\" aria-hidden=\"true\">01</span>Основной, экстренный и ложный PIN",
+  "<span class=\"mono\" aria-hidden=\"true\">02</span>Quantum Keyboard, enabled in Android settings": "<span class=\"mono\" aria-hidden=\"true\">02</span>Quantum Keyboard, включённая в настройках Android",
+  "<span class=\"mono\" aria-hidden=\"true\">03</span>Calculator cover: PIN and = to enter": "<span class=\"mono\" aria-hidden=\"true\">03</span>Калькулятор-прикрытие: PIN и = для входа",
+  "ANDROID / FIRST SETUP / 01:31": "ANDROID / FIRST SETUP / 01:31",
+  "Recorded on an Android emulator with demo PINs. Duress and decoy codes configured only; nothing triggered. Typing and waiting accelerated; two takes of the same setup joined.": "Записано на эмуляторе Android с демонстрационными PIN-кодами. Экстренный и ложный коды только настроены; ничего не запускалось. Ввод и ожидание ускорены; объединены два дубля одной и той же настройки.",
+  "Click to play: First setup · Android demo": "Нажмите для просмотра: First setup · Android demo"
  },
  "messages": {
   "COPIED": "СКОПИРОВАНО",

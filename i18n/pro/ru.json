@@ -137,7 +137,20 @@
   "Show support email": "Показать адрес поддержки",
   "(support [at] qp1ng [dot] com)": "(support [at] qp1ng [dot] com)",
   "<span data-card=\"off\">Pay with Bitcoin; card payments are coming soon.</span><span data-card=\"on\" hidden>Pay by card through <span data-card-name>FastSpring</span>, our reseller, or with Bitcoin.</span> Your key appears on this page.": "<span data-card=\"off\">Оплатите в Bitcoin; оплата картой скоро появится.</span><span data-card=\"on\" hidden>Оплатите картой через <span data-card-name>FastSpring</span>, нашего реселлера, или в Bitcoin.</span> Ключ появится на этой странице.",
-  "<span data-card=\"on\" hidden>Cards in the secure checkout of <span data-card-name>FastSpring</span>, our reseller: we never see your card details. </span>Bitcoin on-chain, straight to our wallet: no account, no card details.<span data-card=\"off\"> Card payments are coming soon.</span>": "<span data-card=\"on\" hidden>Карты — через защищённую страницу оплаты <span data-card-name>FastSpring</span>, нашего реселлера: мы никогда не видим данные вашей карты. </span>Bitcoin — ончейн, напрямую на наш кошелёк: без аккаунта и без данных карты.<span data-card=\"off\"> Оплата картой скоро появится.</span>"
+  "<span data-card=\"on\" hidden>Cards in the secure checkout of <span data-card-name>FastSpring</span>, our reseller: we never see your card details. </span>Bitcoin on-chain, straight to our wallet: no account, no card details.<span data-card=\"off\"> Card payments are coming soon.</span>": "<span data-card=\"on\" hidden>Карты — через защищённую страницу оплаты <span data-card-name>FastSpring</span>, нашего реселлера: мы никогда не видим данные вашей карты. </span>Bitcoin — ончейн, напрямую на наш кошелёк: без аккаунта и без данных карты.<span data-card=\"off\"> Оплата картой скоро появится.</span>",
+  "ANDROID · INSTALL": "ANDROID · УСТАНОВКА",
+  "From APK to first start": "От APK до первого запуска",
+  "Open the APK, allow that source once and tap Install. Six welcome pages explain the app before setup starts.": "Откройте APK, один раз разрешите этот источник и нажмите «Установить». Шесть приветственных страниц расскажут о приложении до настройки.",
+  "Open the downloaded APK": "Откройте скачанный APK",
+  "Allow installs from this source, once": "Один раз разрешите установку из этого источника",
+  "Install, open, read the welcome pages": "Установите, откройте, прочитайте приветствие",
+  "ANDROID / INSTALL / 00:58": "ANDROID / INSTALL / 00:58",
+  "EN / IT": "EN / IT",
+  "Click to play": "Нажмите для просмотра",
+  "Open the video": "Открыть видео",
+  "Recorded on an Android emulator with the Pro debug build; the APK was copied to Downloads. Staging and installing shortened; edited with cuts.": "Записано на эмуляторе Android с отладочной сборкой Pro; APK скопирован в «Загрузки». Подготовка и установка сокращены; смонтировано с вырезками.",
+  "Open the video (MP4)": "Открыть видео (MP4)",
+  "Click to play: Install · Android demo": "Нажмите для просмотра: Install · Android demo"
  },
  "messages": {
   "Copied": "Скопировано",
@@ -172,6 +185,11 @@
   "Download": "Скачать",
   "The first release of the website edition will appear here.": "Здесь появится первый выпуск версии с сайта.",
   "Through {provider}, our reseller": "Через {provider}, нашего реселлера",
-  "The card checkout could not be loaded. Check that no blocker stops {domain}.": "Не удалось загрузить страницу оплаты картой. Убедитесь, что блокировщик не мешает {domain}."
+  "The card checkout could not be loaded. Check that no blocker stops {domain}.": "Не удалось загрузить страницу оплаты картой. Убедитесь, что блокировщик не мешает {domain}.",
+  "Click to play": "Нажмите, чтобы воспроизвести",
+  "Click to pause": "Нажмите, чтобы поставить на паузу",
+  "Click to replay": "Нажмите, чтобы посмотреть снова",
+  "Click to retry": "Нажмите, чтобы повторить",
+  "The video could not load. Click the preview to retry.": "Не удалось загрузить видео. Нажмите на превью, чтобы повторить."
  }
 }

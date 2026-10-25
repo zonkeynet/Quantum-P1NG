@@ -137,7 +137,20 @@
   "Show support email": "Afficher l’e-mail d’assistance",
   "(support [at] qp1ng [dot] com)": "(support [at] qp1ng [dot] com)",
   "<span data-card=\"off\">Pay with Bitcoin; card payments are coming soon.</span><span data-card=\"on\" hidden>Pay by card through <span data-card-name>FastSpring</span>, our reseller, or with Bitcoin.</span> Your key appears on this page.": "<span data-card=\"off\">Payez en Bitcoin ; le paiement par carte arrive bientôt.</span><span data-card=\"on\" hidden>Payez par carte via <span data-card-name>FastSpring</span>, notre revendeur, ou en Bitcoin.</span> Votre clé s’affiche sur cette page.",
-  "<span data-card=\"on\" hidden>Cards in the secure checkout of <span data-card-name>FastSpring</span>, our reseller: we never see your card details. </span>Bitcoin on-chain, straight to our wallet: no account, no card details.<span data-card=\"off\"> Card payments are coming soon.</span>": "<span data-card=\"on\" hidden>Cartes via le paiement sécurisé de <span data-card-name>FastSpring</span>, notre revendeur : nous ne voyons jamais les données de votre carte. </span>Bitcoin on-chain, directement vers notre portefeuille : sans compte, sans données de carte.<span data-card=\"off\"> Le paiement par carte arrive bientôt.</span>"
+  "<span data-card=\"on\" hidden>Cards in the secure checkout of <span data-card-name>FastSpring</span>, our reseller: we never see your card details. </span>Bitcoin on-chain, straight to our wallet: no account, no card details.<span data-card=\"off\"> Card payments are coming soon.</span>": "<span data-card=\"on\" hidden>Cartes via le paiement sécurisé de <span data-card-name>FastSpring</span>, notre revendeur : nous ne voyons jamais les données de votre carte. </span>Bitcoin on-chain, directement vers notre portefeuille : sans compte, sans données de carte.<span data-card=\"off\"> Le paiement par carte arrive bientôt.</span>",
+  "ANDROID · INSTALL": "ANDROID · INSTALLATION",
+  "From APK to first start": "De l’APK au premier lancement",
+  "Open the APK, allow that source once and tap Install. Six welcome pages explain the app before setup starts.": "Ouvrez l’APK, autorisez cette source une fois et touchez Installer. Six pages d’accueil présentent l’app avant la configuration.",
+  "Open the downloaded APK": "Ouvrez l’APK téléchargé",
+  "Allow installs from this source, once": "Autorisez cette source, une seule fois",
+  "Install, open, read the welcome pages": "Installez, ouvrez, lisez l’accueil",
+  "ANDROID / INSTALL / 00:58": "ANDROID / INSTALL / 00:58",
+  "EN / IT": "EN / IT",
+  "Click to play": "Cliquer pour lire",
+  "Open the video": "Ouvrir la vidéo",
+  "Recorded on an Android emulator with the Pro debug build; the APK was copied to Downloads. Staging and installing shortened; edited with cuts.": "Enregistré sur un émulateur Android avec la version debug de Pro ; l’APK a été copié dans Téléchargements. Préparation et installation raccourcies ; montage avec coupes.",
+  "Open the video (MP4)": "Ouvrir la vidéo (MP4)",
+  "Click to play: Install · Android demo": "Cliquer pour lire: Install · Android demo"
  },
  "messages": {
   "Copied": "Copié",
@@ -172,6 +185,11 @@
   "Download": "Télécharger",
   "The first release of the website edition will appear here.": "La première publication de la version site web apparaîtra ici.",
   "Through {provider}, our reseller": "Via {provider}, notre revendeur",
-  "The card checkout could not be loaded. Check that no blocker stops {domain}.": "Impossible de charger le paiement par carte. Vérifiez qu’aucun bloqueur ne filtre {domain}."
+  "The card checkout could not be loaded. Check that no blocker stops {domain}.": "Impossible de charger le paiement par carte. Vérifiez qu’aucun bloqueur ne filtre {domain}.",
+  "Click to play": "Cliquez pour lire",
+  "Click to pause": "Cliquez pour mettre en pause",
+  "Click to replay": "Cliquez pour revoir",
+  "Click to retry": "Cliquez pour réessayer",
+  "The video could not load. Click the preview to retry.": "La vidéo n’a pas pu se charger. Cliquez sur l’aperçu pour réessayer."
  }
 }

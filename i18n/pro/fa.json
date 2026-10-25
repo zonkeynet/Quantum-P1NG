@@ -137,7 +137,20 @@
   "Show support email": "نمایش ایمیل پشتیبانی",
   "(support [at] qp1ng [dot] com)": "(support [at] qp1ng [dot] com)",
   "<span data-card=\"off\">Pay with Bitcoin; card payments are coming soon.</span><span data-card=\"on\" hidden>Pay by card through <span data-card-name>FastSpring</span>, our reseller, or with Bitcoin.</span> Your key appears on this page.": "<span data-card=\"off\">با Bitcoin پرداخت کنید؛ پرداخت با کارت به‌زودی فراهم می‌شود.</span><span data-card=\"on\" hidden>با کارت از طریق <span data-card-name>FastSpring</span>، بازفروشندهٔ ما، یا با Bitcoin پرداخت کنید.</span> کلیدتان در همین صفحه نمایش داده می‌شود.",
-  "<span data-card=\"on\" hidden>Cards in the secure checkout of <span data-card-name>FastSpring</span>, our reseller: we never see your card details. </span>Bitcoin on-chain, straight to our wallet: no account, no card details.<span data-card=\"off\"> Card payments are coming soon.</span>": "<span data-card=\"on\" hidden>کارت‌ها در صفحهٔ پرداخت امن <span data-card-name>FastSpring</span>، بازفروشندهٔ ما: ما هرگز اطلاعات کارت شما را نمی‌بینیم. </span>Bitcoin به‌صورت درون‌زنجیره‌ای، مستقیم به کیف پول ما: بدون حساب کاربری و بدون اطلاعات کارت.<span data-card=\"off\"> پرداخت با کارت به‌زودی فراهم می‌شود.</span>"
+  "<span data-card=\"on\" hidden>Cards in the secure checkout of <span data-card-name>FastSpring</span>, our reseller: we never see your card details. </span>Bitcoin on-chain, straight to our wallet: no account, no card details.<span data-card=\"off\"> Card payments are coming soon.</span>": "<span data-card=\"on\" hidden>کارت‌ها در صفحهٔ پرداخت امن <span data-card-name>FastSpring</span>، بازفروشندهٔ ما: ما هرگز اطلاعات کارت شما را نمی‌بینیم. </span>Bitcoin به‌صورت درون‌زنجیره‌ای، مستقیم به کیف پول ما: بدون حساب کاربری و بدون اطلاعات کارت.<span data-card=\"off\"> پرداخت با کارت به‌زودی فراهم می‌شود.</span>",
+  "ANDROID · INSTALL": "اندروید · نصب",
+  "From APK to first start": "از APK تا نخستین اجرا",
+  "Open the APK, allow that source once and tap Install. Six welcome pages explain the app before setup starts.": "APK را باز کنید، یک‌بار به این منبع اجازه دهید و «نصب» را بزنید. شش صفحهٔ خوش‌آمد پیش از راه‌اندازی برنامه را معرفی می‌کنند.",
+  "Open the downloaded APK": "APK دانلودشده را باز کنید",
+  "Allow installs from this source, once": "یک‌بار اجازهٔ نصب از این منبع را بدهید",
+  "Install, open, read the welcome pages": "نصب کنید، باز کنید، صفحه‌های خوش‌آمد را بخوانید",
+  "ANDROID / INSTALL / 00:58": "ANDROID / INSTALL / 00:58",
+  "EN / IT": "EN / IT",
+  "Click to play": "برای پخش کلیک کنید",
+  "Open the video": "باز کردن ویدیو",
+  "Recorded on an Android emulator with the Pro debug build; the APK was copied to Downloads. Staging and installing shortened; edited with cuts.": "روی شبیه‌ساز اندروید با نسخهٔ دیباگ Pro ضبط شده است؛ APK در پوشهٔ دانلودها کپی شده بود. آماده‌سازی و نصب کوتاه شده و فیلم با برش تدوین شده است.",
+  "Open the video (MP4)": "باز کردن ویدیو (MP4)",
+  "Click to play: Install · Android demo": "برای پخش کلیک کنید: Install · Android demo"
  },
  "messages": {
   "Copied": "کپی شد",
@@ -172,6 +185,11 @@
   "Download": "دانلود",
   "The first release of the website edition will appear here.": "نخستین انتشار نسخهٔ وب‌سایت اینجا نمایش داده می‌شود.",
   "Through {provider}, our reseller": "از طریق {provider}، بازفروشندهٔ ما",
-  "The card checkout could not be loaded. Check that no blocker stops {domain}.": "صفحهٔ پرداخت با کارت بارگذاری نشد. مطمئن شوید هیچ مسدودکننده‌ای جلوی {domain} را نمی‌گیرد."
+  "The card checkout could not be loaded. Check that no blocker stops {domain}.": "صفحهٔ پرداخت با کارت بارگذاری نشد. مطمئن شوید هیچ مسدودکننده‌ای جلوی {domain} را نمی‌گیرد.",
+  "Click to play": "برای پخش کلیک کنید",
+  "Click to pause": "برای توقف کلیک کنید",
+  "Click to replay": "برای پخش دوباره کلیک کنید",
+  "Click to retry": "برای تلاش دوباره کلیک کنید",
+  "The video could not load. Click the preview to retry.": "ویدیو بارگیری نشد. برای تلاش دوباره روی پیش‌نمایش کلیک کنید."
  }
 }

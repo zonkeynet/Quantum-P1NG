@@ -137,7 +137,20 @@
   "Show support email": "Mostra l’email di supporto",
   "(support [at] qp1ng [dot] com)": "(support [at] qp1ng [dot] com)",
   "<span data-card=\"off\">Pay with Bitcoin; card payments are coming soon.</span><span data-card=\"on\" hidden>Pay by card through <span data-card-name>FastSpring</span>, our reseller, or with Bitcoin.</span> Your key appears on this page.": "<span data-card=\"off\">Paga in Bitcoin; i pagamenti con carta arriveranno presto.</span><span data-card=\"on\" hidden>Paga con carta tramite <span data-card-name>FastSpring</span>, il nostro rivenditore, oppure in Bitcoin.</span> La chiave compare su questa pagina.",
-  "<span data-card=\"on\" hidden>Cards in the secure checkout of <span data-card-name>FastSpring</span>, our reseller: we never see your card details. </span>Bitcoin on-chain, straight to our wallet: no account, no card details.<span data-card=\"off\"> Card payments are coming soon.</span>": "<span data-card=\"on\" hidden>Carte nel checkout sicuro di <span data-card-name>FastSpring</span>, il nostro rivenditore: non vediamo mai i dati della tua carta. </span>Bitcoin on-chain, direttamente nel nostro portafoglio: nessun account, nessun dato di carta.<span data-card=\"off\"> I pagamenti con carta arriveranno presto.</span>"
+  "<span data-card=\"on\" hidden>Cards in the secure checkout of <span data-card-name>FastSpring</span>, our reseller: we never see your card details. </span>Bitcoin on-chain, straight to our wallet: no account, no card details.<span data-card=\"off\"> Card payments are coming soon.</span>": "<span data-card=\"on\" hidden>Carte nel checkout sicuro di <span data-card-name>FastSpring</span>, il nostro rivenditore: non vediamo mai i dati della tua carta. </span>Bitcoin on-chain, direttamente nel nostro portafoglio: nessun account, nessun dato di carta.<span data-card=\"off\"> I pagamenti con carta arriveranno presto.</span>",
+  "ANDROID · INSTALL": "ANDROID · INSTALLAZIONE",
+  "From APK to first start": "Dall’APK al primo avvio",
+  "Open the APK, allow that source once and tap Install. Six welcome pages explain the app before setup starts.": "Apri l’APK, consenti quella fonte una volta e tocca Installa. Sei pagine di benvenuto spiegano l’app prima della configurazione.",
+  "Open the downloaded APK": "Apri l’APK scaricato",
+  "Allow installs from this source, once": "Consenti le installazioni da questa fonte, una volta",
+  "Install, open, read the welcome pages": "Installa, apri, leggi le pagine di benvenuto",
+  "ANDROID / INSTALL / 00:58": "ANDROID / INSTALL / 00:58",
+  "EN / IT": "EN / IT",
+  "Click to play": "Clicca per avviare",
+  "Open the video": "Apri il video",
+  "Recorded on an Android emulator with the Pro debug build; the APK was copied to Downloads. Staging and installing shortened; edited with cuts.": "Registrato su un emulatore Android con la build debug Pro; l’APK è stato copiato in Download. Preparazione e installazione accorciate; montaggio con tagli.",
+  "Open the video (MP4)": "Apri il video (MP4)",
+  "Click to play: Install · Android demo": "Clicca per avviare: Install · Android demo"
  },
  "messages": {
   "Copied": "Copiato",
@@ -172,6 +185,11 @@
   "Download": "Scarica",
   "The first release of the website edition will appear here.": "Qui comparirà la prima versione dell’edizione del sito.",
   "Through {provider}, our reseller": "Tramite {provider}, il nostro rivenditore",
-  "The card checkout could not be loaded. Check that no blocker stops {domain}.": "Impossibile caricare il checkout con carta. Controlla che nessun blocco dei contenuti impedisca l’accesso a {domain}."
+  "The card checkout could not be loaded. Check that no blocker stops {domain}.": "Impossibile caricare il checkout con carta. Controlla che nessun blocco dei contenuti impedisca l’accesso a {domain}.",
+  "Click to play": "Clicca per avviare",
+  "Click to pause": "Clicca per mettere in pausa",
+  "Click to replay": "Clicca per rivedere",
+  "Click to retry": "Clicca per riprovare",
+  "The video could not load. Click the preview to retry.": "Il video non si è caricato. Clicca sull’anteprima per riprovare."
  }
 }

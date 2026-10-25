@@ -2655,7 +2655,16 @@
   "<span class=\"mono\" aria-hidden=\"true\">03</span>Separate primary, decoy and duress credentials": "<span class=\"mono\" aria-hidden=\"true\">03</span>Окремі основні, хибні та примусові облікові дані",
   "ANDROID / FALLOUT / 00:58": "ANDROID / FALLOUT / 00:58",
   "Recorded in the Android demo with sample data and an emulated shake. Credential configuration shown; no wipe executed. Waiting time shortened. Edited with cuts and accelerated sequences.": "Записано в Android-демо зі зразковими даними та емуляцією струсу. Показано налаштування доступу; видалення не виконувалося. Очікування скорочено. Монтаж зі скороченнями та прискореними сценами.",
-  "Click to play: Anti-forensics · Android demo": "Натисніть для відтворення: Anti-forensics · Android demo"
+  "Click to play: Anti-forensics · Android demo": "Натисніть для відтворення: Anti-forensics · Android demo",
+  "ANDROID APP · FIRST SETUP": "ЗАСТОСУНОК ДЛЯ ANDROID · ПЕРШЕ НАЛАШТУВАННЯ",
+  "Three PINs. One calculator.": "Три PIN-коди. Один калькулятор.",
+  "Set a primary, a duress and a decoy PIN, then turn on Quantum Keyboard. From then on the app opens behind a working calculator: type the PIN and =.": "Задайте основний, екстрений і фальшивий PIN, потім увімкніть Quantum Keyboard. Відтоді застосунок відкривається за справжнім калькулятором: введіть PIN і =.",
+  "<span class=\"mono\" aria-hidden=\"true\">01</span>Primary, duress and decoy PIN": "<span class=\"mono\" aria-hidden=\"true\">01</span>Основний, екстрений і фальшивий PIN",
+  "<span class=\"mono\" aria-hidden=\"true\">02</span>Quantum Keyboard, enabled in Android settings": "<span class=\"mono\" aria-hidden=\"true\">02</span>Quantum Keyboard, увімкнена в налаштуваннях Android",
+  "<span class=\"mono\" aria-hidden=\"true\">03</span>Calculator cover: PIN and = to enter": "<span class=\"mono\" aria-hidden=\"true\">03</span>Калькулятор-прикриття: PIN і = для входу",
+  "ANDROID / FIRST SETUP / 01:31": "ANDROID / FIRST SETUP / 01:31",
+  "Recorded on an Android emulator with demo PINs. Duress and decoy codes configured only; nothing triggered. Typing and waiting accelerated; two takes of the same setup joined.": "Записано на емуляторі Android з демонстраційними PIN-кодами. Екстрений і фальшивий коди лише налаштовані; нічого не запущено. Введення й очікування прискорено; об’єднано два дублі того самого налаштування.",
+  "Click to play: First setup · Android demo": "Натисніть для перегляду: First setup · Android demo"
  },
  "messages": {
   "COPIED": "СКОПІЙОВАНО",

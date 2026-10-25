@@ -77,7 +77,8 @@
     <link rel="preconnect" href="https://qp1ng-license-api.quantump1ng.workers.dev" crossorigin>
     <link rel="preload" href="/assets/fonts/bitcount_square_qp1ng.woff2" as="font" type="font/woff2" crossorigin>
     <!-- Bump ?v= whenever pro.css, pow.js or pro.js change: the proxy lets browsers cache them for hours. -->
-    <link rel="stylesheet" href="/pro/pro.css?v=20261025b">
+    <link rel="stylesheet" href="/pro/pro.css?v=20261025c">
+    <link rel="stylesheet" href="/app-feature-demos.css?v=7">
     <link rel="stylesheet" href="/lang-menu.css?v=1">
 </head>
 <body>
@@ -327,6 +328,43 @@
             <div class="panel" id="downloads">
                 <p class="muted">Loading the latest release&hellip;</p>
             </div>
+            <figure class="panel install-demo app-walkthrough" id="install-demo" aria-labelledby="install-demo-title"
+                data-app-walkthrough="Install · Android demo" data-cues="/assets/vid/install-first-launch-demo-timing.json"
+                data-idle-en="Open the APK, allow that source once and tap Install. Six welcome pages explain the app before setup starts." data-idle-it="Apri l’APK, consenti quella fonte una volta e tocca Installa. Sei pagine di benvenuto spiegano l’app prima della configurazione.">
+                <figcaption class="install-demo-copy">
+                    <p class="kicker">ANDROID · INSTALL</p>
+                    <h3 id="install-demo-title">From APK to first start</h3>
+                    <p class="muted">Open the APK, allow that source once and tap Install. Six welcome pages explain the app before setup starts.</p>
+                    <ol class="install-demo-steps">
+                        <li>Open the downloaded APK</li>
+                        <li>Allow installs from this source, once</li>
+                        <li>Install, open, read the welcome pages</li>
+                    </ol>
+                    <div class="install-demo-captions">
+                        <div class="app-walkthrough-meta">
+                            <span>ANDROID / INSTALL / 00:58</span>
+                            <div class="app-walkthrough-languages" role="group" aria-label="EN / IT">
+                                <button type="button" data-demo-lang="en" aria-pressed="true" lang="en">EN</button>
+                                <button type="button" data-demo-lang="it" aria-pressed="false" lang="it">IT</button>
+                            </div>
+                        </div>
+                        <span class="app-walkthrough-caption" id="install-demo-caption" data-demo-caption>Open the APK, allow that source once and tap Install. Six welcome pages explain the app before setup starts.</span>
+                        <span class="app-walkthrough-note" data-demo-hint>Click to play</span>
+                        <p class="app-walkthrough-fallback" data-demo-fallback hidden><a href="/assets/vid/install-first-launch-demo.mp4">Open the video</a></p>
+                    </div>
+                    <p class="install-demo-note" id="install-demo-note">Recorded on an Android emulator with the Pro debug build; the APK was copied to Downloads. Staging and installing shortened; edited with cuts.</p>
+                    <noscript><p><a href="/assets/vid/install-first-launch-demo.mp4">Open the video (MP4)</a></p></noscript>
+                </figcaption>
+                <div class="app-walkthrough-screen install-demo-phone">
+                    <video width="720" height="1280" muted playsinline preload="none" role="button" tabindex="0"
+                        aria-label="Click to play: Install · Android demo" aria-describedby="install-demo-caption install-demo-note"
+                        poster="/assets/img/install-first-launch-demo-poster.webp">
+                        <source data-src="/assets/vid/install-first-launch-demo.webm" type="video/webm">
+                        <source data-src="/assets/vid/install-first-launch-demo.mp4" type="video/mp4">
+                        <p><a href="/assets/vid/install-first-launch-demo.mp4">Open the video</a></p>
+                    </video>
+                </div>
+            </figure>
         </div>
     </section>
 
@@ -396,6 +434,7 @@
 <!-- i18n:messages --><!-- /i18n:messages -->
 <script src="/pro/pow.js?v=20261024"></script>
 <script src="/pro/pro.js?v=20261025a"></script>
+<script src="/app-feature-demos.js?v=7" defer></script>
 <script src="/email-contact.js?v=20261024" defer></script>
 </body>
 </html>

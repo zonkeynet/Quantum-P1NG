@@ -1,0 +1,49 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:04.500
+Inizializza: l’app prepara il telefono come nodo sicuro.
+
+2
+00:00:04.500 --> 00:00:10.533
+Scegli l’input: Quantum Keyboard o la tastiera di sistema.
+
+3
+00:00:10.533 --> 00:00:16.533
+Imposta il PIN principale che apre l’app.
+
+4
+00:00:16.533 --> 00:00:28.700
+Aggiungi un PIN di emergenza che cancella i dati e un PIN esca che apre un vault finto. Solo configurazione.
+
+5
+00:00:28.700 --> 00:00:39.767
+Quantum Keyboard si attiva nelle impostazioni di Android.
+
+6
+00:00:39.767 --> 00:00:49.800
+Android mostra il suo avviso standard per ogni tastiera di terze parti.
+
+7
+00:00:49.800 --> 00:00:56.433
+Tornato nell’app, scegli Quantum Keyboard nel selettore di sistema.
+
+8
+00:00:56.433 --> 00:01:03.500
+Intanto l’app salva i PIN e crea la coppia di chiavi dell’identità (RSA-2048) nel Keystore di Android.
+
+9
+00:01:03.500 --> 00:01:15.700
+L’app si apre dietro una calcolatrice funzionante. Digita il PIN e = per entrare.
+
+10
+00:01:15.700 --> 00:01:18.700
+Consenti le notifiche per messaggi e chiamate.
+
+11
+00:01:18.700 --> 00:01:23.733
+Consenti l’attività in background per ricevere messaggi e chiamate.
+
+12
+00:01:23.733 --> 00:01:31.233
+Home: Tor online, pronta per il primo contatto.

@@ -137,7 +137,20 @@
   "Show support email": "Показати адресу підтримки",
   "(support [at] qp1ng [dot] com)": "(support [at] qp1ng [dot] com)",
   "<span data-card=\"off\">Pay with Bitcoin; card payments are coming soon.</span><span data-card=\"on\" hidden>Pay by card through <span data-card-name>FastSpring</span>, our reseller, or with Bitcoin.</span> Your key appears on this page.": "<span data-card=\"off\">Оплатіть у Bitcoin; оплата карткою незабаром з’явиться.</span><span data-card=\"on\" hidden>Оплатіть карткою через <span data-card-name>FastSpring</span>, нашого реселера, або в Bitcoin.</span> Ключ з’явиться на цій сторінці.",
-  "<span data-card=\"on\" hidden>Cards in the secure checkout of <span data-card-name>FastSpring</span>, our reseller: we never see your card details. </span>Bitcoin on-chain, straight to our wallet: no account, no card details.<span data-card=\"off\"> Card payments are coming soon.</span>": "<span data-card=\"on\" hidden>Картки — через захищену сторінку оплати <span data-card-name>FastSpring</span>, нашого реселера: ми ніколи не бачимо даних вашої картки. </span>Bitcoin — ончейн, напряму на наш гаманець: без акаунта й без даних картки.<span data-card=\"off\"> Оплата карткою незабаром з’явиться.</span>"
+  "<span data-card=\"on\" hidden>Cards in the secure checkout of <span data-card-name>FastSpring</span>, our reseller: we never see your card details. </span>Bitcoin on-chain, straight to our wallet: no account, no card details.<span data-card=\"off\"> Card payments are coming soon.</span>": "<span data-card=\"on\" hidden>Картки — через захищену сторінку оплати <span data-card-name>FastSpring</span>, нашого реселера: ми ніколи не бачимо даних вашої картки. </span>Bitcoin — ончейн, напряму на наш гаманець: без акаунта й без даних картки.<span data-card=\"off\"> Оплата карткою незабаром з’явиться.</span>",
+  "ANDROID · INSTALL": "ANDROID · ВСТАНОВЛЕННЯ",
+  "From APK to first start": "Від APK до першого запуску",
+  "Open the APK, allow that source once and tap Install. Six welcome pages explain the app before setup starts.": "Відкрийте APK, один раз дозвольте це джерело й натисніть «Установити». Шість вітальних сторінок пояснюють застосунок до налаштування.",
+  "Open the downloaded APK": "Відкрийте завантажений APK",
+  "Allow installs from this source, once": "Один раз дозвольте встановлення з цього джерела",
+  "Install, open, read the welcome pages": "Установіть, відкрийте, прочитайте привітання",
+  "ANDROID / INSTALL / 00:58": "ANDROID / INSTALL / 00:58",
+  "EN / IT": "EN / IT",
+  "Click to play": "Натисніть для перегляду",
+  "Open the video": "Відкрити відео",
+  "Recorded on an Android emulator with the Pro debug build; the APK was copied to Downloads. Staging and installing shortened; edited with cuts.": "Записано на емуляторі Android з налагоджувальною збіркою Pro; APK скопійовано в «Завантаження». Підготовку й установлення скорочено; змонтовано з вирізками.",
+  "Open the video (MP4)": "Відкрити відео (MP4)",
+  "Click to play: Install · Android demo": "Натисніть для перегляду: Install · Android demo"
  },
  "messages": {
   "Copied": "Скопійовано",
@@ -172,6 +185,11 @@
   "Download": "Завантажити",
   "The first release of the website edition will appear here.": "Тут з’явиться перший випуск версії із сайту.",
   "Through {provider}, our reseller": "Через {provider}, нашого реселера",
-  "The card checkout could not be loaded. Check that no blocker stops {domain}.": "Не вдалося завантажити сторінку оплати карткою. Переконайтеся, що блокувальник не заважає {domain}."
+  "The card checkout could not be loaded. Check that no blocker stops {domain}.": "Не вдалося завантажити сторінку оплати карткою. Переконайтеся, що блокувальник не заважає {domain}.",
+  "Click to play": "Натисніть, щоб відтворити",
+  "Click to pause": "Натисніть, щоб призупинити",
+  "Click to replay": "Натисніть, щоб переглянути знову",
+  "Click to retry": "Натисніть, щоб спробувати знову",
+  "The video could not load. Click the preview to retry.": "Не вдалося завантажити відео. Натисніть на прев’ю, щоб спробувати знову."
  }
 }

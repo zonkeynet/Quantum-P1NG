@@ -77,7 +77,8 @@
     <link rel="preconnect" href="https://qp1ng-license-api.quantump1ng.workers.dev" crossorigin>
     <link rel="preload" href="/assets/fonts/bitcount_square_qp1ng.woff2" as="font" type="font/woff2" crossorigin>
     <!-- Bump ?v= whenever pro.css, pow.js or pro.js change: the proxy lets browsers cache them for hours. -->
-    <link rel="stylesheet" href="/pro/pro.css?v=20261025b">
+    <link rel="stylesheet" href="/pro/pro.css?v=20261025c">
+    <link rel="stylesheet" href="/app-feature-demos.css?v=7">
     <link rel="stylesheet" href="/lang-menu.css?v=1">
 </head>
 <body>
@@ -326,6 +327,43 @@
             <div class="panel" id="downloads">
                 <p class="muted">最新リリースを読み込んでいます…</p>
             </div>
+            <figure class="panel install-demo app-walkthrough" id="install-demo" aria-labelledby="install-demo-title"
+                data-app-walkthrough="Install · Android demo" data-cues="/assets/vid/install-first-launch-demo-timing.json"
+                data-idle-en="Open the APK, allow that source once and tap Install. Six welcome pages explain the app before setup starts." data-idle-it="Apri l’APK, consenti quella fonte una volta e tocca Installa. Sei pagine di benvenuto spiegano l’app prima della configurazione.">
+                <figcaption class="install-demo-copy">
+                    <p class="kicker">ANDROID · インストール</p>
+                    <h3 id="install-demo-title">APKから初回起動まで</h3>
+                    <p class="muted">APKを開き、そのソースを一度だけ許可して「インストール」をタップ。設定の前に、6枚のようこそページがアプリを説明します。</p>
+                    <ol class="install-demo-steps">
+                        <li>ダウンロードしたAPKを開く</li>
+                        <li>このソースからのインストールを一度だけ許可</li>
+                        <li>インストールして開き、ようこそページを読む</li>
+                    </ol>
+                    <div class="install-demo-captions">
+                        <div class="app-walkthrough-meta">
+                            <span>ANDROID / INSTALL / 00:58</span>
+                            <div class="app-walkthrough-languages" role="group" aria-label="EN / IT">
+                                <button type="button" data-demo-lang="en" aria-pressed="true" lang="en">EN</button>
+                                <button type="button" data-demo-lang="it" aria-pressed="false" lang="it">IT</button>
+                            </div>
+                        </div>
+                        <span class="app-walkthrough-caption" id="install-demo-caption" data-demo-caption>APKを開き、そのソースを一度だけ許可して「インストール」をタップ。設定の前に、6枚のようこそページがアプリを説明します。</span>
+                        <span class="app-walkthrough-note" data-demo-hint>クリックして再生</span>
+                        <p class="app-walkthrough-fallback" data-demo-fallback hidden><a href="/assets/vid/install-first-launch-demo.mp4">動画を開く</a></p>
+                    </div>
+                    <p class="install-demo-note" id="install-demo-note">Pro のデバッグビルドを使い、Androidエミュレーターで録画。APKはダウンロードフォルダにコピーしました。準備とインストールは短縮し、カット編集しています。</p>
+                    <noscript><p><a href="/assets/vid/install-first-launch-demo.mp4">動画を開く (MP4)</a></p></noscript>
+                </figcaption>
+                <div class="app-walkthrough-screen install-demo-phone">
+                    <video width="720" height="1280" muted playsinline preload="none" role="button" tabindex="0"
+                        aria-label="クリックして再生: Install · Android demo" aria-describedby="install-demo-caption install-demo-note"
+                        poster="/assets/img/install-first-launch-demo-poster.webp">
+                        <source data-src="/assets/vid/install-first-launch-demo.webm" type="video/webm">
+                        <source data-src="/assets/vid/install-first-launch-demo.mp4" type="video/mp4">
+                        <p><a href="/assets/vid/install-first-launch-demo.mp4">動画を開く</a></p>
+                    </video>
+                </div>
+            </figure>
         </div>
     </section>
 
@@ -392,9 +430,10 @@
         </nav>
     </div>
 </footer>
-<!-- i18n:messages --><script type="application/json" id="pro-i18n">{"Copied": "コピーしました", "Through {provider}, our reseller": "販売代理店 {provider} 経由", "Coming soon": "近日対応", "Soon": "近日", "Payments could not be loaded. Check your connection and reload the page.": "お支払い方法を読み込めませんでした。接続を確認して、ページを再読み込みしてください。", "Tick the box above to choose how to pay.": "お支払い方法を選ぶには、上のチェックボックスにチェックを入れてください。", "Card payment is not available right now. Please try again later, or pay with Bitcoin.": "現在カード決済はご利用いただけません。後でもう一度お試しいただくか、Bitcoin でお支払いください。", "The card checkout could not be loaded. Check that no blocker stops {domain}.": "カード決済画面を読み込めませんでした。{domain} がブロッカーで遮断されていないか確認してください。", "This usually takes a few seconds. Your order reference is {reference} (also on your receipt): with it you can recover the key below at any time.": "通常は数秒で完了します。注文番号は {reference} です（領収書にも記載）。これを使えば、いつでも下でキーを再取得できます。", "This licence was refunded.": "このライセンスは返金されました。", "Your payment is confirmed, but the key is taking longer than usual.": "お支払いは確認されましたが、キーの発行に通常より時間がかかっています。", "Recover it below with the order reference {reference} in a few minutes, or write to {support}.": "数分後に注文番号 {reference} を使って下で再取得するか、{support} までご連絡ください。", "Recover it below with the order reference on your receipt in a few minutes, or write to {support}.": "数分後に領収書に記載の注文番号を使って下で再取得するか、{support} までご連絡ください。", "Preparing the order (a few seconds of work on this device)…": "注文を準備しています（この端末で数秒の処理を行います）…", "The Bitcoin order failed:": "Bitcoin の注文に失敗しました:", "Rate expired": "レートの期限切れ", "Rate held": "レート固定中", "Payment confirmed.": "お支払いが確認されました。", "Payment seen on the network. Waiting for one confirmation…": "ネットワーク上でお支払いを検出しました。1 回の承認を待っています…", "Received {received} BTC. Send the remaining {due} BTC to the same address.": "{received} BTC を受け取りました。残りの {due} BTC を同じアドレスに送金してください。", "This order has expired without a payment. If you have just paid, the payment is still recognised for two weeks; otherwise start a new order.": "この注文は支払いがないまま期限切れになりました。お支払い直後の場合、その支払いは 2 週間有効です。それ以外の場合は新しい注文を開始してください。", "Waiting for the payment…": "お支払いを待っています…", "That order no longer exists.": "その注文はもう存在しません。", "That is not an order reference.": "これは注文番号ではありません。", "Looking it up…": "検索しています…", "Found.": "見つかりました。", "Too many attempts: try again in a minute.": "試行回数が多すぎます。1 分後にもう一度お試しください。", "No licence for that order yet. If you have just paid, try again in a minute; otherwise write to {support}.": "この注文のライセンスはまだありません。お支払い直後の場合は 1 分後にもう一度お試しください。それ以外の場合は {support} までご連絡ください。", "The licence service could not be reached.": "ライセンスサービスに接続できませんでした。", "Free": "無料", "Needs a licence": "ライセンスが必要", "Download": "ダウンロード", "The first release of the website edition will appear here.": "ウェブサイト版の最初のリリースはここに表示されます。"}</script><!-- /i18n:messages -->
+<!-- i18n:messages --><script type="application/json" id="pro-i18n">{"Copied": "コピーしました", "Through {provider}, our reseller": "販売代理店 {provider} 経由", "Coming soon": "近日対応", "Soon": "近日", "Payments could not be loaded. Check your connection and reload the page.": "お支払い方法を読み込めませんでした。接続を確認して、ページを再読み込みしてください。", "Tick the box above to choose how to pay.": "お支払い方法を選ぶには、上のチェックボックスにチェックを入れてください。", "Card payment is not available right now. Please try again later, or pay with Bitcoin.": "現在カード決済はご利用いただけません。後でもう一度お試しいただくか、Bitcoin でお支払いください。", "The card checkout could not be loaded. Check that no blocker stops {domain}.": "カード決済画面を読み込めませんでした。{domain} がブロッカーで遮断されていないか確認してください。", "This usually takes a few seconds. Your order reference is {reference} (also on your receipt): with it you can recover the key below at any time.": "通常は数秒で完了します。注文番号は {reference} です（領収書にも記載）。これを使えば、いつでも下でキーを再取得できます。", "This licence was refunded.": "このライセンスは返金されました。", "Your payment is confirmed, but the key is taking longer than usual.": "お支払いは確認されましたが、キーの発行に通常より時間がかかっています。", "Recover it below with the order reference {reference} in a few minutes, or write to {support}.": "数分後に注文番号 {reference} を使って下で再取得するか、{support} までご連絡ください。", "Recover it below with the order reference on your receipt in a few minutes, or write to {support}.": "数分後に領収書に記載の注文番号を使って下で再取得するか、{support} までご連絡ください。", "Preparing the order (a few seconds of work on this device)…": "注文を準備しています（この端末で数秒の処理を行います）…", "The Bitcoin order failed:": "Bitcoin の注文に失敗しました:", "Rate expired": "レートの期限切れ", "Rate held": "レート固定中", "Payment confirmed.": "お支払いが確認されました。", "Payment seen on the network. Waiting for one confirmation…": "ネットワーク上でお支払いを検出しました。1 回の承認を待っています…", "Received {received} BTC. Send the remaining {due} BTC to the same address.": "{received} BTC を受け取りました。残りの {due} BTC を同じアドレスに送金してください。", "This order has expired without a payment. If you have just paid, the payment is still recognised for two weeks; otherwise start a new order.": "この注文は支払いがないまま期限切れになりました。お支払い直後の場合、その支払いは 2 週間有効です。それ以外の場合は新しい注文を開始してください。", "Waiting for the payment…": "お支払いを待っています…", "That order no longer exists.": "その注文はもう存在しません。", "That is not an order reference.": "これは注文番号ではありません。", "Looking it up…": "検索しています…", "Found.": "見つかりました。", "Too many attempts: try again in a minute.": "試行回数が多すぎます。1 分後にもう一度お試しください。", "No licence for that order yet. If you have just paid, try again in a minute; otherwise write to {support}.": "この注文のライセンスはまだありません。お支払い直後の場合は 1 分後にもう一度お試しください。それ以外の場合は {support} までご連絡ください。", "The licence service could not be reached.": "ライセンスサービスに接続できませんでした。", "Free": "無料", "Needs a licence": "ライセンスが必要", "Download": "ダウンロード", "The first release of the website edition will appear here.": "ウェブサイト版の最初のリリースはここに表示されます。", "Click to play": "クリックで再生", "Click to pause": "クリックで一時停止", "Click to replay": "クリックでもう一度再生", "Click to retry": "クリックで再試行", "The video could not load. Click the preview to retry.": "動画を読み込めませんでした。プレビューをクリックして再試行してください。"}</script><!-- /i18n:messages -->
 <script src="/pro/pow.js?v=20261024"></script>
 <script src="/pro/pro.js?v=20261025a"></script>
+<script src="/app-feature-demos.js?v=7" defer></script>
 <script src="/email-contact.js?v=20261024" defer></script>
 </body>
 </html>

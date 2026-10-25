@@ -1,0 +1,299 @@
+{
+  "name": "first-setup-demo",
+  "duration_seconds": 91.233,
+  "resolution": "720x1280",
+  "frame_rate": 30,
+  "audio": false,
+  "app_id": "com.qp1ng.android",
+  "app_build": "1.0.263 debug, Pro edition (current main, 25 October 2026)",
+  "emulator": "QP1NG_Install / emulator-5582 (clean Android 16 image)",
+  "capture": "Actual Android app on a clean emulator, first setup after installation. PINs are demo digits typed on the app's keypad.",
+  "demonstrated_actions": [
+    "Initialize the app",
+    "Choose Quantum Keyboard",
+    "Set primary, duress and decoy PINs",
+    "Enable and select Quantum Keyboard in Android settings",
+    "Identity key generation at first boot",
+    "Unlock through the calculator cover",
+    "Allow notifications and background activity",
+    "Home with Tor online"
+  ],
+  "limits": [
+    "Recorded on an emulator, not a phone",
+    "Duress and decoy PINs shown as configuration only; no wipe or decoy triggered",
+    "Typing and waiting accelerated",
+    "Debug build of the Pro edition"
+  ],
+  "editing": "Waiting removed; PIN typing accelerated 5-6x, calculator typing 1.5x. Two takes of the same setup joined: the keyboard and boot part was recorded again after a fresh install. Android status bar replaced with chapter labels.",
+  "real_devices_used": false,
+  "main_app_source_modified": false,
+  "subtitles": [
+    "it",
+    "en"
+  ],
+  "scenes": [
+    {
+      "file": "03-get-started.webm",
+      "start": 3,
+      "end": 12,
+      "speed": 2,
+      "label": "01 / INITIALIZE / ACCELERATED",
+      "chapter": "init",
+      "en": "Initialize: the app prepares this phone as a secure endpoint.",
+      "it": "Inizializza: l’app prepara il telefono come nodo sicuro."
+    },
+    {
+      "file": "03-get-started.webm",
+      "start": 24,
+      "end": 27.5,
+      "label": "02 / INPUT MODE",
+      "chapter": "input",
+      "en": "Choose the input: Quantum Keyboard or the system keyboard.",
+      "it": "Scegli l’input: Quantum Keyboard o la tastiera di sistema."
+    },
+    {
+      "file": "03-get-started.webm",
+      "start": 37.5,
+      "end": 40,
+      "label": "02 / INPUT MODE",
+      "chapter": "input",
+      "en": "",
+      "it": ""
+    },
+    {
+      "file": "03-get-started.webm",
+      "start": 62,
+      "end": 92,
+      "speed": 5,
+      "label": "03 / PRIMARY PIN / DEMO DIGITS",
+      "chapter": "pin",
+      "en": "Set the primary PIN that opens the app.",
+      "it": "Imposta il PIN principale che apre l’app."
+    },
+    {
+      "file": "03-get-started.webm",
+      "start": 112,
+      "end": 164,
+      "speed": 6,
+      "label": "04 / DURESS AND DECOY / CONFIGURATION ONLY",
+      "chapter": "duress",
+      "en": "Add a duress PIN that wipes data and a decoy PIN that opens a fake vault. Configuration only.",
+      "it": "Aggiungi un PIN di emergenza che cancella i dati e un PIN esca che apre un vault finto. Solo configurazione."
+    },
+    {
+      "file": "03-get-started.webm",
+      "start": 169,
+      "end": 172.5,
+      "label": "04 / THREE CODES SET",
+      "chapter": "duress",
+      "en": "",
+      "it": ""
+    },
+    {
+      "file": "04-keyboard.webm",
+      "start": 3,
+      "end": 7,
+      "label": "05 / QUANTUM KEYBOARD",
+      "chapter": "keyboard",
+      "en": "Quantum Keyboard is enabled in Android settings.",
+      "it": "Quantum Keyboard si attiva nelle impostazioni di Android."
+    },
+    {
+      "file": "04-keyboard.webm",
+      "start": 12,
+      "end": 14,
+      "label": "05 / QUANTUM KEYBOARD",
+      "chapter": "keyboard",
+      "en": "",
+      "it": ""
+    },
+    {
+      "file": "04-keyboard.webm",
+      "start": 18,
+      "end": 21,
+      "label": "05 / ON-SCREEN KEYBOARD / ANDROID",
+      "chapter": "keyboard",
+      "en": "",
+      "it": ""
+    },
+    {
+      "file": "04-keyboard.webm",
+      "start": 23,
+      "end": 25,
+      "label": "05 / ON-SCREEN KEYBOARD / ANDROID",
+      "chapter": "keyboard",
+      "en": "",
+      "it": ""
+    },
+    {
+      "file": "04-keyboard.webm",
+      "start": 25.5,
+      "end": 29.5,
+      "label": "05 / ANDROID WARNING",
+      "chapter": "warning",
+      "en": "Android shows its standard warning for every third-party keyboard.",
+      "it": "Android mostra il suo avviso standard per ogni tastiera di terze parti."
+    },
+    {
+      "file": "04-keyboard.webm",
+      "start": 34,
+      "end": 35.5,
+      "label": "05 / ANDROID WARNING",
+      "chapter": "warning",
+      "en": "",
+      "it": ""
+    },
+    {
+      "file": "04-keyboard.webm",
+      "start": 37,
+      "end": 39,
+      "label": "05 / ANDROID WARNING",
+      "chapter": "warning",
+      "en": "",
+      "it": ""
+    },
+    {
+      "file": "04-keyboard.webm",
+      "start": 40,
+      "end": 42.5,
+      "label": "05 / KEYBOARD ENABLED",
+      "chapter": "warning",
+      "en": "",
+      "it": ""
+    },
+    {
+      "file": "04-keyboard.webm",
+      "start": 54,
+      "end": 56.5,
+      "label": "05 / SELECT KEYBOARD / ANDROID",
+      "chapter": "picker",
+      "en": "Back in the app, pick Quantum Keyboard in the system picker.",
+      "it": "Tornato nell’app, scegli Quantum Keyboard nel selettore di sistema."
+    },
+    {
+      "file": "04-keyboard.webm",
+      "start": 69.5,
+      "end": 72,
+      "label": "05 / SELECT KEYBOARD / ANDROID",
+      "chapter": "picker",
+      "en": "",
+      "it": ""
+    },
+    {
+      "file": "04-keyboard.webm",
+      "start": 88.5,
+      "end": 90,
+      "label": "05 / KEYBOARD READY",
+      "chapter": "picker",
+      "en": "",
+      "it": ""
+    },
+    {
+      "file": "04-keyboard.webm",
+      "start": 90,
+      "end": 97,
+      "label": "06 / IDENTITY KEYS / FIRST BOOT",
+      "chapter": "boot",
+      "en": "Meanwhile the app saves the PINs and creates the identity key pair (RSA-2048) in the Android Keystore.",
+      "it": "Intanto l’app salva i PIN e crea la coppia di chiavi dell’identità (RSA-2048) nel Keystore di Android."
+    },
+    {
+      "file": "05-boot-home.webm",
+      "start": 75,
+      "end": 77.5,
+      "label": "07 / CALCULATOR COVER",
+      "chapter": "calculator",
+      "en": "The app opens behind a working calculator. Type the PIN and = to enter.",
+      "it": "L’app si apre dietro una calcolatrice funzionante. Digita il PIN e = per entrare."
+    },
+    {
+      "file": "05-boot-home.webm",
+      "start": 89.5,
+      "end": 101,
+      "speed": 1.5,
+      "label": "07 / CALCULATOR COVER / DEMO PIN",
+      "chapter": "calculator",
+      "en": "",
+      "it": ""
+    },
+    {
+      "file": "05-boot-home.webm",
+      "start": 102,
+      "end": 106,
+      "speed": 2,
+      "label": "07 / UNLOCKING",
+      "chapter": "calculator",
+      "en": "",
+      "it": ""
+    },
+    {
+      "file": "06-permissions-home.webm",
+      "start": 8.5,
+      "end": 11.5,
+      "label": "08 / NOTIFICATIONS / ANDROID",
+      "chapter": "notifications",
+      "en": "Allow notifications for messages and calls.",
+      "it": "Consenti le notifiche per messaggi e chiamate."
+    },
+    {
+      "file": "06-permissions-home.webm",
+      "start": 12,
+      "end": 15,
+      "label": "08 / BACKGROUND / ANDROID",
+      "chapter": "background",
+      "en": "Allow background activity so messages and calls reach you.",
+      "it": "Consenti l’attività in background per ricevere messaggi e chiamate."
+    },
+    {
+      "file": "06-permissions-home.webm",
+      "start": 25.8,
+      "end": 27.8,
+      "label": "08 / BACKGROUND / ANDROID",
+      "chapter": "background",
+      "en": "",
+      "it": ""
+    },
+    {
+      "file": "06-permissions-home.webm",
+      "start": 28,
+      "end": 34,
+      "hold": 1.5,
+      "label": "09 / HOME / TOR ONLINE",
+      "chapter": "home",
+      "en": "Home: Tor online, ready for the first contact.",
+      "it": "Home: Tor online, pronta per il primo contatto."
+    }
+  ],
+  "files": [
+    {
+      "name": "first-setup-demo-poster.webp",
+      "bytes": 18094,
+      "sha256": "33337e370c9e4baa216e4ccc1425a4bcfbe7dd6f4b94c39ca280aa63a34d5fa6"
+    },
+    {
+      "name": "first-setup-demo-timing.json",
+      "bytes": 2844,
+      "sha256": "8166db859bc92a080138b7809758c640ba1dc4c39dd4f335c317d43e96195107"
+    },
+    {
+      "name": "first-setup-demo.en.vtt",
+      "bytes": 1212,
+      "sha256": "f876044bd604887631ef1c39f367def9225061077ddb607c0516ed8fcb756b3a"
+    },
+    {
+      "name": "first-setup-demo.it.vtt",
+      "bytes": 1286,
+      "sha256": "4094bfa1ee7ffc307cee7c5828c019d4dee1f4f318357754447fd0738dcd34e3"
+    },
+    {
+      "name": "first-setup-demo.mp4",
+      "bytes": 3619308,
+      "sha256": "6884fa27835e5dc2ba63b515f9f9366ce75e75ad315c7febb2c6194481299f8b"
+    },
+    {
+      "name": "first-setup-demo.webm",
+      "bytes": 2599063,
+      "sha256": "13bb176dd8a52badd3507d7c1fa74c0825befbb4dd88f8b17d101fd59c4bef34"
+    }
+  ]
+}

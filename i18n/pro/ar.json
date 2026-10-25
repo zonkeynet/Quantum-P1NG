@@ -137,7 +137,20 @@
   "Show support email": "إظهار بريد الدعم",
   "(support [at] qp1ng [dot] com)": "(support [at] qp1ng [dot] com)",
   "<span data-card=\"off\">Pay with Bitcoin; card payments are coming soon.</span><span data-card=\"on\" hidden>Pay by card through <span data-card-name>FastSpring</span>, our reseller, or with Bitcoin.</span> Your key appears on this page.": "<span data-card=\"off\">ادفع بـ Bitcoin؛ سيتوفر الدفع بالبطاقة قريباً.</span><span data-card=\"on\" hidden>ادفع بالبطاقة عبر <span data-card-name>FastSpring</span>، مُعيد البيع الخاص بنا، أو بـ Bitcoin.</span> يظهر مفتاحك في هذه الصفحة.",
-  "<span data-card=\"on\" hidden>Cards in the secure checkout of <span data-card-name>FastSpring</span>, our reseller: we never see your card details. </span>Bitcoin on-chain, straight to our wallet: no account, no card details.<span data-card=\"off\"> Card payments are coming soon.</span>": "<span data-card=\"on\" hidden>البطاقات عبر صفحة الدفع الآمنة لدى <span data-card-name>FastSpring</span>، مُعيد البيع الخاص بنا: لا نرى بيانات بطاقتك أبداً. </span>Bitcoin على السلسلة، مباشرة إلى محفظتنا: بلا حساب ولا بيانات بطاقة.<span data-card=\"off\"> سيتوفر الدفع بالبطاقة قريباً.</span>"
+  "<span data-card=\"on\" hidden>Cards in the secure checkout of <span data-card-name>FastSpring</span>, our reseller: we never see your card details. </span>Bitcoin on-chain, straight to our wallet: no account, no card details.<span data-card=\"off\"> Card payments are coming soon.</span>": "<span data-card=\"on\" hidden>البطاقات عبر صفحة الدفع الآمنة لدى <span data-card-name>FastSpring</span>، مُعيد البيع الخاص بنا: لا نرى بيانات بطاقتك أبداً. </span>Bitcoin على السلسلة، مباشرة إلى محفظتنا: بلا حساب ولا بيانات بطاقة.<span data-card=\"off\"> سيتوفر الدفع بالبطاقة قريباً.</span>",
+  "ANDROID · INSTALL": "أندرويد · التثبيت",
+  "From APK to first start": "من ملف APK إلى أول تشغيل",
+  "Open the APK, allow that source once and tap Install. Six welcome pages explain the app before setup starts.": "افتح ملف APK، واسمح بهذا المصدر مرة واحدة، ثم اضغط «تثبيت». ست صفحات ترحيب تشرح التطبيق قبل بدء الإعداد.",
+  "Open the downloaded APK": "افتح ملف APK الذي نزّلته",
+  "Allow installs from this source, once": "اسمح بالتثبيت من هذا المصدر مرة واحدة",
+  "Install, open, read the welcome pages": "ثبّت، افتح، اقرأ صفحات الترحيب",
+  "ANDROID / INSTALL / 00:58": "ANDROID / INSTALL / 00:58",
+  "EN / IT": "EN / IT",
+  "Click to play": "انقر للتشغيل",
+  "Open the video": "افتح الفيديو",
+  "Recorded on an Android emulator with the Pro debug build; the APK was copied to Downloads. Staging and installing shortened; edited with cuts.": "سُجّل على محاكي أندرويد بنسخة Pro التجريبية للمطورين؛ ونُسخ ملف APK إلى التنزيلات. اختُصرت مدة التحضير والتثبيت، والمقطع مُحرَّر بالقص.",
+  "Open the video (MP4)": "فتح الفيديو (MP4)",
+  "Click to play: Install · Android demo": "انقر للتشغيل: Install · Android demo"
  },
  "messages": {
   "Copied": "تم النسخ",
@@ -172,6 +185,11 @@
   "Download": "تنزيل",
   "The first release of the website edition will appear here.": "ستظهر هنا أول نسخة من إصدار الموقع.",
   "Through {provider}, our reseller": "عبر {provider}، مُعيد البيع الخاص بنا",
-  "The card checkout could not be loaded. Check that no blocker stops {domain}.": "تعذّر تحميل صفحة الدفع بالبطاقة. تأكد من أن أداة الحظر لا تمنع {domain}."
+  "The card checkout could not be loaded. Check that no blocker stops {domain}.": "تعذّر تحميل صفحة الدفع بالبطاقة. تأكد من أن أداة الحظر لا تمنع {domain}.",
+  "Click to play": "انقر للتشغيل",
+  "Click to pause": "انقر للإيقاف المؤقت",
+  "Click to replay": "انقر لإعادة المشاهدة",
+  "Click to retry": "انقر لإعادة المحاولة",
+  "The video could not load. Click the preview to retry.": "تعذّر تحميل الفيديو. انقر على المعاينة لإعادة المحاولة."
  }
 }

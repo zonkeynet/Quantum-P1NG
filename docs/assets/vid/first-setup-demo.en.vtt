@@ -1,0 +1,49 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:04.500
+Initialize: the app prepares this phone as a secure endpoint.
+
+2
+00:00:04.500 --> 00:00:10.533
+Choose the input: Quantum Keyboard or the system keyboard.
+
+3
+00:00:10.533 --> 00:00:16.533
+Set the primary PIN that opens the app.
+
+4
+00:00:16.533 --> 00:00:28.700
+Add a duress PIN that wipes data and a decoy PIN that opens a fake vault. Configuration only.
+
+5
+00:00:28.700 --> 00:00:39.767
+Quantum Keyboard is enabled in Android settings.
+
+6
+00:00:39.767 --> 00:00:49.800
+Android shows its standard warning for every third-party keyboard.
+
+7
+00:00:49.800 --> 00:00:56.433
+Back in the app, pick Quantum Keyboard in the system picker.
+
+8
+00:00:56.433 --> 00:01:03.500
+Meanwhile the app saves the PINs and creates the identity key pair (RSA-2048) in the Android Keystore.
+
+9
+00:01:03.500 --> 00:01:15.700
+The app opens behind a working calculator. Type the PIN and = to enter.
+
+10
+00:01:15.700 --> 00:01:18.700
+Allow notifications for messages and calls.
+
+11
+00:01:18.700 --> 00:01:23.733
+Allow background activity so messages and calls reach you.
+
+12
+00:01:23.733 --> 00:01:31.233
+Home: Tor online, ready for the first contact.

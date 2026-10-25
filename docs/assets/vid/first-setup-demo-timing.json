@@ -1,0 +1,86 @@
+[
+  {
+    "start": 0.0,
+    "end": 4.5,
+    "chapter": "init",
+    "en": "Initialize: the app prepares this phone as a secure endpoint.",
+    "it": "Inizializza: l’app prepara il telefono come nodo sicuro."
+  },
+  {
+    "start": 4.5,
+    "end": 10.533,
+    "chapter": "input",
+    "en": "Choose the input: Quantum Keyboard or the system keyboard.",
+    "it": "Scegli l’input: Quantum Keyboard o la tastiera di sistema."
+  },
+  {
+    "start": 10.533,
+    "end": 16.533,
+    "chapter": "pin",
+    "en": "Set the primary PIN that opens the app.",
+    "it": "Imposta il PIN principale che apre l’app."
+  },
+  {
+    "start": 16.533,
+    "end": 28.7,
+    "chapter": "duress",
+    "en": "Add a duress PIN that wipes data and a decoy PIN that opens a fake vault. Configuration only.",
+    "it": "Aggiungi un PIN di emergenza che cancella i dati e un PIN esca che apre un vault finto. Solo configurazione."
+  },
+  {
+    "start": 28.7,
+    "end": 39.767,
+    "chapter": "keyboard",
+    "en": "Quantum Keyboard is enabled in Android settings.",
+    "it": "Quantum Keyboard si attiva nelle impostazioni di Android."
+  },
+  {
+    "start": 39.767,
+    "end": 49.8,
+    "chapter": "warning",
+    "en": "Android shows its standard warning for every third-party keyboard.",
+    "it": "Android mostra il suo avviso standard per ogni tastiera di terze parti."
+  },
+  {
+    "start": 49.8,
+    "end": 56.433,
+    "chapter": "picker",
+    "en": "Back in the app, pick Quantum Keyboard in the system picker.",
+    "it": "Tornato nell’app, scegli Quantum Keyboard nel selettore di sistema."
+  },
+  {
+    "start": 56.433,
+    "end": 63.5,
+    "chapter": "boot",
+    "en": "Meanwhile the app saves the PINs and creates the identity key pair (RSA-2048) in the Android Keystore.",
+    "it": "Intanto l’app salva i PIN e crea la coppia di chiavi dell’identità (RSA-2048) nel Keystore di Android."
+  },
+  {
+    "start": 63.5,
+    "end": 75.7,
+    "chapter": "calculator",
+    "en": "The app opens behind a working calculator. Type the PIN and = to enter.",
+    "it": "L’app si apre dietro una calcolatrice funzionante. Digita il PIN e = per entrare."
+  },
+  {
+    "start": 75.7,
+    "end": 78.7,
+    "chapter": "notifications",
+    "en": "Allow notifications for messages and calls.",
+    "it": "Consenti le notifiche per messaggi e chiamate."
+  },
+  {
+    "start": 78.7,
+    "end": 83.733,
+    "chapter": "background",
+    "en": "Allow background activity so messages and calls reach you.",
+    "it": "Consenti l’attività in background per ricevere messaggi e chiamate."
+  },
+  {
+    "start": 83.733,
+    "end": 91.233,
+    "chapter": "home",
+    "en": "Home: Tor online, ready for the first contact.",
+    "it": "Home: Tor online, pronta per il primo contatto."
+  }
+]

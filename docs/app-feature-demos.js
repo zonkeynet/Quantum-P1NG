@@ -1,7 +1,12 @@
 // Real app walkthroughs: media is requested only after the visitor clicks.
 (() => {
   'use strict';
-  const T = window.T || (text => text);
+  // The home's T (script.js); the Pro page has no script.js: its language pages carry the texts in #pro-i18n.
+  const T = window.T || (() => {
+    let texts = {};
+    try { texts = JSON.parse(document.getElementById('pro-i18n').textContent); } catch (e) { /* English page */ }
+    return text => texts[text] || text;
+  })();
   const players = Array.from(document.querySelectorAll('[data-app-walkthrough]'));
   players.forEach(player => {
     const video = player.querySelector('video');

@@ -77,7 +77,8 @@
     <link rel="preconnect" href="https://qp1ng-license-api.quantump1ng.workers.dev" crossorigin>
     <link rel="preload" href="/assets/fonts/bitcount_square_qp1ng.woff2" as="font" type="font/woff2" crossorigin>
     <!-- Bump ?v= whenever pro.css, pow.js or pro.js change: the proxy lets browsers cache them for hours. -->
-    <link rel="stylesheet" href="/pro/pro.css?v=20261025b">
+    <link rel="stylesheet" href="/pro/pro.css?v=20261025c">
+    <link rel="stylesheet" href="/app-feature-demos.css?v=7">
     <link rel="stylesheet" href="/lang-menu.css?v=1">
 </head>
 <body>
@@ -326,6 +327,43 @@
             <div class="panel" id="downloads">
                 <p class="muted">Загрузка последнего выпуска…</p>
             </div>
+            <figure class="panel install-demo app-walkthrough" id="install-demo" aria-labelledby="install-demo-title"
+                data-app-walkthrough="Install · Android demo" data-cues="/assets/vid/install-first-launch-demo-timing.json"
+                data-idle-en="Open the APK, allow that source once and tap Install. Six welcome pages explain the app before setup starts." data-idle-it="Apri l’APK, consenti quella fonte una volta e tocca Installa. Sei pagine di benvenuto spiegano l’app prima della configurazione.">
+                <figcaption class="install-demo-copy">
+                    <p class="kicker">ANDROID · УСТАНОВКА</p>
+                    <h3 id="install-demo-title">От APK до первого запуска</h3>
+                    <p class="muted">Откройте APK, один раз разрешите этот источник и нажмите «Установить». Шесть приветственных страниц расскажут о приложении до настройки.</p>
+                    <ol class="install-demo-steps">
+                        <li>Откройте скачанный APK</li>
+                        <li>Один раз разрешите установку из этого источника</li>
+                        <li>Установите, откройте, прочитайте приветствие</li>
+                    </ol>
+                    <div class="install-demo-captions">
+                        <div class="app-walkthrough-meta">
+                            <span>ANDROID / INSTALL / 00:58</span>
+                            <div class="app-walkthrough-languages" role="group" aria-label="EN / IT">
+                                <button type="button" data-demo-lang="en" aria-pressed="true" lang="en">EN</button>
+                                <button type="button" data-demo-lang="it" aria-pressed="false" lang="it">IT</button>
+                            </div>
+                        </div>
+                        <span class="app-walkthrough-caption" id="install-demo-caption" data-demo-caption>Откройте APK, один раз разрешите этот источник и нажмите «Установить». Шесть приветственных страниц расскажут о приложении до настройки.</span>
+                        <span class="app-walkthrough-note" data-demo-hint>Нажмите для просмотра</span>
+                        <p class="app-walkthrough-fallback" data-demo-fallback hidden><a href="/assets/vid/install-first-launch-demo.mp4">Открыть видео</a></p>
+                    </div>
+                    <p class="install-demo-note" id="install-demo-note">Записано на эмуляторе Android с отладочной сборкой Pro; APK скопирован в «Загрузки». Подготовка и установка сокращены; смонтировано с вырезками.</p>
+                    <noscript><p><a href="/assets/vid/install-first-launch-demo.mp4">Открыть видео (MP4)</a></p></noscript>
+                </figcaption>
+                <div class="app-walkthrough-screen install-demo-phone">
+                    <video width="720" height="1280" muted playsinline preload="none" role="button" tabindex="0"
+                        aria-label="Нажмите для просмотра: Install · Android demo" aria-describedby="install-demo-caption install-demo-note"
+                        poster="/assets/img/install-first-launch-demo-poster.webp">
+                        <source data-src="/assets/vid/install-first-launch-demo.webm" type="video/webm">
+                        <source data-src="/assets/vid/install-first-launch-demo.mp4" type="video/mp4">
+                        <p><a href="/assets/vid/install-first-launch-demo.mp4">Открыть видео</a></p>
+                    </video>
+                </div>
+            </figure>
         </div>
     </section>
 
@@ -392,9 +430,10 @@
         </nav>
     </div>
 </footer>
-<!-- i18n:messages --><script type="application/json" id="pro-i18n">{"Copied": "Скопировано", "Through {provider}, our reseller": "Через {provider}, нашего реселлера", "Coming soon": "Скоро появится", "Soon": "Скоро", "Payments could not be loaded. Check your connection and reload the page.": "Не удалось загрузить способы оплаты. Проверьте подключение и перезагрузите страницу.", "Tick the box above to choose how to pay.": "Отметьте флажок выше, чтобы выбрать способ оплаты.", "Card payment is not available right now. Please try again later, or pay with Bitcoin.": "Оплата картой сейчас недоступна. Попробуйте позже или оплатите в Bitcoin.", "The card checkout could not be loaded. Check that no blocker stops {domain}.": "Не удалось загрузить страницу оплаты картой. Убедитесь, что блокировщик не мешает {domain}.", "This usually takes a few seconds. Your order reference is {reference} (also on your receipt): with it you can recover the key below at any time.": "Обычно это занимает несколько секунд. Номер вашего заказа — {reference} (он также указан в чеке): по нему можно в любой момент восстановить ключ ниже.", "This licence was refunded.": "За эту лицензию оформлен возврат средств.", "Your payment is confirmed, but the key is taking longer than usual.": "Платёж подтверждён, но выдача ключа занимает больше времени, чем обычно.", "Recover it below with the order reference {reference} in a few minutes, or write to {support}.": "Через несколько минут восстановите его ниже по номеру заказа {reference} или напишите на {support}.", "Recover it below with the order reference on your receipt in a few minutes, or write to {support}.": "Через несколько минут восстановите его ниже по номеру заказа из чека или напишите на {support}.", "Preparing the order (a few seconds of work on this device)…": "Подготовка заказа (несколько секунд вычислений на этом устройстве)…", "The Bitcoin order failed:": "Не удалось создать заказ в Bitcoin:", "Rate expired": "Курс больше не действует", "Rate held": "Курс зафиксирован", "Payment confirmed.": "Платёж подтверждён.", "Payment seen on the network. Waiting for one confirmation…": "Платёж замечен в сети. Ожидание одного подтверждения…", "Received {received} BTC. Send the remaining {due} BTC to the same address.": "Получено {received} BTC. Отправьте оставшиеся {due} BTC на тот же адрес.", "This order has expired without a payment. If you have just paid, the payment is still recognised for two weeks; otherwise start a new order.": "Срок заказа истёк, оплата не поступила. Если вы только что заплатили, платёж всё равно будет учтён в течение двух недель; иначе создайте новый заказ.", "Waiting for the payment…": "Ожидание платежа…", "That order no longer exists.": "Этого заказа больше не существует.", "That is not an order reference.": "Это не номер заказа.", "Looking it up…": "Поиск…", "Found.": "Найдено.", "Too many attempts: try again in a minute.": "Слишком много попыток: повторите через минуту.", "No licence for that order yet. If you have just paid, try again in a minute; otherwise write to {support}.": "Лицензии для этого заказа пока нет. Если вы только что заплатили, повторите через минуту; иначе напишите на {support}.", "The licence service could not be reached.": "Не удалось связаться с сервисом лицензий.", "Free": "Бесплатно", "Needs a licence": "Нужна лицензия", "Download": "Скачать", "The first release of the website edition will appear here.": "Здесь появится первый выпуск версии с сайта."}</script><!-- /i18n:messages -->
+<!-- i18n:messages --><script type="application/json" id="pro-i18n">{"Copied": "Скопировано", "Through {provider}, our reseller": "Через {provider}, нашего реселлера", "Coming soon": "Скоро появится", "Soon": "Скоро", "Payments could not be loaded. Check your connection and reload the page.": "Не удалось загрузить способы оплаты. Проверьте подключение и перезагрузите страницу.", "Tick the box above to choose how to pay.": "Отметьте флажок выше, чтобы выбрать способ оплаты.", "Card payment is not available right now. Please try again later, or pay with Bitcoin.": "Оплата картой сейчас недоступна. Попробуйте позже или оплатите в Bitcoin.", "The card checkout could not be loaded. Check that no blocker stops {domain}.": "Не удалось загрузить страницу оплаты картой. Убедитесь, что блокировщик не мешает {domain}.", "This usually takes a few seconds. Your order reference is {reference} (also on your receipt): with it you can recover the key below at any time.": "Обычно это занимает несколько секунд. Номер вашего заказа — {reference} (он также указан в чеке): по нему можно в любой момент восстановить ключ ниже.", "This licence was refunded.": "За эту лицензию оформлен возврат средств.", "Your payment is confirmed, but the key is taking longer than usual.": "Платёж подтверждён, но выдача ключа занимает больше времени, чем обычно.", "Recover it below with the order reference {reference} in a few minutes, or write to {support}.": "Через несколько минут восстановите его ниже по номеру заказа {reference} или напишите на {support}.", "Recover it below with the order reference on your receipt in a few minutes, or write to {support}.": "Через несколько минут восстановите его ниже по номеру заказа из чека или напишите на {support}.", "Preparing the order (a few seconds of work on this device)…": "Подготовка заказа (несколько секунд вычислений на этом устройстве)…", "The Bitcoin order failed:": "Не удалось создать заказ в Bitcoin:", "Rate expired": "Курс больше не действует", "Rate held": "Курс зафиксирован", "Payment confirmed.": "Платёж подтверждён.", "Payment seen on the network. Waiting for one confirmation…": "Платёж замечен в сети. Ожидание одного подтверждения…", "Received {received} BTC. Send the remaining {due} BTC to the same address.": "Получено {received} BTC. Отправьте оставшиеся {due} BTC на тот же адрес.", "This order has expired without a payment. If you have just paid, the payment is still recognised for two weeks; otherwise start a new order.": "Срок заказа истёк, оплата не поступила. Если вы только что заплатили, платёж всё равно будет учтён в течение двух недель; иначе создайте новый заказ.", "Waiting for the payment…": "Ожидание платежа…", "That order no longer exists.": "Этого заказа больше не существует.", "That is not an order reference.": "Это не номер заказа.", "Looking it up…": "Поиск…", "Found.": "Найдено.", "Too many attempts: try again in a minute.": "Слишком много попыток: повторите через минуту.", "No licence for that order yet. If you have just paid, try again in a minute; otherwise write to {support}.": "Лицензии для этого заказа пока нет. Если вы только что заплатили, повторите через минуту; иначе напишите на {support}.", "The licence service could not be reached.": "Не удалось связаться с сервисом лицензий.", "Free": "Бесплатно", "Needs a licence": "Нужна лицензия", "Download": "Скачать", "The first release of the website edition will appear here.": "Здесь появится первый выпуск версии с сайта.", "Click to play": "Нажмите, чтобы воспроизвести", "Click to pause": "Нажмите, чтобы поставить на паузу", "Click to replay": "Нажмите, чтобы посмотреть снова", "Click to retry": "Нажмите, чтобы повторить", "The video could not load. Click the preview to retry.": "Не удалось загрузить видео. Нажмите на превью, чтобы повторить."}</script><!-- /i18n:messages -->
 <script src="/pro/pow.js?v=20261024"></script>
 <script src="/pro/pro.js?v=20261025a"></script>
+<script src="/app-feature-demos.js?v=7" defer></script>
 <script src="/email-contact.js?v=20261024" defer></script>
 </body>
 </html>

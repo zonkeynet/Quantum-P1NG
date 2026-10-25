@@ -2655,7 +2655,16 @@
   "<span class=\"mono\" aria-hidden=\"true\">03</span>Separate primary, decoy and duress credentials": "<span class=\"mono\" aria-hidden=\"true\">03</span>Osobne dane dostępu: główne, pozorne i pod przymusem",
   "ANDROID / FALLOUT / 00:58": "ANDROID / FALLOUT / 00:58",
   "Recorded in the Android demo with sample data and an emulated shake. Credential configuration shown; no wipe executed. Waiting time shortened. Edited with cuts and accelerated sequences.": "Nagranie z demonstracyjnej aplikacji Android z przykładowymi danymi i emulowanym potrząśnięciem. Pokazano konfigurację dostępu; bez kasowania danych. Skrócono oczekiwanie. Montaż ze skrótami i przyspieszonymi sekwencjami.",
-  "Click to play: Anti-forensics · Android demo": "Kliknij, aby odtworzyć: Anti-forensics · Android demo"
+  "Click to play: Anti-forensics · Android demo": "Kliknij, aby odtworzyć: Anti-forensics · Android demo",
+  "ANDROID APP · FIRST SETUP": "APLIKACJA ANDROID · PIERWSZA KONFIGURACJA",
+  "Three PINs. One calculator.": "Trzy PIN-y. Jeden kalkulator.",
+  "Set a primary, a duress and a decoy PIN, then turn on Quantum Keyboard. From then on the app opens behind a working calculator: type the PIN and =.": "Ustaw PIN główny, awaryjny i wabik, potem włącz Quantum Keyboard. Odtąd aplikacja otwiera się za działającym kalkulatorem: wpisz PIN i =.",
+  "<span class=\"mono\" aria-hidden=\"true\">01</span>Primary, duress and decoy PIN": "<span class=\"mono\" aria-hidden=\"true\">01</span>PIN główny, awaryjny i wabik",
+  "<span class=\"mono\" aria-hidden=\"true\">02</span>Quantum Keyboard, enabled in Android settings": "<span class=\"mono\" aria-hidden=\"true\">02</span>Quantum Keyboard włączona w ustawieniach Androida",
+  "<span class=\"mono\" aria-hidden=\"true\">03</span>Calculator cover: PIN and = to enter": "<span class=\"mono\" aria-hidden=\"true\">03</span>Kalkulator jako przykrywka: PIN i =, by wejść",
+  "ANDROID / FIRST SETUP / 01:31": "ANDROID / FIRST SETUP / 01:31",
+  "Recorded on an Android emulator with demo PINs. Duress and decoy codes configured only; nothing triggered. Typing and waiting accelerated; two takes of the same setup joined.": "Nagrano na emulatorze Androida z demonstracyjnymi PIN-ami. Kody awaryjny i wabik tylko skonfigurowane; nic nie uruchomiono. Pisanie i oczekiwanie przyspieszone; połączono dwa ujęcia tej samej konfiguracji.",
+  "Click to play: First setup · Android demo": "Kliknij, aby odtworzyć: First setup · Android demo"
  },
  "messages": {
   "COPIED": "SKOPIOWANO",

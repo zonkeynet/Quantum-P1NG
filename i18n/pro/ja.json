@@ -137,7 +137,20 @@
   "Show support email": "サポートのメールアドレスを表示",
   "(support [at] qp1ng [dot] com)": "(support [at] qp1ng [dot] com)",
   "<span data-card=\"off\">Pay with Bitcoin; card payments are coming soon.</span><span data-card=\"on\" hidden>Pay by card through <span data-card-name>FastSpring</span>, our reseller, or with Bitcoin.</span> Your key appears on this page.": "<span data-card=\"off\">Bitcoin でお支払いください。カード決済は近日対応予定です。</span><span data-card=\"on\" hidden>販売代理店 <span data-card-name>FastSpring</span> を通じたカード、または Bitcoin でお支払いください。</span>キーはこのページに表示されます。",
-  "<span data-card=\"on\" hidden>Cards in the secure checkout of <span data-card-name>FastSpring</span>, our reseller: we never see your card details. </span>Bitcoin on-chain, straight to our wallet: no account, no card details.<span data-card=\"off\"> Card payments are coming soon.</span>": "<span data-card=\"on\" hidden>カードは販売代理店 <span data-card-name>FastSpring</span> の安全な決済画面で処理され、当社がカード情報を目にすることはありません。</span>Bitcoin はオンチェーンで当社ウォレットに直接送金。アカウントもカード情報も不要です。<span data-card=\"off\">カード決済は近日対応予定です。</span>"
+  "<span data-card=\"on\" hidden>Cards in the secure checkout of <span data-card-name>FastSpring</span>, our reseller: we never see your card details. </span>Bitcoin on-chain, straight to our wallet: no account, no card details.<span data-card=\"off\"> Card payments are coming soon.</span>": "<span data-card=\"on\" hidden>カードは販売代理店 <span data-card-name>FastSpring</span> の安全な決済画面で処理され、当社がカード情報を目にすることはありません。</span>Bitcoin はオンチェーンで当社ウォレットに直接送金。アカウントもカード情報も不要です。<span data-card=\"off\">カード決済は近日対応予定です。</span>",
+  "ANDROID · INSTALL": "ANDROID · インストール",
+  "From APK to first start": "APKから初回起動まで",
+  "Open the APK, allow that source once and tap Install. Six welcome pages explain the app before setup starts.": "APKを開き、そのソースを一度だけ許可して「インストール」をタップ。設定の前に、6枚のようこそページがアプリを説明します。",
+  "Open the downloaded APK": "ダウンロードしたAPKを開く",
+  "Allow installs from this source, once": "このソースからのインストールを一度だけ許可",
+  "Install, open, read the welcome pages": "インストールして開き、ようこそページを読む",
+  "ANDROID / INSTALL / 00:58": "ANDROID / INSTALL / 00:58",
+  "EN / IT": "EN / IT",
+  "Click to play": "クリックして再生",
+  "Open the video": "動画を開く",
+  "Recorded on an Android emulator with the Pro debug build; the APK was copied to Downloads. Staging and installing shortened; edited with cuts.": "Pro のデバッグビルドを使い、Androidエミュレーターで録画。APKはダウンロードフォルダにコピーしました。準備とインストールは短縮し、カット編集しています。",
+  "Open the video (MP4)": "動画を開く (MP4)",
+  "Click to play: Install · Android demo": "クリックして再生: Install · Android demo"
  },
  "messages": {
   "Copied": "コピーしました",
@@ -172,6 +185,11 @@
   "Download": "ダウンロード",
   "The first release of the website edition will appear here.": "ウェブサイト版の最初のリリースはここに表示されます。",
   "Through {provider}, our reseller": "販売代理店 {provider} 経由",
-  "The card checkout could not be loaded. Check that no blocker stops {domain}.": "カード決済画面を読み込めませんでした。{domain} がブロッカーで遮断されていないか確認してください。"
+  "The card checkout could not be loaded. Check that no blocker stops {domain}.": "カード決済画面を読み込めませんでした。{domain} がブロッカーで遮断されていないか確認してください。",
+  "Click to play": "クリックで再生",
+  "Click to pause": "クリックで一時停止",
+  "Click to replay": "クリックでもう一度再生",
+  "Click to retry": "クリックで再試行",
+  "The video could not load. Click the preview to retry.": "動画を読み込めませんでした。プレビューをクリックして再試行してください。"
  }
 }

@@ -2655,7 +2655,16 @@
   "<span class=\"mono\" aria-hidden=\"true\">03</span>Separate primary, decoy and duress credentials": "<span class=\"mono\" aria-hidden=\"true\">03</span>اطلاعات ورود جداگانه برای اصلی، طعمه و اجبار",
   "ANDROID / FALLOUT / 00:58": "ANDROID / FALLOUT / 00:58",
   "Recorded in the Android demo with sample data and an emulated shake. Credential configuration shown; no wipe executed. Waiting time shortened. Edited with cuts and accelerated sequences.": "ضبط‌شده در نسخه نمایشی Android با داده‌های نمونه و تکان شبیه‌سازی‌شده. تنظیم اطلاعات ورود نمایش داده می‌شود؛ پاک‌سازی اجرا نشده است. زمان انتظار کوتاه شده است. تدوین با برش‌ها و بخش‌های تندشده.",
-  "Click to play: Anti-forensics · Android demo": "برای پخش کلیک کنید: Anti-forensics · Android demo"
+  "Click to play: Anti-forensics · Android demo": "برای پخش کلیک کنید: Anti-forensics · Android demo",
+  "ANDROID APP · FIRST SETUP": "برنامهٔ اندروید · نخستین راه‌اندازی",
+  "Three PINs. One calculator.": "سه PIN. یک ماشین‌حساب.",
+  "Set a primary, a duress and a decoy PIN, then turn on Quantum Keyboard. From then on the app opens behind a working calculator: type the PIN and =.": "یک PIN اصلی، یک PIN اضطراری و یک PIN فریب تعیین کنید، سپس Quantum Keyboard را روشن کنید. از آن پس برنامه پشت یک ماشین‌حسابِ واقعی باز می‌شود: PIN را بزنید و بعد =.",
+  "<span class=\"mono\" aria-hidden=\"true\">01</span>Primary, duress and decoy PIN": "<span class=\"mono\" aria-hidden=\"true\">01</span>PIN اصلی، اضطراری و فریب",
+  "<span class=\"mono\" aria-hidden=\"true\">02</span>Quantum Keyboard, enabled in Android settings": "<span class=\"mono\" aria-hidden=\"true\">02</span>Quantum Keyboard، فعال‌شده در تنظیمات اندروید",
+  "<span class=\"mono\" aria-hidden=\"true\">03</span>Calculator cover: PIN and = to enter": "<span class=\"mono\" aria-hidden=\"true\">03</span>پوشش ماشین‌حساب: PIN و = برای ورود",
+  "ANDROID / FIRST SETUP / 01:31": "ANDROID / FIRST SETUP / 01:31",
+  "Recorded on an Android emulator with demo PINs. Duress and decoy codes configured only; nothing triggered. Typing and waiting accelerated; two takes of the same setup joined.": "روی شبیه‌ساز اندروید با PINهای نمایشی ضبط شده است. کدهای اضطراری و فریب فقط تنظیم شده‌اند و هیچ کاری اجرا نشده است. تایپ و انتظارها سریع‌تر شده‌اند و دو برداشت از همان راه‌اندازی به هم وصل شده‌اند.",
+  "Click to play: First setup · Android demo": "برای پخش کلیک کنید: First setup · Android demo"
  },
  "messages": {
   "COPIED": "کپی شد",

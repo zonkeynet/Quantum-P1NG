@@ -77,7 +77,8 @@
     <link rel="preconnect" href="https://qp1ng-license-api.quantump1ng.workers.dev" crossorigin>
     <link rel="preload" href="/assets/fonts/bitcount_square_qp1ng.woff2" as="font" type="font/woff2" crossorigin>
     <!-- Bump ?v= whenever pro.css, pow.js or pro.js change: the proxy lets browsers cache them for hours. -->
-    <link rel="stylesheet" href="/pro/pro.css?v=20261025b">
+    <link rel="stylesheet" href="/pro/pro.css?v=20261025c">
+    <link rel="stylesheet" href="/app-feature-demos.css?v=7">
     <link rel="stylesheet" href="/lang-menu.css?v=1">
 </head>
 <body>
@@ -326,6 +327,43 @@
             <div class="panel" id="downloads">
                 <p class="muted">正在載入最新版本…</p>
             </div>
+            <figure class="panel install-demo app-walkthrough" id="install-demo" aria-labelledby="install-demo-title"
+                data-app-walkthrough="Install · Android demo" data-cues="/assets/vid/install-first-launch-demo-timing.json"
+                data-idle-en="Open the APK, allow that source once and tap Install. Six welcome pages explain the app before setup starts." data-idle-it="Apri l’APK, consenti quella fonte una volta e tocca Installa. Sei pagine di benvenuto spiegano l’app prima della configurazione.">
+                <figcaption class="install-demo-copy">
+                    <p class="kicker">ANDROID · 安裝</p>
+                    <h3 id="install-demo-title">從 APK 到首次啟動</h3>
+                    <p class="muted">開啟 APK，允許該來源一次，然後輕觸「安裝」。設定開始前，六頁歡迎頁面會介紹這款應用程式。</p>
+                    <ol class="install-demo-steps">
+                        <li>開啟下載的 APK</li>
+                        <li>允許從此來源安裝，僅需一次</li>
+                        <li>安裝、開啟、閱讀歡迎頁面</li>
+                    </ol>
+                    <div class="install-demo-captions">
+                        <div class="app-walkthrough-meta">
+                            <span>ANDROID / INSTALL / 00:58</span>
+                            <div class="app-walkthrough-languages" role="group" aria-label="EN / IT">
+                                <button type="button" data-demo-lang="en" aria-pressed="true" lang="en">EN</button>
+                                <button type="button" data-demo-lang="it" aria-pressed="false" lang="it">IT</button>
+                            </div>
+                        </div>
+                        <span class="app-walkthrough-caption" id="install-demo-caption" data-demo-caption>開啟 APK，允許該來源一次，然後輕觸「安裝」。設定開始前，六頁歡迎頁面會介紹這款應用程式。</span>
+                        <span class="app-walkthrough-note" data-demo-hint>點擊播放</span>
+                        <p class="app-walkthrough-fallback" data-demo-fallback hidden><a href="/assets/vid/install-first-launch-demo.mp4">開啟影片</a></p>
+                    </div>
+                    <p class="install-demo-note" id="install-demo-note">使用 Pro 偵錯版在 Android 模擬器上錄製；APK 是複製到「下載」資料夾的。準備與安裝過程已縮短，並經剪輯。</p>
+                    <noscript><p><a href="/assets/vid/install-first-launch-demo.mp4">開啟影片 (MP4)</a></p></noscript>
+                </figcaption>
+                <div class="app-walkthrough-screen install-demo-phone">
+                    <video width="720" height="1280" muted playsinline preload="none" role="button" tabindex="0"
+                        aria-label="點擊播放: Install · Android demo" aria-describedby="install-demo-caption install-demo-note"
+                        poster="/assets/img/install-first-launch-demo-poster.webp">
+                        <source data-src="/assets/vid/install-first-launch-demo.webm" type="video/webm">
+                        <source data-src="/assets/vid/install-first-launch-demo.mp4" type="video/mp4">
+                        <p><a href="/assets/vid/install-first-launch-demo.mp4">開啟影片</a></p>
+                    </video>
+                </div>
+            </figure>
         </div>
     </section>
 
@@ -392,9 +430,10 @@
         </nav>
     </div>
 </footer>
-<!-- i18n:messages --><script type="application/json" id="pro-i18n">{"Copied": "已複製", "Through {provider}, our reseller": "透過我們的經銷商 {provider}", "Coming soon": "即將推出", "Soon": "即將推出", "Payments could not be loaded. Check your connection and reload the page.": "無法載入付款方式。請檢查網路連線並重新載入頁面。", "Tick the box above to choose how to pay.": "請勾選上方的核取方塊，即可選擇付款方式。", "Card payment is not available right now. Please try again later, or pay with Bitcoin.": "目前無法刷卡付款。請稍後再試，或使用 Bitcoin 付款。", "The card checkout could not be loaded. Check that no blocker stops {domain}.": "無法載入刷卡結帳頁面。請確認沒有任何封鎖工具阻擋 {domain}。", "This usually takes a few seconds. Your order reference is {reference} (also on your receipt): with it you can recover the key below at any time.": "通常只需幾秒鐘。您的訂單編號是 {reference}（收據上也有）：憑此編號可隨時在下方找回金鑰。", "This licence was refunded.": "此授權已退款。", "Your payment is confirmed, but the key is taking longer than usual.": "您的付款已確認，但金鑰的產生時間比平常久。", "Recover it below with the order reference {reference} in a few minutes, or write to {support}.": "請於幾分鐘後使用訂單編號 {reference} 在下方找回，或寫信至 {support}。", "Recover it below with the order reference on your receipt in a few minutes, or write to {support}.": "請於幾分鐘後使用收據上的訂單編號在下方找回，或寫信至 {support}。", "Preparing the order (a few seconds of work on this device)…": "正在準備訂單（需在此裝置上運算幾秒鐘）…", "The Bitcoin order failed:": "Bitcoin 訂單失敗：", "Rate expired": "匯率已過期", "Rate held": "匯率已鎖定", "Payment confirmed.": "付款已確認。", "Payment seen on the network. Waiting for one confirmation…": "已在網路上偵測到付款。正在等待 1 次確認…", "Received {received} BTC. Send the remaining {due} BTC to the same address.": "已收到 {received} BTC。請將剩餘的 {due} BTC 傳送至同一地址。", "This order has expired without a payment. If you have just paid, the payment is still recognised for two weeks; otherwise start a new order.": "此訂單已逾期，且未收到付款。如果您剛剛付款，該筆付款在兩週內仍然有效；否則請建立新訂單。", "Waiting for the payment…": "正在等待付款…", "That order no longer exists.": "該訂單已不存在。", "That is not an order reference.": "這不是訂單編號。", "Looking it up…": "正在查詢…", "Found.": "已找到。", "Too many attempts: try again in a minute.": "嘗試次數過多：請一分鐘後再試。", "No licence for that order yet. If you have just paid, try again in a minute; otherwise write to {support}.": "該訂單目前尚無授權。如果您剛剛付款，請一分鐘後再試；否則請寫信至 {support}。", "The licence service could not be reached.": "無法連線至授權服務。", "Free": "免費", "Needs a licence": "需要授權", "Download": "下載", "The first release of the website edition will appear here.": "網站版的第一個版本將會顯示在這裡。"}</script><!-- /i18n:messages -->
+<!-- i18n:messages --><script type="application/json" id="pro-i18n">{"Copied": "已複製", "Through {provider}, our reseller": "透過我們的經銷商 {provider}", "Coming soon": "即將推出", "Soon": "即將推出", "Payments could not be loaded. Check your connection and reload the page.": "無法載入付款方式。請檢查網路連線並重新載入頁面。", "Tick the box above to choose how to pay.": "請勾選上方的核取方塊，即可選擇付款方式。", "Card payment is not available right now. Please try again later, or pay with Bitcoin.": "目前無法刷卡付款。請稍後再試，或使用 Bitcoin 付款。", "The card checkout could not be loaded. Check that no blocker stops {domain}.": "無法載入刷卡結帳頁面。請確認沒有任何封鎖工具阻擋 {domain}。", "This usually takes a few seconds. Your order reference is {reference} (also on your receipt): with it you can recover the key below at any time.": "通常只需幾秒鐘。您的訂單編號是 {reference}（收據上也有）：憑此編號可隨時在下方找回金鑰。", "This licence was refunded.": "此授權已退款。", "Your payment is confirmed, but the key is taking longer than usual.": "您的付款已確認，但金鑰的產生時間比平常久。", "Recover it below with the order reference {reference} in a few minutes, or write to {support}.": "請於幾分鐘後使用訂單編號 {reference} 在下方找回，或寫信至 {support}。", "Recover it below with the order reference on your receipt in a few minutes, or write to {support}.": "請於幾分鐘後使用收據上的訂單編號在下方找回，或寫信至 {support}。", "Preparing the order (a few seconds of work on this device)…": "正在準備訂單（需在此裝置上運算幾秒鐘）…", "The Bitcoin order failed:": "Bitcoin 訂單失敗：", "Rate expired": "匯率已過期", "Rate held": "匯率已鎖定", "Payment confirmed.": "付款已確認。", "Payment seen on the network. Waiting for one confirmation…": "已在網路上偵測到付款。正在等待 1 次確認…", "Received {received} BTC. Send the remaining {due} BTC to the same address.": "已收到 {received} BTC。請將剩餘的 {due} BTC 傳送至同一地址。", "This order has expired without a payment. If you have just paid, the payment is still recognised for two weeks; otherwise start a new order.": "此訂單已逾期，且未收到付款。如果您剛剛付款，該筆付款在兩週內仍然有效；否則請建立新訂單。", "Waiting for the payment…": "正在等待付款…", "That order no longer exists.": "該訂單已不存在。", "That is not an order reference.": "這不是訂單編號。", "Looking it up…": "正在查詢…", "Found.": "已找到。", "Too many attempts: try again in a minute.": "嘗試次數過多：請一分鐘後再試。", "No licence for that order yet. If you have just paid, try again in a minute; otherwise write to {support}.": "該訂單目前尚無授權。如果您剛剛付款，請一分鐘後再試；否則請寫信至 {support}。", "The licence service could not be reached.": "無法連線至授權服務。", "Free": "免費", "Needs a licence": "需要授權", "Download": "下載", "The first release of the website edition will appear here.": "網站版的第一個版本將會顯示在這裡。", "Click to play": "點擊播放", "Click to pause": "點擊暫停", "Click to replay": "點擊重播", "Click to retry": "點擊重試", "The video could not load. Click the preview to retry.": "影片無法載入。請點擊預覽圖重試。"}</script><!-- /i18n:messages -->
 <script src="/pro/pow.js?v=20261024"></script>
 <script src="/pro/pro.js?v=20261025a"></script>
+<script src="/app-feature-demos.js?v=7" defer></script>
 <script src="/email-contact.js?v=20261024" defer></script>
 </body>
 </html>
