@@ -242,13 +242,18 @@ LINK = re.compile(r'(\s(?:src|href|poster|srcset|data-[\w-]+)=")([^"]*)(")')
 
 
 def relative_links(text, prefix):
-    """Relative links to files of the site, one folder down: "styles.css?v=3" -> "../styles.css?v=3"."""
+    """Relative links to files of the site, one folder down: "styles.css?v=3" -> "../styles.css?v=3".
+
+    Only values shaped like a path count: a folder ("pro/") or a file ("styles.css"). A bare word that happens to
+    name a folder, such as a language code (data-demo-lang="it") or a channel (data-track="pro"), stays as it is."""
     def fix(match):
         parts = []
         for item in match.group(2).split(","):
             stripped = item.strip()
             path = re.split(r"[?#\s]", stripped, maxsplit=1)[0]
-            if path and not re.match(r"^([a-z][a-z0-9+.-]*:|/|#|\.\./)", path, re.I) and (DOCS / path).exists():
+            looks_like_path = "/" in path or re.search(r"[^.]\.[A-Za-z0-9]{1,12}$", path)
+            if (path and looks_like_path and not re.match(r"^([a-z][a-z0-9+.-]*:|/|#|\.\./)", path, re.I)
+                    and (DOCS / path).exists()):
                 item = item.replace(stripped, prefix + stripped, 1)
             parts.append(item)
         return match.group(1) + ",".join(parts) + match.group(3)
