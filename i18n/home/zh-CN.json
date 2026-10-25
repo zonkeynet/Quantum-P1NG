@@ -2616,7 +2616,6 @@
   "<span class=\"mono\" aria-hidden=\"true\">01</span>Ghost chat &amp; animated identity QR": "<span class=\"mono\" aria-hidden=\"true\">01</span>Ghost 聊天与动态身份二维码",
   "<span class=\"mono\" aria-hidden=\"true\">02</span>Bluetooth mesh &amp; local Wi-Fi invitation": "<span class=\"mono\" aria-hidden=\"true\">02</span>蓝牙网状网络与本地 Wi-Fi 邀请",
   "<span class=\"mono\" aria-hidden=\"true\">03</span>Tor circuit check &amp; access protocols": "<span class=\"mono\" aria-hidden=\"true\">03</span>Tor 线路验证与访问设置",
-  "QP1NG / FALLOUT / 01:04": "QP1NG / FALLOUT / 01:04",
   "EN / IT": "EN / IT",
   "Click to play": "点击播放",
   "Recorded in the Android demo, with waiting time shortened. Sample contact and unsent draft. Bluetooth discovery and Wi-Fi invitation shown without a second peer. No transfer, call or emergency wipe performed.": "录制于 Android 演示环境，等待时间已缩短。使用示例联系人和未发送草稿。蓝牙搜索及 Wi-Fi 邀请均未连接第二台设备。未执行传输、通话或紧急擦除。",
@@ -2643,7 +2642,8 @@
   "Requests In Chat": "聊天中的收款请求",
   "Ask for an amount with a memo in the encrypted chat; the card shows when it is still awaiting payment.": "在加密聊天中发起带备注的收款请求；卡片会显示是否仍待支付。",
   "Request": "请求",
-  "Share an address by QR or a payment request in chat.": "通过 QR 分享地址，或在聊天中发送收款请求。"
+  "Share an address by QR or a payment request in chat.": "通过 QR 分享地址，或在聊天中发送收款请求。",
+  "QP1NG / FALLOUT / 00:32 · 2×": "QP1NG / FALLOUT / 00:32 · 2×"
  },
  "messages": {
   "COPIED": "已复制",

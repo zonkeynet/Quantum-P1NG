@@ -2616,7 +2616,6 @@
   "<span class=\"mono\" aria-hidden=\"true\">01</span>Ghost chat &amp; animated identity QR": "<span class=\"mono\" aria-hidden=\"true\">01</span>Чат Ghost та анімований QR особистості",
   "<span class=\"mono\" aria-hidden=\"true\">02</span>Bluetooth mesh &amp; local Wi-Fi invitation": "<span class=\"mono\" aria-hidden=\"true\">02</span>Bluetooth-мережа й локальне запрошення Wi-Fi",
   "<span class=\"mono\" aria-hidden=\"true\">03</span>Tor circuit check &amp; access protocols": "<span class=\"mono\" aria-hidden=\"true\">03</span>Перевірка Tor і протоколи доступу",
-  "QP1NG / FALLOUT / 01:04": "QP1NG / FALLOUT / 01:04",
   "EN / IT": "EN / IT",
   "Click to play": "Натисніть для перегляду",
   "Recorded in the Android demo, with waiting time shortened. Sample contact and unsent draft. Bluetooth discovery and Wi-Fi invitation shown without a second peer. No transfer, call or emergency wipe performed.": "Демо Android зі скороченим очікуванням. Приклад контакту та ненадіслана чернетка. Пошук Bluetooth і запрошення Wi-Fi без другого пристрою. Без передачі, дзвінка чи аварійного видалення.",
@@ -2643,7 +2642,8 @@
   "Requests In Chat": "Запити в чаті",
   "Ask for an amount with a memo in the encrypted chat; the card shows when it is still awaiting payment.": "Запросіть суму з коментарем у зашифрованому чаті; картка показує, що оплата ще очікується.",
   "Request": "Запит",
-  "Share an address by QR or a payment request in chat.": "Поділіться адресою через QR або запитом на оплату в чаті."
+  "Share an address by QR or a payment request in chat.": "Поділіться адресою через QR або запитом на оплату в чаті.",
+  "QP1NG / FALLOUT / 00:32 · 2×": "QP1NG / FALLOUT / 00:32 · 2×"
  },
  "messages": {
   "COPIED": "СКОПІЙОВАНО",

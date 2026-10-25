@@ -2616,7 +2616,6 @@
   "<span class=\"mono\" aria-hidden=\"true\">01</span>Ghost chat &amp; animated identity QR": "<span class=\"mono\" aria-hidden=\"true\">01</span>Chat Ghost y QR de identidad animado",
   "<span class=\"mono\" aria-hidden=\"true\">02</span>Bluetooth mesh &amp; local Wi-Fi invitation": "<span class=\"mono\" aria-hidden=\"true\">02</span>Malla Bluetooth e invitación Wi-Fi local",
   "<span class=\"mono\" aria-hidden=\"true\">03</span>Tor circuit check &amp; access protocols": "<span class=\"mono\" aria-hidden=\"true\">03</span>Comprobación Tor y protocolos de acceso",
-  "QP1NG / FALLOUT / 01:04": "QP1NG / FALLOUT / 01:04",
   "EN / IT": "EN / IT",
   "Click to play": "Haz clic para reproducir",
   "Recorded in the Android demo, with waiting time shortened. Sample contact and unsent draft. Bluetooth discovery and Wi-Fi invitation shown without a second peer. No transfer, call or emergency wipe performed.": "Demo Android con esperas abreviadas. Contacto de ejemplo y borrador sin enviar. Búsqueda Bluetooth e invitación Wi-Fi sin un segundo dispositivo. Sin transferencias, llamadas ni borrado de emergencia.",
@@ -2643,7 +2642,8 @@
   "Requests In Chat": "Solicitudes en el chat",
   "Ask for an amount with a memo in the encrypted chat; the card shows when it is still awaiting payment.": "Pide un importe con un concepto en el chat cifrado; la tarjeta indica cuándo el pago sigue pendiente.",
   "Request": "Solicitud",
-  "Share an address by QR or a payment request in chat.": "Comparte una dirección por QR o una solicitud de pago en el chat."
+  "Share an address by QR or a payment request in chat.": "Comparte una dirección por QR o una solicitud de pago en el chat.",
+  "QP1NG / FALLOUT / 00:32 · 2×": "QP1NG / FALLOUT / 00:32 · 2×"
  },
  "messages": {
   "COPIED": "COPIADO",

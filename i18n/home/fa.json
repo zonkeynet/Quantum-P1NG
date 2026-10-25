@@ -2616,7 +2616,6 @@
   "<span class=\"mono\" aria-hidden=\"true\">01</span>Ghost chat &amp; animated identity QR": "<span class=\"mono\" aria-hidden=\"true\">01</span>گفت‌وگوی Ghost و QR متحرک هویت",
   "<span class=\"mono\" aria-hidden=\"true\">02</span>Bluetooth mesh &amp; local Wi-Fi invitation": "<span class=\"mono\" aria-hidden=\"true\">02</span>شبکه Bluetooth و دعوت Wi-Fi محلی",
   "<span class=\"mono\" aria-hidden=\"true\">03</span>Tor circuit check &amp; access protocols": "<span class=\"mono\" aria-hidden=\"true\">03</span>بررسی Tor و تنظیمات دسترسی",
-  "QP1NG / FALLOUT / 01:04": "QP1NG / FALLOUT / 01:04",
   "EN / IT": "EN / IT",
   "Click to play": "برای پخش کلیک کنید",
   "Recorded in the Android demo, with waiting time shortened. Sample contact and unsent draft. Bluetooth discovery and Wi-Fi invitation shown without a second peer. No transfer, call or emergency wipe performed.": "دموی Android با انتظار کوتاه‌شده. مخاطب نمونه و پیش‌نویس ارسال‌نشده. جست‌وجوی Bluetooth و دعوت Wi-Fi بدون دستگاه دوم. انتقال، تماس یا پاک‌سازی اضطراری انجام نشده است.",
@@ -2643,7 +2642,8 @@
   "Requests In Chat": "درخواست‌ها در گفتگو",
   "Ask for an amount with a memo in the encrypted chat; the card shows when it is still awaiting payment.": "مبلغی را با یادداشت در گفتگوی رمزگذاری‌شده درخواست کنید؛ کارت نشان می‌دهد که پرداخت هنوز در انتظار است.",
   "Request": "درخواست",
-  "Share an address by QR or a payment request in chat.": "نشانی را با QR یا درخواست پرداخت را در گفتگو به اشتراک بگذارید."
+  "Share an address by QR or a payment request in chat.": "نشانی را با QR یا درخواست پرداخت را در گفتگو به اشتراک بگذارید.",
+  "QP1NG / FALLOUT / 00:32 · 2×": "QP1NG / FALLOUT / 00:32 · 2×"
  },
  "messages": {
   "COPIED": "کپی شد",

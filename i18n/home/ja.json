@@ -2616,7 +2616,6 @@
   "<span class=\"mono\" aria-hidden=\"true\">01</span>Ghost chat &amp; animated identity QR": "<span class=\"mono\" aria-hidden=\"true\">01</span>GhostチャットとアニメーションID QR",
   "<span class=\"mono\" aria-hidden=\"true\">02</span>Bluetooth mesh &amp; local Wi-Fi invitation": "<span class=\"mono\" aria-hidden=\"true\">02</span>BluetoothメッシュとローカルWi-Fi招待",
   "<span class=\"mono\" aria-hidden=\"true\">03</span>Tor circuit check &amp; access protocols": "<span class=\"mono\" aria-hidden=\"true\">03</span>Tor回線の検証とアクセス設定",
-  "QP1NG / FALLOUT / 01:04": "QP1NG / FALLOUT / 01:04",
   "EN / IT": "EN / IT",
   "Click to play": "クリックして再生",
   "Recorded in the Android demo, with waiting time shortened. Sample contact and unsent draft. Bluetooth discovery and Wi-Fi invitation shown without a second peer. No transfer, call or emergency wipe performed.": "待機時間を短縮したAndroidデモです。サンプル連絡先と未送信の下書きを使用。Bluetooth検索とWi-Fi招待は2台目の端末なしで表示しています。転送・通話・緊急消去は実行していません。",
@@ -2643,7 +2642,8 @@
   "Requests In Chat": "チャットで請求",
   "Ask for an amount with a memo in the encrypted chat; the card shows when it is still awaiting payment.": "暗号化チャットで金額とメモを添えて請求できます。支払い待ちかどうかはカードに表示されます。",
   "Request": "請求",
-  "Share an address by QR or a payment request in chat.": "アドレスは QR で、支払い請求はチャットで共有できます。"
+  "Share an address by QR or a payment request in chat.": "アドレスは QR で、支払い請求はチャットで共有できます。",
+  "QP1NG / FALLOUT / 00:32 · 2×": "QP1NG / FALLOUT / 00:32 · 2×"
  },
  "messages": {
   "COPIED": "コピーしました",

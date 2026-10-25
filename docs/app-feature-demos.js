@@ -87,6 +87,11 @@
         }).then(data => { if (Array.isArray(data)) cues = data; render(); }).catch(() => {});
       } else if (retry) video.load();
       render();
+      // data-playback-rate speeds a recording up; captions and chapters follow the media time, so they keep pace.
+      // load() resets the rate to the default one: both are set before each play.
+      const rate = Number(player.dataset.playbackRate) || 1;
+      video.defaultPlaybackRate = rate;
+      video.playbackRate = rate;
       video.play().catch(error => {
         if (requested && error.name !== 'AbortError') unavailable();
       });

@@ -2616,7 +2616,6 @@
   "<span class=\"mono\" aria-hidden=\"true\">01</span>Ghost chat &amp; animated identity QR": "<span class=\"mono\" aria-hidden=\"true\">01</span>Ghost ချတ်နှင့် လှုပ်ရှားသည့် အထောက်အထား QR",
   "<span class=\"mono\" aria-hidden=\"true\">02</span>Bluetooth mesh &amp; local Wi-Fi invitation": "<span class=\"mono\" aria-hidden=\"true\">02</span>Bluetooth mesh နှင့် ဒေသတွင်း Wi-Fi ဖိတ်ကြားချက်",
   "<span class=\"mono\" aria-hidden=\"true\">03</span>Tor circuit check &amp; access protocols": "<span class=\"mono\" aria-hidden=\"true\">03</span>Tor စစ်ဆေးခြင်းနှင့် ဝင်ရောက်ခွင့် ဆက်တင်များ",
-  "QP1NG / FALLOUT / 01:04": "QP1NG / FALLOUT / 01:04",
   "EN / IT": "EN / IT",
   "Click to play": "ဖွင့်ရန် နှိပ်ပါ",
   "Recorded in the Android demo, with waiting time shortened. Sample contact and unsent draft. Bluetooth discovery and Wi-Fi invitation shown without a second peer. No transfer, call or emergency wipe performed.": "စောင့်ဆိုင်းချိန် လျှော့ထားသည့် Android ဒီမိုဖြစ်သည်။ နမူနာအဆက်အသွယ်နှင့် မပို့ရသေးသည့် မူကြမ်းကို အသုံးပြုထားသည်။ Bluetooth ရှာဖွေခြင်းနှင့် Wi-Fi ဖိတ်ကြားချက်တွင် ဒုတိယစက် မချိတ်ထားပါ။ လွှဲပြောင်းမှု၊ ခေါ်ဆိုမှု သို့မဟုတ် အရေးပေါ်ဖျက်ခြင်း မပြုလုပ်ထားပါ။",
@@ -2643,7 +2642,8 @@
   "Requests In Chat": "ချတ်ထဲ တောင်းခံမှုများ",
   "Ask for an amount with a memo in the encrypted chat; the card shows when it is still awaiting payment.": "စာဝှက် ချတ်ထဲတွင် မှတ်ချက်နှင့်အတူ ပမာဏကို တောင်းခံပါ။ ငွေပေးချေမှု စောင့်ဆိုင်းဆဲလားကို ကတ်က ပြသည်။",
   "Request": "တောင်းခံမှု",
-  "Share an address by QR or a payment request in chat.": "လိပ်စာကို QR ဖြင့် သို့မဟုတ် ငွေတောင်းခံမှုကို ချတ်ထဲတွင် မျှဝေပါ။"
+  "Share an address by QR or a payment request in chat.": "လိပ်စာကို QR ဖြင့် သို့မဟုတ် ငွေတောင်းခံမှုကို ချတ်ထဲတွင် မျှဝေပါ။",
+  "QP1NG / FALLOUT / 00:32 · 2×": "QP1NG / FALLOUT / 00:32 · 2×"
  },
  "messages": {
   "COPIED": "ကူးယူပြီး",
