@@ -2643,7 +2643,10 @@
   "Ask for an amount with a memo in the encrypted chat; the card shows when it is still awaiting payment.": "在加密聊天中發起附備註的收款請求；卡片會顯示是否仍待付款。",
   "Request": "請求",
   "Share an address by QR or a payment request in chat.": "透過 QR 分享地址，或在聊天中傳送收款請求。",
-  "QP1NG / FALLOUT / 00:32 · 2×": "QP1NG / FALLOUT / 00:32 · 2×"
+  "QP1NG / FALLOUT / 00:32 · 2×": "QP1NG / FALLOUT / 00:32 · 2×",
+  "Signed mind maps over Tor": "經 Tor 同步的簽章心智圖",
+  "Q-Map MindMap": "Q-Map MindMap",
+  "P1NG": "P1NG"
  },
  "messages": {
   "COPIED": "已複製",

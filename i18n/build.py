@@ -57,7 +57,8 @@ INLINE = {"a", "abbr", "b", "bdi", "bdo", "br", "cite", "code", "data", "em", "i
           "small", "span", "strong", "sub", "sup", "time", "u", "var", "wbr", "img", "svg"}
 OPAQUE = {"svg", "img"}  # placeholders inside a segment
 SKIP = {"script", "style", "template", "pre", "code", "svg"}
-ATTRS = ("alt", "title", "aria-label", "placeholder")
+# data-text: the copy of a glitch title drawn twice by CSS (content: attr(data-text)), the same words as the title.
+ATTRS = ("alt", "title", "aria-label", "placeholder", "data-text")
 META = {"description", "og:title", "og:description", "og:image:alt", "twitter:title", "twitter:description",
         "twitter:image:alt"}
 MARK = "<!-- i18n:{name} -->"
@@ -287,9 +288,10 @@ def switcher(page, current):
     # A plain disclosure: no script. ?lang= lets the site worker remember the choice.
     base = ("" if current == "en" else "../") if page.get("relative") else page["path"]
     items = "".join(
-        '<li><a href="%s%s?lang=%s" hreflang="%s" lang="%s"%s>%s</a></li>' % (
+        '<li><a href="%s%s?lang=%s" hreflang="%s" lang="%s"%s><span class="lang-item-name">%s</span>'
+        '<span class="lang-item-code" aria-hidden="true">%s</span></a></li>' % (
             base, "" if lang == "en" else lang + "/", lang, lang, lang,
-            ' aria-current="page"' if lang == current else "", name)
+            ' aria-current="page"' if lang == current else "", name, lang.upper())
         for lang, name in LANGS.items())
     return ('<details class="lang" translate="no"><summary aria-label="%s"><svg viewBox="0 0 24 24" fill="none" '
             'stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" '

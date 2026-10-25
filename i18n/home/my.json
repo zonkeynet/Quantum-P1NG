@@ -2643,7 +2643,10 @@
   "Ask for an amount with a memo in the encrypted chat; the card shows when it is still awaiting payment.": "စာဝှက် ချတ်ထဲတွင် မှတ်ချက်နှင့်အတူ ပမာဏကို တောင်းခံပါ။ ငွေပေးချေမှု စောင့်ဆိုင်းဆဲလားကို ကတ်က ပြသည်။",
   "Request": "တောင်းခံမှု",
   "Share an address by QR or a payment request in chat.": "လိပ်စာကို QR ဖြင့် သို့မဟုတ် ငွေတောင်းခံမှုကို ချတ်ထဲတွင် မျှဝေပါ။",
-  "QP1NG / FALLOUT / 00:32 · 2×": "QP1NG / FALLOUT / 00:32 · 2×"
+  "QP1NG / FALLOUT / 00:32 · 2×": "QP1NG / FALLOUT / 00:32 · 2×",
+  "Signed mind maps over Tor": "Tor မှတစ်ဆင့် လက်မှတ်ထိုးထားသော mind map များ",
+  "Q-Map MindMap": "Q-Map MindMap",
+  "P1NG": "P1NG"
  },
  "messages": {
   "COPIED": "ကူးယူပြီး",

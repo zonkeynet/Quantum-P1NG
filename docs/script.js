@@ -59,6 +59,15 @@ function T(text, values) {
   };
   fitNav();
   window.addEventListener("resize", fitNav, { passive: true });
+
+  // The language menu (a <details>) closes on a click outside it or on Escape.
+  document.addEventListener("click", (event) => {
+    document.querySelectorAll("details.lang[open]").forEach((menu) => { if (!menu.contains(event.target)) menu.open = false; });
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+    document.querySelectorAll("details.lang[open]").forEach((menu) => { menu.open = false; menu.querySelector("summary").focus(); });
+  });
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitNav);
 
   const toggleMenu = (forceClose = false) => {

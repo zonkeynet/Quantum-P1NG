@@ -2643,7 +2643,10 @@
   "Ask for an amount with a memo in the encrypted chat; the card shows when it is still awaiting payment.": "Запросіть суму з коментарем у зашифрованому чаті; картка показує, що оплата ще очікується.",
   "Request": "Запит",
   "Share an address by QR or a payment request in chat.": "Поділіться адресою через QR або запитом на оплату в чаті.",
-  "QP1NG / FALLOUT / 00:32 · 2×": "QP1NG / FALLOUT / 00:32 · 2×"
+  "QP1NG / FALLOUT / 00:32 · 2×": "QP1NG / FALLOUT / 00:32 · 2×",
+  "Signed mind maps over Tor": "Підписані мапи думок через Tor",
+  "Q-Map MindMap": "Q-Map MindMap",
+  "P1NG": "P1NG"
  },
  "messages": {
   "COPIED": "СКОПІЙОВАНО",

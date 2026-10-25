@@ -2643,7 +2643,10 @@
   "Ask for an amount with a memo in the encrypted chat; the card shows when it is still awaiting payment.": "Chiedi un importo con una causale nella chat cifrata; la scheda mostra quando il pagamento è ancora in attesa.",
   "Request": "Richiesta",
   "Share an address by QR or a payment request in chat.": "Condividi un indirizzo con un QR o una richiesta di pagamento in chat.",
-  "QP1NG / FALLOUT / 00:32 · 2×": "QP1NG / FALLOUT / 00:32 · 2×"
+  "QP1NG / FALLOUT / 00:32 · 2×": "QP1NG / FALLOUT / 00:32 · 2×",
+  "Signed mind maps over Tor": "Mappe mentali firmate via Tor",
+  "Q-Map MindMap": "Q-Map MindMap",
+  "P1NG": "P1NG"
  },
  "messages": {
   "COPIED": "COPIATO",

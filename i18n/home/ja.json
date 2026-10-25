@@ -2643,7 +2643,10 @@
   "Ask for an amount with a memo in the encrypted chat; the card shows when it is still awaiting payment.": "暗号化チャットで金額とメモを添えて請求できます。支払い待ちかどうかはカードに表示されます。",
   "Request": "請求",
   "Share an address by QR or a payment request in chat.": "アドレスは QR で、支払い請求はチャットで共有できます。",
-  "QP1NG / FALLOUT / 00:32 · 2×": "QP1NG / FALLOUT / 00:32 · 2×"
+  "QP1NG / FALLOUT / 00:32 · 2×": "QP1NG / FALLOUT / 00:32 · 2×",
+  "Signed mind maps over Tor": "Tor 経由の署名付きマインドマップ",
+  "Q-Map MindMap": "Q-Map MindMap",
+  "P1NG": "P1NG"
  },
  "messages": {
   "COPIED": "コピーしました",

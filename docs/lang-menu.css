@@ -1,0 +1,133 @@
+/* Language menu on every page (i18n/build.py writes it): a disclosure that works without script. Closed, a globe and
+   the current language's code; open, a panel with all fifteen languages at once, revealed top-down like a scan:
+   a cyan-magenta beam sweeps it, the entries arrive in sequence, the current one is lit green. script.js / pro.js
+   only close it on a click outside or Escape. */
+
+.lang { position: relative; flex: none; }
+.lang summary {
+  display: flex; align-items: center; gap: 7px; list-style: none; cursor: pointer; user-select: none;
+  padding: 8px 11px; border: 1px solid rgba(0, 243, 255, 0.24); border-radius: 8px;
+  color: #c9d6e2; background: rgba(0, 243, 255, 0.04);
+  font: 700 11px/1 "JetBrains Mono", ui-monospace, SFMono-Regular, monospace; letter-spacing: 0.08em;
+  transition: color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.lang summary::-webkit-details-marker { display: none; }
+.lang summary svg { width: 17px; height: 17px; flex: none; }
+.lang summary:hover, .lang summary:focus-visible, .lang[open] summary {
+  color: #00f3ff; border-color: rgba(0, 243, 255, 0.62); background: rgba(0, 243, 255, 0.08); outline: none;
+  box-shadow: 0 0 18px rgba(0, 243, 255, 0.24), inset 0 0 12px rgba(0, 243, 255, 0.08);
+}
+.lang[open] summary svg { animation: langGlobe 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.lang .lang-name { display: none; }
+.lang .lang-code { color: inherit; }
+
+/* The panel: three columns on a desktop, two on a phone; never cut, never a scrollbar for fifteen entries. */
+.lang ul {
+  position: absolute; top: calc(100% + 12px); inset-inline-end: 0; z-index: 3000;
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px;
+  width: min(580px, calc(100vw - 32px)); margin: 0; padding: 14px; list-style: none;
+  border: 1px solid rgba(0, 243, 255, 0.34); border-radius: 12px;
+  background:
+    repeating-linear-gradient(0deg, rgba(0, 243, 255, 0.035) 0 1px, transparent 1px 4px),
+    radial-gradient(120% 90% at 100% 0%, rgba(255, 0, 170, 0.1), transparent 55%),
+    linear-gradient(180deg, rgba(7, 15, 26, 0.97), rgba(3, 7, 12, 0.98));
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.62), 0 0 42px rgba(0, 243, 255, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(14px);
+  transform-origin: top right;
+  animation: langPanel 0.44s cubic-bezier(0.2, 0.9, 0.2, 1) both;
+}
+[dir="rtl"] .lang ul { transform-origin: top left; }
+/* The scan beam, once per opening. */
+.lang ul::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 243, 255, 0.28) 46%, rgba(255, 0, 170, 0.22) 54%, transparent 100%);
+  background-size: 100% 260%; mix-blend-mode: screen;
+  animation: langBeam 0.75s ease-out both;
+}
+/* Neon corner brackets: cyan top-left, magenta bottom-right. */
+.lang ul::after {
+  content: ""; position: absolute; inset: -1px; border-radius: inherit; pointer-events: none;
+  background:
+    linear-gradient(#00f3ff, #00f3ff) top left / 20px 2px no-repeat,
+    linear-gradient(#00f3ff, #00f3ff) top left / 2px 20px no-repeat,
+    linear-gradient(#ff2bd6, #ff2bd6) bottom right / 20px 2px no-repeat,
+    linear-gradient(#ff2bd6, #ff2bd6) bottom right / 2px 20px no-repeat;
+  filter: drop-shadow(0 0 4px rgba(0, 243, 255, 0.6));
+}
+.lang li { min-width: 0; animation: langItem 0.38s cubic-bezier(0.2, 0.9, 0.2, 1) both; }
+.lang li:nth-child(1) { animation-delay: 0.08s; }
+.lang li:nth-child(2) { animation-delay: 0.1s; }
+.lang li:nth-child(3) { animation-delay: 0.12s; }
+.lang li:nth-child(4) { animation-delay: 0.14s; }
+.lang li:nth-child(5) { animation-delay: 0.16s; }
+.lang li:nth-child(6) { animation-delay: 0.18s; }
+.lang li:nth-child(7) { animation-delay: 0.2s; }
+.lang li:nth-child(8) { animation-delay: 0.22s; }
+.lang li:nth-child(9) { animation-delay: 0.24s; }
+.lang li:nth-child(10) { animation-delay: 0.26s; }
+.lang li:nth-child(11) { animation-delay: 0.28s; }
+.lang li:nth-child(12) { animation-delay: 0.3s; }
+.lang li:nth-child(13) { animation-delay: 0.32s; }
+.lang li:nth-child(14) { animation-delay: 0.34s; }
+.lang li:nth-child(15) { animation-delay: 0.36s; }
+[dir="rtl"] .lang li { animation-name: langItemRtl; }
+
+.lang ul a {
+  position: relative; display: flex; align-items: center; justify-content: space-between; gap: 8px; min-width: 0;
+  padding: 10px 11px; border: 1px solid rgba(255, 255, 255, 0.07); border-radius: 8px;
+  color: #dbe7f3; background: rgba(255, 255, 255, 0.025); text-decoration: none;
+  font: 500 14px/1.2 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  transition: color 0.18s ease, border-color 0.18s ease, background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+.lang-item-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lang-item-code {
+  flex: none; color: rgba(0, 243, 255, 0.72);
+  font: 700 9.5px/1 "JetBrains Mono", ui-monospace, monospace; letter-spacing: 0.1em;
+}
+.lang ul a:hover, .lang ul a:focus-visible {
+  color: #fff; border-color: rgba(0, 243, 255, 0.55); background: rgba(0, 243, 255, 0.09); outline: none;
+  box-shadow: 0 0 16px rgba(0, 243, 255, 0.16); transform: translateY(-1px);
+}
+.lang ul a:hover .lang-item-code, .lang ul a:focus-visible .lang-item-code { color: #ff5ce1; }
+.lang ul a[aria-current="page"] { color: #fff; border-color: rgba(53, 255, 138, 0.55); background: rgba(53, 255, 138, 0.08); }
+.lang ul a[aria-current="page"] .lang-item-code { color: #35ff8a; }
+.lang ul a[aria-current="page"]::before {
+  content: ""; position: absolute; inset-inline-start: -1px; top: 9px; bottom: 9px; width: 2px; border-radius: 2px;
+  background: #35ff8a; box-shadow: 0 0 8px #35ff8a;
+}
+
+@media (max-width: 600px) {
+  /* Phones: a panel across the screen under the bar, two columns. */
+  .lang ul {
+    position: fixed; top: 70px; left: 12px; right: 12px; width: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr)); max-height: calc(100vh - 90px); overflow-y: auto;
+    transform-origin: top center;
+  }
+}
+
+@keyframes langPanel {
+  from { opacity: 0; clip-path: inset(0 0 100% 0 round 12px); transform: translateY(-6px) scale(0.985); filter: blur(2px); }
+  to { opacity: 1; clip-path: inset(0 0 0 0 round 12px); transform: none; filter: none; }
+}
+@keyframes langBeam {
+  from { background-position: 0 100%; opacity: 1; }
+  to { background-position: 0 -60%; opacity: 0; }
+}
+@keyframes langItem {
+  0% { opacity: 0; transform: translateX(-10px); filter: blur(3px); }
+  60% { opacity: 1; transform: translateX(2px); filter: none; }
+  100% { opacity: 1; transform: none; }
+}
+@keyframes langItemRtl {
+  0% { opacity: 0; transform: translateX(10px); filter: blur(3px); }
+  60% { opacity: 1; transform: translateX(-2px); filter: none; }
+  100% { opacity: 1; transform: none; }
+}
+@keyframes langGlobe {
+  from { transform: rotate(-200deg) scale(0.6); }
+  to { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lang ul, .lang ul::before, .lang li, .lang[open] summary svg { animation: none; }
+  .lang ul::before { opacity: 0; }
+}

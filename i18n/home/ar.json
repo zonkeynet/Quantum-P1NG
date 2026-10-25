@@ -2643,7 +2643,10 @@
   "Ask for an amount with a memo in the encrypted chat; the card shows when it is still awaiting payment.": "اطلب مبلغاً مع ملاحظة في الدردشة المشفّرة؛ تُظهر البطاقة متى يكون الدفع ما زال معلّقاً.",
   "Request": "الطلب",
   "Share an address by QR or a payment request in chat.": "شارك عنواناً عبر QR أو طلب دفع في الدردشة.",
-  "QP1NG / FALLOUT / 00:32 · 2×": "QP1NG / FALLOUT / 00:32 · 2×"
+  "QP1NG / FALLOUT / 00:32 · 2×": "QP1NG / FALLOUT / 00:32 · 2×",
+  "Signed mind maps over Tor": "خرائط ذهنية موقّعة عبر Tor",
+  "Q-Map MindMap": "Q-Map MindMap",
+  "P1NG": "P1NG"
  },
  "messages": {
   "COPIED": "تم النسخ",

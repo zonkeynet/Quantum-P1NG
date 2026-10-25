@@ -65,7 +65,7 @@
   <meta name="twitter:image:alt" content="Quantum P1NG：Android 適用的加密通訊、本機 AI 與離網工具：安全語音、Q-Brain AI、Q-Dream、Q-CALL、Q-Cast、Q-Globe、Q-Feed、Q-Geo 地圖、VHF 無線電、LoRa 網狀網路、Q-SDR、Q-Sat、Q-Map、Q-Torrent、Q-CAM 與 Bitcoin 保險庫" />
 
   <link rel="preload" href="../assets/fonts/bitcount_square_qp1ng.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="../styles.css?v=3.2.7" as="style" />
+  <link rel="preload" href="../styles.css?v=3.2.9" as="style" />
   <link rel="preload" as="image" href="../assets/vid/intro_bg_poster.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high" />
   <link rel="preload" as="image" href="../assets/vid/intro_mobile_poster.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high" />
   <link rel="preload" as="image" href="../assets/img/qp1ng_icon.webp" type="image/webp" fetchpriority="high" />
@@ -78,7 +78,8 @@
       }
     } catch(e){}
   </script>
-  <link rel="stylesheet" href="../styles.css?v=3.2.7" />
+  <link rel="stylesheet" href="../styles.css?v=3.2.9" />
+  <link rel="stylesheet" href="../lang-menu.css?v=1" />
   <link rel="stylesheet" href="../qcast-globe.css?v=1.0.9" />
   <link rel="stylesheet" href="../qcast-hero.css?v=1" />
   <link rel="stylesheet" href="../qgeo-demo.css?v=2" />
@@ -350,7 +351,7 @@
       <!-- Action Button Container (Revealed after manifesto) -->
       <div id="intro-action-container" class="intro-action-container hidden">
         <button id="btn-enter-site" class="cyber-button intro-enter-btn">
-          <span class="btn-glitch" data-text="ENTER QUANTUM P1NG">進入 QUANTUM P1NG</span>
+          <span class="btn-glitch" data-text="進入 QUANTUM P1NG">進入 QUANTUM P1NG</span>
           <span class="btn-arrow">&rarr;</span>
         </button>
         <div class="intro-sub-hint mono muted">數位主權已啟動 // 按 [ENTER] 或點擊進入</div>
@@ -457,22 +458,29 @@
                 <span class="drop-sub">經 Tor 私密分享檔案</span>
               </div>
             </a>
-            <a href="#data-sanitizer" class="nav-drop-item" role="menuitem">
+            <a href="#q-map-engine" class="nav-drop-item" role="menuitem">
               <span class="drop-idx mono">05</span>
+              <div class="drop-text">
+                <span class="drop-title">Q-Map</span>
+                <span class="drop-sub">經 Tor 同步的簽章心智圖</span>
+              </div>
+            </a>
+            <a href="#data-sanitizer" class="nav-drop-item" role="menuitem">
+              <span class="drop-idx mono">06</span>
               <div class="drop-text">
                 <span class="drop-title">中繼資料清除</span>
                 <span class="drop-sub">EXIF 與中繼資料清除工具</span>
               </div>
             </a>
             <a href="#finance" class="nav-drop-item" role="menuitem">
-              <span class="drop-idx mono">06</span>
+              <span class="drop-idx mono">07</span>
               <div class="drop-text">
                 <span class="drop-title">Bitcoin 保險庫</span>
                 <span class="drop-sub">自主保管的 Bitcoin 錢包</span>
               </div>
             </a>
             <a href="#q-suite" class="nav-drop-item" role="menuitem">
-              <span class="drop-idx mono">07</span>
+              <span class="drop-idx mono">08</span>
               <div class="drop-text">
                 <span class="drop-title">加密套件</span>
                 <span class="drop-sub">Q-Pass、Q-Notes 與 Q-Agenda</span>
@@ -637,7 +645,7 @@
         <a class="nav__cta" href="https://github.com/zonkeynet/Quantum-P1NG" target="_blank" rel="noopener">GitHub</a>
       </nav>
 
-      <!-- i18n:switcher --><details class="lang" translate="no"><summary aria-label="語言"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><span class="lang-name">繁體中文</span><span class="lang-code">繁</span></summary><ul><li><a href="../?lang=en" hreflang="en" lang="en">English</a></li><li><a href="../it/?lang=it" hreflang="it" lang="it">Italiano</a></li><li><a href="../de/?lang=de" hreflang="de" lang="de">Deutsch</a></li><li><a href="../es/?lang=es" hreflang="es" lang="es">Español</a></li><li><a href="../fr/?lang=fr" hreflang="fr" lang="fr">Français</a></li><li><a href="../pt-BR/?lang=pt-BR" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="../pl/?lang=pl" hreflang="pl" lang="pl">Polski</a></li><li><a href="../ru/?lang=ru" hreflang="ru" lang="ru">Русский</a></li><li><a href="../uk/?lang=uk" hreflang="uk" lang="uk">Українська</a></li><li><a href="../ar/?lang=ar" hreflang="ar" lang="ar">العربية</a></li><li><a href="../fa/?lang=fa" hreflang="fa" lang="fa">فارسی</a></li><li><a href="../ja/?lang=ja" hreflang="ja" lang="ja">日本語</a></li><li><a href="../zh-CN/?lang=zh-CN" hreflang="zh-CN" lang="zh-CN">简体中文</a></li><li><a href="../zh-TW/?lang=zh-TW" hreflang="zh-TW" lang="zh-TW" aria-current="page">繁體中文</a></li><li><a href="../my/?lang=my" hreflang="my" lang="my">မြန်မာ</a></li></ul></details><!-- /i18n:switcher -->
+      <!-- i18n:switcher --><details class="lang" translate="no"><summary aria-label="語言"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><span class="lang-name">繁體中文</span><span class="lang-code">繁</span></summary><ul><li><a href="../?lang=en" hreflang="en" lang="en"><span class="lang-item-name">English</span><span class="lang-item-code" aria-hidden="true">EN</span></a></li><li><a href="../it/?lang=it" hreflang="it" lang="it"><span class="lang-item-name">Italiano</span><span class="lang-item-code" aria-hidden="true">IT</span></a></li><li><a href="../de/?lang=de" hreflang="de" lang="de"><span class="lang-item-name">Deutsch</span><span class="lang-item-code" aria-hidden="true">DE</span></a></li><li><a href="../es/?lang=es" hreflang="es" lang="es"><span class="lang-item-name">Español</span><span class="lang-item-code" aria-hidden="true">ES</span></a></li><li><a href="../fr/?lang=fr" hreflang="fr" lang="fr"><span class="lang-item-name">Français</span><span class="lang-item-code" aria-hidden="true">FR</span></a></li><li><a href="../pt-BR/?lang=pt-BR" hreflang="pt-BR" lang="pt-BR"><span class="lang-item-name">Português (Brasil)</span><span class="lang-item-code" aria-hidden="true">PT-BR</span></a></li><li><a href="../pl/?lang=pl" hreflang="pl" lang="pl"><span class="lang-item-name">Polski</span><span class="lang-item-code" aria-hidden="true">PL</span></a></li><li><a href="../ru/?lang=ru" hreflang="ru" lang="ru"><span class="lang-item-name">Русский</span><span class="lang-item-code" aria-hidden="true">RU</span></a></li><li><a href="../uk/?lang=uk" hreflang="uk" lang="uk"><span class="lang-item-name">Українська</span><span class="lang-item-code" aria-hidden="true">UK</span></a></li><li><a href="../ar/?lang=ar" hreflang="ar" lang="ar"><span class="lang-item-name">العربية</span><span class="lang-item-code" aria-hidden="true">AR</span></a></li><li><a href="../fa/?lang=fa" hreflang="fa" lang="fa"><span class="lang-item-name">فارسی</span><span class="lang-item-code" aria-hidden="true">FA</span></a></li><li><a href="../ja/?lang=ja" hreflang="ja" lang="ja"><span class="lang-item-name">日本語</span><span class="lang-item-code" aria-hidden="true">JA</span></a></li><li><a href="../zh-CN/?lang=zh-CN" hreflang="zh-CN" lang="zh-CN"><span class="lang-item-name">简体中文</span><span class="lang-item-code" aria-hidden="true">ZH-CN</span></a></li><li><a href="../zh-TW/?lang=zh-TW" hreflang="zh-TW" lang="zh-TW" aria-current="page"><span class="lang-item-name">繁體中文</span><span class="lang-item-code" aria-hidden="true">ZH-TW</span></a></li><li><a href="../my/?lang=my" hreflang="my" lang="my"><span class="lang-item-name">မြန်မာ</span><span class="lang-item-code" aria-hidden="true">MY</span></a></li></ul></details><!-- /i18n:switcher -->
 
       <button class="burger" aria-label="開啟選單" aria-expanded="false" aria-controls="mobilemenu">
         <span></span><span></span><span></span>
@@ -658,6 +666,7 @@
         <a href="#anti-forensic">反鑑識</a>
         <a href="#air-gap">氣隙傳輸</a>
         <a href="#q-torrent">Q-Torrent</a>
+        <a href="#q-map-engine">Q-Map MindMap</a>
         <a href="#data-sanitizer">中繼資料清除</a>
         <a href="#finance">Bitcoin 保險庫</a>
         <a href="#q-suite">加密套件</a>
@@ -2167,7 +2176,7 @@ _
   </svg>
 
   <div class="wrap">
-    <div class="kicker mono core-glitch" data-text="> MODULE: LORA_FIELD_DECK_v15.9">> 模組：LORA_FIELD_DECK_v15.9</div>
+    <div class="kicker mono core-glitch" data-text="&gt; 模組：LORA_FIELD_DECK_v15.9">> 模組：LORA_FIELD_DECK_v15.9</div>
     <h2 class="neon-text-purple" style="display: flex; align-items: center; gap: 12px;"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M2 20h.01"></path><path d="M7 20v-4"></path><path d="M12 20v-8"></path><path d="M17 20V8"></path><path d="M22 20V4"></path>
       </svg> 經 LoRa 傳送的幽靈訊號</h2>
@@ -6057,7 +6066,7 @@ _
                 <span class="qcall-pulse-dot"></span>
                 <span>通話示範已結束 // 範例工作階段</span>
               </div>
-              <h3 class="qcall-overlay-title glitch-text" data-text="CALL DEMO COMPLETE">通話示範完成</h3>
+              <h3 class="qcall-overlay-title glitch-text" data-text="通話示範完成">通話示範完成</h3>
               <p class="qcall-overlay-desc">驗證聯絡人，檢查路由，結束後掛斷。</p>
               <div class="qcall-overlay-tags">
                 <span class="qcall-overlay-tag">聯絡人驗證</span>
@@ -8126,8 +8135,8 @@ _
 
     <!-- Manifesto text -->
     <div class="mf-text" role="heading" aria-level="2">
-      <div class="mf-line-1 sys-glitch" data-text="ENCRYPT YOUR WORDS.">文字加密。</div>
-      <div class="mf-line-2 sys-glitch layer2" data-text="FREE YOUR VOICE.">聲音自由。</div>
+      <div class="mf-line-1 sys-glitch" data-text="文字加密。">文字加密。</div>
+      <div class="mf-line-2 sys-glitch layer2" data-text="聲音自由。">聲音自由。</div>
     </div>
 
     <!-- Tagline -->
@@ -8326,7 +8335,7 @@ _
   </script>
   <!-- The texts the scripts write, in the page's language (i18n/build.py). -->
   <!-- i18n:messages --><script type="application/json" id="site-i18n">{"COPIED": "已複製", "[ ACCESS GRANTED ]": "[ 存取已授權 ]", "REPLAY_BUFFER": "REPLAY_BUFFER", "REPLAY_FAIL": "REPLAY_FAIL", "MIN": "收合", "RST": "RST", "PAUSE STREAM": "暫停資料流", "CLICK TO PLAY": "點擊播放", "AIOC RIG ACTIVE": "AIOC 無線電已啟用", "RF LINK ACTIVE": "射頻鏈路已啟用", "SCANNING": "掃描中", "PAUSED": "已暫停", "PAUSE FEED": "暫停畫面", "CALL DEMO VIDEO": "通話示範影片", "REPLAY FEED": "重播畫面", "[ PAUSE STREAM ]": "[ 暫停資料流 ]", "🔒 [MESSAGE_ENCRYPTED_AND_DISPATCHED]": "🔒 [MESSAGE_ENCRYPTED_AND_DISPATCHED]", "[BUFFER_ZEROIZED: 00 00 00 00]": "[BUFFER_ZEROIZED: 00 00 00 00]", "BUFFER: ZEROIZED": "緩衝區：已歸零", "0s": "0s", "BUFFER: ENCRYPTED (AES-256)": "緩衝區：已加密（AES-256）", "AUTH_GRANTED // REAL APP UNLOCKED": "AUTH_GRANTED // 真實應用程式已解鎖", "DECOY PIN // WEATHER COVER": "誘餌 PIN // 天氣偽裝", "DECOY PIN // SHOPPING LIST COVER": "誘餌 PIN // 購物清單偽裝", "SILENT_DURESS_TRIGGERED // DELETING KEYSTORE KEYS": "SILENT_DURESS_TRIGGERED // 正在刪除 KEYSTORE 金鑰", "ERR: INVALID_PIN (REMAINING: 2)": "ERR: INVALID_PIN（剩餘：2）", "PIN BUFFER CLEARED": "PIN 緩衝區已清除", "STANDBY // CLICK PRESETS OR KEYPAD": "待機 // 點擊預設值或鍵盤", "EXECUTING WIPE SEQUENCE...": "正在執行清除序列...", "SIMULATION COMPLETE // KEYS VERIFIED GONE": "模擬完成 // 已確認金鑰刪除", "EXECUTE PIPELINE SIMULATION": "執行管線模擬", "AOS APPROACH (BLUE SHIFT)": "AOS 逼近（藍移）", "LOS RECEDING (RED SHIFT)": "LOS 遠離（紅移）", "TCA ZENITH (PEAK ELEVATION)": "TCA 天頂（最大仰角）", "DEMO · PTT BURST...": "示範 · PTT 突發...", "DEMO PTT: NO RF TRANSMISSION": "示範 PTT：無射頻發射", "DEMO PTT: TAIL PREVIEW": "示範 PTT：尾音預覽", "PREVIEW PTT BURST": "預覽 PTT 突發", "DEMO PTT: STANDBY": "示範 PTT：待命", "DEMO: APPROXIMATE COORDINATES": "示範：近似座標", "PREVIEW EXACT COORDINATES": "預覽精確座標", "DEMO: EXACT COORDINATES": "示範：精確座標", "PREVIEW APPROXIMATE COORDINATES": "預覽近似座標", "VERIFIED (+1 ACK)": "已驗證（+1 確認）", "CONFIRM (0x03)": "確認（0x03）", "PREVIEW OFFLINE SETUP": "預覽離線設定", "Dynamic Hazard": "動態危險", "DEMO PACKET PREVIEWED OK": "示範封包預覽完成", "BUILD SAMPLE PACKET": "產生範例封包", "PREVIEWING FLOW GRAPH...": "正在預覽流程圖...", "DEMO: EVENT NODE 01": "示範：事件節點 01", "DEMO: CONDITION NODE 02": "示範：條件節點 02", "DEMO: ACTIONS 03 & 04": "示範：動作 03 與 04", "DEMO COMPLETE · NO ACTIONS EXECUTED": "示範完成 · 未執行任何動作", "PREVIEW GRAPH FLOW": "預覽流程圖", "✓ DEMO TIMER RESET (24H)": "✓ 示範計時器已重設（24H）", "RESET DEMO TIMER (24H)": "重設示範計時器（24H）", "DEMO · HASH CHECK...": "示範 · 雜湊檢查...", "PREVIEW HASH CHECK": "預覽雜湊檢查", "DEMO COMPLETE · NO HASH CHECKED": "示範完成 · 未檢查雜湊", "When you can no longer trust governments and institutions.": "當您再也無法信任政府與機構。", "When Big Tech sells your life to the highest bidder.": "當科技巨頭把您的生活賣給出價最高的人。", "When dissent is monitored, intercepted and weaponized.": "當異議被監視、攔截並被當作武器。", "Do not submit to mass surveillance.": "不要屈服於大規模監控。", "Cryptography is self-defense. Freedom is a protocol.": "密碼學是自衛。自由是一種協定。", "QUANTUM P1NG // WELCOME TO THE RESISTANCE.": "QUANTUM P1NG // 歡迎加入抵抗。", "MUTED": "已靜音", "AUDIO": "音訊", "COMPLETED · CLICK TO REPLAY": "已完成 · 點擊重播", "Click to play": "點擊播放", "Click to pause": "點擊暫停", "Click to replay": "點擊重播", "Click to retry": "點擊重試", "The video could not load. Click the preview to retry.": "影片無法載入。請點擊預覽圖重試。", "Retry the Q-Geo app walkthrough": "重試 Q-Geo App 導覽", "Pause the Q-Geo app walkthrough": "暫停 Q-Geo App 導覽", "Replay the Q-Geo app walkthrough": "重播 Q-Geo App 導覽", "Play the Q-Geo app walkthrough": "播放 Q-Geo App 導覽", "The video could not load. Click the image to retry.": "影片無法載入。請點擊圖片重試。"}</script><!-- /i18n:messages -->
-  <script src="../script.js?v=2.6.27" defer></script>
+  <script src="../script.js?v=2.6.28" defer></script>
   <script src="../app-feature-demos.js?v=6" defer></script>
   <script src="../qdream-gallery.js?v=1" defer></script>
   <script src="../qcast-hero-player.js?v=1" defer></script>

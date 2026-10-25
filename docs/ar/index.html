@@ -65,7 +65,7 @@
   <meta name="twitter:image:alt" content="Quantum P1NG: اتصالات مشفرة وذكاء اصطناعي محلي وأدوات خارج الشبكة لنظام Android: الصوت الآمن وQ-Brain AI وQ-Dream وQ-CALL وQ-Cast وQ-Globe وQ-Feed وخرائط Q-Geo وراديو VHF وشبكة LoRa المتداخلة وQ-SDR وQ-Sat وQ-Map وQ-Torrent وQ-CAM وخزنة Bitcoin" />
 
   <link rel="preload" href="../assets/fonts/bitcount_square_qp1ng.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="../styles.css?v=3.2.7" as="style" />
+  <link rel="preload" href="../styles.css?v=3.2.9" as="style" />
   <link rel="preload" as="image" href="../assets/vid/intro_bg_poster.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high" />
   <link rel="preload" as="image" href="../assets/vid/intro_mobile_poster.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high" />
   <link rel="preload" as="image" href="../assets/img/qp1ng_icon.webp" type="image/webp" fetchpriority="high" />
@@ -78,7 +78,8 @@
       }
     } catch(e){}
   </script>
-  <link rel="stylesheet" href="../styles.css?v=3.2.7" />
+  <link rel="stylesheet" href="../styles.css?v=3.2.9" />
+  <link rel="stylesheet" href="../lang-menu.css?v=1" />
   <link rel="stylesheet" href="../qcast-globe.css?v=1.0.9" />
   <link rel="stylesheet" href="../qcast-hero.css?v=1" />
   <link rel="stylesheet" href="../qgeo-demo.css?v=2" />
@@ -350,7 +351,7 @@
       <!-- Action Button Container (Revealed after manifesto) -->
       <div id="intro-action-container" class="intro-action-container hidden">
         <button id="btn-enter-site" class="cyber-button intro-enter-btn">
-          <span class="btn-glitch" data-text="ENTER QUANTUM P1NG">ادخل إلى QUANTUM P1NG</span>
+          <span class="btn-glitch" data-text="ادخل إلى QUANTUM P1NG">ادخل إلى QUANTUM P1NG</span>
           <span class="btn-arrow">&rarr;</span>
         </button>
         <div class="intro-sub-hint mono muted">السيادة الرقمية مفعّلة // اضغط [ENTER] أو انقر للدخول</div>
@@ -457,22 +458,29 @@
                 <span class="drop-sub">سرب ملفات خاص عبر Tor</span>
               </div>
             </a>
-            <a href="#data-sanitizer" class="nav-drop-item" role="menuitem">
+            <a href="#q-map-engine" class="nav-drop-item" role="menuitem">
               <span class="drop-idx mono">05</span>
+              <div class="drop-text">
+                <span class="drop-title">Q-Map</span>
+                <span class="drop-sub">خرائط ذهنية موقّعة عبر Tor</span>
+              </div>
+            </a>
+            <a href="#data-sanitizer" class="nav-drop-item" role="menuitem">
+              <span class="drop-idx mono">06</span>
               <div class="drop-text">
                 <span class="drop-title">تنظيف البيانات الوصفية</span>
                 <span class="drop-sub">إزالة EXIF والبيانات الوصفية</span>
               </div>
             </a>
             <a href="#finance" class="nav-drop-item" role="menuitem">
-              <span class="drop-idx mono">06</span>
+              <span class="drop-idx mono">07</span>
               <div class="drop-text">
                 <span class="drop-title">خزنة Bitcoin</span>
                 <span class="drop-sub">محفظة Bitcoin بحفظ ذاتي</span>
               </div>
             </a>
             <a href="#q-suite" class="nav-drop-item" role="menuitem">
-              <span class="drop-idx mono">07</span>
+              <span class="drop-idx mono">08</span>
               <div class="drop-text">
                 <span class="drop-title">الحزمة المشفرة</span>
                 <span class="drop-sub">Q-Pass وQ-Notes وQ-Agenda</span>
@@ -637,7 +645,7 @@
         <a class="nav__cta" href="https://github.com/zonkeynet/Quantum-P1NG" target="_blank" rel="noopener">GitHub</a>
       </nav>
 
-      <!-- i18n:switcher --><details class="lang" translate="no"><summary aria-label="اللغة"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><span class="lang-name">العربية</span><span class="lang-code">AR</span></summary><ul><li><a href="../?lang=en" hreflang="en" lang="en">English</a></li><li><a href="../it/?lang=it" hreflang="it" lang="it">Italiano</a></li><li><a href="../de/?lang=de" hreflang="de" lang="de">Deutsch</a></li><li><a href="../es/?lang=es" hreflang="es" lang="es">Español</a></li><li><a href="../fr/?lang=fr" hreflang="fr" lang="fr">Français</a></li><li><a href="../pt-BR/?lang=pt-BR" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li><li><a href="../pl/?lang=pl" hreflang="pl" lang="pl">Polski</a></li><li><a href="../ru/?lang=ru" hreflang="ru" lang="ru">Русский</a></li><li><a href="../uk/?lang=uk" hreflang="uk" lang="uk">Українська</a></li><li><a href="../ar/?lang=ar" hreflang="ar" lang="ar" aria-current="page">العربية</a></li><li><a href="../fa/?lang=fa" hreflang="fa" lang="fa">فارسی</a></li><li><a href="../ja/?lang=ja" hreflang="ja" lang="ja">日本語</a></li><li><a href="../zh-CN/?lang=zh-CN" hreflang="zh-CN" lang="zh-CN">简体中文</a></li><li><a href="../zh-TW/?lang=zh-TW" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li><li><a href="../my/?lang=my" hreflang="my" lang="my">မြန်မာ</a></li></ul></details><!-- /i18n:switcher -->
+      <!-- i18n:switcher --><details class="lang" translate="no"><summary aria-label="اللغة"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><span class="lang-name">العربية</span><span class="lang-code">AR</span></summary><ul><li><a href="../?lang=en" hreflang="en" lang="en"><span class="lang-item-name">English</span><span class="lang-item-code" aria-hidden="true">EN</span></a></li><li><a href="../it/?lang=it" hreflang="it" lang="it"><span class="lang-item-name">Italiano</span><span class="lang-item-code" aria-hidden="true">IT</span></a></li><li><a href="../de/?lang=de" hreflang="de" lang="de"><span class="lang-item-name">Deutsch</span><span class="lang-item-code" aria-hidden="true">DE</span></a></li><li><a href="../es/?lang=es" hreflang="es" lang="es"><span class="lang-item-name">Español</span><span class="lang-item-code" aria-hidden="true">ES</span></a></li><li><a href="../fr/?lang=fr" hreflang="fr" lang="fr"><span class="lang-item-name">Français</span><span class="lang-item-code" aria-hidden="true">FR</span></a></li><li><a href="../pt-BR/?lang=pt-BR" hreflang="pt-BR" lang="pt-BR"><span class="lang-item-name">Português (Brasil)</span><span class="lang-item-code" aria-hidden="true">PT-BR</span></a></li><li><a href="../pl/?lang=pl" hreflang="pl" lang="pl"><span class="lang-item-name">Polski</span><span class="lang-item-code" aria-hidden="true">PL</span></a></li><li><a href="../ru/?lang=ru" hreflang="ru" lang="ru"><span class="lang-item-name">Русский</span><span class="lang-item-code" aria-hidden="true">RU</span></a></li><li><a href="../uk/?lang=uk" hreflang="uk" lang="uk"><span class="lang-item-name">Українська</span><span class="lang-item-code" aria-hidden="true">UK</span></a></li><li><a href="../ar/?lang=ar" hreflang="ar" lang="ar" aria-current="page"><span class="lang-item-name">العربية</span><span class="lang-item-code" aria-hidden="true">AR</span></a></li><li><a href="../fa/?lang=fa" hreflang="fa" lang="fa"><span class="lang-item-name">فارسی</span><span class="lang-item-code" aria-hidden="true">FA</span></a></li><li><a href="../ja/?lang=ja" hreflang="ja" lang="ja"><span class="lang-item-name">日本語</span><span class="lang-item-code" aria-hidden="true">JA</span></a></li><li><a href="../zh-CN/?lang=zh-CN" hreflang="zh-CN" lang="zh-CN"><span class="lang-item-name">简体中文</span><span class="lang-item-code" aria-hidden="true">ZH-CN</span></a></li><li><a href="../zh-TW/?lang=zh-TW" hreflang="zh-TW" lang="zh-TW"><span class="lang-item-name">繁體中文</span><span class="lang-item-code" aria-hidden="true">ZH-TW</span></a></li><li><a href="../my/?lang=my" hreflang="my" lang="my"><span class="lang-item-name">မြန်မာ</span><span class="lang-item-code" aria-hidden="true">MY</span></a></li></ul></details><!-- /i18n:switcher -->
 
       <button class="burger" aria-label="فتح القائمة" aria-expanded="false" aria-controls="mobilemenu">
         <span></span><span></span><span></span>
@@ -658,6 +666,7 @@
         <a href="#anti-forensic">مكافحة التحليل الجنائي</a>
         <a href="#air-gap">النقل عبر العزل الهوائي</a>
         <a href="#q-torrent">Q-Torrent</a>
+        <a href="#q-map-engine">Q-Map MindMap</a>
         <a href="#data-sanitizer">تنظيف البيانات الوصفية</a>
         <a href="#finance">خزنة Bitcoin</a>
         <a href="#q-suite">الحزمة المشفرة</a>
@@ -2167,7 +2176,7 @@ _
   </svg>
 
   <div class="wrap">
-    <div class="kicker mono core-glitch" data-text="> MODULE: LORA_FIELD_DECK_v15.9">> الوحدة: LORA_FIELD_DECK_v15.9</div>
+    <div class="kicker mono core-glitch" data-text="&gt; الوحدة: LORA_FIELD_DECK_v15.9">> الوحدة: LORA_FIELD_DECK_v15.9</div>
     <h2 class="neon-text-purple" style="display: flex; align-items: center; gap: 12px;"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M2 20h.01"></path><path d="M7 20v-4"></path><path d="M12 20v-8"></path><path d="M17 20V8"></path><path d="M22 20V4"></path>
       </svg> إشارات خفية عبر LoRa</h2>
@@ -6057,7 +6066,7 @@ _
                 <span class="qcall-pulse-dot"></span>
                 <span>انتهى عرض المكالمة // جلسة نموذجية</span>
               </div>
-              <h3 class="qcall-overlay-title glitch-text" data-text="CALL DEMO COMPLETE">اكتمل عرض المكالمة</h3>
+              <h3 class="qcall-overlay-title glitch-text" data-text="اكتمل عرض المكالمة">اكتمل عرض المكالمة</h3>
               <p class="qcall-overlay-desc">تحقّق من جهة الاتصال، وافحص المسار، وأنهِ المكالمة حين تنتهي.</p>
               <div class="qcall-overlay-tags">
                 <span class="qcall-overlay-tag">التحقق من جهة الاتصال</span>
@@ -8126,8 +8135,8 @@ _
 
     <!-- Manifesto text -->
     <div class="mf-text" role="heading" aria-level="2">
-      <div class="mf-line-1 sys-glitch" data-text="ENCRYPT YOUR WORDS.">شفّر كلماتك.</div>
-      <div class="mf-line-2 sys-glitch layer2" data-text="FREE YOUR VOICE.">حرّر صوتك.</div>
+      <div class="mf-line-1 sys-glitch" data-text="شفّر كلماتك.">شفّر كلماتك.</div>
+      <div class="mf-line-2 sys-glitch layer2" data-text="حرّر صوتك.">حرّر صوتك.</div>
     </div>
 
     <!-- Tagline -->
@@ -8326,7 +8335,7 @@ _
   </script>
   <!-- The texts the scripts write, in the page's language (i18n/build.py). -->
   <!-- i18n:messages --><script type="application/json" id="site-i18n">{"COPIED": "تم النسخ", "[ ACCESS GRANTED ]": "[ تم منح الوصول ]", "REPLAY_BUFFER": "REPLAY_BUFFER", "REPLAY_FAIL": "REPLAY_FAIL", "MIN": "تصغير", "RST": "إعادة", "PAUSE STREAM": "إيقاف البث مؤقتاً", "CLICK TO PLAY": "انقر للتشغيل", "AIOC RIG ACTIVE": "جهاز AIOC نشط", "RF LINK ACTIVE": "رابط RF نشط", "SCANNING": "جارٍ البحث", "PAUSED": "متوقف مؤقتاً", "PAUSE FEED": "إيقاف التغذية مؤقتاً", "CALL DEMO VIDEO": "فيديو عرض المكالمة", "REPLAY FEED": "إعادة تشغيل التغذية", "[ PAUSE STREAM ]": "[ إيقاف البث مؤقتاً ]", "🔒 [MESSAGE_ENCRYPTED_AND_DISPATCHED]": "🔒 [MESSAGE_ENCRYPTED_AND_DISPATCHED]", "[BUFFER_ZEROIZED: 00 00 00 00]": "[BUFFER_ZEROIZED: 00 00 00 00]", "BUFFER: ZEROIZED": "المخزن المؤقت: صُفّر", "0s": "0s", "BUFFER: ENCRYPTED (AES-256)": "المخزن المؤقت: مشفر (AES-256)", "AUTH_GRANTED // REAL APP UNLOCKED": "AUTH_GRANTED // فُتح التطبيق الحقيقي", "DECOY PIN // WEATHER COVER": "رمز تمويه // غطاء الطقس", "DECOY PIN // SHOPPING LIST COVER": "رمز تمويه // غطاء قائمة التسوق", "SILENT_DURESS_TRIGGERED // DELETING KEYSTORE KEYS": "SILENT_DURESS_TRIGGERED // جارٍ حذف مفاتيح KEYSTORE", "ERR: INVALID_PIN (REMAINING: 2)": "خطأ: INVALID_PIN (المتبقي: 2)", "PIN BUFFER CLEARED": "مُسح مخزن الرمز", "STANDBY // CLICK PRESETS OR KEYPAD": "استعداد // انقر الإعدادات الجاهزة أو لوحة الأرقام", "EXECUTING WIPE SEQUENCE...": "جارٍ تنفيذ تسلسل المسح...", "SIMULATION COMPLETE // KEYS VERIFIED GONE": "اكتملت المحاكاة // تأكّد زوال المفاتيح", "EXECUTE PIPELINE SIMULATION": "تشغيل محاكاة المسار", "AOS APPROACH (BLUE SHIFT)": "AOS اقتراب (انزياح أزرق)", "LOS RECEDING (RED SHIFT)": "LOS ابتعاد (انزياح أحمر)", "TCA ZENITH (PEAK ELEVATION)": "TCA سمت الرأس (أقصى ارتفاع)", "DEMO · PTT BURST...": "عرض · دفعة PTT...", "DEMO PTT: NO RF TRANSMISSION": "PTT تجريبي: بلا إرسال RF", "DEMO PTT: TAIL PREVIEW": "PTT تجريبي: معاينة الذيل", "PREVIEW PTT BURST": "معاينة دفعة PTT", "DEMO PTT: STANDBY": "PTT تجريبي: استعداد", "DEMO: APPROXIMATE COORDINATES": "عرض: إحداثيات تقريبية", "PREVIEW EXACT COORDINATES": "معاينة الإحداثيات الدقيقة", "DEMO: EXACT COORDINATES": "عرض: إحداثيات دقيقة", "PREVIEW APPROXIMATE COORDINATES": "معاينة الإحداثيات التقريبية", "VERIFIED (+1 ACK)": "موثّق (+1 ACK)", "CONFIRM (0x03)": "تأكيد (0x03)", "PREVIEW OFFLINE SETUP": "معاينة الإعداد بلا اتصال", "Dynamic Hazard": "خطر متغيّر", "DEMO PACKET PREVIEWED OK": "عُرضت الحزمة التجريبية بنجاح", "BUILD SAMPLE PACKET": "أنشئ حزمة نموذجية", "PREVIEWING FLOW GRAPH...": "جارٍ معاينة مخطط التدفق...", "DEMO: EVENT NODE 01": "عرض: عقدة الحدث 01", "DEMO: CONDITION NODE 02": "عرض: عقدة الشرط 02", "DEMO: ACTIONS 03 & 04": "عرض: الإجراءان 03 و04", "DEMO COMPLETE · NO ACTIONS EXECUTED": "اكتمل العرض · لم يُنفَّذ أي إجراء", "PREVIEW GRAPH FLOW": "معاينة تدفق المخطط", "✓ DEMO TIMER RESET (24H)": "✓ أُعيد ضبط المؤقت التجريبي (24H)", "RESET DEMO TIMER (24H)": "إعادة ضبط المؤقت التجريبي (24H)", "DEMO · HASH CHECK...": "عرض · فحص التجزئة...", "PREVIEW HASH CHECK": "معاينة فحص التجزئة", "DEMO COMPLETE · NO HASH CHECKED": "اكتمل العرض · لم تُفحص أي تجزئة", "When you can no longer trust governments and institutions.": "حين لا تعود قادراً على الوثوق بالحكومات والمؤسسات.", "When Big Tech sells your life to the highest bidder.": "حين تبيع شركات التكنولوجيا الكبرى حياتك لمن يدفع أكثر.", "When dissent is monitored, intercepted and weaponized.": "حين يُراقَب الرأي المخالف ويُعترَض ويُستخدم سلاحاً ضد أصحابه.", "Do not submit to mass surveillance.": "لا تخضع للمراقبة الجماعية.", "Cryptography is self-defense. Freedom is a protocol.": "التشفير دفاع عن النفس. والحرية بروتوكول.", "QUANTUM P1NG // WELCOME TO THE RESISTANCE.": "QUANTUM P1NG // أهلاً بك في المقاومة.", "MUTED": "صامت", "AUDIO": "الصوت", "COMPLETED · CLICK TO REPLAY": "اكتمل · انقر لإعادة التشغيل", "Click to play": "انقر للتشغيل", "Click to pause": "انقر للإيقاف المؤقت", "Click to replay": "انقر لإعادة المشاهدة", "Click to retry": "انقر لإعادة المحاولة", "The video could not load. Click the preview to retry.": "تعذّر تحميل الفيديو. انقر على المعاينة لإعادة المحاولة.", "Retry the Q-Geo app walkthrough": "إعادة محاولة جولة تطبيق Q-Geo", "Pause the Q-Geo app walkthrough": "إيقاف جولة تطبيق Q-Geo مؤقتاً", "Replay the Q-Geo app walkthrough": "إعادة مشاهدة جولة تطبيق Q-Geo", "Play the Q-Geo app walkthrough": "تشغيل جولة تطبيق Q-Geo", "The video could not load. Click the image to retry.": "تعذّر تحميل الفيديو. انقر على الصورة لإعادة المحاولة."}</script><!-- /i18n:messages -->
-  <script src="../script.js?v=2.6.27" defer></script>
+  <script src="../script.js?v=2.6.28" defer></script>
   <script src="../app-feature-demos.js?v=6" defer></script>
   <script src="../qdream-gallery.js?v=1" defer></script>
   <script src="../qcast-hero-player.js?v=1" defer></script>

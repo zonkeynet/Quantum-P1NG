@@ -13,6 +13,16 @@
     location.replace("/pro/" + location.search + location.hash);
     return;
   }
+  // The language menu (a <details>) closes on a click outside it or on Escape.
+  document.addEventListener("click", function (event) {
+    var open = document.querySelectorAll("details.lang[open]");
+    for (var i = 0; i < open.length; i++) if (!open[i].contains(event.target)) open[i].open = false;
+  });
+  document.addEventListener("keydown", function (event) {
+    if (event.key !== "Escape") return;
+    var open = document.querySelectorAll("details.lang[open]");
+    for (var i = 0; i < open.length; i++) { open[i].open = false; open[i].querySelector("summary").focus(); }
+  });
   // ?api=staging talks to the test service (Bitcoin testnet, licences that unlock nothing).
   var API = /[?&]api=staging(&|$)/.test(location.search)
     ? "https://qp1ng-license-api-staging.quantump1ng.workers.dev"

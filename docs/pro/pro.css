@@ -92,17 +92,8 @@ html:lang(ar), html:lang(fa), html:lang(my) {
   --font-brand: "QP1NG-Digital", var(--font-sans);
 }
 
-/* Language menu: a disclosure without script, its list drops below the summary. */
-.lang { position: relative; }
-.lang summary { display: flex; align-items: center; gap: 6px; list-style: none; cursor: pointer; color: var(--muted); font-size: 0.92rem; padding: 8px 10px; border-radius: 8px; }
-.lang summary::-webkit-details-marker { display: none; }
-.lang summary:hover, .lang[open] summary { color: var(--text); background: rgba(255, 255, 255, 0.04); }
-.lang summary svg { width: 18px; height: 18px; flex: none; }
-.lang .lang-code { display: none; }
-.lang ul { position: absolute; inset-inline-end: 0; top: calc(100% + 6px); z-index: 20; margin: 0; padding: 6px; list-style: none; min-width: 200px; max-height: min(70vh, 460px); overflow-y: auto; background: var(--surface-2); border: 1px solid var(--line-strong); border-radius: var(--radius-sm); box-shadow: var(--shadow); }
-.nav .lang ul a { display: block; color: var(--text); padding: 8px 10px; }
-.nav .lang ul a[aria-current="page"] { color: var(--cyan); background: var(--cyan-soft); }
-@media (max-width: 720px) { .lang summary span { display: none; } .nav .lang ul a { display: block; } }
+/* The language menu's look is in /lang-menu.css, shared with the home page. */
+.nav .lang { margin-inline-start: 4px; }
 
 /* ---- Buttons ------------------------------------------------------------------------------------------------ */
 .btn {
