@@ -37,8 +37,8 @@ for availability. Google Play is also in preparation; the Pro licence checkout i
 
 ## Why choose Q-P1NG?
 
-- **Keep your number to yourself.** Create an identity on your phone and exchange it by animated QR. Tor runs inside
-  the app, with no separate Orbot setup.
+- **Keep your number to yourself.** Create an identity on your phone. Exchange contact cards offline by animated QR,
+  acoustic signals, NFC or nearby Wi-Fi/Bluetooth discovery. Tor runs inside the app, with no separate Orbot setup.
 - **Keep talking without internet.** Use Bluetooth mesh or local Wi-Fi for nearby communication. Pro adds radio
   routes when you have the required hardware.
 - **Choose what stays.** Ghost sessions keep their message database in RAM. Calculator covers, decoy and duress PINs
