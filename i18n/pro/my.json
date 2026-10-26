@@ -144,13 +144,13 @@
   "Open the downloaded APK": "ဒေါင်းလုဒ်လုပ်ထားသော APK ကိုဖွင့်ပါ",
   "Allow installs from this source, once": "ဤရင်းမြစ်မှ ထည့်သွင်းခြင်းကို တစ်ကြိမ်ခွင့်ပြုပါ",
   "Install, open, read the welcome pages": "ထည့်သွင်း၊ ဖွင့်၊ ကြိုဆိုစာမျက်နှာများကို ဖတ်ပါ",
-  "ANDROID / INSTALL / 00:58": "ANDROID / INSTALL / 00:58",
   "EN / IT": "EN / IT",
   "Click to play": "ဖွင့်ရန် နှိပ်ပါ",
   "Open the video": "ဗီဒီယိုကို ဖွင့်ရန်",
   "Recorded on an Android emulator with the Pro debug build; the APK was copied to Downloads. Staging and installing shortened; edited with cuts.": "Pro debug build ဖြင့် Android emulator ပေါ်တွင် ရိုက်ကူးထားသည်။ APK ကို Downloads သို့ ကူးထည့်ထားသည်။ ပြင်ဆင်ချိန်နှင့် ထည့်သွင်းချိန်ကို တိုထားပြီး ဖြတ်တောက်တည်းဖြတ်ထားသည်။",
   "Open the video (MP4)": "ဗီဒီယိုကို ဖွင့်ရန် (MP4)",
-  "Click to play: Install · Android demo": "ဖွင့်ရန် နှိပ်ပါ: Install · Android demo"
+  "Click to play: Install · Android demo": "ဖွင့်ရန် နှိပ်ပါ: Install · Android demo",
+  "ANDROID / INSTALL / 00:39 · 1.5×": "ANDROID / INSTALL / 00:39 · 1.5×"
  },
  "messages": {
   "Copied": "ကူးယူပြီးပါပြီ",

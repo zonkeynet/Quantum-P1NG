@@ -2653,7 +2653,6 @@
   "<span class=\"mono\" aria-hidden=\"true\">01</span>Shake: weather, calculator, puzzle or grocery list": "<span class=\"mono\" aria-hidden=\"true\">01</span>Potrząśnięcie: pogoda, kalkulator, układanka lub zakupy",
   "<span class=\"mono\" aria-hidden=\"true\">02</span>Master password: unlock private notes": "<span class=\"mono\" aria-hidden=\"true\">02</span>Hasło główne: odblokuj prywatne notatki",
   "<span class=\"mono\" aria-hidden=\"true\">03</span>Separate primary, decoy and duress credentials": "<span class=\"mono\" aria-hidden=\"true\">03</span>Osobne dane dostępu: główne, pozorne i pod przymusem",
-  "ANDROID / FALLOUT / 00:58": "ANDROID / FALLOUT / 00:58",
   "Recorded in the Android demo with sample data and an emulated shake. Credential configuration shown; no wipe executed. Waiting time shortened. Edited with cuts and accelerated sequences.": "Nagranie z demonstracyjnej aplikacji Android z przykładowymi danymi i emulowanym potrząśnięciem. Pokazano konfigurację dostępu; bez kasowania danych. Skrócono oczekiwanie. Montaż ze skrótami i przyspieszonymi sekwencjami.",
   "Click to play: Anti-forensics · Android demo": "Kliknij, aby odtworzyć: Anti-forensics · Android demo",
   "ANDROID APP · FIRST SETUP": "APLIKACJA ANDROID · PIERWSZA KONFIGURACJA",
@@ -2662,7 +2661,6 @@
   "<span class=\"mono\" aria-hidden=\"true\">01</span>Primary, duress and decoy PIN": "<span class=\"mono\" aria-hidden=\"true\">01</span>PIN główny, awaryjny i wabik",
   "<span class=\"mono\" aria-hidden=\"true\">02</span>Quantum Keyboard, enabled in Android settings": "<span class=\"mono\" aria-hidden=\"true\">02</span>Quantum Keyboard włączona w ustawieniach Androida",
   "<span class=\"mono\" aria-hidden=\"true\">03</span>Calculator cover: PIN and = to enter": "<span class=\"mono\" aria-hidden=\"true\">03</span>Kalkulator jako przykrywka: PIN i =, by wejść",
-  "ANDROID / FIRST SETUP / 01:31": "ANDROID / FIRST SETUP / 01:31",
   "Recorded on an Android emulator with demo PINs. Duress and decoy codes configured only; nothing triggered. Typing and waiting accelerated; two takes of the same setup joined.": "Nagrano na emulatorze Androida z demonstracyjnymi PIN-ami. Kody awaryjny i wabik tylko skonfigurowane; nic nie uruchomiono. Pisanie i oczekiwanie przyspieszone; połączono dwa ujęcia tej samej konfiguracji.",
   "Click to play: First setup · Android demo": "Kliknij, aby odtworzyć: First setup · Android demo",
   "ANDROID APP · FIRST CONTACT": "APLIKACJA ANDROID · PIERWSZY KONTAKT",
@@ -2671,9 +2669,11 @@
   "<span class=\"mono\" aria-hidden=\"true\">01</span>Animated QR: each phone scans the other": "<span class=\"mono\" aria-hidden=\"true\">01</span>Animowany QR: każdy telefon skanuje drugi",
   "<span class=\"mono\" aria-hidden=\"true\">02</span>Verified identity and direct P2P link in the chat": "<span class=\"mono\" aria-hidden=\"true\">02</span>Zweryfikowana tożsamość i bezpośrednie połączenie P2P w czacie",
   "<span class=\"mono\" aria-hidden=\"true\">03</span>Notification without the message text": "<span class=\"mono\" aria-hidden=\"true\">03</span>Powiadomienie bez treści wiadomości",
-  "ANDROID / FIRST CONTACT / 01:32": "ANDROID / FIRST CONTACT / 01:32",
-  "Recorded on two real phones, the second connected to the first one’s hotspot. QR exchange and messages are separate takes with different installs, so the contact names differ. Typing accelerated; sending and delivery in real time. The address book, always shielded from screen capture, is cut.": "Nagrano na dwóch prawdziwych telefonach; drugi był połączony z hotspotem pierwszego. Wymiana QR i wiadomości to osobne ujęcia z różnymi instalacjami, dlatego nazwy kontaktów się różnią. Pisanie przyspieszone; wysyłanie i doręczenie w czasie rzeczywistym. Książkę adresową, zawsze chronioną przed przechwytywaniem ekranu, wycięto.",
-  "Click to play: First contact · Android demo": "Kliknij, aby odtworzyć: First contact · Android demo"
+  "Click to play: First contact · Android demo": "Kliknij, aby odtworzyć: First contact · Android demo",
+  "ANDROID / FALLOUT / 00:38 · 1.5×": "ANDROID / FALLOUT / 00:38 · 1.5×",
+  "ANDROID / FIRST SETUP / 01:01 · 1.5×": "ANDROID / FIRST SETUP / 01:01 · 1.5×",
+  "ANDROID / FIRST CONTACT / 01:10": "ANDROID / FIRST CONTACT / 01:10",
+  "Recorded on two real phones, the second connected to the first one’s hotspot. QR exchange and messages are separate takes with different installs, so the contact names differ. Sending and delivery in real time; the rest accelerated. The address book, always shielded from screen capture, is cut.": "Nagrano na dwóch prawdziwych telefonach; drugi był połączony z hotspotem pierwszego. Wymiana QR i wiadomości to osobne ujęcia z różnymi instalacjami, dlatego nazwy kontaktów się różnią. Wysyłanie i doręczenie w czasie rzeczywistym; reszta przyspieszona. Książkę adresową, zawsze chronioną przed przechwytywaniem ekranu, wycięto."
  },
  "messages": {
   "COPIED": "SKOPIOWANO",

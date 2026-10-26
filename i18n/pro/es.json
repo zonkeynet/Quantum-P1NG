@@ -144,13 +144,13 @@
   "Open the downloaded APK": "Abre el APK descargado",
   "Allow installs from this source, once": "Permite instalar desde esta fuente, una vez",
   "Install, open, read the welcome pages": "Instala, abre, lee las páginas de bienvenida",
-  "ANDROID / INSTALL / 00:58": "ANDROID / INSTALL / 00:58",
   "EN / IT": "EN / IT",
   "Click to play": "Haz clic para reproducir",
   "Open the video": "Abrir el video",
   "Recorded on an Android emulator with the Pro debug build; the APK was copied to Downloads. Staging and installing shortened; edited with cuts.": "Grabado en un emulador de Android con la compilación debug de Pro; el APK se copió a Descargas. Preparación e instalación acortadas; editado con cortes.",
   "Open the video (MP4)": "Abrir el vídeo (MP4)",
-  "Click to play: Install · Android demo": "Haz clic para reproducir: Install · Android demo"
+  "Click to play: Install · Android demo": "Haz clic para reproducir: Install · Android demo",
+  "ANDROID / INSTALL / 00:39 · 1.5×": "ANDROID / INSTALL / 00:39 · 1.5×"
  },
  "messages": {
   "Copied": "Copiado",

@@ -144,13 +144,13 @@
   "Open the downloaded APK": "APK دانلودشده را باز کنید",
   "Allow installs from this source, once": "یک‌بار اجازهٔ نصب از این منبع را بدهید",
   "Install, open, read the welcome pages": "نصب کنید، باز کنید، صفحه‌های خوش‌آمد را بخوانید",
-  "ANDROID / INSTALL / 00:58": "ANDROID / INSTALL / 00:58",
   "EN / IT": "EN / IT",
   "Click to play": "برای پخش کلیک کنید",
   "Open the video": "باز کردن ویدیو",
   "Recorded on an Android emulator with the Pro debug build; the APK was copied to Downloads. Staging and installing shortened; edited with cuts.": "روی شبیه‌ساز اندروید با نسخهٔ دیباگ Pro ضبط شده است؛ APK در پوشهٔ دانلودها کپی شده بود. آماده‌سازی و نصب کوتاه شده و فیلم با برش تدوین شده است.",
   "Open the video (MP4)": "باز کردن ویدیو (MP4)",
-  "Click to play: Install · Android demo": "برای پخش کلیک کنید: Install · Android demo"
+  "Click to play: Install · Android demo": "برای پخش کلیک کنید: Install · Android demo",
+  "ANDROID / INSTALL / 00:39 · 1.5×": "ANDROID / INSTALL / 00:39 · 1.5×"
  },
  "messages": {
   "Copied": "کپی شد",

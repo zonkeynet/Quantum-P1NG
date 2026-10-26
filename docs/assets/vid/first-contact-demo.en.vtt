@@ -1,29 +1,29 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:19.967
+00:00:00.000 --> 00:00:13.300
 Phone A shows its contact as an animated QR. Phone B scans it and saves the verified identity.
 
 2
-00:00:19.967 --> 00:00:36.067
+00:00:13.300 --> 00:00:23.600
 Then the other way round: now each phone has the other in its address book.
 
 3
-00:00:36.067 --> 00:00:48.933
+00:00:23.600 --> 00:00:32.133
 Phone A opens the chat and writes. The contact has a verified identity and a direct P2P link.
 
 4
-00:00:48.933 --> 00:00:54.933
+00:00:32.133 --> 00:00:38.133
 Send: the message leaves phone A for phone B.
 
 5
-00:00:54.933 --> 00:01:02.133
+00:00:38.133 --> 00:00:45.333
 Phone B, same moment: the message arrives about 2 seconds after sending. The notification does not show the text.
 
 6
-00:01:02.133 --> 00:01:24.767
+00:00:45.333 --> 00:01:02.633
 Phone B opens the chat, reads and replies.
 
 7
-00:01:24.767 --> 00:01:32.267
+00:01:02.633 --> 00:01:10.133
 Phone A gets the reply about 4 seconds after it was sent.

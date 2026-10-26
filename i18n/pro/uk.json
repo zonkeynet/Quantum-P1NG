@@ -144,13 +144,13 @@
   "Open the downloaded APK": "Відкрийте завантажений APK",
   "Allow installs from this source, once": "Один раз дозвольте встановлення з цього джерела",
   "Install, open, read the welcome pages": "Установіть, відкрийте, прочитайте привітання",
-  "ANDROID / INSTALL / 00:58": "ANDROID / INSTALL / 00:58",
   "EN / IT": "EN / IT",
   "Click to play": "Натисніть для перегляду",
   "Open the video": "Відкрити відео",
   "Recorded on an Android emulator with the Pro debug build; the APK was copied to Downloads. Staging and installing shortened; edited with cuts.": "Записано на емуляторі Android з налагоджувальною збіркою Pro; APK скопійовано в «Завантаження». Підготовку й установлення скорочено; змонтовано з вирізками.",
   "Open the video (MP4)": "Відкрити відео (MP4)",
-  "Click to play: Install · Android demo": "Натисніть для перегляду: Install · Android demo"
+  "Click to play: Install · Android demo": "Натисніть для перегляду: Install · Android demo",
+  "ANDROID / INSTALL / 00:39 · 1.5×": "ANDROID / INSTALL / 00:39 · 1.5×"
  },
  "messages": {
   "Copied": "Скопійовано",

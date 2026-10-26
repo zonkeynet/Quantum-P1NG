@@ -144,13 +144,13 @@
   "Open the downloaded APK": "開啟下載的 APK",
   "Allow installs from this source, once": "允許從此來源安裝，僅需一次",
   "Install, open, read the welcome pages": "安裝、開啟、閱讀歡迎頁面",
-  "ANDROID / INSTALL / 00:58": "ANDROID / INSTALL / 00:58",
   "EN / IT": "EN / IT",
   "Click to play": "點擊播放",
   "Open the video": "開啟影片",
   "Recorded on an Android emulator with the Pro debug build; the APK was copied to Downloads. Staging and installing shortened; edited with cuts.": "使用 Pro 偵錯版在 Android 模擬器上錄製；APK 是複製到「下載」資料夾的。準備與安裝過程已縮短，並經剪輯。",
   "Open the video (MP4)": "開啟影片 (MP4)",
-  "Click to play: Install · Android demo": "點擊播放: Install · Android demo"
+  "Click to play: Install · Android demo": "點擊播放: Install · Android demo",
+  "ANDROID / INSTALL / 00:39 · 1.5×": "ANDROID / INSTALL / 00:39 · 1.5×"
  },
  "messages": {
   "Copied": "已複製",

@@ -1,49 +1,49 @@
 [
   {
     "start": 0.0,
-    "end": 19.967,
+    "end": 13.3,
     "chapter": "qr",
     "en": "Phone A shows its contact as an animated QR. Phone B scans it and saves the verified identity.",
     "it": "Il telefono A mostra il proprio contatto come QR animato. Il telefono B lo scansiona e salva l’identità verificata."
   },
   {
-    "start": 19.967,
-    "end": 36.067,
+    "start": 13.3,
+    "end": 23.6,
     "chapter": "qr-back",
     "en": "Then the other way round: now each phone has the other in its address book.",
     "it": "Poi al contrario: ora ognuno ha l’altro in rubrica."
   },
   {
-    "start": 36.067,
-    "end": 48.933,
+    "start": 23.6,
+    "end": 32.133,
     "chapter": "write",
     "en": "Phone A opens the chat and writes. The contact has a verified identity and a direct P2P link.",
     "it": "Il telefono A apre la chat e scrive. Il contatto ha l’identità verificata e un collegamento P2P diretto."
   },
   {
-    "start": 48.933,
-    "end": 54.933,
+    "start": 32.133,
+    "end": 38.133,
     "chapter": "sent",
     "en": "Send: the message leaves phone A for phone B.",
     "it": "Invio: il messaggio parte dal telefono A verso il telefono B."
   },
   {
-    "start": 54.933,
-    "end": 62.133,
+    "start": 38.133,
+    "end": 45.333,
     "chapter": "arrive",
     "en": "Phone B, same moment: the message arrives about 2 seconds after sending. The notification does not show the text.",
     "it": "Il telefono B, nello stesso momento: il messaggio arriva circa 2 secondi dopo l’invio. La notifica non mostra il testo."
   },
   {
-    "start": 62.133,
-    "end": 84.767,
+    "start": 45.333,
+    "end": 62.633,
     "chapter": "reply",
     "en": "Phone B opens the chat, reads and replies.",
     "it": "Il telefono B apre la chat, legge e risponde."
   },
   {
-    "start": 84.767,
-    "end": 92.267,
+    "start": 62.633,
+    "end": 70.133,
     "chapter": "received",
     "en": "Phone A gets the reply about 4 seconds after it was sent.",
     "it": "Il telefono A riceve la risposta circa 4 secondi dopo l’invio."

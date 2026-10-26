@@ -1,6 +1,6 @@
 {
   "name": "first-contact-demo",
-  "duration_seconds": 92.267,
+  "duration_seconds": 70.133,
   "resolution": "720x1280",
   "frame_rate": 30,
   "audio": false,
@@ -29,7 +29,7 @@
     "Camera permission prompts cut",
     "Debug build"
   ],
-  "editing": "Scenes alternate between the two phones; status and navigation bars removed. The labels name the phone. Delivery times are from the recordings: about 2 s for the message, about 4 s for the reply.",
+  "editing": "Scenes alternate between the two phones; status and navigation bars removed. The labels name the phone. Delivery times are from the recordings: about 2 s for the message, about 4 s for the reply. Second pass: every scene not marked REAL TIME runs 1.5x faster (label marked ACCELERATED); real-time scenes unchanged. Cut from the first published MP4, label bar redrawn.",
   "real_devices_used": true,
   "main_app_source_modified": false,
   "subtitles": [
@@ -42,60 +42,66 @@
       "file": "08-qr-pixel.mp4",
       "start": 3.5,
       "end": 9,
-      "label": "01 / PHONE A / SHOW MY CONTACT QR",
+      "label": "01 / PHONE A / SHOW MY CONTACT QR / ACCELERATED",
       "chapter": "qr",
       "en": "Phone A shows its contact as an animated QR. Phone B scans it and saves the verified identity.",
-      "it": "Il telefono A mostra il proprio contatto come QR animato. Il telefono B lo scansiona e salva l’identità verificata."
+      "it": "Il telefono A mostra il proprio contatto come QR animato. Il telefono B lo scansiona e salva l’identità verificata.",
+      "extra": 1.5
     },
     {
       "phone": "b",
       "file": "08-qr-galaxy.mp4",
       "start": 7.5,
       "end": 10.45,
-      "label": "01 / PHONE B / SCAN THE QR",
+      "label": "01 / PHONE B / SCAN THE QR / ACCELERATED",
       "chapter": "qr",
       "en": "",
-      "it": ""
+      "it": "",
+      "extra": 1.5
     },
     {
       "phone": "b",
       "file": "08-qr-galaxy.mp4",
       "start": 19,
       "end": 30.5,
-      "label": "01 / PHONE B / SCAN THE QR",
+      "label": "01 / PHONE B / SCAN THE QR / ACCELERATED",
       "chapter": "qr",
       "en": "",
-      "it": ""
+      "it": "",
+      "extra": 1.5
     },
     {
       "phone": "b",
       "file": "09-qr-back-galaxy.mp4",
       "start": 5,
       "end": 9,
-      "label": "02 / PHONE B / SHOW MY CONTACT QR",
+      "label": "02 / PHONE B / SHOW MY CONTACT QR / ACCELERATED",
       "chapter": "qr-back",
       "en": "Then the other way round: now each phone has the other in its address book.",
-      "it": "Poi al contrario: ora ognuno ha l’altro in rubrica."
+      "it": "Poi al contrario: ora ognuno ha l’altro in rubrica.",
+      "extra": 1.5
     },
     {
       "phone": "a",
       "file": "09-qr-back-pixel.mp4",
       "start": 14.4,
       "end": 26.5,
-      "label": "02 / PHONE A / SCAN THE QR",
+      "label": "02 / PHONE A / SCAN THE QR / ACCELERATED",
       "chapter": "qr-back",
       "en": "",
-      "it": ""
+      "it": "",
+      "extra": 1.5
     },
     {
       "phone": "a",
       "file": "11-msg-pixel.mp4",
       "start": 2.5,
       "end": 5.5,
-      "label": "03 / PHONE A / Q-CHAT",
+      "label": "03 / PHONE A / Q-CHAT / ACCELERATED",
       "chapter": "write",
       "en": "Phone A opens the chat and writes. The contact has a verified identity and a direct P2P link.",
-      "it": "Il telefono A apre la chat e scrive. Il contatto ha l’identità verificata e un collegamento P2P diretto."
+      "it": "Il telefono A apre la chat e scrive. Il contatto ha l’identità verificata e un collegamento P2P diretto.",
+      "extra": 1.5
     },
     {
       "phone": "a",
@@ -106,7 +112,8 @@
       "label": "03 / PHONE A / OPEN THE CHAT / ACCELERATED",
       "chapter": "write",
       "en": "",
-      "it": ""
+      "it": "",
+      "extra": 1.5
     },
     {
       "phone": "a",
@@ -117,7 +124,8 @@
       "label": "03 / PHONE A / WRITE / ACCELERATED",
       "chapter": "write",
       "en": "",
-      "it": ""
+      "it": "",
+      "extra": 1.5
     },
     {
       "phone": "a",
@@ -127,7 +135,8 @@
       "label": "04 / PHONE A / SEND / REAL TIME",
       "chapter": "sent",
       "en": "Send: the message leaves phone A for phone B.",
-      "it": "Invio: il messaggio parte dal telefono A verso il telefono B."
+      "it": "Invio: il messaggio parte dal telefono A verso il telefono B.",
+      "extra": 1
     },
     {
       "phone": "b",
@@ -137,17 +146,19 @@
       "label": "04 / PHONE B / SAME MOMENT / REAL TIME",
       "chapter": "arrive",
       "en": "Phone B, same moment: the message arrives about 2 seconds after sending. The notification does not show the text.",
-      "it": "Il telefono B, nello stesso momento: il messaggio arriva circa 2 secondi dopo l’invio. La notifica non mostra il testo."
+      "it": "Il telefono B, nello stesso momento: il messaggio arriva circa 2 secondi dopo l’invio. La notifica non mostra il testo.",
+      "extra": 1
     },
     {
       "phone": "b",
       "file": "12-reply-galaxy.mp4",
       "start": 3,
       "end": 6.4,
-      "label": "05 / PHONE B / 1 UNREAD MESSAGE",
+      "label": "05 / PHONE B / 1 UNREAD MESSAGE / ACCELERATED",
       "chapter": "reply",
       "en": "Phone B opens the chat, reads and replies.",
-      "it": "Il telefono B apre la chat, legge e risponde."
+      "it": "Il telefono B apre la chat, legge e risponde.",
+      "extra": 1.5
     },
     {
       "phone": "b",
@@ -155,10 +166,11 @@
       "start": 12.6,
       "end": 20,
       "speed": 1.5,
-      "label": "05 / PHONE B / OPEN THE CHAT",
+      "label": "05 / PHONE B / OPEN THE CHAT / ACCELERATED",
       "chapter": "reply",
       "en": "",
-      "it": ""
+      "it": "",
+      "extra": 1.5
     },
     {
       "phone": "b",
@@ -169,7 +181,8 @@
       "label": "05 / PHONE B / REPLY / ACCELERATED",
       "chapter": "reply",
       "en": "",
-      "it": ""
+      "it": "",
+      "extra": 1.5
     },
     {
       "phone": "b",
@@ -179,7 +192,8 @@
       "label": "05 / PHONE B / SEND / REAL TIME",
       "chapter": "reply",
       "en": "",
-      "it": ""
+      "it": "",
+      "extra": 1
     },
     {
       "phone": "a",
@@ -191,39 +205,40 @@
       "label": "06 / PHONE A / REPLY RECEIVED / REAL TIME",
       "chapter": "received",
       "en": "Phone A gets the reply about 4 seconds after it was sent.",
-      "it": "Il telefono A riceve la risposta circa 4 secondi dopo l’invio."
+      "it": "Il telefono A riceve la risposta circa 4 secondi dopo l’invio.",
+      "extra": 1
     }
   ],
   "files": [
     {
       "name": "first-contact-demo-poster.webp",
-      "bytes": 34508,
-      "sha256": "624a2a26cd8d364e65aab5dbb977f036ce9c9c47eee331dc5526420bf4185e97"
+      "bytes": 33968,
+      "sha256": "a0c0ce7750c88d8dd040934820e801d80dd6f4cf09535ccaa48e50ed36060060"
     },
     {
       "name": "first-contact-demo-timing.json",
-      "bytes": 1841,
-      "sha256": "71d96eb2c890067bd6acc49cd63f064df7e6feca9901b35f9228805963b65231"
+      "bytes": 1833,
+      "sha256": "8c097302c0234a8f5289b36bcfe4061005c41839e21ee2f0e19751b6c24bef06"
     },
     {
       "name": "first-contact-demo.en.vtt",
       "bytes": 793,
-      "sha256": "c6f8ec936b0a5bb5869104fed8830723d65dc76c96e8995412a72b5e1ba107b7"
+      "sha256": "71079fbf90e052c9ec36bd920ba9e25691795cf7a1929cd9f31d5e7ea87d4d42"
     },
     {
       "name": "first-contact-demo.it.vtt",
       "bytes": 843,
-      "sha256": "b2bc0cd723e9111bc43036595ac6d75eb243edf44be5b926348bd2434a948846"
+      "sha256": "fa490a92dd34c156e787bf284015cb9c11cfe88a5a98b6d43142361fc9a21013"
     },
     {
       "name": "first-contact-demo.mp4",
-      "bytes": 7043462,
-      "sha256": "7a8cd8b12057574a34f7a6610a785cd0fa673c43d7eaae4a8445d9040ae8f9c2"
+      "bytes": 6538767,
+      "sha256": "56817cf8940290eb229c08237f2911be6cd4bf0212bd362e151c19d516bb6344"
     },
     {
       "name": "first-contact-demo.webm",
-      "bytes": 7457161,
-      "sha256": "aba2c87c89ff0483d7a91f5f104d288aaee27f5d4b24a5e876eb14b65c791caf"
+      "bytes": 6136553,
+      "sha256": "1149237f4169fa2c5053c06aed2a9ffceafdccc127316620d1171e44ac35d83c"
     }
   ]
 }
