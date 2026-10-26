@@ -2664,7 +2664,16 @@
   "<span class=\"mono\" aria-hidden=\"true\">03</span>Calculator cover: PIN and = to enter": "<span class=\"mono\" aria-hidden=\"true\">03</span>Калькулятор-прикрытие: PIN и = для входа",
   "ANDROID / FIRST SETUP / 01:31": "ANDROID / FIRST SETUP / 01:31",
   "Recorded on an Android emulator with demo PINs. Duress and decoy codes configured only; nothing triggered. Typing and waiting accelerated; two takes of the same setup joined.": "Записано на эмуляторе Android с демонстрационными PIN-кодами. Экстренный и ложный коды только настроены; ничего не запускалось. Ввод и ожидание ускорены; объединены два дубля одной и той же настройки.",
-  "Click to play: First setup · Android demo": "Нажмите для просмотра: First setup · Android demo"
+  "Click to play: First setup · Android demo": "Нажмите для просмотра: First setup · Android demo",
+  "ANDROID APP · FIRST CONTACT": "ПРИЛОЖЕНИЕ ДЛЯ ANDROID · ПЕРВЫЙ КОНТАКТ",
+  "Scan once. Then just write.": "Один раз сканируете. Дальше просто пишете.",
+  "Two phones add each other with an animated QR, then exchange a message and a reply over a direct P2P link. The notification does not show the text.": "Два телефона добавляют друг друга по анимированному QR-коду, а затем обмениваются сообщением и ответом по прямому P2P-соединению. Уведомление не показывает текст.",
+  "<span class=\"mono\" aria-hidden=\"true\">01</span>Animated QR: each phone scans the other": "<span class=\"mono\" aria-hidden=\"true\">01</span>Анимированный QR: каждый телефон сканирует другой",
+  "<span class=\"mono\" aria-hidden=\"true\">02</span>Verified identity and direct P2P link in the chat": "<span class=\"mono\" aria-hidden=\"true\">02</span>Проверенная личность и прямое P2P-соединение в чате",
+  "<span class=\"mono\" aria-hidden=\"true\">03</span>Notification without the message text": "<span class=\"mono\" aria-hidden=\"true\">03</span>Уведомление без текста сообщения",
+  "ANDROID / FIRST CONTACT / 01:32": "ANDROID / FIRST CONTACT / 01:32",
+  "Recorded on two real phones, the second connected to the first one’s hotspot. QR exchange and messages are separate takes with different installs, so the contact names differ. Typing accelerated; sending and delivery in real time. The address book, always shielded from screen capture, is cut.": "Записано на двух настоящих телефонах; второй подключён к точке доступа первого. Обмен по QR и сообщения — отдельные дубли с разными установками, поэтому имена контактов отличаются. Ввод ускорен; отправка и доставка в реальном времени. Адресная книга, всегда защищённая от захвата экрана, вырезана.",
+  "Click to play: First contact · Android demo": "Нажмите для просмотра: First contact · Android demo"
  },
  "messages": {
   "COPIED": "СКОПИРОВАНО",

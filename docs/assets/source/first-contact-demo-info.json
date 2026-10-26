@@ -1,0 +1,229 @@
+{
+  "name": "first-contact-demo",
+  "duration_seconds": 92.267,
+  "resolution": "720x1280",
+  "frame_rate": 30,
+  "audio": false,
+  "app_ids": [
+    "com.qp1ng.android.demo (QR exchange, a second debug install beside the real app)",
+    "com.qp1ng.android (messages)"
+  ],
+  "app_build": "1.0.263 debug, Pro edition (main, 25 October 2026)",
+  "devices": [
+    "Phone A: Google Pixel 10a, Android 17",
+    "Phone B: Samsung Galaxy A30 (SM-A305GT), Android 11"
+  ],
+  "capture": "Screen recordings of two real phones. The QR exchange was recorded with a second install of the app with fresh identities; the messages with the regular install and its existing contacts.",
+  "demonstrated_actions": [
+    "Show the contact QR",
+    "Scan it with the other phone",
+    "Exchange in the other direction",
+    "Open the chat and write",
+    "Delivery and notification on the other phone",
+    "Reply and receive the reply"
+  ],
+  "limits": [
+    "QR exchange and messages recorded in separate takes, with different app installs and contact names",
+    "Typing and navigation accelerated; sending and delivery shown in real time",
+    "The address book is always protected from screen capture, so its few seconds are cut",
+    "Camera permission prompts cut",
+    "Debug build"
+  ],
+  "editing": "Scenes alternate between the two phones; status and navigation bars removed. The labels name the phone. Delivery times are from the recordings: about 2 s for the message, about 4 s for the reply.",
+  "real_devices_used": true,
+  "main_app_source_modified": false,
+  "subtitles": [
+    "it",
+    "en"
+  ],
+  "scenes": [
+    {
+      "phone": "a",
+      "file": "08-qr-pixel.mp4",
+      "start": 3.5,
+      "end": 9,
+      "label": "01 / PHONE A / SHOW MY CONTACT QR",
+      "chapter": "qr",
+      "en": "Phone A shows its contact as an animated QR. Phone B scans it and saves the verified identity.",
+      "it": "Il telefono A mostra il proprio contatto come QR animato. Il telefono B lo scansiona e salva l’identità verificata."
+    },
+    {
+      "phone": "b",
+      "file": "08-qr-galaxy.mp4",
+      "start": 7.5,
+      "end": 10.45,
+      "label": "01 / PHONE B / SCAN THE QR",
+      "chapter": "qr",
+      "en": "",
+      "it": ""
+    },
+    {
+      "phone": "b",
+      "file": "08-qr-galaxy.mp4",
+      "start": 19,
+      "end": 30.5,
+      "label": "01 / PHONE B / SCAN THE QR",
+      "chapter": "qr",
+      "en": "",
+      "it": ""
+    },
+    {
+      "phone": "b",
+      "file": "09-qr-back-galaxy.mp4",
+      "start": 5,
+      "end": 9,
+      "label": "02 / PHONE B / SHOW MY CONTACT QR",
+      "chapter": "qr-back",
+      "en": "Then the other way round: now each phone has the other in its address book.",
+      "it": "Poi al contrario: ora ognuno ha l’altro in rubrica."
+    },
+    {
+      "phone": "a",
+      "file": "09-qr-back-pixel.mp4",
+      "start": 14.4,
+      "end": 26.5,
+      "label": "02 / PHONE A / SCAN THE QR",
+      "chapter": "qr-back",
+      "en": "",
+      "it": ""
+    },
+    {
+      "phone": "a",
+      "file": "11-msg-pixel.mp4",
+      "start": 2.5,
+      "end": 5.5,
+      "label": "03 / PHONE A / Q-CHAT",
+      "chapter": "write",
+      "en": "Phone A opens the chat and writes. The contact has a verified identity and a direct P2P link.",
+      "it": "Il telefono A apre la chat e scrive. Il contatto ha l’identità verificata e un collegamento P2P diretto."
+    },
+    {
+      "phone": "a",
+      "file": "11-msg-pixel.mp4",
+      "start": 11.1,
+      "end": 18.5,
+      "speed": 2,
+      "label": "03 / PHONE A / OPEN THE CHAT / ACCELERATED",
+      "chapter": "write",
+      "en": "",
+      "it": ""
+    },
+    {
+      "phone": "a",
+      "file": "11-msg-pixel.mp4",
+      "start": 18.5,
+      "end": 30.8,
+      "speed": 2,
+      "label": "03 / PHONE A / WRITE / ACCELERATED",
+      "chapter": "write",
+      "en": "",
+      "it": ""
+    },
+    {
+      "phone": "a",
+      "file": "11-msg-pixel.mp4",
+      "start": 30.8,
+      "end": 36.8,
+      "label": "04 / PHONE A / SEND / REAL TIME",
+      "chapter": "sent",
+      "en": "Send: the message leaves phone A for phone B.",
+      "it": "Invio: il messaggio parte dal telefono A verso il telefono B."
+    },
+    {
+      "phone": "b",
+      "file": "11-msg-galaxy.mp4",
+      "start": 30.8,
+      "end": 38,
+      "label": "04 / PHONE B / SAME MOMENT / REAL TIME",
+      "chapter": "arrive",
+      "en": "Phone B, same moment: the message arrives about 2 seconds after sending. The notification does not show the text.",
+      "it": "Il telefono B, nello stesso momento: il messaggio arriva circa 2 secondi dopo l’invio. La notifica non mostra il testo."
+    },
+    {
+      "phone": "b",
+      "file": "12-reply-galaxy.mp4",
+      "start": 3,
+      "end": 6.4,
+      "label": "05 / PHONE B / 1 UNREAD MESSAGE",
+      "chapter": "reply",
+      "en": "Phone B opens the chat, reads and replies.",
+      "it": "Il telefono B apre la chat, legge e risponde."
+    },
+    {
+      "phone": "b",
+      "file": "12-reply-galaxy.mp4",
+      "start": 12.6,
+      "end": 20,
+      "speed": 1.5,
+      "label": "05 / PHONE B / OPEN THE CHAT",
+      "chapter": "reply",
+      "en": "",
+      "it": ""
+    },
+    {
+      "phone": "b",
+      "file": "12-reply-galaxy.mp4",
+      "start": 20,
+      "end": 49.6,
+      "speed": 4,
+      "label": "05 / PHONE B / REPLY / ACCELERATED",
+      "chapter": "reply",
+      "en": "",
+      "it": ""
+    },
+    {
+      "phone": "b",
+      "file": "12-reply-galaxy.mp4",
+      "start": 49.6,
+      "end": 56.5,
+      "label": "05 / PHONE B / SEND / REAL TIME",
+      "chapter": "reply",
+      "en": "",
+      "it": ""
+    },
+    {
+      "phone": "a",
+      "file": "12-reply-pixel.mp4",
+      "start": 52.5,
+      "end": 58,
+      "hold": 2,
+      "poster": 5,
+      "label": "06 / PHONE A / REPLY RECEIVED / REAL TIME",
+      "chapter": "received",
+      "en": "Phone A gets the reply about 4 seconds after it was sent.",
+      "it": "Il telefono A riceve la risposta circa 4 secondi dopo l’invio."
+    }
+  ],
+  "files": [
+    {
+      "name": "first-contact-demo-poster.webp",
+      "bytes": 34508,
+      "sha256": "624a2a26cd8d364e65aab5dbb977f036ce9c9c47eee331dc5526420bf4185e97"
+    },
+    {
+      "name": "first-contact-demo-timing.json",
+      "bytes": 1841,
+      "sha256": "71d96eb2c890067bd6acc49cd63f064df7e6feca9901b35f9228805963b65231"
+    },
+    {
+      "name": "first-contact-demo.en.vtt",
+      "bytes": 793,
+      "sha256": "c6f8ec936b0a5bb5869104fed8830723d65dc76c96e8995412a72b5e1ba107b7"
+    },
+    {
+      "name": "first-contact-demo.it.vtt",
+      "bytes": 843,
+      "sha256": "b2bc0cd723e9111bc43036595ac6d75eb243edf44be5b926348bd2434a948846"
+    },
+    {
+      "name": "first-contact-demo.mp4",
+      "bytes": 7043462,
+      "sha256": "7a8cd8b12057574a34f7a6610a785cd0fa673c43d7eaae4a8445d9040ae8f9c2"
+    },
+    {
+      "name": "first-contact-demo.webm",
+      "bytes": 7457161,
+      "sha256": "aba2c87c89ff0483d7a91f5f104d288aaee27f5d4b24a5e876eb14b65c791caf"
+    }
+  ]
+}

@@ -2664,7 +2664,16 @@
   "<span class=\"mono\" aria-hidden=\"true\">03</span>Calculator cover: PIN and = to enter": "<span class=\"mono\" aria-hidden=\"true\">03</span>ဂဏန်းတွက်စက် ဖုံးကွယ်မှု- ဝင်ရန် PIN နှင့် =",
   "ANDROID / FIRST SETUP / 01:31": "ANDROID / FIRST SETUP / 01:31",
   "Recorded on an Android emulator with demo PINs. Duress and decoy codes configured only; nothing triggered. Typing and waiting accelerated; two takes of the same setup joined.": "သရုပ်ပြ PIN များဖြင့် Android emulator ပေါ်တွင် ရိုက်ကူးထားသည်။ အရေးပေါ်နှင့် လှည့်စားကုဒ်များကို သတ်မှတ်ရုံသာ ပြထားပြီး မည်သည့်လုပ်ဆောင်ချက်ကိုမျှ မစတင်ပါ။ ရိုက်နှိပ်ခြင်းနှင့် စောင့်ချိန်များကို အမြန်ပြထားပြီး တူညီသော သတ်မှတ်မှု၏ ရိုက်ကွက်နှစ်ခုကို ဆက်ထားသည်။",
-  "Click to play: First setup · Android demo": "ဖွင့်ရန် နှိပ်ပါ: First setup · Android demo"
+  "Click to play: First setup · Android demo": "ဖွင့်ရန် နှိပ်ပါ: First setup · Android demo",
+  "ANDROID APP · FIRST CONTACT": "Android အက်ပ် · ပထမဆုံး ဆက်သွယ်ခြင်း",
+  "Scan once. Then just write.": "တစ်ကြိမ်သာ စကင်ဖတ်ပါ။ ပြီးရင် စာရေးရုံပါပဲ။",
+  "Two phones add each other with an animated QR, then exchange a message and a reply over a direct P2P link. The notification does not show the text.": "ဖုန်းနှစ်လုံးသည် လှုပ်ရှားနေသော QR ဖြင့် အချင်းချင်း ထည့်ပြီးနောက် တိုက်ရိုက် P2P ချိတ်ဆက်မှုဖြင့် မက်ဆေ့ချ်တစ်စောင်နှင့် အကြောင်းပြန်စာတစ်စောင် ဖလှယ်သည်။ အသိပေးချက်တွင် စာသားကို မပြပါ။",
+  "<span class=\"mono\" aria-hidden=\"true\">01</span>Animated QR: each phone scans the other": "<span class=\"mono\" aria-hidden=\"true\">01</span>လှုပ်ရှားနေသော QR- ဖုန်းတစ်လုံးစီက အခြားတစ်လုံးကို စကင်ဖတ်သည်",
+  "<span class=\"mono\" aria-hidden=\"true\">02</span>Verified identity and direct P2P link in the chat": "<span class=\"mono\" aria-hidden=\"true\">02</span>ချတ်တွင် အတည်ပြုထားသော အထောက်အထားနှင့် တိုက်ရိုက် P2P ချိတ်ဆက်မှု",
+  "<span class=\"mono\" aria-hidden=\"true\">03</span>Notification without the message text": "<span class=\"mono\" aria-hidden=\"true\">03</span>မက်ဆေ့ချ်စာသားမပါသော အသိပေးချက်",
+  "ANDROID / FIRST CONTACT / 01:32": "ANDROID / FIRST CONTACT / 01:32",
+  "Recorded on two real phones, the second connected to the first one’s hotspot. QR exchange and messages are separate takes with different installs, so the contact names differ. Typing accelerated; sending and delivery in real time. The address book, always shielded from screen capture, is cut.": "ဖုန်းအစစ် နှစ်လုံးပေါ်တွင် ရိုက်ကူးထားပြီး ဒုတိယဖုန်းကို ပထမဖုန်း၏ hotspot နှင့် ချိတ်ထားသည်။ QR ဖလှယ်ခြင်းနှင့် မက်ဆေ့ချ်များသည် မတူညီသော ထည့်သွင်းမှုများဖြင့် သီးခြားရိုက်ကွက်များဖြစ်၍ အဆက်အသွယ်အမည်များ ကွဲပြားသည်။ ရိုက်နှိပ်ခြင်းကို အမြန်ပြထားပြီး ပို့ခြင်းနှင့် ရောက်ရှိခြင်းကို အချိန်နှင့်တစ်ပြေးညီ ပြထားသည်။ မျက်နှာပြင်ဖမ်းယူမှုမှ အမြဲကာကွယ်ထားသော လိပ်စာစာအုပ်ကို ဖြတ်ထားသည်။",
+  "Click to play: First contact · Android demo": "ဖွင့်ရန် နှိပ်ပါ: First contact · Android demo"
  },
  "messages": {
   "COPIED": "ကူးယူပြီး",

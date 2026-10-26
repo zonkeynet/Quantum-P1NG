@@ -1,0 +1,29 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:19.967
+Il telefono A mostra il proprio contatto come QR animato. Il telefono B lo scansiona e salva l’identità verificata.
+
+2
+00:00:19.967 --> 00:00:36.067
+Poi al contrario: ora ognuno ha l’altro in rubrica.
+
+3
+00:00:36.067 --> 00:00:48.933
+Il telefono A apre la chat e scrive. Il contatto ha l’identità verificata e un collegamento P2P diretto.
+
+4
+00:00:48.933 --> 00:00:54.933
+Invio: il messaggio parte dal telefono A verso il telefono B.
+
+5
+00:00:54.933 --> 00:01:02.133
+Il telefono B, nello stesso momento: il messaggio arriva circa 2 secondi dopo l’invio. La notifica non mostra il testo.
+
+6
+00:01:02.133 --> 00:01:24.767
+Il telefono B apre la chat, legge e risponde.
+
+7
+00:01:24.767 --> 00:01:32.267
+Il telefono A riceve la risposta circa 4 secondi dopo l’invio.
