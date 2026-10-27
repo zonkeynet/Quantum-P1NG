@@ -142,10 +142,6 @@
   "<span class=\"dl-ch-dot\"></span>NODE 02 // GOOGLE PLAY": "<span class=\"dl-ch-dot\"></span>節點 02 // GOOGLE PLAY",
   "COMING SOON": "即將推出",
   "Google Play": "Google Play",
-  "Core free &middot; Pro paid": "Core 免費 &middot; Pro 付費",
-  "Core and Pro as two Play apps, installed and updated by Google Play. Play Pro has every Pro feature except the Linux shell.": "Core 與 Pro 為兩個 Play 應用程式，由 Google Play 安裝與更新。Play 版 Pro 具備 Linux Shell 以外的所有 Pro 功能。",
-  "<span class=\"k\">CORE:</span> com.qp1ng.android": "<span class=\"k\">CORE：</span> com.qp1ng.android",
-  "<span class=\"k\">PRO:</span> com.qp1ng.android.pro": "<span class=\"k\">PRO：</span> com.qp1ng.android.pro",
   "<span class=\"k\">TARGET:</span> Android 8.0+": "<span class=\"k\">目標：</span> Android 8.0+",
   "Coming soon to Google Play": "即將登上 Google Play",
   "Core &middot; soon": "Core &middot; 即將推出",
@@ -590,7 +586,6 @@
   "INTERCEPTION:": "攔截：",
   "ptrace() syscall translation": "ptrace() 系統呼叫轉譯",
   "STORAGE PATH:": "儲存路徑：",
-  "/data/data/com.qp1ng.android.pro/files/alpine/rootfs": "/data/data/com.qp1ng.android.pro/files/alpine/rootfs",
   "NETWORK:": "網路：",
   "Off by default; offline once installed": "預設關閉；安裝後即可離線",
   "qp1ng@alpine-proot: ~ (files/alpine/rootfs)": "qp1ng@alpine-proot: ~ (files/alpine/rootfs)",
@@ -2673,7 +2668,11 @@
   "ANDROID / FALLOUT / 00:38 · 1.5×": "ANDROID / FALLOUT / 00:38 · 1.5×",
   "ANDROID / FIRST SETUP / 01:01 · 1.5×": "ANDROID / FIRST SETUP / 01:01 · 1.5×",
   "ANDROID / FIRST CONTACT / 01:10": "ANDROID / FIRST CONTACT / 01:10",
-  "Recorded on two real phones, the second connected to the first one’s hotspot. QR exchange and messages are separate takes with different installs, so the contact names differ. Sending and delivery in real time; the rest accelerated. The address book, always shielded from screen capture, is cut.": "在兩支真實手機上錄製，第二支連接第一支的熱點。QR 碼交換與訊息是不同安裝下的兩段錄影，因此聯絡人名稱不同。傳送與送達為即時，其餘已加速。通訊錄始終禁止螢幕擷取，已剪去。"
+  "Recorded on two real phones, the second connected to the first one’s hotspot. QR exchange and messages are separate takes with different installs, so the contact names differ. Sending and delivery in real time; the rest accelerated. The address book, always shielded from screen capture, is cut.": "在兩支真實手機上錄製，第二支連接第一支的熱點。QR 碼交換與訊息是不同安裝下的兩段錄影，因此聯絡人名稱不同。傳送與送達為即時，其餘已加速。通訊錄始終禁止螢幕擷取，已剪去。",
+  "Free &middot; Pro in-app": "免費 &middot; Pro 應用程式內購買",
+  "One app, installed and updated by Google Play, with Pro as an in-app purchase. Play Pro has every Pro feature except the Linux shell.": "一個應用程式，由 Google Play 安裝與更新，Pro 以應用程式內購買提供。Play 版 Pro 具備 Linux Shell 以外的所有 Pro 功能。",
+  "<span class=\"k\">PACKAGE:</span> com.qp1ng.android": "<span class=\"k\">PACKAGE:</span> com.qp1ng.android",
+  "/data/data/com.qp1ng.android/files/alpine/rootfs": "/data/data/com.qp1ng.android/files/alpine/rootfs"
  },
  "messages": {
   "COPIED": "已複製",

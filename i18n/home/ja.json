@@ -142,10 +142,6 @@
   "<span class=\"dl-ch-dot\"></span>NODE 02 // GOOGLE PLAY": "<span class=\"dl-ch-dot\"></span>ノード 02 // GOOGLE PLAY",
   "COMING SOON": "近日公開",
   "Google Play": "Google Play",
-  "Core free &middot; Pro paid": "Core は無料 &middot; Pro は有料",
-  "Core and Pro as two Play apps, installed and updated by Google Play. Play Pro has every Pro feature except the Linux shell.": "Core と Pro は別々の Play アプリで、インストールも更新も Google Play。Play 版 Pro は、Linux シェル以外の全 Pro 機能を備えます。",
-  "<span class=\"k\">CORE:</span> com.qp1ng.android": "<span class=\"k\">CORE:</span> com.qp1ng.android",
-  "<span class=\"k\">PRO:</span> com.qp1ng.android.pro": "<span class=\"k\">PRO:</span> com.qp1ng.android.pro",
   "<span class=\"k\">TARGET:</span> Android 8.0+": "<span class=\"k\">対象:</span> Android 8.0 以降",
   "Coming soon to Google Play": "Google Play で近日公開",
   "Core &middot; soon": "Core &middot; 近日",
@@ -590,7 +586,6 @@
   "INTERCEPTION:": "インターセプト:",
   "ptrace() syscall translation": "ptrace() によるシステムコール変換",
   "STORAGE PATH:": "保存パス:",
-  "/data/data/com.qp1ng.android.pro/files/alpine/rootfs": "/data/data/com.qp1ng.android.pro/files/alpine/rootfs",
   "NETWORK:": "ネットワーク:",
   "Off by default; offline once installed": "既定でオフ。インストール後はオフライン",
   "qp1ng@alpine-proot: ~ (files/alpine/rootfs)": "qp1ng@alpine-proot: ~ (files/alpine/rootfs)",
@@ -2673,7 +2668,11 @@
   "ANDROID / FALLOUT / 00:38 · 1.5×": "ANDROID / FALLOUT / 00:38 · 1.5×",
   "ANDROID / FIRST SETUP / 01:01 · 1.5×": "ANDROID / FIRST SETUP / 01:01 · 1.5×",
   "ANDROID / FIRST CONTACT / 01:10": "ANDROID / FIRST CONTACT / 01:10",
-  "Recorded on two real phones, the second connected to the first one’s hotspot. QR exchange and messages are separate takes with different installs, so the contact names differ. Sending and delivery in real time; the rest accelerated. The address book, always shielded from screen capture, is cut.": "実機2台で録画。2台目は1台目のテザリングに接続しています。QR交換とメッセージは別のインストールによる別テイクのため、連絡先名が異なります。送信と受信は実時間、それ以外は早送りです。常に画面キャプチャから保護されるアドレス帳はカットしています。"
+  "Recorded on two real phones, the second connected to the first one’s hotspot. QR exchange and messages are separate takes with different installs, so the contact names differ. Sending and delivery in real time; the rest accelerated. The address book, always shielded from screen capture, is cut.": "実機2台で録画。2台目は1台目のテザリングに接続しています。QR交換とメッセージは別のインストールによる別テイクのため、連絡先名が異なります。送信と受信は実時間、それ以外は早送りです。常に画面キャプチャから保護されるアドレス帳はカットしています。",
+  "Free &middot; Pro in-app": "無料 &middot; Pro はアプリ内購入",
+  "One app, installed and updated by Google Play, with Pro as an in-app purchase. Play Pro has every Pro feature except the Linux shell.": "Google Play がインストールと更新を行う 1 つのアプリで、Pro はアプリ内購入です。Play 版 Pro は、Linux シェル以外の全 Pro 機能を備えます。",
+  "<span class=\"k\">PACKAGE:</span> com.qp1ng.android": "<span class=\"k\">PACKAGE:</span> com.qp1ng.android",
+  "/data/data/com.qp1ng.android/files/alpine/rootfs": "/data/data/com.qp1ng.android/files/alpine/rootfs"
  },
  "messages": {
   "COPIED": "コピーしました",

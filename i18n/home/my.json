@@ -142,10 +142,6 @@
   "<span class=\"dl-ch-dot\"></span>NODE 02 // GOOGLE PLAY": "<span class=\"dl-ch-dot\"></span>NODE 02 // GOOGLE PLAY",
   "COMING SOON": "မကြာမီ",
   "Google Play": "Google Play",
-  "Core free &middot; Pro paid": "Core အခမဲ့ &middot; Pro ငွေပေးရ",
-  "Core and Pro as two Play apps, installed and updated by Google Play. Play Pro has every Pro feature except the Linux shell.": "Core နှင့် Pro ကို Play အက်ပ် နှစ်ခုအဖြစ် Google Play က ထည့်သွင်း၍ အပ်ဒိတ်လုပ်ပေးသည်။ Play Pro တွင် Linux shell မှလွဲ၍ Pro လုပ်ဆောင်ချက်အားလုံး ပါသည်။",
-  "<span class=\"k\">CORE:</span> com.qp1ng.android": "<span class=\"k\">CORE:</span> com.qp1ng.android",
-  "<span class=\"k\">PRO:</span> com.qp1ng.android.pro": "<span class=\"k\">PRO:</span> com.qp1ng.android.pro",
   "<span class=\"k\">TARGET:</span> Android 8.0+": "<span class=\"k\">စနစ်:</span> Android 8.0+",
   "Coming soon to Google Play": "Google Play တွင် မကြာမီ",
   "Core &middot; soon": "Core &middot; မကြာမီ",
@@ -590,7 +586,6 @@
   "INTERCEPTION:": "ကြားဖြတ်ခြင်း:",
   "ptrace() syscall translation": "ptrace() syscall ဘာသာပြန်ခြင်း",
   "STORAGE PATH:": "သိုလှောင်ရာ PATH:",
-  "/data/data/com.qp1ng.android.pro/files/alpine/rootfs": "/data/data/com.qp1ng.android.pro/files/alpine/rootfs",
   "NETWORK:": "ကွန်ရက်:",
   "Off by default; offline once installed": "မူလ ပိတ်ထား၊ ထည့်သွင်းပြီးလျှင် အော့ဖ်လိုင်း",
   "qp1ng@alpine-proot: ~ (files/alpine/rootfs)": "qp1ng@alpine-proot: ~ (files/alpine/rootfs)",
@@ -2673,7 +2668,11 @@
   "ANDROID / FALLOUT / 00:38 · 1.5×": "ANDROID / FALLOUT / 00:38 · 1.5×",
   "ANDROID / FIRST SETUP / 01:01 · 1.5×": "ANDROID / FIRST SETUP / 01:01 · 1.5×",
   "ANDROID / FIRST CONTACT / 01:10": "ANDROID / FIRST CONTACT / 01:10",
-  "Recorded on two real phones, the second connected to the first one’s hotspot. QR exchange and messages are separate takes with different installs, so the contact names differ. Sending and delivery in real time; the rest accelerated. The address book, always shielded from screen capture, is cut.": "ဖုန်းအစစ် နှစ်လုံးပေါ်တွင် ရိုက်ကူးထားပြီး ဒုတိယဖုန်းကို ပထမဖုန်း၏ hotspot နှင့် ချိတ်ထားသည်။ QR ဖလှယ်ခြင်းနှင့် မက်ဆေ့ချ်များသည် မတူညီသော ထည့်သွင်းမှုများဖြင့် သီးခြားရိုက်ကွက်များဖြစ်၍ အဆက်အသွယ်အမည်များ ကွဲပြားသည်။ ပို့ခြင်းနှင့် ရောက်ရှိခြင်းကို အချိန်နှင့်တစ်ပြေးညီ ပြထားပြီး ကျန်အပိုင်းများကို အမြန်ပြထားသည်။ မျက်နှာပြင်ဖမ်းယူမှုမှ အမြဲကာကွယ်ထားသော လိပ်စာစာအုပ်ကို ဖြတ်ထားသည်။"
+  "Recorded on two real phones, the second connected to the first one’s hotspot. QR exchange and messages are separate takes with different installs, so the contact names differ. Sending and delivery in real time; the rest accelerated. The address book, always shielded from screen capture, is cut.": "ဖုန်းအစစ် နှစ်လုံးပေါ်တွင် ရိုက်ကူးထားပြီး ဒုတိယဖုန်းကို ပထမဖုန်း၏ hotspot နှင့် ချိတ်ထားသည်။ QR ဖလှယ်ခြင်းနှင့် မက်ဆေ့ချ်များသည် မတူညီသော ထည့်သွင်းမှုများဖြင့် သီးခြားရိုက်ကွက်များဖြစ်၍ အဆက်အသွယ်အမည်များ ကွဲပြားသည်။ ပို့ခြင်းနှင့် ရောက်ရှိခြင်းကို အချိန်နှင့်တစ်ပြေးညီ ပြထားပြီး ကျန်အပိုင်းများကို အမြန်ပြထားသည်။ မျက်နှာပြင်ဖမ်းယူမှုမှ အမြဲကာကွယ်ထားသော လိပ်စာစာအုပ်ကို ဖြတ်ထားသည်။",
+  "Free &middot; Pro in-app": "အခမဲ့ &middot; Pro ကို အက်ပ်အတွင်း ဝယ်ရ",
+  "One app, installed and updated by Google Play, with Pro as an in-app purchase. Play Pro has every Pro feature except the Linux shell.": "Google Play က ထည့်သွင်း၍ အပ်ဒိတ်လုပ်ပေးသော အက်ပ်တစ်ခုတည်းဖြစ်ပြီး Pro ကို အက်ပ်အတွင်း ဝယ်ရသည်။ Play Pro တွင် Linux shell မှလွဲ၍ Pro လုပ်ဆောင်ချက်အားလုံး ပါသည်။",
+  "<span class=\"k\">PACKAGE:</span> com.qp1ng.android": "<span class=\"k\">PACKAGE:</span> com.qp1ng.android",
+  "/data/data/com.qp1ng.android/files/alpine/rootfs": "/data/data/com.qp1ng.android/files/alpine/rootfs"
  },
  "messages": {
   "COPIED": "ကူးယူပြီး",

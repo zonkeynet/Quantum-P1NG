@@ -142,10 +142,6 @@
   "<span class=\"dl-ch-dot\"></span>NODE 02 // GOOGLE PLAY": "<span class=\"dl-ch-dot\"></span>KNOTEN 02 // GOOGLE PLAY",
   "COMING SOON": "DEMNÄCHST",
   "Google Play": "Google Play",
-  "Core free &middot; Pro paid": "Core gratis &middot; Pro kostenpflichtig",
-  "Core and Pro as two Play apps, installed and updated by Google Play. Play Pro has every Pro feature except the Linux shell.": "Core und Pro als zwei Play-Apps, installiert und aktualisiert von Google Play. Play Pro hat alle Pro-Funktionen außer der Linux-Shell.",
-  "<span class=\"k\">CORE:</span> com.qp1ng.android": "<span class=\"k\">CORE:</span> com.qp1ng.android",
-  "<span class=\"k\">PRO:</span> com.qp1ng.android.pro": "<span class=\"k\">PRO:</span> com.qp1ng.android.pro",
   "<span class=\"k\">TARGET:</span> Android 8.0+": "<span class=\"k\">ZIEL:</span> Android 8.0+",
   "Coming soon to Google Play": "Bald auf Google Play",
   "Core &middot; soon": "Core &middot; bald",
@@ -590,7 +586,6 @@
   "INTERCEPTION:": "ABFANGEN:",
   "ptrace() syscall translation": "ptrace()-Syscall-Übersetzung",
   "STORAGE PATH:": "SPEICHERPFAD:",
-  "/data/data/com.qp1ng.android.pro/files/alpine/rootfs": "/data/data/com.qp1ng.android.pro/files/alpine/rootfs",
   "NETWORK:": "NETZWERK:",
   "Off by default; offline once installed": "Standardmäßig aus; nach der Installation offline",
   "qp1ng@alpine-proot: ~ (files/alpine/rootfs)": "qp1ng@alpine-proot: ~ (files/alpine/rootfs)",
@@ -2673,7 +2668,11 @@
   "ANDROID / FALLOUT / 00:38 · 1.5×": "ANDROID / FALLOUT / 00:38 · 1.5×",
   "ANDROID / FIRST SETUP / 01:01 · 1.5×": "ANDROID / FIRST SETUP / 01:01 · 1.5×",
   "ANDROID / FIRST CONTACT / 01:10": "ANDROID / FIRST CONTACT / 01:10",
-  "Recorded on two real phones, the second connected to the first one’s hotspot. QR exchange and messages are separate takes with different installs, so the contact names differ. Sending and delivery in real time; the rest accelerated. The address book, always shielded from screen capture, is cut.": "Auf zwei echten Telefonen aufgenommen, das zweite am Hotspot des ersten. QR-Austausch und Nachrichten sind getrennte Aufnahmen mit verschiedenen Installationen, daher unterscheiden sich die Kontaktnamen. Senden und Zustellen in Echtzeit; der Rest beschleunigt. Das Adressbuch, stets vor Bildschirmaufnahmen geschützt, ist herausgeschnitten."
+  "Recorded on two real phones, the second connected to the first one’s hotspot. QR exchange and messages are separate takes with different installs, so the contact names differ. Sending and delivery in real time; the rest accelerated. The address book, always shielded from screen capture, is cut.": "Auf zwei echten Telefonen aufgenommen, das zweite am Hotspot des ersten. QR-Austausch und Nachrichten sind getrennte Aufnahmen mit verschiedenen Installationen, daher unterscheiden sich die Kontaktnamen. Senden und Zustellen in Echtzeit; der Rest beschleunigt. Das Adressbuch, stets vor Bildschirmaufnahmen geschützt, ist herausgeschnitten.",
+  "Free &middot; Pro in-app": "Gratis &middot; Pro per In-App-Kauf",
+  "One app, installed and updated by Google Play, with Pro as an in-app purchase. Play Pro has every Pro feature except the Linux shell.": "Eine App, installiert und aktualisiert von Google Play, mit Pro als In-App-Kauf. Play Pro hat alle Pro-Funktionen außer der Linux-Shell.",
+  "<span class=\"k\">PACKAGE:</span> com.qp1ng.android": "<span class=\"k\">PACKAGE:</span> com.qp1ng.android",
+  "/data/data/com.qp1ng.android/files/alpine/rootfs": "/data/data/com.qp1ng.android/files/alpine/rootfs"
  },
  "messages": {
   "COPIED": "KOPIERT",
