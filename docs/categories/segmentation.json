@@ -1,0 +1,147 @@
+{
+  "version": 45,
+  "updatedAt": "2026-11-04",
+  "schemaVersion": "2.4",
+  "appId": "com.qp1ng.android",
+  "minAppVersion": 213,
+  "category": "segmentation",
+  "section": "image_tools",
+  "categoryInfo": {
+    "title": "Cut-outs",
+    "description": "Packs that cut people and objects out of pictures, or select the object you touch, on the device, for Q-Dream Studio."
+  },
+  "packs": [
+    {
+      "id": "seg-birefnet-lite-512",
+      "type": "SEGMENTATION",
+      "category": "segmentation",
+      "section": "image_tools",
+      "name": "BiRefNet Lite 512 — Cut-outs",
+      "family": "birefnet",
+      "description": "Cuts people and objects out of photos on the device, hair and fine edges included, for transparent PNGs. BiRefNet lite (bilateral reference segmentation), its mask brought to the photo's full size along the photo's own edges. About 5 to 12 seconds a photo.",
+      "engine": "birefnet",
+      "runtimeBackend": "GENERIC",
+      "storageKind": "DIRECTORY_BUNDLE",
+      "language": "multi",
+      "variant": "lite-512",
+      "segments": [
+        "person",
+        "object"
+      ],
+      "sizeBytes": 191878749,
+      "sha256": "1cb0fb360dadd15af77c639085d77a9df67db0c64315560c3de005f676345ac2",
+      "downloadUrl": "https://huggingface.co/Q-P1NG/birefnet-lite-512/resolve/7f9d0b3c808b920456487a0ebda00b7c01100414/model.onnx",
+      "fileName": "model.onnx",
+      "bundleEntryPoint": "model.onnx",
+      "engineLicense": "MIT (ONNX Runtime)",
+      "weightsLicense": "MIT",
+      "licenseModel": "MIT",
+      "commercialOk": true,
+      "minAppVersion": 264,
+      "recommended": true,
+      "catalogFeatured": true,
+      "minRamMb": 3500,
+      "sourceOrg": "ZhengPeng7 (BiRefNet), ONNX export by Studio Ludens; kept by Q-P1NG",
+      "upstreamModelCardUrl": "https://huggingface.co/studioludens/birefnet-lite-512",
+      "remoteArtifacts": [
+        {
+          "path": "model.onnx",
+          "url": "https://huggingface.co/Q-P1NG/birefnet-lite-512/resolve/7f9d0b3c808b920456487a0ebda00b7c01100414/model.onnx",
+          "sha256": "1cb0fb360dadd15af77c639085d77a9df67db0c64315560c3de005f676345ac2",
+          "sizeBytes": 191877254,
+          "required": true
+        },
+        {
+          "path": "preprocessor_config.json",
+          "url": "https://huggingface.co/Q-P1NG/birefnet-lite-512/resolve/7f9d0b3c808b920456487a0ebda00b7c01100414/preprocessor_config.json",
+          "sha256": "a79663b311d8404dfb329f7b45bc9f970a0c155aeedae8ac15b6b77d76789613",
+          "sizeBytes": 389,
+          "required": true
+        },
+        {
+          "path": "LICENSE",
+          "url": "https://huggingface.co/Q-P1NG/birefnet-lite-512/resolve/7f9d0b3c808b920456487a0ebda00b7c01100414/LICENSE",
+          "sha256": "b5cd5faac84a0acb8a6bdb8aeef0919e528891be27216df84eab398d7c8bd2aa",
+          "sizeBytes": 1106,
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "seg-edgetam",
+      "type": "SEGMENTATION",
+      "category": "segmentation",
+      "section": "image_tools",
+      "name": "EdgeTAM — Select by touch",
+      "family": "edgetam",
+      "description": "Selects any object you touch or draw a box around, on the device: a mask to cut out, cover or edit. EdgeTAM (Meta, 2025), Segment Anything 2 made for phones: the photo is looked at once, in 1 to 3 seconds, then each touch takes under a second.",
+      "engine": "sam2",
+      "runtimeBackend": "GENERIC",
+      "storageKind": "DIRECTORY_BUNDLE",
+      "language": "multi",
+      "variant": "edgetam",
+      "segments": [
+        "point"
+      ],
+      "sizeBytes": 40908200,
+      "sha256": "ed068218eba96760fe02d04ce899c449660ac813a088d80ed7f42c8bb01e7cec",
+      "downloadUrl": "https://huggingface.co/Q-P1NG/edgetam/resolve/f0d49dfecb3c2db5d1872ae359415b0e93569bfa/onnx/vision_encoder.onnx",
+      "fileName": "onnx/vision_encoder.onnx",
+      "bundleEntryPoint": "onnx/vision_encoder.onnx",
+      "engineLicense": "MIT (ONNX Runtime)",
+      "weightsLicense": "Apache-2.0",
+      "licenseModel": "Apache-2.0",
+      "commercialOk": true,
+      "minAppVersion": 264,
+      "recommended": true,
+      "catalogFeatured": true,
+      "minRamMb": 2000,
+      "sourceOrg": "Meta (EdgeTAM), ONNX export by onnx-community; kept by Q-P1NG",
+      "upstreamModelCardUrl": "https://huggingface.co/facebook/EdgeTAM",
+      "remoteArtifacts": [
+        {
+          "path": "onnx/vision_encoder.onnx",
+          "url": "https://huggingface.co/Q-P1NG/edgetam/resolve/f0d49dfecb3c2db5d1872ae359415b0e93569bfa/onnx/vision_encoder.onnx",
+          "sha256": "ed068218eba96760fe02d04ce899c449660ac813a088d80ed7f42c8bb01e7cec",
+          "sizeBytes": 192225,
+          "required": true
+        },
+        {
+          "path": "onnx/vision_encoder.onnx_data",
+          "url": "https://huggingface.co/Q-P1NG/edgetam/resolve/f0d49dfecb3c2db5d1872ae359415b0e93569bfa/onnx/vision_encoder.onnx_data",
+          "sha256": "21e75dba7077dfcb53e8c9a6e99977156f2240ff3f1f9cddc43d66aa1ecb528e",
+          "sizeBytes": 19532576,
+          "required": true
+        },
+        {
+          "path": "onnx/prompt_encoder_mask_decoder.onnx",
+          "url": "https://huggingface.co/Q-P1NG/edgetam/resolve/f0d49dfecb3c2db5d1872ae359415b0e93569bfa/onnx/prompt_encoder_mask_decoder.onnx",
+          "sha256": "d3668299ec3edf70fbb139ec642b54bf3d4be453fd1b688a6b5938e0856fe546",
+          "sizeBytes": 213114,
+          "required": true
+        },
+        {
+          "path": "onnx/prompt_encoder_mask_decoder.onnx_data",
+          "url": "https://huggingface.co/Q-P1NG/edgetam/resolve/f0d49dfecb3c2db5d1872ae359415b0e93569bfa/onnx/prompt_encoder_mask_decoder.onnx_data",
+          "sha256": "dfa2125e30d08d388732f20c18fb63ab0f0f590cd270eb307f0c2b65919d1be8",
+          "sizeBytes": 20958208,
+          "required": true
+        },
+        {
+          "path": "preprocessor_config.json",
+          "url": "https://huggingface.co/Q-P1NG/edgetam/resolve/f0d49dfecb3c2db5d1872ae359415b0e93569bfa/preprocessor_config.json",
+          "sha256": "126d931a4698900d085aae8c2cf57ecc6923fa60b0bf425e490189f14c7200ee",
+          "sizeBytes": 720,
+          "required": true
+        },
+        {
+          "path": "LICENSE",
+          "url": "https://huggingface.co/Q-P1NG/edgetam/resolve/f0d49dfecb3c2db5d1872ae359415b0e93569bfa/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "sizeBytes": 11357,
+          "required": true
+        }
+      ]
+    }
+  ]
+}

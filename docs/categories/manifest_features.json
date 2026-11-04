@@ -1,6 +1,6 @@
 {
-  "version": 37,
-  "updatedAt": "2026-10-17",
+  "version": 45,
+  "updatedAt": "2026-11-04",
   "schemaVersion": "2.4",
   "appId": "com.qp1ng.android",
   "minAppVersion": 213,
@@ -80,43 +80,43 @@
       "remoteArtifacts": [
         {
           "path": "bos_before_voice.npy",
-          "url": "https://huggingface.co/lookbe/pocket-tts-onnx-v2/resolve/b291531fa4d9a036679d6b5176308fb613687aa7/italian/bos_before_voice.npy",
+          "url": "https://huggingface.co/Q-P1NG/pocket-tts-onnx/resolve/9fdae337bf68282639da85143ea8691464b0d265/lookbe-v2/italian/bos_before_voice.npy",
           "sha256": "ebfe9f3b8f5f12f9d9de85848c48cacc3cdb7b1c2890cdded77544b3f4d79577",
           "sizeBytes": 4224
         },
         {
           "path": "flow_lm_flow_int8.onnx",
-          "url": "https://huggingface.co/lookbe/pocket-tts-onnx-v2/resolve/b291531fa4d9a036679d6b5176308fb613687aa7/italian/flow_lm_flow_int8.onnx",
+          "url": "https://huggingface.co/Q-P1NG/pocket-tts-onnx/resolve/9fdae337bf68282639da85143ea8691464b0d265/lookbe-v2/italian/flow_lm_flow_int8.onnx",
           "sha256": "47f7c2dac8ac4d9dcd890dccf09d2d91100183df0bb8f53f8d6df0f09bf9517b",
           "sizeBytes": 10059521
         },
         {
           "path": "flow_lm_main_int8.onnx",
-          "url": "https://huggingface.co/lookbe/pocket-tts-onnx-v2/resolve/b291531fa4d9a036679d6b5176308fb613687aa7/italian/flow_lm_main_int8.onnx",
+          "url": "https://huggingface.co/Q-P1NG/pocket-tts-onnx/resolve/9fdae337bf68282639da85143ea8691464b0d265/lookbe-v2/italian/flow_lm_main_int8.onnx",
           "sha256": "a127f34a07da299c2db5f4388bcaceccac6af4c328c1638ad973739176f6da48",
           "sizeBytes": 76573815
         },
         {
           "path": "mimi_decoder_int8.onnx",
-          "url": "https://huggingface.co/lookbe/pocket-tts-onnx-v2/resolve/b291531fa4d9a036679d6b5176308fb613687aa7/italian/mimi_decoder_int8.onnx",
+          "url": "https://huggingface.co/Q-P1NG/pocket-tts-onnx/resolve/9fdae337bf68282639da85143ea8691464b0d265/lookbe-v2/italian/mimi_decoder_int8.onnx",
           "sha256": "81b1f89d6737ceb8058877a74d4557b89cf8c7326d04921a6ec85d5908b7753a",
           "sizeBytes": 22671881
         },
         {
           "path": "mimi_encoder.onnx",
-          "url": "https://huggingface.co/lookbe/pocket-tts-onnx-v2/resolve/b291531fa4d9a036679d6b5176308fb613687aa7/italian/mimi_encoder.onnx",
+          "url": "https://huggingface.co/Q-P1NG/pocket-tts-onnx/resolve/9fdae337bf68282639da85143ea8691464b0d265/lookbe-v2/italian/mimi_encoder.onnx",
           "sha256": "e3af6f839369135157675b7fe5cd6a3593ed633f57bcce0a5dc1d5b40d021770",
           "sizeBytes": 39284392
         },
         {
           "path": "text_conditioner.onnx",
-          "url": "https://huggingface.co/lookbe/pocket-tts-onnx-v2/resolve/b291531fa4d9a036679d6b5176308fb613687aa7/italian/text_conditioner.onnx",
+          "url": "https://huggingface.co/Q-P1NG/pocket-tts-onnx/resolve/9fdae337bf68282639da85143ea8691464b0d265/lookbe-v2/italian/text_conditioner.onnx",
           "sha256": "824e34322cb603f2042b87cfd5d1833a07397dd96f885db74506d4d8cfb8ad43",
           "sizeBytes": 16388344
         },
         {
           "path": "tokenizer.model",
-          "url": "https://huggingface.co/lookbe/pocket-tts-onnx-v2/resolve/b291531fa4d9a036679d6b5176308fb613687aa7/italian/tokenizer.model",
+          "url": "https://huggingface.co/Q-P1NG/pocket-tts-onnx/resolve/9fdae337bf68282639da85143ea8691464b0d265/lookbe-v2/italian/tokenizer.model",
           "sha256": "6583b974a11b90e14d8a4c8e9c43f06c3861b9ede6e5023a4c27ab5a3a7d4c39",
           "sizeBytes": 60078
         }
@@ -150,43 +150,43 @@
       "remoteArtifacts": [
         {
           "path": "bos_before_voice.npy",
-          "url": "https://huggingface.co/lookbe/pocket-tts-onnx-v2/resolve/b291531fa4d9a036679d6b5176308fb613687aa7/english/bos_before_voice.npy",
+          "url": "https://huggingface.co/Q-P1NG/pocket-tts-onnx/resolve/9fdae337bf68282639da85143ea8691464b0d265/lookbe-v2/english/bos_before_voice.npy",
           "sha256": "f46edf4f7007b7ba4ea58831f49d003e59e167b4641c44bb3addfe9231a780b1",
           "sizeBytes": 4224
         },
         {
           "path": "flow_lm_flow_int8.onnx",
-          "url": "https://huggingface.co/lookbe/pocket-tts-onnx-v2/resolve/b291531fa4d9a036679d6b5176308fb613687aa7/english/flow_lm_flow_int8.onnx",
+          "url": "https://huggingface.co/Q-P1NG/pocket-tts-onnx/resolve/9fdae337bf68282639da85143ea8691464b0d265/lookbe-v2/english/flow_lm_flow_int8.onnx",
           "sha256": "56520801306e84d33153d4510226cff07cf55271fe5da4170a064d8eefb89e59",
           "sizeBytes": 10059521
         },
         {
           "path": "flow_lm_main_int8.onnx",
-          "url": "https://huggingface.co/lookbe/pocket-tts-onnx-v2/resolve/b291531fa4d9a036679d6b5176308fb613687aa7/english/flow_lm_main_int8.onnx",
+          "url": "https://huggingface.co/Q-P1NG/pocket-tts-onnx/resolve/9fdae337bf68282639da85143ea8691464b0d265/lookbe-v2/english/flow_lm_main_int8.onnx",
           "sha256": "fe08a1d4132d549f726ac8ed197b240ec0a19a48859ec0558ad2f3d8ce659020",
           "sizeBytes": 76573815
         },
         {
           "path": "mimi_decoder_int8.onnx",
-          "url": "https://huggingface.co/lookbe/pocket-tts-onnx-v2/resolve/b291531fa4d9a036679d6b5176308fb613687aa7/english/mimi_decoder_int8.onnx",
+          "url": "https://huggingface.co/Q-P1NG/pocket-tts-onnx/resolve/9fdae337bf68282639da85143ea8691464b0d265/lookbe-v2/english/mimi_decoder_int8.onnx",
           "sha256": "2ab9e276ab9f30559beef41edf1049916cfbc5cefeb908f6039afbea33caa73c",
           "sizeBytes": 22671881
         },
         {
           "path": "mimi_encoder.onnx",
-          "url": "https://huggingface.co/lookbe/pocket-tts-onnx-v2/resolve/b291531fa4d9a036679d6b5176308fb613687aa7/english/mimi_encoder.onnx",
+          "url": "https://huggingface.co/Q-P1NG/pocket-tts-onnx/resolve/9fdae337bf68282639da85143ea8691464b0d265/lookbe-v2/english/mimi_encoder.onnx",
           "sha256": "e65ba4eaf68d3813dc7b095ae3c319da2b019254d813a087c93232073bff2dad",
           "sizeBytes": 39284392
         },
         {
           "path": "text_conditioner.onnx",
-          "url": "https://huggingface.co/lookbe/pocket-tts-onnx-v2/resolve/b291531fa4d9a036679d6b5176308fb613687aa7/english/text_conditioner.onnx",
+          "url": "https://huggingface.co/Q-P1NG/pocket-tts-onnx/resolve/9fdae337bf68282639da85143ea8691464b0d265/lookbe-v2/english/text_conditioner.onnx",
           "sha256": "c2dbc15bc9c771532624d0e4469aa810d226af7563cb8549756ba8e2b0ea0a1f",
           "sizeBytes": 16388344
         },
         {
           "path": "tokenizer.model",
-          "url": "https://huggingface.co/lookbe/pocket-tts-onnx-v2/resolve/b291531fa4d9a036679d6b5176308fb613687aa7/english/tokenizer.model",
+          "url": "https://huggingface.co/Q-P1NG/pocket-tts-onnx/resolve/9fdae337bf68282639da85143ea8691464b0d265/lookbe-v2/english/tokenizer.model",
           "sha256": "d461765ae179566678c93091c5fa6f2984c31bbe990bf1aa62d92c64d91bc3f6",
           "sizeBytes": 59339
         }
@@ -220,43 +220,43 @@
       "remoteArtifacts": [
         {
           "path": "bos_before_voice.npy",
-          "url": "https://huggingface.co/stephvax/pocket-tts-onnx/resolve/68487948d7f0faae84ac4c11ad566239ef98e667/onnx/italian_24l/bos_before_voice.npy",
+          "url": "https://huggingface.co/Q-P1NG/pocket-tts-onnx/resolve/9fdae337bf68282639da85143ea8691464b0d265/stephvax/italian_24l/bos_before_voice.npy",
           "sha256": "deced13188657a3543766500639e33271fd368b0f324bded9f9e615d42a23407",
           "sizeBytes": 4224
         },
         {
           "path": "flow_lm_flow_int8.onnx",
-          "url": "https://huggingface.co/stephvax/pocket-tts-onnx/resolve/68487948d7f0faae84ac4c11ad566239ef98e667/onnx/italian_24l/flow_lm_flow_int8.onnx",
+          "url": "https://huggingface.co/Q-P1NG/pocket-tts-onnx/resolve/9fdae337bf68282639da85143ea8691464b0d265/stephvax/italian_24l/flow_lm_flow_int8.onnx",
           "sha256": "d0b9936a41a192eb63ef77f8af83c0884330b3ec9ff2d92f05e522f10b1feef8",
           "sizeBytes": 9935594
         },
         {
           "path": "flow_lm_main_int8.onnx",
-          "url": "https://huggingface.co/stephvax/pocket-tts-onnx/resolve/68487948d7f0faae84ac4c11ad566239ef98e667/onnx/italian_24l/flow_lm_main_int8.onnx",
+          "url": "https://huggingface.co/Q-P1NG/pocket-tts-onnx/resolve/9fdae337bf68282639da85143ea8691464b0d265/stephvax/italian_24l/flow_lm_main_int8.onnx",
           "sha256": "dbb88959311c99a56db7a36c7c9c59dd1337cb5a168f334e2c95b3ac71d23efa",
           "sizeBytes": 303347168
         },
         {
           "path": "mimi_decoder_int8.onnx",
-          "url": "https://huggingface.co/stephvax/pocket-tts-onnx/resolve/68487948d7f0faae84ac4c11ad566239ef98e667/onnx/italian_24l/mimi_decoder_int8.onnx",
+          "url": "https://huggingface.co/Q-P1NG/pocket-tts-onnx/resolve/9fdae337bf68282639da85143ea8691464b0d265/stephvax/italian_24l/mimi_decoder_int8.onnx",
           "sha256": "c21defb1d24a5afd492c94f393d0f07bb544128fc0c102994e1dc463c30b44f0",
           "sizeBytes": 22616918
         },
         {
           "path": "mimi_encoder.onnx",
-          "url": "https://huggingface.co/stephvax/pocket-tts-onnx/resolve/68487948d7f0faae84ac4c11ad566239ef98e667/onnx/italian_24l/mimi_encoder.onnx",
+          "url": "https://huggingface.co/Q-P1NG/pocket-tts-onnx/resolve/9fdae337bf68282639da85143ea8691464b0d265/stephvax/italian_24l/mimi_encoder.onnx",
           "sha256": "9d5c62843390199cf3894f7278b73f212b07ab065c134fe0f34d0ea9cf790219",
           "sizeBytes": 39279367
         },
         {
           "path": "text_conditioner.onnx",
-          "url": "https://huggingface.co/stephvax/pocket-tts-onnx/resolve/68487948d7f0faae84ac4c11ad566239ef98e667/onnx/italian_24l/text_conditioner.onnx",
+          "url": "https://huggingface.co/Q-P1NG/pocket-tts-onnx/resolve/9fdae337bf68282639da85143ea8691464b0d265/stephvax/italian_24l/text_conditioner.onnx",
           "sha256": "cb8a5f7aeb7f09032aac5ca0db0a06fb6638188dae479f4afed130ee1c001e4a",
           "sizeBytes": 16388310
         },
         {
           "path": "tokenizer.model",
-          "url": "https://huggingface.co/stephvax/pocket-tts-onnx/resolve/68487948d7f0faae84ac4c11ad566239ef98e667/onnx/italian_24l/tokenizer.model",
+          "url": "https://huggingface.co/Q-P1NG/pocket-tts-onnx/resolve/9fdae337bf68282639da85143ea8691464b0d265/stephvax/italian_24l/tokenizer.model",
           "sha256": "6583b974a11b90e14d8a4c8e9c43f06c3861b9ede6e5023a4c27ab5a3a7d4c39",
           "sizeBytes": 60078
         }
@@ -333,13 +333,13 @@
       "remoteArtifacts": [
         {
           "path": "tone_converter_q8.onnx",
-          "url": "https://huggingface.co/TigreGotico/voiceclonnx-openvoice-v2/resolve/34d010c192c97f763207f488f6057fd07fee42ad/tone_converter_q8.onnx",
+          "url": "https://huggingface.co/Q-P1NG/openvoice-v2-onnx/resolve/9383bf8b636a05319f94a4bb181777f32f6f8dfd/tone_converter_q8.onnx",
           "sha256": "54ea73764c46cdbb74af2124e30cce42007045f1f5a60bd7520472f155eb6f4c",
           "sizeBytes": 40804625
         },
         {
           "path": "tone_ref_encoder_q8.onnx",
-          "url": "https://huggingface.co/TigreGotico/voiceclonnx-openvoice-v2/resolve/34d010c192c97f763207f488f6057fd07fee42ad/tone_ref_encoder_q8.onnx",
+          "url": "https://huggingface.co/Q-P1NG/openvoice-v2-onnx/resolve/9383bf8b636a05319f94a4bb181777f32f6f8dfd/tone_ref_encoder_q8.onnx",
           "sha256": "8e46097e46a68a2137acf105b58bc67cf686ec0d811c1c45ada28557a608c0e3",
           "sizeBytes": 2315304
         }
@@ -371,13 +371,13 @@
       "remoteArtifacts": [
         {
           "path": "tone_converter.onnx",
-          "url": "https://huggingface.co/TigreGotico/voiceclonnx-openvoice-v2/resolve/34d010c192c97f763207f488f6057fd07fee42ad/tone_converter.onnx",
+          "url": "https://huggingface.co/Q-P1NG/openvoice-v2-onnx/resolve/9383bf8b636a05319f94a4bb181777f32f6f8dfd/tone_converter.onnx",
           "sha256": "7d7ee834c230037ead5cd6b64d44fcd842fbab5cd4cf6fe3ab381fad763325e9",
           "sizeBytes": 128051288
         },
         {
           "path": "tone_ref_encoder_q8.onnx",
-          "url": "https://huggingface.co/TigreGotico/voiceclonnx-openvoice-v2/resolve/34d010c192c97f763207f488f6057fd07fee42ad/tone_ref_encoder_q8.onnx",
+          "url": "https://huggingface.co/Q-P1NG/openvoice-v2-onnx/resolve/9383bf8b636a05319f94a4bb181777f32f6f8dfd/tone_ref_encoder_q8.onnx",
           "sha256": "8e46097e46a68a2137acf105b58bc67cf686ec0d811c1c45ada28557a608c0e3",
           "sizeBytes": 2315304
         }

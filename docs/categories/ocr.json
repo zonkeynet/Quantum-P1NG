@@ -1,0 +1,133 @@
+{
+  "version": 45,
+  "updatedAt": "2026-11-04",
+  "schemaVersion": "2.4",
+  "appId": "com.qp1ng.android",
+  "minAppVersion": 213,
+  "category": "ocr",
+  "section": "image_tools",
+  "categoryInfo": {
+    "title": "Text Reading (OCR)",
+    "description": "PaddleOCR PP-OCRv6 packs that read printed text in pictures on the device, for Q-Dream Studio."
+  },
+  "packs": [
+    {
+      "id": "ocr-ppocrv6-small",
+      "type": "OCR",
+      "category": "ocr",
+      "section": "image_tools",
+      "name": "PP-OCRv6 Small · Text reading",
+      "family": "pp-ocrv6",
+      "description": "Reads printed text in photos, screenshots and documents, offline: Italian, English and 46 other Latin-script languages, Chinese and Japanese. PaddleOCR PP-OCRv6 (June 2026), the more accurate tier at mobile speed. Download 31 MB.",
+      "engine": "ppocr",
+      "runtimeBackend": "GENERIC",
+      "storageKind": "DIRECTORY_BUNDLE",
+      "language": "multi",
+      "variant": "small",
+      "sizeBytes": 31191354,
+      "sha256": "5435fd747c9e0efe15a96d0b378d5bd157e9492ed8fd80edf08f30d02fa24634",
+      "downloadUrl": "https://huggingface.co/Q-P1NG/pp-ocrv6-onnx/resolve/f6efbbe4f716dbcabc63776ba1616ed0c2fcb1ce/small/rec/inference.onnx",
+      "fileName": "rec/inference.onnx",
+      "bundleEntryPoint": "rec/inference.onnx",
+      "engineLicense": "MIT (ONNX Runtime)",
+      "weightsLicense": "Apache-2.0",
+      "licenseModel": "Apache-2.0",
+      "commercialOk": true,
+      "minAppVersion": 264,
+      "recommended": true,
+      "catalogFeatured": true,
+      "minRamMb": 3000,
+      "sourceOrg": "PaddlePaddle",
+      "upstreamModelCardUrl": "https://huggingface.co/PaddlePaddle/PP-OCRv6_small_rec_onnx",
+      "remoteArtifacts": [
+        {
+          "path": "det/inference.onnx",
+          "url": "https://huggingface.co/Q-P1NG/pp-ocrv6-onnx/resolve/f6efbbe4f716dbcabc63776ba1616ed0c2fcb1ce/small/det/inference.onnx",
+          "sha256": "d73e0058b7a8086bbd57f3d10b8bcd4ff95363f67e06e2762b5e814fe9c9410e",
+          "sizeBytes": 9880512,
+          "required": true
+        },
+        {
+          "path": "det/inference.yml",
+          "url": "https://huggingface.co/Q-P1NG/pp-ocrv6-onnx/resolve/f6efbbe4f716dbcabc63776ba1616ed0c2fcb1ce/small/det/inference.yml",
+          "sha256": "193f435274bf9f0b5f71a929bbfbcf148282df7e633b34e7c373e8f44741b516",
+          "sizeBytes": 885,
+          "required": true
+        },
+        {
+          "path": "rec/inference.onnx",
+          "url": "https://huggingface.co/Q-P1NG/pp-ocrv6-onnx/resolve/f6efbbe4f716dbcabc63776ba1616ed0c2fcb1ce/small/rec/inference.onnx",
+          "sha256": "5435fd747c9e0efe15a96d0b378d5bd157e9492ed8fd80edf08f30d02fa24634",
+          "sizeBytes": 21159378,
+          "required": true
+        },
+        {
+          "path": "rec/inference.yml",
+          "url": "https://huggingface.co/Q-P1NG/pp-ocrv6-onnx/resolve/f6efbbe4f716dbcabc63776ba1616ed0c2fcb1ce/small/rec/inference.yml",
+          "sha256": "ab078671bb49f06228eadccd34f1bb501e157f7a047095ffb943ba81512c77d1",
+          "sizeBytes": 150579,
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "ocr-ppocrv6-tiny",
+      "type": "OCR",
+      "category": "ocr",
+      "section": "image_tools",
+      "name": "PP-OCRv6 Tiny · Text reading",
+      "family": "pp-ocrv6",
+      "description": "The same languages in a 6 MB download, for phones with little memory or space: faster, a little less accurate. PaddleOCR PP-OCRv6 (June 2026).",
+      "engine": "ppocr",
+      "runtimeBackend": "GENERIC",
+      "storageKind": "DIRECTORY_BUNDLE",
+      "language": "multi",
+      "variant": "tiny",
+      "sizeBytes": 6299683,
+      "sha256": "9ef676d6ed3c88256a2d92c640c44f25b0c40947e111b14b8be8f594091563e6",
+      "downloadUrl": "https://huggingface.co/Q-P1NG/pp-ocrv6-onnx/resolve/f6efbbe4f716dbcabc63776ba1616ed0c2fcb1ce/tiny/rec/inference.onnx",
+      "fileName": "rec/inference.onnx",
+      "bundleEntryPoint": "rec/inference.onnx",
+      "engineLicense": "MIT (ONNX Runtime)",
+      "weightsLicense": "Apache-2.0",
+      "licenseModel": "Apache-2.0",
+      "commercialOk": true,
+      "minAppVersion": 264,
+      "recommended": false,
+      "catalogFeatured": false,
+      "minRamMb": 2000,
+      "sourceOrg": "PaddlePaddle",
+      "upstreamModelCardUrl": "https://huggingface.co/PaddlePaddle/PP-OCRv6_tiny_rec_onnx",
+      "remoteArtifacts": [
+        {
+          "path": "det/inference.onnx",
+          "url": "https://huggingface.co/Q-P1NG/pp-ocrv6-onnx/resolve/f6efbbe4f716dbcabc63776ba1616ed0c2fcb1ce/tiny/det/inference.onnx",
+          "sha256": "193bab7a04fca699a6c82e6abb5b81bdb28177f0abd4062552b04908dafb19f8",
+          "sizeBytes": 1780590,
+          "required": true
+        },
+        {
+          "path": "det/inference.yml",
+          "url": "https://huggingface.co/Q-P1NG/pp-ocrv6-onnx/resolve/f6efbbe4f716dbcabc63776ba1616ed0c2fcb1ce/tiny/det/inference.yml",
+          "sha256": "3ac018be6f97499a08faa3bbdeb33640968d9307f6736d152902747a9f259593",
+          "sizeBytes": 883,
+          "required": true
+        },
+        {
+          "path": "rec/inference.onnx",
+          "url": "https://huggingface.co/Q-P1NG/pp-ocrv6-onnx/resolve/f6efbbe4f716dbcabc63776ba1616ed0c2fcb1ce/tiny/rec/inference.onnx",
+          "sha256": "9ef676d6ed3c88256a2d92c640c44f25b0c40947e111b14b8be8f594091563e6",
+          "sizeBytes": 4462639,
+          "required": true
+        },
+        {
+          "path": "rec/inference.yml",
+          "url": "https://huggingface.co/Q-P1NG/pp-ocrv6-onnx/resolve/f6efbbe4f716dbcabc63776ba1616ed0c2fcb1ce/tiny/rec/inference.yml",
+          "sha256": "66170210bad538e83fff3c4a3867e547d6bf20b50d64b20347c4b913f3034ea1",
+          "sizeBytes": 55571,
+          "required": true
+        }
+      ]
+    }
+  ]
+}

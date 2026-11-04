@@ -1,11 +1,12 @@
 {
-  "version": 37,
-  "updatedAt": "2026-10-17",
+  "version": 45,
+  "updatedAt": "2026-11-04",
   "schemaVersion": "2.4",
   "appId": "com.qp1ng.android",
   "minAppVersion": 213,
   "sectionOrder": [
-    "image"
+    "image",
+    "image_tools"
   ],
   "sections": {
     "image": {
@@ -14,12 +15,28 @@
       "categories": [
         "image_gen"
       ]
+    },
+    "image_tools": {
+      "title": "Image Tools",
+      "description": "Offline tools for Q-Dream Studio, downloaded only if you use them: reading the text in photos and documents, cutting out their subjects.",
+      "categories": [
+        "ocr",
+        "segmentation"
+      ]
     }
   },
   "categories": {
     "image_gen": {
       "title": "Image Generation",
       "description": "On-device Stable Diffusion packs for the Q-Dream (CPU and Snapdragon NPU) and sd.cpp runtimes."
+    },
+    "ocr": {
+      "title": "Text Reading (OCR)",
+      "description": "PaddleOCR PP-OCRv6 packs that read printed text in pictures on the device, for Q-Dream Studio."
+    },
+    "segmentation": {
+      "title": "Cut-outs",
+      "description": "Packs that cut people and objects out of pictures, or select the object you touch, on the device, for Q-Dream Studio."
     }
   },
   "packs": [
@@ -154,6 +171,8 @@
       "recommendedSteps": 6,
       "recommendedCfgScale": 1.0,
       "supportsTxt2Img": true,
+      "supportsImg2Img": true,
+      "supportsInpaint": true,
       "sourceOrg": "cyberdelia",
       "sourceTrust": "OFFICIAL_AUTHOR",
       "upstreamModelCardUrl": "https://huggingface.co/cyberdelia/CyberRealistic",
@@ -872,6 +891,8 @@
       "recommendedSteps": 6,
       "recommendedCfgScale": 1.0,
       "supportsTxt2Img": true,
+      "supportsImg2Img": true,
+      "supportsInpaint": true,
       "sourceOrg": "Lykon",
       "sourceTrust": "OFFICIAL_AUTHOR",
       "upstreamModelCardUrl": "https://huggingface.co/Lykon/dreamshaper-8-lcm",
@@ -1569,6 +1590,8 @@
       "recommendedSteps": 6,
       "recommendedCfgScale": 1.0,
       "supportsTxt2Img": true,
+      "supportsImg2Img": true,
+      "supportsInpaint": true,
       "sourceOrg": "SG161222",
       "sourceTrust": "OFFICIAL_AUTHOR",
       "upstreamModelCardUrl": "https://huggingface.co/SG161222/Realistic_Vision_V6.0_B1_noVAE",
@@ -1707,6 +1730,256 @@
       "recommendedSteps": 25,
       "recommendedCfgScale": 6.0,
       "supportsTxt2Img": true
+    },
+    {
+      "id": "ocr-ppocrv6-small",
+      "type": "OCR",
+      "category": "ocr",
+      "section": "image_tools",
+      "name": "PP-OCRv6 Small · Text reading",
+      "family": "pp-ocrv6",
+      "description": "Reads printed text in photos, screenshots and documents, offline: Italian, English and 46 other Latin-script languages, Chinese and Japanese. PaddleOCR PP-OCRv6 (June 2026), the more accurate tier at mobile speed. Download 31 MB.",
+      "engine": "ppocr",
+      "runtimeBackend": "GENERIC",
+      "storageKind": "DIRECTORY_BUNDLE",
+      "language": "multi",
+      "variant": "small",
+      "sizeBytes": 31191354,
+      "sha256": "5435fd747c9e0efe15a96d0b378d5bd157e9492ed8fd80edf08f30d02fa24634",
+      "downloadUrl": "https://huggingface.co/Q-P1NG/pp-ocrv6-onnx/resolve/f6efbbe4f716dbcabc63776ba1616ed0c2fcb1ce/small/rec/inference.onnx",
+      "fileName": "rec/inference.onnx",
+      "bundleEntryPoint": "rec/inference.onnx",
+      "engineLicense": "MIT (ONNX Runtime)",
+      "weightsLicense": "Apache-2.0",
+      "licenseModel": "Apache-2.0",
+      "commercialOk": true,
+      "minAppVersion": 264,
+      "recommended": true,
+      "catalogFeatured": true,
+      "minRamMb": 3000,
+      "sourceOrg": "PaddlePaddle",
+      "upstreamModelCardUrl": "https://huggingface.co/PaddlePaddle/PP-OCRv6_small_rec_onnx",
+      "remoteArtifacts": [
+        {
+          "path": "det/inference.onnx",
+          "url": "https://huggingface.co/Q-P1NG/pp-ocrv6-onnx/resolve/f6efbbe4f716dbcabc63776ba1616ed0c2fcb1ce/small/det/inference.onnx",
+          "sha256": "d73e0058b7a8086bbd57f3d10b8bcd4ff95363f67e06e2762b5e814fe9c9410e",
+          "sizeBytes": 9880512,
+          "required": true
+        },
+        {
+          "path": "det/inference.yml",
+          "url": "https://huggingface.co/Q-P1NG/pp-ocrv6-onnx/resolve/f6efbbe4f716dbcabc63776ba1616ed0c2fcb1ce/small/det/inference.yml",
+          "sha256": "193f435274bf9f0b5f71a929bbfbcf148282df7e633b34e7c373e8f44741b516",
+          "sizeBytes": 885,
+          "required": true
+        },
+        {
+          "path": "rec/inference.onnx",
+          "url": "https://huggingface.co/Q-P1NG/pp-ocrv6-onnx/resolve/f6efbbe4f716dbcabc63776ba1616ed0c2fcb1ce/small/rec/inference.onnx",
+          "sha256": "5435fd747c9e0efe15a96d0b378d5bd157e9492ed8fd80edf08f30d02fa24634",
+          "sizeBytes": 21159378,
+          "required": true
+        },
+        {
+          "path": "rec/inference.yml",
+          "url": "https://huggingface.co/Q-P1NG/pp-ocrv6-onnx/resolve/f6efbbe4f716dbcabc63776ba1616ed0c2fcb1ce/small/rec/inference.yml",
+          "sha256": "ab078671bb49f06228eadccd34f1bb501e157f7a047095ffb943ba81512c77d1",
+          "sizeBytes": 150579,
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "ocr-ppocrv6-tiny",
+      "type": "OCR",
+      "category": "ocr",
+      "section": "image_tools",
+      "name": "PP-OCRv6 Tiny · Text reading",
+      "family": "pp-ocrv6",
+      "description": "The same languages in a 6 MB download, for phones with little memory or space: faster, a little less accurate. PaddleOCR PP-OCRv6 (June 2026).",
+      "engine": "ppocr",
+      "runtimeBackend": "GENERIC",
+      "storageKind": "DIRECTORY_BUNDLE",
+      "language": "multi",
+      "variant": "tiny",
+      "sizeBytes": 6299683,
+      "sha256": "9ef676d6ed3c88256a2d92c640c44f25b0c40947e111b14b8be8f594091563e6",
+      "downloadUrl": "https://huggingface.co/Q-P1NG/pp-ocrv6-onnx/resolve/f6efbbe4f716dbcabc63776ba1616ed0c2fcb1ce/tiny/rec/inference.onnx",
+      "fileName": "rec/inference.onnx",
+      "bundleEntryPoint": "rec/inference.onnx",
+      "engineLicense": "MIT (ONNX Runtime)",
+      "weightsLicense": "Apache-2.0",
+      "licenseModel": "Apache-2.0",
+      "commercialOk": true,
+      "minAppVersion": 264,
+      "recommended": false,
+      "catalogFeatured": false,
+      "minRamMb": 2000,
+      "sourceOrg": "PaddlePaddle",
+      "upstreamModelCardUrl": "https://huggingface.co/PaddlePaddle/PP-OCRv6_tiny_rec_onnx",
+      "remoteArtifacts": [
+        {
+          "path": "det/inference.onnx",
+          "url": "https://huggingface.co/Q-P1NG/pp-ocrv6-onnx/resolve/f6efbbe4f716dbcabc63776ba1616ed0c2fcb1ce/tiny/det/inference.onnx",
+          "sha256": "193bab7a04fca699a6c82e6abb5b81bdb28177f0abd4062552b04908dafb19f8",
+          "sizeBytes": 1780590,
+          "required": true
+        },
+        {
+          "path": "det/inference.yml",
+          "url": "https://huggingface.co/Q-P1NG/pp-ocrv6-onnx/resolve/f6efbbe4f716dbcabc63776ba1616ed0c2fcb1ce/tiny/det/inference.yml",
+          "sha256": "3ac018be6f97499a08faa3bbdeb33640968d9307f6736d152902747a9f259593",
+          "sizeBytes": 883,
+          "required": true
+        },
+        {
+          "path": "rec/inference.onnx",
+          "url": "https://huggingface.co/Q-P1NG/pp-ocrv6-onnx/resolve/f6efbbe4f716dbcabc63776ba1616ed0c2fcb1ce/tiny/rec/inference.onnx",
+          "sha256": "9ef676d6ed3c88256a2d92c640c44f25b0c40947e111b14b8be8f594091563e6",
+          "sizeBytes": 4462639,
+          "required": true
+        },
+        {
+          "path": "rec/inference.yml",
+          "url": "https://huggingface.co/Q-P1NG/pp-ocrv6-onnx/resolve/f6efbbe4f716dbcabc63776ba1616ed0c2fcb1ce/tiny/rec/inference.yml",
+          "sha256": "66170210bad538e83fff3c4a3867e547d6bf20b50d64b20347c4b913f3034ea1",
+          "sizeBytes": 55571,
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "seg-birefnet-lite-512",
+      "type": "SEGMENTATION",
+      "category": "segmentation",
+      "section": "image_tools",
+      "name": "BiRefNet Lite 512 — Cut-outs",
+      "family": "birefnet",
+      "description": "Cuts people and objects out of photos on the device, hair and fine edges included, for transparent PNGs. BiRefNet lite (bilateral reference segmentation), its mask brought to the photo's full size along the photo's own edges. About 5 to 12 seconds a photo.",
+      "engine": "birefnet",
+      "runtimeBackend": "GENERIC",
+      "storageKind": "DIRECTORY_BUNDLE",
+      "language": "multi",
+      "variant": "lite-512",
+      "segments": [
+        "person",
+        "object"
+      ],
+      "sizeBytes": 191878749,
+      "sha256": "1cb0fb360dadd15af77c639085d77a9df67db0c64315560c3de005f676345ac2",
+      "downloadUrl": "https://huggingface.co/Q-P1NG/birefnet-lite-512/resolve/7f9d0b3c808b920456487a0ebda00b7c01100414/model.onnx",
+      "fileName": "model.onnx",
+      "bundleEntryPoint": "model.onnx",
+      "engineLicense": "MIT (ONNX Runtime)",
+      "weightsLicense": "MIT",
+      "licenseModel": "MIT",
+      "commercialOk": true,
+      "minAppVersion": 264,
+      "recommended": true,
+      "catalogFeatured": true,
+      "minRamMb": 3500,
+      "sourceOrg": "ZhengPeng7 (BiRefNet), ONNX export by Studio Ludens; kept by Q-P1NG",
+      "upstreamModelCardUrl": "https://huggingface.co/studioludens/birefnet-lite-512",
+      "remoteArtifacts": [
+        {
+          "path": "model.onnx",
+          "url": "https://huggingface.co/Q-P1NG/birefnet-lite-512/resolve/7f9d0b3c808b920456487a0ebda00b7c01100414/model.onnx",
+          "sha256": "1cb0fb360dadd15af77c639085d77a9df67db0c64315560c3de005f676345ac2",
+          "sizeBytes": 191877254,
+          "required": true
+        },
+        {
+          "path": "preprocessor_config.json",
+          "url": "https://huggingface.co/Q-P1NG/birefnet-lite-512/resolve/7f9d0b3c808b920456487a0ebda00b7c01100414/preprocessor_config.json",
+          "sha256": "a79663b311d8404dfb329f7b45bc9f970a0c155aeedae8ac15b6b77d76789613",
+          "sizeBytes": 389,
+          "required": true
+        },
+        {
+          "path": "LICENSE",
+          "url": "https://huggingface.co/Q-P1NG/birefnet-lite-512/resolve/7f9d0b3c808b920456487a0ebda00b7c01100414/LICENSE",
+          "sha256": "b5cd5faac84a0acb8a6bdb8aeef0919e528891be27216df84eab398d7c8bd2aa",
+          "sizeBytes": 1106,
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "seg-edgetam",
+      "type": "SEGMENTATION",
+      "category": "segmentation",
+      "section": "image_tools",
+      "name": "EdgeTAM — Select by touch",
+      "family": "edgetam",
+      "description": "Selects any object you touch or draw a box around, on the device: a mask to cut out, cover or edit. EdgeTAM (Meta, 2025), Segment Anything 2 made for phones: the photo is looked at once, in 1 to 3 seconds, then each touch takes under a second.",
+      "engine": "sam2",
+      "runtimeBackend": "GENERIC",
+      "storageKind": "DIRECTORY_BUNDLE",
+      "language": "multi",
+      "variant": "edgetam",
+      "segments": [
+        "point"
+      ],
+      "sizeBytes": 40908200,
+      "sha256": "ed068218eba96760fe02d04ce899c449660ac813a088d80ed7f42c8bb01e7cec",
+      "downloadUrl": "https://huggingface.co/Q-P1NG/edgetam/resolve/f0d49dfecb3c2db5d1872ae359415b0e93569bfa/onnx/vision_encoder.onnx",
+      "fileName": "onnx/vision_encoder.onnx",
+      "bundleEntryPoint": "onnx/vision_encoder.onnx",
+      "engineLicense": "MIT (ONNX Runtime)",
+      "weightsLicense": "Apache-2.0",
+      "licenseModel": "Apache-2.0",
+      "commercialOk": true,
+      "minAppVersion": 264,
+      "recommended": true,
+      "catalogFeatured": true,
+      "minRamMb": 2000,
+      "sourceOrg": "Meta (EdgeTAM), ONNX export by onnx-community; kept by Q-P1NG",
+      "upstreamModelCardUrl": "https://huggingface.co/facebook/EdgeTAM",
+      "remoteArtifacts": [
+        {
+          "path": "onnx/vision_encoder.onnx",
+          "url": "https://huggingface.co/Q-P1NG/edgetam/resolve/f0d49dfecb3c2db5d1872ae359415b0e93569bfa/onnx/vision_encoder.onnx",
+          "sha256": "ed068218eba96760fe02d04ce899c449660ac813a088d80ed7f42c8bb01e7cec",
+          "sizeBytes": 192225,
+          "required": true
+        },
+        {
+          "path": "onnx/vision_encoder.onnx_data",
+          "url": "https://huggingface.co/Q-P1NG/edgetam/resolve/f0d49dfecb3c2db5d1872ae359415b0e93569bfa/onnx/vision_encoder.onnx_data",
+          "sha256": "21e75dba7077dfcb53e8c9a6e99977156f2240ff3f1f9cddc43d66aa1ecb528e",
+          "sizeBytes": 19532576,
+          "required": true
+        },
+        {
+          "path": "onnx/prompt_encoder_mask_decoder.onnx",
+          "url": "https://huggingface.co/Q-P1NG/edgetam/resolve/f0d49dfecb3c2db5d1872ae359415b0e93569bfa/onnx/prompt_encoder_mask_decoder.onnx",
+          "sha256": "d3668299ec3edf70fbb139ec642b54bf3d4be453fd1b688a6b5938e0856fe546",
+          "sizeBytes": 213114,
+          "required": true
+        },
+        {
+          "path": "onnx/prompt_encoder_mask_decoder.onnx_data",
+          "url": "https://huggingface.co/Q-P1NG/edgetam/resolve/f0d49dfecb3c2db5d1872ae359415b0e93569bfa/onnx/prompt_encoder_mask_decoder.onnx_data",
+          "sha256": "dfa2125e30d08d388732f20c18fb63ab0f0f590cd270eb307f0c2b65919d1be8",
+          "sizeBytes": 20958208,
+          "required": true
+        },
+        {
+          "path": "preprocessor_config.json",
+          "url": "https://huggingface.co/Q-P1NG/edgetam/resolve/f0d49dfecb3c2db5d1872ae359415b0e93569bfa/preprocessor_config.json",
+          "sha256": "126d931a4698900d085aae8c2cf57ecc6923fa60b0bf425e490189f14c7200ee",
+          "sizeBytes": 720,
+          "required": true
+        },
+        {
+          "path": "LICENSE",
+          "url": "https://huggingface.co/Q-P1NG/edgetam/resolve/f0d49dfecb3c2db5d1872ae359415b0e93569bfa/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "sizeBytes": 11357,
+          "required": true
+        }
+      ]
     }
   ]
 }
