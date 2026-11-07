@@ -1,5 +1,5 @@
 {
-  "version": 47,
+  "version": 48,
   "updatedAt": "2026-11-07",
   "schemaVersion": "2.4",
   "appId": "com.qp1ng.android",
@@ -1791,7 +1791,7 @@
       "language": "multi",
       "sizeBytes": 164358208,
       "sha256": "fdc769dc038e490edba23cb6313c96d7272e93e7be5945487fb7f136af27478d",
-      "downloadUrl": "https://github.com/zonkeynet/Quantum-P1NG/releases/download/models-reranker-v1/multilingual-reranker-small-v1.2-Q8_0.gguf",
+      "downloadUrl": "https://huggingface.co/Q-P1NG/multilingual-reranker-small-GGUF/resolve/a0e2e10622415f99f31393a13e22c9fb53a2f08e/multilingual-reranker-small-v1.2-Q8_0.gguf",
       "fileName": "multilingual-reranker-small-v1.2-Q8_0.gguf",
       "engineLicense": "MIT",
       "weightsLicense": "Apache-2.0",
