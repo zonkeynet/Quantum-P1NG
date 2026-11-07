@@ -1,6 +1,6 @@
 {
-  "version": 45,
-  "updatedAt": "2026-11-04",
+  "version": 46,
+  "updatedAt": "2026-11-07",
   "schemaVersion": "2.4",
   "appId": "com.qp1ng.android",
   "minAppVersion": 213,
@@ -30,6 +30,38 @@
     "embedding": {
       "title": "Embeddings & Retrieval",
       "description": "Sentence embedding packs for semantic search, RAG, indexing and vault retrieval."
+    }
+  },
+  "functions": {
+    "verify_step": {
+      "contract": "qbrain.verify_step.v2",
+      "title": "Step checks",
+      "description": "Checks a checklist step against its source document and quotes the passage that supports it.",
+      "section": "text"
+    },
+    "translate_segment": {
+      "contract": "qbrain.translate_segment.v1",
+      "title": "Translation",
+      "description": "Translates a passage between Italian and English, keeping its numbers and codes.",
+      "section": "text"
+    },
+    "extract_facts": {
+      "contract": "qbrain.extract_facts.v2",
+      "title": "Facts from a passage",
+      "description": "Lists the dates, people, places, quantities and references in a passage, each with its quote.",
+      "section": "text"
+    },
+    "summarize_section": {
+      "contract": "qbrain.summarize_section.v1",
+      "title": "Section summaries",
+      "description": "Summarizes a document section in its own language, with its quotes checked against it.",
+      "section": "text"
+    },
+    "find_personal_data": {
+      "contract": "qbrain.find_personal_data.v1",
+      "title": "Personal data",
+      "description": "Finds names, addresses and other personal data in a text so Black out can hide them. It never leaves the phone.",
+      "section": "text"
     }
   },
   "packs": [

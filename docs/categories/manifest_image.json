@@ -1,6 +1,6 @@
 {
-  "version": 45,
-  "updatedAt": "2026-11-04",
+  "version": 46,
+  "updatedAt": "2026-11-07",
   "schemaVersion": "2.4",
   "appId": "com.qp1ng.android",
   "minAppVersion": 213,
@@ -37,6 +37,18 @@
     "segmentation": {
       "title": "Cut-outs",
       "description": "Packs that cut people and objects out of pictures, or select the object you touch, on the device, for Q-Dream Studio."
+    }
+  },
+  "functions": {
+    "ocr_page": {
+      "contract": "qbrain.ocr_page.v1",
+      "title": "Page reading",
+      "description": "Reads the text of scanned pages and photos of documents, line by line, so the archive can search and cite them.",
+      "packs": [
+        "ocr-ppocrv6-small",
+        "ocr-ppocrv6-tiny"
+      ],
+      "section": "image_tools"
     }
   },
   "packs": [
