@@ -1,0 +1,53 @@
+{
+  "version": 50,
+  "updatedAt": "2026-11-08",
+  "schemaVersion": "2.4",
+  "appId": "com.qp1ng.android",
+  "minAppVersion": 213,
+  "category": "erase",
+  "section": "image_tools",
+  "categoryInfo": {
+    "title": "Object removal",
+    "description": "Packs that remove what you select from a photo and rebuild the scene in its place, with no words, on the device, for Q-Dream Studio."
+  },
+  "packs": [
+    {
+      "id": "erase-lama-512",
+      "type": "ERASER",
+      "category": "erase",
+      "section": "image_tools",
+      "name": "Big-LaMa 512 · Object removal",
+      "family": "lama",
+      "description": "Removes what you select from a photo and rebuilds the scene in its place, with no words, on the device, large areas included: Big-LaMa (Samsung AI Center, WACV 2022), Fourier convolutions that see the whole picture at once. About 9 seconds a removal. Code and weights Apache-2.0; trained on Places2, a scene dataset licensed for non-commercial research.",
+      "engine": "lama",
+      "runtimeBackend": "GENERIC",
+      "storageKind": "DIRECTORY_BUNDLE",
+      "language": "multi",
+      "variant": "512-places2",
+      "sizeBytes": 207594478,
+      "sha256": "59bfc738a9e9aa419d027aae39f9ed9ad8c36331c780756c45cf83c3d54ee2e6",
+      "downloadUrl": "https://huggingface.co/imagingforgood/lama-512-onnx/resolve/2ba3baf3521f8e16353415acfa8f53f34a231650/lama_512.onnx",
+      "fileName": "lama_512.onnx",
+      "bundleEntryPoint": "lama_512.onnx",
+      "engineLicense": "MIT (ONNX Runtime)",
+      "weightsLicense": "Apache-2.0",
+      "licenseModel": "Apache-2.0",
+      "commercialOk": true,
+      "minAppVersion": 264,
+      "recommended": true,
+      "catalogFeatured": true,
+      "minRamMb": 3500,
+      "sourceOrg": "Samsung AI Center (LaMa); ONNX conversion by Artiva, kept by Imaging for Good",
+      "upstreamModelCardUrl": "https://github.com/advimman/lama",
+      "remoteArtifacts": [
+        {
+          "path": "lama_512.onnx",
+          "url": "https://huggingface.co/imagingforgood/lama-512-onnx/resolve/2ba3baf3521f8e16353415acfa8f53f34a231650/lama_512.onnx",
+          "sha256": "59bfc738a9e9aa419d027aae39f9ed9ad8c36331c780756c45cf83c3d54ee2e6",
+          "sizeBytes": 207594478,
+          "required": true
+        }
+      ]
+    }
+  ]
+}
