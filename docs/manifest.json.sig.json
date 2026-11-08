@@ -1,0 +1,10 @@
+{
+  "payloadType": "application/vnd.qp1ng.ai-catalog+json",
+  "payload": "eyJfdHlwZSI6ImNhdGFsb2ciLCJleHBpcmVzIjoiMjAyNy0wNS0wN1QwMjo0Nzo0MVoiLCJzcGVjIjoxLCJ0YXJnZXQiOnsibGVuZ3RoIjoxNzczNTcsIm5hbWUiOiJtYW5pZmVzdC5qc29uIiwic2hhMjU2IjoiN2QyZDhiZWY1NWNjMzMwNDY4YWE5OTU2NTgyMmM2NzZiOTRkYjZmNWYyMTk2NzMwODQ4NTJiNzg0MGQyNzVmZCJ9LCJ2ZXJzaW9uIjo0OX0=",
+  "signatures": [
+    {
+      "keyid": "fe91f369ec8f3133646cd1d04733ecb290589878257a46a61b6af6413cc016f5",
+      "sig": "f2phwULk6c+HAOta6AFbvmC5Q5hpunMdU1TMewE+ZgPCTabppDppCyDSzVqrhoipUEUpIgePCU+aoh8aD2qKBQ=="
+    }
+  ]
+}
