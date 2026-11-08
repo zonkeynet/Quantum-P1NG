@@ -1,5 +1,5 @@
 {
-  "version": 48,
+  "version": 49,
   "updatedAt": "2026-11-07",
   "schemaVersion": "2.4",
   "appId": "com.qp1ng.android",
@@ -59,7 +59,8 @@
       "quantTier": "Q8",
       "recommendedContextSize": 512,
       "minRamMb": 2048,
-      "recommendedRamMb": 4096
+      "recommendedRamMb": 4096,
+      "relevanceFloor": -4.0
     },
     {
       "id": "embedding-minilm-l6-v2-q8",
