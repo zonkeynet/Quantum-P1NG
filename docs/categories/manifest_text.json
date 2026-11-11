@@ -1,6 +1,6 @@
 {
-  "version": 50,
-  "updatedAt": "2026-11-08",
+  "version": 51,
+  "updatedAt": "2026-11-11",
   "schemaVersion": "2.4",
   "appId": "com.qp1ng.android",
   "minAppVersion": 213,
@@ -1824,6 +1824,49 @@
       "recommendedRamMb": 4096
     },
     {
+      "id": "reranker-horizon-multilingual-small-litert",
+      "type": "RERANKER",
+      "category": "embedding",
+      "section": "text",
+      "name": "Q-Brain Reranker (Horizon Multilingual Small v1.2, LiteRT)",
+      "description": "Multilingual reranker (40+ languages, Italian included) that orders the passages found in the archive by how well they answer the question, on LiteRT: the same order as the original model, about three times faster than the GGUF. Trained on openly licensed web text, labels from Qwen3-Reranker-4B.",
+      "engine": "LiteRT",
+      "runtimeBackend": "GENERIC",
+      "storageKind": "DIRECTORY_BUNDLE",
+      "language": "multi",
+      "sizeBytes": 161865824,
+      "sha256": "1c2e5b70d7c3aa75b87e0e692919bc2f83b5ad569c891748aafa2f2f5a063ebb",
+      "downloadUrl": "https://huggingface.co/Q-P1NG/multilingual-reranker-small-LiteRT/resolve/838a1e3c23e3d58a6f96fc099f1c1f628c5f1bb0/multilingual-reranker-small-v1.2-L512-int8dyn.tflite",
+      "fileName": "multilingual-reranker-small-v1.2-L512-int8dyn.tflite",
+      "bundleEntryPoint": "multilingual-reranker-small-v1.2-L512-int8dyn.tflite",
+      "remoteArtifacts": [
+        {
+          "path": "multilingual-reranker-small-v1.2-L512-int8dyn.tflite",
+          "url": "https://huggingface.co/Q-P1NG/multilingual-reranker-small-LiteRT/resolve/838a1e3c23e3d58a6f96fc099f1c1f628c5f1bb0/multilingual-reranker-small-v1.2-L512-int8dyn.tflite",
+          "sha256": "1c2e5b70d7c3aa75b87e0e692919bc2f83b5ad569c891748aafa2f2f5a063ebb",
+          "sizeBytes": 146999712,
+          "required": true
+        },
+        {
+          "path": "multilingual-reranker-small-v1.2-vocab.gguf",
+          "url": "https://huggingface.co/Q-P1NG/multilingual-reranker-small-LiteRT/resolve/838a1e3c23e3d58a6f96fc099f1c1f628c5f1bb0/multilingual-reranker-small-v1.2-vocab.gguf",
+          "sha256": "b6682a2bddab4974b0a6d52acf6f6f976f89225b4fa125ef1ab76ccdd19ebd90",
+          "sizeBytes": 14866112,
+          "required": true
+        }
+      ],
+      "engineLicense": "Apache-2.0",
+      "weightsLicense": "Apache-2.0",
+      "commercialOk": true,
+      "recommended": true,
+      "catalogFeatured": true,
+      "quantTier": "Q8",
+      "recommendedContextSize": 512,
+      "minRamMb": 2048,
+      "recommendedRamMb": 4096,
+      "relevanceFloor": -4.0
+    },
+    {
       "id": "reranker-horizon-multilingual-small-q8",
       "type": "RERANKER",
       "category": "embedding",
@@ -1841,8 +1884,8 @@
       "engineLicense": "MIT",
       "weightsLicense": "Apache-2.0",
       "commercialOk": true,
-      "recommended": true,
-      "catalogFeatured": true,
+      "recommended": false,
+      "catalogFeatured": false,
       "quantTier": "Q8",
       "recommendedContextSize": 512,
       "minRamMb": 2048,
