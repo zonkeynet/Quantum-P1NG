@@ -1,37 +1,38 @@
 {
-  "version": 52,
+  "version": 53,
   "updatedAt": "2026-11-11",
   "format": "qp1ng-ai-catalog-index-v1",
-  "totalPacks": 85,
+  "totalPacks": 88,
   "totalFeaturePacks": 6,
   "totalVisionCandidates": 8,
   "fullCatalog": {
     "manifest": "../manifest.json",
-    "sha256": "c9dca500e890b5f10d872666aa3ab95a339ce48dd48cc7a4706c1d983f147032",
-    "sizeBytes": 183126
+    "sha256": "c5dce8ebc4f78884a50c0c2d672104711b82bc8cd4fa831b5fa205dfc196d84f",
+    "sizeBytes": 186725
   },
   "compactCatalog": {
     "manifest": "../manifest.min.json",
-    "sha256": "c9dca500e890b5f10d872666aa3ab95a339ce48dd48cc7a4706c1d983f147032",
-    "sizeBytes": 183126
+    "sha256": "c5dce8ebc4f78884a50c0c2d672104711b82bc8cd4fa831b5fa205dfc196d84f",
+    "sizeBytes": 186725
   },
   "sections": {
     "text": {
       "title": "Text & Reasoning",
       "manifest": "manifest_text.json",
-      "sha256": "5c662138419313b85ef82cee8661d1440b474ce5731b0645d19314345947b2a0",
-      "sizeBytes": 88718,
-      "packsCount": 44,
+      "sha256": "d235fcffafe056ad862050e80a59a35e2bcc84bf005212bec8a1f00dd7017f80",
+      "sizeBytes": 93443,
+      "packsCount": 47,
       "categories": [
         "llm",
         "vision",
-        "embedding"
+        "embedding",
+        "translation"
       ]
     },
     "voice": {
       "title": "Speech & Voice",
       "manifest": "manifest_voice.json",
-      "sha256": "8bd12a0f6678676b5c2801469e855b25e8de511ede5f2d6f0986e883780210db",
+      "sha256": "3b3a0f53197a4069f873374dbf0dda57397bff9a15a103664b49b54d303e81c3",
       "sizeBytes": 23877,
       "packsCount": 21,
       "categories": [
@@ -41,7 +42,7 @@
     "image": {
       "title": "Image Generation",
       "manifest": "manifest_image.json",
-      "sha256": "049497367e923f2bc03a802fe1643f7875c5062edd6d378cf16789eb58d6dcde",
+      "sha256": "b63a4d89c8d6ca191a98902f8f935a4578abb43279cfdfdb2bf8a2ff7c58ec1b",
       "sizeBytes": 97869,
       "packsCount": 15,
       "categories": [
@@ -51,7 +52,7 @@
     "image_tools": {
       "title": "Image Tools",
       "manifest": "manifest_image.json",
-      "sha256": "049497367e923f2bc03a802fe1643f7875c5062edd6d378cf16789eb58d6dcde",
+      "sha256": "b63a4d89c8d6ca191a98902f8f935a4578abb43279cfdfdb2bf8a2ff7c58ec1b",
       "sizeBytes": 97869,
       "packsCount": 5,
       "categories": [
@@ -65,63 +66,70 @@
     "llm": {
       "title": "Language Models",
       "manifest": "llm.json",
-      "sha256": "9fab5b6f46b4959c284b3eeb4edb7ce79011df140a537d0a9589e62722abe3d8",
+      "sha256": "d3288f5b0f6b6520c520486a211cb3e76944f6f9e4b58b79bd0e99b8279b2c4c",
       "sizeBytes": 42137,
       "packsCount": 28
     },
     "vision": {
       "title": "Vision & Multimodal",
       "manifest": "vision.json",
-      "sha256": "9cd0c971ad586ecb546dde05a76a8e2dce20242cd09888bf22da70d7a9c2117e",
+      "sha256": "961057016713015cc10f4dd8a102284e50cdc4737a6221951bedd4a6a014714a",
       "sizeBytes": 36655,
       "packsCount": 11
     },
     "embedding": {
       "title": "Embeddings & Retrieval",
       "manifest": "embedding.json",
-      "sha256": "7207a4178b68845c9db991eadf6a4eef9bee482351f59c8d90bc6324117b5f54",
+      "sha256": "b4553791ab34a800f9467ea4f01e46c6336804095c8810ba787e9f83d6f4382a",
       "sizeBytes": 8664,
       "packsCount": 5
+    },
+    "translation": {
+      "title": "Translation",
+      "manifest": "translation.json",
+      "sha256": "bb4f28fb8a72f8493e612f2f63c6a1a21302acd61f97ab2e175d3a7266e21a03",
+      "sizeBytes": 4880,
+      "packsCount": 3
     },
     "speech": {
       "title": "Speech & Voice",
       "manifest": "speech.json",
-      "sha256": "c759a8fa2eca8f8035a69c502de62e2f5562c6470dcaa3bfd7a30dc15ca3fda9",
+      "sha256": "74a8e6cfaf4ab35bc4fc7375636a2dc552a76f3e8fd3de601378b7040480ecbc",
       "sizeBytes": 23554,
       "packsCount": 21
     },
     "image_gen": {
       "title": "Image Generation",
       "manifest": "image_gen.json",
-      "sha256": "c92701abe95de0fae3efac46e6f1318d8464d9458beb414c99402ca8e79e4993",
+      "sha256": "9d7e0cfe3a70f5644dd0dcad62fa0d8ca0357a7363b4c5306679332814c60f7e",
       "sizeBytes": 82916,
       "packsCount": 15
     },
     "ocr": {
       "title": "Text Reading (OCR)",
       "manifest": "ocr.json",
-      "sha256": "526b32ba7ff203a3134fcc115d2a8960404ea8ac09299308dd162132aabb66da",
+      "sha256": "4d24a825e87f338eb2cd49db34ec7bb494c2a1d19ad5c1d86e247e6a75b2f8e5",
       "sizeBytes": 5768,
       "packsCount": 2
     },
     "segmentation": {
       "title": "Cut-outs",
       "manifest": "segmentation.json",
-      "sha256": "3f91dee4dcd8677962cc6e40afa5885aae635df2825ab5b2217d9178e1131a27",
+      "sha256": "e48645bc60c1d2baf106dda71aa144d81e6fc48fcd4b8c74aaf0af59c9eea5f5",
       "sizeBytes": 6476,
       "packsCount": 2
     },
     "erase": {
       "title": "Object removal",
       "manifest": "erase.json",
-      "sha256": "da4cdbc6e185473d7da8e1b5f580a13e1b2cc26adb6c110c03f46b258380586a",
+      "sha256": "d22214aa775134fc2baebc0f170b1a79370046cfeab210c23463afe41561b271",
       "sizeBytes": 2272,
       "packsCount": 1
     }
   },
   "features": {
     "manifest": "manifest_features.json",
-    "sha256": "7a70250f8d37f36f7adbe2b3cc20cd0d4cd7377d360d861d5a9d7be942d0ed6d",
+    "sha256": "2e58b3ad8950c8b4830895549de6dc0e75cc8ca8df8a21da9a797517aaa6c320",
     "sizeBytes": 18492,
     "featurePacksCount": 6,
     "hasSandbox": true
