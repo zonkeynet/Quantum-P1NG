@@ -1,6 +1,6 @@
 {
-  "version": 53,
-  "updatedAt": "2026-11-11",
+  "version": 54,
+  "updatedAt": "2026-11-16",
   "schemaVersion": "2.4",
   "appId": "com.qp1ng.android",
   "minAppVersion": 213,
@@ -18,11 +18,12 @@
     },
     "image_tools": {
       "title": "Image Tools",
-      "description": "Offline tools for Q-Dream Studio, downloaded only if you use them: reading the text in photos and documents, cutting out their subjects, removing objects.",
+      "description": "Offline tools for Q-Dream Studio, downloaded only if you use them: reading the text in photos and documents, cutting out their subjects, removing objects, making pictures four times larger.",
       "categories": [
         "ocr",
         "segmentation",
-        "erase"
+        "erase",
+        "upscale"
       ]
     }
   },
@@ -42,6 +43,10 @@
     "erase": {
       "title": "Object removal",
       "description": "Packs that remove what you select from a photo and rebuild the scene in its place, with no words, on the device, for Q-Dream Studio."
+    },
+    "upscale": {
+      "title": "Upscaling",
+      "description": "Packs that make a picture four times larger and draw its fine detail again, on the device, for Q-Dream Studio."
     }
   },
   "functions": {
@@ -2032,6 +2037,51 @@
           "url": "https://huggingface.co/imagingforgood/lama-512-onnx/resolve/2ba3baf3521f8e16353415acfa8f53f34a231650/lama_512.onnx",
           "sha256": "59bfc738a9e9aa419d027aae39f9ed9ad8c36331c780756c45cf83c3d54ee2e6",
           "sizeBytes": 207594478,
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "upscale-realesrgan-x4",
+      "type": "UPSCALER",
+      "category": "upscale",
+      "section": "image_tools",
+      "name": "Real-ESRGAN 4x · Upscale",
+      "family": "realesrgan",
+      "description": "Makes a picture four times larger and draws its fine detail again, on the device: Real-ESRGAN general x4v3 (Xintao Wang et al., Tencent ARC), a compact network trained to clean up noise and compression as it enlarges. Pictures up to 1024 pixels a side, 4096 once enlarged. Code and weights BSD-3-Clause. Download 2.4 MB.",
+      "engine": "qdream-upscale",
+      "runtimeBackend": "GENERIC",
+      "storageKind": "DIRECTORY_BUNDLE",
+      "language": "multi",
+      "variant": "general-x4v3",
+      "sizeBytes": 2428111,
+      "sha256": "13d4125095db37003325373e4cbfd53900b749b8ec56bfb9113ebb96fba88cdb",
+      "downloadUrl": "https://huggingface.co/Q-P1NG/qdream-models/resolve/340989f5d619482d91f30e52d78cc80f1bfe0602/upscale-realesrgan-x4/upscale_x4.f16",
+      "fileName": "upscale_x4.f16",
+      "bundleEntryPoint": "upscale_x4.f16",
+      "engineLicense": "Apache-2.0 (MNN)",
+      "weightsLicense": "BSD-3-Clause",
+      "licenseModel": "BSD-3-Clause",
+      "commercialOk": true,
+      "minAppVersion": 265,
+      "recommended": true,
+      "catalogFeatured": true,
+      "minRamMb": 2000,
+      "sourceOrg": "Xintao Wang et al. (Real-ESRGAN, Tencent ARC); float16 export by Q-Dream",
+      "upstreamModelCardUrl": "https://github.com/xinntao/Real-ESRGAN",
+      "remoteArtifacts": [
+        {
+          "path": "upscale_x4.f16",
+          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/340989f5d619482d91f30e52d78cc80f1bfe0602/upscale-realesrgan-x4/upscale_x4.f16",
+          "sha256": "13d4125095db37003325373e4cbfd53900b749b8ec56bfb9113ebb96fba88cdb",
+          "sizeBytes": 2426592,
+          "required": true
+        },
+        {
+          "path": "licenses/Real-ESRGAN-BSD-3.txt",
+          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/340989f5d619482d91f30e52d78cc80f1bfe0602/upscale-realesrgan-x4/licenses/Real-ESRGAN-BSD-3.txt",
+          "sha256": "4a699ec4863d96a91fc265948a0c90033f7e8735d515524dcf3444736406e0c2",
+          "sizeBytes": 1519,
           "required": true
         }
       ]
