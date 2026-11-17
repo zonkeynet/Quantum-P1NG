@@ -1,0 +1,149 @@
+{
+  "version": 55,
+  "updatedAt": "2026-11-17",
+  "schemaVersion": "2.4",
+  "appId": "com.qp1ng.android",
+  "minAppVersion": 213,
+  "category": "guide",
+  "section": "image_tools",
+  "categoryInfo": {
+    "title": "Drawing guides",
+    "description": "Packs that make a new picture follow lines: a shape you draw, or the outlines of a picture you have, on the device, for Q-Dream Studio."
+  },
+  "packs": [
+    {
+      "id": "guide-sketch-t2i-sd15",
+      "type": "GUIDE",
+      "category": "guide",
+      "section": "image_tools",
+      "name": "T2I-Adapter Sketch · Draw the shape",
+      "family": "t2i-adapter-sd15",
+      "description": "Makes a new picture follow a shape you draw with your finger in Q-Dream Studio: T2I-Adapter for Stable Diffusion 1.5 (TencentARC), run on the device once per picture, so a picture takes almost no longer. Works with the Q-Dream CPU models (DreamShaper 8, CyberRealistic, Realistic Vision). Apache-2.0. Download 77.6 MB.",
+      "engine": "qdream-guide",
+      "runtimeBackend": "GENERIC",
+      "storageKind": "DIRECTORY_BUNDLE",
+      "language": "multi",
+      "variant": "sketch-sd15v2",
+      "guide": "sketch",
+      "sizeBytes": 77576381,
+      "sha256": "eaf21ccc3cb35ab1c505448e8e9ca70e7e5c236c41fcd99665e52a8ade82f811",
+      "downloadUrl": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/adapter-sketch-sd15/adapter.mnn",
+      "fileName": "adapter.mnn",
+      "bundleEntryPoint": "adapter.mnn",
+      "engineLicense": "Apache-2.0 (MNN)",
+      "weightsLicense": "Apache-2.0",
+      "licenseModel": "Apache-2.0",
+      "commercialOk": true,
+      "minAppVersion": 266,
+      "recommended": true,
+      "catalogFeatured": false,
+      "minRamMb": 5000,
+      "sourceOrg": "TencentARC (T2I-Adapter); int8 MNN conversion by Q-Dream",
+      "upstreamModelCardUrl": "https://huggingface.co/TencentARC/t2iadapter_sketch_sd15v2",
+      "remoteArtifacts": [
+        {
+          "path": "adapter.mnn",
+          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/adapter-sketch-sd15/adapter.mnn",
+          "sha256": "eaf21ccc3cb35ab1c505448e8e9ca70e7e5c236c41fcd99665e52a8ade82f811",
+          "sizeBytes": 77561396,
+          "required": true
+        },
+        {
+          "path": "README.md",
+          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/adapter-sketch-sd15/README.md",
+          "sha256": "5a3377691692f94fecf4b0ebce9fa9229c94232440e639c87bbc0506975bb82a",
+          "sizeBytes": 2073,
+          "required": true
+        },
+        {
+          "path": "bundle.json",
+          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/adapter-sketch-sd15/bundle.json",
+          "sha256": "0305a2425a70fe892b64de3319e3c11a6fab8c60107b244f872b99f0f877a4bf",
+          "sizeBytes": 1163,
+          "required": true
+        },
+        {
+          "path": "licenses/Apache-2.0.txt",
+          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/adapter-sketch-sd15/licenses/Apache-2.0.txt",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "sizeBytes": 11358,
+          "required": true
+        },
+        {
+          "path": "licenses/NOTICE.md",
+          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/adapter-sketch-sd15/licenses/NOTICE.md",
+          "sha256": "505521a2e658ba4d7c00010bf2358f928b77e9a970a67871c8e7153775006034",
+          "sizeBytes": 391,
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "guide-outlines-t2i-sd15",
+      "type": "GUIDE",
+      "category": "guide",
+      "section": "image_tools",
+      "name": "T2I-Adapter Canny · Recreate from outlines",
+      "family": "t2i-adapter-sd15",
+      "description": "Makes a new picture follow the outlines of one you have (same composition, another subject or style) in Q-Dream Studio: T2I-Adapter for Stable Diffusion 1.5 (TencentARC), run on the device once per picture, so a picture takes almost no longer. Works with the Q-Dream CPU models (DreamShaper 8, CyberRealistic, Realistic Vision). Apache-2.0. Download 77.6 MB.",
+      "engine": "qdream-guide",
+      "runtimeBackend": "GENERIC",
+      "storageKind": "DIRECTORY_BUNDLE",
+      "language": "multi",
+      "variant": "canny-sd15v2",
+      "guide": "outlines",
+      "sizeBytes": 77576420,
+      "sha256": "015efba1fb71798145f7503fedd79d1528cc04b166442e9e048c0436e7c34e89",
+      "downloadUrl": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/adapter-canny-sd15/adapter.mnn",
+      "fileName": "adapter.mnn",
+      "bundleEntryPoint": "adapter.mnn",
+      "engineLicense": "Apache-2.0 (MNN)",
+      "weightsLicense": "Apache-2.0",
+      "licenseModel": "Apache-2.0",
+      "commercialOk": true,
+      "minAppVersion": 266,
+      "recommended": true,
+      "catalogFeatured": false,
+      "minRamMb": 5000,
+      "sourceOrg": "TencentARC (T2I-Adapter); int8 MNN conversion by Q-Dream",
+      "upstreamModelCardUrl": "https://huggingface.co/TencentARC/t2iadapter_canny_sd15v2",
+      "remoteArtifacts": [
+        {
+          "path": "adapter.mnn",
+          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/adapter-canny-sd15/adapter.mnn",
+          "sha256": "015efba1fb71798145f7503fedd79d1528cc04b166442e9e048c0436e7c34e89",
+          "sizeBytes": 77561396,
+          "required": true
+        },
+        {
+          "path": "README.md",
+          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/adapter-canny-sd15/README.md",
+          "sha256": "810eb0aafb3bafc9e3fba0ecc47c85701444ba88f736d7b8a29cdfe46d5fcda5",
+          "sizeBytes": 2099,
+          "required": true
+        },
+        {
+          "path": "bundle.json",
+          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/adapter-canny-sd15/bundle.json",
+          "sha256": "6dee48d1c35d80b3bf552bc1141d37292d92d88fef2c9af0d22484d4ba20a0dd",
+          "sizeBytes": 1169,
+          "required": true
+        },
+        {
+          "path": "licenses/Apache-2.0.txt",
+          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/adapter-canny-sd15/licenses/Apache-2.0.txt",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "sizeBytes": 11358,
+          "required": true
+        },
+        {
+          "path": "licenses/NOTICE.md",
+          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/adapter-canny-sd15/licenses/NOTICE.md",
+          "sha256": "89df3f2a477c095ea9f7701b553131e6a00ecd56bc11794cae91ffcb90287bd8",
+          "sizeBytes": 398,
+          "required": true
+        }
+      ]
+    }
+  ]
+}

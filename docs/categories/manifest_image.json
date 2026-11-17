@@ -1,6 +1,6 @@
 {
-  "version": 54,
-  "updatedAt": "2026-11-16",
+  "version": 55,
+  "updatedAt": "2026-11-17",
   "schemaVersion": "2.4",
   "appId": "com.qp1ng.android",
   "minAppVersion": 213,
@@ -18,12 +18,13 @@
     },
     "image_tools": {
       "title": "Image Tools",
-      "description": "Offline tools for Q-Dream Studio, downloaded only if you use them: reading the text in photos and documents, cutting out their subjects, removing objects, making pictures four times larger.",
+      "description": "Offline tools for Q-Dream Studio, downloaded only if you use them: reading the text in photos and documents, cutting out their subjects, removing objects, making pictures four times larger, drawing new pictures along a sketch or a picture's outlines.",
       "categories": [
         "ocr",
         "segmentation",
         "erase",
-        "upscale"
+        "upscale",
+        "guide"
       ]
     }
   },
@@ -47,6 +48,10 @@
     "upscale": {
       "title": "Upscaling",
       "description": "Packs that make a picture four times larger and draw its fine detail again, on the device, for Q-Dream Studio."
+    },
+    "guide": {
+      "title": "Drawing guides",
+      "description": "Packs that make a new picture follow lines: a shape you draw, or the outlines of a picture you have, on the device, for Q-Dream Studio."
     }
   },
   "functions": {
@@ -73,31 +78,31 @@
       "engine": "qdream",
       "storageKind": "DIRECTORY_BUNDLE",
       "language": "en",
-      "sizeBytes": 1103759225,
-      "sha256": "38777703a62bd5014701a9d1b398f3e18bbe7242858d5f0d6dabb1a32807c5b5",
-      "downloadUrl": "https://huggingface.co/Q-P1NG/qdream-models/resolve/cb3de7524f55025e8bd5348246bb6c24eedec0bf/cyberrealistic-final-lcm-int8/unet.mnn",
+      "sizeBytes": 1103764072,
+      "sha256": "828c3cbc37432daa6e703fbf4df3fc7882c0156da65bb44370d2596503037862",
+      "downloadUrl": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/cyberrealistic-final-lcm-int8/unet.mnn",
       "fileName": "unet.mnn",
       "bundleEntryPoint": "unet.mnn",
       "remoteArtifacts": [
         {
           "path": "README.md",
-          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/cb3de7524f55025e8bd5348246bb6c24eedec0bf/cyberrealistic-final-lcm-int8/README.md",
-          "sha256": "83d63fd04df8eeb4232cfcdc6637e8301b756abdd2fc5a1a392f431bac55d2d4",
-          "sizeBytes": 1479,
+          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/cyberrealistic-final-lcm-int8/README.md",
+          "sha256": "633d89bd98e1359feba398a9408531c4b423ec10d22b1ab0f574114d4fa6ea0c",
+          "sizeBytes": 1588,
           "required": true
         },
         {
           "path": "bundle.json",
-          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/cb3de7524f55025e8bd5348246bb6c24eedec0bf/cyberrealistic-final-lcm-int8/bundle.json",
-          "sha256": "91308aaae807e350e87a3a220bcc0aa79feb8af44521095338a9891c4ad4be43",
+          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/cyberrealistic-final-lcm-int8/bundle.json",
+          "sha256": "419af4b04872a1b6e29a09d07d297f03e18d82bad19b03d9808db131419e4016",
           "sizeBytes": 2833,
           "required": true
         },
         {
           "path": "export_meta.json",
-          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/cb3de7524f55025e8bd5348246bb6c24eedec0bf/cyberrealistic-final-lcm-int8/export_meta.json",
-          "sha256": "24ab5128c29c1587ec7c1c971d8a25beb54511b19bcbc5cba7268d207ee51392",
-          "sizeBytes": 339,
+          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/cyberrealistic-final-lcm-int8/export_meta.json",
+          "sha256": "ec5328edd1ecb8ab0531d602e4e36e00412c762029289e56bfd1eac7fe27986f",
+          "sizeBytes": 425,
           "required": true
         },
         {
@@ -123,9 +128,9 @@
         },
         {
           "path": "licenses/NOTICE.md",
-          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/cb3de7524f55025e8bd5348246bb6c24eedec0bf/cyberrealistic-final-lcm-int8/licenses/NOTICE.md",
-          "sha256": "f3a5e5bddd96ba93f8066bc2e8390b6c070072229312f45de40d81d19e729c1d",
-          "sizeBytes": 2939,
+          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/cyberrealistic-final-lcm-int8/licenses/NOTICE.md",
+          "sha256": "387a1795066783e3352f454164f06df972d8664fd6604c4a042903175feeb115",
+          "sizeBytes": 3251,
           "required": true
         },
         {
@@ -172,9 +177,9 @@
         },
         {
           "path": "unet.mnn",
-          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/cb3de7524f55025e8bd5348246bb6c24eedec0bf/cyberrealistic-final-lcm-int8/unet.mnn",
-          "sha256": "38777703a62bd5014701a9d1b398f3e18bbe7242858d5f0d6dabb1a32807c5b5",
-          "sizeBytes": 873821636,
+          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/cyberrealistic-final-lcm-int8/unet.mnn",
+          "sha256": "828c3cbc37432daa6e703fbf4df3fc7882c0156da65bb44370d2596503037862",
+          "sizeBytes": 873825976,
           "required": true
         },
         {
@@ -199,7 +204,7 @@
       "sourceTrust": "OFFICIAL_AUTHOR",
       "upstreamModelCardUrl": "https://huggingface.co/cyberdelia/CyberRealistic",
       "installable": true,
-      "minAppVersion": 262,
+      "minAppVersion": 266,
       "hardwareProfile": "qdream_cpu",
       "accelerationTargets": [
         "CPU"
@@ -207,7 +212,8 @@
       "minRamMb": 5000,
       "recommendedRamMb": 6000,
       "recommendedWidth": 384,
-      "recommendedHeight": 384
+      "recommendedHeight": 384,
+      "supportsGuide": true
     },
     {
       "id": "img-cyberrealistic-final-lcm-qdream-npu-v73",
@@ -800,31 +806,31 @@
       "engine": "qdream",
       "storageKind": "DIRECTORY_BUNDLE",
       "language": "en",
-      "sizeBytes": 1103744576,
-      "sha256": "354621686136aa8416fa2efbc4572092c89def23f0b6076bb8868390b7832ff7",
-      "downloadUrl": "https://huggingface.co/Q-P1NG/qdream-models/resolve/cb3de7524f55025e8bd5348246bb6c24eedec0bf/dreamshaper8-lcm-int8/unet.mnn",
+      "sizeBytes": 1103749423,
+      "sha256": "9c60a674d7d561497d1b05a4230286cd90a76a3e318c33c5dc361ff07f9c3038",
+      "downloadUrl": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/dreamshaper8-lcm-int8/unet.mnn",
       "fileName": "unet.mnn",
       "bundleEntryPoint": "unet.mnn",
       "remoteArtifacts": [
         {
           "path": "README.md",
-          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/cb3de7524f55025e8bd5348246bb6c24eedec0bf/dreamshaper8-lcm-int8/README.md",
-          "sha256": "e6eed75a326675546741935da12091636e8e54327328bfefd74400151e41d44a",
-          "sizeBytes": 1373,
+          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/dreamshaper8-lcm-int8/README.md",
+          "sha256": "b9796fc8e05f1a777acf72d306cf641f5ba79156aa694bde9a86481029e3f077",
+          "sizeBytes": 1482,
           "required": true
         },
         {
           "path": "bundle.json",
-          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/cb3de7524f55025e8bd5348246bb6c24eedec0bf/dreamshaper8-lcm-int8/bundle.json",
-          "sha256": "492785daa7226f1cfee3f57c1bdbe567b4d807431d7e84b96fe09c23210c7b8c",
+          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/dreamshaper8-lcm-int8/bundle.json",
+          "sha256": "c13a33386b3c59374bbf75d8876912a8bda6a85085d205e1edbf515b0d3e663b",
           "sizeBytes": 2484,
           "required": true
         },
         {
           "path": "export_meta.json",
-          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/cb3de7524f55025e8bd5348246bb6c24eedec0bf/dreamshaper8-lcm-int8/export_meta.json",
-          "sha256": "dc93f11f119c800c47c550050cf4a47a1e72ac23455859a14958d83d663d362e",
-          "sizeBytes": 254,
+          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/dreamshaper8-lcm-int8/export_meta.json",
+          "sha256": "a219c5900ce8197cceb51d28935e954e061237b6acb50d4b821fea9c95d0d5c1",
+          "sizeBytes": 340,
           "required": true
         },
         {
@@ -843,9 +849,9 @@
         },
         {
           "path": "licenses/NOTICE.md",
-          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/cb3de7524f55025e8bd5348246bb6c24eedec0bf/dreamshaper8-lcm-int8/licenses/NOTICE.md",
-          "sha256": "f3a5e5bddd96ba93f8066bc2e8390b6c070072229312f45de40d81d19e729c1d",
-          "sizeBytes": 2939,
+          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/dreamshaper8-lcm-int8/licenses/NOTICE.md",
+          "sha256": "387a1795066783e3352f454164f06df972d8664fd6604c4a042903175feeb115",
+          "sizeBytes": 3251,
           "required": true
         },
         {
@@ -892,9 +898,9 @@
         },
         {
           "path": "unet.mnn",
-          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/cb3de7524f55025e8bd5348246bb6c24eedec0bf/dreamshaper8-lcm-int8/unet.mnn",
-          "sha256": "354621686136aa8416fa2efbc4572092c89def23f0b6076bb8868390b7832ff7",
-          "sizeBytes": 873821636,
+          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/dreamshaper8-lcm-int8/unet.mnn",
+          "sha256": "9c60a674d7d561497d1b05a4230286cd90a76a3e318c33c5dc361ff07f9c3038",
+          "sizeBytes": 873825976,
           "required": true
         },
         {
@@ -919,7 +925,7 @@
       "sourceTrust": "OFFICIAL_AUTHOR",
       "upstreamModelCardUrl": "https://huggingface.co/Lykon/dreamshaper-8-lcm",
       "installable": true,
-      "minAppVersion": 262,
+      "minAppVersion": 266,
       "hardwareProfile": "qdream_cpu",
       "accelerationTargets": [
         "CPU"
@@ -927,7 +933,8 @@
       "minRamMb": 5000,
       "recommendedRamMb": 6000,
       "recommendedWidth": 384,
-      "recommendedHeight": 384
+      "recommendedHeight": 384,
+      "supportsGuide": true
     },
     {
       "id": "img-dreamshaper8-lcm-qdream-npu-v73",
@@ -1492,31 +1499,31 @@
       "engine": "qdream",
       "storageKind": "DIRECTORY_BUNDLE",
       "language": "en",
-      "sizeBytes": 1103759215,
-      "sha256": "1936731e0198fc686a71944155ae99265a91398b83f6188c35d0dd4540be60d3",
-      "downloadUrl": "https://huggingface.co/Q-P1NG/qdream-models/resolve/cb3de7524f55025e8bd5348246bb6c24eedec0bf/realisticvision6-lcm-int8/unet.mnn",
+      "sizeBytes": 1103764056,
+      "sha256": "8bac5663a651c434de8116bbeabfc1db319be3c0bd9b6ef578960c7ff1fbec82",
+      "downloadUrl": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/realisticvision6-lcm-int8/unet.mnn",
       "fileName": "unet.mnn",
       "bundleEntryPoint": "unet.mnn",
       "remoteArtifacts": [
         {
           "path": "README.md",
-          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/cb3de7524f55025e8bd5348246bb6c24eedec0bf/realisticvision6-lcm-int8/README.md",
-          "sha256": "028d9d24f332143cb72397f8964faa304eb51d807d44cd88c0a87da89c6b3d6e",
-          "sizeBytes": 1495,
+          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/realisticvision6-lcm-int8/README.md",
+          "sha256": "180458e451b454861651c167deb17592f798d3a7ac0360b57ec8f86307ef446d",
+          "sizeBytes": 1604,
           "required": true
         },
         {
           "path": "bundle.json",
-          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/cb3de7524f55025e8bd5348246bb6c24eedec0bf/realisticvision6-lcm-int8/bundle.json",
-          "sha256": "628f1446266bdf3d52967795505daad5e48fbe50dcfa32722b8856bfc8bfb677",
+          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/realisticvision6-lcm-int8/bundle.json",
+          "sha256": "1ee50dc251358d52eeed478b50dee32c3441c42ee7c41c6ab5ef185792783c95",
           "sizeBytes": 2820,
           "required": true
         },
         {
           "path": "export_meta.json",
-          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/cb3de7524f55025e8bd5348246bb6c24eedec0bf/realisticvision6-lcm-int8/export_meta.json",
-          "sha256": "72c555d68412783b630bba24b969f103f129ccb1f0d0ca8c49d35e405c589ed4",
-          "sizeBytes": 326,
+          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/realisticvision6-lcm-int8/export_meta.json",
+          "sha256": "bd1d82cdd87b9a11d8175f745b1cd0368a15f9e87640ec471e35cbca6405e401",
+          "sizeBytes": 406,
           "required": true
         },
         {
@@ -1542,9 +1549,9 @@
         },
         {
           "path": "licenses/NOTICE.md",
-          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/cb3de7524f55025e8bd5348246bb6c24eedec0bf/realisticvision6-lcm-int8/licenses/NOTICE.md",
-          "sha256": "f3a5e5bddd96ba93f8066bc2e8390b6c070072229312f45de40d81d19e729c1d",
-          "sizeBytes": 2939,
+          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/realisticvision6-lcm-int8/licenses/NOTICE.md",
+          "sha256": "387a1795066783e3352f454164f06df972d8664fd6604c4a042903175feeb115",
+          "sizeBytes": 3251,
           "required": true
         },
         {
@@ -1591,9 +1598,9 @@
         },
         {
           "path": "unet.mnn",
-          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/cb3de7524f55025e8bd5348246bb6c24eedec0bf/realisticvision6-lcm-int8/unet.mnn",
-          "sha256": "1936731e0198fc686a71944155ae99265a91398b83f6188c35d0dd4540be60d3",
-          "sizeBytes": 873821636,
+          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/realisticvision6-lcm-int8/unet.mnn",
+          "sha256": "8bac5663a651c434de8116bbeabfc1db319be3c0bd9b6ef578960c7ff1fbec82",
+          "sizeBytes": 873825976,
           "required": true
         },
         {
@@ -1618,7 +1625,7 @@
       "sourceTrust": "OFFICIAL_AUTHOR",
       "upstreamModelCardUrl": "https://huggingface.co/SG161222/Realistic_Vision_V6.0_B1_noVAE",
       "installable": true,
-      "minAppVersion": 262,
+      "minAppVersion": 266,
       "hardwareProfile": "qdream_cpu",
       "accelerationTargets": [
         "CPU"
@@ -1626,7 +1633,8 @@
       "minRamMb": 5000,
       "recommendedRamMb": 6000,
       "recommendedWidth": 384,
-      "recommendedHeight": 384
+      "recommendedHeight": 384,
+      "supportsGuide": true
     },
     {
       "id": "img-realvisxl-lightning-gguf",
@@ -2082,6 +2090,140 @@
           "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/340989f5d619482d91f30e52d78cc80f1bfe0602/upscale-realesrgan-x4/licenses/Real-ESRGAN-BSD-3.txt",
           "sha256": "4a699ec4863d96a91fc265948a0c90033f7e8735d515524dcf3444736406e0c2",
           "sizeBytes": 1519,
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "guide-sketch-t2i-sd15",
+      "type": "GUIDE",
+      "category": "guide",
+      "section": "image_tools",
+      "name": "T2I-Adapter Sketch · Draw the shape",
+      "family": "t2i-adapter-sd15",
+      "description": "Makes a new picture follow a shape you draw with your finger in Q-Dream Studio: T2I-Adapter for Stable Diffusion 1.5 (TencentARC), run on the device once per picture, so a picture takes almost no longer. Works with the Q-Dream CPU models (DreamShaper 8, CyberRealistic, Realistic Vision). Apache-2.0. Download 77.6 MB.",
+      "engine": "qdream-guide",
+      "runtimeBackend": "GENERIC",
+      "storageKind": "DIRECTORY_BUNDLE",
+      "language": "multi",
+      "variant": "sketch-sd15v2",
+      "guide": "sketch",
+      "sizeBytes": 77576381,
+      "sha256": "eaf21ccc3cb35ab1c505448e8e9ca70e7e5c236c41fcd99665e52a8ade82f811",
+      "downloadUrl": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/adapter-sketch-sd15/adapter.mnn",
+      "fileName": "adapter.mnn",
+      "bundleEntryPoint": "adapter.mnn",
+      "engineLicense": "Apache-2.0 (MNN)",
+      "weightsLicense": "Apache-2.0",
+      "licenseModel": "Apache-2.0",
+      "commercialOk": true,
+      "minAppVersion": 266,
+      "recommended": true,
+      "catalogFeatured": false,
+      "minRamMb": 5000,
+      "sourceOrg": "TencentARC (T2I-Adapter); int8 MNN conversion by Q-Dream",
+      "upstreamModelCardUrl": "https://huggingface.co/TencentARC/t2iadapter_sketch_sd15v2",
+      "remoteArtifacts": [
+        {
+          "path": "adapter.mnn",
+          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/adapter-sketch-sd15/adapter.mnn",
+          "sha256": "eaf21ccc3cb35ab1c505448e8e9ca70e7e5c236c41fcd99665e52a8ade82f811",
+          "sizeBytes": 77561396,
+          "required": true
+        },
+        {
+          "path": "README.md",
+          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/adapter-sketch-sd15/README.md",
+          "sha256": "5a3377691692f94fecf4b0ebce9fa9229c94232440e639c87bbc0506975bb82a",
+          "sizeBytes": 2073,
+          "required": true
+        },
+        {
+          "path": "bundle.json",
+          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/adapter-sketch-sd15/bundle.json",
+          "sha256": "0305a2425a70fe892b64de3319e3c11a6fab8c60107b244f872b99f0f877a4bf",
+          "sizeBytes": 1163,
+          "required": true
+        },
+        {
+          "path": "licenses/Apache-2.0.txt",
+          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/adapter-sketch-sd15/licenses/Apache-2.0.txt",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "sizeBytes": 11358,
+          "required": true
+        },
+        {
+          "path": "licenses/NOTICE.md",
+          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/adapter-sketch-sd15/licenses/NOTICE.md",
+          "sha256": "505521a2e658ba4d7c00010bf2358f928b77e9a970a67871c8e7153775006034",
+          "sizeBytes": 391,
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "guide-outlines-t2i-sd15",
+      "type": "GUIDE",
+      "category": "guide",
+      "section": "image_tools",
+      "name": "T2I-Adapter Canny · Recreate from outlines",
+      "family": "t2i-adapter-sd15",
+      "description": "Makes a new picture follow the outlines of one you have (same composition, another subject or style) in Q-Dream Studio: T2I-Adapter for Stable Diffusion 1.5 (TencentARC), run on the device once per picture, so a picture takes almost no longer. Works with the Q-Dream CPU models (DreamShaper 8, CyberRealistic, Realistic Vision). Apache-2.0. Download 77.6 MB.",
+      "engine": "qdream-guide",
+      "runtimeBackend": "GENERIC",
+      "storageKind": "DIRECTORY_BUNDLE",
+      "language": "multi",
+      "variant": "canny-sd15v2",
+      "guide": "outlines",
+      "sizeBytes": 77576420,
+      "sha256": "015efba1fb71798145f7503fedd79d1528cc04b166442e9e048c0436e7c34e89",
+      "downloadUrl": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/adapter-canny-sd15/adapter.mnn",
+      "fileName": "adapter.mnn",
+      "bundleEntryPoint": "adapter.mnn",
+      "engineLicense": "Apache-2.0 (MNN)",
+      "weightsLicense": "Apache-2.0",
+      "licenseModel": "Apache-2.0",
+      "commercialOk": true,
+      "minAppVersion": 266,
+      "recommended": true,
+      "catalogFeatured": false,
+      "minRamMb": 5000,
+      "sourceOrg": "TencentARC (T2I-Adapter); int8 MNN conversion by Q-Dream",
+      "upstreamModelCardUrl": "https://huggingface.co/TencentARC/t2iadapter_canny_sd15v2",
+      "remoteArtifacts": [
+        {
+          "path": "adapter.mnn",
+          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/adapter-canny-sd15/adapter.mnn",
+          "sha256": "015efba1fb71798145f7503fedd79d1528cc04b166442e9e048c0436e7c34e89",
+          "sizeBytes": 77561396,
+          "required": true
+        },
+        {
+          "path": "README.md",
+          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/adapter-canny-sd15/README.md",
+          "sha256": "810eb0aafb3bafc9e3fba0ecc47c85701444ba88f736d7b8a29cdfe46d5fcda5",
+          "sizeBytes": 2099,
+          "required": true
+        },
+        {
+          "path": "bundle.json",
+          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/adapter-canny-sd15/bundle.json",
+          "sha256": "6dee48d1c35d80b3bf552bc1141d37292d92d88fef2c9af0d22484d4ba20a0dd",
+          "sizeBytes": 1169,
+          "required": true
+        },
+        {
+          "path": "licenses/Apache-2.0.txt",
+          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/adapter-canny-sd15/licenses/Apache-2.0.txt",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "sizeBytes": 11358,
+          "required": true
+        },
+        {
+          "path": "licenses/NOTICE.md",
+          "url": "https://huggingface.co/Q-P1NG/qdream-models/resolve/18c4f2e6edaf534331a6c5c1d01d7cdbde77ff7e/adapter-canny-sd15/licenses/NOTICE.md",
+          "sha256": "89df3f2a477c095ea9f7701b553131e6a00ecd56bc11794cae91ffcb90287bd8",
+          "sizeBytes": 398,
           "required": true
         }
       ]
