@@ -192,6 +192,7 @@
   "Click to pause": "Cliquez pour mettre en pause",
   "Click to replay": "Cliquez pour revoir",
   "Click to retry": "Cliquez pour réessayer",
-  "The video could not load. Click the preview to retry.": "La vidéo n’a pas pu se charger. Cliquez sur l’aperçu pour réessayer."
+  "The video could not load. Click the preview to retry.": "La vidéo n’a pas pu se charger. Cliquez sur l’aperçu pour réessayer.",
+  "Reload this page in a few minutes, or write to {support} from the email address you paid with.": "Rechargez cette page dans quelques minutes, ou écrivez à {support} depuis l’adresse e-mail utilisée pour payer."
  }
 }

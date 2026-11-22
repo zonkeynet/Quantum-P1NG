@@ -5,7 +5,8 @@
 // Messages are written in English and translated by the JSON block #pro-i18n that the language pages carry
 // (i18n/build.py in this repository); the English page has none.
 // From the app: /pro/#claim=<token> passes the app's claim token to the card or Bitcoin order, so the app collects
-// the key by itself once the payment is confirmed.
+// the key by itself once the payment is confirmed. Back from a hosted checkout, /pro/?paid=1&session=<id> collects the
+// key with the checkout's session id (Stripe's {CHECKOUT_SESSION_ID}), also when this browser kept nothing.
 (function () {
   "use strict";
   // Served at /pro (no slash), relative paths and the page's security policy would not apply: go to /pro/.
@@ -67,6 +68,20 @@
     }
     var stored = recall("qp1ng_app_claim");
     return stored && CLAIM.test(stored) ? stored : null;
+  })();
+
+  /**
+   * The hosted checkout's session id (?session=cs_...), taken out of the address so it is not shared by accident: it
+   * collects the key without the claim token, which a browser that blocks storage loses on the way to the checkout.
+   */
+  var returnSession = (function () {
+    var params = new URLSearchParams(location.search);
+    var id = params.get("session");
+    if (id === null) return null;
+    params.delete("session");
+    var rest = params.toString();
+    history.replaceState(null, "", location.pathname + (rest ? "?" + rest : "") + location.hash);
+    return /^cs_(test|live)_[A-Za-z0-9]{10,200}$/.test(id) ? id : null;
   })();
 
   function api(path, options) {
@@ -217,11 +232,16 @@
   }
 
   /**
-   * FastSpring's webhook issues the licence; this asks for it with the claim token passed as an order tag. After five
-   * minutes it stops and points to the recovery form, filled in with the order reference.
+   * The provider's webhook issues the licence; this asks for it with the claim token passed to the order. After five
+   * minutes it stops and points to the recovery form, filled in with the order reference, or, for a provider whose
+   * receipts carry no reference the licence API knows (card.reference false), to support.
    */
   function waitForClaim(claim, reference) {
-    if (!claim) return;
+    if (claim) waitForKey("/v1/licences/claim/" + claim, reference);
+  }
+
+  /** The same wait with any way to collect the key: the claim token, or the hosted checkout's session id. */
+  function waitForKey(path, reference) {
     $("claim-wait").hidden = false;
     if (reference) {
       $("recover-ref").value = reference;
@@ -231,7 +251,7 @@
     clearInterval(pollTimer);
     var ask = function () {
       tries++;
-      api("/v1/licences/claim/" + claim).then(function (body) {
+      api(path).then(function (body) {
         if (body.licence) {
           clearInterval(pollTimer);
           pendingClaim = null;
@@ -244,7 +264,9 @@
             ? t("This licence was refunded.")
             : t("Your payment is confirmed, but the key is taking longer than usual.");
           if (body.httpStatus !== 410) {
-            $("claim-help").textContent = reference
+            $("claim-help").textContent = config && config.card && config.card.reference === false
+              ? t("Reload this page in a few minutes, or write to {support} from the email address you paid with.", { support: SUPPORT })
+              : reference
               ? t("Recover it below with the order reference {reference} in a few minutes, or write to {support}.", { reference: reference, support: SUPPORT })
               : t("Recover it below with the order reference on your receipt in a few minutes, or write to {support}.", { support: SUPPORT });
           }
@@ -472,7 +494,9 @@
       // Back after a payment: the licence may already be there (independently of any Bitcoin order). Back from a
       // hosted checkout (?paid=1): wait for the provider's confirmation as after a popup.
       var claim = recall("qp1ng_claim") || appClaim;
-      if (claim && /[?&]paid=1(&|$)/.test(location.search)) waitForClaim(claim);
+      // The session id names the payment just made: it goes first (a stored claim may be an earlier, unpaid try).
+      if (returnSession) waitForKey("/v1/licences/session/" + returnSession);
+      else if (claim && /[?&]paid=1(&|$)/.test(location.search)) waitForClaim(claim);
       else if (claim) {
         api("/v1/licences/claim/" + claim).then(function (body) {
           if (body.licence) { remember("qp1ng_claim", null); showLicence(body.licence); }

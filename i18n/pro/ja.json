@@ -192,6 +192,7 @@
   "Click to pause": "クリックで一時停止",
   "Click to replay": "クリックでもう一度再生",
   "Click to retry": "クリックで再試行",
-  "The video could not load. Click the preview to retry.": "動画を読み込めませんでした。プレビューをクリックして再試行してください。"
+  "The video could not load. Click the preview to retry.": "動画を読み込めませんでした。プレビューをクリックして再試行してください。",
+  "Reload this page in a few minutes, or write to {support} from the email address you paid with.": "数分後にこのページを再読み込みするか、支払いに使ったメールアドレスから {support} までご連絡ください。"
  }
 }

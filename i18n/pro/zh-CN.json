@@ -192,6 +192,7 @@
   "Click to pause": "点击暂停",
   "Click to replay": "点击重播",
   "Click to retry": "点击重试",
-  "The video could not load. Click the preview to retry.": "视频无法加载。点击预览图重试。"
+  "The video could not load. Click the preview to retry.": "视频无法加载。点击预览图重试。",
+  "Reload this page in a few minutes, or write to {support} from the email address you paid with.": "请几分钟后刷新此页面，或用付款时填写的邮箱写信至 {support}。"
  }
 }

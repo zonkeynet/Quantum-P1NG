@@ -192,6 +192,7 @@
   "Click to pause": "Нажмите, чтобы поставить на паузу",
   "Click to replay": "Нажмите, чтобы посмотреть снова",
   "Click to retry": "Нажмите, чтобы повторить",
-  "The video could not load. Click the preview to retry.": "Не удалось загрузить видео. Нажмите на превью, чтобы повторить."
+  "The video could not load. Click the preview to retry.": "Не удалось загрузить видео. Нажмите на превью, чтобы повторить.",
+  "Reload this page in a few minutes, or write to {support} from the email address you paid with.": "Обновите эту страницу через несколько минут или напишите на {support} с адреса, указанного при оплате."
  }
 }

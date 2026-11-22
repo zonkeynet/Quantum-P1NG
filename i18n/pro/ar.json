@@ -192,6 +192,7 @@
   "Click to pause": "انقر للإيقاف المؤقت",
   "Click to replay": "انقر لإعادة المشاهدة",
   "Click to retry": "انقر لإعادة المحاولة",
-  "The video could not load. Click the preview to retry.": "تعذّر تحميل الفيديو. انقر على المعاينة لإعادة المحاولة."
+  "The video could not load. Click the preview to retry.": "تعذّر تحميل الفيديو. انقر على المعاينة لإعادة المحاولة.",
+  "Reload this page in a few minutes, or write to {support} from the email address you paid with.": "أعد تحميل هذه الصفحة بعد بضع دقائق، أو راسل {support} من عنوان البريد الذي دفعت به."
  }
 }

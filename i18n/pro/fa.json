@@ -192,6 +192,7 @@
   "Click to pause": "برای توقف کلیک کنید",
   "Click to replay": "برای پخش دوباره کلیک کنید",
   "Click to retry": "برای تلاش دوباره کلیک کنید",
-  "The video could not load. Click the preview to retry.": "ویدیو بارگیری نشد. برای تلاش دوباره روی پیش‌نمایش کلیک کنید."
+  "The video could not load. Click the preview to retry.": "ویدیو بارگیری نشد. برای تلاش دوباره روی پیش‌نمایش کلیک کنید.",
+  "Reload this page in a few minutes, or write to {support} from the email address you paid with.": "چند دقیقه دیگر این صفحه را دوباره بارگذاری کنید، یا از همان ایمیلی که با آن پرداخت کردید به {support} بنویسید."
  }
 }

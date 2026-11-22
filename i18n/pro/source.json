@@ -166,6 +166,7 @@
   "This usually takes a few seconds. Your order reference is {reference} (also on your receipt): with it you can recover the key below at any time.",
   "This licence was refunded.",
   "Your payment is confirmed, but the key is taking longer than usual.",
+  "Reload this page in a few minutes, or write to {support} from the email address you paid with.",
   "Recover it below with the order reference {reference} in a few minutes, or write to {support}.",
   "Recover it below with the order reference on your receipt in a few minutes, or write to {support}.",
   "Preparing the order (a few seconds of work on this device)…",

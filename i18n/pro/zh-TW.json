@@ -192,6 +192,7 @@
   "Click to pause": "點擊暫停",
   "Click to replay": "點擊重播",
   "Click to retry": "點擊重試",
-  "The video could not load. Click the preview to retry.": "影片無法載入。請點擊預覽圖重試。"
+  "The video could not load. Click the preview to retry.": "影片無法載入。請點擊預覽圖重試。",
+  "Reload this page in a few minutes, or write to {support} from the email address you paid with.": "請幾分鐘後重新整理此頁面，或用付款時填寫的電子郵件寫信至 {support}。"
  }
 }

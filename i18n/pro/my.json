@@ -192,6 +192,7 @@
   "Click to pause": "ခေတ္တရပ်ရန် ကလစ်နှိပ်ပါ",
   "Click to replay": "ပြန်ဖွင့်ရန် ကလစ်နှိပ်ပါ",
   "Click to retry": "ထပ်ကြိုးစားရန် ကလစ်နှိပ်ပါ",
-  "The video could not load. Click the preview to retry.": "ဗီဒီယို ဖွင့်၍ မရပါ။ ထပ်ကြိုးစားရန် preview ကို ကလစ်နှိပ်ပါ။"
+  "The video could not load. Click the preview to retry.": "ဗီဒီယို ဖွင့်၍ မရပါ။ ထပ်ကြိုးစားရန် preview ကို ကလစ်နှိပ်ပါ။",
+  "Reload this page in a few minutes, or write to {support} from the email address you paid with.": "မိနစ်အနည်းငယ်အကြာတွင် ဤစာမျက်နှာကို ပြန်ဖွင့်ပါ၊ သို့မဟုတ် ငွေပေးချေခဲ့သည့် အီးမေးလ်မှ {support} သို့ စာရေးပါ။"
  }
 }
