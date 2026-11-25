@@ -76,7 +76,6 @@
   "Paste the key": "キーを貼り付け",
   "GET PRO": "PRO を入手",
   "Buy a licence for the website edition": "ウェブサイト版のライセンスを購入",
-  "You came from the Q-P1NG app: after the payment, go back to the app and Pro turns on by itself.": "Q-P1NG アプリから開かれました。お支払い後にアプリへ戻ると、Pro が自動的に有効になります。",
   "I agree that the licence key is delivered immediately after payment, which ends the statutory right of withdrawal for digital content; the <a href=\"/refund.html\">14-day refund</a> still applies. I accept the <a href=\"/terms.html\">Terms</a> and the <a href=\"/license.html\">EULA</a>; see the <a href=\"/privacy.html\">Privacy Policy</a>.": "お支払い後ただちにライセンスキーが提供されること、およびこれによりデジタルコンテンツに関する法定の撤回権が消滅することに同意します。なお、<a href=\"/refund.html\">14 日間の返金</a>は引き続き適用されます。<a href=\"/terms.html\">利用規約</a>と<a href=\"/license.html\">EULA</a>に同意します。<a href=\"/privacy.html\">プライバシーポリシー</a>もご覧ください。",
   "Pay by card": "カードで支払う",
   "Coming soon": "近日対応",
@@ -150,9 +149,13 @@
   "Download the APK below, or keep Q-P1NG Core if you already have it from this website. On Google Play, Pro will be bought in the app.": "下の APK をダウンロードしてください。このサイトの Q-P1NG Core をお使いなら、そのままで構いません。Google Play では、Pro はアプリ内で購入する予定です。",
   "Open any Pro feature, or Info &rsaquo; Activate Pro, paste the key and tap Activate. Core then installs Pro over itself: your identity, contacts and messages stay.": "いずれかの Pro 機能か「Info › Pro を有効化」を開き、キーを貼り付けて「有効化」をタップします。その後、Core が自分の上に Pro をインストールします。ID、連絡先、メッセージはそのまま残ります。",
   "The Google Play edition is coming soon: there, Pro will be an in-app purchase.": "Google Play 版は近日公開予定で、Pro はアプリ内購入になります。",
-  "In the website edition, Core or Pro: open any Pro feature, or Info &rsaquo; Activate Pro, paste the key and tap Activate.": "ウェブサイト版（Core または Pro）で、いずれかの Pro 機能か「Info › Pro を有効化」を開き、キーを貼り付けて「有効化」をタップします。",
   "Do I keep my chats when I move from Core to Pro?": "Core から Pro に移ってもチャットは残りますか？",
-  "Yes. Pro installs over Core as an update of the same app: your identity, contacts, messages and settings stay, and your contacts see no change.": "はい。Pro は同じアプリのアップデートとして Core の上にインストールされます。ID、連絡先、メッセージ、設定はそのまま残り、連絡先から見ても何も変わりません。"
+  "Yes. Pro installs over Core as an update of the same app: your identity, contacts, messages and settings stay, and your contacts see no change.": "はい。Pro は同じアプリのアップデートとして Core の上にインストールされます。ID、連絡先、メッセージ、設定はそのまま残り、連絡先から見ても何も変わりません。",
+  "You came from the Q-P1NG app: after the payment this page takes you back to the app, and Pro turns on by itself.": "Q-P1NG アプリから開かれました。お支払い後、このページからアプリに戻り、Pro が自動的に有効になります。",
+  "Back to Q-P1NG": "Q-P1NG に戻る",
+  "Open in Q-P1NG": "Q-P1NG で開く",
+  "On the phone, in Q-P1NG: Info &rsaquo; Activate Pro &rsaquo; Scan QR. The phone&rsquo;s camera opens this page there, with Open in Q-P1NG.": "スマートフォンの Q-P1NG で「Info › Pro を有効化 › QRを読み取る」。スマートフォンのカメラで読み取ると、このページが「Q-P1NG で開く」付きで開きます。",
+  "In the website edition, Core or Pro: open any Pro feature, or Info &rsaquo; Activate Pro, then Paste or Scan QR.": "ウェブサイト版（Core または Pro）で、いずれかの Pro 機能か「Info › Pro を有効化」を開き、「貼り付け」または「QRを読み取る」をタップします。"
  },
  "messages": {
   "Copied": "コピーしました",

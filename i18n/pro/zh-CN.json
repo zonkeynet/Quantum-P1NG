@@ -76,7 +76,6 @@
   "Paste the key": "粘贴密钥",
   "GET PRO": "获取 PRO",
   "Buy a licence for the website edition": "购买网站版许可证",
-  "You came from the Q-P1NG app: after the payment, go back to the app and Pro turns on by itself.": "你是从 Q-P1NG 应用来到此页面的：付款后返回应用，Pro 会自动启用。",
   "I agree that the licence key is delivered immediately after payment, which ends the statutory right of withdrawal for digital content; the <a href=\"/refund.html\">14-day refund</a> still applies. I accept the <a href=\"/terms.html\">Terms</a> and the <a href=\"/license.html\">EULA</a>; see the <a href=\"/privacy.html\">Privacy Policy</a>.": "我同意在付款后立即交付许可证密钥，并知悉这将终止数字内容的法定撤回权；<a href=\"/refund.html\">14 天退款</a>仍然适用。我接受<a href=\"/terms.html\">使用条款</a>和<a href=\"/license.html\">EULA</a>；另请参阅<a href=\"/privacy.html\">隐私政策</a>。",
   "Pay by card": "银行卡付款",
   "Coming soon": "即将推出",
@@ -150,9 +149,13 @@
   "Download the APK below, or keep Q-P1NG Core if you already have it from this website. On Google Play, Pro will be bought in the app.": "下载下方的 APK；如果已经在用本网站的 Q-P1NG Core，保留它即可。在 Google Play 上，Pro 将在应用内购买。",
   "Open any Pro feature, or Info &rsaquo; Activate Pro, paste the key and tap Activate. Core then installs Pro over itself: your identity, contacts and messages stay.": "打开任一 Pro 功能，或进入 Info › 激活 Pro，粘贴密钥并点按“激活”。之后，Core 会在自身之上安装 Pro：你的身份、联系人和消息都会保留。",
   "The Google Play edition is coming soon: there, Pro will be an in-app purchase.": "Google Play 版即将推出：届时 Pro 将通过应用内购买提供。",
-  "In the website edition, Core or Pro: open any Pro feature, or Info &rsaquo; Activate Pro, paste the key and tap Activate.": "在网站版（Core 或 Pro）中：打开任一 Pro 功能，或进入 Info › 激活 Pro，粘贴密钥并点按“激活”。",
   "Do I keep my chats when I move from Core to Pro?": "从 Core 换到 Pro，聊天记录会保留吗？",
-  "Yes. Pro installs over Core as an update of the same app: your identity, contacts, messages and settings stay, and your contacts see no change.": "会。Pro 作为同一应用的更新安装在 Core 之上：你的身份、联系人、消息和设置都会保留，联系人也看不到任何变化。"
+  "Yes. Pro installs over Core as an update of the same app: your identity, contacts, messages and settings stay, and your contacts see no change.": "会。Pro 作为同一应用的更新安装在 Core 之上：你的身份、联系人、消息和设置都会保留，联系人也看不到任何变化。",
+  "You came from the Q-P1NG app: after the payment this page takes you back to the app, and Pro turns on by itself.": "你是从 Q-P1NG 应用来到此页面的：付款后此页面会带你回到应用，Pro 会自动启用。",
+  "Back to Q-P1NG": "返回 Q-P1NG",
+  "Open in Q-P1NG": "在 Q-P1NG 中打开",
+  "On the phone, in Q-P1NG: Info &rsaquo; Activate Pro &rsaquo; Scan QR. The phone&rsquo;s camera opens this page there, with Open in Q-P1NG.": "在手机上的 Q-P1NG 中：Info › 激活 Pro › 扫描二维码。用手机相机扫描会在手机上打开此页面，并显示“在 Q-P1NG 中打开”。",
+  "In the website edition, Core or Pro: open any Pro feature, or Info &rsaquo; Activate Pro, then Paste or Scan QR.": "在网站版（Core 或 Pro）中：打开任一 Pro 功能，或进入 Info › 激活 Pro，然后点按“粘贴”或“扫描二维码”。"
  },
  "messages": {
   "Copied": "已复制",

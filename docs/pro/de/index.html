@@ -236,7 +236,7 @@
             </div>
 
             <div class="panel">
-                <p id="from-app" class="pay-note" hidden>Du kommst aus der Q-P1NG-App: Kehre nach der Zahlung zur App zurück, dann wird Pro von selbst aktiviert.</p>
+                <p id="from-app" class="pay-note" hidden>Du kommst aus der Q-P1NG-App: Nach der Zahlung bringt dich diese Seite zur App zurück, und Pro wird von selbst aktiviert.</p>
                 <label class="consent">
                     <input type="checkbox" id="consent">
                     <span>Ich stimme zu, dass der Lizenzschlüssel sofort nach der Zahlung geliefert wird, wodurch mein gesetzliches Widerrufsrecht für digitale Inhalte erlischt; die <a href="/refund.html">Erstattung innerhalb von 14 Tagen</a> gilt weiterhin. Ich akzeptiere die <a href="/terms.html">Nutzungsbedingungen</a> und die <a href="/license.html">EULA</a>; siehe <a href="/privacy.html">Datenschutzerklärung</a>.</span>
@@ -308,10 +308,16 @@
                 <p class="muted small">Bewahre ihn sicher auf: Auf einem neuen Telefon brauchst du ihn wieder.</p>
                 <div id="licence-key" class="key"></div>
                 <div class="actions">
-                    <button type="button" id="licence-copy" class="btn btn-primary">Schlüssel kopieren</button>
+                    <a id="licence-return" class="btn btn-primary" hidden>Zurück zu Q-P1NG</a>
+                    <a id="licence-open" class="btn btn-primary" hidden>In Q-P1NG öffnen</a>
+                    <button type="button" id="licence-copy" class="btn">Schlüssel kopieren</button>
                     <a class="btn" href="#download">App herunterladen</a>
                 </div>
-                <p class="muted small">In der Website-Version, Core oder Pro: Öffne eine beliebige Pro-Funktion oder Info › Pro aktivieren, füge den Schlüssel ein und tippe auf Aktivieren.</p>
+                <div id="licence-qr" class="licence-qr" hidden>
+                    <img id="licence-qr-img" alt="" width="240" height="240">
+                    <p class="muted small">Auf dem Telefon, in Q-P1NG: Info › Pro aktivieren › QR scannen. Die Kamera des Telefons öffnet diese Seite dort, mit „In Q-P1NG öffnen“.</p>
+                </div>
+                <p class="muted small">In der Website-Version, Core oder Pro: Öffne eine beliebige Pro-Funktion oder Info › Pro aktivieren, dann Einfügen oder QR scannen.</p>
                 <p id="licence-app" class="pay-note" hidden>Kehre zu Q-P1NG zurück: Pro wird innerhalb weniger Sekunden von selbst aktiviert, du musst den Schlüssel nicht einfügen.</p>
             </div>
         </div>
@@ -436,7 +442,8 @@
 </footer>
 <!-- i18n:messages --><script type="application/json" id="pro-i18n">{"Copied": "Kopiert", "Through {provider}, our reseller": "Über unseren Wiederverkäufer {provider}", "Coming soon": "Bald verfügbar", "Soon": "Bald", "Payments could not be loaded. Check your connection and reload the page.": "Die Zahlungsarten konnten nicht geladen werden. Prüfe deine Verbindung und lade die Seite neu.", "Tick the box above to choose how to pay.": "Setze oben das Häkchen, um eine Zahlungsart zu wählen.", "Card payment is not available right now. Please try again later, or pay with Bitcoin.": "Kartenzahlung ist gerade nicht verfügbar. Bitte versuche es später noch einmal oder bezahle mit Bitcoin.", "The card checkout could not be loaded. Check that no blocker stops {domain}.": "Der Karten-Checkout konnte nicht geladen werden. Prüfe, ob ein Blocker {domain} sperrt.", "This usually takes a few seconds. Your order reference is {reference} (also on your receipt): with it you can recover the key below at any time.": "Das dauert meist nur wenige Sekunden. Deine Bestellnummer ist {reference} (auch auf deinem Kaufbeleg): Damit kannst du den Schlüssel jederzeit unten wiederherstellen.", "This licence was refunded.": "Diese Lizenz wurde erstattet.", "Your payment is confirmed, but the key is taking longer than usual.": "Deine Zahlung ist bestätigt, aber der Schlüssel braucht länger als üblich.", "Reload this page in a few minutes, or write to {support} from the email address you paid with.": "Lade diese Seite in ein paar Minuten neu oder schreib an {support} von der E-Mail-Adresse, mit der du bezahlt hast.", "Recover it below with the order reference {reference} in a few minutes, or write to {support}.": "Stelle ihn in ein paar Minuten unten mit der Bestellnummer {reference} wieder her oder schreib an {support}.", "Recover it below with the order reference on your receipt in a few minutes, or write to {support}.": "Stelle ihn in ein paar Minuten unten mit der Bestellnummer von deinem Kaufbeleg wieder her oder schreib an {support}.", "Preparing the order (a few seconds of work on this device)…": "Bestellung wird vorbereitet (ein paar Sekunden Rechenarbeit auf diesem Gerät)…", "The Bitcoin order failed:": "Die Bitcoin-Bestellung ist fehlgeschlagen:", "Rate expired": "Kurs abgelaufen", "Rate held": "Kurs garantiert", "Payment confirmed.": "Zahlung bestätigt.", "Payment seen on the network. Waiting for one confirmation…": "Zahlung im Netzwerk erkannt. Warten auf eine Bestätigung…", "Received {received} BTC. Send the remaining {due} BTC to the same address.": "{received} BTC erhalten. Sende die restlichen {due} BTC an dieselbe Adresse.", "This order has expired without a payment. If you have just paid, the payment is still recognised for two weeks; otherwise start a new order.": "Diese Bestellung ist ohne Zahlung abgelaufen. Hast du gerade bezahlt, wird die Zahlung noch zwei Wochen lang erkannt; andernfalls starte eine neue Bestellung.", "Waiting for the payment…": "Warten auf die Zahlung…", "That order no longer exists.": "Diese Bestellung existiert nicht mehr.", "That is not an order reference.": "Das ist keine Bestellnummer.", "Looking it up…": "Wird gesucht…", "Found.": "Gefunden.", "Too many attempts: try again in a minute.": "Zu viele Versuche: Versuch es in einer Minute noch einmal.", "No licence for that order yet. If you have just paid, try again in a minute; otherwise write to {support}.": "Für diese Bestellung gibt es noch keine Lizenz. Hast du gerade bezahlt, versuch es in einer Minute noch einmal; andernfalls schreib an {support}.", "The licence service could not be reached.": "Der Lizenzdienst ist nicht erreichbar.", "Free": "Kostenlos", "Needs a licence": "Lizenz erforderlich", "Download": "Herunterladen", "The first release of the website edition will appear here.": "Das erste Release der Website-Version erscheint hier.", "Click to play": "Zum Abspielen klicken", "Click to pause": "Zum Pausieren klicken", "Click to replay": "Zum erneuten Abspielen klicken", "Click to retry": "Zum erneuten Versuch klicken", "The video could not load. Click the preview to retry.": "Das Video konnte nicht geladen werden. Klicke auf die Vorschau, um es erneut zu versuchen."}</script><!-- /i18n:messages -->
 <script src="/pro/pow.js?v=20261024"></script>
-<script src="/pro/pro.js?v=20261025a"></script>
+<script src="/pro/qr.js?v=20261126"></script>
+<script src="/pro/pro.js?v=20261126"></script>
 <script src="/app-feature-demos.js?v=7" defer></script>
 <script src="/email-contact.js?v=20261024" defer></script>
 </body>

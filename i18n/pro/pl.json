@@ -76,7 +76,6 @@
   "Paste the key": "Wklej klucz",
   "GET PRO": "KUP PRO",
   "Buy a licence for the website edition": "Kup licencję na wersję ze strony",
-  "You came from the Q-P1NG app: after the payment, go back to the app and Pro turns on by itself.": "Przechodzisz z aplikacji Q-P1NG: po płatności wróć do aplikacji, a Pro włączy się samo.",
   "I agree that the licence key is delivered immediately after payment, which ends the statutory right of withdrawal for digital content; the <a href=\"/refund.html\">14-day refund</a> still applies. I accept the <a href=\"/terms.html\">Terms</a> and the <a href=\"/license.html\">EULA</a>; see the <a href=\"/privacy.html\">Privacy Policy</a>.": "Wyrażam zgodę na dostarczenie klucza licencyjnego natychmiast po płatności, co skutkuje utratą ustawowego prawa odstąpienia od umowy w przypadku treści cyfrowych; <a href=\"/refund.html\">14-dniowy zwrot pieniędzy</a> nadal obowiązuje. Akceptuję <a href=\"/terms.html\">Regulamin</a> i <a href=\"/license.html\">EULA</a>; zobacz <a href=\"/privacy.html\">Politykę prywatności</a>.",
   "Pay by card": "Zapłać kartą",
   "Coming soon": "Wkrótce",
@@ -150,9 +149,13 @@
   "Download the APK below, or keep Q-P1NG Core if you already have it from this website. On Google Play, Pro will be bought in the app.": "Pobierz APK poniżej albo zostaw Q-P1NG Core, jeśli masz już tę wersję z tej strony. W Google Play Pro będzie kupowane w aplikacji.",
   "Open any Pro feature, or Info &rsaquo; Activate Pro, paste the key and tap Activate. Core then installs Pro over itself: your identity, contacts and messages stay.": "Otwórz dowolną funkcję Pro lub Info › Aktywuj Pro, wklej klucz i dotknij Aktywuj. Core zainstaluje wtedy Pro na sobie: tożsamość, kontakty i wiadomości zostaną zachowane.",
   "The Google Play edition is coming soon: there, Pro will be an in-app purchase.": "Wersja z Google Play pojawi się wkrótce: tam Pro będzie zakupem w aplikacji.",
-  "In the website edition, Core or Pro: open any Pro feature, or Info &rsaquo; Activate Pro, paste the key and tap Activate.": "W wersji ze strony, Core lub Pro: otwórz dowolną funkcję Pro lub Info › Aktywuj Pro, wklej klucz i dotknij Aktywuj.",
   "Do I keep my chats when I move from Core to Pro?": "Czy zachowam czaty po przejściu z Core na Pro?",
-  "Yes. Pro installs over Core as an update of the same app: your identity, contacts, messages and settings stay, and your contacts see no change.": "Tak. Pro instaluje się na Core jako aktualizacja tej samej aplikacji: tożsamość, kontakty, wiadomości i ustawienia zostają, a Twoje kontakty nie widzą żadnej zmiany."
+  "Yes. Pro installs over Core as an update of the same app: your identity, contacts, messages and settings stay, and your contacts see no change.": "Tak. Pro instaluje się na Core jako aktualizacja tej samej aplikacji: tożsamość, kontakty, wiadomości i ustawienia zostają, a Twoje kontakty nie widzą żadnej zmiany.",
+  "You came from the Q-P1NG app: after the payment this page takes you back to the app, and Pro turns on by itself.": "Przechodzisz z aplikacji Q-P1NG: po płatności ta strona przeniesie Cię z powrotem do aplikacji, a Pro włączy się samo.",
+  "Back to Q-P1NG": "Wróć do Q-P1NG",
+  "Open in Q-P1NG": "Otwórz w Q-P1NG",
+  "On the phone, in Q-P1NG: Info &rsaquo; Activate Pro &rsaquo; Scan QR. The phone&rsquo;s camera opens this page there, with Open in Q-P1NG.": "Na telefonie, w Q-P1NG: Info › Aktywuj Pro › Skanuj QR. Aparat telefonu otworzy tam tę stronę z przyciskiem Otwórz w Q-P1NG.",
+  "In the website edition, Core or Pro: open any Pro feature, or Info &rsaquo; Activate Pro, then Paste or Scan QR.": "W wersji ze strony, Core lub Pro: otwórz dowolną funkcję Pro lub Info › Aktywuj Pro, potem Wklej albo Skanuj QR."
  },
  "messages": {
   "Copied": "Skopiowano",

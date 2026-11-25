@@ -236,7 +236,7 @@
             </div>
 
             <div class="panel">
-                <p id="from-app" class="pay-note" hidden>你是从 Q-P1NG 应用来到此页面的：付款后返回应用，Pro 会自动启用。</p>
+                <p id="from-app" class="pay-note" hidden>你是从 Q-P1NG 应用来到此页面的：付款后此页面会带你回到应用，Pro 会自动启用。</p>
                 <label class="consent">
                     <input type="checkbox" id="consent">
                     <span>我同意在付款后立即交付许可证密钥，并知悉这将终止数字内容的法定撤回权；<a href="/refund.html">14 天退款</a>仍然适用。我接受<a href="/terms.html">使用条款</a>和<a href="/license.html">EULA</a>；另请参阅<a href="/privacy.html">隐私政策</a>。</span>
@@ -308,10 +308,16 @@
                 <p class="muted small">请妥善保管：换新手机时还需要用到它。</p>
                 <div id="licence-key" class="key"></div>
                 <div class="actions">
-                    <button type="button" id="licence-copy" class="btn btn-primary">复制密钥</button>
+                    <a id="licence-return" class="btn btn-primary" hidden>返回 Q-P1NG</a>
+                    <a id="licence-open" class="btn btn-primary" hidden>在 Q-P1NG 中打开</a>
+                    <button type="button" id="licence-copy" class="btn">复制密钥</button>
                     <a class="btn" href="#download">下载应用</a>
                 </div>
-                <p class="muted small">在网站版（Core 或 Pro）中：打开任一 Pro 功能，或进入 Info › 激活 Pro，粘贴密钥并点按“激活”。</p>
+                <div id="licence-qr" class="licence-qr" hidden>
+                    <img id="licence-qr-img" alt="" width="240" height="240">
+                    <p class="muted small">在手机上的 Q-P1NG 中：Info › 激活 Pro › 扫描二维码。用手机相机扫描会在手机上打开此页面，并显示“在 Q-P1NG 中打开”。</p>
+                </div>
+                <p class="muted small">在网站版（Core 或 Pro）中：打开任一 Pro 功能，或进入 Info › 激活 Pro，然后点按“粘贴”或“扫描二维码”。</p>
                 <p id="licence-app" class="pay-note" hidden>返回 Q-P1NG：Pro 会在几秒内自动启用，无需粘贴密钥。</p>
             </div>
         </div>
@@ -436,7 +442,8 @@
 </footer>
 <!-- i18n:messages --><script type="application/json" id="pro-i18n">{"Copied": "已复制", "Through {provider}, our reseller": "通过我们的经销商 {provider}", "Coming soon": "即将推出", "Soon": "即将推出", "Payments could not be loaded. Check your connection and reload the page.": "无法加载付款方式。请检查网络连接并重新加载页面。", "Tick the box above to choose how to pay.": "勾选上方的复选框即可选择付款方式。", "Card payment is not available right now. Please try again later, or pay with Bitcoin.": "银行卡付款暂不可用。请稍后重试，或使用 Bitcoin 付款。", "The card checkout could not be loaded. Check that no blocker stops {domain}.": "无法加载银行卡结账页面。请检查是否有拦截工具屏蔽了 {domain}。", "This usually takes a few seconds. Your order reference is {reference} (also on your receipt): with it you can recover the key below at any time.": "通常只需几秒钟。你的订单号是 {reference}（收据上也有）：凭此可随时在下方找回密钥。", "This licence was refunded.": "此许可证已退款。", "Your payment is confirmed, but the key is taking longer than usual.": "你的付款已确认，但密钥的生成比平时慢。", "Reload this page in a few minutes, or write to {support} from the email address you paid with.": "请几分钟后刷新此页面，或用付款时填写的邮箱写信至 {support}。", "Recover it below with the order reference {reference} in a few minutes, or write to {support}.": "请过几分钟后用订单号 {reference} 在下方找回，或发邮件至 {support}。", "Recover it below with the order reference on your receipt in a few minutes, or write to {support}.": "请过几分钟后用收据上的订单号在下方找回，或发邮件至 {support}。", "Preparing the order (a few seconds of work on this device)…": "正在准备订单（需要在此设备上运算几秒钟）…", "The Bitcoin order failed:": "Bitcoin 订单失败：", "Rate expired": "汇率已过期", "Rate held": "汇率锁定中", "Payment confirmed.": "付款已确认。", "Payment seen on the network. Waiting for one confirmation…": "已在网络上检测到付款。正在等待 1 个确认…", "Received {received} BTC. Send the remaining {due} BTC to the same address.": "已收到 {received} BTC。请将剩余的 {due} BTC 发送到同一地址。", "This order has expired without a payment. If you have just paid, the payment is still recognised for two weeks; otherwise start a new order.": "此订单已过期，未收到付款。如果你刚刚付款，该付款在两周内仍会被认可；否则请创建新订单。", "Waiting for the payment…": "正在等待付款…", "That order no longer exists.": "该订单已不存在。", "That is not an order reference.": "这不是订单号。", "Looking it up…": "正在查询…", "Found.": "已找到。", "Too many attempts: try again in a minute.": "尝试次数过多：请一分钟后再试。", "No licence for that order yet. If you have just paid, try again in a minute; otherwise write to {support}.": "该订单暂无许可证。如果你刚刚付款，请一分钟后再试；否则请发邮件至 {support}。", "The licence service could not be reached.": "无法连接许可证服务。", "Free": "免费", "Needs a licence": "需要许可证", "Download": "下载", "The first release of the website edition will appear here.": "网站版的首个版本将显示在这里。", "Click to play": "点击播放", "Click to pause": "点击暂停", "Click to replay": "点击重播", "Click to retry": "点击重试", "The video could not load. Click the preview to retry.": "视频无法加载。点击预览图重试。"}</script><!-- /i18n:messages -->
 <script src="/pro/pow.js?v=20261024"></script>
-<script src="/pro/pro.js?v=20261025a"></script>
+<script src="/pro/qr.js?v=20261126"></script>
+<script src="/pro/pro.js?v=20261126"></script>
 <script src="/app-feature-demos.js?v=7" defer></script>
 <script src="/email-contact.js?v=20261024" defer></script>
 </body>

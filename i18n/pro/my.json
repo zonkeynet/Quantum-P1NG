@@ -76,7 +76,6 @@
   "Paste the key": "ကီးကို ကူးထည့်ပါ",
   "GET PRO": "PRO ရယူပါ",
   "Buy a licence for the website edition": "ဝက်ဘ်ဆိုက်ဗားရှင်းအတွက် လိုင်စင် ဝယ်ရန်",
-  "You came from the Q-P1NG app: after the payment, go back to the app and Pro turns on by itself.": "သင်သည် Q-P1NG အက်ပ်မှ ရောက်လာခြင်း ဖြစ်သည်- ငွေပေးချေပြီးနောက် အက်ပ်သို့ ပြန်သွားပါ၊ Pro သည် အလိုအလျောက် ဖွင့်ပါမည်။",
   "I agree that the licence key is delivered immediately after payment, which ends the statutory right of withdrawal for digital content; the <a href=\"/refund.html\">14-day refund</a> still applies. I accept the <a href=\"/terms.html\">Terms</a> and the <a href=\"/license.html\">EULA</a>; see the <a href=\"/privacy.html\">Privacy Policy</a>.": "ငွေပေးချေပြီးနောက် လိုင်စင်ကီးကို ချက်ချင်း ပေးပို့မည်ဖြစ်ပြီး ယင်းကြောင့် ဒစ်ဂျစ်တယ်အကြောင်းအရာအတွက် ဥပဒေအရ ရရှိသော ပယ်ဖျက်ပိုင်ခွင့် ကုန်ဆုံးသွားမည်ကို ကျွန်ုပ် သဘောတူပါသည်။ <a href=\"/refund.html\">၁၄ ရက် ငွေပြန်အမ်းခြင်း</a>မှာမူ ဆက်လက် အကျုံးဝင်ပါသည်။ <a href=\"/terms.html\">စည်းကမ်းချက်များ</a>နှင့် <a href=\"/license.html\">EULA</a> ကို ကျွန်ုပ် လက်ခံပါသည်၊ <a href=\"/privacy.html\">ကိုယ်ရေးကိုယ်တာ မူဝါဒ</a>ကို ကြည့်ပါ။",
   "Pay by card": "ကတ်ဖြင့် ပေးချေရန်",
   "Coming soon": "မကြာမီ",
@@ -150,9 +149,13 @@
   "Download the APK below, or keep Q-P1NG Core if you already have it from this website. On Google Play, Pro will be bought in the app.": "အောက်ပါ APK ကို ဒေါင်းလုဒ်လုပ်ပါ၊ သို့မဟုတ် ဤဝက်ဘ်ဆိုက်မှ Q-P1NG Core ရှိပြီးသားဆိုလျှင် ထိုအတိုင်း ထားပါ။ Google Play တွင် Pro ကို အက်ပ်အတွင်း ဝယ်ရပါမည်။",
   "Open any Pro feature, or Info &rsaquo; Activate Pro, paste the key and tap Activate. Core then installs Pro over itself: your identity, contacts and messages stay.": "မည်သည့် Pro လုပ်ဆောင်ချက်ကိုမဆို သို့မဟုတ် “Info › Pro ကို ဖွင့်ရန်” ကို ဖွင့်ပါ၊ ကီးကို ကူးထည့်ပြီး “ဖွင့်ရန်” ကို နှိပ်ပါ။ ထို့နောက် Core က Pro ကို ၎င်းအပေါ်တွင် ထည့်သွင်းပါမည်- သင့်အထောက်အထား၊ အဆက်အသွယ်များနှင့် မက်ဆေ့ချ်များ ကျန်ရှိနေပါမည်။",
   "The Google Play edition is coming soon: there, Pro will be an in-app purchase.": "Google Play ဗားရှင်း မကြာမီ ထွက်ရှိပါမည်- ထိုတွင် Pro သည် အက်ပ်အတွင်း ဝယ်ယူမှု ဖြစ်ပါမည်။",
-  "In the website edition, Core or Pro: open any Pro feature, or Info &rsaquo; Activate Pro, paste the key and tap Activate.": "ဝက်ဘ်ဆိုက်ဗားရှင်း (Core သို့မဟုတ် Pro) တွင်- မည်သည့် Pro လုပ်ဆောင်ချက်ကိုမဆို သို့မဟုတ် “Info › Pro ကို ဖွင့်ရန်” ကို ဖွင့်ပါ၊ ကီးကို ကူးထည့်ပြီး “ဖွင့်ရန်” ကို နှိပ်ပါ။",
   "Do I keep my chats when I move from Core to Pro?": "Core မှ Pro သို့ ပြောင်းလျှင် ကျွန်ုပ်၏ ချက်များ ကျန်ရှိနေပါသလား။",
-  "Yes. Pro installs over Core as an update of the same app: your identity, contacts, messages and settings stay, and your contacts see no change.": "ဟုတ်ကဲ့။ Pro ကို တူညီသော အက်ပ်၏ အပ်ဒိတ်အဖြစ် Core အပေါ်တွင် ထည့်သွင်းသည်- သင့်အထောက်အထား၊ အဆက်အသွယ်များ၊ မက်ဆေ့ချ်များနှင့် ဆက်တင်များ ကျန်ရှိနေပြီး သင့်အဆက်အသွယ်များ ပြောင်းလဲမှု မမြင်ရပါ။"
+  "Yes. Pro installs over Core as an update of the same app: your identity, contacts, messages and settings stay, and your contacts see no change.": "ဟုတ်ကဲ့။ Pro ကို တူညီသော အက်ပ်၏ အပ်ဒိတ်အဖြစ် Core အပေါ်တွင် ထည့်သွင်းသည်- သင့်အထောက်အထား၊ အဆက်အသွယ်များ၊ မက်ဆေ့ချ်များနှင့် ဆက်တင်များ ကျန်ရှိနေပြီး သင့်အဆက်အသွယ်များ ပြောင်းလဲမှု မမြင်ရပါ။",
+  "You came from the Q-P1NG app: after the payment this page takes you back to the app, and Pro turns on by itself.": "သင်သည် Q-P1NG အက်ပ်မှ ရောက်လာခြင်း ဖြစ်သည်- ငွေပေးချေပြီးနောက် ဤစာမျက်နှာက အက်ပ်သို့ ပြန်ပို့ပေးမည်ဖြစ်ပြီး Pro သည် အလိုအလျောက် ဖွင့်ပါမည်။",
+  "Back to Q-P1NG": "Q-P1NG သို့ ပြန်သွားရန်",
+  "Open in Q-P1NG": "Q-P1NG တွင် ဖွင့်ရန်",
+  "On the phone, in Q-P1NG: Info &rsaquo; Activate Pro &rsaquo; Scan QR. The phone&rsquo;s camera opens this page there, with Open in Q-P1NG.": "ဖုန်းရှိ Q-P1NG တွင်- “Info › Pro ကို ဖွင့်ရန် › QR စကင်ဖတ်ရန်”။ ဖုန်းကင်မရာဖြင့် ဖတ်လျှင် ဤစာမျက်နှာကို “Q-P1NG တွင် ဖွင့်ရန်” ဖြင့် ဖုန်းပေါ်တွင် ဖွင့်ပေးပါမည်။",
+  "In the website edition, Core or Pro: open any Pro feature, or Info &rsaquo; Activate Pro, then Paste or Scan QR.": "ဝက်ဘ်ဆိုက်ဗားရှင်း (Core သို့မဟုတ် Pro) တွင်- မည်သည့် Pro လုပ်ဆောင်ချက်ကိုမဆို သို့မဟုတ် “Info › Pro ကို ဖွင့်ရန်” ကို ဖွင့်ပြီး “ကူးထည့်ရန်” သို့မဟုတ် “QR စကင်ဖတ်ရန်” ကို နှိပ်ပါ။"
  },
  "messages": {
   "Copied": "ကူးယူပြီးပါပြီ",

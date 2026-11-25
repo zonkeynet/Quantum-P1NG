@@ -236,7 +236,7 @@
             </div>
 
             <div class="panel">
-                <p id="from-app" class="pay-note" hidden>Вы перешли из приложения Q-P1NG: после оплаты вернитесь в приложение, и Pro включится сам.</p>
+                <p id="from-app" class="pay-note" hidden>Вы перешли из приложения Q-P1NG: после оплаты эта страница вернёт вас в приложение, и Pro включится сам.</p>
                 <label class="consent">
                     <input type="checkbox" id="consent">
                     <span>Я соглашаюсь с тем, что лицензионный ключ предоставляется сразу после оплаты, в результате чего прекращается предусмотренное законом право на отказ от договора в отношении цифрового контента; <a href="/refund.html">возврат средств в течение 14 дней</a> при этом сохраняется. Я принимаю <a href="/terms.html">Условия использования</a> и <a href="/license.html">EULA</a>; см. <a href="/privacy.html">Политику конфиденциальности</a>.</span>
@@ -308,10 +308,16 @@
                 <p class="muted small">Сохраните его в надёжном месте: он понадобится снова на новом телефоне.</p>
                 <div id="licence-key" class="key"></div>
                 <div class="actions">
-                    <button type="button" id="licence-copy" class="btn btn-primary">Копировать ключ</button>
+                    <a id="licence-return" class="btn btn-primary" hidden>Вернуться в Q-P1NG</a>
+                    <a id="licence-open" class="btn btn-primary" hidden>Открыть в Q-P1NG</a>
+                    <button type="button" id="licence-copy" class="btn">Копировать ключ</button>
                     <a class="btn" href="#download">Скачать приложение</a>
                 </div>
-                <p class="muted small">В версии с сайта, Core или Pro: откройте любую функцию Pro или Info › Активировать Pro, вставьте ключ и нажмите «Активировать».</p>
+                <div id="licence-qr" class="licence-qr" hidden>
+                    <img id="licence-qr-img" alt="" width="240" height="240">
+                    <p class="muted small">На телефоне, в Q-P1NG: Info › Активировать Pro › Сканировать QR. Камера телефона откроет там эту страницу с кнопкой «Открыть в Q-P1NG».</p>
+                </div>
+                <p class="muted small">В версии с сайта, Core или Pro: откройте любую функцию Pro или Info › Активировать Pro, затем «Вставить» или «Сканировать QR».</p>
                 <p id="licence-app" class="pay-note" hidden>Вернитесь в Q-P1NG: Pro включится сам через несколько секунд, вставлять ключ не нужно.</p>
             </div>
         </div>
@@ -436,7 +442,8 @@
 </footer>
 <!-- i18n:messages --><script type="application/json" id="pro-i18n">{"Copied": "Скопировано", "Through {provider}, our reseller": "Через {provider}, нашего реселлера", "Coming soon": "Скоро появится", "Soon": "Скоро", "Payments could not be loaded. Check your connection and reload the page.": "Не удалось загрузить способы оплаты. Проверьте подключение и перезагрузите страницу.", "Tick the box above to choose how to pay.": "Отметьте флажок выше, чтобы выбрать способ оплаты.", "Card payment is not available right now. Please try again later, or pay with Bitcoin.": "Оплата картой сейчас недоступна. Попробуйте позже или оплатите в Bitcoin.", "The card checkout could not be loaded. Check that no blocker stops {domain}.": "Не удалось загрузить страницу оплаты картой. Убедитесь, что блокировщик не мешает {domain}.", "This usually takes a few seconds. Your order reference is {reference} (also on your receipt): with it you can recover the key below at any time.": "Обычно это занимает несколько секунд. Номер вашего заказа — {reference} (он также указан в чеке): по нему можно в любой момент восстановить ключ ниже.", "This licence was refunded.": "За эту лицензию оформлен возврат средств.", "Your payment is confirmed, but the key is taking longer than usual.": "Платёж подтверждён, но выдача ключа занимает больше времени, чем обычно.", "Reload this page in a few minutes, or write to {support} from the email address you paid with.": "Обновите эту страницу через несколько минут или напишите на {support} с адреса, указанного при оплате.", "Recover it below with the order reference {reference} in a few minutes, or write to {support}.": "Через несколько минут восстановите его ниже по номеру заказа {reference} или напишите на {support}.", "Recover it below with the order reference on your receipt in a few minutes, or write to {support}.": "Через несколько минут восстановите его ниже по номеру заказа из чека или напишите на {support}.", "Preparing the order (a few seconds of work on this device)…": "Подготовка заказа (несколько секунд вычислений на этом устройстве)…", "The Bitcoin order failed:": "Не удалось создать заказ в Bitcoin:", "Rate expired": "Курс больше не действует", "Rate held": "Курс зафиксирован", "Payment confirmed.": "Платёж подтверждён.", "Payment seen on the network. Waiting for one confirmation…": "Платёж замечен в сети. Ожидание одного подтверждения…", "Received {received} BTC. Send the remaining {due} BTC to the same address.": "Получено {received} BTC. Отправьте оставшиеся {due} BTC на тот же адрес.", "This order has expired without a payment. If you have just paid, the payment is still recognised for two weeks; otherwise start a new order.": "Срок заказа истёк, оплата не поступила. Если вы только что заплатили, платёж всё равно будет учтён в течение двух недель; иначе создайте новый заказ.", "Waiting for the payment…": "Ожидание платежа…", "That order no longer exists.": "Этого заказа больше не существует.", "That is not an order reference.": "Это не номер заказа.", "Looking it up…": "Поиск…", "Found.": "Найдено.", "Too many attempts: try again in a minute.": "Слишком много попыток: повторите через минуту.", "No licence for that order yet. If you have just paid, try again in a minute; otherwise write to {support}.": "Лицензии для этого заказа пока нет. Если вы только что заплатили, повторите через минуту; иначе напишите на {support}.", "The licence service could not be reached.": "Не удалось связаться с сервисом лицензий.", "Free": "Бесплатно", "Needs a licence": "Нужна лицензия", "Download": "Скачать", "The first release of the website edition will appear here.": "Здесь появится первый выпуск версии с сайта.", "Click to play": "Нажмите, чтобы воспроизвести", "Click to pause": "Нажмите, чтобы поставить на паузу", "Click to replay": "Нажмите, чтобы посмотреть снова", "Click to retry": "Нажмите, чтобы повторить", "The video could not load. Click the preview to retry.": "Не удалось загрузить видео. Нажмите на превью, чтобы повторить."}</script><!-- /i18n:messages -->
 <script src="/pro/pow.js?v=20261024"></script>
-<script src="/pro/pro.js?v=20261025a"></script>
+<script src="/pro/qr.js?v=20261126"></script>
+<script src="/pro/pro.js?v=20261126"></script>
 <script src="/app-feature-demos.js?v=7" defer></script>
 <script src="/email-contact.js?v=20261024" defer></script>
 </body>

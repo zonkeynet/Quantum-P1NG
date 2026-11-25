@@ -236,7 +236,7 @@
             </div>
 
             <div class="panel">
-                <p id="from-app" class="pay-note" hidden>您是從 Q-P1NG 應用程式前來：付款後回到應用程式，Pro 就會自動啟用。</p>
+                <p id="from-app" class="pay-note" hidden>您是從 Q-P1NG 應用程式前來：付款後此頁面會帶您回到應用程式，Pro 就會自動啟用。</p>
                 <label class="consent">
                     <input type="checkbox" id="consent">
                     <span>我同意授權金鑰於付款後立即交付，並了解數位內容的法定解除權將因此終止；<a href="/refund.html">14 天退款</a>仍然適用。我接受<a href="/terms.html">服務條款</a>與<a href="/license.html">EULA</a>；另請參閱<a href="/privacy.html">隱私權政策</a>。</span>
@@ -308,10 +308,16 @@
                 <p class="muted small">請妥善保存：換新手機時還會用到。</p>
                 <div id="licence-key" class="key"></div>
                 <div class="actions">
-                    <button type="button" id="licence-copy" class="btn btn-primary">複製金鑰</button>
+                    <a id="licence-return" class="btn btn-primary" hidden>返回 Q-P1NG</a>
+                    <a id="licence-open" class="btn btn-primary" hidden>在 Q-P1NG 中開啟</a>
+                    <button type="button" id="licence-copy" class="btn">複製金鑰</button>
                     <a class="btn" href="#download">下載應用程式</a>
                 </div>
-                <p class="muted small">在網站版（Core 或 Pro）中：開啟任一 Pro 功能，或前往 Info › 啟用 Pro，貼上金鑰後點選「啟用」。</p>
+                <div id="licence-qr" class="licence-qr" hidden>
+                    <img id="licence-qr-img" alt="" width="240" height="240">
+                    <p class="muted small">在手機上的 Q-P1NG 中：Info › 啟用 Pro › 掃描 QR 碼。用手機相機掃描會在手機上開啟此頁面，並顯示「在 Q-P1NG 中開啟」。</p>
+                </div>
+                <p class="muted small">在網站版（Core 或 Pro）中：開啟任一 Pro 功能，或前往 Info › 啟用 Pro，然後點選「貼上」或「掃描 QR 碼」。</p>
                 <p id="licence-app" class="pay-note" hidden>回到 Q-P1NG：Pro 會在幾秒內自動啟用，不必貼上金鑰。</p>
             </div>
         </div>
@@ -436,7 +442,8 @@
 </footer>
 <!-- i18n:messages --><script type="application/json" id="pro-i18n">{"Copied": "已複製", "Through {provider}, our reseller": "透過我們的經銷商 {provider}", "Coming soon": "即將推出", "Soon": "即將推出", "Payments could not be loaded. Check your connection and reload the page.": "無法載入付款方式。請檢查網路連線並重新載入頁面。", "Tick the box above to choose how to pay.": "請勾選上方的核取方塊，即可選擇付款方式。", "Card payment is not available right now. Please try again later, or pay with Bitcoin.": "目前無法刷卡付款。請稍後再試，或使用 Bitcoin 付款。", "The card checkout could not be loaded. Check that no blocker stops {domain}.": "無法載入刷卡結帳頁面。請確認沒有任何封鎖工具阻擋 {domain}。", "This usually takes a few seconds. Your order reference is {reference} (also on your receipt): with it you can recover the key below at any time.": "通常只需幾秒鐘。您的訂單編號是 {reference}（收據上也有）：憑此編號可隨時在下方找回金鑰。", "This licence was refunded.": "此授權已退款。", "Your payment is confirmed, but the key is taking longer than usual.": "您的付款已確認，但金鑰的產生時間比平常久。", "Reload this page in a few minutes, or write to {support} from the email address you paid with.": "請幾分鐘後重新整理此頁面，或用付款時填寫的電子郵件寫信至 {support}。", "Recover it below with the order reference {reference} in a few minutes, or write to {support}.": "請於幾分鐘後使用訂單編號 {reference} 在下方找回，或寫信至 {support}。", "Recover it below with the order reference on your receipt in a few minutes, or write to {support}.": "請於幾分鐘後使用收據上的訂單編號在下方找回，或寫信至 {support}。", "Preparing the order (a few seconds of work on this device)…": "正在準備訂單（需在此裝置上運算幾秒鐘）…", "The Bitcoin order failed:": "Bitcoin 訂單失敗：", "Rate expired": "匯率已過期", "Rate held": "匯率已鎖定", "Payment confirmed.": "付款已確認。", "Payment seen on the network. Waiting for one confirmation…": "已在網路上偵測到付款。正在等待 1 次確認…", "Received {received} BTC. Send the remaining {due} BTC to the same address.": "已收到 {received} BTC。請將剩餘的 {due} BTC 傳送至同一地址。", "This order has expired without a payment. If you have just paid, the payment is still recognised for two weeks; otherwise start a new order.": "此訂單已逾期，且未收到付款。如果您剛剛付款，該筆付款在兩週內仍然有效；否則請建立新訂單。", "Waiting for the payment…": "正在等待付款…", "That order no longer exists.": "該訂單已不存在。", "That is not an order reference.": "這不是訂單編號。", "Looking it up…": "正在查詢…", "Found.": "已找到。", "Too many attempts: try again in a minute.": "嘗試次數過多：請一分鐘後再試。", "No licence for that order yet. If you have just paid, try again in a minute; otherwise write to {support}.": "該訂單目前尚無授權。如果您剛剛付款，請一分鐘後再試；否則請寫信至 {support}。", "The licence service could not be reached.": "無法連線至授權服務。", "Free": "免費", "Needs a licence": "需要授權", "Download": "下載", "The first release of the website edition will appear here.": "網站版的第一個版本將會顯示在這裡。", "Click to play": "點擊播放", "Click to pause": "點擊暫停", "Click to replay": "點擊重播", "Click to retry": "點擊重試", "The video could not load. Click the preview to retry.": "影片無法載入。請點擊預覽圖重試。"}</script><!-- /i18n:messages -->
 <script src="/pro/pow.js?v=20261024"></script>
-<script src="/pro/pro.js?v=20261025a"></script>
+<script src="/pro/qr.js?v=20261126"></script>
+<script src="/pro/pro.js?v=20261126"></script>
 <script src="/app-feature-demos.js?v=7" defer></script>
 <script src="/email-contact.js?v=20261024" defer></script>
 </body>

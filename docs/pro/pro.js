@@ -58,16 +58,42 @@
     try { return localStorage.getItem(key); } catch (e) { return null; }
   }
 
-  /** The app's claim token from #claim=..., taken out of the address so it is not shared by accident. */
+  // The apps this page sends the buyer back to (intent:// links name the package, so no other app receives them).
+  var APP_PACKAGES = ["com.qp1ng.android", "com.qp1ng.android.debug"];
+  var appPackageNow = null; // also kept here: localStorage may be blocked
+
+  /**
+   * The app's claim token from #claim=...[&app=<package>], taken out of the address so it is not shared by accident.
+   * The package is the app the page goes back to after the payment.
+   */
   var appClaim = (function () {
-    var match = /^#claim=([A-Za-z0-9_-]{22,64})$/.exec(location.hash);
+    var match = /^#claim=([A-Za-z0-9_-]{22,64})(?:&app=([a-z0-9_.]{3,100}))?$/.exec(location.hash);
     if (match) {
       remember("qp1ng_app_claim", match[1]);
+      appPackageNow = match[2] && APP_PACKAGES.indexOf(match[2]) >= 0 ? match[2] : null;
+      remember("qp1ng_app_package", appPackageNow);
       history.replaceState(null, "", location.pathname + location.search);
       return match[1];
     }
     var stored = recall("qp1ng_app_claim");
     return stored && CLAIM.test(stored) ? stored : null;
+  })();
+
+  /** The app to go back to: the one that opened the page, else the website edition. */
+  function appPackage() {
+    var stored = appPackageNow || recall("qp1ng_app_package");
+    return stored && APP_PACKAGES.indexOf(stored) >= 0 ? stored : APP_PACKAGES[0];
+  }
+
+  /**
+   * A key from the QR of another device's page (#key=...), opened by the phone's camera: shown with Open in Q-P1NG.
+   * The fragment never reaches a server, and it is taken out of the address at once.
+   */
+  var linkKey = (function () {
+    var match = /^#key=(QP1NG-PRO-[A-Za-z0-9_-]{16,2048}\.[A-Za-z0-9_-]{86})$/.exec(location.hash);
+    if (!match) return null;
+    history.replaceState(null, "", location.pathname + location.search);
+    return match[1];
   })();
 
   /**
@@ -124,14 +150,41 @@
   }
 
   function showLicence(licence) {
+    var fromApp = Boolean(appClaim);
+    var android = /Android/i.test(navigator.userAgent);
+    var pkg = appPackage();
     $("claim-wait").hidden = true;
     $("licence").hidden = false;
     $("licence-key").textContent = licence;
     $("licence-copy").onclick = function () { copy(licence, $("licence-copy")); };
-    $("licence-app").hidden = !appClaim;
+    $("licence-app").hidden = !fromApp;
+    // Bought from the app: back to it, where its claim token collects the key (no key in the link).
+    var back = $("licence-return");
+    back.hidden = !fromApp;
+    back.href = "intent://pro/return#Intent;scheme=qp1ng;package=" + pkg + ";end";
+    // Bought here on a phone, or opened from another device's QR: the key into the app, which asks before activating.
+    var open = $("licence-open");
+    open.hidden = fromApp || !android;
+    open.href = "intent://pro/activate?key=" + encodeURIComponent(licence) + "#Intent;scheme=qp1ng;package=" + pkg +
+      ";S.browser_fallback_url=" + encodeURIComponent(location.origin + "/pro/#download") + ";end";
+    // Bought elsewhere than the phone: the key as a QR code for the app's scanner or the phone's camera.
+    var qr = $("licence-qr");
+    qr.hidden = fromApp || !window.QP1NG_QR;
+    if (!qr.hidden) {
+      var svg = window.QP1NG_QR.renderSVG(location.origin + "/pro/#key=" + licence, { ecc: "M", border: 2 });
+      $("licence-qr-img").src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+    }
     // The app collects this key with its token: a later visit to this page is not "from the app" any more.
-    if (appClaim) remember("qp1ng_app_claim", null);
+    if (fromApp) {
+      remember("qp1ng_app_claim", null);
+      remember("qp1ng_app_package", null);
+      appClaim = null;
+    }
     reveal($("licence"));
+    // Back from the checkout: return to the app by itself once (a browser may want a tap: the button stays).
+    if (fromApp && android && /[?&]paid=1(&|$)/.test(location.search)) {
+      setTimeout(function () { location.href = back.href; }, 1200);
+    }
   }
 
   // ---- Payment options -------------------------------------------------------------------------------------------
@@ -494,6 +547,8 @@
       // Back after a payment: the licence may already be there (independently of any Bitcoin order). Back from a
       // hosted checkout (?paid=1): wait for the provider's confirmation as after a popup.
       var claim = recall("qp1ng_claim") || appClaim;
+      // A key brought by another device's QR code: shown at once, with Open in Q-P1NG.
+      if (linkKey) { showLicence(linkKey); return; }
       // The session id names the payment just made: it goes first (a stored claim may be an earlier, unpaid try).
       if (returnSession) waitForKey("/v1/licences/session/" + returnSession);
       else if (claim && /[?&]paid=1(&|$)/.test(location.search)) waitForClaim(claim);

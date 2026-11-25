@@ -76,7 +76,6 @@
   "Paste the key": "Вставьте ключ",
   "GET PRO": "КУПИТЬ PRO",
   "Buy a licence for the website edition": "Купите лицензию для версии с сайта",
-  "You came from the Q-P1NG app: after the payment, go back to the app and Pro turns on by itself.": "Вы перешли из приложения Q-P1NG: после оплаты вернитесь в приложение, и Pro включится сам.",
   "I agree that the licence key is delivered immediately after payment, which ends the statutory right of withdrawal for digital content; the <a href=\"/refund.html\">14-day refund</a> still applies. I accept the <a href=\"/terms.html\">Terms</a> and the <a href=\"/license.html\">EULA</a>; see the <a href=\"/privacy.html\">Privacy Policy</a>.": "Я соглашаюсь с тем, что лицензионный ключ предоставляется сразу после оплаты, в результате чего прекращается предусмотренное законом право на отказ от договора в отношении цифрового контента; <a href=\"/refund.html\">возврат средств в течение 14 дней</a> при этом сохраняется. Я принимаю <a href=\"/terms.html\">Условия использования</a> и <a href=\"/license.html\">EULA</a>; см. <a href=\"/privacy.html\">Политику конфиденциальности</a>.",
   "Pay by card": "Оплатить картой",
   "Coming soon": "Скоро появится",
@@ -150,9 +149,13 @@
   "Download the APK below, or keep Q-P1NG Core if you already have it from this website. On Google Play, Pro will be bought in the app.": "Скачайте APK ниже или оставьте Q-P1NG Core, если он уже установлен с этого сайта. В Google Play Pro будет покупаться в приложении.",
   "Open any Pro feature, or Info &rsaquo; Activate Pro, paste the key and tap Activate. Core then installs Pro over itself: your identity, contacts and messages stay.": "Откройте любую функцию Pro или Info › Активировать Pro, вставьте ключ и нажмите «Активировать». Затем Core установит Pro поверх себя: личность, контакты и сообщения сохранятся.",
   "The Google Play edition is coming soon: there, Pro will be an in-app purchase.": "Версия для Google Play скоро появится: там Pro будет покупкой в приложении.",
-  "In the website edition, Core or Pro: open any Pro feature, or Info &rsaquo; Activate Pro, paste the key and tap Activate.": "В версии с сайта, Core или Pro: откройте любую функцию Pro или Info › Активировать Pro, вставьте ключ и нажмите «Активировать».",
   "Do I keep my chats when I move from Core to Pro?": "Сохранятся ли чаты при переходе с Core на Pro?",
-  "Yes. Pro installs over Core as an update of the same app: your identity, contacts, messages and settings stay, and your contacts see no change.": "Да. Pro устанавливается поверх Core как обновление того же приложения: личность, контакты, сообщения и настройки сохраняются, а ваши контакты не заметят никаких изменений."
+  "Yes. Pro installs over Core as an update of the same app: your identity, contacts, messages and settings stay, and your contacts see no change.": "Да. Pro устанавливается поверх Core как обновление того же приложения: личность, контакты, сообщения и настройки сохраняются, а ваши контакты не заметят никаких изменений.",
+  "You came from the Q-P1NG app: after the payment this page takes you back to the app, and Pro turns on by itself.": "Вы перешли из приложения Q-P1NG: после оплаты эта страница вернёт вас в приложение, и Pro включится сам.",
+  "Back to Q-P1NG": "Вернуться в Q-P1NG",
+  "Open in Q-P1NG": "Открыть в Q-P1NG",
+  "On the phone, in Q-P1NG: Info &rsaquo; Activate Pro &rsaquo; Scan QR. The phone&rsquo;s camera opens this page there, with Open in Q-P1NG.": "На телефоне, в Q-P1NG: Info › Активировать Pro › Сканировать QR. Камера телефона откроет там эту страницу с кнопкой «Открыть в Q-P1NG».",
+  "In the website edition, Core or Pro: open any Pro feature, or Info &rsaquo; Activate Pro, then Paste or Scan QR.": "В версии с сайта, Core или Pro: откройте любую функцию Pro или Info › Активировать Pro, затем «Вставить» или «Сканировать QR»."
  },
  "messages": {
   "Copied": "Скопировано",

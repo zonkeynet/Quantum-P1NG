@@ -349,3 +349,8 @@ footer a:hover { color: var(--text); }
 @media (max-width: 640px) {
   .release .btn { width: 100%; }
 }
+
+/* The licence key as a QR code for the phone: dark on white, with a quiet zone, whatever the theme. */
+.licence-qr { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 14px; }
+.licence-qr img { width: 240px; height: 240px; background: #fff; padding: 10px; border-radius: 10px; }
+.licence-qr p { flex: 1 1 220px; margin: 0; }

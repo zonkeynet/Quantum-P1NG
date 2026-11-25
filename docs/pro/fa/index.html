@@ -236,7 +236,7 @@
             </div>
 
             <div class="panel">
-                <p id="from-app" class="pay-note" hidden>از برنامهٔ Q-P1NG آمده‌اید: پس از پرداخت به برنامه برگردید تا Pro خودکار فعال شود.</p>
+                <p id="from-app" class="pay-note" hidden>از برنامهٔ Q-P1NG آمده‌اید: پس از پرداخت، این صفحه شما را به برنامه برمی‌گرداند و Pro خودکار فعال می‌شود.</p>
                 <label class="consent">
                     <input type="checkbox" id="consent">
                     <span>موافقم که کلید مجوز بلافاصله پس از پرداخت تحویل داده می‌شود و به این ترتیب حق انصراف قانونی برای محتوای دیجیتال ساقط می‌شود؛ <a href="/refund.html">بازپرداخت ۱۴ روزه</a> همچنان برقرار است. <a href="/terms.html">شرایط استفاده</a> و <a href="/license.html">EULA</a> را می‌پذیرم؛ <a href="/privacy.html">سیاست حریم خصوصی</a> را ببینید.</span>
@@ -308,10 +308,16 @@
                 <p class="muted small">آن را جای امنی نگه دارید: روی گوشی جدید دوباره به آن نیاز دارید.</p>
                 <div id="licence-key" class="key"></div>
                 <div class="actions">
-                    <button type="button" id="licence-copy" class="btn btn-primary">کپی کلید</button>
+                    <a id="licence-return" class="btn btn-primary" hidden>بازگشت به Q-P1NG</a>
+                    <a id="licence-open" class="btn btn-primary" hidden>باز کردن در Q-P1NG</a>
+                    <button type="button" id="licence-copy" class="btn">کپی کلید</button>
                     <a class="btn" href="#download">دانلود برنامه</a>
                 </div>
-                <p class="muted small">در نسخهٔ وب‌سایت، Core یا Pro: یکی از قابلیت‌های Pro یا Info › فعال‌سازی Pro را باز کنید، کلید را بچسبانید و روی «فعال‌سازی» بزنید.</p>
+                <div id="licence-qr" class="licence-qr" hidden>
+                    <img id="licence-qr-img" alt="" width="240" height="240">
+                    <p class="muted small">روی گوشی، در Q-P1NG: Info › فعال‌سازی Pro › اسکن QR. دوربین گوشی این صفحه را همان‌جا با «باز کردن در Q-P1NG» باز می‌کند.</p>
+                </div>
+                <p class="muted small">در نسخهٔ وب‌سایت، Core یا Pro: یکی از قابلیت‌های Pro یا Info › فعال‌سازی Pro را باز کنید، سپس «چسباندن» یا «اسکن QR».</p>
                 <p id="licence-app" class="pay-note" hidden>به Q-P1NG برگردید: Pro ظرف چند ثانیه خودکار فعال می‌شود و نیازی به چسباندن کلید نیست.</p>
             </div>
         </div>
@@ -436,7 +442,8 @@
 </footer>
 <!-- i18n:messages --><script type="application/json" id="pro-i18n">{"Copied": "کپی شد", "Through {provider}, our reseller": "از طریق {provider}، بازفروشندهٔ ما", "Coming soon": "به‌زودی", "Soon": "به‌زودی", "Payments could not be loaded. Check your connection and reload the page.": "روش‌های پرداخت بارگذاری نشد. اتصال خود را بررسی کنید و صفحه را دوباره بارگذاری کنید.", "Tick the box above to choose how to pay.": "برای انتخاب روش پرداخت، کادر بالا را علامت بزنید.", "Card payment is not available right now. Please try again later, or pay with Bitcoin.": "پرداخت با کارت فعلاً در دسترس نیست. بعداً دوباره امتحان کنید یا با Bitcoin پرداخت کنید.", "The card checkout could not be loaded. Check that no blocker stops {domain}.": "صفحهٔ پرداخت با کارت بارگذاری نشد. مطمئن شوید هیچ مسدودکننده‌ای جلوی {domain} را نمی‌گیرد.", "This usually takes a few seconds. Your order reference is {reference} (also on your receipt): with it you can recover the key below at any time.": "این کار معمولاً چند ثانیه طول می‌کشد. شمارهٔ سفارش شما {reference} است (روی رسیدتان هم آمده): با آن هر زمان می‌توانید کلید را در پایین بازیابی کنید.", "This licence was refunded.": "مبلغ این مجوز بازپرداخت شده است.", "Your payment is confirmed, but the key is taking longer than usual.": "پرداخت شما تأیید شد، اما آماده شدن کلید بیش از معمول طول می‌کشد.", "Reload this page in a few minutes, or write to {support} from the email address you paid with.": "چند دقیقه دیگر این صفحه را دوباره بارگذاری کنید، یا از همان ایمیلی که با آن پرداخت کردید به {support} بنویسید.", "Recover it below with the order reference {reference} in a few minutes, or write to {support}.": "چند دقیقهٔ دیگر آن را در پایین با شمارهٔ سفارش {reference} بازیابی کنید، یا به {support} بنویسید.", "Recover it below with the order reference on your receipt in a few minutes, or write to {support}.": "چند دقیقهٔ دیگر آن را در پایین با شمارهٔ سفارشِ روی رسیدتان بازیابی کنید، یا به {support} بنویسید.", "Preparing the order (a few seconds of work on this device)…": "در حال آماده‌سازی سفارش (چند ثانیه پردازش روی این دستگاه)…", "The Bitcoin order failed:": "ثبت سفارش Bitcoin ناموفق بود:", "Rate expired": "نرخ منقضی شد", "Rate held": "نرخ تثبیت‌شده", "Payment confirmed.": "پرداخت تأیید شد.", "Payment seen on the network. Waiting for one confirmation…": "پرداخت در شبکه دیده شد. در انتظار یک تأیید…", "Received {received} BTC. Send the remaining {due} BTC to the same address.": "{received} BTC دریافت شد. باقی‌ماندهٔ مبلغ، {due} BTC، را به همان آدرس بفرستید.", "This order has expired without a payment. If you have just paid, the payment is still recognised for two weeks; otherwise start a new order.": "این سفارش بدون پرداخت منقضی شده است. اگر همین حالا پرداخت کرده‌اید، پرداخت تا دو هفته همچنان شناسایی می‌شود؛ در غیر این صورت سفارش تازه‌ای ثبت کنید.", "Waiting for the payment…": "در انتظار پرداخت…", "That order no longer exists.": "این سفارش دیگر وجود ندارد.", "That is not an order reference.": "این شمارهٔ سفارش نیست.", "Looking it up…": "در حال جستجو…", "Found.": "پیدا شد.", "Too many attempts: try again in a minute.": "تلاش‌های بیش از حد: یک دقیقهٔ دیگر دوباره امتحان کنید.", "No licence for that order yet. If you have just paid, try again in a minute; otherwise write to {support}.": "هنوز مجوزی برای این سفارش نیست. اگر همین حالا پرداخت کرده‌اید، یک دقیقهٔ دیگر دوباره امتحان کنید؛ در غیر این صورت به {support} بنویسید.", "The licence service could not be reached.": "دسترسی به سرویس مجوز ممکن نشد.", "Free": "رایگان", "Needs a licence": "نیاز به مجوز", "Download": "دانلود", "The first release of the website edition will appear here.": "نخستین انتشار نسخهٔ وب‌سایت اینجا نمایش داده می‌شود.", "Click to play": "برای پخش کلیک کنید", "Click to pause": "برای توقف کلیک کنید", "Click to replay": "برای پخش دوباره کلیک کنید", "Click to retry": "برای تلاش دوباره کلیک کنید", "The video could not load. Click the preview to retry.": "ویدیو بارگیری نشد. برای تلاش دوباره روی پیش‌نمایش کلیک کنید."}</script><!-- /i18n:messages -->
 <script src="/pro/pow.js?v=20261024"></script>
-<script src="/pro/pro.js?v=20261025a"></script>
+<script src="/pro/qr.js?v=20261126"></script>
+<script src="/pro/pro.js?v=20261126"></script>
 <script src="/app-feature-demos.js?v=7" defer></script>
 <script src="/email-contact.js?v=20261024" defer></script>
 </body>

@@ -236,7 +236,7 @@
             </div>
 
             <div class="panel">
-                <p id="from-app" class="pay-note" hidden>Vous venez de l’appli Q-P1NG : après le paiement, revenez dans l’appli et Pro s’active tout seul.</p>
+                <p id="from-app" class="pay-note" hidden>Vous venez de l’appli Q-P1NG : après le paiement, cette page vous ramène dans l’appli et Pro s’active tout seul.</p>
                 <label class="consent">
                     <input type="checkbox" id="consent">
                     <span>J’accepte que la clé de licence soit fournie immédiatement après le paiement, ce qui met fin à mon droit de rétractation légal pour les contenus numériques ; le <a href="/refund.html">remboursement sous 14 jours</a> reste applicable. J’accepte les <a href="/terms.html">Conditions d’utilisation</a> et l’<a href="/license.html">EULA</a> ; voir la <a href="/privacy.html">Politique de confidentialité</a>.</span>
@@ -308,10 +308,16 @@
                 <p class="muted small">Conservez-la en lieu sûr : vous en aurez de nouveau besoin sur un nouveau téléphone.</p>
                 <div id="licence-key" class="key"></div>
                 <div class="actions">
-                    <button type="button" id="licence-copy" class="btn btn-primary">Copier la clé</button>
+                    <a id="licence-return" class="btn btn-primary" hidden>Retour à Q-P1NG</a>
+                    <a id="licence-open" class="btn btn-primary" hidden>Ouvrir dans Q-P1NG</a>
+                    <button type="button" id="licence-copy" class="btn">Copier la clé</button>
                     <a class="btn" href="#download">Télécharger l’appli</a>
                 </div>
-                <p class="muted small">Dans la version site web, Core ou Pro : ouvrez n’importe quelle fonction Pro, ou Info › Activer Pro, collez la clé et appuyez sur Activer.</p>
+                <div id="licence-qr" class="licence-qr" hidden>
+                    <img id="licence-qr-img" alt="" width="240" height="240">
+                    <p class="muted small">Sur le téléphone, dans Q-P1NG : Info › Activer Pro › Scanner le QR. L’appareil photo du téléphone y ouvre cette page, avec Ouvrir dans Q-P1NG.</p>
+                </div>
+                <p class="muted small">Dans la version site web, Core ou Pro : ouvrez n’importe quelle fonction Pro, ou Info › Activer Pro, puis Coller ou Scanner le QR.</p>
                 <p id="licence-app" class="pay-note" hidden>Revenez dans Q-P1NG : Pro s’active tout seul en quelques secondes, inutile de coller la clé.</p>
             </div>
         </div>
@@ -436,7 +442,8 @@
 </footer>
 <!-- i18n:messages --><script type="application/json" id="pro-i18n">{"Copied": "Copié", "Through {provider}, our reseller": "Via {provider}, notre revendeur", "Coming soon": "Bientôt disponible", "Soon": "Bientôt", "Payments could not be loaded. Check your connection and reload the page.": "Impossible de charger les moyens de paiement. Vérifiez votre connexion et rechargez la page.", "Tick the box above to choose how to pay.": "Cochez la case ci-dessus pour choisir un moyen de paiement.", "Card payment is not available right now. Please try again later, or pay with Bitcoin.": "Le paiement par carte n’est pas disponible pour le moment. Réessayez plus tard ou payez en Bitcoin.", "The card checkout could not be loaded. Check that no blocker stops {domain}.": "Impossible de charger le paiement par carte. Vérifiez qu’aucun bloqueur ne filtre {domain}.", "This usually takes a few seconds. Your order reference is {reference} (also on your receipt): with it you can recover the key below at any time.": "Cela prend généralement quelques secondes. Votre référence de commande est {reference} (également sur votre reçu) : elle vous permet de récupérer la clé ci-dessous à tout moment.", "This licence was refunded.": "Cette licence a été remboursée.", "Your payment is confirmed, but the key is taking longer than usual.": "Votre paiement est confirmé, mais la clé met plus de temps que d’habitude.", "Reload this page in a few minutes, or write to {support} from the email address you paid with.": "Rechargez cette page dans quelques minutes, ou écrivez à {support} depuis l’adresse e-mail utilisée pour payer.", "Recover it below with the order reference {reference} in a few minutes, or write to {support}.": "Récupérez-la ci-dessous dans quelques minutes avec la référence de commande {reference}, ou écrivez à {support}.", "Recover it below with the order reference on your receipt in a few minutes, or write to {support}.": "Récupérez-la ci-dessous dans quelques minutes avec la référence de commande figurant sur votre reçu, ou écrivez à {support}.", "Preparing the order (a few seconds of work on this device)…": "Préparation de la commande (quelques secondes de calcul sur cet appareil)…", "The Bitcoin order failed:": "La commande Bitcoin a échoué :", "Rate expired": "Taux expiré", "Rate held": "Taux garanti", "Payment confirmed.": "Paiement confirmé.", "Payment seen on the network. Waiting for one confirmation…": "Paiement détecté sur le réseau. En attente d’une confirmation…", "Received {received} BTC. Send the remaining {due} BTC to the same address.": "Reçu : {received} BTC. Envoyez les {due} BTC restants à la même adresse.", "This order has expired without a payment. If you have just paid, the payment is still recognised for two weeks; otherwise start a new order.": "Cette commande a expiré sans paiement. Si vous venez de payer, le paiement reste reconnu pendant deux semaines ; sinon, passez une nouvelle commande.", "Waiting for the payment…": "En attente du paiement…", "That order no longer exists.": "Cette commande n’existe plus.", "That is not an order reference.": "Ce n’est pas une référence de commande.", "Looking it up…": "Recherche…", "Found.": "Trouvé.", "Too many attempts: try again in a minute.": "Trop de tentatives : réessayez dans une minute.", "No licence for that order yet. If you have just paid, try again in a minute; otherwise write to {support}.": "Pas encore de licence pour cette commande. Si vous venez de payer, réessayez dans une minute ; sinon, écrivez à {support}.", "The licence service could not be reached.": "Impossible de joindre le service de licences.", "Free": "Gratuit", "Needs a licence": "Licence requise", "Download": "Télécharger", "The first release of the website edition will appear here.": "La première publication de la version site web apparaîtra ici.", "Click to play": "Cliquez pour lire", "Click to pause": "Cliquez pour mettre en pause", "Click to replay": "Cliquez pour revoir", "Click to retry": "Cliquez pour réessayer", "The video could not load. Click the preview to retry.": "La vidéo n’a pas pu se charger. Cliquez sur l’aperçu pour réessayer."}</script><!-- /i18n:messages -->
 <script src="/pro/pow.js?v=20261024"></script>
-<script src="/pro/pro.js?v=20261025a"></script>
+<script src="/pro/qr.js?v=20261126"></script>
+<script src="/pro/pro.js?v=20261126"></script>
 <script src="/app-feature-demos.js?v=7" defer></script>
 <script src="/email-contact.js?v=20261024" defer></script>
 </body>
